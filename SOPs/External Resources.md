@@ -9,7 +9,7 @@ This document tracks all external software platforms, web applications, database
 | ID | Resource Name | Platform | Primary Purpose | Integration / Automation Status |
 | :--- | :--- | :--- | :--- | :--- |
 | **EXT-01** | **Master Video Production Pipeline** | Google Sheets | Central queue tracking video production, JDex codes (`80.V...`), drop dates, asset URLs, and `Task Open` status. | **Live Web App API Sync** via `scripts/update_sheet.py` & `scripts/config.json` |
-| **EXT-02** | **NotebookLM Clinical Workspace** | NotebookLM | Holds A-roll transcripts, research citations, and aids supporting slide generation. | Semi-automated (A-roll transcripts uploaded post-recording) |
+| **EXT-02** | **NotebookLM Clinical Research Workspace** | NotebookLM | Academic research assistant, medical literature query engine, and research citation lookup. (Transcripts stored locally in IDE, NOT NotebookLM). | Research Query Engine |
 | **EXT-03** | **Workflowy Proposition Surface** | Workflowy | Zettelkasten clinical proposition cards for future organic video branching. | Manual tag mapping (`JDex` codes) |
 | **EXT-04** | **Discovery Call Transcripts** | Fathom.ai | Recording and AI transcription of 20-minute patient discovery calls for pattern recognition. | Automated recording & transcript extraction |
 | **EXT-05** | **Discovery Call Scheduling** | TidyCal | Patient intake and scheduling for free 20-minute discovery calls. | Live Web Endpoint |
@@ -37,10 +37,10 @@ This document tracks all external software platforms, web applications, database
 
 ---
 
-### EXT-02: NotebookLM Clinical Workspace
-- **Platform**: Google NotebookLM
-- **Purpose**: Acts as an interactive clinical research assistant and slide generator.
-- **Workflow Step**: Raw A-roll transcripts are uploaded to NotebookLM to generate left-aligned minimal supporting slides (solid black background, white text/diagrams, research citations).
+### EXT-02: NotebookLM Clinical Research Workspace
+- **Platform**: Google NotebookLM (Gemini Notebook)
+- **Primary Purpose**: Academic research assistant, medical literature query engine, anatomical mechanism verification, and research citation lookup.
+- **Workflow Protocol**: NotebookLM is queried strictly for academic research and citation verification during script outlining and slide design. All raw transcripts (`-A`, `-C`) and script outlines (`-B`) are stored locally in the IDE project under `Videos/`, NOT in NotebookLM.
 
 ---
 
