@@ -17,13 +17,38 @@
       - [x] **Hook Option 1 (Tight Studio Edit): Lead directly with 'Have you ever reached the point where you just want someone to look at your health and say: Just tell me exactly what to do?'** `<!-- id: 5214af62-2d40-428e-8cc0-84b3147b0c69 -->`
       - [x] **Hook Option 2 (Pattern Interrupt): Lead with 'We are completely overwhelmed by health advice...' (Camera B / location shift)** `<!-- id: 93d34df1-a58a-48f7-8493-375137b81c79 -->`
       - [x] **Hook Option 3 (Cold Open): B-roll overlay of decision overload before cutting to studio A-roll** `<!-- id: 79365245-050c-45a5-a167-075f89bdd4da -->`
-    - [ ] **🎥 SHOT LIST & B-ROLL OVERLAYS (Left Frame)** `<!-- id: 3ee852ec-2420-4896-9385-365871404994 -->`
-      - [ ] **Reframe (Structure = Freedom): Dog in fenced yard clip (80.2627-N1-002)** `<!-- id: 139c4ed2-b11e-4b8e-9859-3b6f6803eb9f -->`
-      - [ ] **Level 1 (Foundational - FMR): Clean whole food prep, 10s run-in-place clip, brain motor cortex neuron firing graphic** `<!-- id: 7cf3c590-e75b-4bef-88b3-6ad4557424c2 -->`
-      - [ ] **Level 2 (Internal - TLC): Journaling on desk, open vs closed cognitive loops diagram** `<!-- id: 0fb21f5c-23c8-44db-8154-174497c0a6bb -->`
-      - [ ] **Level 3 (External - POP): Outdoor movement play, notebook / digital task list organization** `<!-- id: df57b949-aea1-4de8-b71a-ea310d434d31 -->`
-      - [ ] **Architecture Summary: Master 3-tiered pyramid diagram overlay (FMR / TLC / POP)** `<!-- id: 210c6a38-1157-46c9-adc5-b7c7a993e8bc -->`
-      - [ ] **CTA & Outro: Web App QR Code slide + 'Subscribe for OS updates & patches'** `<!-- id: 73451092-d7d4-40a3-b2b7-7ee4219c3d39 -->`
+    - [ ] **📝 80.V0A1 Production Checklist #task** `<!-- id: 0e9b76c1-e06c-4c36-bb33-7e6a541196bc -->`
+      - [ ] **✂️ 1. A-Roll Dialogue Trimming & Edits** `<!-- id: 6c622b42-006c-4616-90da-2026695d8411 -->`
+        - [ ] **[ ] Trim Hook Verbal Warm-up (slice out 'Hey, I'm Dr. Anderson...' & repeated 'just tell me what to do')** `<!-- id: cf6f0c3f-009c-4517-bc48-d223b443f54a -->`
+        - [ ] **[ ] Lock Hook Option (Option 1: Tight Studio Edit / Option 2: Location Shift / Option 3: Cold Open)** `<!-- id: 151e8e0b-efec-461e-9126-8fe61598ca17 -->`
+        - [ ] **[ ] Clean Up Level 3 Transition (cut verbal reset/stumble before 'Once you get level one...')** `<!-- id: 97715b1e-92ec-402a-a983-82347c369217 -->`
+        - [ ] **[ ] Pacing Tightening (trim micro-pauses between Level 1, Level 2, Level 3)** `<!-- id: 69d2c2c5-b3a7-41bc-bfbd-c5141c66dcaf -->`
+      - [ ] **🎥 2. Multi-Cam &amp; Framing Cuts** `<!-- id: 9bf2fe53-ed4c-40b7-a12e-262c5e4e7142 -->`
+        - [ ] **[ ] Angle B Switch at Dog & Fence Analogy ('For example, a dog in a yard...')** `<!-- id: 734be14a-9163-4bc9-a6ee-c8d2785a2bf8 -->`
+        - [ ] **[ ] Angle A Punch-in at Level 2 Connection (digital zoom on personal spirituality segment)** `<!-- id: f20537e9-7338-4140-8f44-f6a18311a48e -->`
+        - [ ] **[ ] Angle A Reset at Level 3 Transition (reset framing to wide/medium Angle A)** `<!-- id: ca223aba-78fe-4a53-82f1-dbf56fe7afd5 -->`
+      - [ ] **🎞️ 3. B-Roll & Visual Asset Sourcing** `<!-- id: be8d6383-9b56-4684-a25b-0d3bd7fd48c7 -->`
+        - [ ] **[ ] Choice Paradox / Overwhelm Montage (rapid-fire: whole food -> pillow -> dialing dad)** `<!-- id: 54fce711-663d-436f-a775-222971163b82 -->`
+        - [ ] **[ ] Dog & Fence Visual Asset (80.2627-N1-002: 2D graphic or stock clip)** `<!-- id: 543eb817-c26d-4f7b-a8a3-c3fffba31ff0 -->`
+        - [ ] **[ ] Level 1 (FMR) B-Roll: Clean whole food prep clip (Fuel)** `<!-- id: 531df1e0-ea13-4849-9dd5-afde922baaf4 -->`
+        - [ ] **[ ] Level 1 (FMR) B-Roll: 10-second run-in-place clip (Move)** `<!-- id: dad2451e-7d03-4ffe-add4-bb9d22a90004 -->`
+        - [ ] **[ ] Level 1 (FMR) B-Roll: Brain motor cortex neuron firing graphic (Move)** `<!-- id: a6b62e64-d94e-432f-9290-36752ed5febd -->`
+        - [ ] **[ ] Level 1 (FMR) B-Roll: Sleep / recovery visual (Rest)** `<!-- id: b942625d-9230-4c7a-bd93-3545e3c763bd -->`
+        - [ ] **[ ] Level 2 (TLC) B-Roll: Journaling on desk / thoughtful reflection** `<!-- id: 359389a2-da42-41f4-a560-d336dcf54da8 -->`
+        - [ ] **[ ] Level 2 (TLC) B-Roll: Open vs closed cognitive loops diagram** `<!-- id: 637330e2-e1c4-42f8-85f0-f2562e7720ea -->`
+        - [ ] **[ ] Level 3 (POP) B-Roll: Outdoor movement / play clip (Play)** `<!-- id: 3f1eaf7b-3a3c-4ea9-b0f6-2488d21b77ea -->`
+        - [ ] **[ ] Level 3 (POP) B-Roll: Digital task list / calendar organization clip (Organize)** `<!-- id: a6931e41-3925-427d-aa1f-75cbddfa8db8 -->`
+      - [ ] **📊 4. On-Screen Graphics (Left Overlays)** `<!-- id: f11db7a3-9c0f-4522-a109-067e3d00be3c -->`
+        - [ ] **[ ] Level 1 Title Card (LEVEL 1: FMR - Fuel • Move • Rest)** `<!-- id: d08bf830-3e21-48a2-a041-77669c2998d2 -->`
+        - [ ] **[ ] Level 2 Title Card (LEVEL 2: TLC - Think • Learn • Connect)** `<!-- id: 3ab9cf7f-f2b8-44c9-9421-8262bc27e829 -->`
+        - [ ] **[ ] Level 3 Title Card (LEVEL 3: POP - Play • Organize • Purpose)** `<!-- id: d3925eff-6159-46c2-8c99-1ace0ca96168 -->`
+        - [ ] **[ ] Master OS Pyramid Diagram Overlay (3-tiered Systemized OS graphic)** `<!-- id: 40c86874-55ca-4b8a-ade2-e6371bb1ed8c -->`
+      - [ ] **📲 5. Web App Integration & Outro CTA** `<!-- id: 05129618-db37-49ab-9316-1eb9e2cdd9ed -->`
+        - [ ] **[ ] Record 5-10s Web App UI dynamic screen capture** `<!-- id: bb0fc9f8-95b7-4c47-97de-87c44cb798fd -->`
+        - [ ] **[ ] Build QR Code Split-Screen Layout (Web App QR Code + screen capture demo)** `<!-- id: 6bde8828-da12-4326-947f-83aef39d782c -->`
+        - [ ] **[ ] Software Patch Outro Callout ('Subscribe for OS updates & patches')** `<!-- id: d48c9ceb-58ca-42b4-a738-e05aeb8a7ab2 -->`
+      - [ ] **🚀 6. Pick-Ups & Location Shots (Optional)** `<!-- id: 3d355629-4adc-4cab-80ea-6fa9deb6c036 -->`
+        - [ ] **[ ] Outdoor Teaser Hook Clip (15-second location-shift intro before studio cut)** `<!-- id: 07f01341-5a8f-4c7b-988a-654acbe4e304 -->`
 - [ ] **📁 80.10 - Operations & Systems** `<!-- id: ffb06114-f8ce-4b1b-a22d-c8eb66ecd824 -->`
   - [ ] **80.10.WF.2 Set up client onboarding website** `<!-- id: 00fb2934-2306-4762-8159-40fa76c51b86 -->`
   - [ ] **80.10.WF.3 //NCMIC** `<!-- id: 07d9a114-1f75-4bb3-94a0-8fd15e696cc2 -->`
