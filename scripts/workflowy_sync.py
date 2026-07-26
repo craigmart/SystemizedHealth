@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-Workflowy Sync Script for Systemized Health Video Outlines & Field Notes
+Workflowy Sync Script for Systemized Health Video Outlines & Zettelkasten Propositions
 
 API: Workflowy API v1 (https://workflowy.com/api/v1/nodes)
 
-Usage:
+Usage Examples:
   # List all root nodes or top-level pipeline items
   python scripts/workflowy_sync.py --list
 
@@ -13,6 +13,9 @@ Usage:
 
   # Pull production tags & completion status from Workflowy for a video
   python scripts/workflowy_sync.py --pull --code "80.V0A1"
+
+  # Add or update a Zettelkasten clinical proposition
+  python scripts/workflowy_sync.py --add-prop --jdex "82.45" --text "Gamma motor neurons regulate muscle spindle sensitivity" --video "80.V1"
 """
 
 import sys
@@ -25,6 +28,7 @@ import ssl
 
 CONFIG_PATH = os.path.join(os.path.dirname(__file__), "config.json")
 API_BASE = "https://workflowy.com/api/v1/nodes"
+ZETTELKASTEN_NODE_ID = "e78e8d27-a8f7-d4bb-52c3-58c399293516"
 
 def load_config():
     if os.path.exists(CONFIG_PATH):
@@ -63,7 +67,6 @@ def fetch_all_nodes(api_key):
 
 def find_or_create_root_node(api_key, root_name="Systemized Health Pipeline"):
     nodes = fetch_all_nodes(api_key)
-    # Check for existing user folders first
     candidate_names = [root_name.lower(), "80.00 systemized health", "systemized health (2025)", "systemized health"]
     
     for candidate in candidate_names:
@@ -72,7 +75,6 @@ def find_or_create_root_node(api_key, root_name="Systemized Health Pipeline"):
                 print(f"Using existing Workflowy root node: '{node.get('name')}' (ID: {node['id']})")
                 return node["id"]
 
-    # Create root node if not found
     payload = {"name": root_name, "note": "Systemized Health Master Video Field Notes & Outlines"}
     res = make_request(API_BASE, api_key, method="POST", payload=payload)
     if res and "id" in res:
@@ -90,7 +92,6 @@ def create_child_node(api_key, parent_id, name, note=None):
     return None
 
 def parse_markdown_to_bullets(filepath):
-    """Parses a markdown outline file into a tree structure for Workflowy."""
     if not os.path.exists(filepath):
         print(f"Error: File not found {filepath}", file=sys.stderr)
         return []
@@ -112,7 +113,6 @@ def push_outline(api_key, filepath, title=""):
     filename = os.path.basename(filepath)
     video_title = title or os.path.splitext(filename)[0]
 
-    # Create main video bullet
     video_node_id = create_child_node(api_key, root_id, f"🎬 {video_title}", note=f"Source: {filename}")
     if not video_node_id:
         print("Error creating video node in Workflowy.", file=sys.stderr)
@@ -157,7 +157,6 @@ def pull_field_status(api_key, code_or_title):
             status_str = "[DONE]" if completed else "[OPEN]"
             print(f"  - {status_str} {cname}")
             
-            # Extract tags like #filmed, #shot, #broll
             words = cname.split()
             for w in words:
                 if w.startswith("#"):
@@ -166,12 +165,51 @@ def pull_field_status(api_key, code_or_title):
         if tags_found:
             print(f"  Found Field Tags: {', '.join(set(tags_found))}")
 
+def add_zettelkasten_proposition(api_key, jdex_code, text, video_code):
+    url = f"{API_BASE}?parent_id={ZETTELKASTEN_NODE_ID}"
+    res = make_request(url, api_key, method="GET")
+    existing_nodes = res.get("nodes", []) if res else []
+    
+    target_clean_text = text.strip().lower()
+    matching_node = None
+    
+    for node in existing_nodes:
+        name = node.get("name", "").lower()
+        if target_clean_text in name or (jdex_code and jdex_code.lower() in name and "//" in name and target_clean_text[:20] in name):
+            matching_node = node
+            break
+
+    if matching_node:
+        current_name = matching_node.get("name", "")
+        node_id = matching_node["id"]
+        
+        if video_code and video_code.lower() in current_name.lower():
+            print(f"Proposition already linked to {video_code}: '{current_name}'")
+            return
+            
+        if "(" in current_name and current_name.endswith(")"):
+            updated_name = current_name[:-1] + f", {video_code})"
+        else:
+            updated_name = f"{current_name} ({video_code})"
+            
+        update_url = f"{API_BASE}/{node_id}"
+        make_request(update_url, api_key, method="PUT", payload={"name": updated_name})
+        print(f"Updated existing Zettelkasten proposition: '{updated_name}'")
+    else:
+        new_name = f"{jdex_code} // {text} #Main ({video_code})"
+        create_child_node(api_key, ZETTELKASTEN_NODE_ID, new_name)
+        print(f"Created new Zettelkasten proposition under ZETTELKASTEN node: '{new_name}'")
+
 def main():
-    parser = argparse.ArgumentParser(description="Sync Video Outlines & Field Notes with Workflowy")
+    parser = argparse.ArgumentParser(description="Sync Video Outlines & Zettelkasten Propositions with Workflowy")
     parser.add_argument("--key", default=None, help="Workflowy API Key")
     parser.add_argument("--list", action="store_true", help="List root nodes in Workflowy")
     parser.add_argument("--push", action="store_true", help="Push outline to Workflowy")
     parser.add_argument("--pull", action="store_true", help="Pull field tags from Workflowy")
+    parser.add_argument("--add-prop", action="store_true", help="Add or update a Zettelkasten proposition under ZETTELKASTEN node")
+    parser.add_argument("--jdex", default="", help="JDex code (e.g. 72.45 or 82.10)")
+    parser.add_argument("--text", default="", help="Proposition text statement")
+    parser.add_argument("--video", default="", help="Video code reference (e.g. 80.V1)")
     parser.add_argument("--file", default="", help="Path to markdown outline file")
     parser.add_argument("--title", default="", help="Video Title for Workflowy node")
     parser.add_argument("--code", default="", help="Video Code / Keyword to pull (e.g. 80.V0A1)")
@@ -184,7 +222,12 @@ def main():
         print("Error: Workflowy API Key not set in scripts/config.json", file=sys.stderr)
         sys.exit(1)
 
-    if args.list:
+    if args.add_prop:
+        if not args.text or not args.video:
+            print("Error: --add-prop requires --text '[Statement]' and --video '[80.V Code]'", file=sys.stderr)
+            sys.exit(1)
+        add_zettelkasten_proposition(api_key, args.jdex, args.text, args.video)
+    elif args.list:
         nodes = fetch_all_nodes(api_key)
         roots = [n for n in nodes if n.get("parent_id") is None]
         print("--- Top Level Workflowy Nodes ---")

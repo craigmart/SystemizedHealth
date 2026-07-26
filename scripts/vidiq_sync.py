@@ -11,8 +11,11 @@ Usage Examples:
   # Score Title CTR (0-100)
   python scripts/vidiq_sync.py --score-title "20,000 Patients Taught Me This One Biological Reality"
 
-  # Find B-roll clips for shooting
-  python scripts/vidiq_sync.py --broll "slouching desk posture"
+  # Find Outlier / High-Performing Videos in Niche
+  python scripts/vidiq_sync.py --outliers "neurology posture"
+
+  # Generic Tool Call for any vidIQ MCP tool
+  python scripts/vidiq_sync.py --tool vidiq_list_competitors --args '{}'
 """
 
 import sys
@@ -85,6 +88,9 @@ def main():
     parser.add_argument("--keyword", default=None, help="Search keyword volume, competition, and related metrics")
     parser.add_argument("--score-title", default=None, help="Score CTR potential of a proposed YouTube title (0-100)")
     parser.add_argument("--broll", default=None, help="Find stock B-roll video clips")
+    parser.add_argument("--outliers", default=None, help="Search outlier videos outperforming median view counts")
+    parser.add_argument("--tool", default=None, help="Execute any generic vidIQ MCP tool by name")
+    parser.add_argument("--args", default="{}", help="JSON string arguments for generic --tool call")
 
     args = parser.parse_args()
     cfg = load_config()
@@ -94,7 +100,12 @@ def main():
         print("Error: 'vidiq_api_key' not found in scripts/config.json", file=sys.stderr)
         sys.exit(1)
 
-    if args.keyword:
+    if args.tool:
+        tool_args = json.loads(args.args)
+        res = call_mcp_tool(args.tool, tool_args, api_key)
+        print(json.dumps(res, indent=2))
+
+    elif args.keyword:
         res = call_mcp_tool("vidiq_keyword_research", {"keyword": args.keyword}, api_key)
         if res:
             print(f"\n=== vidIQ Keyword Intelligence for '{args.keyword}' ===")
@@ -122,6 +133,12 @@ def main():
         res = call_mcp_tool("vidiq_generate_broll", {"query": args.broll}, api_key)
         if res:
             print(f"\n=== vidIQ B-Roll Search Results for '{args.broll}' ===")
+            print(json.dumps(res, indent=2))
+
+    elif args.outliers:
+        res = call_mcp_tool("vidiq_outliers", {"query": args.outliers}, api_key)
+        if res:
+            print(f"\n=== vidIQ Outlier Videos for '{args.outliers}' ===")
             print(json.dumps(res, indent=2))
     else:
         parser.print_help()

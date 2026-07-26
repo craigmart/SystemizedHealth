@@ -75,6 +75,7 @@ The editor reviews the raw notes against three strict clinical filters.
 - **The Hype Check**: Remove any phrase that sounds like a standard influencer. The tone must remain clinical and grounded.
 - **The Contrarian Filter**: Identify and highlight perspectives that challenge mainstream fitness myths. Examples include showing why traditional stretching fails to release tight muscles, or highlighting brainstem failures over simple joint misalignment.
 - **The Narrative Anchor**: Ground the neurological science in a physical scenario. Real patient histories must be used to make the biology relatable.
+- **The vidIQ Title CTR Optimization**: Score all title options via `python scripts/vidiq_sync.py --score-title "[Title]"` to ensure the proposed title achieves high CTR potential while strictly maintaining clinical authority.
 
 ### Phase III: The Final Outline Structure
 This is a loose target and will change based on story flow and content:
@@ -119,10 +120,13 @@ You dedicate 15 working days each month to building the Systemized Health databa
 4. **A-Roll Execution**: Film the long video A-roll as a talking head positioned on the right side of the frame. Film the 2 to 4 shorts branching off this topic. Script is used during filming.
 5. **A-Roll Transcription**: Generate a transcript directly from the raw A-roll footage. This transcript becomes the gold standard for making slides and main cards. The transcript will be uploaded to Notebook LM.
 6. **Slide Generation**: Use NotebookLM to generate simple supporting slides based on the new A-roll transcript. Slides must have a solid black background, pure white text and diagrams, include all research citations, and be offset to the left.
-7. **Zettelkasten Proposition Extraction**: Extract the final clinical propositions directly from the A-roll transcript. Create your single master video 3x5 card and assign it the `80.V` true Zettelkasten code. Create independent proposition cards for these subjects, tag them with their exact academic JDex codes, and map these propositions and their final timestamps on the back of the master video card.
+7. **Zettelkasten Proposition Extraction & Workflowy Sync**: Extract final clinical propositions directly from the A-roll transcript. Create your master 3x5 card (`80.V`). For each clinical proposition, format and sync to Workflowy under the `ZETTELKASTEN` node using:
+   `[JDex Code] // [Proposition Statement] #Main ([Video Codes])`
+   Example: `72.45 // Gamma motor neurons regulate muscle spindle sensitivity (80.V1, 80.V34)`
+   Execute sync via: `python scripts/workflowy_sync.py --add-prop --jdex "72.45" --text "Proposition Statement" --video "80.V1"`. If the proposition already exists in Workflowy, the script appends the new video code inside `(...)`.
 8. **LumaFusion Edit**: Edit the final video in LumaFusion, placing the minimal slides as overlays on the left side of the screen. Export the final edit.
-9. **Filing & Adaptation**: File all physical cards into the cabinet. Publish the video bundle. Review the audience data to choose the next organic Zettelkasten branch. Add Propositions to Workflowy for future surfacing possibilities.
-10. **Google Sheets Master Registry Sync**: Update the central Google Sheet database via the IDE integration script (`python scripts/update_sheet.py --title "Video Title" --status "Completed" --link "<URL>"`). This stamps the completion date, updates row status, and ensures real-time alignment between local workspace files and external tracking.
+9. **Filing & Adaptation**: File all physical cards into the cabinet. Publish the video bundle. Review published video performance live via the vidIQ MCP engine (`python scripts/vidiq_sync.py --stats`) rather than maintaining manual spreadsheets. Review audience retention data to choose the next organic Zettelkasten branch.
+10. **Google Sheets Master Registry Sync**: Update the central Google Sheet database via the IDE integration script (`python scripts/update_sheet.py --title "Video Title" --status "Completed" --link "<URL>"`). This stamps the completion date, updates row status (setting `Task Open = NO`), and ensures real-time alignment between local workspace files and external tracking. Note: Manual "Published" performance tabs are deprecated in favor of live vidIQ MCP API queries.
 
 ---
 
