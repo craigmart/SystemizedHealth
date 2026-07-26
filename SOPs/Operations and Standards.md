@@ -207,19 +207,16 @@ To strictly protect clinical authority and professional boundaries, every single
 
 ---
 
-## 10. Automated Google Sheet Master Video Registry & IDE Integration
+## 10. Local Master Video Registry & Git Repository Integration
 
-To maintain a real-time, bi-directional record of all video assets, production statuses, and published URLs, the workspace integrates directly with the master Google Sheet via a Google Apps Script Web App endpoint.
+To maintain a real-time, zero-friction record of all video assets, production statuses, and published dates, the workspace maintains an authoritative local master registry directly inside the repository.
 
-### Architecture & Configuration
-- **Deployed Web App API**: Google Apps Script Web App handling POST JSON requests.
-- **Configuration File**: [`scripts/config.json`](file:///Users/craiganderson/SystemizedHealth/scripts/config.json) stores the active `web_app_url`.
-- **Python Execution Script**: [`scripts/update_sheet.py`](file:///Users/craiganderson/SystemizedHealth/scripts/update_sheet.py) handles CLI requests from the IDE.
+### Master Registry Files
+- **Primary Markdown Registry**: [`Master_Video_Pipeline.md`](file:///Users/craiganderson/Library/Mobile%20Documents/com~apple~CloudDocs/SystemizedHealth/Master_Video_Pipeline.md) (Human-readable, formatted table for IDE review).
+- **Master CSV Registry**: [`Master_Video_Pipeline.csv`](file:///Users/craiganderson/Library/Mobile%20Documents/com~apple~CloudDocs/SystemizedHealth/Master_Video_Pipeline.csv) (Structured data export).
 
 ### Execution Protocol
-Whenever a video is completed, edited, or published, the AI Technical Editor or Creator executes the workspace update command:
-```bash
-python scripts/update_sheet.py --title "[Video Title]" --status "Completed" --link "[URL]"
-```
-- **Row Matching & Creation**: The script searches Row 1 headers for title, status, date, link, and notes columns. If the video title exists in the sheet, the row is updated. If it does not exist, a new row is automatically appended.
-- **Automated Date Stamping**: Marking status as "Completed" or "Done" automatically stamps the completion date if none is explicitly provided.
+Whenever a video is completed, edited, or published, the AI Technical Editor or Creator updates `Master_Video_Pipeline.md` and `Master_Video_Pipeline.csv`:
+1. **Assign Sequential Video Number**: New videos receive the next available 3-digit Video Number (`017`, `018`, etc.) reflecting creation order.
+2. **Update Status Column**: Set status to `In Production`, `In Edit`, or `Uploaded`.
+3. **Commit & Push to Git**: All status and pipeline updates are committed to Git (`git push origin main`), preserving a permanent, version-controlled record. Google Sheets dependency is deprecated.
