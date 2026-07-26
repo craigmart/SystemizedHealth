@@ -61,6 +61,12 @@ All content blueprints, local media assets, and external integrations adhere str
 
 **Structural Application Examples**: `80.V1` represents the foundational long-form clinical narrative. `80.V1A` indicates a strategic conceptual branch developed directly from the parent video. `80.V1A1` identifies a micro-content short extracted directly from that secondary asset.
 
+### Video Asset File Naming Standard (-A, -B, -C)
+Inside each video's dedicated directory (e.g. `Videos/004 - Systemized OS (80.V0A1)/`), files follow a 3-stage suffix convention:
+- **`V[Code]-A [Name]`**: **Raw Brainstorming Audio Transcript** (Transcript of Dr. Anderson's raw audio dictation/brainstorm).
+- **`V[Code]-B [Name]`**: **AI Script Outline** (Editorial script blueprint written by Gemini following Writing Guardrails & Text DNA).
+- **`V[Code]-C [Name]`**: **A-Roll Recording Transcript** (Gold standard transcript of what Dr. Anderson recorded on camera while looking at `-B`).
+
 ---
 
 ## 4. The Collaborative Editorial Protocol (The "Beat Up" Skill)
@@ -114,11 +120,11 @@ If B-roll is recorded without a specific video in mind, file it under the curren
 You dedicate 15 working days each month to building the Systemized Health database. This organic workflow builds one clinical ecosystem at a time rather than batching content weeks in advance. The publication schedule is strictly dictated by the completion of the workflow; if a video takes longer to architect, the schedule adapts without forced deadlines.
 
 ### The Single-Video Loop
-1. **The Audio Dump**: Record a detailed audio dictation including research asks and editorial notes and drop the transcript into a fresh Gemini chat with NotebookLM attached.
-2. **Cohesive Arc Generation**: The editor refines the rambling audio transcript into a cohesive script loosely following the 6-part Systemized Outline Structure while strictly maintaining the creator's vibe as determined by the rough transcript and Writing guidelines and Text DNA.
-3. **Final Edit & Filing**: The creator edits the script, locks it in, and moves the final script directly into NotebookLM.
-4. **A-Roll Execution**: Film the long video A-roll as a talking head positioned on the right side of the frame. Film the 2 to 4 shorts branching off this topic. Script is used during filming.
-5. **A-Roll Transcription**: Generate a transcript directly from the raw A-roll footage. This transcript becomes the gold standard for making slides and main cards. The transcript will be uploaded to Notebook LM.
+1. **The Audio Dump (-A File)**: Record a detailed audio dictation including research asks and editorial notes. Save the transcript in the video directory as `V[Code]-A [Title] Audio Transcript.txt` and load into Gemini Chat with NotebookLM attached.
+2. **Cohesive Arc Generation (-B File)**: The editor refines the raw audio transcript into a cohesive script outline following the 6-part Systemized Outline Structure while strictly obeying `SOPs/Writing Guidance.md` and `SOPs/Writing Voice.md`. Save as `V[Code]-B Script Outline.md`. Push outline to Workflowy (`python scripts/workflowy_sync.py --push --file ...`).
+3. **Final Edit & Filing**: The creator reviews and locks the script, moving the final script into NotebookLM.
+4. **A-Roll Execution**: Film the long video A-roll as a talking head positioned on the right side of the frame using `-B` during filming. Film the 2 to 4 shorts branching off this topic.
+5. **A-Roll Transcription (-C File)**: Generate a transcript directly from the raw recorded A-roll footage and save as `V[Code]-C Draft Transcript.txt`. This transcript becomes the gold standard for making slides and main Zettelkasten cards. Upload to NotebookLM.
 6. **Slide Generation**: Use NotebookLM to generate simple supporting slides based on the new A-roll transcript. Slides must have a solid black background, pure white text and diagrams, include all research citations, and be offset to the left.
 7. **Zettelkasten Proposition Extraction & Workflowy Sync**: Extract final clinical propositions directly from the A-roll transcript. Create your master 3x5 card (`80.V`). For each clinical proposition, format and sync to Workflowy under the `ZETTELKASTEN` node using:
    `[JDex Code] // [Proposition Statement] #Main ([Video Codes])`
