@@ -14,6 +14,7 @@ This document tracks all external software platforms, web applications, database
 | **EXT-04** | **Discovery Call Transcripts** | Fathom.ai | Recording and AI transcription of 20-minute patient discovery calls for pattern recognition. | Automated recording & transcript extraction |
 | **EXT-05** | **Discovery Call Scheduling** | TidyCal | Patient intake and scheduling for free 20-minute discovery calls. | Live Web Endpoint |
 | **EXT-06** | **Video Editing Workspace** | LumaFusion | Final NLE video editing with left-aligned minimal supporting slides overlay. | Local storage & DAS export |
+| **EXT-07** | **vidIQ Channel Analytics & Search Intelligence** | vidIQ (API / MCP) | Live read-only access to channel performance metrics, keyword search volumes, view velocity, retention analytics, and topic scores. | **Live Read-Only API/MCP** via `scripts/vidiq_sync.py` (`vidiq_api_key`) |
 
 ---
 
@@ -59,3 +60,12 @@ This document tracks all external software platforms, web applications, database
 - **Platforms**: TidyCal (Scheduling) & Fathom.ai (Transcripts)
 - **Purpose**: Captures real-world physical pain points, patient anecdotes, and clinical friction without hard selling.
 - **Workflow Step**: Call transcripts are reviewed during Phase I ("The Raw Input") of video production to ground narrative hooks in real human experiences.
+
+---
+
+### EXT-07: vidIQ Channel Analytics & Search Intelligence
+- **Platform**: vidIQ REST API / MCP (Model Context Protocol)
+- **Local Integration Script**: [`scripts/vidiq_sync.py`](file:///Users/craiganderson/SystemizedHealth/scripts/vidiq_sync.py)
+- **Config Key**: `vidiq_api_key` (Bearer Token from vidIQ Account Settings > MCP) in [`scripts/config.json`](file:///Users/craiganderson/SystemizedHealth/scripts/config.json)
+- **Primary Purpose**: Live, read-only channel performance data, keyword search volumes, view velocity, retention metrics, and competitive topic scores. Zero YouTube API quota drain.
+- **Workflow Step**: Queried live by the AI Technical Editor during Phase I ("The Raw Input") & Phase II ("The Editorial Filters") to analyze performance, evaluate keyword demand, and select high-converting Zettelkasten video topics.
