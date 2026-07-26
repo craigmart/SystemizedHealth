@@ -91,7 +91,7 @@ def reconcile(api_key):
         {
             "code": "80.V0A1",
             "title": "🎬 80.V0A1 - Systemized OS Framework",
-            "file": "Videos/004 - Systemized OS (80.V0A1)/V0A1-C Draft Transcript.txt"
+            "file": "Videos/004 - Systemized OS (80.V0A1)/V0A1-B Script Outline.txt"
         },
         {
             "code": "80.V1B1",
@@ -101,7 +101,7 @@ def reconcile(api_key):
         {
             "code": "80.V0B",
             "title": "🎬 80.V0B - Health Info & Biology Baseline",
-            "file": "Videos/001 - Health Info (80.V0B)/V0B-B Script Outline"
+            "file": "Videos/001 - Health Info (80.V0B)/V0B-B Script Outline.txt"
         }
     ]
 

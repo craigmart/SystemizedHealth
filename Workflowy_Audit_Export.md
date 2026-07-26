@@ -14,11 +14,11 @@
   - [ ] **80.V0A-WF** `<!-- id: 190c7aab-e5bd-4712-83a1-f47214021390 -->`
   - [ ] **🎬 80.V0A1 - Systemized OS Framework** `<!-- id: 40b5d6ae-8341-4447-a00b-6b7c61c759b1 -->`
     *Note: Source: Videos/004 - Systemized OS (80.V0A1)/V0A1-C Draft Transcript.txt*
-    - [ ] **✂️ EDIT & HOOK DIRECTIONS** `<!-- id: a9cd8307-d7c4-4334-97b7-203d20421e19 -->`
-      - [ ] **Trim verbal warm-up ('Hey, I'm Dr. Anderson...') & repeated 'just tell me what to do' phrases** `<!-- id: 45cec625-1e2c-4dea-8c8d-caef71aefc1c -->`
-      - [ ] **Hook Option 1 (Tight Studio Edit): Lead directly with 'Have you ever reached the point where you just want someone to look at your health and say: Just tell me exactly what to do?'** `<!-- id: 5214af62-2d40-428e-8cc0-84b3147b0c69 -->`
-      - [ ] **Hook Option 2 (Pattern Interrupt): Lead with 'We are completely overwhelmed by health advice...' (Camera B / location shift)** `<!-- id: 93d34df1-a58a-48f7-8493-375137b81c79 -->`
-      - [ ] **Hook Option 3 (Cold Open): B-roll overlay of decision overload before cutting to studio A-roll** `<!-- id: 79365245-050c-45a5-a167-075f89bdd4da -->`
+    - [x] **✂️ EDIT &amp; HOOK DIRECTIONS** `<!-- id: a9cd8307-d7c4-4334-97b7-203d20421e19 -->`
+      - [x] **Trim verbal warm-up ('Hey, I'm Dr. Anderson...') &amp; repeated 'just tell me what to do' phrases** `<!-- id: 45cec625-1e2c-4dea-8c8d-caef71aefc1c -->`
+      - [x] **Hook Option 1 (Tight Studio Edit): Lead directly with 'Have you ever reached the point where you just want someone to look at your health and say: Just tell me exactly what to do?'** `<!-- id: 5214af62-2d40-428e-8cc0-84b3147b0c69 -->`
+      - [x] **Hook Option 2 (Pattern Interrupt): Lead with 'We are completely overwhelmed by health advice...' (Camera B / location shift)** `<!-- id: 93d34df1-a58a-48f7-8493-375137b81c79 -->`
+      - [x] **Hook Option 3 (Cold Open): B-roll overlay of decision overload before cutting to studio A-roll** `<!-- id: 79365245-050c-45a5-a167-075f89bdd4da -->`
     - [ ] **🎥 SHOT LIST & B-ROLL OVERLAYS (Left Frame)** `<!-- id: 3ee852ec-2420-4896-9385-365871404994 -->`
       - [ ] **Reframe (Structure = Freedom): Dog in fenced yard clip (80.2627-N1-002)** `<!-- id: 139c4ed2-b11e-4b8e-9859-3b6f6803eb9f -->`
       - [ ] **Level 1 (Foundational - FMR): Clean whole food prep, 10s run-in-place clip, brain motor cortex neuron firing graphic** `<!-- id: 7cf3c590-e75b-4bef-88b3-6ad4557424c2 -->`
@@ -37,3 +37,11 @@
   - [ ] **80.10-WF - Schedule** `<!-- id: f83c0276-1447-4b16-bceb-ebc54fefb5be -->`
   - [ ] **80.10.WF.3 Unpack and consider world in SOPs #task** `<!-- id: 2ef344fb-d0c0-4ba1-9452-a5486e1c7f56 -->`
   - [ ] **80.10.WF.1 Tactics for SH #review** `<!-- id: 06895961-f6bc-49c1-a9d2-2474e1469ffa -->`
+- [ ] **🎬 80.V0A - 230,000 Patient Visits** `<!-- id: c8ea58a9-e364-4844-b9f2-8d4b5bfc7be3 -->`
+  *Note: Source: Videos/002 - 20000 Patients (80.V0A)/V0A-B Script.txt*
+- [ ] **🎬 80.V0A1 - Systemized OS Framework** `<!-- id: a413df7a-f1f0-4eda-92a9-05485707732b -->`
+  *Note: Source: Videos/004 - Systemized OS (80.V0A1)/V0A1-B Script Outline.txt*
+- [ ] **🎬 80.V1B1 - Exercise Optional (Movement Mandatory)** `<!-- id: 3afb63e7-5a2e-4b6a-a3ee-e7eb2802e948 -->`
+  *Note: Source: Videos/003 - Exercise Optional (80.V1B1)/V1B1-B Script.txt*
+- [ ] **🎬 80.V0B - Health Info & Biology Baseline** `<!-- id: eb78bee6-d159-4b4c-94e3-9f41a9180cc3 -->`
+  *Note: Source: Videos/001 - Health Info (80.V0B)/V0B-B Script Outline.txt*

@@ -69,7 +69,8 @@ def main():
     parser.add_argument("--asset_url", default="", help="Asset URL / YouTube link")
     parser.add_argument("--notes", default="", help="Notes")
     parser.add_argument("--drop_date", default="", help="Drop Date (YYYY-MM-DD)")
-    parser.add_argument("--format_type", default="", help="Format (e.g. Long, Short)")
+    parser.add_argument("--status", default="", help="Status alias (e.g., Completed sets task_open to NO)")
+    parser.add_argument("--link", default="", help="Link alias for asset_url")
 
     args = parser.parse_args()
 
@@ -93,13 +94,19 @@ def main():
         print("Error: Must specify either --title or --code to identify the video row.", file=sys.stderr)
         sys.exit(1)
 
+    task_open = args.task_open
+    if args.status and args.status.lower() in ["completed", "done", "finished"]:
+        task_open = "NO"
+
+    asset_url = args.asset_url or args.link
+
     update_sheet(
         url,
         title=args.title,
         code=args.code,
-        task_open=args.task_open,
+        task_open=task_open,
         uploaded=args.uploaded,
-        asset_url=args.asset_url,
+        asset_url=asset_url,
         notes=args.notes,
         drop_date=args.drop_date,
         format_type=args.format_type
