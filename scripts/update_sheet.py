@@ -17,7 +17,7 @@ import urllib.request
 import urllib.parse
 from datetime import datetime
 
-def update_sheet(web_app_url, title="", code="", task_open="NO", uploaded="", asset_url="", notes="", drop_date="", format_type=""):
+def update_sheet(web_app_url, title="", code="", task_open="NO", uploaded="", asset_url="", notes="", drop_date="", format_type="", video_number=""):
     if not uploaded and task_open.upper() == "NO":
         uploaded = datetime.now().strftime("%Y-%m-%d")
 
@@ -25,6 +25,13 @@ def update_sheet(web_app_url, title="", code="", task_open="NO", uploaded="", as
         "action": "update",
         "title": title,
         "code": code,
+        "video_number": video_number,
+        "videoNumber": video_number,
+        "Video Number": video_number,
+        "video_num": video_number,
+        "videoNum": video_number,
+        "video": video_number,
+        "number": video_number,
         "task_open": task_open,
         "uploaded": uploaded,
         "asset_url": asset_url,
@@ -64,6 +71,7 @@ def main():
     parser.add_argument("--url", default=None, help="Google Apps Script Web App URL")
     parser.add_argument("--title", default="", help="Video Title")
     parser.add_argument("--code", default="", help="Johnny Decimal Video Code (e.g., 80.V0A1)")
+    parser.add_argument("--video_number", "--video-number", default="", help="Video Number (e.g., 001)")
     parser.add_argument("--task_open", default="NO", help="Task Open status (YES/NO)")
     parser.add_argument("--uploaded", default="", help="Uploaded date (YYYY-MM-DD)")
     parser.add_argument("--asset_url", default="", help="Asset URL / YouTube link")
@@ -105,6 +113,7 @@ def main():
         url,
         title=args.title,
         code=args.code,
+        video_number=args.video_number,
         task_open=task_open,
         uploaded=args.uploaded,
         asset_url=asset_url,

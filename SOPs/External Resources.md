@@ -8,7 +8,7 @@ This document tracks all external software platforms, web applications, database
 
 | ID | Resource Name | Platform | Primary Purpose | Integration / Automation Status |
 | :--- | :--- | :--- | :--- | :--- |
-| **EXT-01** | **Master Video Production Pipeline** | Google Sheets | Central queue tracking video production, JDex codes (`80.V...`), drop dates, asset URLs, and `Task Open` status. | **Live Web App API Sync** via `scripts/update_sheet.py` & `scripts/config.json` |
+| **EXT-01** | **Master Video Production Pipeline** | Local Repository (`Master_Video_Pipeline.md`) | Central master queue tracking video production order (`001`-`099`), JDex codes (`80.V...`), drop dates, and status. | **Local Git Managed Registry** (`Master_Video_Pipeline.md` / `Master_Video_Pipeline.csv`) |
 | **EXT-02** | **NotebookLM Clinical Research Workspace** | NotebookLM | Academic research assistant, medical literature query engine, and research citation lookup. (Transcripts stored locally in IDE, NOT NotebookLM). | Research Query Engine |
 | **EXT-03** | **Workflowy Proposition Surface** | Workflowy | Zettelkasten clinical proposition cards for future organic video branching. | Manual tag mapping (`JDex` codes) |
 | **EXT-04** | **Discovery Call Transcripts** | Fathom.ai | Recording and AI transcription of 20-minute patient discovery calls for pattern recognition. | Automated recording & transcript extraction |
@@ -21,19 +21,12 @@ This document tracks all external software platforms, web applications, database
 ## 2. Resource Specifications & Integration Protocols
 
 ### EXT-01: Master Video Production Pipeline
-- **Platform**: Google Sheets
-- **Local Endpoint Config**: [`scripts/config.json`](file:///Users/craiganderson/SystemizedHealth/scripts/config.json)
-- **Local Execution Script**: [`scripts/update_sheet.py`](file:///Users/craiganderson/SystemizedHealth/scripts/update_sheet.py)
+- **Platform**: Local Git Repository
+- **Master Files**: [`Master_Video_Pipeline.md`](file:///Users/craiganderson/Library/Mobile%20Documents/com~apple~CloudDocs/SystemizedHealth/Master_Video_Pipeline.md) & [`Master_Video_Pipeline.csv`](file:///Users/craiganderson/Library/Mobile%20Documents/com~apple~CloudDocs/SystemizedHealth/Master_Video_Pipeline.csv)
 - **Primary Table Columns**:
-  `Code` | `Video Number` | `Days Upload to Publish` | `Drop Date` | `Format` | `Title` | `Uploaded` | `Asset URL` | `Platform` | `Notes` | `Task Open`
-- **IDE Execution Command**:
-  ```bash
-  # Update by Video Code (e.g., 80.V0A1)
-  python scripts/update_sheet.py --code "80.V0A1" --task_open "NO" --asset_url "https://..."
-
-  # Update by Video Title
-  python scripts/update_sheet.py --title "Video Title" --uploaded "2026-07-26" --task_open "NO"
-  ```
+  `Video Number` | `Code` | `Format` | `Title` | `Drop Date` | `Status` | `Uploaded Date` | `Notes`
+- **Maintenance Protocol**:
+  Edit `Master_Video_Pipeline.md` directly in the IDE or update `Master_Video_Pipeline.csv`. Commit changes to Git for version tracking. Google Sheets integration deprecated.
 
 ---
 
