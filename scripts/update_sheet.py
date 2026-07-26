@@ -71,6 +71,7 @@ def main():
     parser.add_argument("--drop_date", default="", help="Drop Date (YYYY-MM-DD)")
     parser.add_argument("--status", default="", help="Status alias (e.g., Completed sets task_open to NO)")
     parser.add_argument("--link", default="", help="Link alias for asset_url")
+    parser.add_argument("--format", dest="format_type", default="Long", help="Format type (Long/Short)")
 
     args = parser.parse_args()
 
