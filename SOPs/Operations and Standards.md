@@ -76,6 +76,7 @@ Slide Generation: Use NotebookLM to generate simple supporting slides based on t
 Zettelkasten Proposition Extraction: Extract the final clinical propositions directly from the A-roll transcript. Create your single master video 3x5 card and assign it the 80.V true Zettelkasten code. Create independent proposition cards for these subjects, tag them with their exact academic JDex codes, and map these propositions and their final timestamps on the back of the master video card
 LumaFusion Edit: Edit the final video in LumaFusion, placing the minimal slides as overlays on the left side of the screen. Export the final edit.
 Filing & Adaptation: File all physical cards into the cabinet. Publish the video bundle. Review the audience data to choose the next organic Zettelkasten branch. Add Propositions to Workflowy for future surfacing possibilities.
+Google Sheets Master Registry Sync: Update the central Google Sheet database via the IDE integration script (`python scripts/update_sheet.py --title "Video Title" --status "Completed" --link "<URL>"`). This stamps the completion date, updates row status, and ensures real-time alignment between local workspace files and external tracking.
 
 
 
@@ -113,3 +114,18 @@ Proprietary Tagging Generic, highly-saturated lifestyle tags (e.g., #motivation,
 Mandatory Medical Disclaimer To strictly protect clinical authority and professional boundaries, every single video description across the channel must conclude with this exact text:
 Disclaimer This content is for educational purposes only and reflects my personal views. It does not represent the views of any organization or institution I am affiliated with. Nothing here should be taken as medical advice. For medical concerns, consult a qualified healthcare professional.
 
+10. Automated Google Sheet Master Video Registry & IDE Integration
+To maintain a real-time, bi-directional record of all video assets, production statuses, and published URLs, the workspace integrates directly with the master Google Sheet via a Google Apps Script Web App endpoint.
+
+Architecture & Configuration
+- Deployed Web App API: Google Apps Script Web App handling POST JSON requests.
+- Configuration File: `scripts/config.json` stores the active `web_app_url`.
+- Python Execution Script: `scripts/update_sheet.py` handles CLI requests from the IDE.
+
+Execution Protocol
+Whenever a video is completed, edited, or published, the AI Technical Editor or Creator executes the workspace update command:
+```bash
+python scripts/update_sheet.py --title "[Video Title]" --status "Completed" --link "[URL]"
+```
+- Row Matching & Creation: The script searches Row 1 headers for title, status, date, link, and notes columns. If the video title exists in the sheet, the row is updated. If it does not exist, a new row is automatically appended.
+- Automated Date Stamping: Marking status as "Completed" or "Done" automatically stamps the completion date if none is explicitly provided.
