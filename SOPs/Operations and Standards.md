@@ -61,11 +61,22 @@ All content blueprints, local media assets, and external integrations adhere str
 
 **Structural Application Examples**: `80.V1` represents the foundational long-form clinical narrative. `80.V1A` indicates a strategic conceptual branch developed directly from the parent video. `80.V1A1` identifies a micro-content short extracted directly from that secondary asset.
 
+### Dedicated Video Folder Structure (001 - 099)
+Every video—regardless of whether it is a long-form video or a short-form video—gets its own dedicated top-level directory directly under `Videos/`.
+- **Sequential Creation Order**: Folders are numbered strictly in creation order using 3-digit prefixes (`001`, `002`, `003`, ..., `099`).
+- **No Nested Scripts**: Short-form video scripts and assets are NOT nested inside long-form video folders. Each video has its own isolated folder.
+- **Johnny Decimal Grouping**: The Johnny Decimal taxonomy code (e.g., `80.V0A`, `80.V0A1-S3`) is included in the folder name and file names so they group together seamlessly in the card system.
+- **Folder Naming Format**: `Videos/[###] - [Title] ([Code])/`
+  - *Example Long Video*: `Videos/004 - Systemized OS (80.V0A1)/`
+  - *Example Short Video*: `Videos/016 - The 3-Tier Health Pyramid (80.V0A1-S3)/`
+
 ### Video Asset File Naming Standard (-A, -B, -C)
-Inside each video's dedicated directory (e.g. `Videos/004 - Systemized OS (80.V0A1)/`), files follow a 3-stage suffix convention:
+Inside each video's dedicated directory (e.g. `Videos/004 - Systemized OS (80.V0A1)/` or `Videos/016 - The 3-Tier Health Pyramid (80.V0A1-S3)/`), files follow the 3-stage suffix convention:
 - **`V[Code]-A [Name]`**: **Raw Brainstorming Audio Transcript** (Transcript of Dr. Anderson's raw audio dictation/brainstorm).
 - **`V[Code]-B [Name]`**: **AI Script Outline** (Editorial script blueprint written by Gemini following Writing Guardrails & Text DNA).
 - **`V[Code]-C [Name]`**: **A-Roll Recording Transcript** (Gold standard transcript of what Dr. Anderson recorded on camera while looking at `-B`).
+- **`V[Code]-S# Script - [Name].md`**: **Short Script File** (Markdown script for short-form content).
+
 
 ---
 

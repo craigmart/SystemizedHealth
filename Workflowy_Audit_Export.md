@@ -8,26 +8,21 @@
 
 ---
 
-- [ ] **🎬 80.V - Video Production Pipeline** `<!-- id: 677ca675-32e8-4fcd-b69f-d2b5469e16b9 -->`
+- [ ] **80.V - Video Production Pipeline** `<!-- id: 677ca675-32e8-4fcd-b69f-d2b5469e16b9 -->`
   *Note: Source: Videos/001 - Health Info (80.V0B)/V0B-B Script Outline*
-  - [ ] **🎬 80.V0A1 - Systemized OS Framework** `<!-- id: 40b5d6ae-8341-4447-a00b-6b7c61c759b1 -->`
+  - [ ] **80.V0A1 - Systemized OS Framework** `<!-- id: 40b5d6ae-8341-4447-a00b-6b7c61c759b1 -->`
     *Note: Source: Videos/004 - Systemized OS (80.V0A1)/V0A1-C Draft Transcript.txt*
     - [x] **✂️ EDIT &amp; HOOK DIRECTIONS** `<!-- id: a9cd8307-d7c4-4334-97b7-203d20421e19 -->`
       - [x] **Trim verbal warm-up ('Hey, I'm Dr. Anderson...') &amp; repeated 'just tell me what to do' phrases** `<!-- id: 45cec625-1e2c-4dea-8c8d-caef71aefc1c -->`
       - [x] **Hook Option 1 (Tight Studio Edit): Lead directly with 'Have you ever reached the point where you just want someone to look at your health and say: Just tell me exactly what to do?'** `<!-- id: 5214af62-2d40-428e-8cc0-84b3147b0c69 -->`
       - [x] **Hook Option 2 (Pattern Interrupt): Lead with 'We are completely overwhelmed by health advice...' (Camera B / location shift)** `<!-- id: 93d34df1-a58a-48f7-8493-375137b81c79 -->`
       - [x] **Hook Option 3 (Cold Open): B-roll overlay of decision overload before cutting to studio A-roll** `<!-- id: 79365245-050c-45a5-a167-075f89bdd4da -->`
-    - [ ] **📝 80.V0A1 Production Checklist #task** `<!-- id: 0e9b76c1-e06c-4c36-bb33-7e6a541196bc -->`
-      - [ ] **✂️ 1. A-Roll Dialogue Trimming & Edits** `<!-- id: 6c622b42-006c-4616-90da-2026695d8411 -->`
-        - [ ] **[ ] Trim Hook Verbal Warm-up (slice out 'Hey, I'm Dr. Anderson...' & repeated 'just tell me what to do')** `<!-- id: cf6f0c3f-009c-4517-bc48-d223b443f54a -->`
-        - [ ] **[ ] Lock Hook Option (Option 1: Tight Studio Edit / Option 2: Location Shift / Option 3: Cold Open)** `<!-- id: 151e8e0b-efec-461e-9126-8fe61598ca17 -->`
-        - [ ] **[ ] Clean Up Level 3 Transition (cut verbal reset/stumble before 'Once you get level one...')** `<!-- id: 97715b1e-92ec-402a-a983-82347c369217 -->`
-        - [ ] **[ ] Pacing Tightening (trim micro-pauses between Level 1, Level 2, Level 3)** `<!-- id: 69d2c2c5-b3a7-41bc-bfbd-c5141c66dcaf -->`
-      - [ ] **🎥 2. Multi-Cam &amp; Framing Cuts** `<!-- id: 9bf2fe53-ed4c-40b7-a12e-262c5e4e7142 -->`
+    - [ ] **80.V0A1 Production Checklist #task** `<!-- id: 0e9b76c1-e06c-4c36-bb33-7e6a541196bc -->`
+      - [ ] **2. Multi-Cam &amp; Framing Cuts** `<!-- id: 9bf2fe53-ed4c-40b7-a12e-262c5e4e7142 -->`
         - [ ] **[ ] Angle B Switch at Dog & Fence Analogy ('For example, a dog in a yard...')** `<!-- id: 734be14a-9163-4bc9-a6ee-c8d2785a2bf8 -->`
         - [ ] **[ ] Angle A Punch-in at Level 2 Connection (digital zoom on personal spirituality segment)** `<!-- id: f20537e9-7338-4140-8f44-f6a18311a48e -->`
         - [ ] **[ ] Angle A Reset at Level 3 Transition (reset framing to wide/medium Angle A)** `<!-- id: ca223aba-78fe-4a53-82f1-dbf56fe7afd5 -->`
-      - [ ] **🎞️ 3. B-Roll & Visual Asset Sourcing** `<!-- id: be8d6383-9b56-4684-a25b-0d3bd7fd48c7 -->`
+      - [ ] **3. B-Roll &amp; Visual Asset Sourcing** `<!-- id: be8d6383-9b56-4684-a25b-0d3bd7fd48c7 -->`
         - [ ] **[ ] Choice Paradox / Overwhelm Montage (rapid-fire: whole food -> pillow -> dialing dad)** `<!-- id: 54fce711-663d-436f-a775-222971163b82 -->`
         - [ ] **[ ] Dog & Fence Visual Asset (80.2627-N1-002: 2D graphic or stock clip)** `<!-- id: 543eb817-c26d-4f7b-a8a3-c3fffba31ff0 -->`
         - [ ] **[ ] Level 1 (FMR) B-Roll: Clean whole food prep clip (Fuel)** `<!-- id: 531df1e0-ea13-4849-9dd5-afde922baaf4 -->`
@@ -38,18 +33,18 @@
         - [ ] **[ ] Level 2 (TLC) B-Roll: Open vs closed cognitive loops diagram** `<!-- id: 637330e2-e1c4-42f8-85f0-f2562e7720ea -->`
         - [ ] **[ ] Level 3 (POP) B-Roll: Outdoor movement / play clip (Play)** `<!-- id: 3f1eaf7b-3a3c-4ea9-b0f6-2488d21b77ea -->`
         - [ ] **[ ] Level 3 (POP) B-Roll: Digital task list / calendar organization clip (Organize)** `<!-- id: a6931e41-3925-427d-aa1f-75cbddfa8db8 -->`
-      - [ ] **📊 4. On-Screen Graphics (Left Overlays)** `<!-- id: f11db7a3-9c0f-4522-a109-067e3d00be3c -->`
+      - [ ] **4. On-Screen Graphics (Left Overlays)** `<!-- id: f11db7a3-9c0f-4522-a109-067e3d00be3c -->`
         - [ ] **[ ] Level 1 Title Card (LEVEL 1: FMR - Fuel • Move • Rest)** `<!-- id: d08bf830-3e21-48a2-a041-77669c2998d2 -->`
         - [ ] **[ ] Level 2 Title Card (LEVEL 2: TLC - Think • Learn • Connect)** `<!-- id: 3ab9cf7f-f2b8-44c9-9421-8262bc27e829 -->`
         - [ ] **[ ] Level 3 Title Card (LEVEL 3: POP - Play • Organize • Purpose)** `<!-- id: d3925eff-6159-46c2-8c99-1ace0ca96168 -->`
         - [ ] **[ ] Master OS Pyramid Diagram Overlay (3-tiered Systemized OS graphic)** `<!-- id: 40c86874-55ca-4b8a-ade2-e6371bb1ed8c -->`
-      - [ ] **📲 5. Web App Integration & Outro CTA** `<!-- id: 05129618-db37-49ab-9316-1eb9e2cdd9ed -->`
+      - [ ] **5. Web App Integration &amp; Outro CTA** `<!-- id: 05129618-db37-49ab-9316-1eb9e2cdd9ed -->`
         - [ ] **[ ] Record 5-10s Web App UI dynamic screen capture** `<!-- id: bb0fc9f8-95b7-4c47-97de-87c44cb798fd -->`
         - [ ] **[ ] Build QR Code Split-Screen Layout (Web App QR Code + screen capture demo)** `<!-- id: 6bde8828-da12-4326-947f-83aef39d782c -->`
         - [ ] **[ ] Software Patch Outro Callout ('Subscribe for OS updates & patches')** `<!-- id: d48c9ceb-58ca-42b4-a738-e05aeb8a7ab2 -->`
-      - [ ] **🚀 6. Pick-Ups & Location Shots (Optional)** `<!-- id: 3d355629-4adc-4cab-80ea-6fa9deb6c036 -->`
+      - [ ] **6. Pick-Ups &amp; Location Shots (Optional)** `<!-- id: 3d355629-4adc-4cab-80ea-6fa9deb6c036 -->`
         - [ ] **[ ] Outdoor Teaser Hook Clip (15-second location-shift intro before studio cut)** `<!-- id: 07f01341-5a8f-4c7b-988a-654acbe4e304 -->`
-- [ ] **📁 80.10 - Operations & Systems** `<!-- id: ffb06114-f8ce-4b1b-a22d-c8eb66ecd824 -->`
+- [ ] **80.10 - Operations &amp; Systems** `<!-- id: ffb06114-f8ce-4b1b-a22d-c8eb66ecd824 -->`
   - [ ] **80.10.WF.2 Set up client onboarding website** `<!-- id: 00fb2934-2306-4762-8159-40fa76c51b86 -->`
   - [ ] **80.10.WF.3 //NCMIC** `<!-- id: 07d9a114-1f75-4bb3-94a0-8fd15e696cc2 -->`
   - [ ] **80.10 //Google number with Systemized health #task** `<!-- id: 51849292-7a59-4068-8c62-deb7773af609 -->`
@@ -97,5 +92,27 @@
         - [ ] **⚡ 2026-08-25 — 80.V0A1-S1: The Willpower Trap (Short) [Planned]** `<!-- id: 8599828b-5d9c-4f49-bfa9-86480e11593a -->`
         - [ ] **⚡ 2026-08-27 — 80.V0A1-S2: Level 1 FMR Baseline (Short) [Planned]** `<!-- id: 024234bb-6cf9-42a5-bf4d-ba6e4d1a349b -->`
         - [ ] **⚡ 2026-08-29 — 80.V0A1-S3: Discovery Call Coaching Protocol (Short) [Planned]** `<!-- id: f03b5b60-9fb0-4a41-8279-4c7f3cc91861 -->`
+      - [ ] **🗓️ Week 1 (Aug 1 - Aug 7)** `<!-- id: 8f888fb3-2519-42f9-9550-ef3efedc0bce -->`
+        - [ ] **🎬 2026-08-03 — 80.V0A: 230,000 Patient Visits (Long) [Uploaded]** `<!-- id: dd594d40-b095-431a-8541-a54af14d7feb -->`
+        - [ ] **⚡ 2026-08-04 — 80.V0A-S1: Why Monday Health Resolutions Fail (Short) [Uploaded]** `<!-- id: 498e5b6c-0188-4298-a7b0-4f75285eaf51 -->`
+        - [ ] **⚡ 2026-08-06 — 80.V0A-S2: The Biological Sequence of Change (Short) [Uploaded]** `<!-- id: af7bf430-4b81-4637-8766-45327ba4525f -->`
+        - [ ] **⚡ 2026-08-08 — 80.V0A-S3: Stop Treating Health Like an Emergency (Short) [Uploaded]** `<!-- id: 914db60e-61a3-45f7-8756-3ef6796f34fa -->`
+      - [ ] **🗓️ Week 2 (Aug 8 - Aug 14)** `<!-- id: 311ca3e2-f139-4dd2-8437-8aa441685b8a -->`
+        - [ ] **🎬 2026-08-10 — 80.V1B1: Exercise Optional (Movement Mandatory) (Long) [Uploaded]** `<!-- id: 86a43931-2d98-423d-b654-4198031a11e2 -->`
+        - [ ] **⚡ 2026-08-11 — 80.V1B1-S1: Why Exercise is Optional (Short) [Uploaded]** `<!-- id: e2461734-1f9c-4969-beab-c0dacf296f9c -->`
+        - [ ] **⚡ 2026-08-13 — 80.V1B1-S2: Joint Imbibition: How Joints Eat (Short) [Uploaded]** `<!-- id: 12432457-175a-4345-8142-d528af52bb7b -->`
+        - [ ] **⚡ 2026-08-15 — 80.V1B1-S3: Cortical Smudging: Why Back Pain Spasms (Short) [Uploaded]** `<!-- id: 672f4323-ce69-4822-aa2a-972f0d6b88c6 -->`
+      - [ ] **🗓️ Week 3 (Aug 15 - Aug 21)** `<!-- id: 1adcd5e1-df20-4dc3-ae0e-a6bde5c9ccdb -->`
+        - [ ] **🎬 2026-08-17 — 80.V0B: Health Info & Biology Baseline (Long) [Uploaded]** `<!-- id: 9254e687-03a4-476d-81c3-823ba78ce2c4 -->`
+        - [ ] **⚡ 2026-08-18 — 80.V0B-S1: Information Overload vs Implementation (Short) [Uploaded]** `<!-- id: 1763cf0b-c423-4608-85d3-0318113bccea -->`
+        - [ ] **⚡ 2026-08-20 — 80.V0B-S2: Finding Your System Glitch (Short) [Uploaded]** `<!-- id: 8c34d595-79cc-4542-99ab-7e6c9d220667 -->`
+        - [ ] **⚡ 2026-08-22 — 80.V0B-S3: Doctor vs Coach: Rebuilding Baseline (Short) [Uploaded]** `<!-- id: 005f1282-4d8e-450d-a988-4141cf1ffc86 -->`
+      - [ ] **🗓️ Week 4 (Aug 22 - Aug 31)** `<!-- id: 6310360c-6237-4e9b-84eb-d4bbbe764996 -->`
+        - [ ] **🎬 2026-08-24 — 80.V0A1: Systemized OS Framework (Long) [In Edit]** `<!-- id: 1cee3167-ffda-4e75-a993-eab837b862dc -->`
+        - [ ] **⚡ 2026-08-25 — 80.V0A1-S1: The Willpower Trap (Short) [Planned]** `<!-- id: 7b4394ae-5839-4ebe-8bed-a66eab2f343d -->`
+        - [ ] **⚡ 2026-08-27 — 80.V0A1-S2: Level 1 FMR Baseline (Short) [Planned]** `<!-- id: 0fbd9a89-ab58-4527-a108-4a3d84fff785 -->`
+        - [ ] **⚡ 2026-08-29 — 80.V0A1-S3: The 3-Tier Health Pyramid (Short) [Planned]** `<!-- id: 0a687734-ce90-4b17-aec3-9d96f7cf6025 -->`
   - [ ] **80.10.WF.3 Unpack and consider world in SOPs #task** `<!-- id: 2ef344fb-d0c0-4ba1-9452-a5486e1c7f56 -->`
   - [ ] **80.10.WF.1 Tactics for SH #review** `<!-- id: 06895961-f6bc-49c1-a9d2-2474e1469ffa -->`
+- [ ] **General Notes** `<!-- id: 12516c8a-8e9b-43ef-bfbf-e03fd04260ee -->`
+  - [ ] **Emoji icons removed don’t use going forward.** `<!-- id: c78bd561-93f7-41cf-b0af-389d46ab3e53 -->`
