@@ -7,19 +7,19 @@
 
 ---
 
-### Hook
+### 1. Hook
 > "Did you know that your spinal cartilage and joint surfaces have zero blood supply? They literally can't eat unless you move them."
 
 ---
 
-### Talking Points (For Audio Riffing)
-- **Anatomical Fact**: Adult joint cartilage and intervertebral discs are avascular (no direct blood vessels).
-- **The Mechanism (Imbibition)**: Joints rely on a mechanical pump mechanism called imbibition. When loaded, fluid is squeezed out; when decompressed, fresh nutrient-rich fluid is sucked back in like a sponge.
-- **The Danger**: Sitting motionless at a desk starves your joint cartilage of oxygen and nutrients.
-- **Casual Research Reference**: Urban & Roberts (2003) *Arthritis Res Ther* demonstrating joint fluid exchange relies on mechanical hydrostatic pressure. [https://pubmed.ncbi.nlm.nih.gov/12723977/](https://pubmed.ncbi.nlm.nih.gov/12723977/)
-- **Action Step**: Every 45 minutes, perform gentle spinal rotations or pelvic tilts to pump your discs.
+### 2. Talking Points (For Audio Riffing)
+- **2.1 Anatomical Fact**: Adult joint cartilage and intervertebral discs are avascular (no direct blood vessels).
+- **2.2 The Mechanism (Imbibition)**: Joints rely on a mechanical pump mechanism called imbibition. When loaded, fluid is squeezed out; when decompressed, fresh nutrient-rich fluid is sucked back in like a sponge.
+- **2.3 The Danger**: Sitting motionless at a desk starves your joint cartilage of oxygen and nutrients.
+- **2.4 Casual Research Reference**: Urban & Roberts (2003) *Arthritis Res Ther* demonstrating joint fluid exchange relies on mechanical hydrostatic pressure. [https://pubmed.ncbi.nlm.nih.gov/12723977/](https://pubmed.ncbi.nlm.nih.gov/12723977/)
+- **2.5 Action Step**: Every 45 minutes, perform gentle spinal rotations or pelvic tilts to pump your discs.
 
 ---
 
-### CTA
+### 3. CTA
 > "If you want to protect your joints from premature decay and keep your spine nourished for life, set up a free Systemized Discovery Call or grab our app unpacking the OS. I'll see you in the next video."
