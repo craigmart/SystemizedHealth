@@ -98,8 +98,8 @@ Openings: Start in the middle of the thought. Skip the wind-up. No "In today's w
 Closings: Do not summarize. End with the one thought you want them to carry out, or just stop when you are done. Short confident endings are better than long recap endings.
 
 ### DR. ANDERSON'S OPENINGS & CLOSINGS (ACTUAL):
-- **Opening**: Starts directly with audience friction or a relatable patient scenario ("Have you ever got to the point where you're like, 'Just tell me what to do'?", "If you hate to jump on the treadmill...").
-- **Closing**: Single actionable assignment ("Pick your one step. Start today."), optional mention of free 20-minute discovery call without hard selling, and ends with *"I'll see you in the next video."*
+- **Opening (Short Videos)**: Casual, ultra-direct hook delivered naturally on location ("Look, if you're like most people I see in the clinic...", "Here's something I notice when folks try to fix their back...").
+- **Closing (Short Videos)**: Casual, zero-pressure invitation: *"If you want to map this out for your body, set up a free Systemized Discovery Call or check out our app unpacking the OS. I'll see you in the next video."*
 
 ---
 
@@ -109,7 +109,8 @@ Closings: Do not summarize. End with the one thought you want them to carry out,
 Short paragraphs — two to four sentences maximum in most contexts. Use bullet points only when items are genuinely parallel and list-like. No bold text unless something truly needs to stand out. No headers in short pieces. No emoji in professional writing.
 
 ### DR. ANDERSON'S FORMATTING:
-Clean, spoken-word block structure for A-roll scripts. 6-Part Outline (Hook, Reframe, Story, Teach, Action Step, Engagement Integration). Left-aligned supporting slides for visual decks.
+- **Short Video Stage 1 Blueprint**: Pre-recording outline with Title CTR, Word-for-Word Hook, Thumbnail Concept, Casual Research Paper, Word-for-Word CTA, and Bulleted Talking Points for audio riffing.
+- **Short Video Stage 2 Teleprompter Script**: Spoken-word lines with line-ending hashtags (`#insidetruck`, `#outside`, `#studio`, `#whilebusy`, `#driving`, `#shopping`, `#cuttinggrass`) and embedded performance `[cues]`.
 
 ---
 

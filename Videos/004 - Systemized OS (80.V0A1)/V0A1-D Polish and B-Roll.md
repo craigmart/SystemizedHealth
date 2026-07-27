@@ -6,7 +6,7 @@ Review for a story arc and appropriate flow matching my SOPs.
 Gemini: Based on a review of your single-session studio recording, the transcript already contains a strong conceptual backbone, but it can be optimized for a more engaging YouTube story arc (Hook → Problem → Concept Shift → Core Framework → Value Add/CTA).
 Here is the structural review, flow analysis, and actionable recommendations for dropping in B-Roll, alternative camera angles, and pick-up shots.
 --------------------------------------------------------------------------------
-🎥 Story Arc & Flow Audit
+ Story Arc & Flow Audit
 1. The Hook (0:00 - Intro)
 Current State: Friendly and relatable ("Hey, I'm Dr. Anderson. Have you ever got to the point..."). You immediately call out the psychological fatigue of decision-making.
 Flow Assessment: Strong, but a little slow out of the gate with repeated phrasing ("I I just need to know what to do").
@@ -30,7 +30,7 @@ Current State: Pitching the free web app via QR code and asking for subscription
 Flow Assessment: The software metaphor ("patches, upgrades") beautifully ties back into the "Systemized OS" theme.
 Fix / Action: When you mention the QR code, do not just point to empty space if it wasn't there live. Punch out to a dedicated graphic frame or split-screen showing a screen-recording demo of the web app in action so the value is unmistakable.
 --------------------------------------------------------------------------------
-✂️ Direct Editing & B-Roll Blueprint
+️ Direct Editing & B-Roll Blueprint
 Timeline Segment
 Audio Cue / Context
 Action & Camera Setup
@@ -63,12 +63,12 @@ Outro / CTA
 "Just download the web app..."
 Angle A or Split Screen
 Screen Share: A 5-second dynamic screen recording of navigating the app UI.
-🛠️ Recommended Pick-Up Shots / Re-shoots
+️ Recommended Pick-Up Shots / Re-shoots
 If you decide to step back into the studio or use a different location, record a 15-second hyper-focused intro hook in a dynamic setting (e.g., walking outdoors or sitting in a less formal environment) to drop right before your studio introduction. Changing locations for the intro breaks the standard "medical studio" expectation and hooks casual viewers instantly.
 User: This is great. I’ll start in working on this and use this tread to track actions.
 Gemini: Sounds like a plan. Let’s turn that blueprint into an active dashboard. I will keep this thread anchored as your production log so you can knock these out phase by phase.
 Here is your master action tracker to copy, modify, or check off as you go:
-🎬 Production & Editing Action Tracker
+ Production & Editing Action Tracker
 Phase 1: The A-Roll Rough Cut (Dialogue Cleanup)
 [ ] Trim the Hook: Tighten the slight vocal repetitions right after your intro greeting.
 [ ] Fix Level 3 Transition: Slice out the verbal reset/stumble right before you introduce the External level ("Once you get level one, you get your foundation...").

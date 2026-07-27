@@ -44,6 +44,30 @@
         - [ ] **[ ] Software Patch Outro Callout ('Subscribe for OS updates & patches')** `<!-- id: d48c9ceb-58ca-42b4-a738-e05aeb8a7ab2 -->`
       - [ ] **6. Pick-Ups &amp; Location Shots (Optional)** `<!-- id: 3d355629-4adc-4cab-80ea-6fa9deb6c036 -->`
         - [ ] **[ ] Outdoor Teaser Hook Clip (15-second location-shift intro before studio cut)** `<!-- id: 07f01341-5a8f-4c7b-988a-654acbe4e304 -->`
+  - [ ] **80.V0B-S1: Information Overload vs Implementation (Pre-Recording Blueprint)** `<!-- id: 2f351a06-eae6-4b21-94ba-102bab94febc -->`
+    *Note: Source: Videos/005 - Information Overload vs Implementation (80.V0B-S1)/V0B-S1 Script - Information Overload vs Implementation.md*
+  - [ ] **80.V0B-S2: Finding Your System Glitch (Pre-Recording Blueprint)** `<!-- id: db75054b-e3ed-4c2e-b119-b313acfdabeb -->`
+    *Note: Source: Videos/006 - Finding Your System Glitch (80.V0B-S2)/V0B-S2 Script - Finding Your System Glitch.md*
+  - [ ] **80.V0B-S3: Doctor vs Coach: Rebuilding Baseline (Pre-Recording Blueprint)** `<!-- id: 1bfeafb4-0f29-4c26-a69d-48cba46132cd -->`
+    *Note: Source: Videos/007 - Doctor vs Coach Rebuilding Baseline (80.V0B-S3)/V0B-S3 Script - Doctor vs Coach Rebuilding Baseline.md*
+  - [ ] **80.V0A-S1: Why Monday Health Resolutions Fail (Pre-Recording Blueprint)** `<!-- id: 9dd7bd3d-4ea4-4950-919d-17f38d9f5b52 -->`
+    *Note: Source: Videos/008 - Why Monday Health Resolutions Fail (80.V0A-S1)/V0A-S1 Script - Why Monday Health Resolutions Fail.md*
+  - [ ] **80.V0A-S2: The Biological Sequence of Change (Pre-Recording Blueprint)** `<!-- id: e3767084-b38e-43d2-916c-0e532dbd37e6 -->`
+    *Note: Source: Videos/009 - The Biological Sequence of Change (80.V0A-S2)/V0A-S2 Script - The Biological Sequence of Change.md*
+  - [ ] **80.V0A-S3: Stop Treating Health Like an Emergency (Pre-Recording Blueprint)** `<!-- id: fdbe7603-3ef6-4cca-aefe-26f8ec464515 -->`
+    *Note: Source: Videos/010 - Stop Treating Health Like an Emergency (80.V0A-S3)/V0A-S3 Script - Stop Treating Health Like an Emergency.md*
+  - [ ] **80.V1B1-S1: Why Exercise is Optional (Pre-Recording Blueprint)** `<!-- id: b745d834-c2e1-4df5-b500-48db67427634 -->`
+    *Note: Source: Videos/011 - Why Exercise is Optional (80.V1B1-S1)/V1B1-S1 Script - Why Exercise is Optional.md*
+  - [ ] **80.V1B1-S2: Joint Imbibition: How Joints Eat (Pre-Recording Blueprint)** `<!-- id: c27a7ac5-4532-4750-99bd-f911a48234d4 -->`
+    *Note: Source: Videos/012 - Joint Imbibition How Joints Eat (80.V1B1-S2)/V1B1-S2 Script - Joint Imbibition How Joints Eat.md*
+  - [ ] **80.V1B1-S3: Cortical Smudging: Why Back Pain Spasms (Pre-Recording Blueprint)** `<!-- id: acb1998d-2613-46e3-a53a-14dacfedfa2c -->`
+    *Note: Source: Videos/013 - Cortical Smudging Why Back Pain Spasms (80.V1B1-S3)/V1B1-S3 Script - Cortical Smudging Why Back Pain Spasms.md*
+  - [ ] **80.V0A1-S1: The Willpower Trap (Pre-Recording Blueprint)** `<!-- id: cb3478cf-fa3c-4040-864c-ef6d2e7a164e -->`
+    *Note: Source: Videos/014 - The Willpower Trap (80.V0A1-S1)/V0A1-S1 Script - The Willpower Trap.md*
+  - [ ] **80.V0A1-S2: Level 1 FMR Baseline (Pre-Recording Blueprint)** `<!-- id: 0195c54e-d176-44a7-b29b-8dc19dc81c2d -->`
+    *Note: Source: Videos/015 - Level 1 FMR Baseline (80.V0A1-S2)/V0A1-S2 Script - Level 1 FMR Baseline.md*
+  - [ ] **80.V0A1-S3: The 3-Tier Health Pyramid (Pre-Recording Blueprint)** `<!-- id: eb6c40f0-14ce-4350-805c-6ef7a37a7cd7 -->`
+    *Note: Source: Videos/016 - The 3-Tier Health Pyramid (80.V0A1-S3)/V0A1-S3 Script - The 3-Tier Health Pyramid.md*
 - [ ] **80.10 - Operations &amp; Systems** `<!-- id: ffb06114-f8ce-4b1b-a22d-c8eb66ecd824 -->`
   - [ ] **80.10.WF.2 Set up client onboarding website** `<!-- id: 00fb2934-2306-4762-8159-40fa76c51b86 -->`
   - [ ] **80.10.WF.3 //NCMIC** `<!-- id: 07d9a114-1f75-4bb3-94a0-8fd15e696cc2 -->`

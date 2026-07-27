@@ -130,20 +130,30 @@ If B-roll is recorded without a specific video in mind, file it under the curren
 
 You dedicate 15 working days each month to building the Systemized Health database. This organic workflow builds one clinical ecosystem at a time rather than batching content weeks in advance. The publication schedule is strictly dictated by the completion of the workflow; if a video takes longer to architect, the schedule adapts without forced deadlines.
 
-### The Single-Video Loop
-1. **The Audio Dump (-A File)**: Record a detailed audio dictation including research questions and editorial notes. Save the transcript in the video directory as `V[Code]-A [Title] Audio Transcript.txt` and load into Gemini Chat. Query NotebookLM strictly for academic research and medical literature.
-2. **Cohesive Arc Generation (-B File)**: The editor refines the raw audio transcript into a cohesive script outline following the 6-part Systemized Outline Structure while strictly obeying `SOPs/Writing Guidance.md` and `SOPs/Writing Voice.md`. Save as `V[Code]-B Script Outline.md`. Push outline to Workflowy (`python scripts/workflowy_sync.py --push --file ...`).
-3. **Final Edit & Filing**: The creator reviews and locks the script, storing the finalized script file locally in the IDE workspace.
-4. **A-Roll Execution**: Film the long video A-roll as a talking head positioned on the right side of the frame using `-B` during filming. Film the 2 to 4 shorts branching off this topic.
-5. **A-Roll Transcription & Voice Model Update (-C File)**: Generate a transcript directly from the raw recorded A-roll footage and save as `V[Code]-C Draft Transcript.txt` locally in the IDE project (transcripts are stored in the IDE workspace, NOT in NotebookLM). This transcript becomes the gold standard for making slides and main Zettelkasten cards. **Mandatory Step**: Immediately review the new `-C` transcript to extract new verbal signatures, authentic phrasing, or conversational nuances, and update `SOPs/Writing Voice.md` (*Text DNA Bible*) to continuously refine Dr. Anderson's voice model.
-6. **Slide Generation**: Generate simple supporting slides based on the new `-C` A-roll transcript, querying NotebookLM strictly for academic research citations. Slides must have a solid black background, pure white text and diagrams, include all research citations, and be offset to the left.
-7. **Zettelkasten Proposition Extraction & Workflowy Sync**: Extract final clinical propositions directly from the A-roll transcript. Create your master 3x5 card (`80.V`). For each clinical proposition, format and sync to Workflowy under the `ZETTELKASTEN` node using:
-   `[JDex Code] // [Proposition Statement] #Main ([Video Codes])`
-   Example: `72.45 // Gamma motor neurons regulate muscle spindle sensitivity (80.V1, 80.V34)`
-   Execute sync via: `python scripts/workflowy_sync.py --add-prop --jdex "72.45" --text "Proposition Statement" --video "80.V1"`. If the proposition already exists in Workflowy, the script appends the new video code inside `(...)`.
-8. **LumaFusion Edit**: Edit the final video in LumaFusion, placing the minimal slides as overlays on the left side of the screen. Export the final edit.
-9. **Filing & Adaptation**: File all physical cards into the cabinet. Publish the video bundle. Review published video performance live via the vidIQ MCP engine (`python scripts/vidiq_sync.py --stats`) rather than maintaining manual spreadsheets. Review audience retention data to choose the next organic Zettelkasten branch.
-10. **Google Sheets Master Registry Sync**: Update the central Google Sheet database via the IDE integration script (`python scripts/update_sheet.py --title "Video Title" --status "Completed" --link "<URL>"`). This stamps the completion date, updates row status (setting `Task Open = NO`), and ensures real-time alignment between local workspace files and external tracking. Note: Manual "Published" performance tabs are deprecated in favor of live vidIQ MCP API queries.
+### The Short-Video Workflow (Outline-First & Teleprompter Workflowy Protocol)
+
+For short-form videos (Videos 005–016+), content delivery must feel like a casual chiropractor chatting naturally with patients across varied daily settings (driving, shopping, cutting grass, inside the truck, studio, while busy). To maintain authenticity while staying on track, short videos follow a strict 2-stage scripting protocol:
+
+1. **Stage 1: Pre-Recording Blueprint (Before Audio Riff)**:
+   - **vidIQ Trend Research**: Query `python scripts/vidiq_sync.py --outliers` or `--keyword` to align topics with high CTR potential in the health space and connect back to foundational Long Videos (001–004).
+   - **Placeholder Title**: Decisive clinical declaration scored via vidIQ (`--score-title`).
+   - **Word-for-Word Hook**: Tight, ultra-casual, conversational introduction matching Dr. Anderson's spoken style.
+   - **Thumbnail Concept**: Visual mapping linking Systemized OS architecture to relatable physical objects.
+   - **Casual Research Reference**: Woven into dialogue naturally without academic stiffness (*"Incidentally, while we're talking about... I read a paper..."*).
+   - **Word-for-Word CTA**: Invitation to the free *Systemized Discovery Call* and the upcoming *Systemized OS App*.
+   - **Talking Points Outline**: Structured bullet points for Dr. Anderson to free-form audio riff on camera.
+
+2. **Stage 2: Audio Draft Riff & Teleprompter Draft Script Generation**:
+   - Dr. Anderson records a raw audio draft (`-A` file) riffing off the pre-recording outline.
+   - The Technical Editor organizes the raw audio transcript into a teleprompter-ready script formatted for Workflowy (`python scripts/workflowy_sync.py`).
+   - **Workflowy & Teleprompter Formatting Standards**:
+     - **Context Hashtags**: Every line of the teleprompter script MUST end with a location/setting hashtag (`#insidetruck`, `#outside`, `#studio`, `#whilebusy`, `#driving`, `#shopping`, `#cuttinggrass`).
+     - **Delivery & Performance Cues**: Embedded bracketed cues `[pause]`, `[gesture]`, `[tone shift]`, `[eye contact shift]` are inserted into the script to preserve natural cadence and keep delivery authentic.
+
+3. **Stage 3: On-Camera Travel Filming & Gold Standard Lock-In**:
+   - Dr. Anderson films A-roll using the teleprompter script across dynamic real-world environments.
+   - Final A-roll is transcribed into `V[Code]-C Draft Transcript.txt` to lock in the final version and continuously calibrate `SOPs/Writing Voice.md`.
+
 
 ---
 
