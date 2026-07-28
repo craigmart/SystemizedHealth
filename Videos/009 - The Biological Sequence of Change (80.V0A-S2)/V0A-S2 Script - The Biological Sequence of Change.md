@@ -21,33 +21,22 @@
 ## 3. Full Script (Teleprompter Ready)
 
 ### Clip 80.V0A-S2>1 — The Hook (Two Stress Systems) #film #outside
-There are two systems that kick in to respond to stress.
-The nervous system—through the autonomic component of the nervous system— [pause] and the energy system.
+There are two systems that kick in to respond to stress. [breath] The nervous system—through the autonomic component of the nervous system— [pause] and the energy system.
 
 ### Clip 80.V0A-S2>2 — Short-Term Autonomic vs. HPA Axis #film #outside
-The nervous system is short term, instant.
-It's instant reaction: it spikes your pulse and spikes your blood pressure to help you respond to the immediate stressor.
+The nervous system is short term, instant. [breath] It's instant reaction: it spikes your pulse and spikes your blood pressure to help you respond to the immediate stressor.
 
 ### Clip 80.V0A-S2>3 — Chronic Hormonal Response #film #cuttinggrass
-The long-term response to stress comes from your hypothalamic-pituitary axis—the HPA axis.
-And this is hormonal. The hormones long term will change in response to chronic stress.
+The long-term response to stress comes from your hypothalamic-pituitary axis—the HPA axis. [breath] And this is hormonal. The hormones long term will change in response to chronic stress.
 
 ### Clip 80.V0A-S2>4 — Ramping Down Stress (Metabolic First) #film #cuttinggrass
-So that's the way it works when ramping up to a stressor...
-And it also works the exact same way, man, ramping down. [tone shift]
+So that's the way it works when ramping up to a stressor... [breath] And it also works the exact same way, man, ramping down. [tone shift]
 
 ### Clip 80.V0A-S2>5 — Level 1 FMR Micro-Actions #film #whilebusy
-You have to focus on the metabolic pathways first: Fuel, Movement, and Rest.
-Fuel, movement, and rest are the mandatory first step in recovering from stress.
-So if you got some stress going on, [pause] just pick one of those pillars and pick a very small goal.
-If it's Fuel: try to cut your carbs a little bit, or drink more water.
-If it's Movement: go for a brief walk, or do a 30-second plank.
-If it's Rest: grab a nap this afternoon.
+You have to focus on the metabolic pathways first: Fuel, Movement, and Rest. [breath] Fuel, movement, and rest are the mandatory first step in recovering from stress. [breath] So if you got some stress going on, [pause] just pick one of those pillars and pick a very small goal. If it's Fuel: try to cut your carbs a little bit, or drink more water. If it's Movement: go for a brief walk, or do a 30-second plank. If it's Rest: grab a nap this afternoon.
 
 ### Clip 80.V0A-S2>6 — The 3-Day Test & Outro CTA #film #whilebusy
-See if you can do that three days in a row, [gesture] and see if you start feeling better.
-If you want to install health habits in the exact order your biology demands,
-Set up a free Systemized Discovery Call or grab our app unpacking the OS. I'll see you in the next video.
+See if you can do that three days in a row, [gesture] and see if you start feeling better. [breath] If you want to install health habits in the exact order your biology demands, set up a free Systemized Discovery Call or grab our app unpacking the OS. I'll see you in the next video.
 
 ---
 

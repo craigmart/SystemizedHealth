@@ -21,29 +21,22 @@
 ## 3. Full Script (Teleprompter Ready)
 
 ### Clip 80.V0A-S1>1 — The Hook #film #insidetruck
-If you get the idea that you want to start fresh Monday, [pause] and you're just gonna correct all your health issues...
-I would recommend that you start smaller than you think.
+If you get the idea that you want to start fresh Monday, [breath] and you're just gonna correct all your health issues... [pause] I would recommend that you start smaller than you think.
 
 ### Clip 80.V0A-S1>2 — The Unpack & Downshift Concept #film #insidetruck
-So let me unpack this just a little bit.
-If you're going to fail at a goal—which most people do in their health, [tone shift] I'm sorry to say that's the case...
-You can increase your chance of success by downshifting your goal to a more realistic goal.
+So let me unpack this just a little bit. [breath] If you're going to fail at a goal—which most people do in their health, [tone shift] I'm sorry to say that's the case... [breath] You can increase your chance of success by downshifting your goal to a more realistic goal.
 
 ### Clip 80.V0A-S1>3 — The Marathon Contrast #film #outside
-So instead of saying, "Monday, I'm gonna start training for a marathon,"
-Say, "Monday, I'm gonna get up and I'm going to walk or run for five minutes."
+So instead of saying, "Monday, I'm gonna start training for a marathon," [breath] say, "Monday, I'm gonna get up and I'm going to walk or run for five minutes."
 
 ### Clip 80.V0A-S1>4 — Low-Friction Schedule #film #outside
-Then go to work and do your normal, regular stuff.
-And do that every other day for the next week. [eye contact shift] That's your goal.
+Then go to work and do your normal, regular stuff. [breath] And do that every other day for the next week. [eye contact shift] That's your goal.
 
 ### Clip 80.V0A-S1>5 — Process Over Finish Line #film #shopping
-Not run a marathon right out of the gate, [pause] but to begin the process.
-It's that small, consistent action that will eventually build to where you can actually run that marathon.
+Not run a marathon right out of the gate, [pause] but to begin the process. [breath] It's that small, consistent action that will eventually build to where you can actually run that marathon.
 
 ### Clip 80.V0A-S1>6 — Outro CTA #film #shopping
-If you're ready to stop failing Monday resolutions and build a low-friction biological system instead,
-Set up a free Systemized Discovery Call or grab our app unpacking the OS. [gesture] I'll see you in the next video.
+If you're ready to stop failing Monday resolutions and build a low-friction biological system instead, [breath] set up a free Systemized Discovery Call or grab our app unpacking the OS. [gesture] I'll see you in the next video.
 
 ---
 

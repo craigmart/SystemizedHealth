@@ -21,31 +21,22 @@
 ## 3. Full Script (Teleprompter Ready)
 
 ### Clip 80.V0A-S3>1 — The Hook #film #insidetruck
-What you do today is gonna make a difference tomorrow.
-We can make this really simple.
+What you do today is gonna make a difference tomorrow. [breath] We can make this really simple.
 
 ### Clip 80.V0A-S3>2 — Clinical Research Evidence #film #insidetruck
-A major study found that vigorous exercise a few times a week... [pause]
-Reduces the occurrence of long-term musculoskeletal pain—that's back pain, neck pain, shoulder pain, knee pain, et cetera.
-And older adults who engage in vigorous activity stay pain-free far longer.
+A major study found that vigorous exercise a few times a week... [pause] reduces the occurrence of long-term musculoskeletal pain—that's back pain, neck pain, shoulder pain, knee pain, et cetera. [breath] And older adults who engage in vigorous activity stay pain-free far longer.
 
 ### Clip 80.V0A-S3>3 — Defining Vigorous Movement #film #driving
-And what does that look like? [tone shift] Well, simple.
-Two or three times a week, I want you to walk, move briskly, or do some kind of activity where you break a sweat.
+And what does that look like? [tone shift] Well, simple. [breath] Two or three times a week, I want you to walk, move briskly, or do some kind of activity where you break a sweat.
 
 ### Clip 80.V0A-S3>4 — The Autonomic Sweat Metric #film #driving
-You wanna physically break a sweat.
-That means you have generated enough heat, enough activity, enough metabolic activity in your body...
-That requires you to increase your heart rate, and engage your autonomic nervous system so that you sweat.
+You wanna physically break a sweat. [breath] That means you have generated enough heat, enough activity, enough metabolic activity in your body... [breath] that requires you to increase your heart rate, and engage your autonomic nervous system so that you sweat.
 
 ### Clip 80.V0A-S3>5 — Dosage & Healthy Aging #film #outside
-That's what I want you to do.
-If you get to that point—20 to 40 minutes, 2 to 3 times a week... [eye contact shift]
-You're gonna be on your way to maintaining your health and reducing the chance of musculoskeletal pain and discomfort as you get older.
+That's what I want you to do. [breath] If you get to that point—20 to 40 minutes, 2 to 3 times a week... [eye contact shift] you're gonna be on your way to maintaining your health and reducing the chance of musculoskeletal pain and discomfort as you get older.
 
 ### Clip 80.V0A-S3>6 — Outro CTA #film #outside
-If you want to transition from emergency firefighting to a smooth biological operating system,
-Book a free Systemized Discovery Call or grab our app unpacking the OS. [gesture] I'll see you in the next video.
+If you want to transition from emergency firefighting to a smooth biological operating system, [breath] book a free Systemized Discovery Call or grab our app unpacking the OS. [gesture] I'll see you in the next video.
 
 ---
 

@@ -78,27 +78,20 @@
       - [ ] **"If you want to stop failing Monday resolutions and build a low-friction biological system instead, set up a free Systemized Discovery Call or grab our app unpacking the OS. I'll see you in the next video."** `<!-- id: 8a9d61ff-9535-4ec5-91e9-be63e5ded3d7 -->`
     - [ ] **Audio transcription draft** `<!-- id: 17f7ee8a-e8e1-4c92-8880-58f0907258dd -->`
       - [ ] **If you get the idea that you want to start fresh Monday, and you're just gonna correct all your issues, I would recommend that you start smaller than you think. So let's unpack this just a little bit. If you're going to fail at a goal, which most people do in their health. I'm sorry to say that it's the case. You can increase your chance of success by downshifting your goal to a more realistic goal. So instead of saying, Monday, I'm gonna start training for a marathon, say, Monday, I'm gonna get up and I'm going to walk or run. for five minutes. Then I'm gonna go to work and do my normal, regular stuff. And I'm gonna do that every other day. for the next week. That's my goal. Not run a marathon, but to begin the process, it can be action that will eventually lead to building to where you can actually run that marathon.** `<!-- id: d3adf000-c2f4-4e0b-9b68-56efb388e459 -->`
-    - [ ] **Teleprompter Clips (Filming Order)** `<!-- id: b2d3fee0-892a-4cc0-8774-2875da731f2c -->`
+    - [ ] **Teleprompter Clips (Filming Order)** `<!-- id: 8672ecac-f2ef-463f-8b89-d7c3c776a266 -->`
       *Note: Save recorded video clips as [Code]>[ClipNumber].mp4*
-      - [ ] **Clip 80.V0A-S1>1 — The Hook #film #insidetruck** `<!-- id: 2d80c002-3132-4bee-ac3a-2376b770e9df -->`
-        - [ ] **If you get the idea that you want to start fresh Monday, [pause] and you're just gonna correct all your health issues...** `<!-- id: f45b4b19-05c2-4e6c-9b50-910ffc6c07f7 -->`
-        - [ ] **I would recommend that you start smaller than you think.** `<!-- id: ef201738-dd9b-45d7-a0c1-f65bdd2d5605 -->`
-      - [ ] **Clip 80.V0A-S1>2 — The Unpack & Downshift Concept #film #insidetruck** `<!-- id: de658115-0ea1-4d7a-89ed-d69c60eef528 -->`
-        - [ ] **So let me unpack this just a little bit.** `<!-- id: 537ab6eb-c716-4e34-ace7-0eedab6e5dcb -->`
-        - [ ] **If you're going to fail at a goal—which most people do in their health, [tone shift] I'm sorry to say that's the case...** `<!-- id: 5736bb3b-48a4-47f7-8bc6-7b4ec155a023 -->`
-        - [ ] **You can increase your chance of success by downshifting your goal to a more realistic goal.** `<!-- id: 6710b8ff-5bd1-458a-a528-920b459385a6 -->`
-      - [ ] **Clip 80.V0A-S1>3 — The Marathon Contrast #film #outside** `<!-- id: bd3cd9f5-050e-42ce-ba69-b58e7dc09704 -->`
-        - [ ] **So instead of saying, "Monday, I'm gonna start training for a marathon,"** `<!-- id: 02050994-b9f8-40b5-8e5e-c0c479fe306f -->`
-        - [ ] **Say, "Monday, I'm gonna get up and I'm going to walk or run for five minutes."** `<!-- id: b3f4f39b-a11e-4999-84d1-d9f32fa966d6 -->`
-      - [ ] **Clip 80.V0A-S1>4 — Low-Friction Schedule #film #outside** `<!-- id: 0311fa62-4a46-4fa2-92b0-f3e9102579d6 -->`
-        - [ ] **Then go to work and do your normal, regular stuff.** `<!-- id: 5fe51144-831a-483b-82a0-9617d2fff1fa -->`
-        - [ ] **And do that every other day for the next week. [eye contact shift] That's your goal.** `<!-- id: 68190145-af4c-47ff-8f08-ac1217f8f87f -->`
-      - [ ] **Clip 80.V0A-S1>5 — Process Over Finish Line #film #shopping** `<!-- id: 19814e54-52ed-42a8-b53e-e47eafd8e5a6 -->`
-        - [ ] **Not run a marathon right out of the gate, [pause] but to begin the process.** `<!-- id: 264b93d0-b8c7-49e0-972f-cdbcd098162d -->`
-        - [ ] **It's that small, consistent action that will eventually build to where you can actually run that marathon.** `<!-- id: 616af0bb-3bb2-4ec9-a544-6ad789e10bb9 -->`
-      - [ ] **Clip 80.V0A-S1>6 — Outro CTA #film #shopping** `<!-- id: 8100912f-ea19-4f02-8102-7a2dde66460c -->`
-        - [ ] **If you're ready to stop failing Monday resolutions and build a low-friction biological system instead,** `<!-- id: 74b8cea5-4897-43fe-b518-a475c334e94e -->`
-        - [ ] **Set up a free Systemized Discovery Call or grab our app unpacking the OS. [gesture] I'll see you in the next video.** `<!-- id: ed2d5129-75fc-41bf-91fc-a0ead901b024 -->`
+      - [ ] **Clip 80.V0A-S1>1 — The Hook #film #insidetruck** `<!-- id: 7ba8dd20-1607-45ab-886c-9b97cd25369d -->`
+        - [ ] **If you get the idea that you want to start fresh Monday, [breath] and you're just gonna correct all your health issues... [pause] I would recommend that you start smaller than you think.** `<!-- id: 52bf8f80-86ae-444a-8b5a-c18079b9ec43 -->`
+      - [ ] **Clip 80.V0A-S1>2 — The Unpack & Downshift Concept #film #insidetruck** `<!-- id: 0b9bfee5-7c70-4c62-bff7-960cdc2cb334 -->`
+        - [ ] **So let me unpack this just a little bit. [breath] If you're going to fail at a goal—which most people do in their health, [tone shift] I'm sorry to say that's the case... [breath] You can increase your chance of success by downshifting your goal to a more realistic goal.** `<!-- id: 59b4c0d7-c7eb-4ca4-a74e-591f0397d409 -->`
+      - [ ] **Clip 80.V0A-S1>3 — The Marathon Contrast #film #outside** `<!-- id: 9aa4f7dc-b77d-4f95-8b14-f6f24086e61e -->`
+        - [ ] **So instead of saying, "Monday, I'm gonna start training for a marathon," [breath] say, "Monday, I'm gonna get up and I'm going to walk or run for five minutes."** `<!-- id: ec776285-339c-43ff-952d-1772873c8e95 -->`
+      - [ ] **Clip 80.V0A-S1>4 — Low-Friction Schedule #film #outside** `<!-- id: 65a9426a-f732-4149-aae3-7ae9d8732241 -->`
+        - [ ] **Then go to work and do your normal, regular stuff. [breath] And do that every other day for the next week. [eye contact shift] That's your goal.** `<!-- id: 83f39328-9c2d-4196-aec2-85c784a691bf -->`
+      - [ ] **Clip 80.V0A-S1>5 — Process Over Finish Line #film #shopping** `<!-- id: 28d0771f-4e7f-4e31-a908-a8033f621d54 -->`
+        - [ ] **Not run a marathon right out of the gate, [pause] but to begin the process. [breath] It's that small, consistent action that will eventually build to where you can actually run that marathon.** `<!-- id: ca58cfd1-b360-466a-8813-18e6d4687389 -->`
+      - [ ] **Clip 80.V0A-S1>6 — Outro CTA #film #shopping** `<!-- id: 77394e9a-79ef-4d48-b8a3-c27979b8bf5a -->`
+        - [ ] **If you're ready to stop failing Monday resolutions and build a low-friction biological system instead, [breath] set up a free Systemized Discovery Call or grab our app unpacking the OS. [gesture] I'll see you in the next video.** `<!-- id: e6e4f0cd-ff29-4480-b064-39badc2ca210 -->`
   - [ ] **80.V0B-S3: Doctor vs Coach: Rebuilding Baseline** `<!-- id: ad47b1c6-71c8-4547-906d-8c9867e31943 -->`
     *Note: Source: Videos/007 - Doctor vs Coach Rebuilding Baseline (80.V0B-S3)/V0B-S3 Script - Doctor vs Coach Rebuilding Baseline.md*
     - [ ] **<b>Video Code</b>: <code>80.V0B-S3</code>** `<!-- id: af2cec83-0aa6-46d1-83db-062dd67eb0fa -->`
@@ -149,29 +142,20 @@
       - [ ] **"If you want to transition from emergency firefighting to a smooth biological operating system, book a free Systemized Discovery Call or grab our app unpacking the OS. I'll see you in the next video."** `<!-- id: f47fa79b-1417-410b-951e-5af6e6e4365e -->`
     - [ ] **Audio draft transcript** `<!-- id: cf3ddd13-fe0c-4a40-a670-4b16a5187f39 -->`
       - [ ] **What you do today is gonna make a difference tomorrow. We can make this really simple. A study... found that... vigorous exercise a few times a week reduces the occurrence of long term. Musculoskeletal pain, that's back pain, neck pain, shoulder pain, knee pain, et cetera. And older adults engage in vigorous activity. And what does that look like? Well, simple. Two or three times a week, I want you to walk, move briskly, or do some kind of activity where you break a sweat. You wanna physically... break a sweat. That means you have generated enough heat, enough activity, enough metabolic activity in your body, that requires you to... increase your heart rate, and engage your autonomic nervous system. so that you sweat. That's what I want you to do. If you get to that point, 20 to 40 minutes, 2 to 3 times a week, you're gonna be on your way to maintaining your health and reducing the chance of muscular skeletal, pain and discomfort as you get older.** `<!-- id: 06798f9a-7378-4fc2-b183-e552bb8aece9 -->`
-    - [ ] **Teleprompter Clips (Filming Order)** `<!-- id: 5014fd89-a761-40cc-9ed8-ea9368eb345d -->`
+    - [ ] **Teleprompter Clips (Filming Order)** `<!-- id: 8efa4fa1-9e7e-444a-a752-6f9ee4029fbf -->`
       *Note: Save recorded video clips as [Code]>[ClipNumber].mp4*
-      - [ ] **Clip 80.V0A-S3>1 — The Hook #film #insidetruck** `<!-- id: 5da5ee7b-345f-4043-9507-daac7283c066 -->`
-        - [ ] **What you do today is gonna make a difference tomorrow.** `<!-- id: 4af82867-5b80-4c7c-88e1-e5a4cc6675f3 -->`
-        - [ ] **We can make this really simple.** `<!-- id: 318d1aed-80b4-4668-bd40-4c2dd3aa9357 -->`
-      - [ ] **Clip 80.V0A-S3>2 — Clinical Research Evidence #film #insidetruck** `<!-- id: 3cea7f88-758a-4308-aabe-d2828eae016c -->`
-        - [ ] **A major study found that vigorous exercise a few times a week... [pause]** `<!-- id: 9b5ba341-773c-4ee5-ba6b-dcb660349913 -->`
-        - [ ] **Reduces the occurrence of long-term musculoskeletal pain—that's back pain, neck pain, shoulder pain, knee pain, et cetera.** `<!-- id: 66458012-ab0a-4e9a-83e7-b71c726a8d33 -->`
-        - [ ] **And older adults who engage in vigorous activity stay pain-free far longer.** `<!-- id: 9536da05-be50-4fa6-a0a4-86a5b17b54f1 -->`
-      - [ ] **Clip 80.V0A-S3>3 — Defining Vigorous Movement #film #driving** `<!-- id: 828d11d8-68f8-48c3-9ee5-8d0673e3c492 -->`
-        - [ ] **And what does that look like? [tone shift] Well, simple.** `<!-- id: 29593759-af68-4e4e-af72-ae11973edcfb -->`
-        - [ ] **Two or three times a week, I want you to walk, move briskly, or do some kind of activity where you break a sweat.** `<!-- id: d8e73745-d31f-46e2-88b4-301d4dbe0677 -->`
-      - [ ] **Clip 80.V0A-S3>4 — The Autonomic Sweat Metric #film #driving** `<!-- id: ad0237a0-2e68-424b-9833-4d02eb75e2e9 -->`
-        - [ ] **You wanna physically break a sweat.** `<!-- id: 3b05f5fa-ba1d-4b76-a8bc-33c0c85c9498 -->`
-        - [ ] **That means you have generated enough heat, enough activity, enough metabolic activity in your body...** `<!-- id: e00a9dc3-f411-441b-89ed-d44935fc8173 -->`
-        - [ ] **That requires you to increase your heart rate, and engage your autonomic nervous system so that you sweat.** `<!-- id: 0096ed35-67bc-4b3d-9fea-299ccc7f38ef -->`
-      - [ ] **Clip 80.V0A-S3>5 — Dosage & Healthy Aging #film #outside** `<!-- id: 002114e5-f9e0-4ac4-948f-7c47a5143aac -->`
-        - [ ] **That's what I want you to do.** `<!-- id: 3183ba6a-5bae-4fc5-99c0-e62928d07a2a -->`
-        - [ ] **If you get to that point—20 to 40 minutes, 2 to 3 times a week... [eye contact shift]** `<!-- id: 5a0dce87-4613-4b94-99fe-4b69a5674f05 -->`
-        - [ ] **You're gonna be on your way to maintaining your health and reducing the chance of musculoskeletal pain and discomfort as you get older.** `<!-- id: 3b99b54e-388b-456b-8a33-a8bb309ba486 -->`
-      - [ ] **Clip 80.V0A-S3>6 — Outro CTA #film #outside** `<!-- id: 1a01c00e-10c7-4a96-8104-8d78bc5c0ff8 -->`
-        - [ ] **If you want to transition from emergency firefighting to a smooth biological operating system,** `<!-- id: ee55ca9d-a965-4012-8408-e8fe1dccb7e6 -->`
-        - [ ] **Book a free Systemized Discovery Call or grab our app unpacking the OS. [gesture] I'll see you in the next video.** `<!-- id: 6a0c07ac-5ac2-4854-8b28-4a11d97ba235 -->`
+      - [ ] **Clip 80.V0A-S3>1 — The Hook #film #insidetruck** `<!-- id: 42535d69-0f24-4d2f-9928-281b3c8643e9 -->`
+        - [ ] **What you do today is gonna make a difference tomorrow. [breath] We can make this really simple.** `<!-- id: a0a6fa91-3d95-435e-99a0-60fbeacea34e -->`
+      - [ ] **Clip 80.V0A-S3>2 — Clinical Research Evidence #film #insidetruck** `<!-- id: f9a28234-d08d-4b77-8c4c-4a1cd6039c11 -->`
+        - [ ] **A major study found that vigorous exercise a few times a week... [pause] reduces the occurrence of long-term musculoskeletal pain—that's back pain, neck pain, shoulder pain, knee pain, et cetera. [breath] And older adults who engage in vigorous activity stay pain-free far longer.** `<!-- id: 61da4241-bcba-47b4-9eb7-cb1aa6fbef90 -->`
+      - [ ] **Clip 80.V0A-S3>3 — Defining Vigorous Movement #film #driving** `<!-- id: d9812ce6-e0cb-43fa-80ec-c72b12bcf40e -->`
+        - [ ] **And what does that look like? [tone shift] Well, simple. [breath] Two or three times a week, I want you to walk, move briskly, or do some kind of activity where you break a sweat.** `<!-- id: 8db40c3c-e515-4388-89ca-03fada825b7c -->`
+      - [ ] **Clip 80.V0A-S3>4 — The Autonomic Sweat Metric #film #driving** `<!-- id: e860709c-c91e-41e3-8e04-06ce208e1f59 -->`
+        - [ ] **You wanna physically break a sweat. [breath] That means you have generated enough heat, enough activity, enough metabolic activity in your body... [breath] that requires you to increase your heart rate, and engage your autonomic nervous system so that you sweat.** `<!-- id: 72757e7c-90c5-45e8-8e82-c82b7f07370f -->`
+      - [ ] **Clip 80.V0A-S3>5 — Dosage & Healthy Aging #film #outside** `<!-- id: fb628e61-8261-4d7d-ae8f-fd1f4386ab25 -->`
+        - [ ] **That's what I want you to do. [breath] If you get to that point—20 to 40 minutes, 2 to 3 times a week... [eye contact shift] you're gonna be on your way to maintaining your health and reducing the chance of musculoskeletal pain and discomfort as you get older.** `<!-- id: 5cd30979-817d-45f7-9970-e17faec842bd -->`
+      - [ ] **Clip 80.V0A-S3>6 — Outro CTA #film #outside** `<!-- id: 0e5011ba-976f-4eb6-ad37-dbb96b33f1bc -->`
+        - [ ] **If you want to transition from emergency firefighting to a smooth biological operating system, [breath] book a free Systemized Discovery Call or grab our app unpacking the OS. [gesture] I'll see you in the next video.** `<!-- id: 01363c48-cb9c-4591-bb7f-cb30e9c7592e -->`
   - [ ] **80.V0A-S2: The Biological Sequence of Change #outline** `<!-- id: 9146cb9c-964c-4563-b47f-811d5ff4150d -->`
     *Note: Source: Videos/009 - The Biological Sequence of Change (80.V0A-S2)/V0A-S2 Script - The Biological Sequence of Change.md*
     - [ ] **<b>Video Code</b>: <code>80.V0A-S2</code>** `<!-- id: 24c54dea-09d0-44c6-842f-3a7d58ed8772 -->`
@@ -190,31 +174,20 @@
       - [ ] **"If you want to install health habits in the exact order your biology demands, book a free Systemized Discovery Call or grab our app unpacking the OS. I'll see you in the next video."** `<!-- id: cf5f4b23-e651-4aef-8c59-40dcf51b030b -->`
     - [ ] **Audio draft transcript** `<!-- id: 828fde08-751a-44b7-b058-06700575c974 -->`
       - [ ] **There are two systems that kick in to respond to stress. The nervous system, through the autonomic component of the nervous system, and the energy system, The nervous system is short term, instant. It's instant reaction, it spikes your... pulse and spikes your blood pressure, it helps you respond to the immediate stressor. The long term response to stress comes from the hypothylamic pituitary axis, HPA. And this is hormonal. The hormones long term will change in response to stress. So that's the way it works when ramping up to a stressor. And it also works the same way, man, ramping down. You have to focus on the metabolic pathways first. Fuel. movement and rest. Fuel movement and rest are the first step in recovering from stress. So if you got some stress going on, just pick one of those. and pick a very small goal. If it's fuel, try to cut your carbs a little bit. Drink more water, if it's movement, go for a brief walk, do a 30 second plank. If it's rest, grab a nap this afternoon. See if you can do that three days in a row, see if you start feeling better.** `<!-- id: 92a87c63-bafb-4333-b95c-1b5ad59f269c -->`
-    - [ ] **Teleprompter Clips (Filming Order)** `<!-- id: 92ff87bd-07a6-4471-b081-eca55290ae0b -->`
+    - [ ] **Teleprompter Clips (Filming Order)** `<!-- id: f2eca6d4-ab3f-4d63-9268-0f549abff48a -->`
       *Note: Save recorded video clips as [Code]>[ClipNumber].mp4*
-      - [ ] **Clip 80.V0A-S2>1 — The Hook (Two Stress Systems) #film #outside** `<!-- id: fb4574d8-26b5-4660-88ee-b6cf915b91ea -->`
-        - [ ] **There are two systems that kick in to respond to stress.** `<!-- id: b05561a3-a11a-4f44-9f3b-004afc3f0f1c -->`
-        - [ ] **The nervous system—through the autonomic component of the nervous system— [pause] and the energy system.** `<!-- id: 4eadf087-b067-467d-977e-67fe89366f0a -->`
-      - [ ] **Clip 80.V0A-S2>2 — Short-Term Autonomic vs. HPA Axis #film #outside** `<!-- id: 76f0ebae-0e23-4084-b7db-7cd3182a407f -->`
-        - [ ] **The nervous system is short term, instant.** `<!-- id: 67d6db77-1401-4dcd-8481-4ab182efae62 -->`
-        - [ ] **It's instant reaction: it spikes your pulse and spikes your blood pressure to help you respond to the immediate stressor.** `<!-- id: aa9cf742-4e59-47a9-8197-b829106d34b1 -->`
-      - [ ] **Clip 80.V0A-S2>3 — Chronic Hormonal Response #film #cuttinggrass** `<!-- id: 19a6b1e6-ce3e-42a5-aa4f-4a2a621dc88f -->`
-        - [ ] **The long-term response to stress comes from your hypothalamic-pituitary axis—the HPA axis.** `<!-- id: a96104fc-6170-4456-bacf-3be0d7646a4f -->`
-        - [ ] **And this is hormonal. The hormones long term will change in response to chronic stress.** `<!-- id: ff6363eb-8b94-43be-905f-b8dba7b66927 -->`
-      - [ ] **Clip 80.V0A-S2>4 — Ramping Down Stress (Metabolic First) #film #cuttinggrass** `<!-- id: b23a46c8-a90b-49c1-8f98-687af6c8e538 -->`
-        - [ ] **So that's the way it works when ramping up to a stressor...** `<!-- id: 3204d7a4-2d37-4e1e-8f2b-c9fa5d413d89 -->`
-        - [ ] **And it also works the exact same way, man, ramping down. [tone shift]** `<!-- id: 351ccf61-0b34-4c20-a5a8-d1bc0a163109 -->`
-      - [ ] **Clip 80.V0A-S2>5 — Level 1 FMR Micro-Actions #film #whilebusy** `<!-- id: 2260f534-337d-4176-8c06-c346e38bf10e -->`
-        - [ ] **You have to focus on the metabolic pathways first: Fuel, Movement, and Rest.** `<!-- id: 0adb5480-24ed-4287-a601-55cdf4b93b21 -->`
-        - [ ] **Fuel, movement, and rest are the mandatory first step in recovering from stress.** `<!-- id: 71dff143-d4e0-4e8b-b881-7dfb27b8e36f -->`
-        - [ ] **So if you got some stress going on, [pause] just pick one of those pillars and pick a very small goal.** `<!-- id: 83b2524b-5ea0-4019-a313-560818d3f4f3 -->`
-        - [ ] **If it's Fuel: try to cut your carbs a little bit, or drink more water.** `<!-- id: a55c4479-e6bb-4cb1-a339-ddb280fb8be4 -->`
-        - [ ] **If it's Movement: go for a brief walk, or do a 30-second plank.** `<!-- id: 36770d92-7f43-4a57-b5a0-737c7cfd3d95 -->`
-        - [ ] **If it's Rest: grab a nap this afternoon.** `<!-- id: f33805cd-d395-423c-b18f-5e12580e775c -->`
-      - [ ] **Clip 80.V0A-S2>6 — The 3-Day Test & Outro CTA #film #whilebusy** `<!-- id: 28716227-4c84-41a7-ac18-db5cd2611d5d -->`
-        - [ ] **See if you can do that three days in a row, [gesture] and see if you start feeling better.** `<!-- id: ee07fa43-98e9-4bf9-b97e-82a5d020f2f2 -->`
-        - [ ] **If you want to install health habits in the exact order your biology demands,** `<!-- id: 368554d0-3815-4853-ac13-b80f3e37bdbe -->`
-        - [ ] **Set up a free Systemized Discovery Call or grab our app unpacking the OS. I'll see you in the next video.** `<!-- id: 6779ff4a-7fbf-42e6-8ad2-bf9657806d7b -->`
+      - [ ] **Clip 80.V0A-S2>1 — The Hook (Two Stress Systems) #film #outside** `<!-- id: b054955a-530e-4919-b604-8759703eaaf0 -->`
+        - [ ] **There are two systems that kick in to respond to stress. [breath] The nervous system—through the autonomic component of the nervous system— [pause] and the energy system.** `<!-- id: 1e2876ed-cd62-4f7b-82e0-91e523a49734 -->`
+      - [ ] **Clip 80.V0A-S2>2 — Short-Term Autonomic vs. HPA Axis #film #outside** `<!-- id: 53e10f56-cf39-4367-9830-c73f57d9841b -->`
+        - [ ] **The nervous system is short term, instant. [breath] It's instant reaction: it spikes your pulse and spikes your blood pressure to help you respond to the immediate stressor.** `<!-- id: cbdd9bdf-7efb-450c-ae8e-df26bc745074 -->`
+      - [ ] **Clip 80.V0A-S2>3 — Chronic Hormonal Response #film #cuttinggrass** `<!-- id: b414579b-cc21-48d0-b189-753ec0b6571e -->`
+        - [ ] **The long-term response to stress comes from your hypothalamic-pituitary axis—the HPA axis. [breath] And this is hormonal. The hormones long term will change in response to chronic stress.** `<!-- id: fd9624fe-ce0e-4472-b12b-227d9a13dddb -->`
+      - [ ] **Clip 80.V0A-S2>4 — Ramping Down Stress (Metabolic First) #film #cuttinggrass** `<!-- id: 0ac555af-5c36-4e9d-9493-50675cd616f2 -->`
+        - [ ] **So that's the way it works when ramping up to a stressor... [breath] And it also works the exact same way, man, ramping down. [tone shift]** `<!-- id: 5e49bf58-608f-40ab-93a1-d92bbbab6930 -->`
+      - [ ] **Clip 80.V0A-S2>5 — Level 1 FMR Micro-Actions #film #whilebusy** `<!-- id: c6ca3ade-8fa8-4233-b8a3-faaacceb7927 -->`
+        - [ ] **You have to focus on the metabolic pathways first: Fuel, Movement, and Rest. [breath] Fuel, movement, and rest are the mandatory first step in recovering from stress. [breath] So if you got some stress going on, [pause] just pick one of those pillars and pick a very small goal. If it's Fuel: try to cut your carbs a little bit, or drink more water. If it's Movement: go for a brief walk, or do a 30-second plank. If it's Rest: grab a nap this afternoon.** `<!-- id: c0b295b1-4668-42ad-865b-dc56b0f8a612 -->`
+      - [ ] **Clip 80.V0A-S2>6 — The 3-Day Test & Outro CTA #film #whilebusy** `<!-- id: 421c2c1c-3591-4fa6-ad56-4d0582bb5c42 -->`
+        - [ ] **See if you can do that three days in a row, [gesture] and see if you start feeling better. [breath] If you want to install health habits in the exact order your biology demands, set up a free Systemized Discovery Call or grab our app unpacking the OS. I'll see you in the next video.** `<!-- id: 6184c7df-b70a-4b88-a1e2-f4f9baa50a20 -->`
   - [ ] **80.V1B1-S1: Why Exercise is Optional** `<!-- id: f908f0a7-f8d3-44fa-87f6-3053dedb5a38 -->`
     *Note: Source: Videos/011 - Why Exercise is Optional (80.V1B1-S1)/V1B1-S1 Script - Why Exercise is Optional.md*
     - [ ] **<b>Video Code</b>: <code>80.V1B1-S1</code>** `<!-- id: 41f7fec1-d054-4bbf-9256-46e0a001e7fe -->`
@@ -281,34 +254,20 @@
       - [ ] **"If you want to stop relying on exhausting willpower and build automated health systems that run in the background, set up a free Systemized Discovery Call or grab our app unpacking the OS. I'll see you in the next video."** `<!-- id: c4577fc9-43a9-467f-855a-05e2f99b3e86 -->`
     - [ ] **Audio draft transcript** `<!-- id: 7724bf8f-f189-48cd-8c10-ca849a6be4cb -->`
     - [ ] **I know you've relied on willpower to get a lot of stuff done, and that's great. Willpower is fantastic, especially when you have a lot of it. I want you to think of willpower as a battery. Think of the battery in your phone, and the way that you can get a lot of work done on your phone. The more work you're doing, the more apps you have open, the faster your battery drains. Willpower is exactly the same. Now, how do you improve or boost your battery in your phone? Will you charge it? How do you charge your willbound? Well, there are several ways. One way is to offload the cognitive burden that you have. So if you're trying to remember to take out the trash, or you remember to pick up that thing that you saw back there, or you have to make that call to that person, or whatever you have to do, all those little pieces take up some cognitive bandwidth. And this, cognitive bandwidth is needed for willpower. So if you lose your cognitive bandwidth, the cognitive energy, your willpower's gonna go down, and you just want to have that cookie, or eat that cheesecake, and forget about it. So, how to get some immediate boost and willpower and cognitive energy, write down everything that's taking up minds, taking up cognitive space in your head and see how that feels.** `<!-- id: 960dfa34-1dad-4989-9d22-3ee7d430c42c -->`
-    - [ ] **Teleprompter Clips (Filming Order)** `<!-- id: 14368f4c-ace7-4743-b440-bc85e57c637d -->`
+    - [ ] **Teleprompter Clips (Filming Order)** `<!-- id: e2144a67-17cd-43b0-8fca-943b8e434d1f -->`
       *Note: Save recorded video clips as [Code]>[ClipNumber].mp4*
-      - [ ] **Clip 80.V0A1-S1>1 — The Hook #film #whilebusy** `<!-- id: c11ada42-c994-4950-9403-0b2ed08cf100 -->`
-        - [ ] **I know you've relied on willpower to get a lot of stuff done, and that's great.** `<!-- id: 6171673f-70bf-419b-a22b-449ae7b55628 -->`
-        - [ ] **Willpower is fantastic—especially when you have a lot of it.** `<!-- id: 6ed0c83b-ccf8-45f4-820b-daf681b77673 -->`
-      - [ ] **Clip 80.V0A1-S1>2 — Phone Battery Metaphor #film #whilebusy** `<!-- id: c28adcd1-4b6a-4be8-b625-ccc1cd1fec3e -->`
-        - [ ] **I want you to think of willpower as a battery.** `<!-- id: 2440beab-12ad-489d-8079-fefaea6171ff -->`
-        - [ ] **Think of the battery in your phone, and the way that you can get a lot of work done on your phone.** `<!-- id: f5489666-473d-47ec-9ed0-c88c59168105 -->`
-        - [ ] **The more work you're doing and the more apps you have open, [pause] the faster your battery drains.** `<!-- id: 69cc5320-8e2e-4bd6-bde0-b1037a1c1673 -->`
-        - [ ] **Willpower is exactly the same.** `<!-- id: 4157f523-faed-46e9-b93b-5889facfff26 -->`
-      - [ ] **Clip 80.V0A1-S1>3 — How to Charge Willpower #film #insidetruck** `<!-- id: 4669fb56-7c73-4629-8067-cb4d263537ed -->`
-        - [ ] **Now, how do you improve or boost your battery in your phone? You charge it.** `<!-- id: 89548853-016b-457b-ac97-4e26b0d54c86 -->`
-        - [ ] **How do you charge your willpower?** `<!-- id: 2784cb34-bf51-4878-86be-51e33fc8eff7 -->`
-        - [ ] **Well, there are several ways. One way is to offload the cognitive burden that you have.** `<!-- id: 599647b4-3a9c-4ad3-9745-9824fe15b7dc -->`
-      - [ ] **Clip 80.V0A1-S1>4 — Open Cognitive Apps #film #outside** `<!-- id: e39b6be2-5a06-44be-95ef-bfeb6a6da092 -->`
-        - [ ] **So if you're trying to remember to take out the trash... [tone shift]** `<!-- id: 51b9a168-b2a6-421d-b949-2a13ed84f7c6 -->`
-        - [ ] **Or you remember to pick up that thing that you saw back there...** `<!-- id: 8a67eb7d-b7d3-4d7a-91bc-fb9016bbc483 -->`
-        - [ ] **Or you have to make that call to that person, or whatever you have to do...** `<!-- id: fe59781d-ef52-4a38-a13e-fb99f0f44709 -->`
-        - [ ] **All those little pieces take up some cognitive bandwidth.** `<!-- id: 99f253bb-bc86-4c67-9d40-9f3b63aca5e9 -->`
-        - [ ] **And this cognitive bandwidth is needed for willpower.** `<!-- id: 3186744b-a2da-401a-a01d-ac9eef68db2e -->`
-      - [ ] **Clip 80.V0A1-S1>5 — The 5 PM Collapse & Immediate Action #film #outside** `<!-- id: dc8ed2e4-e608-4708-899e-bfe91e8ffa63 -->`
-        - [ ] **So if you lose your cognitive bandwidth and your cognitive energy, your willpower's gonna go down...** `<!-- id: ce68aae9-fc87-4bdc-97da-75ea5f9c2c4e -->`
-        - [ ] **And you just want to have that cookie, or eat that cheesecake, and forget about it.** `<!-- id: be8371b4-1674-4429-9059-93fc519da9a6 -->`
-        - [ ] **So, to get an immediate boost in willpower and cognitive energy right now: [eye contact shift]** `<!-- id: 1e119580-7eb7-48fc-b75b-8a6072b3e6a8 -->`
-        - [ ] **Write down everything taking up cognitive space in your head, and see how that feels.** `<!-- id: efca4609-afa1-4cbf-baba-88bb76393835 -->`
-      - [ ] **Clip 80.V0A1-S1>6 — Outro CTA #film #outside** `<!-- id: 6b2e72a0-295b-455d-a700-d2f6eb78ecf6 -->`
-        - [ ] **If you want to build automated health systems that run in the background without draining your battery,** `<!-- id: 16939e65-6f78-46c9-8561-9fb81b029f2a -->`
-        - [ ] **Set up a free Systemized Discovery Call or grab our app unpacking the OS. [gesture] I'll see you in the next video.** `<!-- id: c1a30b1b-858b-4601-bd97-55fdf3987c83 -->`
+      - [ ] **Clip 80.V0A1-S1>1 — The Hook #film #whilebusy** `<!-- id: 23c465bd-7888-4ef6-adcd-c53e7d43d774 -->`
+        - [ ] **I know you've relied on willpower to get a lot of stuff done, and that's great. [breath] Willpower is fantastic—especially when you have a lot of it.** `<!-- id: a1ffd52e-5721-4e2b-bf17-259c8f749081 -->`
+      - [ ] **Clip 80.V0A1-S1>2 — Phone Battery Metaphor #film #whilebusy** `<!-- id: 8197326b-83ac-4491-b84d-ceeb409c9e0e -->`
+        - [ ] **I want you to think of willpower as a battery. [breath] Think of the battery in your phone, and the way that you can get a lot of work done on your phone. [breath] The more work you're doing and the more apps you have open, [pause] the faster your battery drains. Willpower is exactly the same.** `<!-- id: 5aad6cb5-7459-45a1-adc8-29d24b3121f2 -->`
+      - [ ] **Clip 80.V0A1-S1>3 — How to Charge Willpower #film #insidetruck** `<!-- id: cd43ea4b-8cc5-4d50-8484-5b853f4f7700 -->`
+        - [ ] **Now, how do you improve or boost your battery in your phone? You charge it. [breath] How do you charge your willpower? Well, there are several ways. One way is to offload the cognitive burden that you have.** `<!-- id: 26f39acb-bde1-4a74-8395-355a489bb4b8 -->`
+      - [ ] **Clip 80.V0A1-S1>4 — Open Cognitive Apps #film #outside** `<!-- id: 1a95d1d2-b0da-499f-89a2-612c6be9af5c -->`
+        - [ ] **So if you're trying to remember to take out the trash... [tone shift] or you remember to pick up that thing that you saw back there... or you have to make that call to that person, or whatever you have to do... [breath] All those little pieces take up some cognitive bandwidth. And this cognitive bandwidth is needed for willpower.** `<!-- id: d03bbff5-202f-4ffd-85e9-c08eab26db84 -->`
+      - [ ] **Clip 80.V0A1-S1>5 — The 5 PM Collapse & Immediate Action #film #outside** `<!-- id: 316a30bc-ecdc-46f0-ad5f-55cc8a3639df -->`
+        - [ ] **So if you lose your cognitive bandwidth and your cognitive energy, your willpower's gonna go down... [breath] and you just want to have that cookie, or eat that cheesecake, and forget about it. [breath] So, to get an immediate boost in willpower and cognitive energy right now: [eye contact shift] write down everything taking up cognitive space in your head, and see how that feels.** `<!-- id: 7e614ee0-093a-49ae-a145-43b364cb9b5e -->`
+      - [ ] **Clip 80.V0A1-S1>6 — Outro CTA #film #outside** `<!-- id: 5a99fb7c-861c-431d-8426-0703429097c0 -->`
+        - [ ] **If you want to build automated health systems that run in the background without draining your battery, [breath] set up a free Systemized Discovery Call or grab our app unpacking the OS. [gesture] I'll see you in the next video.** `<!-- id: 8a538240-94dc-418e-b28b-8cd95ee420dd -->`
   - [ ] **80.V0A1-S2: Level 1 FMR Baseline** `<!-- id: 738e2ebe-9069-4b85-bbdc-0e7f8c36fce1 -->`
     *Note: Source: Videos/015 - Level 1 FMR Baseline (80.V0A1-S2)/V0A1-S2 Script - Level 1 FMR Baseline.md*
     - [ ] **<b>Video Code</b>: <code>80.V0A1-S2</code>** `<!-- id: 06288174-744b-4e74-ad85-b2b492ed24ec -->`
@@ -325,6 +284,8 @@
       - [ ] **2.5 Action Step<i></i>: Audit your baseline today. Which pillar is lagging: Fuel, Move, or Rest?** `<!-- id: 41a56954-bd61-41c7-96bd-07c9e29e7db0 -->`
     - [ ] **3. CTA** `<!-- id: 015f29fb-ae8c-41bc-838d-2d3252a08c0d -->`
       - [ ] **&quot;If you want to audit your Level 1 FMR baseline and get your physical foundation solid, book a free Systemized Discovery Call or check out our app unpacking the OS. I'll see you in the next video.&quot;** `<!-- id: c8a00b76-94ea-430f-970c-3d3344aaa3e7 -->`
+    - [ ] **Audio draft transcript** `<!-- id: 625dc73e-c17e-458a-b82b-c7c159d695d1 -->`
+      - [ ] **All right, you've decided to get healthy, and so you're gonna go out and buy something. You're gonna get a trinket, or a little watch, or something that's gonna measure your steps. It's got technology, it's got AI built into it. And honestly, that is a complete distraction. Do not want to do that. That is not for you if you're just starting to reclaim your health. You have to focus on the basics. Now, I have a systemized operating system framework which has three levels. Level one is what you have to focus on. Level one is food, movement, and rest, food movement and rest. You gotta get this down before you can really get into the more advanced stuff, and buying trinkets, buying little gadgets, is not for you. It's not going to be the answer if you do not have food moving and rest taken care of. Now, if that trinket can help you with any of those topics. Then maybe you can consider it. But please. I would do a little... sample life adjustment before you buy anything. So if you feel your problem is food. Try to eat a little bit better. Don't worry about doing a new diet. Just eat a little bit better. Just see if you have inside of you what it takes to eat a little bit better. Maybe you don't have as many cookies, maybe you drink a little more water. Just a little bit. Just enough to start you down that path. And if you keep this up, you want to take it up a notch, maybe you start tracking your diet, watching your mackerel, getting a scale, and really just dialing in that number, but see if you can get into it before you commit. Second, if movement is your thing. Maybe instead of buying that gym membership, maybe you do a daily walk and say, if I can walk every day, 30 minutes for 10 days, then I'll get that membership. You have to prove to yourself... that you can make these changes from within, not from outside by buying an outside gadget or trinket. If rest is your thing. Track, when you go to sleep, and when you get up on a piece of paper for 10 nights, figure out the average time you go to sleep, and when you get up, and then just stick with that average, go to sleep, and get up at the same time for another 10 days. That's it. Just do that. If you can do that, if you can get standardized, systematized, in the way you sleep, then you want to take it up a notch. Maybe get a sleep tracker if you want to, if you need that. But see if you can just do it from inside. from your desire to change. And that desire plus a gadget may be something you want to do. Don't put the gadget before.** `<!-- id: d8c61dfb-ed75-46ec-88f1-dc34e8a36721 -->`
   - [ ] **80.V0A1-S3: The 3-Tier Health Pyramid** `<!-- id: 968af5a3-f781-45d9-a44e-9e364422f819 -->`
     *Note: Source: Videos/016 - The 3-Tier Health Pyramid (80.V0A1-S3)/V0A1-S3 Script - The 3-Tier Health Pyramid.md*
     - [ ] **<b>Video Code</b>: <code>80.V0A1-S3</code>** `<!-- id: d8dbdba8-991c-4553-a809-720f1eebd732 -->`

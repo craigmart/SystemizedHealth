@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Push Stage 2 Teleprompter Scripts to Workflowy for Filming on Set (No Emojis, #film tagged, Full Spoken Text)
+Push Stage 2 Teleprompter Scripts to Workflowy for Filming on Set (Single Paragraph per Clip, #film Tagged, No Emojis)
 """
 import os
 import sys
@@ -59,8 +59,7 @@ def create_child_node(api_key, parent_id, name, note=None):
         payload["note"] = note
     res = make_request(API_BASE, api_key, method="POST", payload=payload)
     if res:
-        node_id = res.get("item_id") or res.get("id")
-        return node_id
+        return res.get("item_id") or res.get("id")
     return None
 
 def delete_node(api_key, node_id):
@@ -128,14 +127,16 @@ def push_scripts():
             header = lines[0]  # e.g. "80.V0A-S1>1 — The Hook #film #insidetruck"
             text_lines = lines[1:]
 
+            # Consolidate text lines into a single spoken paragraph
+            single_paragraph = " ".join(text_lines).strip()
+
             clip_header_text = f"Clip {header}"
             clip_id = create_child_node(api_key, teleprompter_node_id, clip_header_text)
             
-            if clip_id:
-                for tl in text_lines:
-                    create_child_node(api_key, clip_id, tl)
+            if clip_id and single_paragraph:
+                create_child_node(api_key, clip_id, single_paragraph)
 
-        print(f"Successfully pushed teleprompter clips and full script text for {code} to Workflowy!")
+        print(f"Successfully pushed single-paragraph teleprompter clips for {code} to Workflowy!")
 
     print("\nAll teleprompter scripts successfully synchronized to Workflowy!")
     import workflowy_audit
