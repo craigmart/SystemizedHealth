@@ -209,6 +209,8 @@ AI sentences cluster tightly around 15 to 20 words. Human writing swings from 3-
 - If a line could appear on any other AI output, rewrite it until it sounds like a specific person said it.
 ---
 ## 9. TELEPROMPTER & WORKFLOWY SHORT SCRIPT SYNTAX (2026 UPDATE)
-- **Line-Ending Context & JDex Hashtags**: In teleprompter/Workflowy draft scripts, EVERY line must end with both a context hashtag indicating filming environment (`#insidetruck`, `#outside`, `#studio`, `#whilebusy`, `#driving`, `#shopping`, `#cuttinggrass`) AND the specific Johnny Decimal (JDex) video code (e.g. `#80.V0B-S1`).
+- **Clip Sub-Code Standard (`[VideoCode]>[ClipNumber]`)**: In Stage 2 Teleprompter scripts, every paragraph/proposition clip block MUST begin with a dedicated clip sub-code header (e.g. `### Clip 80.V0A-S1>1 — The Hook #insidetruck`). When recording, Dr. Anderson saves each video file using this exact clip sub-code (e.g., `80.V0A-S1>1.mp4`, `80.V0A-S1>2.mp4`) so sorting the destination folder automatically arranges the clips in correct assembly order.
+- **Single JDex Code Rule**: The Johnny Decimal (JDex) topic code (e.g. `41.03`, `80.11`, `77.02`, `42.06`) is declared once in the video metadata at the top of the file. Do NOT repeat JDex codes at the end of every individual teleprompter line.
+- **Filming Location Tags**: Location hashtags (`#insidetruck`, `#outside`, `#studio`, `#whilebusy`, `#driving`, `#shopping`, `#cuttinggrass`) are placed in the clip sub-code headers.
 - **Authentic Delivery Cues**: Insert bracketed delivery cues `[pause]`, `[gesture]`, `[tone shift]`, `[eye contact shift]` inside the teleprompter text to guide natural, non-robot performance on camera.
 - **Casual Chiropractor Tone**: Write short scripts like a chiropractor having a casual conversation with a patient while doing everyday tasks—educational, conversational, grounded, never preachy.

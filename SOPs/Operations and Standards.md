@@ -96,11 +96,13 @@ Before Dr. Anderson records his free-form audio draft, the Technical Editor gene
 
 *No premature full teleprompter scripts, stage headers, emojis, or unnecessary sections are included at this stage.*
 
-### Stage 2: Teleprompter Script Generation (After Audio Riffing)
+### Stage 2: Full Teleprompter Script Generation (After Audio Riffing)
 After Dr. Anderson records and provides his raw audio draft transcript (`-A` file):
-1. The Technical Editor organizes the transcribed audio into a teleprompter-ready script formatted for Workflowy.
-2. Every line ends with a location context tag (e.g., `#insidetruck`, `#outside`, `#whilebusy`, `#driving`) and clean 4-digit JDex topic code (e.g., `80.11`, `77.01`, `77.03`, `41.03`, `42.06`).
-3. Delivery cues `[pause]`, `[gesture]`, `[tone shift]` are inserted to preserve natural spoken cadence.
+1. The Technical Editor organizes the transcribed audio into a full teleprompter-ready script formatted for Workflowy and filming.
+2. **Clip Sub-Code Standard (`[VideoCode]>[ClipNumber]`)**: Every paragraph/proposition block MUST have a clip sub-code header (e.g., `### Clip 80.V0A-S1>1 — The Hook #insidetruck`, `### Clip 80.V0A-S1>2 — The Unpack #insidetruck`). Dr. Anderson saves each recorded video clip with this exact sub-code (e.g. `80.V0A-S1>1.mp4`, `80.V0A-S1>2.mp4`) so sorting the folder automatically arranges the clips in correct assembly order.
+3. **Single JDex Code Rule**: The JDex topic code (e.g. `41.03`, `80.11`, `77.02`, `42.06`) is declared once in the video metadata at the top of the file. Do NOT repeat JDex codes at the end of every teleprompter line.
+4. **Location Tags & Performance Cues**: Location hashtags (`#insidetruck`, `#outside`, `#cuttinggrass`, `#whilebusy`, `#driving`, `#shopping`) are placed in the clip sub-code headers. Delivery cues (`[pause]`, `[gesture]`, `[tone shift]`, `[eye contact shift]`) guide natural spoken performance.
+
 
 ---
 

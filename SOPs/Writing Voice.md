@@ -110,7 +110,8 @@ Short paragraphs — two to four sentences maximum in most contexts. Use bullet 
 
 ### DR. ANDERSON'S FORMATTING:
 - **Short Video Stage 1 Blueprint**: Pre-recording outline with Title CTR, Word-for-Word Hook, Thumbnail Concept, Casual Research Paper, Word-for-Word CTA, and Bulleted Talking Points for audio riffing.
-- **Short Video Stage 2 Teleprompter Script**: Spoken-word lines with line-ending hashtags (`#insidetruck`, `#outside`, `#studio`, `#whilebusy`, `#driving`, `#shopping`, `#cuttinggrass`) and embedded performance `[cues]`.
+- **Short Video Stage 2 Teleprompter Script**: Full spoken-word script structured into sub-coded clip blocks (`### Clip [VideoCode]>[ClipNumber] — [Name] #[locationTag]`). Single JDex code declared in top metadata. Every paragraph represents an individual clip saved as `[VideoCode]>[ClipNumber].mp4` for automated clip sorting in video editing. Embedded performance cues (`[pause]`, `[tone shift]`, `[eye contact shift]`).
+
 
 ---
 
@@ -121,3 +122,25 @@ Writing exists to make someone think, decide, or do something differently. Not t
 
 ### DR. ANDERSON'S PHILOSOPHY (ACTUAL):
 *"Structure is freedom."* Health is an operating system running in the background; when it fails, it's a system glitch requiring a structured update, not a lack of willpower. Small, low-friction habits executed in correct biological sequence yield lifetime health.
+
+---
+
+## 11. AUDIO DRAFT CADENCE & SPOKEN SIGNATURES (2026 UPDATE)
+
+Synthesized directly from Dr. Anderson's unscripted spoken audio draft transcripts across videos `80.V0A-S1`, `80.V0A-S2`, `80.V0A-S3`, and `80.V0A1-S1`.
+
+### 11a. The "Goal Downshifting" Rhetoric
+- **Concept**: Immediately validate that ambitious Monday overhauls fail, then teach the viewer to downshift to a realistic micro-action without guilt or loss of momentum.
+- **Spoken Cadence**: *"If you're going to fail at a goal, which most people do in their health... I'm sorry to say that it's the case. You can increase your chance of success by downshifting your goal to a more realistic goal. So instead of saying 'Monday I'm gonna start training for a marathon,' say 'Monday I'm gonna get up and walk or run for five minutes.'"*
+
+### 11b. Everyday Cognitive & Physiological Analogies
+- **Willpower Battery**: *"Think of willpower as the battery in your phone. The more work you're doing, the more apps you have open, the faster your battery drains... How do you charge it? Offload the cognitive burden—remembering to take out the trash, or pick up that thing, or make that call. All those little pieces take up cognitive bandwidth needed for willpower."*
+- **Physical Sweat Threshold**: *"Two or three times a week, I want you to walk, move briskly, or do some kind of activity where you break a sweat. You wanna physically break a sweat. That means you have generated enough heat, enough metabolic activity, to engage your autonomic nervous system."*
+
+### 11c. Unhurried Conversational Transitions & Phrases
+- *"So let's unpack this just a little bit."*
+- *"Now, how do you improve or boost your battery?"*
+- *"And what does that look like? Well, simple."*
+- *"So if you got some stress going on, just pick one of those and pick a very small goal."*
+- *"And it also works the same way, man, ramping down."*
+- *"See if you can do that three days in a row, see if you start feeling better."*

@@ -44,496 +44,303 @@
         - [ ] **[ ] Software Patch Outro Callout ('Subscribe for OS updates & patches')** `<!-- id: d48c9ceb-58ca-42b4-a738-e05aeb8a7ab2 -->`
       - [ ] **6. Pick-Ups &amp; Location Shots (Optional)** `<!-- id: 3d355629-4adc-4cab-80ea-6fa9deb6c036 -->`
         - [ ] **[ ] Outdoor Teaser Hook Clip (15-second location-shift intro before studio cut)** `<!-- id: 07f01341-5a8f-4c7b-988a-654acbe4e304 -->`
-  - [ ] **80.V0B-S1: Information Overload vs Implementation (Pre-Recording Blueprint)** `<!-- id: 2f351a06-eae6-4b21-94ba-102bab94febc -->`
+  - [ ] **80.V0B-S1: Information Overload vs Implementation** `<!-- id: 98a6f57c-a79f-4a5f-b31d-4611f944fa0b -->`
     *Note: Source: Videos/005 - Information Overload vs Implementation (80.V0B-S1)/V0B-S1 Script - Information Overload vs Implementation.md*
-    - [ ] **<b>Video Code</b>: <code>80.V0B-S1</code>** `<!-- id: 0b1e6289-cdf8-4f3a-ad86-2a7a47cf5c2d -->`
-    - [ ] **<b>Parent Video</b>: <code>80.V0B</code> (<i>Health Info & Biology Baseline</i>)** `<!-- id: 790e531f-e420-4394-a635-7255899185d4 -->`
-    - [ ] **<b>Format</b>: Vertical Short (9:16)** `<!-- id: 5622eacc-5c61-4e13-96f3-f5f0ddcc8fa8 -->`
-    - [ ] **<b>Target Duration</b>: 45–50 seconds** `<!-- id: 7bf70785-daa9-49d4-8653-044534cbf1a5 -->`
-    - [ ] **<b>Tone</b>: Casual Chiropractor Chat, Conversational & Direct** `<!-- id: 8b7b473d-58e3-4819-90c5-3042217cc3b5 -->`
-    - [ ] **<b>Suggested Settings</b>: <code>#insidetruck</code> <code>#whilebusy</code> <code>#outside</code>** `<!-- id: d8ce4c91-3388-44ed-bd3c-d17ac2eda9c6 -->`
-    - [ ] **<b>JDex Topic Code</b>: <code>80.11</code> (<i>Systemized OS Framework</i>)** `<!-- id: 22931189-0c21-4562-a74e-e08dd2af4c6d -->`
-    - [ ] **Stage 1: Pre-Recording Blueprint** `<!-- id: 0476ee1c-2bd7-41fd-99b3-7e8a908449c2 -->`
-      - [ ] **1. Placeholder Title & CTR Score** `<!-- id: 65b2d745-58e8-4fe2-a47f-740c47787d2f -->`
-        - [ ] **Title<i></i>: <i>"Why Health Information Alone Keeps You Broken"</i>** `<!-- id: 9d7cdca9-c7de-420c-90cd-b8eb9fcfd49f -->`
-        - [ ] **vidIQ CTR Score<i></i>: <code>79 / 100</code>** `<!-- id: 5b4614b8-d786-40fc-be8e-b592fce336ed -->`
-        - [ ] **2. Word-for-Word Hook (Casual Delivery)** `<!-- id: 5cee8193-3c73-4031-9105-d0aa8fc048e4 -->`
-    - [ ] **️ Bulleted Talking Points (For Audio Draft Riffing)** `<!-- id: 7affbe20-d372-4e4c-8072-4391d0e76d33 -->`
-      - [ ] **The Problem<i></i>: High performers aren't failing due to a lack of knowledge; they are drowning in scattered health advice without an operating system.** `<!-- id: db6435c1-a248-4509-ad0e-3eda72542714 -->`
-      - [ ] **The Biological Reframe<i></i>: Knowing <i>what</i> to do is useless if your nervous system is too fatigued to execute it. Information without biological sequencing creates execution friction.** `<!-- id: 8f0b0f53-eda0-4a3d-b219-f695ac992269 -->`
-      - [ ] **Clinical Scenario<i></i>: Patient comes into the clinic with 15 different supplement bottles and 3 workout apps, but can't touch their toes or sleep 6 hours straight.** `<!-- id: 2604f246-d7a0-42f5-b404-f4785b74d23e -->`
-      - [ ] **The Takeaway<i></i>: Stop adding new hacks. Pick one foundational baseline habit—Fuel, Move, or Rest—and automate it before adding anything else.** `<!-- id: 3a9604e0-f31b-472e-bc55-33ae706c4967 -->`
-    - [ ] **Stage 2: Teleprompter / Workflowy Draft Script Preview** `<!-- id: c2a82f24-72fa-446c-944c-c56031d2aba3 -->`
-      - [ ] **You don't need another health podcast, supplement stack, or Monday morning resolution. #insidetruck 80.11** `<!-- id: b36d9510-6d01-4d39-823e-b728a3a23e9c -->`
-      - [ ] **[pause] You already know what you should be doing. Most high performers do. #insidetruck 80.11** `<!-- id: 60360499-75c9-412b-ab8f-18d0da8204ba -->`
-      - [ ] **The friction is almost never a lack of information—it's implementation. #whilebusy 80.11** `<!-- id: e061ae19-3d43-442a-b8d9-7a7c02983a9c -->`
-      - [ ] **[gesture] You collect all the right facts, but you lack a biological system to execute them. #whilebusy 80.11** `<!-- id: a2bbfea1-7d66-4946-8199-46c7ae1f75d5 -->`
-      - [ ] **Incidentally, a study in the Journal of Applied Physiology showed cognitive fatigue from over-researching actually shuts down motor execution. #outside 80.11** `<!-- id: 7eff3cf8-ab30-43b2-902a-565372130970 -->`
-      - [ ] **Stop consuming more info. Build systemized execution around your life. #outside 80.11** `<!-- id: 8e86850f-5ae2-4cc7-b232-5ce420a4f39b -->`
-      - [ ] **[tone shift] Set up a free Systemized Discovery Call or grab our app unpacking the OS. #outside 80.11** `<!-- id: c26cb84d-85d0-4f27-815f-90abb375ebcb -->`
-      - [ ] **I'll see you in the next video. #outside 80.11** `<!-- id: d32ecc8a-a085-4695-a4d1-d88b7c9c11f0 -->`
-  - [ ] **80.V0B-S2: Finding Your System Glitch (Pre-Recording Blueprint)** `<!-- id: db75054b-e3ed-4c2e-b119-b313acfdabeb -->`
-    *Note: Source: Videos/006 - Finding Your System Glitch (80.V0B-S2)/V0B-S2 Script - Finding Your System Glitch.md*
-    - [ ] **<b>Video Code</b>: <code>80.V0B-S2</code>** `<!-- id: 2ff61880-af9b-4a82-ae97-c9a8de5dd4bd -->`
-    - [ ] **<b>Parent Video</b>: <code>80.V0B</code> (<i>Health Info & Biology Baseline</i>)** `<!-- id: 1ab0766a-4ed0-4e5b-876e-6cdf21be9117 -->`
-    - [ ] **<b>Format</b>: Vertical Short (9:16)** `<!-- id: f54f0b24-b31d-4439-91c4-6dc35cb50810 -->`
-    - [ ] **<b>Target Duration</b>: 45–50 seconds** `<!-- id: ece30066-d114-4884-8aa3-11f7200fb102 -->`
-    - [ ] **<b>Tone</b>: Casual Chiropractor Chat, Conversational & Direct** `<!-- id: da289c26-9e21-4bfa-9402-8ec406220c23 -->`
-    - [ ] **<b>Suggested Settings</b>: <code>#driving</code> <code>#outside</code> <code>#insidetruck</code>** `<!-- id: 1d4c10e0-d1d9-493a-acb6-a0b3d7657a54 -->`
-    - [ ] **<b>JDex Topic Code</b>: <code>77.03</code> (<i>Clinical Consult & Neurological Assessment</i>)** `<!-- id: 688a5de7-b58b-428d-a60b-2a8ec3185b51 -->`
-    - [ ] **Stage 1: Pre-Recording Blueprint** `<!-- id: 05bf72bc-ebac-4436-8758-a5196257609e -->`
-      - [ ] **1. Placeholder Title & CTR Score** `<!-- id: d787d10e-f07f-4bff-bd58-d4874b8cb547 -->`
-        - [ ] **Title<i></i>: <i>"The Hidden System Glitch Ruining Your Body"</i>** `<!-- id: 4d1f23cf-fb55-4839-8510-b960b3628946 -->`
-        - [ ] **vidIQ CTR Score<i></i>: <code>79 / 100</code>** `<!-- id: 73548e7a-7280-44ac-a699-2c157b84b975 -->`
-        - [ ] **2. Word-for-Word Hook (Casual Delivery)** `<!-- id: 1c3987e3-3f3c-4a1a-adc1-19e7354793b3 -->`
-    - [ ] **️ Bulleted Talking Points (For Audio Draft Riffing)** `<!-- id: a862afee-651a-4d8b-9cb6-5397e6759875 -->`
-      - [ ] **The Problem<i></i>: People mistake a simple neurological/somatic glitch for permanent aging or degeneration.** `<!-- id: 33145f0e-5d87-4f05-8067-a4379718991f -->`
-      - [ ] **The Biological Reframe<i></i>: Your body isn't broken; it's running a corrupted routine in the background because a foundational baseline habit (Fuel, Movement, or Rest) is misaligned.** `<!-- id: 85ebe216-4c3d-4e25-9fa0-3439aa454914 -->`
-      - [ ] **Clinical Example<i></i>: A patient complaining of tight hamstrings for 5 years—it wasn't short muscles, it was an inhibited glute motor pattern caused by sitting at a desk 10 hours a day.** `<!-- id: 024fb0f7-8ee6-4e6c-98c3-6610da88b5f4 -->`
-      - [ ] **The Action Step<i></i>: Test your system. Hold an incline plank or do a 30-second breath reset. Identify whether your glitch is physical fatigue or structural inhibition.** `<!-- id: 0294697f-2b27-406a-a157-c989f0ef4836 -->`
-    - [ ] **Stage 2: Teleprompter / Workflowy Draft Script Preview** `<!-- id: 3e6130e4-8449-4140-8d5e-644e4999e2f3 -->`
-      - [ ] **Whenever someone comes into my office with chronic tightness, they usually blame their age. #driving 77.03** `<!-- id: 16d8da69-dbea-4a86-841d-cde7dc666f3f -->`
-      - [ ] **[pause] But 90% of the time, it's just a system glitch in their biological baseline. #driving 77.03** `<!-- id: 5ab1bffd-5039-4c65-b496-64dce40f52a6 -->`
-      - [ ] **Your body isn't broken—it's just running a corrupted neurological routine in the background. #insidetruck 77.03** `<!-- id: 8a886e07-caff-47d5-b1c9-d883e72b099a -->`
-      - [ ] **[gesture] Incidentally, a paper in Brain showed how motor cortex reorganization makes muscles forget how to fire after sitting too long. #outside 77.03** `<!-- id: 4d2dd690-616b-4bc1-8463-46468b623388 -->`
-      - [ ] **We call that sensory motor amnesia. You don't need a 2-hour workout; you need a system update. #outside 80.11** `<!-- id: e2086807-7695-4a11-879b-68f8aebfaa79 -->`
-      - [ ] **[tone shift] Book a free Systemized Discovery Call or grab our app unpacking the OS to fix your baseline. #outside 80.11** `<!-- id: 839c2f4e-f949-49c2-a19d-d000d1735885 -->`
-      - [ ] **I'll see you in the next video. #outside 80.11** `<!-- id: 57aa13b3-f888-4c80-8dba-35a90b354448 -->`
-  - [ ] **80.V0B-S3: Doctor vs Coach: Rebuilding Baseline (Pre-Recording Blueprint)** `<!-- id: 1bfeafb4-0f29-4c26-a69d-48cba46132cd -->`
-    *Note: Source: Videos/007 - Doctor vs Coach Rebuilding Baseline (80.V0B-S3)/V0B-S3 Script - Doctor vs Coach Rebuilding Baseline.md*
-    - [ ] **<b>Video Code</b>: <code>80.V0B-S3</code>** `<!-- id: 21f8601f-437b-469e-b206-7298ed7b9ca6 -->`
-    - [ ] **<b>Parent Video</b>: <code>80.V0B</code> (<i>Health Info & Biology Baseline</i>)** `<!-- id: 71e096b9-baba-4605-b8e1-a6a8b0460b78 -->`
-    - [ ] **<b>Format</b>: Vertical Short (9:16)** `<!-- id: 17544d3c-07d6-4d74-88bd-41e4dea0f254 -->`
-    - [ ] **<b>Target Duration</b>: 45–50 seconds** `<!-- id: 7b0a9d4b-4876-443d-a47b-4fd4c7402c84 -->`
-    - [ ] **<b>Tone</b>: Casual Chiropractor Chat, Conversational & Direct** `<!-- id: 14290391-998e-4612-9b63-142dae6edf3b -->`
-    - [ ] **<b>Suggested Settings</b>: <code>#studio</code> <code>#outside</code> <code>#whilebusy</code>** `<!-- id: f7ef4bdc-031f-42db-b63c-94eec16fe756 -->`
-    - [ ] **<b>JDex Topic Code</b>: <code>77.01</code> (<i>Clinical Practice & Joint Biomechanics</i>)** `<!-- id: 38a6ac45-b16b-429a-838e-144151ba983d -->`
-    - [ ] **Stage 1: Pre-Recording Blueprint** `<!-- id: de09322a-111b-4b65-b810-209f0671dac6 -->`
-      - [ ] **1. Placeholder Title & CTR Score** `<!-- id: b87264d1-3a1c-411a-bbe7-4ab9ffa01bfe -->`
-        - [ ] **Title<i></i>: <i>"Stop Buying Health Advice from Coaches Who Don't Know Physiology"</i>** `<!-- id: 5d403abc-2978-45b4-994f-717a80557129 -->`
-        - [ ] **vidIQ CTR Score<i></i>: <code>78 / 100</code>** `<!-- id: 838e91ea-8b04-4745-89ad-7305a6c8d9f8 -->`
-        - [ ] **2. Word-for-Word Hook (Casual Delivery)** `<!-- id: 43cfe5ac-ce50-4c96-9ad4-20ac7e0152a8 -->`
-    - [ ] **️ Bulleted Talking Points (For Audio Draft Riffing)** `<!-- id: c5d29794-8f4f-4284-80ef-6826e8e54a8c -->`
-      - [ ] **The Friction<i></i>: The health industry forces a choice between reactive medicine (fixing damage) and extreme fitness coaching (pushing past fatigue).** `<!-- id: 21bab410-3261-45d4-ad3d-31bc71c9c11b -->`
-      - [ ] **The Missing Role<i></i>: What high performers actually need is clinical guidance on building an underlying biological baseline—Fuel, Movement, and Rest.** `<!-- id: 7fd6fb55-fc8f-43ad-8d79-9863dc4de4d7 -->`
-      - [ ] **Clinical Insight<i></i>: Over 230,000 patient visits taught me that most exercise injuries happen because people build strength on top of a dysfunctional foundation.** `<!-- id: fc16a2de-5616-48b7-a16d-92ea2a0fdcbd -->`
-      - [ ] **The Takeaway<i></i>: You don't need more intensity. You need biological alignment first.** `<!-- id: e231769f-43bf-4897-81f3-ffe10a7b2219 -->`
-    - [ ] **Stage 2: Teleprompter / Workflowy Draft Script Preview** `<!-- id: dc7faff3-dbbd-4e4e-9382-c679cd725f38 -->`
-      - [ ] **Here's something I've noticed after 30 years in chiropractic practice. #studio 77.01** `<!-- id: 237d1e0e-52dd-4016-a8d5-4f055dcd2406 -->`
-      - [ ] **[pause] A doctor treats your symptoms when you break, but a fitness coach often pushes you until you break. #studio 77.01** `<!-- id: 7e62b6fd-e61f-44d4-ab8b-c66bb590123b -->`
-      - [ ] **Neither one is teaching you how your biological operating system actually works. #whilebusy 80.11** `<!-- id: e2cc5182-7c79-4e36-b69a-28450ce1cf11 -->`
-      - [ ] **[gesture] Incidentally, biomechanics papers show minor joint misalignment quadruples cartilage stress under heavy loads. #whilebusy 77.01** `<!-- id: 61401e6d-b16b-4803-bcda-86621999a8a7 -->`
-      - [ ] **So pushing harder in the gym on a crooked baseline just accelerates joint damage. #outside 77.01** `<!-- id: 60520bab-f8a0-458e-9a20-a261cc0c57fb -->`
-      - [ ] **[tone shift] Let's fix your biological baseline first. Book a free Systemized Discovery Call or check out our OS app. #outside 80.11** `<!-- id: f9b4dc30-cb32-4a37-b4b5-3ea487375286 -->`
-      - [ ] **I'll see you in the next video. #outside 80.11** `<!-- id: 83d0098f-34f1-44f0-b817-07f141b56e09 -->`
-  - [ ] **80.V0A-S1: Why Monday Health Resolutions Fail (Pre-Recording Blueprint)** `<!-- id: 9dd7bd3d-4ea4-4950-919d-17f38d9f5b52 -->`
+    - [ ] **<b>Video Code</b>: <code>80.V0B-S1</code>** `<!-- id: a7c5a78a-8bca-4fde-a2c1-215d5291bd2d -->`
+    - [ ] **<b>Parent Video</b>: <code>80.V0B</code> (<i>Health Info & Biology Baseline</i>)** `<!-- id: 329b158d-d451-4d79-bbbc-4f8789e73903 -->`
+    - [ ] **<b>Suggested Settings</b>: <code>#insidetruck</code> <code>#whilebusy</code> <code>#outside</code>** `<!-- id: 0e2d2712-6e07-4dfd-a21c-4e7a4d1073fc -->`
+    - [ ] **<b>JDex Topic Code</b>: <code>80.11</code> (<i>Systemized OS Framework</i>)** `<!-- id: 29643b31-bed4-4915-99aa-6ddb8ae6dbe3 -->`
+    - [ ] **1. Hook** `<!-- id: 900cff05-7c05-49dc-9174-c07bcea9df8b -->`
+      - [ ] **"Look, if you're like most people I see in the clinic, you don't need another health podcast, supplement stack, or Monday morning resolution."** `<!-- id: 4317b095-047b-4d5d-ad89-3f076701214d -->`
+    - [ ] **2. Talking Points (For Audio Riffing)** `<!-- id: 2dbbec7b-a7a8-4d36-b50f-3ba82e159b35 -->`
+      - [ ] **2.1 The Problem<i></i>: High performers aren't failing due to a lack of knowledge; they are drowning in scattered health advice without an operating system.** `<!-- id: e25089a8-99e3-460f-a025-1641c1e4b9fc -->`
+      - [ ] **2.2 The Biological Reframe<i></i>: Knowing <i>what</i> to do is useless if your nervous system is too fatigued to execute it. Information without biological sequencing creates execution friction.** `<!-- id: 2bdd553e-e418-4326-bece-be4a7322a12d -->`
+      - [ ] **2.3 Clinical Scenario<i></i>: Patient comes into the clinic with 15 different supplement bottles and 3 workout apps, but can't touch their toes or sleep 6 hours straight.** `<!-- id: a5d34d88-4b57-4ccf-8b7a-581a6ec11445 -->`
+      - [ ] **2.4 Casual Research Reference<i></i>: Marcora et al. (2009) <i>J Appl Physiol</i> showing cognitive overload inhibits physical motor plan execution in the brain. <a href="https://pubmed.ncbi.nlm.nih.gov/19131473/">https://pubmed.ncbi.nlm.nih.gov/19131473/</a>** `<!-- id: 2a546721-8359-4f15-9d17-9bc5bd275993 -->`
+      - [ ] **2.5 The Takeaway<i></i>: Stop adding new hacks. Pick one foundational baseline habit—Fuel, Move, or Rest—and automate it before adding anything else.** `<!-- id: e99ca1d6-eef5-442c-94c1-ae398a5f74f7 -->`
+    - [ ] **3. CTA** `<!-- id: 89005965-5df1-4191-918e-b30cc76333d5 -->`
+      - [ ] **"If you're ready to stop collecting health facts and actually install a biological system that fits your life, set up a free Systemized Discovery Call with me or check out our app unpacking the OS. I'll see you in the next video."** `<!-- id: d4b8064f-a478-443b-9e6a-cce26c61a616 -->`
+  - [ ] **80.V0A-S1: Why Monday Health Resolutions Fail #outline** `<!-- id: 05a69931-ef84-4292-bd92-b00e1bb682f0 -->`
     *Note: Source: Videos/008 - Why Monday Health Resolutions Fail (80.V0A-S1)/V0A-S1 Script - Why Monday Health Resolutions Fail.md*
-    - [ ] **<b>Video Code</b>: <code>80.V0A-S1</code>** `<!-- id: 7fb5dd07-2c09-42c9-802f-6f8e003c6be0 -->`
-    - [ ] **<b>Parent Video</b>: <code>80.V0A</code> (<i>230,000 Patient Visits</i>)** `<!-- id: f88c6972-af2c-435b-af18-4974c2af5393 -->`
-    - [ ] **<b>Format</b>: Vertical Short (9:16)** `<!-- id: 10f71ed3-3135-400b-a296-82393f2d7ea0 -->`
-    - [ ] **<b>Target Duration</b>: 45–50 seconds** `<!-- id: fcb42645-9165-4310-b34e-cce9d3e5e08a -->`
-    - [ ] **<b>Tone</b>: Casual Chiropractor Chat, Conversational & Direct** `<!-- id: 94f4b3f8-9297-427f-b752-e444c050aa5e -->`
-    - [ ] **<b>Suggested Settings</b>: <code>#insidetruck</code> <code>#shopping</code> <code>#outside</code>** `<!-- id: 73c08de1-d195-4be3-b849-25fdc1d428df -->`
-    - [ ] **<b>JDex Topic Code</b>: <code>41.03</code> (<i>Habit Creation & Behavioral Physiology</i>)** `<!-- id: 256c961a-1534-40e3-84f9-249515b302ba -->`
-    - [ ] **Stage 1: Pre-Recording Blueprint** `<!-- id: c39ef58d-2117-4ab5-8095-9a604699fe4f -->`
-      - [ ] **1. Placeholder Title & CTR Score** `<!-- id: aac8b620-5bc6-4923-b4d7-312198c0f0ce -->`
-        - [ ] **Title<i></i>: <i>"The Biological Reason Monday Resolutions Always Fail"</i>** `<!-- id: 0d3c1688-ebe8-4570-950d-0ddac768dffc -->`
-        - [ ] **vidIQ CTR Score<i></i>: <code>86 / 100</code>** `<!-- id: 12f3a59b-7b72-4bec-9e81-b3820fc134d9 -->`
-        - [ ] **2. Word-for-Word Hook (Casual Delivery)** `<!-- id: 1a43b111-5512-44a1-b819-3e7595a0599d -->`
-    - [ ] **️ Bulleted Talking Points (For Audio Draft Riffing)** `<!-- id: 000d8490-0fe3-49e2-8a39-cfc407213ed9 -->`
-      - [ ] **The Myth<i></i>: People think quitting a new diet or intense workout routine on Thursday means they lack discipline or willpower.** `<!-- id: 0a3a0b26-88b3-4240-9750-4688e2cf6780 -->`
-      - [ ] **The Biological Reality<i></i>: Human physiology is hardwired for homeostasis and energy conservation. Shocking your biology with 5 massive changes triggers a stress response.** `<!-- id: 5f40435c-e2a1-448d-9d4f-28f293648a13 -->`
-      - [ ] **Clinical Experience<i></i>: 230,000 patient visits showed me that people who succeed long-term never overhaul their life on Monday—they change ONE micro-variable at a time.** `<!-- id: 3ad4ea1f-76cc-467f-8d8d-8c399b0e5ce4 -->`
-      - [ ] **Action Step<i></i>: Pick one micro-habit (like 30 seconds of incline plank or drinking 16oz of water before coffee) and lock it in for 7 days.** `<!-- id: 50758ae8-a522-42c0-abe8-65d56402d2e9 -->`
-    - [ ] **Stage 2: Teleprompter / Workflowy Draft Script Preview** `<!-- id: c58943be-f7f4-4a9d-9cb2-ed1092813af7 -->`
-      - [ ] **If you swore on Sunday night that starting Monday everything changes, and quit by Thursday... #insidetruck 41.03** `<!-- id: a0d908d6-8440-4748-99b4-3baa22328eb7 -->`
-      - [ ] **[pause] I want to tell you why that's not a character flaw. It's biological defense. #insidetruck 41.03** `<!-- id: 8fc33fe3-de91-45c2-a063-f5c583001022 -->`
-      - [ ] **Trying to change five habits overnight triggers a sympathetic stress response. #shopping 41.03** `<!-- id: 7e3871b9-b5f8-4b0a-a595-de909cf49211 -->`
-      - [ ] **[gesture] Incidentally, neuroscience papers show your brain views sudden drastic routine changes as a physical threat. #shopping 41.03** `<!-- id: 65f863cb-646a-49da-a50b-d911022d5942 -->`
-      - [ ] **So it forces a shutdown to protect homeostasis. You don't lack willpower; you lack sequence. #outside 80.11** `<!-- id: 13eef859-8e1f-4ad5-8b76-4db6591a1c7c -->`
-      - [ ] **[tone shift] Stop overhauling Mondays. Book a free Systemized Discovery Call or check out our OS app. #outside 80.11** `<!-- id: c198a17e-d523-4fff-95de-ad71dc7a2f30 -->`
-      - [ ] **I'll see you in the next video. #outside 80.11** `<!-- id: db092c0d-c55a-413f-8663-904cb4ab1d2e -->`
-  - [ ] **80.V0A-S2: The Biological Sequence of Change (Pre-Recording Blueprint)** `<!-- id: e3767084-b38e-43d2-916c-0e532dbd37e6 -->`
-    *Note: Source: Videos/009 - The Biological Sequence of Change (80.V0A-S2)/V0A-S2 Script - The Biological Sequence of Change.md*
-    - [ ] **<b>Video Code</b>: <code>80.V0A-S2</code>** `<!-- id: c40e23db-aa09-41c2-adaf-b28f0a44e8d1 -->`
-    - [ ] **<b>Parent Video</b>: <code>80.V0A</code> (<i>230,000 Patient Visits</i>)** `<!-- id: 5da50556-9b88-4b3d-8f0e-51eed1047bf6 -->`
-    - [ ] **<b>Format</b>: Vertical Short (9:16)** `<!-- id: 688b404b-60bc-40fa-b881-9073f7c453aa -->`
-    - [ ] **<b>Target Duration</b>: 45–50 seconds** `<!-- id: 84a58e5b-d6d0-456d-8243-4329e2fdaa5e -->`
-    - [ ] **<b>Tone</b>: Casual Chiropractor Chat, Conversational & Direct** `<!-- id: ffa4249f-ec29-4336-8c51-857c7dfa88e5 -->`
-    - [ ] **<b>Suggested Settings</b>: <code>#outside</code> <code>#cuttinggrass</code> <code>#whilebusy</code>** `<!-- id: 4b5b2961-88a8-461f-a449-bab86e9eb23a -->`
-    - [ ] **<b>JDex Topic Code</b>: <code>80.11</code> (<i>Systemized OS Autonomic Hierarchy</i>)** `<!-- id: 499a7b98-0c58-4424-92a1-6f81ead935d7 -->`
-    - [ ] **Stage 1: Pre-Recording Blueprint** `<!-- id: c0a19440-4362-466d-a38c-352926bab4dd -->`
-      - [ ] **1. Placeholder Title & CTR Score** `<!-- id: 3eacfbf0-9f4f-44dc-bb35-8b3d3703d4d1 -->`
-        - [ ] **Title<i></i>: <i>"The Exact Biological Sequence Your Body Needs to Change"</i>** `<!-- id: a3a93bdf-3099-40f3-86b2-82de72dfdb9a -->`
-        - [ ] **vidIQ CTR Score<i></i>: <code>78 / 100</code>** `<!-- id: c6e02ae3-2a7f-4209-beab-98f6014ebcc3 -->`
-        - [ ] **2. Word-for-Word Hook (Casual Delivery)** `<!-- id: 5c116618-0e02-4385-8a75-407271415355 -->`
-    - [ ] **️ Bulleted Talking Points (For Audio Draft Riffing)** `<!-- id: 99afd9c7-c561-49c1-b77a-1909a77b6f5e -->`
-      - [ ] **The Problem<i></i>: People try to solve mental burnout or business goals (Level 3) without fixing sleep or hydration (Level 1 FMR).** `<!-- id: f17aeb88-1faf-4f80-b3cf-bd4ac20b5ef3 -->`
-      - [ ] **Biological Hierarchy<i></i>: Your nervous system prioritizes survival and metabolic baseline before granting cognitive focus or physical performance.** `<!-- id: 3cb39ff0-7ef1-4df2-9c68-8a2c0824d1c2 -->`
-      - [ ] **Clinical Reality<i></i>: 30 years in chiropractic care showed that trying to optimize mindset while your nervous system is biologically exhausted is a waste of time.** `<!-- id: 2903f953-85c5-4227-abf0-80e9d83fb4cd -->`
-      - [ ] **Action Step<i></i>: Level 1 comes first: Fuel, Move, Rest. If movement is your weak link, do 30 seconds of incline plank a day. Don't worry about an hour at the gym.** `<!-- id: 3c6c94cc-09ac-4ede-b3eb-f55a9aa17977 -->`
-    - [ ] **Stage 2: Teleprompter / Workflowy Draft Script Preview** `<!-- id: 6bb9ad91-c7bc-4b11-b46b-7ff5fb48352e -->`
-      - [ ] **Most high performers are exhausted because they're trying to fix high-level goals... #cuttinggrass 80.11** `<!-- id: 0943fcc7-010d-48f9-9886-3c0c8f966ca3 -->`
-      - [ ] **[pause] while their physical foundation is literally falling apart. #cuttinggrass 80.11** `<!-- id: f4c3f3ae-5252-4aa2-8825-ee36b86c3b5c -->`
-      - [ ] **Your biology runs on a strict hierarchy. You can't optimize mindset on an exhausted nervous system. #outside 80.11** `<!-- id: 882fb7e7-6e2a-4a80-b35c-82de31e17c2e -->`
-      - [ ] **[gesture] Incidentally, a paper in Medicine & Science in Sports & Exercise proved autonomic recovery has a strict order. #outside 80.11** `<!-- id: 651eaf17-5fd5-419b-abff-fd71aa778b23 -->`
-      - [ ] **Fuel, Movement, and Rest come first. Fix your physical baseline before touching anything else. #whilebusy 80.11** `<!-- id: 1c5c2d31-50e8-4646-8646-7ed08b5e8df2 -->`
-      - [ ] **[tone shift] Set up a free Systemized Discovery Call or check out our OS app to map your biological sequence. #whilebusy 80.11** `<!-- id: a9a85d19-2ca2-4dca-bc95-027174e17048 -->`
-      - [ ] **I'll see you in the next video. #whilebusy 80.11** `<!-- id: 821658c0-b9b0-4370-b01f-aba69f8b6b11 -->`
-  - [ ] **80.V0A-S3: Stop Treating Health Like an Emergency (Pre-Recording Blueprint)** `<!-- id: fdbe7603-3ef6-4cca-aefe-26f8ec464515 -->`
-    *Note: Source: Videos/010 - Stop Treating Health Like an Emergency (80.V0A-S3)/V0A-S3 Script - Stop Treating Health Like an Emergency.md*
-    - [ ] **<b>Video Code</b>: <code>80.V0A-S3</code>** `<!-- id: a1010de5-d5f3-40c8-ad08-e69e0b4fd2a4 -->`
-    - [ ] **<b>Parent Video</b>: <code>80.V0A</code> (<i>230,000 Patient Visits</i>)** `<!-- id: c0f24fde-c62d-465e-bcda-42025dc05184 -->`
-    - [ ] **<b>Format</b>: Vertical Short (9:16)** `<!-- id: e6c76e74-3654-476e-9fbb-c4b94e278d5d -->`
-    - [ ] **<b>Target Duration</b>: 45–50 seconds** `<!-- id: d521f442-cd6a-4ab4-aec4-99fb2d8277f0 -->`
-    - [ ] **<b>Tone</b>: Casual Chiropractor Chat, Conversational & Direct** `<!-- id: 1a239c78-3fd6-42a6-99b1-b17c6ca280df -->`
-    - [ ] **<b>Suggested Settings</b>: <code>#insidetruck</code> <code>#driving</code> <code>#outside</code>** `<!-- id: 04689b10-26aa-4baf-9357-90193c98388e -->`
-    - [ ] **<b>JDex Topic Code</b>: <code>77.02</code> (<i>Clinical Symptom Management</i>)** `<!-- id: 0c5fd2d0-8ebb-4955-b507-4083f9c5ad98 -->`
-    - [ ] **Stage 1: Pre-Recording Blueprint** `<!-- id: bdbf10cd-0184-405d-891c-bdaa890764c5 -->`
-      - [ ] **1. Placeholder Title & CTR Score** `<!-- id: a0a8747b-d1c2-4af0-8735-a21673172f01 -->`
-        - [ ] **Title<i></i>: <i>"Stop Treating Your Health Like an Emergency Room"</i>** `<!-- id: 94c15ca1-a0b3-41ce-95a9-4c84e71b39a0 -->`
-        - [ ] **vidIQ CTR Score<i></i>: <code>75 / 100</code>** `<!-- id: fda7a311-a7dd-439a-870b-62e97b60fb49 -->`
-        - [ ] **2. Word-for-Word Hook (Casual Delivery)** `<!-- id: c9658e7e-f135-4d80-bccd-2f596fa60590 -->`
-    - [ ] **️ Bulleted Talking Points (For Audio Draft Riffing)** `<!-- id: a34a464b-8863-4323-b15a-2ffb285f4b4d -->`
-      - [ ] **The Pattern<i></i>: People ignore subtle warning signs (stiffness, brain fog, poor sleep) for months, then react frantically when pain hits.** `<!-- id: aea1ab07-dba2-4889-b585-65d423b52fa6 -->`
-      - [ ] **The Biological Reframe<i></i>: Pain isn't the start of the problem—it's the late-stage alarm signal. True health is a background operating system running quiet, low-friction habits daily.** `<!-- id: 0aabe689-4175-4777-bf3f-1bcbf5d17e1f -->`
-      - [ ] **Clinical Anecdote<i></i>: In 30 years of clinical practice, 9 out of 10 "sudden back spasms" were actually caused by 6 months of silent somatic micro-trauma.** `<!-- id: 8ddbe84a-8ed7-46a1-87c1-488ed1fd5d50 -->`
-      - [ ] **Action Step<i></i>: Don't wait for the emergency. Check your Level 1 FMR baseline today.** `<!-- id: d11cba85-b32d-40df-859c-e99f811278dc -->`
-    - [ ] **Stage 2: Teleprompter / Workflowy Draft Script Preview** `<!-- id: 55f21ca5-aabc-4994-885f-9c398ad2cd45 -->`
-      - [ ] **If you only pay attention to your body when your back locks up or energy crashes... #driving 77.02** `<!-- id: 16da8f33-fc7f-4686-93fc-3328f1967334 -->`
-      - [ ] **[pause] You're running your health like an emergency room instead of an operating system. #driving 77.02** `<!-- id: a3978009-8847-4722-9f41-abf00271d91b -->`
-      - [ ] **Pain isn't the start of the problem—it's just the late-stage alarm signal. #insidetruck 77.02** `<!-- id: 71a6695f-58cc-4457-ae3e-ad9d1f00f31f -->`
-      - [ ] **[gesture] Incidentally, a paper in the Journal of Neuroradiology showed 80% of joint breakdown happens silently before pain hits. #insidetruck 77.02** `<!-- id: 4a17dd92-d02a-4a0d-af89-563b98ad25d6 -->`
-      - [ ] **Stop firefighting symptoms. Run quiet background habits that prevent the crash. #outside 80.11** `<!-- id: 426e3d6b-017d-43d9-a1a1-0779c51c9e6a -->`
-      - [ ] **[tone shift] Book a free Systemized Discovery Call or check out our app unpacking the OS. #outside 80.11** `<!-- id: 10d4b11e-15a9-4d59-a583-138911597c44 -->`
-      - [ ] **I'll see you in the next video. #outside 80.11** `<!-- id: ef48c146-7bcf-45b3-a3cb-528d6b6f84db -->`
-  - [ ] **80.V1B1-S1: Why Exercise is Optional (Pre-Recording Blueprint)** `<!-- id: b745d834-c2e1-4df5-b500-48db67427634 -->`
-    *Note: Source: Videos/011 - Why Exercise is Optional (80.V1B1-S1)/V1B1-S1 Script - Why Exercise is Optional.md*
-    - [ ] **<b>Video Code</b>: <code>80.V1B1-S1</code>** `<!-- id: fd9d3d62-6685-48fa-bb0b-ce35356b2241 -->`
-    - [ ] **<b>Parent Video</b>: <code>80.V1B1</code> (<i>Exercise Optional / Movement Mandatory</i>)** `<!-- id: d394a722-0816-4a39-a14a-aed46fb78fac -->`
-    - [ ] **<b>Format</b>: Vertical Short (9:16)** `<!-- id: a4259d0f-55d3-4f64-a5ad-fd720b992351 -->`
-    - [ ] **<b>Target Duration</b>: 45–50 seconds** `<!-- id: 43a66085-b293-4ea6-bd77-76173103af21 -->`
-    - [ ] **<b>Tone</b>: Casual Chiropractor Chat, Conversational & Direct** `<!-- id: 443b75e4-167e-43b7-83ab-b1eb38b612e4 -->`
-    - [ ] **<b>Suggested Settings</b>: <code>#whilebusy</code> <code>#shopping</code> <code>#outside</code>** `<!-- id: b1e3101a-42a7-43dd-8c22-d09e6c0b64da -->`
-    - [ ] **<b>JDex Topic Code</b>: <code>77.01</code> (<i>Physical Movement & Energetics</i>)** `<!-- id: 6c84cfec-4b73-411b-ba51-3f73ac5679f9 -->`
-    - [ ] **Stage 1: Pre-Recording Blueprint** `<!-- id: 4a3ce1a0-9499-4295-9451-cf4821da3ebf -->`
-      - [ ] **1. Placeholder Title & CTR Score** `<!-- id: 2cfd6153-350a-41fa-887f-a3e56666fbc3 -->`
-        - [ ] **Title<i></i>: <i>"Exercise is Optional But Movement is Biologically Mandatory"</i>** `<!-- id: e410aa31-332b-4dfd-b332-a083f3cd4d29 -->`
-        - [ ] **vidIQ CTR Score<i></i>: <code>81 / 100</code>** `<!-- id: 95683ad9-7bbd-4082-8b95-3cb9d9ebf14d -->`
-        - [ ] **2. Word-for-Word Hook (Casual Delivery)** `<!-- id: 74349336-246a-45e8-b170-3495f114e757 -->`
-    - [ ] **️ Bulleted Talking Points (For Audio Draft Riffing)** `<!-- id: 3b570fa3-f5e5-4e9a-900e-ab800920c308 -->`
-      - [ ] **The Relief<i></i>: People feel guilty when they can't force themselves to go to the gym 5 days a week. Ditch the guilt.** `<!-- id: d78e0ed9-14ec-4106-8ece-6a4854cdb2a8 -->`
-      - [ ] **Biological Fact<i></i>: Human physiology is designed for high-frequency, low-load somatic movement throughout the day, not 1 hour of intense gym suffering followed by 10 hours of desk sitting.** `<!-- id: 2b418df7-3d97-45e2-ac95-2ecece34e8f0 -->`
-      - [ ] **Clinical Insight<i></i>: Sitting motionless all day and then doing heavy squats at 6 PM is a recipe for spinal disc herniation.** `<!-- id: 4e63cd4a-bb00-4dfc-a462-06f9f0a21590 -->`
-      - [ ] **Action Step<i></i>: Integrate movement micro-breaks into daily life (standing calf raises, desk planks, walking while talking on the phone).** `<!-- id: 26f08187-ea5d-4cb1-8176-309206818f81 -->`
-    - [ ] **Stage 2: Teleprompter / Workflowy Draft Script Preview** `<!-- id: b3de14f2-27ea-441c-8385-b309b7040659 -->`
-      - [ ] **If you hate grinding on a treadmill going nowhere... good. Your biology agrees with you. #shopping 77.01** `<!-- id: 63078475-a6cc-49f6-ad01-92477a658057 -->`
-      - [ ] **[pause] Exercise is optional—movement is mandatory. #shopping 77.01** `<!-- id: f723c62e-adb5-45ba-b639-542feb0a94a6 -->`
-      - [ ] **Human physiology wasn't built for 1 hour of gym suffering followed by 10 hours of sitting motionless. #whilebusy 77.01** `<!-- id: 4b12616a-755c-42aa-afad-fc633286b7f9 -->`
-      - [ ] **[gesture] Incidentally, a paper in PLOS ONE showed hunter-gatherers rarely did cardio sessions, but moved constantly all day. #whilebusy 77.01** `<!-- id: dbf4e6cd-cc2f-47c6-ba5c-5f17fd3b0118 -->`
-      - [ ] **You don't need a gym membership; you need high-frequency, low-load movement micro-breaks. #outside 80.11** `<!-- id: 71e3522e-044a-4e68-bb9c-dffc81055744 -->`
-      - [ ] **[tone shift] Book a free Systemized Discovery Call or check out our app unpacking the OS. #outside 80.11** `<!-- id: cbcab082-21d5-42eb-a08c-99c22ac9abbc -->`
-      - [ ] **I'll see you in the next video. #outside 80.11** `<!-- id: 60ba70d7-29e2-400a-aaa5-b44acd7dd764 -->`
-  - [ ] **80.V1B1-S2: Joint Imbibition: How Joints Eat (Pre-Recording Blueprint)** `<!-- id: c27a7ac5-4532-4750-99bd-f911a48234d4 -->`
-    *Note: Source: Videos/012 - Joint Imbibition How Joints Eat (80.V1B1-S2)/V1B1-S2 Script - Joint Imbibition How Joints Eat.md*
-    - [ ] **<b>Video Code</b>: <code>80.V1B1-S2</code>** `<!-- id: ba07fffb-7981-47df-91f4-5e483aa5544d -->`
-    - [ ] **<b>Parent Video</b>: <code>80.V1B1</code> (<i>Exercise Optional / Movement Mandatory</i>)** `<!-- id: d679d230-e39b-4ee6-9c2d-b040376ef3c0 -->`
-    - [ ] **<b>Format</b>: Vertical Short (9:16)** `<!-- id: 7271a13c-8b0b-4af5-87a1-e039b4da5063 -->`
-    - [ ] **<b>Target Duration</b>: 45–50 seconds** `<!-- id: 6cffa776-37ad-47e0-ab02-9428b6dd7744 -->`
-    - [ ] **<b>Tone</b>: Casual Chiropractor Chat, Conversational & Direct** `<!-- id: f4a8e5cd-5199-40d2-9dc1-553c29820d61 -->`
-    - [ ] **<b>Suggested Settings</b>: <code>#insidetruck</code> <code>#outside</code> <code>#studio</code>** `<!-- id: e7d278c7-2c5e-46ec-8cf6-ba78bc963cb4 -->`
-    - [ ] **<b>JDex Topic Code</b>: <code>77.01</code> (<i>Spinal Biomechanics & Hydrostatics</i>)** `<!-- id: 9a5b4cc8-e3d3-491f-b3bf-97c7f883f74a -->`
-    - [ ] **Stage 1: Pre-Recording Blueprint** `<!-- id: 74fadc7c-bba6-4128-9059-be42f30cef88 -->`
-      - [ ] **1. Placeholder Title & CTR Score** `<!-- id: f02db4cf-d18c-4432-9a89-e338eb6bd274 -->`
-        - [ ] **Title<i></i>: <i>"Joint Imbibition: The Only Way Your Joints Actually Get Nourished"</i>** `<!-- id: 52f4f8f0-54c8-4d93-9e8d-b846fb73b48c -->`
-        - [ ] **vidIQ CTR Score<i></i>: <code>83 / 100</code>** `<!-- id: 3d32a2ed-3130-4b43-82f7-fb0b5fce9372 -->`
-        - [ ] **2. Word-for-Word Hook (Casual Delivery)** `<!-- id: 5d16e367-ccda-4a54-91b2-b53730d3f19b -->`
-    - [ ] **️ Bulleted Talking Points (For Audio Draft Riffing)** `<!-- id: 6b49e4e1-a0da-4c8d-87d5-1276f5271ff5 -->`
-      - [ ] **Anatomical Fact<i></i>: Adult joint cartilage and intervertebral discs are avascular (no direct blood vessels).** `<!-- id: 438b45df-ef84-4276-870d-9f8ac96fb29f -->`
-      - [ ] **The Mechanism (Imbibition)<i></i>: Joints rely on a mechanical pump mechanism called imbibition. When loaded, fluid is squeezed out; when decompressed, fresh nutrient-rich fluid is sucked back in like a sponge.** `<!-- id: aee60c43-b35e-4ec0-bc1d-fa8e1fa485a4 -->`
-      - [ ] **The Danger<i></i>: Sitting motionless at a desk starves your joint cartilage of oxygen and nutrients.** `<!-- id: 2bb6dada-37b7-4df9-b062-a4495bb6884c -->`
-      - [ ] **Action Step<i></i>: Every 45 minutes, perform gentle spinal rotations or pelvic tilts to pump your discs.** `<!-- id: 0a884526-0e66-4827-8a73-ab34fbb7eeac -->`
-    - [ ] **Stage 2: Teleprompter / Workflowy Draft Script Preview** `<!-- id: 5086def5-230a-45e8-b3dc-278dcd2d2d94 -->`
-      - [ ] **Did you know that your spinal cartilage and joint surfaces have zero blood supply? #insidetruck 77.01** `<!-- id: fe78923e-9715-466d-ada0-6119145228e2 -->`
-      - [ ] **[pause] They literally can't eat unless you move them. #insidetruck 77.01** `<!-- id: ff85b3ee-7d5d-4de6-8597-9543325906b3 -->`
-      - [ ] **Joints rely on a biological mechanism called imbibition. Think of a sponge. #studio 77.01** `<!-- id: b54393ea-dc28-4c67-a675-5445f4b98a73 -->`
-      - [ ] **[gesture] When loaded, fluid squeezes out. When decompressed, fresh nutrients soak back in. #studio 77.01** `<!-- id: b566d407-6506-49a3-bcdf-14988bf9c9a3 -->`
-      - [ ] **Incidentally, orthopaedic papers in Arthritis Research show sitting still cuts joint fluid exchange dramatically. #outside 77.01** `<!-- id: 6cb8ee23-9ebb-4ae6-b23a-f5639b21cb48 -->`
-      - [ ] **If you don't pump your joints daily, they starve and degenerate. #outside 77.01** `<!-- id: fb35193a-deb6-4e88-9df7-1638826b524a -->`
-      - [ ] **[tone shift] Book a free Systemized Discovery Call or check out our OS app to keep your joints fed. #outside 80.11** `<!-- id: 3e713cd6-1f68-463f-bd59-6b35b9212d35 -->`
-      - [ ] **I'll see you in the next video. #outside 80.11** `<!-- id: e19a4531-5aeb-4397-a79c-a06eaedf68d3 -->`
-  - [ ] **80.V1B1-S3: Cortical Smudging: Why Back Pain Spasms (Pre-Recording Blueprint)** `<!-- id: acb1998d-2613-46e3-a53a-14dacfedfa2c -->`
-    *Note: Source: Videos/013 - Cortical Smudging Why Back Pain Spasms (80.V1B1-S3)/V1B1-S3 Script - Cortical Smudging Why Back Pain Spasms.md*
-    - [ ] **<b>Video Code</b>: <code>80.V1B1-S3</code>** `<!-- id: 8dcce4d2-b136-4d53-896c-19729d74678c -->`
-    - [ ] **<b>Parent Video</b>: <code>80.V1B1</code> (<i>Exercise Optional / Movement Mandatory</i>)** `<!-- id: 534a31cb-e0fd-4eda-86ee-7d9bf30a196e -->`
-    - [ ] **<b>Format</b>: Vertical Short (9:16)** `<!-- id: b4476b06-cfe9-4429-b7a9-e425a4dd9804 -->`
-    - [ ] **<b>Target Duration</b>: 45–50 seconds** `<!-- id: 0555c62c-92f9-4df8-9f43-eef202203039 -->`
-    - [ ] **<b>Tone</b>: Casual Chiropractor Chat, Conversational & Direct** `<!-- id: 883004bb-3489-4289-a3af-cf19a01274dc -->`
-    - [ ] **<b>Suggested Settings</b>: <code>#insidetruck</code> <code>#driving</code> <code>#outside</code>** `<!-- id: 43bb7e9b-79d9-4bd4-b030-e75b50e02c0c -->`
-    - [ ] **<b>JDex Topic Code</b>: <code>77.03</code> (<i>Sensory Motor Map & Cortical Representation</i>)** `<!-- id: b91f385c-47f3-49bc-b6cb-28a3746aac90 -->`
-    - [ ] **Stage 1: Pre-Recording Blueprint** `<!-- id: 5545324c-af47-4002-b112-29a508c1b67b -->`
-      - [ ] **1. Placeholder Title & CTR Score** `<!-- id: f0e329da-a809-4210-aa75-9b98b8b1828b -->`
-        - [ ] **Title<i></i>: <i>"Cortical Smudging: Why Your Back Pain Randomly Spasms"</i>** `<!-- id: 0bbfd072-ceba-4c7e-9c9c-d16a8adde15d -->`
-        - [ ] **vidIQ CTR Score<i></i>: <code>85 / 100</code>** `<!-- id: 4d767cec-0819-416b-8d23-3e7918c36658 -->`
-        - [ ] **2. Word-for-Word Hook (Casual Delivery)** `<!-- id: 4770254e-2684-4945-8e5b-32edd5797093 -->`
-    - [ ] **️ Bulleted Talking Points (For Audio Draft Riffing)** `<!-- id: 6c5f503c-4305-4f9e-bcb8-4a5df5d0dded -->`
-      - [ ] **The Puzzle<i></i>: Why does a tiny, light movement (picking up a sock or pencil) trigger a massive, excruciating muscle spasm in the lower back?** `<!-- id: d5bbe7f2-d310-498c-a6e3-4b1b042a0a31 -->`
-      - [ ] **Neurological Mechanism<i></i>: Cortical Smudging. The brain has a high-definition motor map (homunculus) of your spine. If you don't move through full ranges daily, the map blurs like a smudged mirror.** `<!-- id: 45975c95-3191-4d1f-a687-04880be9cc35 -->`
-      - [ ] **The Threat Response<i></i>: When you make a surprise movement, the blurred brain map freaks out because it can't sense precise joint position, triggering a protective muscle lock-up.** `<!-- id: 8ef1f8b4-2a0d-4ecf-b7e0-8a8736b55b03 -->`
-      - [ ] **Action Step<i></i>: Sharp sensory feedback resets the map—do slow, controlled cat-camels or tactile spinal tracing daily.** `<!-- id: c5e7d8a3-f8d8-4a36-bb27-02226c62a28c -->`
-    - [ ] **Stage 2: Teleprompter / Workflowy Draft Script Preview** `<!-- id: 709c93c6-51a3-4d5e-9dbc-7e1c1f1b7bc2 -->`
-      - [ ] **Ever bent over to pick up a pencil and had your back lock up in violent spasms? #insidetruck 77.03** `<!-- id: 5799ee57-a5f8-4cd8-8d6e-c2731d97c286 -->`
-      - [ ] **[pause] That wasn't a pulled muscle—that was your brain smudging your motor map. #insidetruck 77.03** `<!-- id: 9b7f9876-454a-4f1d-9663-9230549cf8e7 -->`
-      - [ ] **When you stop moving your spine in varied ways, the brain's map of your back blurs out. #driving 77.03** `<!-- id: e554ab78-b65a-45d5-bac7-0d98cead2191 -->`
-      - [ ] **[gesture] Incidentally, a paper in Neurorehabilitation & Neural Repair called this 'cortical smudging'. #driving 77.03** `<!-- id: 75962b0e-8545-44b2-be15-7f2c9b31f345 -->`
-      - [ ] **Because the brain can't clearly see where your spine is in space, it locks the muscles up in panic. #outside 77.03** `<!-- id: 7726dba8-7cf3-49a0-aac6-163bc400b5a6 -->`
-      - [ ] **To clear the smudge, you don't need ice or ibuprofen; you need sensory motor feedback. #outside 77.03** `<!-- id: 1ced750e-99bd-4d72-8208-ba1b625c2495 -->`
-      - [ ] **[tone shift] Set up a free Systemized Discovery Call or check out our OS app to reset your motor map. #outside 80.11** `<!-- id: 8219c069-6ebb-4923-b766-aa326c73e677 -->`
-      - [ ] **I'll see you in the next video. #outside 80.11** `<!-- id: 84c43eeb-e897-4823-9da1-262e0627122f -->`
-  - [ ] **80.V0A1-S1: The Willpower Trap (Pre-Recording Blueprint)** `<!-- id: cb3478cf-fa3c-4040-864c-ef6d2e7a164e -->`
-    *Note: Source: Videos/014 - The Willpower Trap (80.V0A1-S1)/V0A1-S1 Script - The Willpower Trap.md*
-    - [ ] **<b>Video Code</b>: <code>80.V0A1-S1</code>** `<!-- id: 1c4763d6-8340-4c8a-98f3-047f497899fe -->`
-    - [ ] **<b>Parent Video</b>: <code>80.V0A1</code> (<i>Systemized OS Framework</i>)** `<!-- id: 2e0a3803-0ddb-4349-964e-673ef9b927e6 -->`
-    - [ ] **<b>Format</b>: Vertical Short (9:16)** `<!-- id: d027c866-9ae9-404b-aa38-cf033e030363 -->`
-    - [ ] **<b>Target Duration</b>: 45–50 seconds** `<!-- id: 39521db2-941f-45b6-950b-338c85e11c78 -->`
-    - [ ] **<b>Tone</b>: Casual Chiropractor Chat, Conversational & Direct** `<!-- id: 7552a437-ae8a-46a9-ad01-9599fb4164f0 -->`
-    - [ ] **<b>Suggested Settings</b>: <code>#whilebusy</code> <code>#insidetruck</code> <code>#outside</code>** `<!-- id: 3c26836a-b851-44c9-bf14-263edabf1c6b -->`
-    - [ ] **<b>JDex Topic Code</b>: <code>42.06</code> (<i>Ego Depletion & Executive Control</i>)** `<!-- id: 26845d17-1e5f-4be4-8678-bb6a5f7a0bab -->`
-    - [ ] **Stage 1: Pre-Recording Blueprint** `<!-- id: 605c57a2-46b8-45ac-9836-bee47fe7bfb3 -->`
-      - [ ] **1. Placeholder Title & CTR Score** `<!-- id: a7e5cab2-1cd6-4006-8555-ede0dbd58fa7 -->`
-        - [ ] **Title<i></i>: <i>"Why Relying on Willpower Guarantees Physical Burnout"</i>** `<!-- id: c9131154-9b9d-4f3b-8657-20388507cdf3 -->`
-        - [ ] **vidIQ CTR Score<i></i>: <code>83 / 100</code>** `<!-- id: e59b294f-096e-4ab9-a5c1-954f5306ec81 -->`
-        - [ ] **2. Word-for-Word Hook (Casual Delivery)** `<!-- id: bf1af147-d7e6-405a-ac35-5c64f179e4dc -->`
-    - [ ] **️ Bulleted Talking Points (For Audio Draft Riffing)** `<!-- id: 9bfa88d1-6870-4061-889b-606b97800151 -->`
-      - [ ] **The Illusion<i></i>: High performers think they just need more grit to stick to complex health routines.** `<!-- id: f4b30d6e-91eb-441f-a538-173f03bcf5f5 -->`
-      - [ ] **The Biological Bottleneck<i></i>: Willpower relies on the prefrontal cortex, which is exhaustible. By 5 PM, decision fatigue sets in and your brain defaults to energy-saving habits.** `<!-- id: 7f613376-94f5-40c3-911a-0c3e945aaa6e -->`
-      - [ ] **Clinical Reality<i></i>: 30 years in practice showed me that patient compliance drops to zero when routines require active decision-making after a stressful workday.** `<!-- id: 9a2b2ac3-71c9-4155-bd6b-9a0d442fbf33 -->`
-      - [ ] **The Solution<i></i>: Automate habits into friction-free systems. Structure is freedom.** `<!-- id: 7063af24-2cfc-41f0-88b4-01e6238281c2 -->`
-    - [ ] **Stage 2: Teleprompter / Workflowy Draft Script Preview** `<!-- id: 14a457a4-db42-47d5-b5b7-bd5490ece571 -->`
-      - [ ] **If you're relying on sheer willpower to keep your health together... #whilebusy 42.06** `<!-- id: 9704c17a-ece3-498d-bc35-7d84fe37ebf7 -->`
-      - [ ] **[pause] You're running your body on a battery that's guaranteed to run out. #whilebusy 42.06** `<!-- id: 3a8bc753-316e-4ce3-af9a-959d71c60aef -->`
-      - [ ] **Willpower is a finite prefrontal resource. By 5 PM, decision fatigue wipes it out. #insidetruck 42.06** `<!-- id: 448cc4a9-3fc5-4e42-8595-c32debfcb3d3 -->`
-      - [ ] **[gesture] Incidentally, a paper in Perspectives on Psychological Science proved executive control drains under cognitive load. #insidetruck 42.06** `<!-- id: 888a67ef-60f5-4738-a9f8-a0d3bca639d1 -->`
-      - [ ] **When willpower drains, your brain defaults to old survival habits. #outside 42.06** `<!-- id: 7adc66a2-a869-4921-b2e6-cc81f3eeb652 -->`
-      - [ ] **Don't rely on grit; build friction-free biological systems that run automatically. #outside 80.11** `<!-- id: 911dc7a4-d7ae-448c-808c-4c688c8a7c58 -->`
-      - [ ] **[tone shift] Book a free Systemized Discovery Call or grab our OS app to systemize your health. #outside 80.11** `<!-- id: 624001ab-1284-40ba-a0ae-ecbc6b2485e3 -->`
-      - [ ] **I'll see you in the next video. #outside 80.11** `<!-- id: 049a89cb-09e3-4d90-afde-246e87550e6a -->`
-  - [ ] **80.V0A1-S2: Level 1 FMR Baseline (Pre-Recording Blueprint)** `<!-- id: 0195c54e-d176-44a7-b29b-8dc19dc81c2d -->`
-    *Note: Source: Videos/015 - Level 1 FMR Baseline (80.V0A1-S2)/V0A1-S2 Script - Level 1 FMR Baseline.md*
-    - [ ] **<b>Video Code</b>: <code>80.V0A1-S2</code>** `<!-- id: 77ff2e6e-f87c-4d3e-8df7-24b18f421c86 -->`
-    - [ ] **<b>Parent Video</b>: <code>80.V0A1</code> (<i>Systemized OS Framework</i>)** `<!-- id: b894dd0c-4a6c-4b3f-b1cd-281d1c86a862 -->`
-    - [ ] **<b>Format</b>: Vertical Short (9:16)** `<!-- id: f113a120-3ff4-4fae-9e94-1331e55b7f0e -->`
-    - [ ] **<b>Target Duration</b>: 45–50 seconds** `<!-- id: 7943be41-2298-4b96-b834-c24d808e43ea -->`
-    - [ ] **<b>Tone</b>: Casual Chiropractor Chat, Conversational & Direct** `<!-- id: ecefd8d6-dea4-4cbe-883b-4bec7a59237c -->`
-    - [ ] **<b>Suggested Settings</b>: <code>#outside</code> <code>#insidetruck</code> <code>#studio</code>** `<!-- id: fd599a66-b6c8-4a40-9234-e2046358c197 -->`
-    - [ ] **<b>JDex Topic Code</b>: <code>80.11</code> (<i>Level 1 FMR Biological Foundation</i>)** `<!-- id: 582e1b65-f77b-400f-b411-eb27fbbfbfd9 -->`
-    - [ ] **Stage 1: Pre-Recording Blueprint** `<!-- id: 52708420-abde-40e0-b735-6ae349c458c0 -->`
-      - [ ] **1. Placeholder Title & CTR Score** `<!-- id: 639b3f82-1064-4dce-b6d3-d187f6965304 -->`
-        - [ ] **Title<i></i>: <i>"The Level 1 FMR Baseline Every Body Needs to Master"</i>** `<!-- id: fbdd5d5e-1fd4-4c8d-b7c2-8d8b55cd1e38 -->`
-        - [ ] **vidIQ CTR Score<i></i>: <code>79 / 100</code>** `<!-- id: 3afede14-3838-461e-bcc5-be44f3ccc9c4 -->`
-        - [ ] **2. Word-for-Word Hook (Casual Delivery)** `<!-- id: 9f331667-01bd-4197-9394-73ba72beab37 -->`
-    - [ ] **️ Bulleted Talking Points (For Audio Draft Riffing)** `<!-- id: 1bd16e4b-1384-48a6-bb7f-03d87459629b -->`
-      - [ ] **The Distraction<i></i>: People love buying expensive biohacks while ignoring that they get 5 hours of broken sleep and drink no water.** `<!-- id: 2947afb5-7207-4de7-bc09-6eabcd400249 -->`
-      - [ ] **The FMR Framework<i></i>: Level 1 of the Systemized OS is non-negotiable: Fuel (hydration & real nutrient density), Move (daily low-load somatic pump), and Rest (circadian alignment).** `<!-- id: 2a0ca18e-91c6-4a39-a07c-556148409df4 -->`
-      - [ ] **Clinical Insight<i></i>: In 230,000 patient visits, fixing Level 1 cleared up 80% of what patients thought were complex medical problems.** `<!-- id: 2b34e7d5-993d-4f81-90e2-a85b37e6e86a -->`
-  - [ ] **80.V0A1-S3: The 3-Tier Health Pyramid (Pre-Recording Blueprint)** `<!-- id: eb6c40f0-14ce-4350-805c-6ef7a37a7cd7 -->`
-    *Note: Source: Videos/016 - The 3-Tier Health Pyramid (80.V0A1-S3)/V0A1-S3 Script - The 3-Tier Health Pyramid.md*
-    - [ ] **<b>Video Code</b>: <code>80.V0A1-S3</code>** `<!-- id: 111e8edf-db4c-493e-86c6-8e5862a14fd8 -->`
-    - [ ] **<b>Parent Video</b>: <code>80.V0A1</code> (<i>Systemized OS Framework</i>)** `<!-- id: 279a36e2-31e5-42d0-86ea-babf740c19c1 -->`
-    - [ ] **<b>Format</b>: Vertical Short (9:16)** `<!-- id: 90046969-a636-4078-9757-98756117bc88 -->`
-    - [ ] **<b>Target Duration</b>: 45–50 seconds** `<!-- id: 79cddb1b-2659-4875-baf5-899217bc7f7d -->`
-    - [ ] **<b>Tone</b>: Casual Chiropractor Chat, Conversational & Direct** `<!-- id: 08103d01-804f-4656-8c96-7e4316cf61a2 -->`
-    - [ ] **<b>Suggested Settings</b>: <code>#insidetruck</code> <code>#outside</code> <code>#whilebusy</code>** `<!-- id: a2c61e5b-68bc-4aaf-ac68-38dc172dc966 -->`
-    - [ ] **<b>JDex Topic Code</b>: <code>80.11</code> (<i>3-Tier Health Pyramid Architecture</i>)** `<!-- id: d0bba0f9-f0fc-4584-80ee-bbb82cb14f8b -->`
-    - [ ] **Stage 1: Pre-Recording Blueprint** `<!-- id: 13e71d7f-976f-4e36-92ba-98d4357af2ee -->`
-      - [ ] **1. Placeholder Title & CTR Score** `<!-- id: 34d03d6b-1280-40ac-8ba8-226eee7bbd9f -->`
-        - [ ] **Title<i></i>: <i>"The 3-Tier Health Pyramid That Fixes Chronic Fatigue"</i>** `<!-- id: 87f8fc02-016f-4593-ac32-d909d63150b2 -->`
-        - [ ] **vidIQ CTR Score<i></i>: <code>81 / 100</code>** `<!-- id: fb1ddb1b-d6e6-426e-bde4-85bbc5b9a1bf -->`
-        - [ ] **2. Word-for-Word Hook (Casual Delivery)** `<!-- id: 8c81ab0a-0ef1-4dd4-8f49-ac4f2f6a27ca -->`
-    - [ ] **️ Bulleted Talking Points (For Audio Draft Riffing)** `<!-- id: 3bddf6d4-dd41-4ab9-bcd5-0bfb3f459e70 -->`
-      - [ ] **The Architecture<i></i>: Systemized Health uses a 3-Tier Operating System:** `<!-- id: 8ced7b93-3436-48ce-844d-b9b381e89c08 -->`
-      - [ ] **Level 1 (Foundational - FMR)<i></i>: Fuel, Move, Rest. (Somatic hardware & baseline).** `<!-- id: c07a311b-6d6c-4ff6-adde-69e011189c96 -->`
-      - [ ] **Level 2 (Internal - TLC)<i></i>: Think, Learn, Connect. (Cognitive & neurological processing).** `<!-- id: f92501cf-68df-4040-abf2-232913e667c9 -->`
-      - [ ] **Level 3 (External - POP)<i></i>: Play, Organize, Purpose. (High-level goals & physical performance).** `<!-- id: 5672a188-aced-4da0-8db3-bc08e3f1b6aa -->`
-      - [ ] **The Core Rule<i></i>: Level 3 external execution is impossible if Level 1 baseline is broken.** `<!-- id: 8647eb88-63e3-4d8f-a6bf-ec8ff7939cb2 -->`
-      - [ ] **Clinical Insight<i></i>: Over 30 years, I've watched high performers collapse because they tried to run Level 3 life goals on a crashing Level 1 engine.** `<!-- id: 6b693f73-29bb-40a8-82c0-79a35889f639 -->`
-    - [ ] **Stage 2: Teleprompter / Workflowy Draft Script Preview** `<!-- id: 6390640d-a71e-4b68-b957-5dab6bdca231 -->`
-      - [ ] **Think of your health like an operating system on your phone. #insidetruck 80.11** `<!-- id: e373a31b-9810-422a-bc16-3a0a838fc922 -->`
-      - [ ] **[pause] If the hardware is overheating, downloading new apps won't help. #insidetruck 80.11** `<!-- id: a8cfc330-37d8-4bb3-95be-9f1ed59b8807 -->`
-      - [ ] **Our biology runs on 3 tiers: Level 1 FMR, Level 2 TLC, and Level 3 POP. #outside 80.11** `<!-- id: f6f49981-43f8-4536-9400-6ef624616d62 -->`
-      - [ ] **[gesture] Level 1 is your baseline: Fuel, Movement, and Rest. #outside 80.11** `<!-- id: fbb330d5-1dae-475c-a35c-655ce7575015 -->`
-      - [ ] **Incidentally, systems biology papers in Science show complex systems crash when baseline energy drops. #whilebusy 80.11** `<!-- id: 0e3a1051-0d8a-4764-ac11-cdc2ec24e45b -->`
-      - [ ] **Fix your Level 1 foundation so your Level 3 performance can actually thrive. #whilebusy 80.11** `<!-- id: b7347b1f-bd28-4ce9-b4d4-c61569e3542d -->`
-      - [ ] **[tone shift] Book a free Systemized Discovery Call or check out our app unpacking the OS. #whilebusy 80.11** `<!-- id: 5c70f232-5cc5-4b0e-a3d2-fe30ebd29bbe -->`
-      - [ ] **I'll see you in the next video. #whilebusy 80.11** `<!-- id: 08de7a22-9fd3-4973-9000-77015468ba79 -->`
-  - [ ] **80.V0B-S1: Information Overload vs Implementation** `<!-- id: d8132612-36c4-4f07-9911-5bbe57c2eff8 -->`
-    *Note: Source: Videos/005 - Information Overload vs Implementation (80.V0B-S1)/V0B-S1 Script - Information Overload vs Implementation.md*
-    - [ ] **<b>Suggested Settings</b>: <code>#insidetruck</code> <code>#whilebusy</code> <code>#outside</code>** `<!-- id: 7126dd46-b909-4231-9d49-a31cfde12d87 -->`
-    - [ ] **<b>JDex Topic Code</b>: <code>80.11</code> (<i>Systemized OS Framework</i>)** `<!-- id: 7f2082f3-5500-4b95-a032-abb36fea3b7b -->`
-    - [ ] **Hook** `<!-- id: 6cd88f33-39a7-4c0f-8ebd-741576c97a8b -->`
-      - [ ] **"Look, if you're like most people I see in the clinic, you don't need another health podcast, supplement stack, or Monday morning resolution."** `<!-- id: ab167eed-2edb-42ef-bc61-868cc3a8451b -->`
-    - [ ] **Talking Points (For Audio Riffing)** `<!-- id: a0266b84-0650-4c5d-9bf6-177157d11768 -->`
-      - [ ] **The Problem<i></i>: High performers aren't failing due to a lack of knowledge; they are drowning in scattered health advice without an operating system.** `<!-- id: 7f797b29-360d-4927-acae-f529dc3d8217 -->`
-      - [ ] **The Biological Reframe<i></i>: Knowing <i>what</i> to do is useless if your nervous system is too fatigued to execute it. Information without biological sequencing creates execution friction.** `<!-- id: a1522f07-6968-4b6c-9422-0818a6f7ccd7 -->`
-      - [ ] **Clinical Scenario<i></i>: Patient comes into the clinic with 15 different supplement bottles and 3 workout apps, but can't touch their toes or sleep 6 hours straight.** `<!-- id: 468666c5-b7a8-42b1-8631-415d65e63c27 -->`
-      - [ ] **Casual Research Reference<i></i>: Marcora et al. (2009) <i>J Appl Physiol</i> showing cognitive overload inhibits physical motor plan execution in the brain. <a href="https://pubmed.ncbi.nlm.nih.gov/19131473/">https://pubmed.ncbi.nlm.nih.gov/19131473/</a>** `<!-- id: f6c5bcec-3e52-4ab8-acfb-3665fa46cdf9 -->`
-      - [ ] **The Takeaway<i></i>: Stop adding new hacks. Pick one foundational baseline habit—Fuel, Move, or Rest—and automate it before adding anything else.** `<!-- id: 38e64206-a164-4119-8675-ca210b0ab744 -->`
-    - [ ] **CTA** `<!-- id: e16707ec-87e7-4cb4-8e6a-aaa93930ffe0 -->`
-      - [ ] **"If you're ready to stop collecting health facts and actually install a biological system that fits your life, set up a free Systemized Discovery Call with me or check out our app unpacking the OS. I'll see you in the next video."** `<!-- id: 73d395df-3d64-4669-a87a-b63561d519ee -->`
-  - [ ] **80.V0B-S2: Finding Your System Glitch** `<!-- id: 25be344e-1f15-4786-9030-975fb7af3b8e -->`
-    *Note: Source: Videos/006 - Finding Your System Glitch (80.V0B-S2)/V0B-S2 Script - Finding Your System Glitch.md*
-    - [ ] **<b>Suggested Settings</b>: <code>#driving</code> <code>#outside</code> <code>#insidetruck</code>** `<!-- id: ee5deb09-54b5-404a-921f-9c589150d599 -->`
-    - [ ] **<b>JDex Topic Code</b>: <code>77.03</code> (<i>Clinical Consult & Neurological Assessment</i>)** `<!-- id: 66166a32-1f83-43c9-9ca8-aaf7a5af1adc -->`
-    - [ ] **Hook** `<!-- id: 7ff5f5ad-491a-4c30-be25-e4f13644a449 -->`
-      - [ ] **"Whenever someone comes into my office with chronic tightness or low energy, they usually blame their age. But 90% of the time, it's just a system glitch in their biological baseline."** `<!-- id: 1b94dc64-d33d-4e11-b309-ec07093a652d -->`
-    - [ ] **Talking Points (For Audio Riffing)** `<!-- id: 48c03dc8-71c2-4fbb-9eb9-ea8583a3c4df -->`
-      - [ ] **The Problem<i></i>: People mistake a simple neurological/somatic glitch for permanent aging or degeneration.** `<!-- id: 6ec9e671-89e0-4312-9e17-e989ad7db63a -->`
-      - [ ] **The Biological Reframe<i></i>: Your body isn't broken; it's running a corrupted routine in the background because a foundational baseline habit (Fuel, Movement, or Rest) is misaligned.** `<!-- id: 40e2580b-b400-430a-a9e6-9bb068f89b23 -->`
-      - [ ] **Clinical Example<i></i>: A patient complaining of tight hamstrings for 5 years—it wasn't short muscles, it was an inhibited glute motor pattern caused by sitting at a desk 10 hours a day.** `<!-- id: 4d6aa50a-f1f1-4003-81ef-216d397530c3 -->`
-      - [ ] **Casual Research Reference<i></i>: Tsao et al. (2008) <i>Brain</i> showing motor cortex reorganization causes motor map errors. <a href="https://pubmed.ncbi.nlm.nih.gov/18669505/">https://pubmed.ncbi.nlm.nih.gov/18669505/</a>** `<!-- id: 021e2f26-2026-45f3-b441-b39d0d414397 -->`
-      - [ ] **The Action Step<i></i>: Test your system. Hold an incline plank or do a 30-second breath reset. Identify whether your glitch is physical fatigue or structural inhibition.** `<!-- id: 51b61de1-bf4b-4646-ae9c-354b3e9e839e -->`
-    - [ ] **CTA** `<!-- id: 85447bbf-9de4-44cf-abd8-16cd4f458397 -->`
-      - [ ] **"If you want to isolate the exact biological glitch holding your body back, book a free Systemized Discovery Call with me or check out our app unpacking the OS. I'll see you in the next video."** `<!-- id: 74640f7d-732f-4409-a24c-49f331a657c6 -->`
-  - [ ] **80.V0B-S3: Doctor vs Coach: Rebuilding Baseline** `<!-- id: 7e728e26-0276-43ba-ad98-ddb684c81caa -->`
+    - [ ] **<b>Video Code</b>: <code>80.V0A-S1</code>** `<!-- id: 1ec95615-b04e-414d-9d16-109c50f8b636 -->`
+    - [ ] **<b>Parent Video</b>: <code>80.V0A</code> (<i>230,000 Patient Visits</i>)** `<!-- id: 0cbb078b-526b-4857-9a8d-deef86875745 -->`
+    - [ ] **<b>Suggested Settings</b>: <code>#insidetruck</code> <code>#shopping</code> <code>#outside</code>** `<!-- id: 062e75fc-53e0-457c-a35d-e7e7a2756dba -->`
+    - [ ] **<b>JDex Topic Code</b>: <code>41.03</code> (<i>Habit Creation</i>)** `<!-- id: 13af3cf1-403b-4aef-b5bd-0701da91a323 -->`
+    - [ ] **1. Hook** `<!-- id: 4a3cd184-e87f-4bb1-8556-d2deb2ea0d89 -->`
+      - [ ] **"If you've ever swore on Sunday night that 'starting Monday, everything changes,' and then quit by Thursday... I want to tell you why that's not a character flaw."** `<!-- id: 3a4f2f60-436e-436b-9d00-fcc1d101588e -->`
+    - [ ] **2. Talking Points (For Audio Riffing)** `<!-- id: e8546208-32b6-4d4b-81ce-2d330ae795c6 -->`
+      - [ ] **2.1 The Myth<i></i>: People think quitting a new diet or intense workout routine on Thursday means they lack discipline or willpower.** `<!-- id: 90bc4a4c-47a8-4c6a-82b1-c8d84deef972 -->`
+      - [ ] **2.2 The Biological Reality<i></i>: Human physiology is hardwired for homeostasis and energy conservation. Shocking your biology with 5 massive changes triggers a stress response.** `<!-- id: 55d270ec-067d-4e3b-be32-c220cecec119 -->`
+      - [ ] **2.3 Clinical Experience<i></i>: 230,000 patient visits showed me that people who succeed long-term never overhaul their life on Monday—they change ONE micro-variable at a time.** `<!-- id: c37d0aa3-3ad9-4cd9-a3d9-c35e6f1febed -->`
+      - [ ] **2.4 Casual Research Reference<i></i>: McEwen (1998) <i>N Engl J Med</i> showing sympathetic stress response forces emergency shutdown under sudden drastic routine changes. <a href="https://pubmed.ncbi.nlm.nih.gov/9428819/">https://pubmed.ncbi.nlm.nih.gov/9428819/</a>** `<!-- id: b8505195-b16b-440e-83eb-d895e4035f81 -->`
+      - [ ] **2.5 Action Step<i></i>: Pick one micro-habit (like 30 seconds of incline plank or drinking 16oz of water before coffee) and lock it in for 7 days.** `<!-- id: 8b760f3a-3422-4327-9c0a-193df27a4f88 -->`
+    - [ ] **3. CTA** `<!-- id: bae41218-09df-4e22-b1fe-6244106bba00 -->`
+      - [ ] **"If you want to stop failing Monday resolutions and build a low-friction biological system instead, set up a free Systemized Discovery Call or grab our app unpacking the OS. I'll see you in the next video."** `<!-- id: 8a9d61ff-9535-4ec5-91e9-be63e5ded3d7 -->`
+    - [ ] **Audio transcription draft** `<!-- id: 17f7ee8a-e8e1-4c92-8880-58f0907258dd -->`
+      - [ ] **If you get the idea that you want to start fresh Monday, and you're just gonna correct all your issues, I would recommend that you start smaller than you think. So let's unpack this just a little bit. If you're going to fail at a goal, which most people do in their health. I'm sorry to say that it's the case. You can increase your chance of success by downshifting your goal to a more realistic goal. So instead of saying, Monday, I'm gonna start training for a marathon, say, Monday, I'm gonna get up and I'm going to walk or run. for five minutes. Then I'm gonna go to work and do my normal, regular stuff. And I'm gonna do that every other day. for the next week. That's my goal. Not run a marathon, but to begin the process, it can be action that will eventually lead to building to where you can actually run that marathon.** `<!-- id: d3adf000-c2f4-4e0b-9b68-56efb388e459 -->`
+    - [ ] **Teleprompter Clips (Filming Order)** `<!-- id: b2d3fee0-892a-4cc0-8774-2875da731f2c -->`
+      *Note: Save recorded video clips as [Code]>[ClipNumber].mp4*
+      - [ ] **Clip 80.V0A-S1>1 — The Hook #film #insidetruck** `<!-- id: 2d80c002-3132-4bee-ac3a-2376b770e9df -->`
+        - [ ] **If you get the idea that you want to start fresh Monday, [pause] and you're just gonna correct all your health issues...** `<!-- id: f45b4b19-05c2-4e6c-9b50-910ffc6c07f7 -->`
+        - [ ] **I would recommend that you start smaller than you think.** `<!-- id: ef201738-dd9b-45d7-a0c1-f65bdd2d5605 -->`
+      - [ ] **Clip 80.V0A-S1>2 — The Unpack & Downshift Concept #film #insidetruck** `<!-- id: de658115-0ea1-4d7a-89ed-d69c60eef528 -->`
+        - [ ] **So let me unpack this just a little bit.** `<!-- id: 537ab6eb-c716-4e34-ace7-0eedab6e5dcb -->`
+        - [ ] **If you're going to fail at a goal—which most people do in their health, [tone shift] I'm sorry to say that's the case...** `<!-- id: 5736bb3b-48a4-47f7-8bc6-7b4ec155a023 -->`
+        - [ ] **You can increase your chance of success by downshifting your goal to a more realistic goal.** `<!-- id: 6710b8ff-5bd1-458a-a528-920b459385a6 -->`
+      - [ ] **Clip 80.V0A-S1>3 — The Marathon Contrast #film #outside** `<!-- id: bd3cd9f5-050e-42ce-ba69-b58e7dc09704 -->`
+        - [ ] **So instead of saying, "Monday, I'm gonna start training for a marathon,"** `<!-- id: 02050994-b9f8-40b5-8e5e-c0c479fe306f -->`
+        - [ ] **Say, "Monday, I'm gonna get up and I'm going to walk or run for five minutes."** `<!-- id: b3f4f39b-a11e-4999-84d1-d9f32fa966d6 -->`
+      - [ ] **Clip 80.V0A-S1>4 — Low-Friction Schedule #film #outside** `<!-- id: 0311fa62-4a46-4fa2-92b0-f3e9102579d6 -->`
+        - [ ] **Then go to work and do your normal, regular stuff.** `<!-- id: 5fe51144-831a-483b-82a0-9617d2fff1fa -->`
+        - [ ] **And do that every other day for the next week. [eye contact shift] That's your goal.** `<!-- id: 68190145-af4c-47ff-8f08-ac1217f8f87f -->`
+      - [ ] **Clip 80.V0A-S1>5 — Process Over Finish Line #film #shopping** `<!-- id: 19814e54-52ed-42a8-b53e-e47eafd8e5a6 -->`
+        - [ ] **Not run a marathon right out of the gate, [pause] but to begin the process.** `<!-- id: 264b93d0-b8c7-49e0-972f-cdbcd098162d -->`
+        - [ ] **It's that small, consistent action that will eventually build to where you can actually run that marathon.** `<!-- id: 616af0bb-3bb2-4ec9-a544-6ad789e10bb9 -->`
+      - [ ] **Clip 80.V0A-S1>6 — Outro CTA #film #shopping** `<!-- id: 8100912f-ea19-4f02-8102-7a2dde66460c -->`
+        - [ ] **If you're ready to stop failing Monday resolutions and build a low-friction biological system instead,** `<!-- id: 74b8cea5-4897-43fe-b518-a475c334e94e -->`
+        - [ ] **Set up a free Systemized Discovery Call or grab our app unpacking the OS. [gesture] I'll see you in the next video.** `<!-- id: ed2d5129-75fc-41bf-91fc-a0ead901b024 -->`
+  - [ ] **80.V0B-S3: Doctor vs Coach: Rebuilding Baseline** `<!-- id: ad47b1c6-71c8-4547-906d-8c9867e31943 -->`
     *Note: Source: Videos/007 - Doctor vs Coach Rebuilding Baseline (80.V0B-S3)/V0B-S3 Script - Doctor vs Coach Rebuilding Baseline.md*
-    - [ ] **<b>Suggested Settings</b>: <code>#studio</code> <code>#outside</code> <code>#whilebusy</code>** `<!-- id: 9b477e87-ec66-4998-aeae-2fe705c3a28f -->`
-    - [ ] **<b>JDex Topic Code</b>: <code>77.01</code> (<i>Clinical Practice & Joint Biomechanics</i>)** `<!-- id: cfb5589d-6c14-4b8b-865f-e89d86fd32f3 -->`
-    - [ ] **Hook** `<!-- id: 27cab476-ae79-4324-8a70-c30624562f0d -->`
-      - [ ] **"Here's something I've noticed after 30 years in chiropractic practice: a doctor treats your symptoms when you break, but a fitness coach often pushes you until you break."** `<!-- id: 70617b02-e13f-4762-aaab-4fba2776cd45 -->`
-    - [ ] **Talking Points (For Audio Riffing)** `<!-- id: baf0fcad-561c-4584-8fe1-f631877bc51c -->`
-      - [ ] **The Friction<i></i>: The health industry forces a choice between reactive medicine (fixing damage) and extreme fitness coaching (pushing past fatigue).** `<!-- id: 59c60f5c-53e5-4937-9370-d885bdea5a26 -->`
-      - [ ] **The Missing Role<i></i>: What high performers actually need is clinical guidance on building an underlying biological baseline—Fuel, Movement, and Rest.** `<!-- id: 7da4798b-a514-425e-a71f-2702feac0fea -->`
-      - [ ] **Clinical Insight<i></i>: Over 230,000 patient visits taught me that most exercise injuries happen because people build strength on top of a dysfunctional foundation.** `<!-- id: 31122f3e-afd0-4090-958c-1f9dbd944068 -->`
-      - [ ] **Casual Research Reference<i></i>: Andriacchi et al. (2004) <i>Ann Biomed Eng</i> showing minor joint misalignment quadruples cartilage stress under heavy load. <a href="https://pubmed.ncbi.nlm.nih.gov/15095819/">https://pubmed.ncbi.nlm.nih.gov/15095819/</a>** `<!-- id: 772a214c-5d9d-41dc-a56d-fcf23e5fd48d -->`
-      - [ ] **The Takeaway<i></i>: You don't need more intensity. You need biological alignment first.** `<!-- id: 9c884a21-65df-424c-b9b5-08eb7e55ca03 -->`
-    - [ ] **CTA** `<!-- id: da6ec0e5-8671-45a0-92d8-2507206f6ccd -->`
-      - [ ] **"If you want a clinical approach to rebuilding your physical baseline without the gym bro hype, set up a free Systemized Discovery Call or grab our app unpacking the OS. I'll see you in the next video."** `<!-- id: e80cd976-7dfd-4148-95d1-7bc3f014e0f5 -->`
-  - [ ] **80.V0A-S1: Why Monday Health Resolutions Fail** `<!-- id: a051f465-568e-45ff-a8fc-4afafe152296 -->`
-    *Note: Source: Videos/008 - Why Monday Health Resolutions Fail (80.V0A-S1)/V0A-S1 Script - Why Monday Health Resolutions Fail.md*
-    - [ ] **<b>Suggested Settings</b>: <code>#insidetruck</code> <code>#shopping</code> <code>#outside</code>** `<!-- id: 74a133e3-ec10-405f-804a-2168afdf8104 -->`
-    - [ ] **<b>JDex Topic Code</b>: <code>41.03</code> (<i>Habit Creation</i>)** `<!-- id: 86de0057-37ef-4e6e-8bab-cf9d5e801ce2 -->`
-    - [ ] **Hook** `<!-- id: 14ec0295-6a1a-4d81-8667-25d3e7d74f59 -->`
-      - [ ] **"If you've ever swore on Sunday night that 'starting Monday, everything changes,' and then quit by Thursday... I want to tell you why that's not a character flaw."** `<!-- id: 5de126b6-950c-422e-a779-2a13fcbd6403 -->`
-    - [ ] **Talking Points (For Audio Riffing)** `<!-- id: b8cb01b5-6f9f-4562-875f-48cd715af873 -->`
-      - [ ] **The Myth<i></i>: People think quitting a new diet or intense workout routine on Thursday means they lack discipline or willpower.** `<!-- id: f8b2eb64-1eac-46f2-81fa-8625443b0fa7 -->`
-      - [ ] **The Biological Reality<i></i>: Human physiology is hardwired for homeostasis and energy conservation. Shocking your biology with 5 massive changes triggers a stress response.** `<!-- id: 0b54bdff-5cd4-405b-b270-031599ff3292 -->`
-      - [ ] **Clinical Experience<i></i>: 230,000 patient visits showed me that people who succeed long-term never overhaul their life on Monday—they change ONE micro-variable at a time.** `<!-- id: 8c31ee81-ae2e-4359-b418-ed53859b9d31 -->`
-      - [ ] **Casual Research Reference<i></i>: McEwen (1998) <i>N Engl J Med</i> showing sympathetic stress response forces emergency shutdown under sudden drastic routine changes. <a href="https://pubmed.ncbi.nlm.nih.gov/9428819/">https://pubmed.ncbi.nlm.nih.gov/9428819/</a>** `<!-- id: b5312ec2-86b8-4414-84d9-bf27e2bcddc6 -->`
-      - [ ] **Action Step<i></i>: Pick one micro-habit (like 30 seconds of incline plank or drinking 16oz of water before coffee) and lock it in for 7 days.** `<!-- id: 810da6ac-7a7b-4dd7-b2be-f68e1248fc46 -->`
-    - [ ] **CTA** `<!-- id: 3fd5487e-934b-403c-8d8e-81f95c43382d -->`
-      - [ ] **"If you want to stop failing Monday resolutions and build a low-friction biological system instead, set up a free Systemized Discovery Call or grab our app unpacking the OS. I'll see you in the next video."** `<!-- id: aaa8d89d-bde7-49c8-9322-9f0ff6ca3a8b -->`
-  - [ ] **80.V0A-S2: The Biological Sequence of Change** `<!-- id: eaab60eb-4890-424b-a301-76e8b1573d64 -->`
-    *Note: Source: Videos/009 - The Biological Sequence of Change (80.V0A-S2)/V0A-S2 Script - The Biological Sequence of Change.md*
-    - [ ] **<b>Suggested Settings</b>: <code>#outside</code> <code>#cuttinggrass</code> <code>#whilebusy</code>** `<!-- id: b9c1091f-0f8f-40bc-9406-723cc7d4eaa3 -->`
-    - [ ] **<b>JDex Topic Code</b>: <code>80.11</code> (<i>Autonomic Sequence & Systemized OS</i>)** `<!-- id: 37f32a6a-7b35-461f-9dfd-f1391f17a823 -->`
-    - [ ] **Hook** `<!-- id: 1df81d27-6538-435f-9b3b-55d3522396c4 -->`
-      - [ ] **"Most high performers are exhausted because they're trying to fix emotional stress and high-level goals while their physical foundation is literally falling apart."** `<!-- id: efd9d104-1ceb-41ac-9fc5-032dce67b9a0 -->`
-    - [ ] **Talking Points (For Audio Riffing)** `<!-- id: b9576172-1fca-4caf-8892-c3c67bf232da -->`
-      - [ ] **The Problem<i></i>: People try to solve mental burnout or business goals (Level 3) without fixing sleep or hydration (Level 1 FMR).** `<!-- id: 466fae60-b747-4dc6-861c-3f18f63e64a8 -->`
-      - [ ] **Biological Hierarchy<i></i>: Your nervous system prioritizes survival and metabolic baseline before granting cognitive focus or physical performance.** `<!-- id: b4ceeba2-34e9-487c-b25c-07bb63fd4e9b -->`
-      - [ ] **Clinical Reality<i></i>: 30 years in chiropractic care showed that trying to optimize mindset while your nervous system is biologically exhausted is a waste of time.** `<!-- id: 781fb89e-2b64-4fec-8914-13e727f86726 -->`
-      - [ ] **Casual Research Reference<i></i>: Seiler et al. (2007) <i>Med Sci Sports Exerc</i> demonstrating autonomic recovery follows a strict biological sequence: metabolic stability -> structural movement -> cognitive focus. <a href="https://pubmed.ncbi.nlm.nih.gov/17762370/">https://pubmed.ncbi.nlm.nih.gov/17762370/</a>** `<!-- id: 7834c09d-56f2-4b5b-893f-8489015bb752 -->`
-      - [ ] **Action Step<i></i>: Level 1 comes first: Fuel, Move, Rest. If movement is your weak link, do 30 seconds of incline plank a day. Don't worry about an hour at the gym.** `<!-- id: cf5b089f-1ff1-4f21-9cc1-08ddb9420824 -->`
-    - [ ] **CTA** `<!-- id: 31673870-1d3e-4ecd-83e0-524d34fe5a8d -->`
-      - [ ] **"If you want to install health habits in the exact order your biology demands, book a free Systemized Discovery Call or grab our app unpacking the OS. I'll see you in the next video."** `<!-- id: 77a38414-dce5-4b82-bac5-27c7f9191eb8 -->`
-  - [ ] **80.V0A-S3: Stop Treating Health Like an Emergency** `<!-- id: 8afdde9d-ecb7-4ab1-b64b-9bdf307772ce -->`
+    - [ ] **<b>Video Code</b>: <code>80.V0B-S3</code>** `<!-- id: af2cec83-0aa6-46d1-83db-062dd67eb0fa -->`
+    - [ ] **<b>Parent Video</b>: <code>80.V0B</code> (<i>Health Info & Biology Baseline</i>)** `<!-- id: 9ce9b0ec-f3b6-4d21-8a61-1b2189a037a2 -->`
+    - [ ] **<b>Suggested Settings</b>: <code>#studio</code> <code>#outside</code> <code>#whilebusy</code>** `<!-- id: 48839888-7661-410f-a03f-8369f31f419f -->`
+    - [ ] **<b>JDex Topic Code</b>: <code>77.01</code> (<i>Clinical Practice & Joint Biomechanics</i>)** `<!-- id: 7be01e5d-76f9-4149-ad3d-56724f6e876c -->`
+    - [ ] **1. Hook** `<!-- id: d33853d8-0145-4586-80eb-cd40312e0d23 -->`
+      - [ ] **"Here's something I've noticed after 30 years in chiropractic practice: a doctor treats your symptoms when you break, but a fitness coach often pushes you until you break."** `<!-- id: d4be5ddc-963a-4259-8085-3bedfc581870 -->`
+    - [ ] **2. Talking Points (For Audio Riffing)** `<!-- id: eb7d83a3-6057-4838-8071-6fcedc8e2818 -->`
+      - [ ] **2.1 The Friction<i></i>: The health industry forces a choice between reactive medicine (fixing damage) and extreme fitness coaching (pushing past fatigue).** `<!-- id: 8ad95748-3116-40fd-932c-12a680ab4b85 -->`
+      - [ ] **2.2 The Missing Role<i></i>: What high performers actually need is clinical guidance on building an underlying biological baseline—Fuel, Movement, and Rest.** `<!-- id: fc204154-21da-4571-8789-6b84f9db3bde -->`
+      - [ ] **2.3 Clinical Insight<i></i>: Over 230,000 patient visits taught me that most exercise injuries happen because people build strength on top of a dysfunctional foundation.** `<!-- id: 5634edf6-78a2-4fe9-b88b-c286341c7ea5 -->`
+      - [ ] **2.4 Casual Research Reference<i></i>: Andriacchi et al. (2004) <i>Ann Biomed Eng</i> showing minor joint misalignment quadruples cartilage stress under heavy load. <a href="https://pubmed.ncbi.nlm.nih.gov/15095819/">https://pubmed.ncbi.nlm.nih.gov/15095819/</a>** `<!-- id: ea766893-0984-42b7-8b97-a7b98b8fa705 -->`
+      - [ ] **2.5 The Takeaway<i></i>: You don't need more intensity. You need biological alignment first.** `<!-- id: 5db6622f-13db-475d-b14e-7ddc6abeb4f2 -->`
+    - [ ] **3. CTA** `<!-- id: b56d9ba3-ac03-4b58-94c8-c8bd64e8a8d3 -->`
+      - [ ] **"If you want a clinical approach to rebuilding your physical baseline without the gym bro hype, set up a free Systemized Discovery Call or grab our app unpacking the OS. I'll see you in the next video."** `<!-- id: 7c25329e-22d4-4ad4-a409-3a2d883ce24c -->`
+  - [ ] **80.V0B-S2: Finding Your System Glitch** `<!-- id: 22be0d20-ad81-4076-9a5e-0d2da194f628 -->`
+    *Note: Source: Videos/006 - Finding Your System Glitch (80.V0B-S2)/V0B-S2 Script - Finding Your System Glitch.md*
+    - [ ] **<b>Video Code</b>: <code>80.V0B-S2</code>** `<!-- id: f6ede8be-9bf1-4976-bd72-1373e70c6085 -->`
+    - [ ] **<b>Parent Video</b>: <code>80.V0B</code> (<i>Health Info & Biology Baseline</i>)** `<!-- id: 6f4e2c0e-a0e3-4f5c-bfaf-fdf04bfe46a3 -->`
+    - [ ] **<b>Suggested Settings</b>: <code>#driving</code> <code>#outside</code> <code>#insidetruck</code>** `<!-- id: 5f41a0d9-fb4d-4776-a7bb-892c399e1d94 -->`
+    - [ ] **<b>JDex Topic Code</b>: <code>77.03</code> (<i>Clinical Consult & Neurological Assessment</i>)** `<!-- id: 2f6cacaf-8f62-40d4-a713-6242f526bc7d -->`
+    - [ ] **1. Hook** `<!-- id: 7f21d398-884a-4573-85d2-93315f0a2467 -->`
+      - [ ] **"Whenever someone comes into my office with chronic tightness or low energy, they usually blame their age. But 90% of the time, it's just a system glitch in their biological baseline."** `<!-- id: d920e299-6edb-494c-a0c9-7488537e5627 -->`
+    - [ ] **2. Talking Points (For Audio Riffing)** `<!-- id: 9c7f7b8d-c49d-4933-b11e-04645bc40dbd -->`
+      - [ ] **2.1 The Problem<i></i>: People mistake a simple neurological/somatic glitch for permanent aging or degeneration.** `<!-- id: 754289d1-4f7f-43b2-a252-e010c7ffed06 -->`
+      - [ ] **2.2 The Biological Reframe<i></i>: Your body isn't broken; it's running a corrupted routine in the background because a foundational baseline habit (Fuel, Movement, or Rest) is misaligned.** `<!-- id: c759e1c7-28d6-4bc2-9c0d-5a20fc4848c9 -->`
+      - [ ] **2.3 Clinical Example<i></i>: A patient complaining of tight hamstrings for 5 years—it wasn't short muscles, it was an inhibited glute motor pattern caused by sitting at a desk 10 hours a day.** `<!-- id: a3b54f9c-b9b9-42cf-81da-a42d3fc53f2e -->`
+      - [ ] **2.4 Casual Research Reference<i></i>: Tsao et al. (2008) <i>Brain</i> showing motor cortex reorganization causes motor map errors. <a href="https://pubmed.ncbi.nlm.nih.gov/18669505/">https://pubmed.ncbi.nlm.nih.gov/18669505/</a>** `<!-- id: f3dd2e2c-4842-4fca-ba56-d8d15d447145 -->`
+      - [ ] **2.5 The Action Step<i></i>: Test your system. Hold an incline plank or do a 30-second breath reset. Identify whether your glitch is physical fatigue or structural inhibition.** `<!-- id: 86ecaabc-b607-4dc2-a0c7-92e3b9281fff -->`
+    - [ ] **3. CTA** `<!-- id: 735c1831-707f-46a7-9781-5829f1d337f6 -->`
+      - [ ] **"If you want to isolate the exact biological glitch holding your body back, book a free Systemized Discovery Call with me or check out our app unpacking the OS. I'll see you in the next video."** `<!-- id: b36623d6-7c3a-4a87-9885-1e3b5d5a13ae -->`
+  - [ ] **80.V0A-S3: Stop Treating Health Like an Emergency #outline** `<!-- id: 65d28662-3e70-47dc-a7f3-3cdd81a304ec -->`
     *Note: Source: Videos/010 - Stop Treating Health Like an Emergency (80.V0A-S3)/V0A-S3 Script - Stop Treating Health Like an Emergency.md*
-    - [ ] **<b>Suggested Settings</b>: <code>#insidetruck</code> <code>#driving</code> <code>#outside</code>** `<!-- id: 08562aa5-a50c-438f-bb63-e37184f6b49c -->`
-    - [ ] **<b>JDex Topic Code</b>: <code>77.02</code> (<i>Clinical Symptom Management</i>)** `<!-- id: 54fc2ebd-ea40-421c-950f-95a4ff37dd94 -->`
-    - [ ] **Hook** `<!-- id: c8c671a2-e1af-441c-b02d-10de9ba1063d -->`
-      - [ ] **"If you only care about your body when your back locks up or your energy completely crashes... you're running your health like an emergency room instead of an operating system."** `<!-- id: 349728e3-41c2-4ee8-a108-5bd40146d9fc -->`
-    - [ ] **Talking Points (For Audio Riffing)** `<!-- id: 63977ed3-26f6-4859-8498-ddb2e155f082 -->`
-      - [ ] **The Pattern<i></i>: People ignore subtle warning signs (stiffness, brain fog, poor sleep) for months, then react frantically when pain hits.** `<!-- id: ce55dedd-7014-41a7-8657-1f99bf8ae32f -->`
-      - [ ] **The Biological Reframe<i></i>: Pain isn't the start of the problem—it's the late-stage alarm signal. True health is a background operating system running quiet, low-friction habits daily.** `<!-- id: f77d2e18-7e65-4cd8-8e87-5d141cea6625 -->`
-      - [ ] **Clinical Anecdote<i></i>: In 30 years of clinical practice, 9 out of 10 "sudden back spasms" were actually caused by 6 months of silent somatic micro-trauma.** `<!-- id: fe3992e6-84e6-4519-9070-7bc2de3e09c3 -->`
-      - [ ] **Casual Research Reference<i></i>: Brinjikji et al. (2015) <i>AJNR</i> showing 80% of structural joint breakdown occurs silently long before the first pain signal. <a href="https://pubmed.ncbi.nlm.nih.gov/25430861/">https://pubmed.ncbi.nlm.nih.gov/25430861/</a>** `<!-- id: a7a4acb7-c14c-4c59-af7b-8b415f351cb5 -->`
-      - [ ] **Action Step<i></i>: Don't wait for the emergency. Check your Level 1 FMR baseline today.** `<!-- id: bd1d5bea-95ec-41e0-a684-f0a843490c32 -->`
-    - [ ] **CTA** `<!-- id: ad15a0da-9e1c-4bdb-9231-694de1624d4b -->`
-      - [ ] **"If you want to transition from emergency firefighting to a smooth biological operating system, book a free Systemized Discovery Call or grab our app unpacking the OS. I'll see you in the next video."** `<!-- id: 18146c70-7ff4-4a7d-89da-4475fc170645 -->`
-  - [ ] **80.V1B1-S1: Why Exercise is Optional** `<!-- id: 163806d3-2f2f-4a95-aa8d-980f6af7018a -->`
+    - [ ] **<b>Video Code</b>: <code>80.V0A-S3</code>** `<!-- id: 0a39f350-c577-4a97-b1cb-8763b8be45b8 -->`
+    - [ ] **<b>Parent Video</b>: <code>80.V0A</code> (<i>230,000 Patient Visits</i>)** `<!-- id: 13cb1cae-d645-410b-9a1a-c37f03c667c7 -->`
+    - [ ] **<b>Suggested Settings</b>: <code>#insidetruck</code> <code>#driving</code> <code>#outside</code>** `<!-- id: 951df350-4a7d-4562-8177-9515c1247fc4 -->`
+    - [ ] **<b>JDex Topic Code</b>: <code>77.02</code> (<i>Clinical Symptom Management</i>)** `<!-- id: 44878ac0-1415-4fc7-8b6d-fc3936558987 -->`
+    - [ ] **1. Hook** `<!-- id: 69d203c2-312a-4e1d-b69e-80676f68b497 -->`
+      - [ ] **"If you only care about your body when your back locks up or your energy completely crashes... you're running your health like an emergency room instead of an operating system."** `<!-- id: b8be22e6-3a1a-4170-b977-f807128e1b23 -->`
+    - [ ] **2. Talking Points (For Audio Riffing)** `<!-- id: 49f4adda-aca8-42cf-8b9c-a151ddeb47cc -->`
+      - [ ] **2.1 The Pattern<i></i>: People ignore subtle warning signs (stiffness, brain fog, poor sleep) for months, then react frantically when pain hits.** `<!-- id: 3950431d-66d4-4f57-9c94-8feb75f58964 -->`
+      - [ ] **2.2 The Biological Reframe<i></i>: Pain isn't the start of the problem—it's the late-stage alarm signal. True health is a background operating system running quiet, low-friction habits daily.** `<!-- id: 63f05d80-8622-417c-90fa-6b36b5fcadc1 -->`
+      - [ ] **2.3 Clinical Anecdote<i></i>: In 30 years of clinical practice, 9 out of 10 "sudden back spasms" were actually caused by 6 months of silent somatic micro-trauma.** `<!-- id: dfa7bce7-7c89-4408-a8ba-27a5755d11e7 -->`
+      - [ ] **2.4 Casual Research Reference<i></i>: Brinjikji et al. (2015) <i>AJNR</i> showing 80% of structural joint breakdown occurs silently long before the first pain signal. <a href="https://pubmed.ncbi.nlm.nih.gov/25430861/">https://pubmed.ncbi.nlm.nih.gov/25430861/</a>** `<!-- id: 72aa8360-a2ac-4e85-855d-a0a5e7b98698 -->`
+      - [ ] **2.5 Action Step<i></i>: Don't wait for the emergency. Check your Level 1 FMR baseline today.** `<!-- id: bc480acc-659f-457c-9fcb-1463885f2306 -->`
+    - [ ] **3. CTA** `<!-- id: 8ce11781-32b8-4180-ac09-c8ee59c97ae0 -->`
+      - [ ] **"If you want to transition from emergency firefighting to a smooth biological operating system, book a free Systemized Discovery Call or grab our app unpacking the OS. I'll see you in the next video."** `<!-- id: f47fa79b-1417-410b-951e-5af6e6e4365e -->`
+    - [ ] **Audio draft transcript** `<!-- id: cf3ddd13-fe0c-4a40-a670-4b16a5187f39 -->`
+      - [ ] **What you do today is gonna make a difference tomorrow. We can make this really simple. A study... found that... vigorous exercise a few times a week reduces the occurrence of long term. Musculoskeletal pain, that's back pain, neck pain, shoulder pain, knee pain, et cetera. And older adults engage in vigorous activity. And what does that look like? Well, simple. Two or three times a week, I want you to walk, move briskly, or do some kind of activity where you break a sweat. You wanna physically... break a sweat. That means you have generated enough heat, enough activity, enough metabolic activity in your body, that requires you to... increase your heart rate, and engage your autonomic nervous system. so that you sweat. That's what I want you to do. If you get to that point, 20 to 40 minutes, 2 to 3 times a week, you're gonna be on your way to maintaining your health and reducing the chance of muscular skeletal, pain and discomfort as you get older.** `<!-- id: 06798f9a-7378-4fc2-b183-e552bb8aece9 -->`
+    - [ ] **Teleprompter Clips (Filming Order)** `<!-- id: 5014fd89-a761-40cc-9ed8-ea9368eb345d -->`
+      *Note: Save recorded video clips as [Code]>[ClipNumber].mp4*
+      - [ ] **Clip 80.V0A-S3>1 — The Hook #film #insidetruck** `<!-- id: 5da5ee7b-345f-4043-9507-daac7283c066 -->`
+        - [ ] **What you do today is gonna make a difference tomorrow.** `<!-- id: 4af82867-5b80-4c7c-88e1-e5a4cc6675f3 -->`
+        - [ ] **We can make this really simple.** `<!-- id: 318d1aed-80b4-4668-bd40-4c2dd3aa9357 -->`
+      - [ ] **Clip 80.V0A-S3>2 — Clinical Research Evidence #film #insidetruck** `<!-- id: 3cea7f88-758a-4308-aabe-d2828eae016c -->`
+        - [ ] **A major study found that vigorous exercise a few times a week... [pause]** `<!-- id: 9b5ba341-773c-4ee5-ba6b-dcb660349913 -->`
+        - [ ] **Reduces the occurrence of long-term musculoskeletal pain—that's back pain, neck pain, shoulder pain, knee pain, et cetera.** `<!-- id: 66458012-ab0a-4e9a-83e7-b71c726a8d33 -->`
+        - [ ] **And older adults who engage in vigorous activity stay pain-free far longer.** `<!-- id: 9536da05-be50-4fa6-a0a4-86a5b17b54f1 -->`
+      - [ ] **Clip 80.V0A-S3>3 — Defining Vigorous Movement #film #driving** `<!-- id: 828d11d8-68f8-48c3-9ee5-8d0673e3c492 -->`
+        - [ ] **And what does that look like? [tone shift] Well, simple.** `<!-- id: 29593759-af68-4e4e-af72-ae11973edcfb -->`
+        - [ ] **Two or three times a week, I want you to walk, move briskly, or do some kind of activity where you break a sweat.** `<!-- id: d8e73745-d31f-46e2-88b4-301d4dbe0677 -->`
+      - [ ] **Clip 80.V0A-S3>4 — The Autonomic Sweat Metric #film #driving** `<!-- id: ad0237a0-2e68-424b-9833-4d02eb75e2e9 -->`
+        - [ ] **You wanna physically break a sweat.** `<!-- id: 3b05f5fa-ba1d-4b76-a8bc-33c0c85c9498 -->`
+        - [ ] **That means you have generated enough heat, enough activity, enough metabolic activity in your body...** `<!-- id: e00a9dc3-f411-441b-89ed-d44935fc8173 -->`
+        - [ ] **That requires you to increase your heart rate, and engage your autonomic nervous system so that you sweat.** `<!-- id: 0096ed35-67bc-4b3d-9fea-299ccc7f38ef -->`
+      - [ ] **Clip 80.V0A-S3>5 — Dosage & Healthy Aging #film #outside** `<!-- id: 002114e5-f9e0-4ac4-948f-7c47a5143aac -->`
+        - [ ] **That's what I want you to do.** `<!-- id: 3183ba6a-5bae-4fc5-99c0-e62928d07a2a -->`
+        - [ ] **If you get to that point—20 to 40 minutes, 2 to 3 times a week... [eye contact shift]** `<!-- id: 5a0dce87-4613-4b94-99fe-4b69a5674f05 -->`
+        - [ ] **You're gonna be on your way to maintaining your health and reducing the chance of musculoskeletal pain and discomfort as you get older.** `<!-- id: 3b99b54e-388b-456b-8a33-a8bb309ba486 -->`
+      - [ ] **Clip 80.V0A-S3>6 — Outro CTA #film #outside** `<!-- id: 1a01c00e-10c7-4a96-8104-8d78bc5c0ff8 -->`
+        - [ ] **If you want to transition from emergency firefighting to a smooth biological operating system,** `<!-- id: ee55ca9d-a965-4012-8408-e8fe1dccb7e6 -->`
+        - [ ] **Book a free Systemized Discovery Call or grab our app unpacking the OS. [gesture] I'll see you in the next video.** `<!-- id: 6a0c07ac-5ac2-4854-8b28-4a11d97ba235 -->`
+  - [ ] **80.V0A-S2: The Biological Sequence of Change #outline** `<!-- id: 9146cb9c-964c-4563-b47f-811d5ff4150d -->`
+    *Note: Source: Videos/009 - The Biological Sequence of Change (80.V0A-S2)/V0A-S2 Script - The Biological Sequence of Change.md*
+    - [ ] **<b>Video Code</b>: <code>80.V0A-S2</code>** `<!-- id: 24c54dea-09d0-44c6-842f-3a7d58ed8772 -->`
+    - [ ] **<b>Parent Video</b>: <code>80.V0A</code> (<i>230,000 Patient Visits</i>)** `<!-- id: c0ef4460-7300-491c-9a74-37828869f956 -->`
+    - [ ] **<b>Suggested Settings</b>: <code>#outside</code> <code>#cuttinggrass</code> <code>#whilebusy</code>** `<!-- id: bef761b1-785c-4456-b5cb-7dcf9705b1a6 -->`
+    - [ ] **<b>JDex Topic Code</b>: <code>80.11</code> (<i>Autonomic Sequence & Systemized OS</i>)** `<!-- id: 444e67b0-0877-4e32-aef5-4be207d48ac8 -->`
+    - [ ] **1. Hook** `<!-- id: f8416472-2de9-4e4f-b463-0b4ffd11521f -->`
+      - [ ] **"Most high performers are exhausted because they're trying to fix emotional stress and high-level goals while their physical foundation is literally falling apart."** `<!-- id: 79a4debb-aa3f-49fb-b678-99d71ca54585 -->`
+    - [ ] **2. Talking Points (For Audio Riffing)** `<!-- id: 3cd03bd5-a625-49a3-a00c-81bae2bf59f7 -->`
+      - [ ] **2.1 The Problem: People try to solve mental burnout or business goals (Level 3) without fixing sleep or hydration (Level 1 FMR).** `<!-- id: 980c71e3-74a9-4043-ab47-238f0116748c -->`
+      - [ ] **2.2 Biological Hierarchy<i></i>: Your nervous system prioritizes survival and metabolic baseline before granting cognitive focus or physical performance.** `<!-- id: c3dc7c35-1a6a-4a69-bdea-d5153d5fe293 -->`
+      - [ ] **2.3 Clinical Reality<i></i>: 30 years in chiropractic care showed that trying to optimize mindset while your nervous system is biologically exhausted is a waste of time.** `<!-- id: 137f99d4-0cbe-4abe-80c6-a4d93d4208b8 -->`
+      - [ ] **2.4 Casual Research Reference<i></i>: Seiler et al. (2007) <i>Med Sci Sports Exerc</i> demonstrating autonomic recovery follows a strict biological sequence: metabolic stability -> structural movement -> cognitive focus. <a href="https://pubmed.ncbi.nlm.nih.gov/17762370/">https://pubmed.ncbi.nlm.nih.gov/17762370/</a>** `<!-- id: c94ed3cd-da9f-4c46-9bbb-dd6b273e156e -->`
+      - [ ] **2.5 Action Step<i></i>: Level 1 comes first: Fuel, Move, Rest. If movement is your weak link, do 30 seconds of incline plank a day. Don't worry about an hour at the gym.** `<!-- id: 57d040db-c527-4c3d-9cd8-364a9a119eb4 -->`
+    - [ ] **3. CTA** `<!-- id: c0e917e5-bdf3-459f-936e-f1eec5605cb2 -->`
+      - [ ] **"If you want to install health habits in the exact order your biology demands, book a free Systemized Discovery Call or grab our app unpacking the OS. I'll see you in the next video."** `<!-- id: cf5f4b23-e651-4aef-8c59-40dcf51b030b -->`
+    - [ ] **Audio draft transcript** `<!-- id: 828fde08-751a-44b7-b058-06700575c974 -->`
+      - [ ] **There are two systems that kick in to respond to stress. The nervous system, through the autonomic component of the nervous system, and the energy system, The nervous system is short term, instant. It's instant reaction, it spikes your... pulse and spikes your blood pressure, it helps you respond to the immediate stressor. The long term response to stress comes from the hypothylamic pituitary axis, HPA. And this is hormonal. The hormones long term will change in response to stress. So that's the way it works when ramping up to a stressor. And it also works the same way, man, ramping down. You have to focus on the metabolic pathways first. Fuel. movement and rest. Fuel movement and rest are the first step in recovering from stress. So if you got some stress going on, just pick one of those. and pick a very small goal. If it's fuel, try to cut your carbs a little bit. Drink more water, if it's movement, go for a brief walk, do a 30 second plank. If it's rest, grab a nap this afternoon. See if you can do that three days in a row, see if you start feeling better.** `<!-- id: 92a87c63-bafb-4333-b95c-1b5ad59f269c -->`
+    - [ ] **Teleprompter Clips (Filming Order)** `<!-- id: 92ff87bd-07a6-4471-b081-eca55290ae0b -->`
+      *Note: Save recorded video clips as [Code]>[ClipNumber].mp4*
+      - [ ] **Clip 80.V0A-S2>1 — The Hook (Two Stress Systems) #film #outside** `<!-- id: fb4574d8-26b5-4660-88ee-b6cf915b91ea -->`
+        - [ ] **There are two systems that kick in to respond to stress.** `<!-- id: b05561a3-a11a-4f44-9f3b-004afc3f0f1c -->`
+        - [ ] **The nervous system—through the autonomic component of the nervous system— [pause] and the energy system.** `<!-- id: 4eadf087-b067-467d-977e-67fe89366f0a -->`
+      - [ ] **Clip 80.V0A-S2>2 — Short-Term Autonomic vs. HPA Axis #film #outside** `<!-- id: 76f0ebae-0e23-4084-b7db-7cd3182a407f -->`
+        - [ ] **The nervous system is short term, instant.** `<!-- id: 67d6db77-1401-4dcd-8481-4ab182efae62 -->`
+        - [ ] **It's instant reaction: it spikes your pulse and spikes your blood pressure to help you respond to the immediate stressor.** `<!-- id: aa9cf742-4e59-47a9-8197-b829106d34b1 -->`
+      - [ ] **Clip 80.V0A-S2>3 — Chronic Hormonal Response #film #cuttinggrass** `<!-- id: 19a6b1e6-ce3e-42a5-aa4f-4a2a621dc88f -->`
+        - [ ] **The long-term response to stress comes from your hypothalamic-pituitary axis—the HPA axis.** `<!-- id: a96104fc-6170-4456-bacf-3be0d7646a4f -->`
+        - [ ] **And this is hormonal. The hormones long term will change in response to chronic stress.** `<!-- id: ff6363eb-8b94-43be-905f-b8dba7b66927 -->`
+      - [ ] **Clip 80.V0A-S2>4 — Ramping Down Stress (Metabolic First) #film #cuttinggrass** `<!-- id: b23a46c8-a90b-49c1-8f98-687af6c8e538 -->`
+        - [ ] **So that's the way it works when ramping up to a stressor...** `<!-- id: 3204d7a4-2d37-4e1e-8f2b-c9fa5d413d89 -->`
+        - [ ] **And it also works the exact same way, man, ramping down. [tone shift]** `<!-- id: 351ccf61-0b34-4c20-a5a8-d1bc0a163109 -->`
+      - [ ] **Clip 80.V0A-S2>5 — Level 1 FMR Micro-Actions #film #whilebusy** `<!-- id: 2260f534-337d-4176-8c06-c346e38bf10e -->`
+        - [ ] **You have to focus on the metabolic pathways first: Fuel, Movement, and Rest.** `<!-- id: 0adb5480-24ed-4287-a601-55cdf4b93b21 -->`
+        - [ ] **Fuel, movement, and rest are the mandatory first step in recovering from stress.** `<!-- id: 71dff143-d4e0-4e8b-b881-7dfb27b8e36f -->`
+        - [ ] **So if you got some stress going on, [pause] just pick one of those pillars and pick a very small goal.** `<!-- id: 83b2524b-5ea0-4019-a313-560818d3f4f3 -->`
+        - [ ] **If it's Fuel: try to cut your carbs a little bit, or drink more water.** `<!-- id: a55c4479-e6bb-4cb1-a339-ddb280fb8be4 -->`
+        - [ ] **If it's Movement: go for a brief walk, or do a 30-second plank.** `<!-- id: 36770d92-7f43-4a57-b5a0-737c7cfd3d95 -->`
+        - [ ] **If it's Rest: grab a nap this afternoon.** `<!-- id: f33805cd-d395-423c-b18f-5e12580e775c -->`
+      - [ ] **Clip 80.V0A-S2>6 — The 3-Day Test & Outro CTA #film #whilebusy** `<!-- id: 28716227-4c84-41a7-ac18-db5cd2611d5d -->`
+        - [ ] **See if you can do that three days in a row, [gesture] and see if you start feeling better.** `<!-- id: ee07fa43-98e9-4bf9-b97e-82a5d020f2f2 -->`
+        - [ ] **If you want to install health habits in the exact order your biology demands,** `<!-- id: 368554d0-3815-4853-ac13-b80f3e37bdbe -->`
+        - [ ] **Set up a free Systemized Discovery Call or grab our app unpacking the OS. I'll see you in the next video.** `<!-- id: 6779ff4a-7fbf-42e6-8ad2-bf9657806d7b -->`
+  - [ ] **80.V1B1-S1: Why Exercise is Optional** `<!-- id: f908f0a7-f8d3-44fa-87f6-3053dedb5a38 -->`
     *Note: Source: Videos/011 - Why Exercise is Optional (80.V1B1-S1)/V1B1-S1 Script - Why Exercise is Optional.md*
-    - [ ] **<b>Suggested Settings</b>: <code>#whilebusy</code> <code>#shopping</code> <code>#outside</code>** `<!-- id: e616d508-5883-447d-9310-f1efe63759ef -->`
-    - [ ] **<b>JDex Topic Code</b>: <code>77.01</code> (<i>Physical Movement & Energetics</i>)** `<!-- id: d8274f43-4f2a-4747-88b4-c65f68a336b7 -->`
-    - [ ] **Hook** `<!-- id: 96f99428-698d-44af-90bb-ff3a430c70f4 -->`
-      - [ ] **"If you hate grinding on a treadmill going nowhere... good. Your biology agrees with you. Exercise is optional—movement is mandatory."** `<!-- id: ffbcfc07-833f-44df-ba12-3e7ba20e9c28 -->`
-    - [ ] **Talking Points (For Audio Riffing)** `<!-- id: 8ab03c64-9d1b-4ed0-83eb-29a243059ec1 -->`
-      - [ ] **The Relief<i></i>: People feel guilty when they can't force themselves to go to the gym 5 days a week. Ditch the guilt.** `<!-- id: 149426d5-3749-4fa5-8d54-615b1e0fe1bc -->`
-      - [ ] **Biological Fact<i></i>: Human physiology is designed for high-frequency, low-load somatic movement throughout the day, not 1 hour of intense gym suffering followed by 10 hours of desk sitting.** `<!-- id: b00da76c-7239-49a7-936d-b98bf7b47615 -->`
-      - [ ] **Clinical Insight<i></i>: Sitting motionless all day and then doing heavy squats at 6 PM is a recipe for spinal disc herniation.** `<!-- id: 996832dc-c6b0-41e1-91fe-42dc616fbc38 -->`
-      - [ ] **Casual Research Reference<i></i>: Pontzer et al. (2012) <i>PLoS One</i> showing hunter-gatherers rarely engage in cardio sessions, but move low-intensity all day. <a href="https://pubmed.ncbi.nlm.nih.gov/22848382/">https://pubmed.ncbi.nlm.nih.gov/22848382/</a>** `<!-- id: 8df2a936-5700-4587-97c2-60fa522e7207 -->`
-      - [ ] **Action Step<i></i>: Integrate movement micro-breaks into daily life (standing calf raises, desk planks, walking while talking on the phone).** `<!-- id: 8fb00178-84bf-4c16-92c0-2d2fb38a6032 -->`
-    - [ ] **CTA** `<!-- id: 9851b7a5-df7c-429e-ab57-1fb856fbc951 -->`
-      - [ ] **"If you want to build joint health and vitality without spending hours at the gym, set up a free Systemized Discovery Call or grab our app unpacking the OS. I'll see you in the next video."** `<!-- id: 6ee1fd4a-d684-46d5-9f5c-f2a9f1879a18 -->`
-  - [ ] **80.V1B1-S2: Joint Imbibition: How Joints Eat** `<!-- id: d7fa127f-7797-4a8a-adda-80eb4af7e246 -->`
+    - [ ] **<b>Video Code</b>: <code>80.V1B1-S1</code>** `<!-- id: 41f7fec1-d054-4bbf-9256-46e0a001e7fe -->`
+    - [ ] **<b>Parent Video</b>: <code>80.V1B1</code> (<i>Exercise Optional / Movement Mandatory</i>)** `<!-- id: 6b2e6473-d0fb-4473-8e51-627799bdb83f -->`
+    - [ ] **<b>Suggested Settings</b>: <code>#whilebusy</code> <code>#shopping</code> <code>#outside</code>** `<!-- id: edbee80f-ade2-45c4-a5c5-ef1e31a7e13a -->`
+    - [ ] **<b>JDex Topic Code</b>: <code>77.01</code> (<i>Physical Movement & Energetics</i>)** `<!-- id: 734c89c5-190b-4e6f-a9dc-74d0043123d5 -->`
+    - [ ] **1. Hook** `<!-- id: cbc9a574-6d8a-4c20-b0e1-0bfc76c5c6ff -->`
+      - [ ] **"If you hate grinding on a treadmill going nowhere... good. Your biology agrees with you. Exercise is optional—movement is mandatory."** `<!-- id: 6ce4f456-a931-477e-9d28-e48bc7981196 -->`
+    - [ ] **2. Talking Points (For Audio Riffing)** `<!-- id: bd80b75f-b957-4539-9015-c4105e6beba6 -->`
+      - [ ] **2.1 The Relief<i></i>: People feel guilty when they can't force themselves to go to the gym 5 days a week. Ditch the guilt.** `<!-- id: b5aa1d93-9258-4d5e-8c8c-e5ca5ffa11e4 -->`
+      - [ ] **2.2 Biological Fact<i></i>: Human physiology is designed for high-frequency, low-load somatic movement throughout the day, not 1 hour of intense gym suffering followed by 10 hours of desk sitting.** `<!-- id: 27bf6b08-46fe-4037-91ab-3a04b963f13f -->`
+      - [ ] **2.3 Clinical Insight<i></i>: Sitting motionless all day and then doing heavy squats at 6 PM is a recipe for spinal disc herniation.** `<!-- id: 447bd728-33ae-449d-9229-6bec70f1893b -->`
+      - [ ] **2.4 Casual Research Reference<i></i>: Pontzer et al. (2012) <i>PLoS One</i> showing hunter-gatherers rarely engage in cardio sessions, but move low-intensity all day. <a href="https://pubmed.ncbi.nlm.nih.gov/22848382/">https://pubmed.ncbi.nlm.nih.gov/22848382/</a>** `<!-- id: fc24305e-73d6-43a2-9b61-ca9d563680ef -->`
+      - [ ] **2.5 Action Step<i></i>: Integrate movement micro-breaks into daily life (standing calf raises, desk planks, walking while talking on the phone).** `<!-- id: 7fb62329-25db-4be8-bcc4-3a8cd5537aef -->`
+    - [ ] **3. CTA** `<!-- id: 422dcf29-c08d-47c6-865a-cee3ae63aaf8 -->`
+      - [ ] **"If you want to build joint health and vitality without spending hours at the gym, set up a free Systemized Discovery Call or grab our app unpacking the OS. I'll see you in the next video."** `<!-- id: 06820d98-108c-4853-b904-bffcfe99433a -->`
+  - [ ] **80.V1B1-S2: Joint Imbibition: How Joints Eat** `<!-- id: f40cf409-525f-4dae-bb20-127094a581e2 -->`
     *Note: Source: Videos/012 - Joint Imbibition How Joints Eat (80.V1B1-S2)/V1B1-S2 Script - Joint Imbibition How Joints Eat.md*
-    - [ ] **<b>Suggested Settings</b>: <code>#insidetruck</code> <code>#outside</code> <code>#studio</code>** `<!-- id: 32287c15-5c9e-4a7a-be0e-eb0b413a9c59 -->`
-    - [ ] **<b>JDex Topic Code</b>: <code>77.01</code> (<i>Spinal Biomechanics & Hydrostatics</i>)** `<!-- id: ebb73f81-cd87-4228-b9b7-dd6b7c59c40c -->`
-    - [ ] **Hook** `<!-- id: 1b1bc446-4fb5-44d1-8c73-8a0741bff68b -->`
-      - [ ] **"Did you know that your spinal cartilage and joint surfaces have zero blood supply? They literally can't eat unless you move them."** `<!-- id: 9faf0e08-ae90-46b8-bd3c-5edb82a6e382 -->`
-    - [ ] **Talking Points (For Audio Riffing)** `<!-- id: ff8c71a9-0d32-4910-8db4-ea29d84e3b6f -->`
-      - [ ] **Anatomical Fact<i></i>: Adult joint cartilage and intervertebral discs are avascular (no direct blood vessels).** `<!-- id: da74a5d6-2a8d-4e7e-a487-d4774962444c -->`
-      - [ ] **The Mechanism (Imbibition)<i></i>: Joints rely on a mechanical pump mechanism called imbibition. When loaded, fluid is squeezed out; when decompressed, fresh nutrient-rich fluid is sucked back in like a sponge.** `<!-- id: 08970d01-922f-4001-8acb-43d117a10833 -->`
-      - [ ] **The Danger<i></i>: Sitting motionless at a desk starves your joint cartilage of oxygen and nutrients.** `<!-- id: 7089d4d3-cbd6-451f-b0f6-ba676586f565 -->`
-      - [ ] **Casual Research Reference<i></i>: Urban & Roberts (2003) <i>Arthritis Res Ther</i> demonstrating joint fluid exchange relies on mechanical hydrostatic pressure. <a href="https://pubmed.ncbi.nlm.nih.gov/12723977/">https://pubmed.ncbi.nlm.nih.gov/12723977/</a>** `<!-- id: f514236f-5fad-460f-a0bc-5ee033e3f63a -->`
-      - [ ] **Action Step<i></i>: Every 45 minutes, perform gentle spinal rotations or pelvic tilts to pump your discs.** `<!-- id: 726df074-5054-463e-9b76-369ab0ee53d3 -->`
-    - [ ] **CTA** `<!-- id: d015d189-98c9-419a-99cb-86a8c834c787 -->`
-      - [ ] **"If you want to protect your joints from premature decay and keep your spine nourished for life, set up a free Systemized Discovery Call or grab our app unpacking the OS. I'll see you in the next video."** `<!-- id: cb39225e-8829-42df-805c-c1b5c2ba971f -->`
-  - [ ] **80.V1B1-S3: Cortical Smudging: Why Back Pain Spasms** `<!-- id: 8e86974d-ca32-4255-87aa-98477e9f7968 -->`
+    - [ ] **<b>Video Code</b>: <code>80.V1B1-S2</code>** `<!-- id: e7bd71b3-7c36-4010-84ee-6480cf193260 -->`
+    - [ ] **<b>Parent Video</b>: <code>80.V1B1</code> (<i>Exercise Optional / Movement Mandatory</i>)** `<!-- id: 9b753049-be87-4d7b-a804-3008d9e4a9d9 -->`
+    - [ ] **<b>Suggested Settings</b>: <code>#insidetruck</code> <code>#outside</code> <code>#studio</code>** `<!-- id: d0573cbf-105e-42a1-a63f-2ca42983141d -->`
+    - [ ] **<b>JDex Topic Code</b>: <code>77.01</code> (<i>Spinal Biomechanics & Hydrostatics</i>)** `<!-- id: 6eb2bf1e-8fe5-48a9-9a04-4e464cfcc934 -->`
+    - [ ] **1. Hook** `<!-- id: 3c2f9654-0530-4d44-8da2-09551b4772f6 -->`
+      - [ ] **"Did you know that your spinal cartilage and joint surfaces have zero blood supply? They literally can't eat unless you move them."** `<!-- id: 8f616b1c-e646-4bb6-b403-1aaa55763356 -->`
+    - [ ] **2. Talking Points (For Audio Riffing)** `<!-- id: 35ab0c01-b31c-4809-a53e-e6a019089614 -->`
+      - [ ] **2.1 Anatomical Fact<i></i>: Adult joint cartilage and intervertebral discs are avascular (no direct blood vessels).** `<!-- id: bfbe10d6-0f2a-44c3-be69-fabd0e681831 -->`
+      - [ ] **2.2 The Mechanism (Imbibition)<i></i>: Joints rely on a mechanical pump mechanism called imbibition. When loaded, fluid is squeezed out; when decompressed, fresh nutrient-rich fluid is sucked back in like a sponge.** `<!-- id: 99857641-192b-4355-bdf6-3922cec5f97f -->`
+      - [ ] **2.3 The Danger<i></i>: Sitting motionless at a desk starves your joint cartilage of oxygen and nutrients.** `<!-- id: 9b58ed33-f809-4716-bccd-a9812b67705f -->`
+      - [ ] **2.4 Casual Research Reference<i></i>: Urban & Roberts (2003) <i>Arthritis Res Ther</i> demonstrating joint fluid exchange relies on mechanical hydrostatic pressure. <a href="https://pubmed.ncbi.nlm.nih.gov/12723977/">https://pubmed.ncbi.nlm.nih.gov/12723977/</a>** `<!-- id: 23af2a84-7952-4457-ad6b-d924f624b955 -->`
+      - [ ] **2.5 Action Step<i></i>: Every 45 minutes, perform gentle spinal rotations or pelvic tilts to pump your discs.** `<!-- id: cf8b2578-f9af-4549-9735-c38170d3de7d -->`
+    - [ ] **3. CTA** `<!-- id: 8a5618cf-0b84-426b-8180-ab00783d4950 -->`
+      - [ ] **"If you want to protect your joints from premature decay and keep your spine nourished for life, set up a free Systemized Discovery Call or grab our app unpacking the OS. I'll see you in the next video."** `<!-- id: 62a6b8ab-f0ec-4215-857d-ca9852d1a7be -->`
+  - [ ] **80.V1B1-S3: Cortical Smudging: Why Back Pain Spasms** `<!-- id: 6f8f6370-2fd3-44eb-aa68-a3807819dfc1 -->`
     *Note: Source: Videos/013 - Cortical Smudging Why Back Pain Spasms (80.V1B1-S3)/V1B1-S3 Script - Cortical Smudging Why Back Pain Spasms.md*
-    - [ ] **<b>Suggested Settings</b>: <code>#insidetruck</code> <code>#driving</code> <code>#outside</code>** `<!-- id: ed376e09-870f-4a3d-8369-10939a40ec23 -->`
-    - [ ] **<b>JDex Topic Code</b>: <code>77.03</code> (<i>Sensory Motor Map & Cortical Representation</i>)** `<!-- id: 405aaecd-a655-4c07-aaa0-2c18e997647f -->`
-    - [ ] **Hook** `<!-- id: 5bb8f84a-98aa-42dd-be80-d9cb59d52c44 -->`
-      - [ ] **"Ever bent over to pick up a pencil and had your back lock up in violent spasms? That wasn't a pulled muscle—that was your brain smudging your motor map."** `<!-- id: 987a1643-8df5-4d84-b654-a98264b967ec -->`
-    - [ ] **Talking Points (For Audio Riffing)** `<!-- id: c0182d3b-8501-4009-a5ee-62e7baa44194 -->`
-      - [ ] **The Puzzle<i></i>: Why does a tiny, light movement (picking up a sock or pencil) trigger a massive, excruciating muscle spasm in the lower back?** `<!-- id: 01246ebb-56b6-412c-a528-9ba3627d5f4f -->`
-      - [ ] **Neurological Mechanism<i></i>: Cortical Smudging. The brain has a high-definition motor map (homunculus) of your spine. If you don't move through full ranges daily, the map blurs like a smudged mirror.** `<!-- id: 1ff125f2-3192-4213-9efc-ff9c7986ab59 -->`
-      - [ ] **The Threat Response<i></i>: When you make a surprise movement, the blurred brain map freaks out because it can't sense precise joint position, triggering a protective muscle lock-up.** `<!-- id: 766f59da-e6da-458e-90c7-5c9d696884f7 -->`
-      - [ ] **Casual Research Reference<i></i>: Moseley & Flor (2012) <i>Neurorehabil Neural Repair</i> showing lack of varied movement blurs cortical representations. <a href="https://pubmed.ncbi.nlm.nih.gov/22331213/">https://pubmed.ncbi.nlm.nih.gov/22331213/</a>** `<!-- id: 002c342c-b0e3-406b-9594-170d2cf43c68 -->`
-      - [ ] **Action Step<i></i>: Sharp sensory feedback resets the map—do slow, controlled cat-camels or tactile spinal tracing daily.** `<!-- id: cef37894-a986-4773-af14-a3d2f8b7dd69 -->`
-    - [ ] **CTA** `<!-- id: 0b58b3db-2007-46d7-bd59-c6750fe40f5c -->`
-      - [ ] **"If you want to clear your brain's motor map and eliminate random muscle spasms for good, book a free Systemized Discovery Call or grab our app unpacking the OS. I'll see you in the next video."** `<!-- id: 21e29076-b7c5-419b-ad81-2db5a26facdf -->`
-  - [ ] **80.V0A1-S1: The Willpower Trap** `<!-- id: 6d43d82b-dd03-4bd6-87a4-ed041029f8cd -->`
+    - [ ] **<b>Video Code</b>: <code>80.V1B1-S3</code>** `<!-- id: 1b737690-cf99-49c5-8865-9e4b7e958958 -->`
+    - [ ] **<b>Parent Video</b>: <code>80.V1B1</code> (<i>Exercise Optional / Movement Mandatory</i>)** `<!-- id: 38b74666-4593-47ae-aec9-23a4e58b794a -->`
+    - [ ] **<b>Suggested Settings</b>: <code>#insidetruck</code> <code>#driving</code> <code>#outside</code>** `<!-- id: ba24922c-59fa-44ed-8eac-01c8d5654dd5 -->`
+    - [ ] **<b>JDex Topic Code</b>: <code>77.03</code> (<i>Sensory Motor Map & Cortical Representation</i>)** `<!-- id: cda49191-b613-4286-be69-5d4aa9cc1a12 -->`
+    - [ ] **1. Hook** `<!-- id: 4c5ddc4b-752e-4a7f-bdae-442548273846 -->`
+      - [ ] **"Ever bent over to pick up a pencil and had your back lock up in violent spasms? That wasn't a pulled muscle—that was your brain smudging your motor map."** `<!-- id: 38534617-0a49-4c16-88ec-822918247eb1 -->`
+    - [ ] **2. Talking Points (For Audio Riffing)** `<!-- id: c7b644c5-ccab-4ad3-b866-02186a8cd3a5 -->`
+      - [ ] **2.1 The Puzzle<i></i>: Why does a tiny, light movement (picking up a sock or pencil) trigger a massive, excruciating muscle spasm in the lower back?** `<!-- id: f5f1ea93-f458-4f75-a669-e58203af71ae -->`
+      - [ ] **2.2 Neurological Mechanism<i></i>: Cortical Smudging. The brain has a high-definition motor map (homunculus) of your spine. If you don't move through full ranges daily, the map blurs like a smudged mirror.** `<!-- id: 3fc0b39d-a949-4ab0-a2eb-d53de24f913d -->`
+      - [ ] **2.3 The Threat Response<i></i>: When you make a surprise movement, the blurred brain map freaks out because it can't sense precise joint position, triggering a protective muscle lock-up.** `<!-- id: d09b683f-3040-457e-b4c6-2fc29de3ef1c -->`
+      - [ ] **2.4 Casual Research Reference<i></i>: Moseley & Flor (2012) <i>Neurorehabil Neural Repair</i> showing lack of varied movement blurs cortical representations. <a href="https://pubmed.ncbi.nlm.nih.gov/22331213/">https://pubmed.ncbi.nlm.nih.gov/22331213/</a>** `<!-- id: 1d9159ce-d748-4d63-9283-18fc534ebc76 -->`
+      - [ ] **2.5 Action Step<i></i>: Sharp sensory feedback resets the map—do slow, controlled cat-camels or tactile spinal tracing daily.** `<!-- id: fed4204b-efab-4dc6-8dfc-193bb3c2c94e -->`
+    - [ ] **3. CTA** `<!-- id: e9f4f70d-749a-4fa0-a66e-a81af6fb0747 -->`
+      - [ ] **"If you want to clear your brain's motor map and eliminate random muscle spasms for good, book a free Systemized Discovery Call or grab our app unpacking the OS. I'll see you in the next video."** `<!-- id: e8dbb1df-0c35-4558-a38a-ca22aa9c7c7f -->`
+  - [ ] **80.V0A1-S1: The Willpower Trap #outline** `<!-- id: cb9366de-e092-4db8-b1a2-fc9fdb7418fe -->`
     *Note: Source: Videos/014 - The Willpower Trap (80.V0A1-S1)/V0A1-S1 Script - The Willpower Trap.md*
-    - [ ] **<b>Suggested Settings</b>: <code>#whilebusy</code> <code>#insidetruck</code> <code>#outside</code>** `<!-- id: 5bc3c3e5-7bbd-4b98-8db0-4dc89c32dd83 -->`
-    - [ ] **<b>JDex Topic Code</b>: <code>42.06</code> (<i>Ego Depletion & Executive Control</i>)** `<!-- id: a69e432b-fa3c-401a-8009-2e625f171f5d -->`
-    - [ ] **Hook** `<!-- id: 10c1650e-26fa-4aeb-a382-da2cfe880270 -->`
-      - [ ] **"If you're relying on sheer willpower and discipline to keep your health together... you are running your body on a battery that's guaranteed to run out."** `<!-- id: e2c0ccad-78db-45cc-a1db-00be455df156 -->`
-    - [ ] **Talking Points (For Audio Riffing)** `<!-- id: cb330ad3-20fb-4d9c-aa4c-d965603c5afb -->`
-      - [ ] **The Illusion<i></i>: High performers think they just need more grit to stick to complex health routines.** `<!-- id: e8c884e1-de1c-4b24-b890-039fb1e50b83 -->`
-      - [ ] **The Biological Bottleneck<i></i>: Willpower relies on the prefrontal cortex, which is exhaustible. By 5 PM, decision fatigue sets in and your brain defaults to energy-saving habits.** `<!-- id: c8f39842-c36d-460e-8471-b7cf49263ed7 -->`
-      - [ ] **Clinical Reality<i></i>: 30 years in practice showed me that patient compliance drops to zero when routines require active decision-making after a stressful workday.** `<!-- id: 1c4840c1-59d8-4e99-84ca-e0b0ed21a390 -->`
-      - [ ] **Casual Research Reference<i></i>: Inzlicht & Schmeichel (2012) <i>Perspect Psychol Sci</i> proving executive control drains predictably under cognitive load. <a href="https://pubmed.ncbi.nlm.nih.gov/26168503/">https://pubmed.ncbi.nlm.nih.gov/26168503/</a>** `<!-- id: a7263203-2684-4837-beaf-c26c7d6c419a -->`
-      - [ ] **The Solution<i></i>: Automate habits into friction-free systems. Structure is freedom.** `<!-- id: 861dfe85-45f0-4604-9219-c5e01677648a -->`
-    - [ ] **CTA** `<!-- id: f3f1d60a-56f5-41db-bd84-bbb707e22608 -->`
-      - [ ] **"If you want to stop relying on exhausting willpower and build automated health systems that run in the background, set up a free Systemized Discovery Call or grab our app unpacking the OS. I'll see you in the next video."** `<!-- id: 9c6f1adf-73a4-48e1-98ad-bcb3206199ff -->`
-  - [ ] **80.V0A1-S2: Level 1 FMR Baseline** `<!-- id: ac1a086f-6767-49a9-9fc4-bcc28f7933da -->`
+    - [ ] **<b>Video Code</b>: <code>80.V0A1-S1</code>** `<!-- id: 36733732-a3c4-484b-aa89-2d8246e54463 -->`
+    - [ ] **<b>Parent Video</b>: <code>80.V0A1</code> (<i>Systemized OS Framework</i>)** `<!-- id: 1d3d8242-55ee-48f5-a85f-a433b5b72072 -->`
+    - [ ] **<b>Suggested Settings</b>: <code>#whilebusy</code> <code>#insidetruck</code> <code>#outside</code>** `<!-- id: 4675668c-f0d7-4947-b95b-9ea583dc60b5 -->`
+    - [ ] **<b>JDex Topic Code</b>: <code>42.06</code> (<i>Ego Depletion & Executive Control</i>)** `<!-- id: 3cbfa912-34f0-424b-99d5-5c0561f63d88 -->`
+    - [ ] **1. Hook** `<!-- id: 8c63f39b-d0dd-422b-a8cb-bc9db404b211 -->`
+      - [ ] **"If you're relying on sheer willpower and discipline to keep your health together... you are running your body on a battery that's guaranteed to run out."** `<!-- id: ceda6e22-66bc-4027-95ee-f6732ff00342 -->`
+    - [ ] **2. Talking Points (For Audio Riffing)** `<!-- id: 2fb5f79a-cb4f-4792-9374-276476bbea36 -->`
+      - [ ] **2.1 The Illusion<i></i>: High performers think they just need more grit to stick to complex health routines.** `<!-- id: 7ed7cdc7-78ef-43d6-93fb-33d3de9ba3e6 -->`
+      - [ ] **2.2 The Biological Bottleneck<i></i>: Willpower relies on the prefrontal cortex, which is exhaustible. By 5 PM, decision fatigue sets in and your brain defaults to energy-saving habits.** `<!-- id: 49fcd61a-d091-4b78-96c2-f23cebe048d6 -->`
+      - [ ] **2.3 Clinical Reality<i></i>: 30 years in practice showed me that patient compliance drops to zero when routines require active decision-making after a stressful workday.** `<!-- id: 878c671d-6de4-40d2-9d70-e10c239b072c -->`
+      - [ ] **2.4 Casual Research Reference<i></i>: Inzlicht & Schmeichel (2012) <i>Perspect Psychol Sci</i> proving executive control drains predictably under cognitive load. <a href="https://pubmed.ncbi.nlm.nih.gov/26168503/">https://pubmed.ncbi.nlm.nih.gov/26168503/</a>** `<!-- id: 7ca87659-22e6-4918-9110-7b03c376abbd -->`
+      - [ ] **2.5 The Solution<i></i>: Automate habits into friction-free systems. Structure is freedom.** `<!-- id: 48f829a6-ec42-44fc-9be0-9f075090ad2a -->`
+    - [ ] **3. CTA** `<!-- id: 454e1ec2-2d58-45e4-9712-1d8974a6e997 -->`
+      - [ ] **"If you want to stop relying on exhausting willpower and build automated health systems that run in the background, set up a free Systemized Discovery Call or grab our app unpacking the OS. I'll see you in the next video."** `<!-- id: c4577fc9-43a9-467f-855a-05e2f99b3e86 -->`
+    - [ ] **Audio draft transcript** `<!-- id: 7724bf8f-f189-48cd-8c10-ca849a6be4cb -->`
+    - [ ] **I know you've relied on willpower to get a lot of stuff done, and that's great. Willpower is fantastic, especially when you have a lot of it. I want you to think of willpower as a battery. Think of the battery in your phone, and the way that you can get a lot of work done on your phone. The more work you're doing, the more apps you have open, the faster your battery drains. Willpower is exactly the same. Now, how do you improve or boost your battery in your phone? Will you charge it? How do you charge your willbound? Well, there are several ways. One way is to offload the cognitive burden that you have. So if you're trying to remember to take out the trash, or you remember to pick up that thing that you saw back there, or you have to make that call to that person, or whatever you have to do, all those little pieces take up some cognitive bandwidth. And this, cognitive bandwidth is needed for willpower. So if you lose your cognitive bandwidth, the cognitive energy, your willpower's gonna go down, and you just want to have that cookie, or eat that cheesecake, and forget about it. So, how to get some immediate boost and willpower and cognitive energy, write down everything that's taking up minds, taking up cognitive space in your head and see how that feels.** `<!-- id: 960dfa34-1dad-4989-9d22-3ee7d430c42c -->`
+    - [ ] **Teleprompter Clips (Filming Order)** `<!-- id: 14368f4c-ace7-4743-b440-bc85e57c637d -->`
+      *Note: Save recorded video clips as [Code]>[ClipNumber].mp4*
+      - [ ] **Clip 80.V0A1-S1>1 — The Hook #film #whilebusy** `<!-- id: c11ada42-c994-4950-9403-0b2ed08cf100 -->`
+        - [ ] **I know you've relied on willpower to get a lot of stuff done, and that's great.** `<!-- id: 6171673f-70bf-419b-a22b-449ae7b55628 -->`
+        - [ ] **Willpower is fantastic—especially when you have a lot of it.** `<!-- id: 6ed0c83b-ccf8-45f4-820b-daf681b77673 -->`
+      - [ ] **Clip 80.V0A1-S1>2 — Phone Battery Metaphor #film #whilebusy** `<!-- id: c28adcd1-4b6a-4be8-b625-ccc1cd1fec3e -->`
+        - [ ] **I want you to think of willpower as a battery.** `<!-- id: 2440beab-12ad-489d-8079-fefaea6171ff -->`
+        - [ ] **Think of the battery in your phone, and the way that you can get a lot of work done on your phone.** `<!-- id: f5489666-473d-47ec-9ed0-c88c59168105 -->`
+        - [ ] **The more work you're doing and the more apps you have open, [pause] the faster your battery drains.** `<!-- id: 69cc5320-8e2e-4bd6-bde0-b1037a1c1673 -->`
+        - [ ] **Willpower is exactly the same.** `<!-- id: 4157f523-faed-46e9-b93b-5889facfff26 -->`
+      - [ ] **Clip 80.V0A1-S1>3 — How to Charge Willpower #film #insidetruck** `<!-- id: 4669fb56-7c73-4629-8067-cb4d263537ed -->`
+        - [ ] **Now, how do you improve or boost your battery in your phone? You charge it.** `<!-- id: 89548853-016b-457b-ac97-4e26b0d54c86 -->`
+        - [ ] **How do you charge your willpower?** `<!-- id: 2784cb34-bf51-4878-86be-51e33fc8eff7 -->`
+        - [ ] **Well, there are several ways. One way is to offload the cognitive burden that you have.** `<!-- id: 599647b4-3a9c-4ad3-9745-9824fe15b7dc -->`
+      - [ ] **Clip 80.V0A1-S1>4 — Open Cognitive Apps #film #outside** `<!-- id: e39b6be2-5a06-44be-95ef-bfeb6a6da092 -->`
+        - [ ] **So if you're trying to remember to take out the trash... [tone shift]** `<!-- id: 51b9a168-b2a6-421d-b949-2a13ed84f7c6 -->`
+        - [ ] **Or you remember to pick up that thing that you saw back there...** `<!-- id: 8a67eb7d-b7d3-4d7a-91bc-fb9016bbc483 -->`
+        - [ ] **Or you have to make that call to that person, or whatever you have to do...** `<!-- id: fe59781d-ef52-4a38-a13e-fb99f0f44709 -->`
+        - [ ] **All those little pieces take up some cognitive bandwidth.** `<!-- id: 99f253bb-bc86-4c67-9d40-9f3b63aca5e9 -->`
+        - [ ] **And this cognitive bandwidth is needed for willpower.** `<!-- id: 3186744b-a2da-401a-a01d-ac9eef68db2e -->`
+      - [ ] **Clip 80.V0A1-S1>5 — The 5 PM Collapse & Immediate Action #film #outside** `<!-- id: dc8ed2e4-e608-4708-899e-bfe91e8ffa63 -->`
+        - [ ] **So if you lose your cognitive bandwidth and your cognitive energy, your willpower's gonna go down...** `<!-- id: ce68aae9-fc87-4bdc-97da-75ea5f9c2c4e -->`
+        - [ ] **And you just want to have that cookie, or eat that cheesecake, and forget about it.** `<!-- id: be8371b4-1674-4429-9059-93fc519da9a6 -->`
+        - [ ] **So, to get an immediate boost in willpower and cognitive energy right now: [eye contact shift]** `<!-- id: 1e119580-7eb7-48fc-b75b-8a6072b3e6a8 -->`
+        - [ ] **Write down everything taking up cognitive space in your head, and see how that feels.** `<!-- id: efca4609-afa1-4cbf-baba-88bb76393835 -->`
+      - [ ] **Clip 80.V0A1-S1>6 — Outro CTA #film #outside** `<!-- id: 6b2e72a0-295b-455d-a700-d2f6eb78ecf6 -->`
+        - [ ] **If you want to build automated health systems that run in the background without draining your battery,** `<!-- id: 16939e65-6f78-46c9-8561-9fb81b029f2a -->`
+        - [ ] **Set up a free Systemized Discovery Call or grab our app unpacking the OS. [gesture] I'll see you in the next video.** `<!-- id: c1a30b1b-858b-4601-bd97-55fdf3987c83 -->`
+  - [ ] **80.V0A1-S2: Level 1 FMR Baseline** `<!-- id: 738e2ebe-9069-4b85-bbdc-0e7f8c36fce1 -->`
     *Note: Source: Videos/015 - Level 1 FMR Baseline (80.V0A1-S2)/V0A1-S2 Script - Level 1 FMR Baseline.md*
-    - [ ] **<b>Suggested Settings</b>: <code>#outside</code> <code>#insidetruck</code> <code>#studio</code>** `<!-- id: 35859eaa-afe2-43cd-88e7-634140eff381 -->`
-    - [ ] **<b>JDex Topic Code</b>: <code>80.11</code> (<i>Level 1 FMR Biological Foundation</i>)** `<!-- id: bba011f5-a5e3-44fd-9432-0c80ce14ecf0 -->`
-    - [ ] **Hook** `<!-- id: fb412b54-f093-4b7a-a2eb-44a18c2b1a45 -->`
-      - [ ] **"Before you spend a single dollar on fancy red light therapy, ice baths, or biohacking gadgets... let's talk about Level 1 FMR."** `<!-- id: c6b3b4b2-7937-4563-a6d8-0be967c013c7 -->`
-    - [ ] **Talking Points (For Audio Riffing)** `<!-- id: b0ad3d20-eddc-4b5c-8363-cf6b39caf043 -->`
-      - [ ] **The Distraction<i></i>: People love buying expensive biohacks while ignoring that they get 5 hours of broken sleep and drink no water.** `<!-- id: 1840a74a-0f59-4822-9d8e-0d01bf31b4bb -->`
-      - [ ] **The FMR Framework<i></i>: Level 1 of the Systemized OS is non-negotiable: Fuel (hydration & real nutrient density), Move (daily low-load somatic pump), and Rest (circadian alignment).** `<!-- id: 687866fa-d7ad-4375-82b7-60f4f26bbba8 -->`
-      - [ ] **Clinical Insight<i></i>: In 230,000 patient visits, fixing Level 1 cleared up 80% of what patients thought were complex medical problems.** `<!-- id: 4933b01f-4b22-47be-982a-ae829a4ef3d9 -->`
-      - [ ] **Casual Research Reference<i></i>: Calder et al. (2011) <i>Br J Nutr</i> showing optimizing basic hydration, circadian rest, and low-load movement resolves systemic low-grade inflammation. <a href="https://pubmed.ncbi.nlm.nih.gov/22133051/">https://pubmed.ncbi.nlm.nih.gov/22133051/</a>** `<!-- id: c45ad9e9-5c87-4057-bde7-d588ca1257d1 -->`
-      - [ ] **Action Step<i></i>: Audit your baseline today. Which pillar is lagging: Fuel, Move, or Rest?** `<!-- id: 77cd8197-00d3-4b8e-af4c-2f61071081be -->`
-    - [ ] **CTA** `<!-- id: b9b45f73-c85e-4441-adfc-5ef846120fa7 -->`
-      - [ ] **"If you want to audit your Level 1 FMR baseline and get your physical foundation solid, book a free Systemized Discovery Call or check out our app unpacking the OS. I'll see you in the next video."** `<!-- id: de0a9c25-8902-4087-8ea9-5f424232f18b -->`
-  - [ ] **80.V0A1-S3: The 3-Tier Health Pyramid** `<!-- id: 5d7cd5e9-e3ef-4b50-ba45-a56190e5339b -->`
+    - [ ] **<b>Video Code</b>: <code>80.V0A1-S2</code>** `<!-- id: 06288174-744b-4e74-ad85-b2b492ed24ec -->`
+    - [ ] **<b>Parent Video</b>: <code>80.V0A1</code> (<i>Systemized OS Framework</i>)** `<!-- id: 4e501f9a-63b4-410c-9e28-abaacae9cf18 -->`
+    - [ ] **<b>Suggested Settings</b>: <code>#outside</code> <code>#insidetruck</code> <code>#studio</code>** `<!-- id: 5ba0b82e-d6a4-4f90-bc62-d51bc83aecba -->`
+    - [ ] **<b>JDex Topic Code</b>: <code>80.11</code> (<i>Level 1 FMR Biological Foundation</i>)** `<!-- id: 3b97dc57-4f98-431b-8ea5-cc3d734e2bf4 -->`
+    - [ ] **1. Hook** `<!-- id: 5f5b9301-3ce7-4df1-91ea-db0509928248 -->`
+      - [ ] **"Before you spend a single dollar on fancy red light therapy, ice baths, or biohacking gadgets... let's talk about Level 1 FMR."** `<!-- id: 7fa79f63-fc0e-4a24-9bfe-292affd4b15b -->`
+    - [ ] **2. Talking Points (For Audio Riffing)** `<!-- id: 8ecf5ad0-0831-433d-8dc5-0c7f9cfcc4a0 -->`
+      - [ ] **2.1 The Distraction<i></i>: People love buying expensive biohacks while ignoring that they get 5 hours of broken sleep and drink no water.** `<!-- id: bee50623-9e26-48ce-816a-e38693feafb4 -->`
+      - [ ] **2.2 The FMR Framework<i></i>: Level 1 of the Systemized OS is non-negotiable: Fuel (hydration & real nutrient density), Move (daily low-load somatic pump), and Rest (circadian alignment).** `<!-- id: d803ad99-2c74-4c1f-ac47-dacf58a1d1b9 -->`
+      - [ ] **2.3 Clinical Insight<i></i>: In 230,000 patient visits, fixing Level 1 cleared up 80% of what patients thought were complex medical problems.** `<!-- id: 43f15b7c-3b19-49a2-a986-a706bbf28a4f -->`
+      - [ ] **2.4 Casual Research Reference<i></i>: Calder et al. (2011) <i>Br J Nutr</i> showing optimizing basic hydration, circadian rest, and low-load movement resolves systemic low-grade inflammation. <a href="https://pubmed.ncbi.nlm.nih.gov/22133051/">https://pubmed.ncbi.nlm.nih.gov/22133051/</a>** `<!-- id: 5b106156-a04a-4356-95c7-40943b7caf85 -->`
+      - [ ] **2.5 Action Step<i></i>: Audit your baseline today. Which pillar is lagging: Fuel, Move, or Rest?** `<!-- id: 41a56954-bd61-41c7-96bd-07c9e29e7db0 -->`
+    - [ ] **3. CTA** `<!-- id: 015f29fb-ae8c-41bc-838d-2d3252a08c0d -->`
+      - [ ] **&quot;If you want to audit your Level 1 FMR baseline and get your physical foundation solid, book a free Systemized Discovery Call or check out our app unpacking the OS. I'll see you in the next video.&quot;** `<!-- id: c8a00b76-94ea-430f-970c-3d3344aaa3e7 -->`
+  - [ ] **80.V0A1-S3: The 3-Tier Health Pyramid** `<!-- id: 968af5a3-f781-45d9-a44e-9e364422f819 -->`
     *Note: Source: Videos/016 - The 3-Tier Health Pyramid (80.V0A1-S3)/V0A1-S3 Script - The 3-Tier Health Pyramid.md*
-    - [ ] **<b>Suggested Settings</b>: <code>#insidetruck</code> <code>#outside</code> <code>#whilebusy</code>** `<!-- id: af550444-0eb9-433b-91c2-58e89ad7cf3f -->`
-    - [ ] **<b>JDex Topic Code</b>: <code>80.11</code> (<i>3-Tier Health Architecture</i>)** `<!-- id: beb752df-c638-47f3-a265-28f7d98e2c84 -->`
-    - [ ] **Hook** `<!-- id: 4fb6f326-7ccd-4098-9c9a-02b7b28ee9b1 -->`
-      - [ ] **"Think of your health like an operating system on your phone. If the hardware is overheating, downloading fancy new apps isn't going to help."** `<!-- id: b5d3f3b8-40cd-4b55-8da5-6e081099c2b2 -->`
-    - [ ] **Talking Points (For Audio Riffing)** `<!-- id: d28ff04c-0cd9-46f3-9552-e9b142fb8bd3 -->`
-      - [ ] **The Architecture<i></i>: Systemized Health uses a 3-Tier Operating System: Level 1 FMR (Baseline), Level 2 TLC (Internal), and Level 3 POP (External).** `<!-- id: 4ce1fe06-53e8-4fc7-9d05-21cbcfac7a52 -->`
-      - [ ] **The Core Rule<i></i>: Level 3 external execution is impossible if Level 1 baseline is broken.** `<!-- id: 51c32449-eca2-4285-a0f0-5466a80ee361 -->`
-      - [ ] **Clinical Insight<i></i>: Over 30 years, I've watched high performers collapse because they tried to run Level 3 life goals on a crashing Level 1 engine.** `<!-- id: 34cb9cb5-32c9-435f-9fe8-f56e5d567c2e -->`
-      - [ ] **Casual Research Reference<i></i>: Kitano (2002) <i>Science</i> showing complex biological networks fail predictably when higher-order metabolic demands exceed baseline energy production. <a href="https://pubmed.ncbi.nlm.nih.gov/11872829/">https://pubmed.ncbi.nlm.nih.gov/11872829/</a>** `<!-- id: c11e2e31-9119-43e5-8465-4b6af643a4b6 -->`
-      - [ ] **Action Step<i></i>: Fix your Level 1 foundation so your Level 3 performance can actually thrive.** `<!-- id: 0ed86dec-96aa-424a-accc-9d5b2b360f92 -->`
-    - [ ] **CTA** `<!-- id: b4f7506f-7be3-434a-a225-bd59cbc06622 -->`
-      - [ ] **"If you want to map your body across the 3-Tier Systemized OS pyramid, book a free Systemized Discovery Call or grab our app unpacking the OS. I'll see you in the next video."** `<!-- id: 961ca718-a3ad-4ebb-b29a-7c5524009610 -->`
+    - [ ] **<b>Video Code</b>: <code>80.V0A1-S3</code>** `<!-- id: d8dbdba8-991c-4553-a809-720f1eebd732 -->`
+    - [ ] **<b>Parent Video</b>: <code>80.V0A1</code> (<i>Systemized OS Framework</i>)** `<!-- id: 8fbbfad9-227f-491f-8873-9de9d26e3215 -->`
+    - [ ] **<b>Suggested Settings</b>: <code>#insidetruck</code> <code>#outside</code> <code>#whilebusy</code>** `<!-- id: 98ce2ed5-91d0-4cff-a8d8-9d2709611b72 -->`
+    - [ ] **<b>JDex Topic Code</b>: <code>80.11</code> (<i>3-Tier Health Architecture</i>)** `<!-- id: adecd4af-11b8-4c8d-b05c-64d43e842aa0 -->`
+    - [ ] **1. Hook** `<!-- id: dfa7aca3-b030-40a1-88c9-1b8cb6c045e6 -->`
+      - [ ] **"Think of your health like an operating system on your phone. If the hardware is overheating, downloading fancy new apps isn't going to help."** `<!-- id: 5b664941-d6fd-464e-be0e-ffa55e3fb14c -->`
+    - [ ] **2. Talking Points (For Audio Riffing)** `<!-- id: 8e68b7cb-dc46-4e3f-8df9-3f8d0b7c3fc0 -->`
+      - [ ] **2.1 The Architecture<i></i>: Systemized Health uses a 3-Tier Operating System: Level 1 FMR (Baseline), Level 2 TLC (Internal), and Level 3 POP (External).** `<!-- id: c99bd1ad-17d3-4e5b-9c10-10d537381a3e -->`
+      - [ ] **2.2 The Core Rule<i></i>: Level 3 external execution is impossible if Level 1 baseline is broken.** `<!-- id: 045a904d-cd72-4436-93e8-24eeeab25720 -->`
+      - [ ] **2.3 Clinical Insight<i></i>: Over 30 years, I've watched high performers collapse because they tried to run Level 3 life goals on a crashing Level 1 engine.** `<!-- id: 654646a8-d96b-4b5d-94c4-60a17760732c -->`
+      - [ ] **2.4 Casual Research Reference<i></i>: Kitano (2002) <i>Science</i> showing complex biological networks fail predictably when higher-order metabolic demands exceed baseline energy production. <a href="https://pubmed.ncbi.nlm.nih.gov/11872829/">https://pubmed.ncbi.nlm.nih.gov/11872829/</a>** `<!-- id: cb332519-0be6-4907-bd6b-a64e2ae8d80a -->`
+      - [ ] **2.5 Action Step<i></i>: Fix your Level 1 foundation so your Level 3 performance can actually thrive.** `<!-- id: bae1f36b-60f1-4254-9696-17b38527aca5 -->`
+    - [ ] **3. CTA** `<!-- id: 027f40c3-775a-4604-a32f-ad505d9119c6 -->`
+      - [ ] **"If you want to map your body across the 3-Tier Systemized OS pyramid, book a free Systemized Discovery Call or grab our app unpacking the OS. I'll see you in the next video."** `<!-- id: 88ce7d17-ce75-4065-90a2-408c49509f70 -->`
 - [ ] **80.10 - Operations &amp; Systems** `<!-- id: ffb06114-f8ce-4b1b-a22d-c8eb66ecd824 -->`
   - [ ] **80.10.WF.2 Set up client onboarding website** `<!-- id: 00fb2934-2306-4762-8159-40fa76c51b86 -->`
   - [ ] **80.10.WF.3 //NCMIC** `<!-- id: 07d9a114-1f75-4bb3-94a0-8fd15e696cc2 -->`
