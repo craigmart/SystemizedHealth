@@ -39,3 +39,9 @@
 ## ️ SOP & Workflow Maintenance
 - [x] Update `SOPs/Operations and Standards.md` to reflect 2-stage Short Video scripting, Workflowy hashtag syntax, and delivery cues.
 - [x] Update `SOPs/Writing Guidance.md` & `SOPs/Writing Voice.md` to encode casual chiropractor tone and bracketed cue formatting.
+
+---
+
+## 📋 Backlog & Future Tasks
+- [ ] **Redesign & Reorganize Workflowy Analytics Reports**: Re-evaluate report structure, visual layout, and timeframe presentation format to align with preferred design aesthetic for Workflowy and future production web app.
+
