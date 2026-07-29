@@ -149,16 +149,27 @@ def update_status_doc():
     doc_path = os.path.join(BASE_DIR, "docs", "Client_Onboarding_Status.md")
     today_str = datetime.now().strftime("%Y-%m-%d")
 
-    table_rows = []
-    if not rows:
-        table_rows.append("| - | No client records | - | - | - |")
-    else:
-        for r in rows:
-            sched = r["scheduled_time"] or "N/A"
-            status = r["status"] or "Booked"
-            table_rows.append(f"| {r['client_id']} | {r['name']} | {r['email']} | {status} | {sched} |")
+    active_rows = []
+    cancelled_rows = []
 
-    table_md = "\n".join(table_rows)
+    for r in rows:
+        sched = r["scheduled_time"] or "N/A"
+        status = r["status"] or "Booked"
+        formatted = f"| {r['client_id']} | {r['name']} | {r['email']} | {status} | {sched} |"
+        if status == "Cancelled":
+            cancelled_rows.append(formatted)
+        else:
+            active_rows.append(formatted)
+
+    if not active_rows:
+        active_table_md = "| - | No active bookings | - | - | - |"
+    else:
+        active_table_md = "\n".join(active_rows)
+
+    if not cancelled_rows:
+        cancelled_table_md = "| - | No cancelled records | - | - | - |"
+    else:
+        cancelled_table_md = "\n".join(cancelled_rows)
 
     content = f"""# Systemized Health — Client Onboarding & CRM Status
 
@@ -192,11 +203,20 @@ This document maintains the live operational status, verification checklist, and
 
 ## 3. Active Client Registry Table
 
-*(Auto-generated from `database/clients.db`)*
+*(Auto-generated from `database/clients.db` — Active Bookings)*
 
 | Client ID | Name | Email | Status | Scheduled Time |
 | :--- | :--- | :--- | :--- | :--- |
-{table_md}
+{active_table_md}
+
+<details>
+<summary><b>View Cancelled / Test Records ({len(cancelled_rows)})</b></summary>
+
+| Client ID | Name | Email | Status | Scheduled Time |
+| :--- | :--- | :--- | :--- | :--- |
+{cancelled_table_md}
+
+</details>
 
 ---
 

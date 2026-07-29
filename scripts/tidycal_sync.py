@@ -121,6 +121,8 @@ def sync_booking_to_db(booking, verbose=False):
     )
     
     status_raw = str(booking.get("status", "Booked")).capitalize()
+    if booking.get("cancelled_at") or booking.get("deleted_at"):
+        status_raw = "Cancelled"
     
     # Extract questions / answers if present
     answers = booking.get("questions") or booking.get("answers") or booking.get("form_responses") or []

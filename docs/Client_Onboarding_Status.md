@@ -30,18 +30,27 @@ This document maintains the live operational status, verification checklist, and
 
 ## 3. Active Client Registry Table
 
-*(Auto-generated from `database/clients.db`)*
+*(Auto-generated from `database/clients.db` — Active Bookings)*
 
 | Client ID | Name | Email | Status | Scheduled Time |
 | :--- | :--- | :--- | :--- | :--- |
-| 9 | dummy6 | craigandersondc-dummy6@gmail.com | Booked | 2026-08-11T22:30:00.000000Z |
-| 10 | dummy3 | craigandersondc-dummy3@gmail.com | Booked | 2026-08-08T13:00:00.000000Z |
-| 6 | lastone | craigandersondc-lastone@gmail.com | Agreement Signed | 2026-08-07T17:00:00.000000Z |
-| 8 | test5 | craigandersondc-test5@gmail.com | Booked | 2026-08-07T14:30:00.000000Z |
-| 11 | Dummy 2 | craigandersondc-dummy2@gmail.com | Booked | 2026-08-07T13:30:00.000000Z |
-| 7 | test77 | craigandersondc-test77@gmail.com | Booked | 2026-08-07T12:30:00.000000Z |
-| 4 | Test | craiganderson.dc-test@gmail.com | Booked | 2026-08-04T22:30:00.000000Z |
-| 1 | Test | craig@craigandersondc.com | Booked | 2026-05-29T18:30:00.000000Z |
+| - | No active bookings | - | - | - |
+
+<details>
+<summary><b>View Cancelled / Test Records (8)</b></summary>
+
+| Client ID | Name | Email | Status | Scheduled Time |
+| :--- | :--- | :--- | :--- | :--- |
+| 18 | dummy6 | craigandersondc-dummy6@gmail.com | Cancelled | 2026-08-11T22:30:00.000000Z |
+| 19 | dummy3 | craigandersondc-dummy3@gmail.com | Cancelled | 2026-08-08T13:00:00.000000Z |
+| 15 | lastone | craigandersondc-lastone@gmail.com | Cancelled | 2026-08-07T17:00:00.000000Z |
+| 17 | test5 | craigandersondc-test5@gmail.com | Cancelled | 2026-08-07T14:30:00.000000Z |
+| 20 | Dummy 2 | craigandersondc-dummy2@gmail.com | Cancelled | 2026-08-07T13:30:00.000000Z |
+| 16 | test77 | craigandersondc-test77@gmail.com | Cancelled | 2026-08-07T12:30:00.000000Z |
+| 21 | Test | craiganderson.dc-test@gmail.com | Cancelled | 2026-08-04T22:30:00.000000Z |
+| 22 | Test | craig@craigandersondc.com | Cancelled | 2026-05-29T18:30:00.000000Z |
+
+</details>
 
 ---
 
