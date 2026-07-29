@@ -209,10 +209,17 @@ AI sentences cluster tightly around 15 to 20 words. Human writing swings from 3-
 - If a line could appear on any other AI output, rewrite it until it sounds like a specific person said it.
 ---
 ## 9. TELEPROMPTER & WORKFLOWY SHORT SCRIPT SYNTAX (2026 UPDATE)
+- **Workflowy 5-Stage Pipeline Tags**: Every video node in Workflowy moves through five standardized stage hashtags:
+  - `#write`: Script is in draft/writing phase (from raw audio dictation transcript to teleprompter script).
+  - `#film`: Script is finished and staged in Workflowy under `Shots`, ready to record on set.
+  - `#edit`: Video recording is complete, ready for editor assembly in LumaFusion and Descript.
+  - `#upload` (or `#approve`): Video edit is completed, ready for video upload, metadata/thumbnail review, and checklist execution.
+  - `#publish`: Final checkpoint cleared; ready for channel publishing.
+- **Workflowy "Shots" Container Node**: Pushed clip nodes are grouped under a clean `Shots` parent node (rather than lengthy titles) to maximize mobile readability.
 - **Clip Sub-Code Standard (`[VideoCode]>[ClipNumber]`)**: In Stage 2 Teleprompter scripts, every clip block MUST begin with a dedicated clip sub-code header without the word "Clip" (e.g. `### 80.V0A-S1>1 — The Hook #film #insidetruck`). Omitting the word "Clip" preserves mobile screen real estate in Workflowy. When recording, Dr. Anderson saves each video file using this exact clip sub-code (e.g., `80.V0A-S1>1.mp4`, `80.V0A-S1>2.mp4`) so sorting the destination folder automatically arranges the clips in correct assembly order.
 - **Single Script Paragraph per Clip**: Under each clip header, write the entire spoken text as ONE single paragraph rather than separate sentence bullets. This prevents Workflowy bullet reordering and keeps reading sequence 100% linear.
 - **Single JDex Code Rule**: The Johnny Decimal (JDex) topic code (e.g. `41.03`, `80.11`, `77.02`, `42.06`) is declared once in the video metadata at the top of the file. Do NOT repeat JDex codes at the end of every individual teleprompter line.
-- **Filming Hashtags (`#film`) & Location Tags**: Always include `#film` and location hashtags (`#insidetruck`, `#outside`, `#studio`, `#whilebusy`, `#driving`, `#shopping`, `#cuttinggrass`) in clip headers.
+- **Filming Hashtags (`#film`) & Location Tags**: Include stage hashtags (`#film`) alongside location tags (`#insidetruck`, `#outside`, `#studio`, `#whilebusy`, `#driving`, `#shopping`, `#cuttinggrass`) in clip headers.
 - **Authentic Delivery & Breath Cues**: Insert bracketed delivery cues `[breath]`, `[pause]`, `[gesture]`, `[tone shift]`, `[eye contact shift]` inside the single paragraph script to guide natural cadence and breath timing on camera.
 - **Workflowy Mobile Real Estate Standard**: Omit note fields on Workflowy nodes (such as source file references or instructions) to keep the display concise and maximize mobile screen real estate.
 - **Casual Chiropractor Tone**: Write short scripts like a chiropractor having a casual conversation with a patient while doing everyday tasks—educational, conversational, grounded, never preachy.

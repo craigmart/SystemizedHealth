@@ -69,8 +69,14 @@ The Technical Editor reviews the raw audio transcript against three core SOP doc
 
 ### Phase III: The Final Script & Production (`-B` & `-C` files)
 - **Script Outline Generation (`-B` file)**: The Technical Editor drafts the polished outline or teleprompter script and saves it to `V[Code]-B Script Outline.txt` or `V[Code]-S# Script - [Name].md`.
-- **Workflowy Sync**: Outlines are pushed to Workflowy for mobile access on set.
-- **On-Camera Recording**: Dr. Anderson records on camera using the outline/teleprompter script.
+- **Workflowy Sync**: Outlines are pushed to Workflowy under `Shots` for mobile access on set.
+- **Workflowy Tag Progression**: Every video node in Workflowy moves strictly through 5 standardized pipeline stage tags:
+  - `#write`: Active script development & editing (from audio transcription to teleprompter-ready script).
+  - `#film`: Script is finalized and staged in Workflowy, ready to record on set.
+  - `#edit`: Recording is complete; media is staged for editing in LumaFusion and Descript.
+  - `#upload` (or `#approve`): Editing is complete; ready for video upload, metadata/thumbnail review, and checklist execution.
+  - `#publish`: Metadata verified and asset is ready to publish across channels.
+- **On-Camera Recording**: Dr. Anderson records on camera using the outline/teleprompter script in Workflowy.
 - **Final Transcript (`-C` file)**: The final A-roll recording is transcribed into `V[Code]-C Draft Transcript.txt` to lock in the final version.
 
 ---
@@ -98,12 +104,14 @@ Before Dr. Anderson records his free-form audio draft, the Technical Editor gene
 
 ### Stage 2: Full Teleprompter Script Generation (After Audio Riffing)
 After Dr. Anderson records and provides his raw audio draft transcript (`-A` file):
-1. The Technical Editor organizes the transcribed audio into a full teleprompter-ready script formatted for Workflowy and filming.
-2. **Clip Sub-Code Standard (`[VideoCode]>[ClipNumber]`)**: Every clip block MUST have a clip sub-code header without the word "Clip" (e.g., `### 80.V0A-S1>1 — The Hook #film #insidetruck`). Omitting the word "Clip" preserves mobile screen real estate in Workflowy. Dr. Anderson saves each recorded video clip with this exact sub-code (e.g. `80.V0A-S1>1.mp4`, `80.V0A-S1>2.mp4`) so sorting the folder automatically arranges the clips in correct assembly order.
-3. **Single Script Paragraph per Clip**: The spoken script under each clip header MUST be formatted as a single consolidated paragraph (rather than separate sentence bullets) to prevent Workflowy bullet reordering and keep exact reading sequence intact.
-4. **Single JDex Code Rule**: The JDex topic code (e.g. `41.03`, `80.11`, `77.02`, `42.06`) is declared once in the video metadata at the top of the file. Do NOT repeat JDex codes at the end of every teleprompter line.
-5. **Filming Hashtags & Performance Cues**: Include `#film` and location hashtags (`#insidetruck`, `#outside`, `#cuttinggrass`, `#whilebusy`, `#driving`, `#shopping`) in clip headers. Insert bracketed delivery cues (`[breath]`, `[pause]`, `[gesture]`, `[tone shift]`, `[eye contact shift]`) inside the script paragraph to guide natural spoken cadence and breathing on camera.
-6. **Workflowy Mobile Real Estate Standard**: Omit note fields on Workflowy nodes (e.g., source file notes or instructions) to preserve mobile screen real estate and maximize readable text area.
+1. The Technical Editor organizes the transcribed audio into a full teleprompter-ready script formatted for Workflowy and filming, placed under the `Shots` container node.
+2. **Workflowy Stage Progression Tagging**: Script nodes use standard pipeline stage hashtags (`#write` -> `#film` -> `#edit` -> `#upload` / `#approve` -> `#publish`). When ready to film, nodes are tagged `#film`.
+3. **Clip Sub-Code Standard (`[VideoCode]>[ClipNumber]`)**: Every clip block MUST have a clip sub-code header without the word "Clip" (e.g., `### 80.V0A-S1>1 — The Hook #film #insidetruck`). Omitting the word "Clip" preserves mobile screen real estate in Workflowy. Dr. Anderson saves each recorded video clip with this exact sub-code (e.g. `80.V0A-S1>1.mp4`, `80.V0A-S1>2.mp4`) so sorting the folder automatically arranges the clips in correct assembly order.
+4. **Single Script Paragraph per Clip**: The spoken script under each clip header MUST be formatted as a single consolidated paragraph (rather than separate sentence bullets) to prevent Workflowy bullet reordering and keep exact reading sequence intact.
+5. **Single JDex Code Rule**: The JDex topic code (e.g. `41.03`, `80.11`, `77.02`, `42.06`) is declared once in the video metadata at the top of the file. Do NOT repeat JDex codes at the end of every teleprompter line.
+6. **Filming Location Tags & Performance Cues**: Include stage tags (`#film`) alongside location hashtags (`#insidetruck`, `#outside`, `#cuttinggrass`, `#whilebusy`, `#driving`, `#shopping`) in clip headers. Insert bracketed delivery cues (`[breath]`, `[pause]`, `[gesture]`, `[tone shift]`, `[eye contact shift]`) inside the script paragraph to guide natural spoken cadence and breathing on camera.
+7. **Workflowy Mobile Real Estate Standard**: Omit note fields on Workflowy nodes (e.g., source file notes or instructions) to preserve mobile screen real estate and maximize readable text area.
+
 
 
 

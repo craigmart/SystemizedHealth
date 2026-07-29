@@ -39,17 +39,24 @@ This document tracks all external software platforms, web applications, database
 
 ### EXT-03: Workflowy Field Notes & Production Outlines
 - **Platform**: Workflowy
-- **Local Integration Script**: [`scripts/workflowy_sync.py`](file:///Users/craiganderson/SystemizedHealth/scripts/workflowy_sync.py)
+- **Local Integration Script**: [`scripts/workflowy_sync.py`](file:///Users/craiganderson/SystemizedHealth/scripts/workflowy_sync.py) & [`scripts/push_teleprompter_scripts.py`](file:///Users/craiganderson/SystemizedHealth/scripts/push_teleprompter_scripts.py)
 - **Config Key**: `workflowy_api_key` in [`scripts/config.json`](file:///Users/craiganderson/SystemizedHealth/scripts/config.json)
 - **Primary Purpose**: Mobile field notes for on-set filming, scene tracking, and Zettelkasten clinical proposition surfacing.
+- **5-Stage Pipeline Tag Standard**: Every video node in Workflowy moves through five standardized stage tags:
+  - `#write`: Scripting & full writing process (audio transcription to teleprompter script).
+  - `#film`: Script is finished & ready to film (staged in Workflowy under `Shots`).
+  - `#edit`: Recording is finished, ready to edit in LumaFusion and Descript.
+  - `#upload` (or `#approve`): Finished editing, ready to upload & review metadata, thumbnail upload, etc. (Checkpoint for metadata checklist).
+  - `#publish`: Ready to publish.
 - **Workflow Protocol**:
-  1. **Push Outline**: AI Technical Editor drafts the script/scene outline in the IDE and pushes it to Workflowy under `Systemized Health > Production Pipeline > [80.V Code]`.
-  2. **Field Filming & Tagging**: Dr. Anderson opens Workflowy on mobile/iPad while on set. As scenes or B-roll shots are captured on camera, bullets are tagged inline (e.g., `#shot`, `#filmed`, `#retake`, `#broll-captured`).
+  1. **Push Outline**: AI Technical Editor drafts the script/scene outline in the IDE and pushes it to Workflowy under `Systemized Health > Production Pipeline > [80.V Code] > Shots`.
+  2. **Field Filming & Tagging**: Dr. Anderson opens Workflowy on mobile/iPad while on set. As scenes or B-roll shots are captured on camera, bullets are tagged inline (e.g., `#film`, `#insidetruck`, `#outside`, `#broll-captured`).
   3. **Pull Production Status**: AI Technical Editor pulls field tags back into the IDE to verify filming completion and update master pipeline status.
   4. **Zettelkasten Proposition Surfacing**: Clinical propositions extracted from video transcripts are created or updated under the `ZETTELKASTEN` node using the format:
      `[JDex Code] // [Proposition Statement] #Main ([Video Codes])`
      Example: `72.45 // Gamma motor neurons regulate muscle spindle sensitivity (80.V1, 80.V34)`
      Execution command: `python scripts/workflowy_sync.py --add-prop --jdex "72.45" --text "[Statement]" --video "[80.V Code]"`. Automatically appends new video codes to existing propositions.
+
 
 ---
 

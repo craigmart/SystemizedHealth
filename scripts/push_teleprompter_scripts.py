@@ -105,15 +105,15 @@ def push_scripts():
 
         children = fetch_children(api_key, v_id)
         
-        # Remove any existing teleprompter nodes to clean old format & emojis
+        # Remove any existing Shots or teleprompter nodes to clean old format & emojis
         for c in children:
             c_name = c.get("name", "")
-            if "Teleprompter" in c_name or "Test Node" in c_name:
+            if "Shots" in c_name or "Teleprompter" in c_name or "Test Node" in c_name:
                 print(f"Cleaning existing node '{c_name}'...")
                 delete_node(api_key, c.get("id"))
 
-        # Create clean emoji-free Teleprompter folder
-        teleprompter_node_id = create_child_node(api_key, v_id, "Teleprompter Clips (Filming Order)")
+        # Create clean emoji-free Shots folder
+        teleprompter_node_id = create_child_node(api_key, v_id, "Shots")
 
         if not teleprompter_node_id:
             print(f"Failed to create teleprompter node for {code}")
