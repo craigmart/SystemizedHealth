@@ -117,38 +117,6 @@ def init_db():
     );
     """)
 
-    # 5. Clients Table (Client Onboarding Pipeline)
-    cursor.execute("""
-    CREATE TABLE IF NOT EXISTS clients (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT NOT NULL,
-        email TEXT UNIQUE NOT NULL,
-        phone TEXT,
-        source_video TEXT DEFAULT 'V0B Discovery Call',
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    );
-    """)
-
-    # 6. Discovery Calls Table (Call Bookings & Intake Data)
-    cursor.execute("""
-    CREATE TABLE IF NOT EXISTS discovery_calls (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        client_id INTEGER NOT NULL,
-        scheduled_time TIMESTAMP NOT NULL,
-        status TEXT DEFAULT 'Booked' CHECK(status IN ('Booked', 'Agreement Sent', 'Agreement Signed', 'Completed', 'No-Show', 'Cancelled')),
-        primary_glitch TEXT,
-        os_level_focus TEXT,
-        tidycal_booking_id TEXT,
-        fathom_transcript_url TEXT,
-        breezedoc_agreement_url TEXT,
-        notes TEXT,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        FOREIGN KEY (client_id) REFERENCES clients(id) ON DELETE CASCADE
-    );
-    """)
-
     conn.commit()
     conn.close()
     print(f"Database initialized successfully at: {DB_PATH}")

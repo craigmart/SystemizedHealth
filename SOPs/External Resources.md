@@ -17,6 +17,7 @@ This document tracks all external software platforms, web applications, database
 | **EXT-07** | **vidIQ Channel Analytics & Search Intelligence** | vidIQ (API / MCP) | Live read-only access to channel performance metrics, keyword search volumes, view velocity, retention analytics, and topic scores. | **Live Read-Only API/MCP** via `scripts/vidiq_sync.py` (`vidiq_api_key`) |
 | **EXT-08** | **Video Pipeline Database & On-Demand Workflowy Reports** | SQLite / Python | Central SQLite video database, production task tracker, and Workflowy analytics reporter. | `database/videos.db` & `scripts/db_manager.py` |
 | **EXT-09** | **Coaching Agreement & E-Signatures** | BreezeDoc | Legal coaching disclosures, client waivers, and coaching agreement e-signatures. | Web Service & Document Templates |
+| **EXT-10** | **Client CRM Database & Sync Engine** | SQLite / Python | Central client contacts, intake answers, call records, and TidyCal sync engine. | `database/clients.db`, `scripts/client_db_manager.py` & `scripts/tidycal_sync.py` |
 
 ---
 

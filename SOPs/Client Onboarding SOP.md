@@ -12,7 +12,7 @@ flowchart TD
     B --> C["TidyCal Scheduling Endpoint<br/>(systemized-discovery-call)"]
     C --> D["Intake Form Submission<br/>(Name, Email, OS Glitch, Focus)"]
     D --> E["Google Calendar Event Sync"]
-    E --> F["Client Database Log<br/>(database/videos.db -> clients)"]
+    E --> F["Client Database Log<br/>(database/clients.db -> clients)"]
     E --> G["BreezeDoc Coaching Agreement<br/>(Docs/Coaching Agreement.md)"]
     E --> H["AI Meeting Assistant<br/>(Fathom.ai Auto-Join)"]
     H --> I["Post-Call Processing<br/>(Zettelkasten Anecdote Logging)"]
@@ -76,7 +76,7 @@ flowchart TD
   1. Fathom generates transcript, AI summary, and action items upon call completion.
   2. Technical Editor / AI inspects transcript for patient friction points and clinical anecdotes.
   3. Extracted anecdotes and pattern insights are logged under `ZETTELKASTEN` proposition nodes in Workflowy or SQLite database (`database/videos.db`).
-- **Client DB Logging**: Record booking and call completion status in `clients` / `discovery_calls` table in local database.
+- **Client DB Logging**: Record booking and call completion status in `clients` / `discovery_calls` table in local database ([`database/clients.db`](file:///Users/craiganderson/Developer/SystemizedHealth/database/clients.db)).
 
 ---
 
@@ -89,4 +89,4 @@ flowchart TD
 | **03** | **Step 3** | Verify Google Calendar sync & Google Meet link generation. | ✅ **Verified** |
 | **04** | **Step 4** | Draft Coaching Agreement template for BreezeDoc e-signature. | ✅ **Drafted** |
 | **05** | **Step 5** | Verify Fathom.ai Google Calendar auto-join integration. | 🔄 **In Progress** |
-| **06** | **Database** | Create `clients` and `discovery_calls` tables in `database/videos.db`. | 🔄 **In Progress** |
+| **06** | **Database** | Create `clients` and `discovery_calls` tables in `database/clients.db` & sync TidyCal. | ✅ **Verified** |
