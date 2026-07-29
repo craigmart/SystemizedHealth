@@ -77,9 +77,10 @@ def find_or_create_root_node(api_key, root_name="Systemized Health Pipeline"):
 
     payload = {"name": root_name, "note": "Systemized Health Master Video Field Notes & Outlines"}
     res = make_request(API_BASE, api_key, method="POST", payload=payload)
-    if res and "id" in res:
-        print(f"Created root Workflowy folder: '{root_name}' (ID: {res['id']})")
-        return res["id"]
+    if res and ("item_id" in res or "id" in res):
+        node_id = res.get("item_id") or res.get("id")
+        print(f"Created root Workflowy folder: '{root_name}' (ID: {node_id})")
+        return node_id
     return None
 
 def create_child_node(api_key, parent_id, name, note=None):
@@ -87,8 +88,8 @@ def create_child_node(api_key, parent_id, name, note=None):
     if note:
         payload["note"] = note
     res = make_request(API_BASE, api_key, method="POST", payload=payload)
-    if res and "id" in res:
-        return res["id"]
+    if res and ("item_id" in res or "id" in res):
+        return res.get("item_id") or res.get("id")
     return None
 
 def parse_markdown_to_bullets(filepath):

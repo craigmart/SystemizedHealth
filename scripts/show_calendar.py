@@ -1,60 +1,62 @@
 #!/usr/bin/env python3
 """
-Systemized Health August 2026 CLI Publication Calendar Viewer
+Systemized Health Dynamic Publication & Task Calendar Viewer
+Queries directly from database/videos.db
 """
 
 import os
+import sqlite3
 
-AUGUST_CALENDAR = [
-    {
-        "week": "Week 1 (Aug 1 - Aug 7)",
-        "items": [
-            {"drop": "2026-08-03 (Mon)", "code": "80.V0A", "format": "Long", "title": "230,000 Patient Visits", "status": "Uploaded (Private)"},
-            {"drop": "2026-08-04 (Tue)", "code": "80.V0A-S1", "format": "Short", "title": "Why Monday Health Resolutions Fail", "status": "Uploaded (Private)"},
-            {"drop": "2026-08-06 (Thu)", "code": "80.V0A-S2", "format": "Short", "title": "The Biological Sequence of Change", "status": "Uploaded (Private)"},
-            {"drop": "2026-08-08 (Sat)", "code": "80.V0A-S3", "format": "Short", "title": "Stop Treating Health Like an Emergency", "status": "Uploaded (Private)"}
-        ]
-    },
-    {
-        "week": "Week 2 (Aug 8 - Aug 14)",
-        "items": [
-            {"drop": "2026-08-10 (Mon)", "code": "80.V1B1", "format": "Long", "title": "Exercise Optional (Movement Mandatory)", "status": "Uploaded (Private)"},
-            {"drop": "2026-08-11 (Tue)", "code": "80.V1B1-S1", "format": "Short", "title": "Why Exercise is Optional", "status": "Uploaded (Private)"},
-            {"drop": "2026-08-13 (Thu)", "code": "80.V1B1-S2", "format": "Short", "title": "Joint Imbibition: How Joints Eat", "status": "Uploaded (Private)"},
-            {"drop": "2026-08-15 (Sat)", "code": "80.V1B1-S3", "format": "Short", "title": "Cortical Smudging: Why Back Pain Spasms", "status": "Uploaded (Private)"}
-        ]
-    },
-    {
-        "week": "Week 3 (Aug 15 - Aug 21)",
-        "items": [
-            {"drop": "2026-08-17 (Mon)", "code": "80.V0B", "format": "Long", "title": "Health Info & Biology Baseline", "status": "Uploaded (Private)"},
-            {"drop": "2026-08-18 (Tue)", "code": "80.V0B-S1", "format": "Short", "title": "Information Overload vs Implementation", "status": "Uploaded (Private)"},
-            {"drop": "2026-08-20 (Thu)", "code": "80.V0B-S2", "format": "Short", "title": "Finding Your System Glitch", "status": "Uploaded (Private)"},
-            {"drop": "2026-08-22 (Sat)", "code": "80.V0B-S3", "format": "Short", "title": "Doctor vs Coach: Rebuilding Baseline", "status": "Uploaded (Private)"}
-        ]
-    },
-    {
-        "week": "Week 4 (Aug 22 - Aug 31)",
-        "items": [
-            {"drop": "2026-08-24 (Mon)", "code": "80.V0A1", "format": "Long", "title": "Systemized OS Framework", "status": "In Edit (A-Roll Done)"},
-            {"drop": "2026-08-25 (Tue)", "code": "80.V0A1-S1", "format": "Short", "title": "The Willpower Trap", "status": "Outlined"},
-            {"drop": "2026-08-27 (Thu)", "code": "80.V0A1-S2", "format": "Short", "title": "Level 1 FMR Baseline", "status": "Outlined"},
-            {"drop": "2026-08-29 (Sat)", "code": "80.V0A1-S3", "format": "Short", "title": "Discovery Call Coaching Protocol", "status": "Outlined"}
-        ]
-    }
-]
+DB_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "database", "videos.db")
 
 def main():
-    print("=" * 80)
-    print(" 📅 SYSTEMIZED HEALTH — AUGUST 2026 PUBLICATION CALENDAR")
-    print("=" * 80)
-    for block in AUGUST_CALENDAR:
-        print(f"\n📌 {block['week']}")
-        print("-" * 80)
-        for item in block["items"]:
-            fmt_icon = "🎬 [Long] " if item["format"] == "Long" else "⚡ [Short]"
-            print(f"  {item['drop']:<18} | {fmt_icon:<10} | {item['code']:<11} | {item['title']:<40} | {item['status']}")
-    print("=" * 80)
+    if not os.path.exists(DB_PATH):
+        print(f"Error: Database not found at {DB_PATH}. Run python scripts/db_manager.py --seed first.")
+        return
+
+    conn = sqlite3.connect(DB_PATH)
+    conn.row_factory = sqlite3.Row
+    cursor = conn.cursor()
+
+    # Get all drop dates
+    cursor.execute("""
+    SELECT drop_date, code, format_type, title, status FROM videos WHERE drop_date IS NOT NULL ORDER BY drop_date ASC;
+    """)
+    drops = cursor.fetchall()
+
+    # Get open tasks with due dates
+    cursor.execute("""
+    SELECT t.due_date, t.task_name, v.code, v.title
+    FROM video_tasks t
+    JOIN videos v ON v.id = t.video_id
+    WHERE t.status != 'Completed' AND t.due_date IS NOT NULL
+    ORDER BY t.due_date ASC;
+    """)
+    tasks = cursor.fetchall()
+    conn.close()
+
+    events_by_date = {}
+    for d in drops:
+        dt = d['drop_date']
+        if dt not in events_by_date:
+            events_by_date[dt] = []
+        events_by_date[dt].append(f"🎬 [DROP {d['format_type']:<5}] {d['code']:<12} | {d['title']:<40} | {d['status']}")
+
+    for t in tasks:
+        dt = t['due_date']
+        if dt not in events_by_date:
+            events_by_date[dt] = []
+        events_by_date[dt].append(f"⏳ [TASK DUE]   {t['code']:<12} | {t['task_name']:<40} | Open Task")
+
+    print("=" * 95)
+    print(" 📅 SYSTEMIZED HEALTH — DYNAMIC PUBLICATION & TASK CALENDAR")
+    print("=" * 95)
+    for dt in sorted(events_by_date.keys()):
+        print(f"\n📌 Date: {dt}")
+        print("-" * 95)
+        for ev in events_by_date[dt]:
+            print(f"   {ev}")
+    print("=" * 95)
 
 if __name__ == "__main__":
     main()

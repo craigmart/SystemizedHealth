@@ -66,3 +66,15 @@ This document tracks all external software platforms, web applications, database
 - **Config Key**: `vidiq_api_key` (Bearer Token from vidIQ Account Settings > MCP) in [`scripts/config.json`](file:///Users/craiganderson/SystemizedHealth/scripts/config.json)
 - **Primary Purpose**: Live, read-only channel performance data, keyword search volumes, view velocity, retention metrics, and competitive topic scores. Zero YouTube API quota drain.
 - **Workflow Step**: Queried live by the AI Technical Editor during Phase I ("The Raw Input") & Phase II ("The Editorial Filters") to analyze performance, evaluate keyword demand, and select high-converting Zettelkasten video topics.
+
+---
+
+### EXT-08: Video Pipeline Database & On-Demand Workflowy Reports
+- **Database Path**: [`database/videos.db`](file:///Users/craiganderson/Library/Mobile%20Documents/com~apple%7ECloudDocs/SystemizedHealth/database/videos.db) (SQLite)
+- **Management CLI**: [`scripts/db_manager.py`](file:///Users/craiganderson/Library/Mobile%20Documents/com~apple%7ECloudDocs/SystemizedHealth/scripts/db_manager.py)
+- **Workflowy Reporter Script**: [`scripts/workflowy_report.py`](file:///Users/craiganderson/Library/Mobile%20Documents/com~apple%7ECloudDocs/SystemizedHealth/scripts/workflowy_report.py)
+- **On-Demand Execution Protocol**:
+  Whenever Dr. Anderson instructs the AI to update reports or check status:
+  1. `python3 scripts/workflowy_report.py --push`: Generates and pushes the daily channel metrics, 7-day video drop calendar, and open task due dates directly to Workflowy under `📊 Daily Analytics & Task Reports`.
+  2. `python3 scripts/db_manager.py --calendar`: Renders the full interactive publication and task due date calendar in the CLI.
+  3. `python3 scripts/db_manager.py --list`: Lists all active videos and latest performance metrics.
