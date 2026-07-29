@@ -46,7 +46,7 @@
     - [ ] **<b>Video Code</b>: <code>80.V0B-S1</code>** `<!-- id: a7c5a78a-8bca-4fde-a2c1-215d5291bd2d -->`
     - [ ] **<b>Parent Video</b>: <code>80.V0B</code> (<i>Health Info & Biology Baseline</i>)** `<!-- id: 329b158d-d451-4d79-bbbc-4f8789e73903 -->`
     - [ ] **<b>Suggested Settings</b>: <code>#insidetruck</code> <code>#whilebusy</code> <code>#outside</code>** `<!-- id: 0e2d2712-6e07-4dfd-a21c-4e7a4d1073fc -->`
-    - [ ] **<b>JDex Topic Code</b>: <code>80.11</code> (<i>Systemized OS Framework</i>)** `<!-- id: 29643b31-bed4-4915-99aa-6ddb8ae6dbe3 -->`
+    - [ ] **<b>JDex Topic Code</b>: <code>80.V0</code> (<i>Systemized OS Framework</i>)** `<!-- id: 29643b31-bed4-4915-99aa-6ddb8ae6dbe3 -->`
     - [ ] **1. Hook** `<!-- id: 900cff05-7c05-49dc-9174-c07bcea9df8b -->`
       - [ ] **"Look, if you're like most people I see in the clinic, you don't need another health podcast, supplement stack, or Monday morning resolution."** `<!-- id: 4317b095-047b-4d5d-ad89-3f076701214d -->`
     - [ ] **2. Talking Points (For Audio Riffing)** `<!-- id: 2dbbec7b-a7a8-4d36-b50f-3ba82e159b35 -->`
@@ -166,7 +166,7 @@
     - [ ] **<b>Video Code</b>: <code>80.V0A-S2</code>** `<!-- id: 24c54dea-09d0-44c6-842f-3a7d58ed8772 -->`
     - [ ] **<b>Parent Video</b>: <code>80.V0A</code> (<i>230,000 Patient Visits</i>)** `<!-- id: c0ef4460-7300-491c-9a74-37828869f956 -->`
     - [ ] **<b>Suggested Settings</b>: <code>#outside</code> <code>#cuttinggrass</code> <code>#whilebusy</code>** `<!-- id: bef761b1-785c-4456-b5cb-7dcf9705b1a6 -->`
-    - [ ] **<b>JDex Topic Code</b>: <code>80.11</code> (<i>Autonomic Sequence & Systemized OS</i>)** `<!-- id: 444e67b0-0877-4e32-aef5-4be207d48ac8 -->`
+    - [ ] **<b>JDex Topic Code</b>: <code>82.06</code> (<i>Autonomic Sequence & Systemized OS</i>)** `<!-- id: 444e67b0-0877-4e32-aef5-4be207d48ac8 -->`
     - [ ] **1. Hook** `<!-- id: f8416472-2de9-4e4f-b463-0b4ffd11521f -->`
       - [ ] **"Most high performers are exhausted because they're trying to fix emotional stress and high-level goals while their physical foundation is literally falling apart."** `<!-- id: 79a4debb-aa3f-49fb-b678-99d71ca54585 -->`
     - [ ] **2. Talking Points (For Audio Riffing)** `<!-- id: 3cd03bd5-a625-49a3-a00c-81bae2bf59f7 -->`
@@ -271,7 +271,7 @@
     - [ ] **<b>Video Code</b>: <code>80.V0A1-S2</code>** `<!-- id: 06288174-744b-4e74-ad85-b2b492ed24ec -->`
     - [ ] **<b>Parent Video</b>: <code>80.V0A1</code> (<i>Systemized OS Framework</i>)** `<!-- id: 4e501f9a-63b4-410c-9e28-abaacae9cf18 -->`
     - [ ] **<b>Suggested Settings</b>: <code>#outside</code> <code>#insidetruck</code> <code>#studio</code>** `<!-- id: 5ba0b82e-d6a4-4f90-bc62-d51bc83aecba -->`
-    - [ ] **<b>JDex Topic Code</b>: <code>80.11</code> (<i>Level 1 FMR Biological Foundation</i>)** `<!-- id: 3b97dc57-4f98-431b-8ea5-cc3d734e2bf4 -->`
+    - [ ] **<b>JDex Topic Code</b>: <code>80.V1</code> (<i>Level 1 FMR Biological Foundation</i>)** `<!-- id: 3b97dc57-4f98-431b-8ea5-cc3d734e2bf4 -->`
     - [ ] **1. Hook** `<!-- id: 5f5b9301-3ce7-4df1-91ea-db0509928248 -->`
       - [ ] **"Before you spend a single dollar on fancy red light therapy, ice baths, or biohacking gadgets... let's talk about Level 1 FMR."** `<!-- id: 7fa79f63-fc0e-4a24-9bfe-292affd4b15b -->`
     - [ ] **2. Talking Points (For Audio Riffing)** `<!-- id: 8ecf5ad0-0831-433d-8dc5-0c7f9cfcc4a0 -->`
@@ -301,7 +301,7 @@
     - [ ] **<b>Video Code</b>: <code>80.V0A1-S3</code>** `<!-- id: d8dbdba8-991c-4553-a809-720f1eebd732 -->`
     - [ ] **<b>Parent Video</b>: <code>80.V0A1</code> (<i>Systemized OS Framework</i>)** `<!-- id: 8fbbfad9-227f-491f-8873-9de9d26e3215 -->`
     - [ ] **<b>Suggested Settings</b>: <code>#insidetruck</code> <code>#outside</code> <code>#whilebusy</code>** `<!-- id: 98ce2ed5-91d0-4cff-a8d8-9d2709611b72 -->`
-    - [ ] **<b>JDex Topic Code</b>: <code>80.11</code> (<i>3-Tier Health Architecture</i>)** `<!-- id: adecd4af-11b8-4c8d-b05c-64d43e842aa0 -->`
+    - [ ] **<b>JDex Topic Code</b>: <code>80.V0</code> (<i>3-Tier Health Architecture</i>)** `<!-- id: adecd4af-11b8-4c8d-b05c-64d43e842aa0 -->`
     - [ ] **1. Hook** `<!-- id: dfa7aca3-b030-40a1-88c9-1b8cb6c045e6 -->`
       - [ ] **"Think of your health like an operating system on your phone. If the hardware is overheating, downloading fancy new apps isn't going to help."** `<!-- id: 5b664941-d6fd-464e-be0e-ffa55e3fb14c -->`
     - [ ] **2. Talking Points (For Audio Riffing)** `<!-- id: 8e68b7cb-dc46-4e3f-8df9-3f8d0b7c3fc0 -->`

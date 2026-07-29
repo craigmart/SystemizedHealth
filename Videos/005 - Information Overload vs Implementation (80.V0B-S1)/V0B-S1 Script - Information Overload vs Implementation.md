@@ -3,7 +3,7 @@
 **Video Code**: `80.V0B-S1`  
 **Parent Video**: `80.V0B` (*Health Info & Biology Baseline*)  
 **Suggested Settings**: `#insidetruck` `#whilebusy` `#outside`  
-**JDex Topic Code**: `80.11` (*Systemized OS Framework*)  
+**JDex Topic Code**: `42.02` (*Decision-making & Taking Action*)  
 
 ---
 

@@ -3,7 +3,7 @@
 **Video Code**: `80.V0A1-S3`  
 **Parent Video**: `80.V0A1` (*Systemized OS Framework*)  
 **Suggested Settings**: `#insidetruck` `#outside` `#whilebusy`  
-**JDex Topic Code**: `80.11` (*3-Tier Health Architecture*)  
+**JDex Topic Code**: `43.11` (*Goal Setting & Health Pyramid*)  
 
 ---
 

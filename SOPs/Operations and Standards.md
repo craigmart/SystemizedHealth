@@ -30,7 +30,7 @@ All content blueprints, local media assets, and external integrations adhere str
 
 - **80.05**: [External Resources & Systems Catalog](file:///Users/craiganderson/Library/Mobile%20Documents/com~apple~CloudDocs/SystemizedHealth/SOPs/External%20Resources.md)
 - **80.10**: Operations & Business Standards
-- **80.11**: [Systemized Health Operating System (OS)](file:///Users/craiganderson/Library/Mobile%20Documents/com~apple~CloudDocs/SystemizedHealth/SOPs/Systemized%20OS%20Framework.md)
+- **80.V0**: [Systemized Health Operating System (OS)](file:///Users/craiganderson/Library/Mobile%20Documents/com~apple~CloudDocs/SystemizedHealth/SOPs/Systemized%20OS%20Framework.md)
 - **Standard Taxonomic Notation**: `80.V[Hierarchy]` (denotes core video assets within the pipeline)
 
 **Structural Application Examples**: `80.V1` represents the foundational long-form clinical narrative. `80.V1A` indicates a strategic conceptual branch developed directly from the parent video. `80.V1A1` identifies a micro-content short extracted directly from that secondary asset.
@@ -108,7 +108,7 @@ After Dr. Anderson records and provides his raw audio draft transcript (`-A` fil
 2. **Workflowy Stage Progression Tagging**: Script nodes use standard pipeline stage hashtags (`#write` -> `#film` -> `#edit` -> `#upload` / `#approve` -> `#publish`). When ready to film, nodes are tagged `#film`.
 3. **Clip Sub-Code Standard (`[VideoCode]>[ClipNumber]`)**: Every clip block MUST have a clip sub-code header without the word "Clip" (e.g., `### 80.V0A-S1>1 — The Hook #film #insidetruck`). Omitting the word "Clip" preserves mobile screen real estate in Workflowy. Dr. Anderson saves each recorded video clip with this exact sub-code (e.g. `80.V0A-S1>1.mp4`, `80.V0A-S1>2.mp4`) so sorting the folder automatically arranges the clips in correct assembly order.
 4. **Single Script Paragraph per Clip**: The spoken script under each clip header MUST be formatted as a single consolidated paragraph (rather than separate sentence bullets) to prevent Workflowy bullet reordering and keep exact reading sequence intact.
-5. **Single JDex Code Rule**: The JDex topic code (e.g. `41.03`, `80.11`, `77.02`, `42.06`) is declared once in the video metadata at the top of the file. Do NOT repeat JDex codes at the end of every teleprompter line.
+5. **Single JDex Code Rule**: The JDex topic code (e.g. `41.03`, `80.V0`, `77.02`, `42.06`) is declared once in the video metadata at the top of the file. Do NOT repeat JDex codes at the end of every teleprompter line.
 6. **Filming Location Tags & Performance Cues**: Include stage tags (`#film`) alongside location hashtags (`#insidetruck`, `#outside`, `#cuttinggrass`, `#whilebusy`, `#driving`, `#shopping`) in clip headers. Insert bracketed delivery cues (`[breath]`, `[pause]`, `[gesture]`, `[tone shift]`, `[eye contact shift]`) inside the script paragraph to guide natural spoken cadence and breathing on camera.
 7. **Workflowy Mobile Real Estate Standard**: Omit note fields on Workflowy nodes (e.g., source file notes or instructions) to preserve mobile screen real estate and maximize readable text area.
 

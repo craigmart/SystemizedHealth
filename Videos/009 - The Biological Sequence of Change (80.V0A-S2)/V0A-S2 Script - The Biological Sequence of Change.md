@@ -3,7 +3,7 @@
 **Video Code**: `80.V0A-S2`  
 **Parent Video**: `80.V0A` (*230,000 Patient Visits*)  
 **Suggested Settings**: `#outside` `#cuttinggrass` `#whilebusy`  
-**JDex Topic Code**: `80.11` (*Autonomic Sequence & Systemized OS*)  
+**JDex Topic Code**: `42.04` (*Stress, Anxiety & Depression*)  
 
 ---
 

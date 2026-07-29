@@ -3,7 +3,7 @@
 **Video Code**: `80.V0A1-S2`  
 **Parent Video**: `80.V0A1` (*Systemized OS Framework*)  
 **Suggested Settings**: `#outside` `#insidetruck` `#studio`  
-**JDex Topic Code**: `80.11` (*Level 1 FMR Biological Foundation*)  
+**JDex Topic Code**: `81.05` (*Lifestyle Management & Somatic Baseline*)  
 
 ---
 
