@@ -13,10 +13,13 @@ CONFIG_PATH = os.path.join(os.path.dirname(__file__), "config.json")
 API_BASE = "https://workflowy.com/api/v1/nodes"
 
 NODE_MAP = {
+    "80.V0B-S1": "98a6f57c-a79f-4a5f-b31d-4611f944fa0b",
     "80.V0A-S1": "05a69931-ef84-4292-bd92-b00e1bb682f0",
     "80.V0A-S2": "9146cb9c-964c-4563-b47f-811d5ff4150d",
     "80.V0A-S3": "65d28662-3e70-47dc-a7f3-3cdd81a304ec",
-    "80.V0A1-S1": "cb9366de-e092-4db8-b1a2-fc9fdb7418fe"
+    "80.V0A1-S1": "cb9366de-e092-4db8-b1a2-fc9fdb7418fe",
+    "80.V0A1-S2": "738e2ebe-9069-4b85-bbdc-0e7f8c36fce1",
+    "80.V0A1-S3": "968af5a3-f781-45d9-a44e-9e364422f819"
 }
 
 def load_config():
@@ -74,10 +77,13 @@ def push_scripts():
         sys.exit(1)
 
     targets = [
+        ("80.V0B-S1", "Videos/005 - Information Overload vs Implementation (80.V0B-S1)/V0B-S1 Script - Information Overload vs Implementation.md"),
         ("80.V0A-S1", "Videos/008 - Why Monday Health Resolutions Fail (80.V0A-S1)/V0A-S1 Script - Why Monday Health Resolutions Fail.md"),
         ("80.V0A-S2", "Videos/009 - The Biological Sequence of Change (80.V0A-S2)/V0A-S2 Script - The Biological Sequence of Change.md"),
         ("80.V0A-S3", "Videos/010 - Stop Treating Health Like an Emergency (80.V0A-S3)/V0A-S3 Script - Stop Treating Health Like an Emergency.md"),
-        ("80.V0A1-S1", "Videos/014 - The Willpower Trap (80.V0A1-S1)/V0A1-S1 Script - The Willpower Trap.md")
+        ("80.V0A1-S1", "Videos/014 - The Willpower Trap (80.V0A1-S1)/V0A1-S1 Script - The Willpower Trap.md"),
+        ("80.V0A1-S2", "Videos/015 - Level 1 FMR Baseline (80.V0A1-S2)/V0A1-S2 Script - Level 1 FMR Baseline.md"),
+        ("80.V0A1-S3", "Videos/016 - The 3-Tier Health Pyramid (80.V0A1-S3)/V0A1-S3 Script - The 3-Tier Health Pyramid.md")
     ]
 
     project_root = os.path.dirname(os.path.dirname(__file__))
@@ -105,7 +111,7 @@ def push_scripts():
 
         children = fetch_children(api_key, v_id)
         
-        # Remove any existing Shots or teleprompter nodes to clean old format & emojis
+        # Remove any existing Shots or teleprompter nodes to clean old format
         for c in children:
             c_name = c.get("name", "")
             if "Shots" in c_name or "Teleprompter" in c_name or "Test Node" in c_name:
@@ -124,7 +130,7 @@ def push_scripts():
             if not block.strip():
                 continue
             lines = [l.strip() for l in block.strip().split("\n") if l.strip()]
-            header = lines[0]  # e.g. "80.V0A-S1>1 — The Hook #film #insidetruck" or "Clip 80.V0A-S1>1..."
+            header = lines[0]  # e.g. "80.V0A-S1>1 — The Hook #film #insidetruck"
             if header.startswith("Clip "):
                 header = header[5:].strip()
             text_lines = lines[1:]

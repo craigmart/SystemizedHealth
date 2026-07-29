@@ -25,9 +25,9 @@
 - [x] **016 (80.V0A1-S3)**: The 3-Tier Health Pyramid — *Pre-Recording Blueprint Created*
 
 ### Stage 2: Audio Riffs & Teleprompter / Workflowy Draft Scripts
-- [ ] Record raw audio drafts (`-A` audio transcripts) for 005–016 based on pre-recording outlines.
-- [ ] Format draft scripts for Workflowy & Teleprompter app with line-ending hashtags (`#insidetruck`, `#outside`, `#studio`, `#whilebusy`, `#driving`, `#shopping`, `#cuttinggrass`) and delivery `[cues]`.
-- [ ] Push teleprompter nodes to Workflowy (`python scripts/workflowy_sync.py`).
+- [x] Process raw audio drafts (`#AudioDraftDone` audio transcripts) for 005, 008, 009, 010, 014, 015, 016 into teleprompter scripts.
+- [x] Format draft scripts for Workflowy & Teleprompter app with location hashtags like(`#insidetruck`, `#outside`, `#studio`, `#whilebusy`, `#driving`, `#shopping`), delivery `[cues]`, and clip headers (`### 80.V...>[1-6] #film`).
+- [x] Push teleprompter nodes and stage progression tags (`#film`) to Workflowy.
 
 ### Stage 3: Dynamic Travel Filming & Gold Standard Lock-In
 - [ ] Film on-camera A-roll across varied casual settings during travel week.
