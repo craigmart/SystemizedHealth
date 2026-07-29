@@ -146,8 +146,17 @@ def seed_db():
         {"video_number": "016", "code": "80.V0A1-S3", "format_type": "Short", "title": "The 3-Tier Health Pyramid That Fixes Chronic Fatigue", "drop_date": "2026-08-29", "status": "Ready for Audio Riff", "uploaded_date": None, "notes": "Pre-Recording Blueprint Ready", "jdex_code": "80.11", "os_level": "Level 1: FMR"}
     ]
 
+    videos_dir_abs = os.path.join(os.path.dirname(os.path.dirname(__file__)), "Videos")
+    existing_folders = [d for d in os.listdir(videos_dir_abs) if os.path.isdir(os.path.join(videos_dir_abs, d))] if os.path.exists(videos_dir_abs) else []
+
     for v in initial_videos:
-        folder = f"Videos/{v['video_number']} - {v['title']} ({v['code']})"
+        matching_folder = None
+        for ef in existing_folders:
+            if f"({v['code']})" in ef or ef.startswith(f"{v['video_number']} - "):
+                matching_folder = f"Videos/{ef}"
+                break
+        folder = matching_folder or f"Videos/{v['video_number']} - {v['title']} ({v['code']})"
+
         cursor.execute("""
         INSERT INTO videos (video_number, code, format_type, title, status, drop_date, uploaded_date, jdex_code, os_level, folder_path)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
@@ -156,7 +165,8 @@ def seed_db():
             title=excluded.title,
             status=excluded.status,
             drop_date=excluded.drop_date,
-            uploaded_date=excluded.uploaded_date;
+            uploaded_date=excluded.uploaded_date,
+            folder_path=excluded.folder_path;
         """, (v['video_number'], v['code'], v['format_type'], v['title'], v['status'], v['drop_date'], v['uploaded_date'], v['jdex_code'], v['os_level'], folder))
         
         # Get video_id
