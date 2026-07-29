@@ -113,24 +113,26 @@ def push_scripts():
                 delete_node(api_key, c.get("id"))
 
         # Create clean emoji-free Teleprompter folder
-        teleprompter_node_id = create_child_node(api_key, v_id, "Teleprompter Clips (Filming Order)", note="Save recorded video clips as [Code]>[ClipNumber].mp4")
+        teleprompter_node_id = create_child_node(api_key, v_id, "Teleprompter Clips (Filming Order)")
 
         if not teleprompter_node_id:
             print(f"Failed to create teleprompter node for {code}")
             continue
 
-        blocks = script_section.strip().split("### Clip ")
-        for block in blocks:
+        raw_blocks = script_section.strip().split("### ")
+        for block in raw_blocks:
             if not block.strip():
                 continue
             lines = [l.strip() for l in block.strip().split("\n") if l.strip()]
-            header = lines[0]  # e.g. "80.V0A-S1>1 — The Hook #film #insidetruck"
+            header = lines[0]  # e.g. "80.V0A-S1>1 — The Hook #film #insidetruck" or "Clip 80.V0A-S1>1..."
+            if header.startswith("Clip "):
+                header = header[5:].strip()
             text_lines = lines[1:]
 
             # Consolidate text lines into a single spoken paragraph
             single_paragraph = " ".join(text_lines).strip()
 
-            clip_header_text = f"Clip {header}"
+            clip_header_text = header
             clip_id = create_child_node(api_key, teleprompter_node_id, clip_header_text)
             
             if clip_id and single_paragraph:

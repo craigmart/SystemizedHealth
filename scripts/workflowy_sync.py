@@ -113,7 +113,7 @@ def push_outline(api_key, filepath, title=""):
     filename = os.path.basename(filepath)
     video_title = title or os.path.splitext(filename)[0]
 
-    video_node_id = create_child_node(api_key, root_id, f"🎬 {video_title}", note=f"Source: {filename}")
+    video_node_id = create_child_node(api_key, root_id, f"🎬 {video_title}")
     if not video_node_id:
         print("Error creating video node in Workflowy.", file=sys.stderr)
         return

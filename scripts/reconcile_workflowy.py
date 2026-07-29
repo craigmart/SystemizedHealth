@@ -122,7 +122,7 @@ def reconcile(api_key):
 
         if not video_node_id:
             print(f"Creating new video node in Workflowy: '{title}'...")
-            video_node_id = create_child_node(api_key, ROOT_ID, title, note=f"Source: {rel_path}")
+            video_node_id = create_child_node(api_key, ROOT_ID, title)
 
         if video_node_id and os.path.exists(full_path):
             # Check existing sub-bullets

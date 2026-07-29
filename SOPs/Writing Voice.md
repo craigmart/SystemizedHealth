@@ -110,7 +110,7 @@ Short paragraphs — two to four sentences maximum in most contexts. Use bullet 
 
 ### DR. ANDERSON'S FORMATTING:
 - **Short Video Stage 1 Blueprint**: Pre-recording outline with Title CTR, Word-for-Word Hook, Thumbnail Concept, Casual Research Paper, Word-for-Word CTA, and Bulleted Talking Points for audio riffing.
-- **Short Video Stage 2 Teleprompter Script**: Full spoken-word script structured into sub-coded clip blocks (`### Clip [VideoCode]>[ClipNumber] — [Name] #[locationTag]`). Single JDex code declared in top metadata. Every paragraph represents an individual clip saved as `[VideoCode]>[ClipNumber].mp4` for automated clip sorting in video editing. Embedded performance cues (`[pause]`, `[tone shift]`, `[eye contact shift]`).
+- **Short Video Stage 2 Teleprompter Script**: Full spoken-word script structured into sub-coded clip blocks (`### [VideoCode]>[ClipNumber] — [Name] #[locationTag]`, omitting the word "Clip" to preserve mobile screen real estate in Workflowy). Single JDex code declared in top metadata. Every paragraph represents an individual clip saved as `[VideoCode]>[ClipNumber].mp4` for automated clip sorting in video editing. Embedded performance cues (`[pause]`, `[tone shift]`, `[eye contact shift]`).
 
 
 ---
