@@ -2,7 +2,7 @@
 """
 Systemized Health On-Demand Workflowy Report Generator
 
-Generates and pushes video analytics, drop calendars, and open production tasks to Workflowy.
+Generates and pushes video analytics, 4-timeframe views, drop calendars, and open production tasks to Workflowy.
 
 Usage:
   python scripts/workflowy_report.py --preview              # Preview report locally in terminal
@@ -15,7 +15,7 @@ import os
 import json
 import sqlite3
 import argparse
-from datetime import datetime
+from datetime import datetime, timedelta
 from workflowy_sync import load_config, make_request, fetch_all_nodes, create_child_node, find_or_create_root_node, API_BASE
 
 DB_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "database", "videos.db")
@@ -29,12 +29,17 @@ def get_db_data():
     conn.row_factory = sqlite3.Row
     cursor = conn.cursor()
 
-    # Total & Status summary
+    now = datetime.now()
+    t_48h = (now - timedelta(hours=48)).strftime("%Y-%m-%d %H:%M:%S")
+    t_7d = (now - timedelta(days=7)).strftime("%Y-%m-%d")
+    t_28d = (now - timedelta(days=28)).strftime("%Y-%m-%d")
+
+    # 1. Total & Status summary
     cursor.execute("SELECT status, count(*) as count FROM videos GROUP BY status;")
     status_summary = {r['status']: r['count'] for r in cursor.fetchall()}
 
-    # Recent / Upcoming Drop Dates
-    today_str = datetime.now().strftime("%Y-%m-%d")
+    # 2. Upcoming Drop Dates
+    today_str = now.strftime("%Y-%m-%d")
     cursor.execute("""
     SELECT code, format_type, title, drop_date, status
     FROM videos
@@ -44,7 +49,7 @@ def get_db_data():
     """, (today_str,))
     upcoming_drops = cursor.fetchall()
 
-    # Open tasks with due dates
+    # 3. Open tasks with due dates
     cursor.execute("""
     SELECT t.id, t.task_name, t.phase, t.due_date, v.code, v.title
     FROM video_tasks t
@@ -54,12 +59,37 @@ def get_db_data():
     """)
     open_tasks = cursor.fetchall()
 
-    # Latest stats
+    # 4. Timeframe Analytics
+    # (a) Last 48 Hours
     cursor.execute("""
-    SELECT SUM(views) as total_views, SUM(likes) as total_likes, AVG(ctr_pct) as avg_ctr
+    SELECT COALESCE(SUM(views), 0) as views, COALESCE(SUM(vph), 0.0) as vph, COALESCE(SUM(likes), 0) as likes
+    FROM video_stats
+    WHERE snapshot_date >= ?;
+    """, (t_48h,))
+    stats_48h = cursor.fetchone()
+
+    # (b) Last 7 Days
+    cursor.execute("""
+    SELECT COALESCE(SUM(views), 0) as views, COALESCE(SUM(likes), 0) as likes, COALESCE(AVG(ctr_pct), 0.0) as avg_ctr
+    FROM video_stats
+    WHERE snapshot_date >= ?;
+    """, (t_7d,))
+    stats_7d = cursor.fetchone()
+
+    # (c) Last 28 Days
+    cursor.execute("""
+    SELECT COALESCE(SUM(views), 0) as views, COALESCE(SUM(likes), 0) as likes, COALESCE(SUM(subscribers_gained), 0) as subs
+    FROM video_stats
+    WHERE snapshot_date >= ?;
+    """, (t_28d,))
+    stats_28d = cursor.fetchone()
+
+    # (d) All Time
+    cursor.execute("""
+    SELECT COALESCE(SUM(views), 0) as views, COALESCE(SUM(likes), 0) as likes, COALESCE(SUM(comments), 0) as comments
     FROM video_stats;
     """)
-    overall_stats = cursor.fetchone()
+    stats_all_time = cursor.fetchone()
 
     conn.close()
 
@@ -68,7 +98,10 @@ def get_db_data():
         "status_summary": status_summary,
         "upcoming_drops": upcoming_drops,
         "open_tasks": open_tasks,
-        "overall_stats": overall_stats
+        "stats_48h": stats_48h,
+        "stats_7d": stats_7d,
+        "stats_28d": stats_28d,
+        "stats_all_time": stats_all_time
     }
 
 def format_report_lines(data):
@@ -80,13 +113,22 @@ def format_report_lines(data):
     stat_summary = data["status_summary"]
     pub_count = stat_summary.get("Uploaded", 0)
     in_prod = stat_summary.get("In Production", 0) + stat_summary.get("Ready for Audio Riff", 0)
-    lines.append(f"📈 Channel Pipeline Status: {pub_count} Uploaded | {in_prod} In Production")
+    lines.append(f"📈 Pipeline Status: {pub_count} Uploaded | {in_prod} In Production")
 
-    # Section 2: Overall Analytics
-    ostats = data["overall_stats"]
-    t_views = ostats["total_views"] or 0
-    t_likes = ostats["total_likes"] or 0
-    lines.append(f"👁️ Performance Metrics: {t_views:,} Total Views | {t_likes:,} Total Likes")
+    # Section 2: 4-Timeframe Performance Analytics
+    lines.append("⏱️ Channel Performance Across 4 Timeframes:")
+    
+    s48 = data["stats_48h"]
+    lines.append(f"  - Last 48 Hours: {s48['views']:,} Views | {s48['vph']:.1f} Avg VPH Velocity")
+
+    s7 = data["stats_7d"]
+    lines.append(f"  - Last 7 Days: {s7['views']:,} Views | {s7['likes']:,} Likes | {s7['avg_ctr']:.1f}% Avg CTR")
+
+    s28 = data["stats_28d"]
+    lines.append(f"  - Last 28 Days: {s28['views']:,} Views | {s28['likes']:,} Likes | +{s28['subs']} Subscribers")
+
+    s_all = data["stats_all_time"]
+    lines.append(f"  - All Time (Lifetime): {s_all['views']:,} Total Views | {s_all['likes']:,} Likes | {s_all['comments']:,} Comments")
 
     # Section 3: Upcoming Drop Calendar
     lines.append("📅 Upcoming Video Drops (Next 7 Days):")
@@ -138,10 +180,10 @@ def push_report_to_workflowy(api_key, report_lines):
     for line in report_lines[1:]:
         create_child_node(api_key, report_node_id, line.strip())
 
-    print(f"Successfully pushed Daily Report to Workflowy under '📊 Daily Analytics & Task Reports'!")
+    print(f"Successfully pushed 4-Timeframe Daily Report to Workflowy under '📊 Daily Analytics & Task Reports'!")
 
 def main():
-    parser = argparse.ArgumentParser(description="On-Demand Workflowy Report Generator")
+    parser = argparse.ArgumentParser(description="On-Demand Workflowy Report Generator with 4 Timeframes")
     parser.add_argument("--preview", action="store_true", help="Print report locally in CLI")
     parser.add_argument("--push", action="store_true", help="Push report directly to Workflowy")
 

@@ -75,6 +75,6 @@ This document tracks all external software platforms, web applications, database
 - **Workflowy Reporter Script**: [`scripts/workflowy_report.py`](file:///Users/craiganderson/Library/Mobile%20Documents/com~apple%7ECloudDocs/SystemizedHealth/scripts/workflowy_report.py)
 - **On-Demand Execution Protocol**:
   Whenever Dr. Anderson instructs the AI to update reports or check status:
-  1. `python3 scripts/workflowy_report.py --push`: Generates and pushes the daily channel metrics, 7-day video drop calendar, and open task due dates directly to Workflowy under `📊 Daily Analytics & Task Reports`.
+  1. `python3 scripts/workflowy_report.py --push`: Generates and pushes the 4-timeframe performance metrics (48h, 7d, 28d, all-time), 7-day video drop calendar, and open task due dates directly to Workflowy under `📊 Daily Analytics & Task Reports`.
   2. `python3 scripts/db_manager.py --calendar`: Renders the full interactive publication and task due date calendar in the CLI.
   3. `python3 scripts/db_manager.py --list`: Lists all active videos and latest performance metrics.
