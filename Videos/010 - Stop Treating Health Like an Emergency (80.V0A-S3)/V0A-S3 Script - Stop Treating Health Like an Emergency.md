@@ -20,10 +20,10 @@
 
 ## 3. Full Script (Teleprompter Ready)
 
-### 80.V0A-S3>1 — The Hook #film #insidetruck
+### 80.V0A-S3>1 — The Hook #edit #insidetruck
 What you do today is gonna make a difference tomorrow. [breath] We can make this really simple.
 
-### 80.V0A-S3>2 — Clinical Research Evidence #film #insidetruck
+### 80.V0A-S3>2 — Clinical Research Evidence #edit #insidetruck
 A major study found that vigorous exercise a few times a week... [pause] reduces the occurrence of long-term musculoskeletal pain—that's back pain, neck pain, shoulder pain, knee pain, et cetera. [breath] And older adults who engage in vigorous activity stay pain-free far longer.
 
 ### 80.V0A-S3>3 — Defining Vigorous Movement #film #driving
@@ -32,10 +32,10 @@ And what does that look like? [tone shift] Well, simple. [breath] Two or three t
 ### 80.V0A-S3>4 — The Autonomic Sweat Metric #film #driving
 You wanna physically break a sweat. [breath] That means you have generated enough heat, enough activity, enough metabolic activity in your body... [breath] that requires you to increase your heart rate, and engage your autonomic nervous system so that you sweat.
 
-### 80.V0A-S3>5 — Dosage & Healthy Aging #film #outside
+### 80.V0A-S3>5 — Dosage & Healthy Aging #edit #outside
 That's what I want you to do. [breath] If you get to that point—20 to 40 minutes, 2 to 3 times a week... [eye contact shift] you're gonna be on your way to maintaining your health and reducing the chance of musculoskeletal pain and discomfort as you get older.
 
-### 80.V0A-S3>6 — Outro CTA #film #outside
+### 80.V0A-S3>6 — Outro CTA #edit #outside
 If you want to transition from emergency firefighting to a smooth biological operating system, [breath] book a free Systemized Discovery Call or grab our app unpacking the OS. [gesture] I'll see you in the next video.
 
 ---

@@ -149,43 +149,23 @@ def format_report_lines(data):
 
     return lines
 
-def push_report_to_workflowy(api_key, report_lines):
-    root_id = find_or_create_root_node(api_key, root_name="Systemized Health Pipeline")
-    if not root_id:
-        print("Error: Could not find or create Workflowy root folder.", file=sys.stderr)
-        return
-
-    # Check for or create "📊 Daily Analytics & Task Reports" folder under root
-    nodes = fetch_all_nodes(api_key)
-    reports_folder_id = None
-    for n in nodes:
-        if n.get("parent_id") == root_id and "daily analytics" in n.get("name", "").lower():
-            reports_folder_id = n["id"]
-            break
-
-    if not reports_folder_id:
-        reports_folder_id = create_child_node(api_key, root_id, "📊 Daily Analytics & Task Reports")
-        if not reports_folder_id:
-            print("Error creating Daily Analytics folder in Workflowy.", file=sys.stderr)
-            return
-
-    # Create top report node
-    today_title = report_lines[0]
-    report_node_id = create_child_node(api_key, reports_folder_id, today_title)
-    if not report_node_id:
-        print("Error creating report node in Workflowy.", file=sys.stderr)
-        return
-
-    # Push child lines
-    for line in report_lines[1:]:
-        create_child_node(api_key, report_node_id, line.strip())
-
-    print(f"Successfully pushed 4-Timeframe Daily Report to Workflowy under '📊 Daily Analytics & Task Reports'!")
+def save_report_to_repo(report_lines):
+    repo_root = os.path.dirname(os.path.dirname(__file__))
+    analytics_dir = os.path.join(repo_root, "Analytics")
+    if not os.path.exists(analytics_dir):
+        os.makedirs(analytics_dir)
+    
+    report_file = os.path.join(analytics_dir, "Analytics_Daily_Report.md")
+    with open(report_file, "w", encoding="utf-8") as f:
+        f.write("\n".join(report_lines) + "\n")
+    print(f"Successfully saved 4-Timeframe Daily Report to repository file: {report_file}")
+    return report_file
 
 def main():
-    parser = argparse.ArgumentParser(description="On-Demand Workflowy Report Generator with 4 Timeframes")
+    parser = argparse.ArgumentParser(description="On-Demand Systemized Health Report Generator with 4 Timeframes")
     parser.add_argument("--preview", action="store_true", help="Print report locally in CLI")
-    parser.add_argument("--push", action="store_true", help="Push report directly to Workflowy")
+    parser.add_argument("--push", action="store_true", help="Deprecated: Analytics are saved locally to repository files")
+    parser.add_argument("--save", action="store_true", help="Save report to Analytics/Analytics_Daily_Report.md")
 
     args = parser.parse_args()
     data = get_db_data()
@@ -197,13 +177,11 @@ def main():
             print(l)
         print("=" * 80 + "\n")
 
+    # Save to local repository file in Analytics/
+    save_report_to_repo(lines)
+
     if args.push:
-        cfg = load_config()
-        api_key = cfg.get("workflowy_api_key")
-        if not api_key:
-            print("Error: Workflowy API Key not found in scripts/config.json", file=sys.stderr)
-            sys.exit(1)
-        push_report_to_workflowy(api_key, lines)
+        print("Notice: Pushing analytics to Workflowy is disabled per user directive. Analytics are preserved in Analytics/ directory.", file=sys.stderr)
 
 if __name__ == "__main__":
     main()

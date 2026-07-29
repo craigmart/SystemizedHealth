@@ -20,16 +20,16 @@
 
 ## 3. Full Script (Teleprompter Ready)
 
-### 80.V0A1-S2>1 — The Hook (Trinket Distraction) #film #outside
+### 80.V0A1-S2>1 — The Hook (Trinket Distraction) #edit #outside
 All right, you've decided to get healthy... [breath] so you go out and buy a trinket, a smartwatch, or something with AI to measure your steps. Honestly, that is a complete distraction. [pause] Do not do that.
 
-### 80.V0A1-S2>2 — The Level 1 FMR Rule #film #outside
+### 80.V0A1-S2>2 — The Level 1 FMR Rule #edit #outside
 If you're starting to reclaim your health, you have to focus on the basics. [breath] In our Systemized OS Framework, Level 1 is non-negotiable: [tone shift] Fuel, Movement, and Rest. You have to get this down before buying gadgets.
 
-### 80.V0A1-S2>3 — Prove the Food Baseline First #film #insidetruck
+### 80.V0A1-S2>3 — Prove the Food Baseline First #edit #insidetruck
 Before you buy anything, do a simple life sample. [breath] If your challenge is Fuel, try to eat just a little bit better. Don't start a crazy diet. Cut out a couple of cookies, drink more water, [pause] and see if you have it in you to sustain that internal change.
 
-### 80.V0A1-S2>4 — Prove the Movement Baseline First #film #insidetruck
+### 80.V0A1-S2>4 — Prove the Movement Baseline First #edit #insidetruck
 If Movement is your goal, instead of buying a gym membership, [breath] walk 30 minutes a day for 10 days straight. Prove to yourself that you can make the change from within... [eye contact shift] before relying on an outside purchase.
 
 ### 80.V0A1-S2>5 — Prove the Rest Baseline First #film #studio

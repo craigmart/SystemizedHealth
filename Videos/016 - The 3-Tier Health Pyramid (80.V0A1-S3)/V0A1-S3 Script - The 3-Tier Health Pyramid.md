@@ -20,16 +20,16 @@
 
 ## 3. Full Script (Teleprompter Ready)
 
-### 80.V0A1-S3>1 — The Hook (Maslow's Health Law) #film #insidetruck
+### 80.V0A1-S3>1 — The Hook (Maslow's Health Law) #edit #insidetruck
 It's hard to worry about your future when the basics of the present are not handled. [breath] This is Maslow's hierarchy of needs, [tone shift] and it applies directly to rebuilding your health.
 
-### 80.V0A1-S3>2 — Advanced Goals Require Level 1 #film #insidetruck
+### 80.V0A1-S3>2 — Advanced Goals Require Level 1 #edit #insidetruck
 You cannot get to advanced concepts if you don't have the basic level taken care of. [breath] In our Systemized OS, Level 1 is FMR: [pause] Fuel, Movement, and Rest.
 
-### 80.V0A1-S3>3 — Mental & Emotional Health Require FMR #film #outside
+### 80.V0A1-S3>3 — Mental & Emotional Health Require FMR #edit #outside
 If you're struggling here, it must be handled first before you get good at planning, goal setting, [breath] or even working on your mental health. Without proper nutrition, movement, and sleep, [eye contact shift] you cannot get your emotional life in order. It's all built on this foundation.
 
-### 80.V0A1-S3>4 — Audit the 3 Pillars #film #outside
+### 80.V0A1-S3>4 — Audit the 3 Pillars #edit #outside
 So look at Fuel, Movement, and Rest today. [breath] Look at what you eat, how active you are, and how deeply you rest.
 
 ### 80.V0A1-S3>5 — Pick 1 Small Step #film #whilebusy

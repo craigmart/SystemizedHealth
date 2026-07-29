@@ -20,10 +20,10 @@
 
 ## 3. Full Script (Teleprompter Ready)
 
-### 80.V0A-S2>1 — The Hook (Two Stress Systems) #film #outside
+### 80.V0A-S2>1 — The Hook (Two Stress Systems) #edit #outside
 There are two systems that kick in to respond to stress. [breath] The nervous system—through the autonomic component of the nervous system— [pause] and the energy system.
 
-### 80.V0A-S2>2 — Short-Term Autonomic vs. HPA Axis #film #outside
+### 80.V0A-S2>2 — Short-Term Autonomic vs. HPA Axis #edit #outside
 The nervous system is short term, instant. [breath] It's instant reaction: it spikes your pulse and spikes your blood pressure to help you respond to the immediate stressor.
 
 ### 80.V0A-S2>3 — Chronic Hormonal Response #film #cuttinggrass

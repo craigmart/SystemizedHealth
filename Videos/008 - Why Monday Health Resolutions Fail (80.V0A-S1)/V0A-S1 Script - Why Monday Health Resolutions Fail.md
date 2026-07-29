@@ -20,16 +20,16 @@
 
 ## 3. Full Script (Teleprompter Ready)
 
-### 80.V0A-S1>1 — The Hook #film #insidetruck
+### 80.V0A-S1>1 — The Hook #edit #insidetruck
 If you get the idea that you want to start fresh Monday, [breath] and you're just gonna correct all your health issues... [pause] I would recommend that you start smaller than you think.
 
-### 80.V0A-S1>2 — The Unpack & Downshift Concept #film #insidetruck
+### 80.V0A-S1>2 — The Unpack & Downshift Concept #edit #insidetruck
 So let me unpack this just a little bit. [breath] If you're going to fail at a goal—which most people do in their health, [tone shift] I'm sorry to say that's the case... [breath] You can increase your chance of success by downshifting your goal to a more realistic goal.
 
-### 80.V0A-S1>3 — The Marathon Contrast #film #outside
+### 80.V0A-S1>3 — The Marathon Contrast #edit #outside
 So instead of saying, "Monday, I'm gonna start training for a marathon," [breath] say, "Monday, I'm gonna get up and I'm going to walk or run for five minutes."
 
-### 80.V0A-S1>4 — Low-Friction Schedule #film #outside
+### 80.V0A-S1>4 — Low-Friction Schedule #edit #outside
 Then go to work and do your normal, regular stuff. [breath] And do that every other day for the next week. [eye contact shift] That's your goal.
 
 ### 80.V0A-S1>5 — Process Over Finish Line #film #shopping

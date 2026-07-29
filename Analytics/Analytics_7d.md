@@ -1,6 +1,6 @@
 # 📅 7-Day Weekly Performance & Drop Calendar Report
 
-*Last System Update: `2026-07-29 11:47:44`*
+*Last System Update: `2026-07-29 18:09:03`*
 
 ---
 
@@ -22,7 +22,7 @@ Upcoming content drops scheduled for the next 7 days:
 | Drop Date | Code | Format | Title | Status | JDex Topic |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **2026-08-03** | `80.V0A` | Long | 230,000 Patient Visits | **Uploaded** | `77.03` |
-| **2026-08-04** | `80.V0A-S1` | Short | The Biological Reason Monday Resolutions Always Fail | **Ready to Film** | `41.03` |
+| **2026-08-04** | `80.V0A-S1` | Short | The Biological Reason Monday Resolutions Always Fail | **Editing** | `41.03` |
 
 ---
 
@@ -30,7 +30,7 @@ Upcoming content drops scheduled for the next 7 days:
 
 * **Long-Form Videos Uploaded**: `3`
 * **Short-Form Blueprints Ready**: `12`
-* **Active Open Tasks Due**: `104`
+* **Active Open Tasks Due**: `52`
 
 ---
 *This document is automatically updated daily by `scripts/generate_analytics_reports.py`.*

@@ -42,11 +42,11 @@
         - [ ] **[ ] Software Patch Outro Callout ('Subscribe for OS updates & patches')** `<!-- id: d48c9ceb-58ca-42b4-a738-e05aeb8a7ab2 -->`
       - [ ] **6. Pick-Ups &amp; Location Shots (Optional)** `<!-- id: 3d355629-4adc-4cab-80ea-6fa9deb6c036 -->`
         - [ ] **[ ] Outdoor Teaser Hook Clip (15-second location-shift intro before studio cut)** `<!-- id: 07f01341-5a8f-4c7b-988a-654acbe4e304 -->`
-  - [ ] **80.V0B-S1: Information Overload vs Implementation #<u>write</u> #AudioDraftDone** `<!-- id: 98a6f57c-a79f-4a5f-b31d-4611f944fa0b -->`
+  - [ ] **80.V0B-S1: Information Overload vs Implementation #<u>write</u>** `<!-- id: 98a6f57c-a79f-4a5f-b31d-4611f944fa0b -->`
     - [ ] **<b>Video Code</b>: <code>80.V0B-S1</code>** `<!-- id: a7c5a78a-8bca-4fde-a2c1-215d5291bd2d -->`
     - [ ] **<b>Parent Video</b>: <code>80.V0B</code> (<i>Health Info & Biology Baseline</i>)** `<!-- id: 329b158d-d451-4d79-bbbc-4f8789e73903 -->`
     - [ ] **<b>Suggested Settings</b>: <code>#insidetruck</code> <code>#whilebusy</code> <code>#outside</code>** `<!-- id: 0e2d2712-6e07-4dfd-a21c-4e7a4d1073fc -->`
-    - [ ] **<b>JDex Topic Code</b>: <code>80.V0</code> (<i>Systemized OS Framework</i>)** `<!-- id: 29643b31-bed4-4915-99aa-6ddb8ae6dbe3 -->`
+    - [ ] **<b>JDex Topic Code</b>: <code>80.11</code> (<i>Systemized OS Framework</i>)** `<!-- id: 29643b31-bed4-4915-99aa-6ddb8ae6dbe3 -->`
     - [ ] **1. Hook** `<!-- id: 900cff05-7c05-49dc-9174-c07bcea9df8b -->`
       - [ ] **"Look, if you're like most people I see in the clinic, you don't need another health podcast, supplement stack, or Monday morning resolution."** `<!-- id: 4317b095-047b-4d5d-ad89-3f076701214d -->`
     - [ ] **2. Talking Points (For Audio Riffing)** `<!-- id: 2dbbec7b-a7a8-4d36-b50f-3ba82e159b35 -->`
@@ -60,17 +60,17 @@
     - [ ] **Audio draft** `<!-- id: fb6ead49-890f-44ea-807d-158c204ee38c -->`
       - [ ] **In my 30 years of patient care, I've come to realize that... most health problems require simplification, doing less, focusing more. For example, let's say a patient or a person has been a couch potato for 10 years, they decide, all right, I've had enough. I am... getting off this couch. I'm going to run a marathon. And they buy shoes, they join the club. They change their lives. They change all the different aspects of their daily routine. And they push and push, and use their willpower. And after five weeks, something happens. And a lot of these folks never make it to that goal. This is a common... instinct among humans. We know what we should be doing, and we decide we have to make up for lost time. This, my friend, is not the way to do it. You cannot need a makeup for lost time. You need to rebuild the architecture inside your mind, inside your life, and inside your daily systems that can be built on and expanded over time as they take root. If you want to do that marathon, before you say, Hey, I'm gonna sign up for that marathon, why don't you see if you can go for a walk, 15 minutes a day, for five days in a row? See if you can do that, and if you can do that, then you take it up another notch. and another notch, and you slowly build, over time, build the habit to where it is a permanent habit. It's a new way you operate. It isn't a flash in the pan, or something where failure is highly possible. So pick the small things, take the small steps. and then just don't stop. The rest of your life, small step, small step, little growth. Small step, a little growth.** `<!-- id: ad882e71-b957-4cb2-ae9b-43950829f7bd -->`
     - [ ] **Shots** `<!-- id: 933fde01-a74b-43b5-bc2f-840757e4a99c -->`
-      - [ ] **80.V0B-S1>1 — The Hook #film #insidetruck** `<!-- id: ff447c20-6176-4476-8896-8daf58257adf -->`
+      - [ ] **80.V0B-S1&gt;1 — The Hook #edit** `<!-- id: ff447c20-6176-4476-8896-8daf58257adf -->`
         - [ ] **In my 30 years of patient care, [breath] I've come to realize that most health problems require simplification: [pause] doing less and focusing more.** `<!-- id: c54c2ff4-5f65-4f89-9849-d81eddfb17d6 -->`
-      - [ ] **80.V0B-S1>2 — The Couch Potato to Marathon Trap #film #insidetruck** `<!-- id: 41ab928b-279c-47db-a310-74e0a3b86034 -->`
+      - [ ] **80.V0B-S1&gt;2 — The Couch Potato to Marathon Trap #edit** `<!-- id: 41ab928b-279c-47db-a310-74e0a3b86034 -->`
         - [ ] **Let's say someone's been a couch potato for 10 years and decides, "I've had enough, I'm gonna run a marathon." [breath] They buy shoes, join a club, change their whole daily routine, [tone shift] and push using pure willpower. And after five weeks, something breaks... and they never reach that goal.** `<!-- id: 5b565e41-cb51-4320-b6d3-8cac6fadd7c8 -->`
       - [ ] **80.V0B-S1>3 — You Cannot Make Up for Lost Time #film #whilebusy** `<!-- id: a39f27c7-993b-4208-b794-2fd2995ca5d5 -->`
         - [ ] **This is a common instinct. We decide we have to make up for lost time. [breath] My friend, this is not how biology works. [eye contact shift] You cannot make up for lost time. You have to rebuild the biological architecture inside your mind, your life, and your daily systems.** `<!-- id: a37efd7a-09e4-4b55-ab3a-9bd15fc56bb3 -->`
       - [ ] **80.V0B-S1>4 — The 15-Minute Walk Benchmark #film #whilebusy** `<!-- id: fe71df8a-aecc-4c75-8524-ff7363230d20 -->`
         - [ ] **If you want to run that marathon... [breath] before you sign up, see if you can go for a 15-minute walk five days in a row. [pause] See if you can do that first. If you can, then take it up a notch... and slowly build over time until the habit becomes permanent hardware.** `<!-- id: 6a732035-79c2-4f9b-94d5-2340772c2290 -->`
-      - [ ] **80.V0B-S1>5 — Small Steps, Little Growth #film #outside** `<!-- id: 9ffa5f3f-b2d1-45c8-8c3d-6d7b963d762d -->`
+      - [ ] **80.V0B-S1&gt;5 — Small Steps, Little Growth #edit** `<!-- id: 9ffa5f3f-b2d1-45c8-8c3d-6d7b963d762d -->`
         - [ ] **Pick the small things and take the small steps. [breath] Then just don't stop. For the rest of your life: [gesture] small step, small step, little growth. Small step, a little growth.** `<!-- id: b31899c8-b135-4654-83e5-a7e2ac09079e -->`
-      - [ ] **80.V0B-S1>6 — Outro CTA #film #outside** `<!-- id: babc4373-0122-4843-8992-fd048292cee7 -->`
+      - [ ] **80.V0B-S1&gt;6 — Outro CTA #edit** `<!-- id: babc4373-0122-4843-8992-fd048292cee7 -->`
         - [ ] **If you're ready to stop collecting health advice and actually install a biological system that fits your life, [breath] set up a free Systemized Discovery Call with me or check out our app unpacking the OS. [gesture] I'll see you in the next video.** `<!-- id: f376d43f-9fac-4f5b-8e59-32b83efb2242 -->`
   - [ ] **80.V0A-S1: Why Monday Health Resolutions Fail #film** `<!-- id: 05a69931-ef84-4292-bd92-b00e1bb682f0 -->`
     - [ ] **<b>Video Code</b>: <code>80.V0A-S1</code>** `<!-- id: 1ec95615-b04e-414d-9d16-109c50f8b636 -->`
@@ -90,15 +90,15 @@
     - [ ] **Audio transcription draft** `<!-- id: 17f7ee8a-e8e1-4c92-8880-58f0907258dd -->`
       - [ ] **If you get the idea that you want to start fresh Monday, and you're just gonna correct all your issues, I would recommend that you start smaller than you think. So let's unpack this just a little bit. If you're going to fail at a goal, which most people do in their health. I'm sorry to say that it's the case. You can increase your chance of success by downshifting your goal to a more realistic goal. So instead of saying, Monday, I'm gonna start training for a marathon, say, Monday, I'm gonna get up and I'm going to walk or run. for five minutes. Then I'm gonna go to work and do my normal, regular stuff. And I'm gonna do that every other day. for the next week. That's my goal. Not run a marathon, but to begin the process, it can be action that will eventually lead to building to where you can actually run that marathon.** `<!-- id: d3adf000-c2f4-4e0b-9b68-56efb388e459 -->`
     - [ ] **Shots** `<!-- id: 3dde7ab4-fda9-4c3d-9c1c-0bbb3d66d05b -->`
-      - [ ] **80.V0A-S1>1 — The Hook #film #insidetruck** `<!-- id: 7c97b792-a902-4508-997d-e10ebbeb2895 -->`
+      - [ ] **80.V0A-S1&gt;1 — The Hook #edit** `<!-- id: 7c97b792-a902-4508-997d-e10ebbeb2895 -->`
         - [ ] **If you get the idea that you want to start fresh Monday, [breath] and you're just gonna correct all your health issues... [pause] I would recommend that you start smaller than you think.** `<!-- id: dda2d93a-24b6-4d5a-9a60-1063263d9a4d -->`
-      - [ ] **80.V0A-S1>2 — The Unpack & Downshift Concept #film #insidetruck** `<!-- id: b85f655c-3b31-4759-81b7-a51ded177f8f -->`
+      - [ ] **80.V0A-S1&gt;2 — The Unpack &amp; Downshift Concept #edit** `<!-- id: b85f655c-3b31-4759-81b7-a51ded177f8f -->`
         - [ ] **So let me unpack this just a little bit. [breath] If you're going to fail at a goal—which most people do in their health, [tone shift] I'm sorry to say that's the case... [breath] You can increase your chance of success by downshifting your goal to a more realistic goal.** `<!-- id: eca234f7-7b4c-40cf-9837-697c93811357 -->`
-      - [ ] **80.V0A-S1>3 — The Marathon Contrast #film #outside** `<!-- id: 9e0ef564-f651-4ce8-946f-efe9cf55294c -->`
+      - [ ] **80.V0A-S1&gt;3 — The Marathon Contrast #edit** `<!-- id: 9e0ef564-f651-4ce8-946f-efe9cf55294c -->`
         - [ ] **So instead of saying, "Monday, I'm gonna start training for a marathon," [breath] say, "Monday, I'm gonna get up and I'm going to walk or run for five minutes."** `<!-- id: 3e717b1d-38fa-4f5d-8063-00163b1c7179 -->`
-      - [ ] **80.V0A-S1>4 — Low-Friction Schedule #film #outside** `<!-- id: 181de826-e1a1-4c92-aff6-2210e8936aa7 -->`
+      - [ ] **80.V0A-S1&gt;4 — Low-Friction Schedule #edit** `<!-- id: 181de826-e1a1-4c92-aff6-2210e8936aa7 -->`
         - [ ] **Then go to work and do your normal, regular stuff. [breath] And do that every other day for the next week. [eye contact shift] That's your goal.** `<!-- id: 1a14c0fb-cd87-4586-84df-5ad41cb481d6 -->`
-      - [ ] **80.V0A-S1>5 — Process Over Finish Line #film #shopping** `<!-- id: fb7047af-04a5-4ef0-991a-69a258d1f490 -->`
+      - [ ] **80.V0A-S1&gt;5 — Process Over Finish Line #film #shopping** `<!-- id: fb7047af-04a5-4ef0-991a-69a258d1f490 -->`
         - [ ] **Not run a marathon right out of the gate, [pause] but to begin the process. [breath] It's that small, consistent action that will eventually build to where you can actually run that marathon.** `<!-- id: 8da07906-3c78-497d-9650-b16924ffec40 -->`
       - [ ] **80.V0A-S1>6 — Outro CTA #film #shopping** `<!-- id: 4b5738fb-5089-4274-8ad3-4ed11f36e734 -->`
         - [ ] **If you're ready to stop failing Monday resolutions and build a low-friction biological system instead, [breath] set up a free Systemized Discovery Call or grab our app unpacking the OS. [gesture] I'll see you in the next video.** `<!-- id: 7bafc6b4-eec0-4254-992f-48ae4424ce9c -->`
@@ -132,7 +132,7 @@
       - [ ] **2.5 The Action Step<i></i>: Test your system. Hold an incline plank or do a 30-second breath reset. Identify whether your glitch is physical fatigue or structural inhibition.** `<!-- id: 86ecaabc-b607-4dc2-a0c7-92e3b9281fff -->`
     - [ ] **3. CTA** `<!-- id: 735c1831-707f-46a7-9781-5829f1d337f6 -->`
       - [ ] **"If you want to isolate the exact biological glitch holding your body back, book a free Systemized Discovery Call with me or check out our app unpacking the OS. I'll see you in the next video."** `<!-- id: b36623d6-7c3a-4a87-9885-1e3b5d5a13ae -->`
-  - [ ] **80.V0A-S3: Stop Treating Health Like an Emergency #film** `<!-- id: 65d28662-3e70-47dc-a7f3-3cdd81a304ec -->`
+  - [ ] **80.V0A-S3: Stop Treating Health Like an Emergency #edit** `<!-- id: 65d28662-3e70-47dc-a7f3-3cdd81a304ec -->`
     - [ ] **<b>Video Code</b>: <code>80.V0A-S3</code>** `<!-- id: 0a39f350-c577-4a97-b1cb-8763b8be45b8 -->`
     - [ ] **<b>Parent Video</b>: <code>80.V0A</code> (<i>230,000 Patient Visits</i>)** `<!-- id: 13cb1cae-d645-410b-9a1a-c37f03c667c7 -->`
     - [ ] **<b>Suggested Settings</b>: <code>#insidetruck</code> <code>#driving</code> <code>#outside</code>** `<!-- id: 951df350-4a7d-4562-8177-9515c1247fc4 -->`
@@ -150,23 +150,23 @@
     - [ ] **Audio draft transcript** `<!-- id: cf3ddd13-fe0c-4a40-a670-4b16a5187f39 -->`
       - [ ] **What you do today is gonna make a difference tomorrow. We can make this really simple. A study... found that... vigorous exercise a few times a week reduces the occurrence of long term. Musculoskeletal pain, that's back pain, neck pain, shoulder pain, knee pain, et cetera. And older adults engage in vigorous activity. And what does that look like? Well, simple. Two or three times a week, I want you to walk, move briskly, or do some kind of activity where you break a sweat. You wanna physically... break a sweat. That means you have generated enough heat, enough activity, enough metabolic activity in your body, that requires you to... increase your heart rate, and engage your autonomic nervous system. so that you sweat. That's what I want you to do. If you get to that point, 20 to 40 minutes, 2 to 3 times a week, you're gonna be on your way to maintaining your health and reducing the chance of muscular skeletal, pain and discomfort as you get older.** `<!-- id: 06798f9a-7378-4fc2-b183-e552bb8aece9 -->`
     - [ ] **Shots** `<!-- id: 0044c6fa-a72a-4db4-9f16-f7157a9677b9 -->`
-      - [ ] **80.V0A-S3>1 — The Hook #film #insidetruck** `<!-- id: 0de2af69-9b02-420c-bab3-0ea3a4d305e8 -->`
+      - [ ] **80.V0A-S3&gt;1 — The Hook #edit** `<!-- id: 0de2af69-9b02-420c-bab3-0ea3a4d305e8 -->`
         - [ ] **What you do today is gonna make a difference tomorrow. [breath] We can make this really simple.** `<!-- id: fefabbf1-40e2-4a3e-b3e9-2a6e0ef17b68 -->`
-      - [ ] **80.V0A-S3>2 — Clinical Research Evidence #film #insidetruck** `<!-- id: 001f6c24-520a-42d4-9c5e-7901300c350e -->`
+      - [ ] **80.V0A-S3&gt;2 — Clinical Research Evidence #edit** `<!-- id: 001f6c24-520a-42d4-9c5e-7901300c350e -->`
         - [ ] **A major study found that vigorous exercise a few times a week... [pause] reduces the occurrence of long-term musculoskeletal pain—that's back pain, neck pain, shoulder pain, knee pain, et cetera. [breath] And older adults who engage in vigorous activity stay pain-free far longer.** `<!-- id: 379d0819-24d4-4c15-b6d8-391439addeff -->`
       - [ ] **80.V0A-S3>3 — Defining Vigorous Movement #film #driving** `<!-- id: 0c81002e-2ef2-4223-a06f-17e3939316a2 -->`
         - [ ] **And what does that look like? [tone shift] Well, simple. [breath] Two or three times a week, I want you to walk, move briskly, or do some kind of activity where you break a sweat.** `<!-- id: a94c19ea-37aa-4afd-adb9-645a956f7ee5 -->`
       - [ ] **80.V0A-S3>4 — The Autonomic Sweat Metric #film #driving** `<!-- id: 4807fba2-1671-4fac-81cc-442a463613a8 -->`
         - [ ] **You wanna physically break a sweat. [breath] That means you have generated enough heat, enough activity, enough metabolic activity in your body... [breath] that requires you to increase your heart rate, and engage your autonomic nervous system so that you sweat.** `<!-- id: c25413af-9eec-4711-8a45-120348e5bc4a -->`
-      - [ ] **80.V0A-S3>5 — Dosage & Healthy Aging #film #outside** `<!-- id: 28dccbc0-f48f-4cfe-9c99-0bbafd0c9af5 -->`
+      - [ ] **80.V0A-S3&gt;5 — Dosage &amp; Healthy Aging #edit** `<!-- id: 28dccbc0-f48f-4cfe-9c99-0bbafd0c9af5 -->`
         - [ ] **That's what I want you to do. [breath] If you get to that point—20 to 40 minutes, 2 to 3 times a week... [eye contact shift] you're gonna be on your way to maintaining your health and reducing the chance of musculoskeletal pain and discomfort as you get older.** `<!-- id: 17672a38-65cd-45d3-b9a3-a133d5a91df6 -->`
-      - [ ] **80.V0A-S3>6 — Outro CTA #film #outside** `<!-- id: 6cb013ed-e9af-4fbc-841a-f65d27b7dcbe -->`
+      - [ ] **80.V0A-S3&gt;6 — Outro CTA #edit** `<!-- id: 6cb013ed-e9af-4fbc-841a-f65d27b7dcbe -->`
         - [ ] **If you want to transition from emergency firefighting to a smooth biological operating system, [breath] book a free Systemized Discovery Call or grab our app unpacking the OS. [gesture] I'll see you in the next video.** `<!-- id: bb86dd3a-82c7-4378-80d0-558ad64f23d3 -->`
   - [ ] **80.V0A-S2: The Biological Sequence of Change #film** `<!-- id: 9146cb9c-964c-4563-b47f-811d5ff4150d -->`
     - [ ] **<b>Video Code</b>: <code>80.V0A-S2</code>** `<!-- id: 24c54dea-09d0-44c6-842f-3a7d58ed8772 -->`
     - [ ] **<b>Parent Video</b>: <code>80.V0A</code> (<i>230,000 Patient Visits</i>)** `<!-- id: c0ef4460-7300-491c-9a74-37828869f956 -->`
     - [ ] **<b>Suggested Settings</b>: <code>#outside</code> <code>#cuttinggrass</code> <code>#whilebusy</code>** `<!-- id: bef761b1-785c-4456-b5cb-7dcf9705b1a6 -->`
-    - [ ] **<b>JDex Topic Code</b>: <code>82.06</code> (<i>Autonomic Sequence & Systemized OS</i>)** `<!-- id: 444e67b0-0877-4e32-aef5-4be207d48ac8 -->`
+    - [ ] **<b>JDex Topic Code</b>: <code>80.11</code> (<i>Autonomic Sequence & Systemized OS</i>)** `<!-- id: 444e67b0-0877-4e32-aef5-4be207d48ac8 -->`
     - [ ] **1. Hook** `<!-- id: f8416472-2de9-4e4f-b463-0b4ffd11521f -->`
       - [ ] **"Most high performers are exhausted because they're trying to fix emotional stress and high-level goals while their physical foundation is literally falling apart."** `<!-- id: 79a4debb-aa3f-49fb-b678-99d71ca54585 -->`
     - [ ] **2. Talking Points (For Audio Riffing)** `<!-- id: 3cd03bd5-a625-49a3-a00c-81bae2bf59f7 -->`
@@ -180,9 +180,9 @@
     - [ ] **Audio draft transcript** `<!-- id: 828fde08-751a-44b7-b058-06700575c974 -->`
       - [ ] **There are two systems that kick in to respond to stress. The nervous system, through the autonomic component of the nervous system, and the energy system, The nervous system is short term, instant. It's instant reaction, it spikes your... pulse and spikes your blood pressure, it helps you respond to the immediate stressor. The long term response to stress comes from the hypothylamic pituitary axis, HPA. And this is hormonal. The hormones long term will change in response to stress. So that's the way it works when ramping up to a stressor. And it also works the same way, man, ramping down. You have to focus on the metabolic pathways first. Fuel. movement and rest. Fuel movement and rest are the first step in recovering from stress. So if you got some stress going on, just pick one of those. and pick a very small goal. If it's fuel, try to cut your carbs a little bit. Drink more water, if it's movement, go for a brief walk, do a 30 second plank. If it's rest, grab a nap this afternoon. See if you can do that three days in a row, see if you start feeling better.** `<!-- id: 92a87c63-bafb-4333-b95c-1b5ad59f269c -->`
     - [ ] **Shots** `<!-- id: 74171f1c-8309-4377-be41-c5685b20ccef -->`
-      - [ ] **80.V0A-S2>1 — The Hook (Two Stress Systems) #film #outside** `<!-- id: 3a9d1b31-ee1e-4fbe-9ed9-95f8ce8159d0 -->`
+      - [ ] **80.V0A-S2&gt;1 — The Hook (Two Stress Systems) #edit** `<!-- id: 3a9d1b31-ee1e-4fbe-9ed9-95f8ce8159d0 -->`
         - [ ] **There are two systems that kick in to respond to stress. [breath] The nervous system—through the autonomic component of the nervous system— [pause] and the energy system.** `<!-- id: e26df86a-1563-4df9-a1c4-b98d60c04c4d -->`
-      - [ ] **80.V0A-S2>2 — Short-Term Autonomic vs. HPA Axis #film #outside** `<!-- id: a3d64591-1c43-4a57-9856-a72187b38603 -->`
+      - [ ] **80.V0A-S2&gt;2 — Short-Term Autonomic vs. HPA Axis #edit** `<!-- id: a3d64591-1c43-4a57-9856-a72187b38603 -->`
         - [ ] **The nervous system is short term, instant. [breath] It's instant reaction: it spikes your pulse and spikes your blood pressure to help you respond to the immediate stressor.** `<!-- id: 2daba175-00de-4eea-8761-15c631b8abcd -->`
       - [ ] **80.V0A-S2>3 — Chronic Hormonal Response #film #cuttinggrass** `<!-- id: a0b1f505-d029-40d7-89ed-dfed3af61c76 -->`
         - [ ] **The long-term response to stress comes from your hypothalamic-pituitary axis—the HPA axis. [breath] And this is hormonal. The hormones long term will change in response to chronic stress.** `<!-- id: 2e85d7cf-ab2f-4c5b-9241-6ff389c52777 -->`
@@ -259,19 +259,19 @@
         - [ ] **I know you've relied on willpower to get a lot of stuff done, and that's great. [breath] Willpower is fantastic—especially when you have a lot of it.** `<!-- id: a0c6785d-1453-46fe-a7c1-f543ffde35d9 -->`
       - [ ] **80.V0A1-S1>2 — Phone Battery Metaphor #film #whilebusy** `<!-- id: 5297f090-7024-4068-bfe2-740524c99677 -->`
         - [ ] **I want you to think of willpower as a battery. [breath] Think of the battery in your phone, and the way that you can get a lot of work done on your phone. [breath] The more work you're doing and the more apps you have open, [pause] the faster your battery drains. Willpower is exactly the same.** `<!-- id: 06ab933c-5099-407a-bc2d-2673b84ddc0f -->`
-      - [ ] **80.V0A1-S1>3 — How to Charge Willpower #film #insidetruck** `<!-- id: 0af4f978-23fd-4e64-bc8e-f6c81387be76 -->`
+      - [ ] **80.V0A1-S1&gt;3 — How to Charge Willpower #edit** `<!-- id: 0af4f978-23fd-4e64-bc8e-f6c81387be76 -->`
         - [ ] **Now, how do you improve or boost your battery in your phone? You charge it. [breath] How do you charge your willpower? Well, there are several ways. One way is to offload the cognitive burden that you have.** `<!-- id: 72bb607f-767f-476c-af43-a5791d34bbb7 -->`
-      - [ ] **80.V0A1-S1>4 — Open Cognitive Apps #film #outside** `<!-- id: 07cad979-2e61-48ba-b61a-9f71b268a0ce -->`
+      - [ ] **80.V0A1-S1&gt;4 — Open Cognitive Apps #edit** `<!-- id: 07cad979-2e61-48ba-b61a-9f71b268a0ce -->`
         - [ ] **So if you're trying to remember to take out the trash... [tone shift] or you remember to pick up that thing that you saw back there... or you have to make that call to that person, or whatever you have to do... [breath] All those little pieces take up some cognitive bandwidth. And this cognitive bandwidth is needed for willpower.** `<!-- id: 91fe83d9-dfe0-4faa-b6d8-9af1363f0d99 -->`
-      - [ ] **80.V0A1-S1>5 — The 5 PM Collapse & Immediate Action #film #outside** `<!-- id: 66810189-2d21-43e6-b8b4-bd063617445b -->`
+      - [ ] **80.V0A1-S1&gt;5 — The 5 PM Collapse &amp; Immediate Action #edit** `<!-- id: 66810189-2d21-43e6-b8b4-bd063617445b -->`
         - [ ] **So if you lose your cognitive bandwidth and your cognitive energy, your willpower's gonna go down... [breath] and you just want to have that cookie, or eat that cheesecake, and forget about it. [breath] So, to get an immediate boost in willpower and cognitive energy right now: [eye contact shift] write down everything taking up cognitive space in your head, and see how that feels.** `<!-- id: e6bbce16-1561-4e29-afca-eb02724c927a -->`
-      - [ ] **80.V0A1-S1>6 — Outro CTA #film #outside** `<!-- id: 4d6ed6a8-5b88-4848-b47c-acbead534dbe -->`
+      - [ ] **80.V0A1-S1&gt;6 — Outro CTA #edit** `<!-- id: 4d6ed6a8-5b88-4848-b47c-acbead534dbe -->`
         - [ ] **If you want to build automated health systems that run in the background without draining your battery, [breath] set up a free Systemized Discovery Call or grab our app unpacking the OS. [gesture] I'll see you in the next video.** `<!-- id: 310b944c-df01-41d0-b554-93bba7b37928 -->`
-  - [ ] **80.V0A1-S2: Level 1 FMR Baseline #write #AudioDraftDone** `<!-- id: 738e2ebe-9069-4b85-bbdc-0e7f8c36fce1 -->`
+  - [ ] **80.V0A1-S2: Level 1 FMR Baseline #write** `<!-- id: 738e2ebe-9069-4b85-bbdc-0e7f8c36fce1 -->`
     - [ ] **<b>Video Code</b>: <code>80.V0A1-S2</code>** `<!-- id: 06288174-744b-4e74-ad85-b2b492ed24ec -->`
     - [ ] **<b>Parent Video</b>: <code>80.V0A1</code> (<i>Systemized OS Framework</i>)** `<!-- id: 4e501f9a-63b4-410c-9e28-abaacae9cf18 -->`
     - [ ] **<b>Suggested Settings</b>: <code>#outside</code> <code>#insidetruck</code> <code>#studio</code>** `<!-- id: 5ba0b82e-d6a4-4f90-bc62-d51bc83aecba -->`
-    - [ ] **<b>JDex Topic Code</b>: <code>80.V1</code> (<i>Level 1 FMR Biological Foundation</i>)** `<!-- id: 3b97dc57-4f98-431b-8ea5-cc3d734e2bf4 -->`
+    - [ ] **<b>JDex Topic Code</b>: <code>80.11</code> (<i>Level 1 FMR Biological Foundation</i>)** `<!-- id: 3b97dc57-4f98-431b-8ea5-cc3d734e2bf4 -->`
     - [ ] **1. Hook** `<!-- id: 5f5b9301-3ce7-4df1-91ea-db0509928248 -->`
       - [ ] **"Before you spend a single dollar on fancy red light therapy, ice baths, or biohacking gadgets... let's talk about Level 1 FMR."** `<!-- id: 7fa79f63-fc0e-4a24-9bfe-292affd4b15b -->`
     - [ ] **2. Talking Points (For Audio Riffing)** `<!-- id: 8ecf5ad0-0831-433d-8dc5-0c7f9cfcc4a0 -->`
@@ -285,23 +285,23 @@
     - [ ] **Audio draft transcript** `<!-- id: 625dc73e-c17e-458a-b82b-c7c159d695d1 -->`
       - [ ] **All right, you've decided to get healthy, and so you're gonna go out and buy something. You're gonna get a trinket, or a little watch, or something that's gonna measure your steps. It's got technology, it's got AI built into it. And honestly, that is a complete distraction. Do not want to do that. That is not for you if you're just starting to reclaim your health. You have to focus on the basics. Now, I have a systemized operating system framework which has three levels. Level one is what you have to focus on. Level one is food, movement, and rest, food movement and rest. You gotta get this down before you can really get into the more advanced stuff, and buying trinkets, buying little gadgets, is not for you. It's not going to be the answer if you do not have food moving and rest taken care of. Now, if that trinket can help you with any of those topics. Then maybe you can consider it. But please. I would do a little... sample life adjustment before you buy anything. So if you feel your problem is food. Try to eat a little bit better. Don't worry about doing a new diet. Just eat a little bit better. Just see if you have inside of you what it takes to eat a little bit better. Maybe you don't have as many cookies, maybe you drink a little more water. Just a little bit. Just enough to start you down that path. And if you keep this up, you want to take it up a notch, maybe you start tracking your diet, watching your mackerel, getting a scale, and really just dialing in that number, but see if you can get into it before you commit. Second, if movement is your thing. Maybe instead of buying that gym membership, maybe you do a daily walk and say, if I can walk every day, 30 minutes for 10 days, then I'll get that membership. You have to prove to yourself... that you can make these changes from within, not from outside by buying an outside gadget or trinket. If rest is your thing. Track, when you go to sleep, and when you get up on a piece of paper for 10 nights, figure out the average time you go to sleep, and when you get up, and then just stick with that average, go to sleep, and get up at the same time for another 10 days. That's it. Just do that. If you can do that, if you can get standardized, systematized, in the way you sleep, then you want to take it up a notch. Maybe get a sleep tracker if you want to, if you need that. But see if you can just do it from inside. from your desire to change. And that desire plus a gadget may be something you want to do. Don't put the gadget before.** `<!-- id: d8c61dfb-ed75-46ec-88f1-dc34e8a36721 -->`
     - [ ] **Shots** `<!-- id: 6ad429a6-c40f-4e53-a5e6-87181189b9f3 -->`
-      - [ ] **80.V0A1-S2>1 — The Hook (Trinket Distraction) #film #outside** `<!-- id: ab2f0eaa-25bb-4cf3-9161-74c9ef00f763 -->`
+      - [ ] **80.V0A1-S2&gt;1 — The Hook (Trinket Distraction) #edit** `<!-- id: ab2f0eaa-25bb-4cf3-9161-74c9ef00f763 -->`
         - [ ] **All right, you've decided to get healthy... [breath] so you go out and buy a trinket, a smartwatch, or something with AI to measure your steps. Honestly, that is a complete distraction. [pause] Do not do that.** `<!-- id: df094d38-9cd7-4afb-b39f-a9f290f909d2 -->`
-      - [ ] **80.V0A1-S2>2 — The Level 1 FMR Rule #film #outside** `<!-- id: 83190e6d-2ea9-43d5-aa53-b28b102ab513 -->`
+      - [ ] **80.V0A1-S2&gt;2 — The Level 1 FMR Rule #edit** `<!-- id: 83190e6d-2ea9-43d5-aa53-b28b102ab513 -->`
         - [ ] **If you're starting to reclaim your health, you have to focus on the basics. [breath] In our Systemized OS Framework, Level 1 is non-negotiable: [tone shift] Fuel, Movement, and Rest. You have to get this down before buying gadgets.** `<!-- id: f76e09f5-b5dd-4934-a504-57cf02024f6e -->`
-      - [ ] **80.V0A1-S2>3 — Prove the Food Baseline First #film #insidetruck** `<!-- id: 4d205a48-1ae2-4248-9c98-941bd27cdc7f -->`
+      - [ ] **80.V0A1-S2&gt;3 — Prove the Food Baseline First #edit** `<!-- id: 4d205a48-1ae2-4248-9c98-941bd27cdc7f -->`
         - [ ] **Before you buy anything, do a simple life sample. [breath] If your challenge is Fuel, try to eat just a little bit better. Don't start a crazy diet. Cut out a couple of cookies, drink more water, [pause] and see if you have it in you to sustain that internal change.** `<!-- id: 3d1d9dc7-d86a-42c1-b946-efcd872af552 -->`
-      - [ ] **80.V0A1-S2>4 — Prove the Movement Baseline First #film #insidetruck** `<!-- id: abb89482-6db9-4d1d-9e2a-71a9e848bd62 -->`
+      - [ ] **80.V0A1-S2&gt;4 — Prove the Movement Baseline First #edit** `<!-- id: abb89482-6db9-4d1d-9e2a-71a9e848bd62 -->`
         - [ ] **If Movement is your goal, instead of buying a gym membership, [breath] walk 30 minutes a day for 10 days straight. Prove to yourself that you can make the change from within... [eye contact shift] before relying on an outside purchase.** `<!-- id: 4a0a9965-df8e-42f8-baac-9cdae387c97e -->`
       - [ ] **80.V0A1-S2>5 — Prove the Rest Baseline First #film #studio** `<!-- id: fd45b694-69d9-4561-ae23-89676faecc7e -->`
         - [ ] **If Rest is your bottleneck, track your sleep schedule on paper for 10 nights. [breath] Find your average bedtime and wake-up time, and stick to that exact schedule for 10 days. [breath] Standardize your sleep from the inside out first.** `<!-- id: e46009fb-4820-464e-87f0-fe9432a35915 -->`
       - [ ] **80.V0A1-S2>6 — Outro CTA #film #studio** `<!-- id: 9eb8c3d3-79c6-4ffc-ae53-4348ee7e79d8 -->`
         - [ ] **Once your desire to change is supported by a real baseline, [breath] then add the gadget if you want to. If you're ready to audit your Level 1 FMR baseline, set up a free Systemized Discovery Call or grab our app unpacking the OS. [gesture] I'll see you in the next video.** `<!-- id: 5634c613-185c-4470-ab9c-52c1cd606996 -->`
-  - [ ] **80.V0A1-S3: The 3-Tier Health Pyramid #<u>write</u> #AudioDraftDone** `<!-- id: 968af5a3-f781-45d9-a44e-9e364422f819 -->`
+  - [ ] **80.V0A1-S3: The 3-Tier Health Pyramid #<u>write</u>** `<!-- id: 968af5a3-f781-45d9-a44e-9e364422f819 -->`
     - [ ] **<b>Video Code</b>: <code>80.V0A1-S3</code>** `<!-- id: d8dbdba8-991c-4553-a809-720f1eebd732 -->`
     - [ ] **<b>Parent Video</b>: <code>80.V0A1</code> (<i>Systemized OS Framework</i>)** `<!-- id: 8fbbfad9-227f-491f-8873-9de9d26e3215 -->`
     - [ ] **<b>Suggested Settings</b>: <code>#insidetruck</code> <code>#outside</code> <code>#whilebusy</code>** `<!-- id: 98ce2ed5-91d0-4cff-a8d8-9d2709611b72 -->`
-    - [ ] **<b>JDex Topic Code</b>: <code>80.V0</code> (<i>3-Tier Health Architecture</i>)** `<!-- id: adecd4af-11b8-4c8d-b05c-64d43e842aa0 -->`
+    - [ ] **<b>JDex Topic Code</b>: <code>80.11</code> (<i>3-Tier Health Architecture</i>)** `<!-- id: adecd4af-11b8-4c8d-b05c-64d43e842aa0 -->`
     - [ ] **1. Hook** `<!-- id: dfa7aca3-b030-40a1-88c9-1b8cb6c045e6 -->`
       - [ ] **"Think of your health like an operating system on your phone. If the hardware is overheating, downloading fancy new apps isn't going to help."** `<!-- id: 5b664941-d6fd-464e-be0e-ffa55e3fb14c -->`
     - [ ] **2. Talking Points (For Audio Riffing)** `<!-- id: 8e68b7cb-dc46-4e3f-8df9-3f8d0b7c3fc0 -->`
@@ -315,13 +315,13 @@
     - [ ] **Audio Draft transcript** `<!-- id: 56f0e8e0-e54a-4495-b44d-528d6544b77c -->`
       - [ ] **It's hard to worry about planning and your future when the basics of the present are not handled. This is Maslow's hierarchy of needs. This concept applies also to rebuilding your health. There are three levels that you have to go through. Ah, correct that. You can't get to the intermediate or more advanced. concepts of becoming a healthier person if you don't have the basic level taken care of. Basic level that I've defined in the systemized operating system is F, M, R, fuel, movement, and rest. If you are having trouble in these areas, they need to be handled first before you really get good at planning, goal setting, and even working on your mental health. Without proper nutrition, movement, and rest. You can't properly get your mental health in order or your emotional life in order. It's all built on this foundation, all of it. So look at fuel, movement rest. What you eat, how active you are, how much you move, and how much you rest, and decide to choose one of those this week to work on. Pick a small step and just move on it. One small step. That's all it takes to rework and rewrite your future.** `<!-- id: f04098fe-a1d0-40d6-bfca-0a02023632bf -->`
     - [ ] **Shots** `<!-- id: 9e1bed4d-c059-43b6-ad85-62f016b3ec13 -->`
-      - [ ] **80.V0A1-S3>1 — The Hook (Maslow's Health Law) #film #insidetruck** `<!-- id: 24c2cfef-9881-4f34-b973-eff83f3a8b35 -->`
+      - [ ] **80.V0A1-S3&gt;1 — The Hook (Maslow's Health Law) #edit** `<!-- id: 24c2cfef-9881-4f34-b973-eff83f3a8b35 -->`
         - [ ] **It's hard to worry about your future when the basics of the present are not handled. [breath] This is Maslow's hierarchy of needs, [tone shift] and it applies directly to rebuilding your health.** `<!-- id: cd8959b2-b874-4eba-a794-03ab95c72c4e -->`
-      - [ ] **80.V0A1-S3>2 — Advanced Goals Require Level 1 #film #insidetruck** `<!-- id: 95d34ddd-ef41-4100-ad62-01f000acbf9c -->`
+      - [ ] **80.V0A1-S3&gt;2 — Advanced Goals Require Level 1 #edit** `<!-- id: 95d34ddd-ef41-4100-ad62-01f000acbf9c -->`
         - [ ] **You cannot get to advanced concepts if you don't have the basic level taken care of. [breath] In our Systemized OS, Level 1 is FMR: [pause] Fuel, Movement, and Rest.** `<!-- id: f9a5a25c-f3a3-453f-be95-cfcbad015846 -->`
-      - [ ] **80.V0A1-S3>3 — Mental & Emotional Health Require FMR #film #outside** `<!-- id: b4e05db1-cacd-412d-8057-aa2583fae7c1 -->`
+      - [ ] **80.V0A1-S3&gt;3 — Mental &amp; Emotional Health Require FMR #edit** `<!-- id: b4e05db1-cacd-412d-8057-aa2583fae7c1 -->`
         - [ ] **If you're struggling here, it must be handled first before you get good at planning, goal setting, [breath] or even working on your mental health. Without proper nutrition, movement, and sleep, [eye contact shift] you cannot get your emotional life in order. It's all built on this foundation.** `<!-- id: 896b7934-2df5-4ab8-b216-ab7d9e8284f0 -->`
-      - [ ] **80.V0A1-S3>4 — Audit the 3 Pillars #film #outside** `<!-- id: 1df4bfc4-bb74-4740-9c51-319f8ce9a2d2 -->`
+      - [ ] **80.V0A1-S3&gt;4 — Audit the 3 Pillars #edit** `<!-- id: 1df4bfc4-bb74-4740-9c51-319f8ce9a2d2 -->`
         - [ ] **So look at Fuel, Movement, and Rest today. [breath] Look at what you eat, how active you are, and how deeply you rest.** `<!-- id: 9f9db972-f285-4451-bd0e-e053721407b6 -->`
       - [ ] **80.V0A1-S3>5 — Pick 1 Small Step #film #whilebusy** `<!-- id: da5a90f1-4465-4762-970d-1b69b6924e89 -->`
         - [ ] **Choose just one of those pillars this week. [breath] Pick one small step and move on it. [gesture] One small step is all it takes to rewrite your future.** `<!-- id: 5d2e1158-2f0b-4788-bb3e-058d0522ed95 -->`
@@ -332,7 +332,6 @@
   - [ ] **80.10.WF.2 Set up client onboarding website** `<!-- id: 00fb2934-2306-4762-8159-40fa76c51b86 -->`
   - [ ] **80.10.WF.3 //NCMIC** `<!-- id: 07d9a114-1f75-4bb3-94a0-8fd15e696cc2 -->`
   - [ ] **80.10 //Google number with Systemized health #task** `<!-- id: 51849292-7a59-4068-8c62-deb7773af609 -->`
-  - [ ] **80.10.WF.2A Registed <a href="http://ChattAnimalChiro.com">ChattAnimalChiro.com</a>** `<!-- id: d34fbaeb-3f63-4304-8c19-f5825b4451ce -->`
   - [ ] **80.10.WF.2A - Contacts for HubSpot #task** `<!-- id: c466762c-3083-416d-9727-c19e5d6576ed -->`
   - [ ] **80.10-WF - Schedule** `<!-- id: f83c0276-1447-4b16-bceb-ebc54fefb5be -->`
     - [ ] **📅 August 2026 Publication Schedule** `<!-- id: de78bc46-da71-4a33-866d-244f7c31ef0d -->`

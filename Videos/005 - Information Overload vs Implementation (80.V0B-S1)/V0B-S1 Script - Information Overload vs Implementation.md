@@ -20,10 +20,10 @@
 
 ## 3. Full Script (Teleprompter Ready)
 
-### 80.V0B-S1>1 — The Hook #film #insidetruck
+### 80.V0B-S1>1 — The Hook #edit #insidetruck
 In my 30 years of patient care, [breath] I've come to realize that most health problems require simplification: [pause] doing less and focusing more.
 
-### 80.V0B-S1>2 — The Couch Potato to Marathon Trap #film #insidetruck
+### 80.V0B-S1>2 — The Couch Potato to Marathon Trap #edit #insidetruck
 Let's say someone's been a couch potato for 10 years and decides, "I've had enough, I'm gonna run a marathon." [breath] They buy shoes, join a club, change their whole daily routine, [tone shift] and push using pure willpower. And after five weeks, something breaks... and they never reach that goal.
 
 ### 80.V0B-S1>3 — You Cannot Make Up for Lost Time #film #whilebusy
@@ -32,10 +32,10 @@ This is a common instinct. We decide we have to make up for lost time. [breath] 
 ### 80.V0B-S1>4 — The 15-Minute Walk Benchmark #film #whilebusy
 If you want to run that marathon... [breath] before you sign up, see if you can go for a 15-minute walk five days in a row. [pause] See if you can do that first. If you can, then take it up a notch... and slowly build over time until the habit becomes permanent hardware.
 
-### 80.V0B-S1>5 — Small Steps, Little Growth #film #outside
+### 80.V0B-S1>5 — Small Steps, Little Growth #edit #outside
 Pick the small things and take the small steps. [breath] Then just don't stop. For the rest of your life: [gesture] small step, small step, little growth. Small step, a little growth.
 
-### 80.V0B-S1>6 — Outro CTA #film #outside
+### 80.V0B-S1>6 — Outro CTA #edit #outside
 If you're ready to stop collecting health advice and actually install a biological system that fits your life, [breath] set up a free Systemized Discovery Call with me or check out our app unpacking the OS. [gesture] I'll see you in the next video.
 
 ---

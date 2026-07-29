@@ -34,7 +34,7 @@ This document maintains the live operational status, verification checklist, and
 
 | Client ID | Name | Email | Status | Scheduled Time |
 | :--- | :--- | :--- | :--- | :--- |
-| - | No active bookings | - | - | - |
+| 31 | CraigTest | craigandersondc-dum@gmail.com | Agreement Signed | 2026-08-07T15:00:00.000000Z |
 
 <details>
 <summary><b>View Cancelled / Test Records (8)</b></summary>
