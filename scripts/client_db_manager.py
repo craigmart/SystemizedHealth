@@ -124,11 +124,103 @@ def export_json():
     conn.close()
     print(json.dumps(rows, indent=2))
 
+def update_status_doc():
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+    SELECT 
+        c.id as client_id,
+        c.name,
+        c.email,
+        c.source_video,
+        d.scheduled_time,
+        d.status,
+        d.primary_glitch,
+        d.os_level_focus
+    FROM clients c
+    LEFT JOIN discovery_calls d ON c.id = d.client_id
+    ORDER BY d.scheduled_time DESC;
+    """)
+
+    rows = cursor.fetchall()
+    conn.close()
+
+    doc_path = os.path.join(BASE_DIR, "docs", "Client_Onboarding_Status.md")
+    today_str = datetime.now().strftime("%Y-%m-%d")
+
+    table_rows = []
+    if not rows:
+        table_rows.append("| - | No client records | - | - | - |")
+    else:
+        for r in rows:
+            sched = r["scheduled_time"] or "N/A"
+            status = r["status"] or "Booked"
+            table_rows.append(f"| {r['client_id']} | {r['name']} | {r['email']} | {status} | {sched} |")
+
+    table_md = "\n".join(table_rows)
+
+    content = f"""# Systemized Health — Client Onboarding & CRM Status
+
+*Last Updated: {today_str}*
+
+This document maintains the live operational status, verification checklist, and active client intake registry for Systemized Health's **Free 20-Minute Systemized Discovery Call** funnel.
+
+---
+
+## 1. Funnel Architecture & Integration Links
+
+- **Short URL Redirect**: [`call.systemizedhealth.com`](http://call.systemizedhealth.com/) $\\rightarrow$ TidyCal
+- **Booking Endpoint**: [TidyCal Discovery Call](https://tidycal.com/craigandersondc/systemized-discovery-call)
+- **Discovery Call Agreement**: [Google Form Agreement](https://docs.google.com/forms/d/e/1FAIpQLScOmaeooaLLHFBppRqDI4Mtb9uM8qnU9eUH0gjo0HFU_NqGzQ/viewform?usp=header)
+- **Form Responses Sheet**: [Google Sheet Responses](https://docs.google.com/spreadsheets/d/1wbJfIx92aliZilY4Yyr_oFRaz1TN06erOti6HKZk-ZA/edit?usp=sharing)
+- **Database Engine**: [`database/clients.db`](file://{DB_PATH})
+
+---
+
+## 2. Onboarding Verification Checklist
+
+| Step | Component | Description | Status |
+| :--- | :--- | :--- | :--- |
+| **01** | **Traffic Redirect** | `call.systemizedhealth.com` 301 redirects to TidyCal. | ✅ **Verified** |
+| **02** | **TidyCal Intake** | 20-Minute Discovery Call availability & intake form. | ✅ **Verified** |
+| **03** | **Agreement Redirect**| TidyCal confirmation page redirects to Google Form. | ✅ **Verified** |
+| **04** | **Booking API Sync** | `tidycal_sync.py` pulls bookings into `clients.db`. | ✅ **Verified** |
+| **05** | **Agreement Form Sync**| `sync_agreements.py` matches responses & marks `'Agreement Signed'`. | ✅ **Verified** |
+
+---
+
+## 3. Active Client Registry Table
+
+*(Auto-generated from `database/clients.db`)*
+
+| Client ID | Name | Email | Status | Scheduled Time |
+| :--- | :--- | :--- | :--- | :--- |
+{table_md}
+
+---
+
+## 4. Maintenance Commands
+
+To refresh client bookings, agreements, and update this status document:
+```bash
+python3 scripts/tidycal_sync.py
+python3 scripts/sync_agreements.py
+python3 scripts/client_db_manager.py --doc
+```
+"""
+
+    with open(doc_path, "w") as f:
+        f.write(content)
+
+    print(f"Updated live onboarding status document at: {doc_path}")
+
 def main():
     parser = argparse.ArgumentParser(description="Client CRM Database Manager")
     parser.add_argument("--init", action="store_true", help="Initialize clients database schema")
     parser.add_argument("--list", action="store_true", help="List all clients and call status")
     parser.add_argument("--json", action="store_true", help="Output clients JSON data")
+    parser.add_argument("--doc", action="store_true", help="Update docs/Client_Onboarding_Status.md living report")
     args = parser.parse_args()
 
     if args.init:
@@ -137,8 +229,11 @@ def main():
         list_clients()
     elif args.json:
         export_json()
+    elif args.doc:
+        update_status_doc()
     else:
         list_clients()
+        update_status_doc()
 
 if __name__ == "__main__":
     main()

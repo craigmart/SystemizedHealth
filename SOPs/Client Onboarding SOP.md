@@ -59,13 +59,14 @@ flowchart TD
 
 ---
 
-### Step 4: Coaching Agreement Workflow (BreezeDoc)
+### Step 4: Coaching Agreement Workflow (Google Forms / BreezeDoc)
 - **Document Source**: [`docs/Coaching Agreement.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/Coaching%20Agreement.md)
-- **E-Signature Platform**: BreezeDoc (EXT-09).
+- **Active Agreement Form URL**: [Google Forms Discovery Call Agreement](https://docs.google.com/forms/d/e/1FAIpQLScOmaeooaLLHFBppRqDI4Mtb9uM8qnU9eUH0gjo0HFU_NqGzQ/viewform?usp=header)
+- **TidyCal Integration**: TidyCal booking confirmation page redirects to this Google Form URL.
 - **Delivery Protocol**:
-  - **Discovery Call Stage**: Include standard coaching disclaimer link in TidyCal confirmation email / calendar description.
-  - **Formal Coaching Stage**: When client converts from Discovery Call to formal coaching program, send BreezeDoc e-signature agreement link directly via email.
-- **Verification Rule**: Verify BreezeDoc completed contract PDF is stored in secure client record.
+  - **Discovery Call Stage**: Client is automatically redirected to the Google Form agreement upon TidyCal booking completion.
+  - **Formal Coaching Stage**: When client converts to formal coaching program, send comprehensive e-signature agreement link directly via email.
+- **Verification Rule**: Verify form submissions periodically and log agreement status in client database.
 
 ---
 
@@ -87,6 +88,6 @@ flowchart TD
 | **01** | **Step 1** | Verify `call.systemizedhealth.com` GoDaddy redirect resolves to TidyCal. | ✅ **Verified** |
 | **02** | **Step 2** | Verify TidyCal booking availability & intake form fields. | ✅ **Verified** |
 | **03** | **Step 3** | Verify Google Calendar sync & Google Meet link generation. | ✅ **Verified** |
-| **04** | **Step 4** | Draft Coaching Agreement template for BreezeDoc e-signature. | ✅ **Drafted** |
+| **04** | **Step 4** | Setup Discovery Call Agreement Google Form & TidyCal redirect. | ✅ **Verified** |
 | **05** | **Step 5** | Verify Fathom.ai Google Calendar auto-join integration. | 🔄 **In Progress** |
 | **06** | **Database** | Create `clients` and `discovery_calls` tables in `database/clients.db` & sync TidyCal. | ✅ **Verified** |
