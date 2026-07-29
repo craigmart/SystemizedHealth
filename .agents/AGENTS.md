@@ -9,7 +9,10 @@ Whenever writing, scripting, outlining, or generating metadata/descriptions for 
 
 ---
 
-## 2. Client Onboarding & CRM Maintenance
-- TidyCal bookings are automatically synced into `database/clients.db` via `python3 scripts/tidycal_sync.py`.
-- Form signed agreements are synced via `python3 scripts/sync_agreements.py`.
-- Living report [`docs/Client_Onboarding_Status.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/Client_Onboarding_Status.md) is updated via `python3 scripts/client_db_manager.py --doc`.
+## 2. Client Onboarding & CRM Maintenance (Session Startup Directive)
+- **Mandatory Session Startup Action**: At the beginning of every session / login, automatically remind Dr. Anderson and run the client database refresh:
+  1. `python3 scripts/tidycal_sync.py` (Pulls new TidyCal bookings)
+  2. `python3 scripts/sync_agreements.py` (Pulls Google Form agreement responses)
+  3. `python3 scripts/client_db_manager.py --doc` (Refreshes [`docs/Client_Onboarding_Status.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/Client_Onboarding_Status.md))
+- Database location: [`database/clients.db`](file:///Users/craiganderson/Developer/SystemizedHealth/database/clients.db).
+- Living report location: [`docs/Client_Onboarding_Status.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/Client_Onboarding_Status.md).
