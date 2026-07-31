@@ -24,6 +24,15 @@ import ssl
 import argparse
 from datetime import datetime
 
+# Supabase dual-write (graceful fallback if unavailable)
+try:
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from supabase_client import SupabaseClient
+    _supabase = SupabaseClient()
+except Exception as e:
+    _supabase = None
+    print(f"[Warning] Supabase client unavailable: {e}")
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CONFIG_PATH = os.path.join(BASE_DIR, "scripts", "config.json")
 DB_PATH = os.path.join(BASE_DIR, "database", "clients.db")
@@ -177,7 +186,32 @@ def sync_agreements_to_db(csv_content, sheet_url=""):
             """, (client_id, timestamp or datetime.now().isoformat(), sheet_url, f"Form Signed on {timestamp}"))
 
         synced_count += 1
-        print(f"  ✅ Agreement Signed: {client_name} ({client_row['email']})")
+        print(f"  ✅ Agreement Signed [SQLite]: {client_name} ({client_row['email']})")
+
+        # ── Supabase dual-write ─────────────────────────────────────────
+        if _supabase:
+            try:
+                sb_client = _supabase.get_client_by_email(client_row["email"])
+                if sb_client:
+                    # Update client status
+                    _supabase.update_client_status(sb_client["id"], "Agreement Signed")
+                    # Update discovery call status
+                    _supabase.update_discovery_call_by_client(
+                        sb_client["id"], "Agreement Signed",
+                        extra={"breezedoc_agreement_url": sheet_url}
+                    )
+                    print(f"  ✅ Agreement Signed [Supabase]: {client_name}")
+                else:
+                    # Client not yet in Supabase — create them
+                    new_client = _supabase.upsert_client({
+                        "name"  : client_name,
+                        "email" : client_row["email"],
+                        "status": "Agreement Signed",
+                    })
+                    if new_client:
+                        print(f"  ✅ New client + agreement [Supabase]: {client_name}")
+            except Exception as e:
+                print(f"  ⚠️  Supabase agreement write failed: {e}")
 
     conn.commit()
     conn.close()

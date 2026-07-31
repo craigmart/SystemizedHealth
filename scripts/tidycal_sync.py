@@ -6,7 +6,7 @@ Systemized Health — Discovery Call Onboarding
 Purpose:
   Connects to the TidyCal REST API to fetch booked appointments,
   extract client Name, Email, Appointment Start Time, and Intake Answers,
-  and sync them into the local SQLite database (`database/videos.db`).
+  and sync them into the local SQLite database AND Supabase CRM.
 
 Usage:
   python scripts/tidycal_sync.py
@@ -21,6 +21,14 @@ import urllib.request
 import urllib.error
 import argparse
 from datetime import datetime
+
+# Supabase dual-write (graceful fallback if unavailable)
+try:
+    from supabase_client import SupabaseClient
+    _supabase = SupabaseClient()
+except Exception as e:
+    _supabase = None
+    print(f"[Warning] Supabase client unavailable: {e}")
 
 # Paths
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -179,7 +187,29 @@ def sync_booking_to_db(booking, verbose=False):
 
     conn.commit()
     conn.close()
-    print(f"  ✅ Synced: {client_name} ({client_email}) — Scheduled: {scheduled_time}")
+    print(f"  ✅ Synced [SQLite]: {client_name} ({client_email}) — Scheduled: {scheduled_time}")
+
+    # ── Supabase dual-write ─────────────────────────────────────────
+    if _supabase:
+        try:
+            sb_client = _supabase.upsert_client({
+                "name"        : client_name,
+                "email"       : client_email,
+                "source_video": "V0B Discovery Call",
+                "status"      : "Cancelled" if status_raw == "Cancelled" else "Booked",
+            })
+            if sb_client:
+                _supabase.upsert_discovery_call({
+                    "client_id"           : sb_client["id"],
+                    "tidycal_booking_id"  : booking_id,
+                    "scheduled_time"      : scheduled_time,
+                    "status"              : status_raw,
+                    "primary_glitch"      : primary_glitch,
+                    "os_level_focus"      : os_level_focus,
+                })
+                print(f"  ✅ Synced [Supabase]: {client_name}")
+        except Exception as e:
+            print(f"  ⚠️  Supabase write failed for {client_email}: {e}")
 
 def main():
     parser = argparse.ArgumentParser(description="TidyCal Sync Engine")
