@@ -10,11 +10,14 @@ Whenever writing, scripting, outlining, or generating metadata/descriptions for 
 ---
 
 ## 2. Client Onboarding & CRM Maintenance (Session Startup Directive)
-- **Mandatory Session Startup Action**: At the beginning of every session / login, automatically remind Dr. Anderson and run the client database refresh:
-  1. `python3 scripts/tidycal_sync.py` (Pulls new TidyCal bookings)
-  2. `python3 scripts/sync_agreements.py` (Pulls Google Form agreement responses)
-  3. `python3 scripts/client_db_manager.py --doc` (Refreshes [`docs/Client_Onboarding_Status.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/Client_Onboarding_Status.md))
-  4. `python3 scripts/video_pipeline.py --cache` (Refreshes [`docs/video_pipeline_cache.json`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/video_pipeline_cache.json))
+- **Mandatory Session Startup Action**: At the beginning of every session / login, automatically perform the following:
+  1. Inspect [`TODO.md`](file:///Users/craiganderson/Developer/SystemizedHealth/TODO.md) to check active open items and priorities.
+  2. Remind Dr. Anderson and run the client database & video pipeline refresh:
+     - `python3 scripts/tidycal_sync.py` (Pulls new TidyCal bookings)
+     - `python3 scripts/sync_agreements.py` (Pulls Google Form agreement responses)
+     - `python3 scripts/client_db_manager.py --doc` (Refreshes [`docs/Client_Onboarding_Status.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/Client_Onboarding_Status.md))
+     - `python3 scripts/video_pipeline.py --cache` (Refreshes [`docs/video_pipeline_cache.json`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/video_pipeline_cache.json))
+- Master task list location: [`TODO.md`](file:///Users/craiganderson/Developer/SystemizedHealth/TODO.md).
 - Database location: [`database/clients.db`](file:///Users/craiganderson/Developer/SystemizedHealth/database/clients.db).
 - Living report location: [`docs/Client_Onboarding_Status.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/Client_Onboarding_Status.md).
 

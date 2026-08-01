@@ -1,6 +1,6 @@
 # Systemized Health — Client Onboarding & CRM Status
 
-*Last Updated: 2026-07-31*
+*Last Updated: 2026-08-01*
 
 This document maintains the live operational status, verification checklist, and active client intake registry for Systemized Health's **Free 20-Minute Systemized Discovery Call** funnel.
 
@@ -34,7 +34,7 @@ This document maintains the live operational status, verification checklist, and
 
 | Client ID | Name | Email | Status | Scheduled Time |
 | :--- | :--- | :--- | :--- | :--- |
-| 31 | CraigTest | craigandersondc-dum@gmail.com | Agreement Signed | 2026-08-07T15:00:00.000000Z |
+| 31 | CraigTest | craigandersondc-dum@gmail.com | Booked | 2026-08-07T15:00:00.000000Z |
 
 <details>
 <summary><b>View Cancelled / Test Records (8)</b></summary>
