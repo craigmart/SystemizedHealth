@@ -1,0 +1,34 @@
+Here is the documentation for the TidyCal booking funnel, formatted in Markdown so you can drop it right into your GitHub repository alongside the CRM strategy.
+Systemized Health: Video to TidyCal Booking Funnel
+1. Funnel Overview
+ * Campaign Objective: Drive viewers from the August 3rd launch video to book a free 20-minute consultation call, which serves as a lead generator for the 2-hour Systemized Health Coaching Intensive.
+ * Primary Call to Action (CTA): Visit call.systemmyself.com to book a call.
+ * Target Conversion: Completed booking on TidyCal.
+ * Secondary Conversion: Upgrading the 20-minute call to the paid 2-hour intensive.
+2. Technology & Tracking Stack
+ * Frontend Hosting: Netlify (via Anti-Gravity IDE)
+ * Scheduling Engine: TidyCal (Requires Individual, Pro, or Agency plan for custom redirects)
+ * Tag Management: Google Tag Manager (GTM)
+ * Web Analytics: Google Analytics 4 (GA4)
+ * Backend/CRM: Supabase (for tracking the final coaching intensive conversions)
+3. Step-by-Step Funnel Architecture & Tracking
+| Funnel Step | User Action | Tracking Mechanism | Data Location |
+|---|---|---|---|
+| 1. Video Launch (Aug 3) | User views the video on social media and clicks the provided link. | Native platform analytics (Views, Impressions, CTR) + UTM Parameters attached to the link (e.g., ?utm_source=social&utm_campaign=aug3_video). | Social Platform & GA4 |
+| 2. Landing Page View | User lands on call.systemmyself.com. | Google Tag Manager (GTM) fires the baseline GA4 tag to log a "Page View". | Google Analytics 4 |
+| 3. Intent to Book | User clicks through to the embedded or linked TidyCal booking widget. | User interacts with TidyCal interface. | TidyCal Analytics |
+| 4. Booking Conversion | User completes the scheduling process. | TidyCal Custom Redirect: User is automatically routed to [call.systemmyself.com/success](https://call.systemmyself.com/success). | TidyCal |
+| 5. Conversion Logging | User loads the /success page. | GTM fires a specific GA4 "Conversion Event" (e.g., generate_lead or booked_call) exclusively on this URL. | Google Analytics 4 |
+4. Configuration Requirements
+A. TidyCal Setup
+ * Navigate to the specific 20-minute call event type in TidyCal.
+ * Enable the "Redirect after booking" feature.
+ * Set the redirect URL to the custom success page: [https://call.systemmyself.com/success](https://call.systemmyself.com/success).
+B. Tracking & Analytics Setup (GTM)
+ * Create a single Google Tag Manager (GTM) container.
+ * Install the GTM container code into the <head> and <body> of the Anti-Gravity IDE project (it must be present on both the main landing page and the success page).
+ * Inside GTM, deploy the GA4 Configuration Tag to fire on "All Pages".
+ * Inside GTM, deploy a GA4 Event Tag (named "TidyCal_Booking") configured to fire only when the Page URL contains /success.
+C. Backend CRM Management (The 2-Hour Intensive)
+ * Once the 20-minute call concludes, the lead's profile must be manually updated in the internal Supabase CRM.
+ * A status field (e.g., converted_to_intensive as a boolean true/false) will be used to track the final, bottom-of-funnel conversion rate from free call to paid service.
