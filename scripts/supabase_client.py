@@ -256,6 +256,128 @@ class SupabaseClient:
                              params={"client_id": f"eq.{client_id}",
                                      "order": "created_at.desc"}) or []
 
+    # ── videos table ────────────────────────────────────────────────────────
+    def upsert_video(self, data: dict) -> dict | None:
+        """Insert or update a video by video_number. Returns the upserted row."""
+        req = urllib.request.Request(
+            f"{self.rest}/videos?on_conflict=video_number",
+            data=json.dumps(data).encode(),
+            method="POST"
+        )
+        req.add_header("apikey", self.key)
+        req.add_header("Authorization", f"Bearer {self.key}")
+        req.add_header("Content-Type", "application/json")
+        req.add_header("Prefer", "resolution=merge-duplicates,return=representation")
+        try:
+            with urllib.request.urlopen(req, context=self._ssl) as resp:
+                raw = resp.read().decode("utf-8")
+                rows = json.loads(raw) if raw.strip() else []
+                return rows[0] if rows else None
+        except urllib.error.HTTPError as e:
+            err = e.read().decode("utf-8")
+            print(f"[Supabase Error] upsert_video → HTTP {e.code}: {err}")
+            return None
+        except Exception as e:
+            print(f"[Supabase Error] upsert_video → {e}")
+            return None
+
+    def get_video_by_number(self, video_number: str) -> dict | None:
+        rows = self._request("GET", "videos",
+                             params={"video_number": f"eq.{video_number}", "limit": "1"})
+        return rows[0] if rows else None
+
+    def get_video_by_code(self, code: str) -> dict | None:
+        rows = self._request("GET", "videos",
+                             params={"code": f"eq.{code}", "limit": "1"})
+        return rows[0] if rows else None
+
+    def get_all_videos(self) -> list:
+        return self._request("GET", "videos",
+                             params={"order": "video_number.asc"}) or []
+
+    def update_video_status(self, video_number: str, status: str, extra: dict = None) -> dict | None:
+        payload = {"status": status}
+        if extra:
+            payload.update(extra)
+        url = f"{self.rest}/videos?video_number=eq.{video_number}"
+        req = urllib.request.Request(url, data=json.dumps(payload).encode(), method="PATCH")
+        req.add_header("apikey", self.key)
+        req.add_header("Authorization", f"Bearer {self.key}")
+        req.add_header("Content-Type", "application/json")
+        req.add_header("Prefer", "return=representation")
+        try:
+            with urllib.request.urlopen(req, context=self._ssl) as resp:
+                rows = json.loads(resp.read().decode("utf-8"))
+                return rows[0] if rows else None
+        except Exception as e:
+            print(f"[Supabase Error] update_video_status → {e}")
+            return None
+
+    # ── video_stats table ────────────────────────────────────────────────────
+    def add_video_stats(self, video_id: str, data: dict) -> dict | None:
+        """Insert a performance snapshot for a video."""
+        data["video_id"] = video_id
+        result = self._request("POST", "video_stats", body=data)
+        if isinstance(result, list):
+            return result[0] if result else None
+        return result
+
+    def get_latest_stats(self, video_id: str) -> dict | None:
+        rows = self._request("GET", "video_stats",
+                             params={"video_id": f"eq.{video_id}",
+                                     "order": "snapshot_date.desc",
+                                     "limit": "1"})
+        return rows[0] if rows else None
+
+    # ── video_keywords table ─────────────────────────────────────────────────
+    def upsert_keyword(self, video_id: str, keyword: str, data: dict) -> dict | None:
+        """Upsert a keyword row for a video."""
+        data["video_id"] = video_id
+        data["keyword"] = keyword
+        result = self._request("POST", "video_keywords", body=data)
+        if isinstance(result, list):
+            return result[0] if result else None
+        return result
+
+    def get_keywords(self, video_id: str) -> list:
+        return self._request("GET", "video_keywords",
+                             params={"video_id": f"eq.{video_id}",
+                                     "order": "overall_score.desc"}) or []
+
+    # ── video_tasks table ────────────────────────────────────────────────────
+    def add_video_task(self, video_id: str, data: dict) -> dict | None:
+        """Insert a production task for a video."""
+        data["video_id"] = video_id
+        result = self._request("POST", "video_tasks", body=data)
+        if isinstance(result, list):
+            return result[0] if result else None
+        return result
+
+    def get_tasks(self, video_id: str, open_only: bool = False) -> list:
+        params = {"video_id": f"eq.{video_id}", "order": "due_date.asc"}
+        if open_only:
+            params["status"] = "neq.Completed"
+        return self._request("GET", "video_tasks", params=params) or []
+
+    def update_task_status(self, task_id: str, status: str) -> dict | None:
+        payload = {"status": status}
+        if status == "Completed":
+            from datetime import datetime, timezone
+            payload["completed_at"] = datetime.now(timezone.utc).isoformat()
+        url = f"{self.rest}/video_tasks?id=eq.{task_id}"
+        req = urllib.request.Request(url, data=json.dumps(payload).encode(), method="PATCH")
+        req.add_header("apikey", self.key)
+        req.add_header("Authorization", f"Bearer {self.key}")
+        req.add_header("Content-Type", "application/json")
+        req.add_header("Prefer", "return=representation")
+        try:
+            with urllib.request.urlopen(req, context=self._ssl) as resp:
+                rows = json.loads(resp.read().decode("utf-8"))
+                return rows[0] if rows else None
+        except Exception as e:
+            print(f"[Supabase Error] update_task_status → {e}")
+            return None
+
 
 # ── CLI test mode ───────────────────────────────────────────────────────────
 if __name__ == "__main__":
@@ -266,6 +388,9 @@ if __name__ == "__main__":
 
     if args.test:
         db = SupabaseClient()
-        db.test_connection()
+        ok = db.test_connection()
+        if ok:
+            videos = db.get_all_videos()
+            print(f"   Videos in Supabase: {len(videos)}")
     else:
         parser.print_help()

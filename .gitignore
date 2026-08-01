@@ -11,5 +11,8 @@ __pycache__/
 # macOS
 .DS_Store
 
-# SQLite (local backup only)
+# SQLite (retired — Supabase is now source of truth)
 database/*.db
+
+# Supabase backups — large JSON dumps excluded, CSVs tracked
+backups/*_backup.json
