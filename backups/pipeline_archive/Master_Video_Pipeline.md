@@ -1,3 +1,12 @@
+# ⚠️ ARCHIVED — DO NOT EDIT
+
+> **This file is archived as of 2026-08-01.**
+> The source of truth for all video pipeline data is now **Supabase** (`videos` table).
+> Use `scripts/video_pipeline.py` to query, update, and report on video status.
+> This file is preserved for historical reference only.
+
+---
+
 # Master Video Production Pipeline
 
 This is the authoritative, local master registry for all Systemized Health video content. Every video (Long or Short) is assigned a unique sequential 3-digit Video Number (`001` - `099`) reflecting its production order.
