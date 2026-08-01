@@ -241,6 +241,28 @@ def cmd_doc(db: SupabaseClient, output_path: str = None):
     print(f"\n  ✅  Report written → {out_path}\n")
 
 
+def cmd_cache(db: SupabaseClient):
+    """Write a JSON snapshot to docs/video_pipeline_cache.json for offline/agent reads."""
+    import json as _json
+    from datetime import datetime, timezone
+
+    videos = db.get_all_videos()
+    if not videos:
+        print("No videos found.")
+        return
+
+    payload = {
+        "generated": datetime.now(timezone.utc).isoformat(),
+        "count": len(videos),
+        "videos": videos,
+    }
+
+    out_path = Path(__file__).parent.parent / "docs" / "video_pipeline_cache.json"
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.write_text(_json.dumps(payload, indent=2, default=str))
+    print(f"\n  ✅  Cache written → {out_path}  ({len(videos)} videos)\n")
+
+
 # ─────────────────────────────────────────────────────────────────────────────
 # CLI
 # ─────────────────────────────────────────────────────────────────────────────
@@ -268,11 +290,12 @@ Examples:
                         help="Update video status: --status <code> <new_status>")
     parser.add_argument("--add",    metavar="JSON",      help="Add/upsert a video from JSON string")
     parser.add_argument("--doc",    action="store_true", help="Generate docs/Video_Pipeline_Status.md")
+    parser.add_argument("--cache",  action="store_true", help="Write docs/video_pipeline_cache.json (for agent/offline reads)")
     parser.add_argument("--out",    metavar="PATH",      help="Output path override for --doc")
 
     args = parser.parse_args()
 
-    if not any([args.list, args.week, args.status, args.add, args.doc]):
+    if not any([args.list, args.week, args.status, args.add, args.doc, args.cache]):
         parser.print_help()
         sys.exit(0)
 
@@ -292,6 +315,9 @@ Examples:
 
     if args.doc:
         cmd_doc(db, output_path=args.out)
+
+    if args.cache:
+        cmd_cache(db)
 
 
 if __name__ == "__main__":

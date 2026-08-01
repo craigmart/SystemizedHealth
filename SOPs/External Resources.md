@@ -8,14 +8,14 @@ This document tracks all external software platforms, web applications, database
 
 | ID | Resource Name | Platform | Primary Purpose | Integration / Automation Status |
 | :--- | :--- | :--- | :--- | :--- |
-| **EXT-01** | **Master Video Production Pipeline** | Local Repository (`Master_Video_Pipeline.md`) | Central master queue tracking video production order (`001`-`099`), JDex codes (`80.V...`), drop dates, and status. | **Local Git Managed Registry** (`Master_Video_Pipeline.md` / `Master_Video_Pipeline.csv`) |
+| **EXT-01** | **Video Pipeline Database** | Supabase (PostgreSQL) | Central video production database tracking all video metadata, drop dates, status, stats, keywords, and tasks. | **Live Supabase REST API** via `scripts/video_pipeline.py` |
 | **EXT-02** | **NotebookLM Clinical Research Workspace** | NotebookLM | Academic research assistant, medical literature query engine, and research citation lookup. (Transcripts stored locally in IDE, NOT NotebookLM). | Research Query Engine |
 | **EXT-03** | **Workflowy Proposition Surface** | Workflowy | Zettelkasten clinical proposition cards for future organic video branching. | Manual tag mapping (`JDex` codes) |
 | **EXT-04** | **Discovery Call Transcripts** | Fathom.ai | Recording and AI transcription of 20-minute patient discovery calls for pattern recognition. | Automated recording & transcript extraction |
 | **EXT-05** | **Discovery Call Scheduling** | TidyCal | Patient intake and scheduling for free 20-minute discovery calls. | Live Web Endpoint |
 | **EXT-06** | **Video Editing Workspace** | LumaFusion | Final NLE video editing with left-aligned minimal supporting slides overlay. | Local storage & DAS export |
 | **EXT-07** | **vidIQ Channel Analytics & Search Intelligence** | vidIQ (API / MCP) | Live read-only access to channel performance metrics, keyword search volumes, view velocity, retention analytics, and topic scores. | **Live Read-Only API/MCP** via `scripts/vidiq_sync.py` (`vidiq_api_key`) |
-| **EXT-08** | **Video Pipeline Database & On-Demand Workflowy Reports** | SQLite / Python | Central SQLite video database, production task tracker, and Workflowy analytics reporter. | `database/videos.db` & `scripts/db_manager.py` |
+| **EXT-08** | **Video Pipeline CLI** | Python / Supabase REST | On-demand CLI for querying, updating, and reporting on the video pipeline directly against Supabase. | `scripts/video_pipeline.py` |
 | **EXT-09** | **Coaching Agreement & E-Signatures** | BreezeDoc | Legal coaching disclosures, client waivers, and coaching agreement e-signatures. | Web Service & Document Templates |
 | **EXT-10** | **Client CRM Database & Sync Engine** | SQLite / Python | Central client contacts, intake answers, call records, and TidyCal sync engine. | `database/clients.db`, `scripts/client_db_manager.py` & `scripts/tidycal_sync.py` |
 
@@ -23,13 +23,16 @@ This document tracks all external software platforms, web applications, database
 
 ## 2. Resource Specifications & Integration Protocols
 
-### EXT-01: Master Video Production Pipeline
-- **Platform**: Local Git Repository
-- **Master Files**: [`Master_Video_Pipeline.md`](file:///Users/craiganderson/Library/Mobile%20Documents/com~apple~CloudDocs/SystemizedHealth/Master_Video_Pipeline.md) & [`Master_Video_Pipeline.csv`](file:///Users/craiganderson/Library/Mobile%20Documents/com~apple~CloudDocs/SystemizedHealth/Master_Video_Pipeline.csv)
-- **Primary Table Columns**:
-  `Video Number` | `Code` | `Format` | `Title` | `Drop Date` | `Status` | `Uploaded Date` | `Notes`
-- **Maintenance Protocol**:
-  Edit `Master_Video_Pipeline.md` directly in the IDE or update `Master_Video_Pipeline.csv`. Commit changes to Git for version tracking. Google Sheets integration deprecated.
+### EXT-01: Video Pipeline Database
+- **Platform**: Supabase (PostgreSQL — hosted)
+- **Project URL**: `https://qkeloxawnpvyfasujonv.supabase.co`
+- **Primary Table**: `videos` — one row per video, tracks `video_number`, `code`, `format_type`, `title`, `drop_date`, `status`, `uploaded_date`, `youtube_id`, `jdex_code`, `os_level`, `notes`
+- **Supporting Tables**: `video_stats` (performance snapshots), `video_keywords` (vidIQ data), `video_tasks` (production tasks)
+- **Management CLI**: [`scripts/video_pipeline.py`](file:///Users/craiganderson/Developer/SystemizedHealth/scripts/video_pipeline.py)
+- **Schema Migration**: [`supabase/migrations/002_video_pipeline.sql`](file:///Users/craiganderson/Developer/SystemizedHealth/supabase/migrations/002_video_pipeline.sql)
+- **Archived Flat Files**: `backups/pipeline_archive/Master_Video_Pipeline.md` & `.csv` (historical reference only — do not edit)
+- **Agent Read Access**: Direct Supabase REST API (no local cache required — RLS disabled on `videos` table)
+- **Maintenance Protocol**: All status updates, new video additions, and metadata changes go through `scripts/video_pipeline.py`. Never edit flat files.
 
 ---
 
@@ -79,12 +82,19 @@ This document tracks all external software platforms, web applications, database
 
 ---
 
-### EXT-08: Video Pipeline Database & On-Demand Workflowy Reports
-- **Database Path**: [`database/videos.db`](file:///Users/craiganderson/Library/Mobile%20Documents/com~apple%7ECloudDocs/SystemizedHealth/database/videos.db) (SQLite)
-- **Management CLI**: [`scripts/db_manager.py`](file:///Users/craiganderson/Library/Mobile%20Documents/com~apple%7ECloudDocs/SystemizedHealth/scripts/db_manager.py)
-- **Workflowy Reporter Script**: [`scripts/workflowy_report.py`](file:///Users/craiganderson/Library/Mobile%20Documents/com~apple%7ECloudDocs/SystemizedHealth/scripts/workflowy_report.py)
+### EXT-08: Video Pipeline CLI
+- **Platform**: Python CLI → Supabase REST API
+- **Script**: [`scripts/video_pipeline.py`](file:///Users/craiganderson/Developer/SystemizedHealth/scripts/video_pipeline.py)
+- **Source of Truth**: Supabase `videos` table (see EXT-01)
 - **On-Demand Execution Protocol**:
-  Whenever Dr. Anderson instructs the AI to update reports or check status:
-  1. `python3 scripts/workflowy_report.py --push`: Generates and pushes the 4-timeframe performance metrics (48h, 7d, 28d, all-time), 7-day video drop calendar, and open task due dates directly to Workflowy under `📊 Daily Analytics & Task Reports`.
-  2. `python3 scripts/db_manager.py --calendar`: Renders the full interactive publication and task due date calendar in the CLI.
-  3. `python3 scripts/db_manager.py --list`: Lists all active videos and latest performance metrics.
+  | Command | Purpose |
+  | :--- | :--- |
+  | `python3 scripts/video_pipeline.py --list` | List all videos with current status |
+  | `python3 scripts/video_pipeline.py --list --filter Editing` | Filter by status |
+  | `python3 scripts/video_pipeline.py --week` | Show next week's drop schedule + upload gaps |
+  | `python3 scripts/video_pipeline.py --status <code> <status>` | Update video status in Supabase |
+  | `python3 scripts/video_pipeline.py --add '<json>'` | Add or upsert a new video |
+  | `python3 scripts/video_pipeline.py --doc` | Generate `docs/Video_Pipeline_Status.md` report |
+  | `python3 scripts/video_pipeline.py --cache` | Write `docs/video_pipeline_cache.json` for offline reads |
+- **Valid Statuses**: `Idea` → `Script Ready` → `Ready for Audio Riff` → `Ready to Film` → `Filming` → `Editing` → `In Production` → `Uploaded`
+- **Note**: The old SQLite `database/videos.db`, `scripts/db_manager.py`, and `scripts/workflowy_report.py` are deprecated and replaced by this Supabase-backed system.

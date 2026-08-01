@@ -14,5 +14,17 @@ Whenever writing, scripting, outlining, or generating metadata/descriptions for 
   1. `python3 scripts/tidycal_sync.py` (Pulls new TidyCal bookings)
   2. `python3 scripts/sync_agreements.py` (Pulls Google Form agreement responses)
   3. `python3 scripts/client_db_manager.py --doc` (Refreshes [`docs/Client_Onboarding_Status.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/Client_Onboarding_Status.md))
+  4. `python3 scripts/video_pipeline.py --cache` (Refreshes [`docs/video_pipeline_cache.json`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/video_pipeline_cache.json))
 - Database location: [`database/clients.db`](file:///Users/craiganderson/Developer/SystemizedHealth/database/clients.db).
 - Living report location: [`docs/Client_Onboarding_Status.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/Client_Onboarding_Status.md).
+
+---
+
+## 3. Video Pipeline — Agent Read Protocol
+- **Source of truth**: Supabase `videos` table (managed via `scripts/video_pipeline.py`).
+- **Agent cannot call Supabase directly** (sandbox DNS restriction). Always read from the local cache instead:
+  - Cache file: [`docs/video_pipeline_cache.json`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/video_pipeline_cache.json)
+  - If cache is missing or stale (>24h), prompt Dr. Anderson to run: `python3 scripts/video_pipeline.py --cache`
+- **To update video status**, provide the exact terminal command for Dr. Anderson to run:
+  - `python3 scripts/video_pipeline.py --status <code> <new_status>`
+

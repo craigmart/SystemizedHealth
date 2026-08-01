@@ -16,6 +16,7 @@ import os
 import json
 import urllib.request
 import urllib.error
+import urllib.parse
 import ssl
 from pathlib import Path
 
@@ -52,6 +53,12 @@ class SupabaseClient:
         # Build REST endpoint base
         self.rest = f"{self.base_url}/rest/v1"
         self._ssl = ssl._create_unverified_context()
+        # Build a no-proxy opener so injected system proxies (e.g. IDE tunnels)
+        # don't intercept and block Supabase HTTPS requests.
+        self._opener = urllib.request.build_opener(
+            urllib.request.ProxyHandler({}),          # empty dict = no proxies
+            urllib.request.HTTPSHandler(context=self._ssl),
+        )
 
     # ── Internal request helper ─────────────────────────────────────────────
     def _request(self, method: str, path: str, body=None, params: dict = None) -> list | dict | None:
@@ -68,7 +75,7 @@ class SupabaseClient:
         req.add_header("Prefer", "return=representation")  # return affected rows
 
         try:
-            with urllib.request.urlopen(req, context=self._ssl) as resp:
+            with self._opener.open(req) as resp:
                 raw = resp.read().decode("utf-8")
                 return json.loads(raw) if raw.strip() else []
         except urllib.error.HTTPError as e:
@@ -103,7 +110,7 @@ class SupabaseClient:
         req.add_header("on_conflict", "email")
 
         try:
-            with urllib.request.urlopen(req, context=self._ssl) as resp:
+            with self._opener.open(req) as resp:
                 raw = resp.read().decode("utf-8")
                 rows = json.loads(raw) if raw.strip() else []
                 return rows[0] if rows else None
@@ -130,7 +137,7 @@ class SupabaseClient:
         req.add_header("Content-Type", "application/json")
         req.add_header("Prefer", "return=representation")
         try:
-            with urllib.request.urlopen(req, context=self._ssl) as resp:
+            with self._opener.open(req) as resp:
                 return json.loads(resp.read().decode("utf-8"))
         except Exception as e:
             print(f"[Supabase Error] update_client_status → {e}")
@@ -150,7 +157,7 @@ class SupabaseClient:
         req.add_header("Prefer", "resolution=merge-duplicates,return=representation")
         req.add_header("on_conflict", "client_id")
         try:
-            with urllib.request.urlopen(req, context=self._ssl) as resp:
+            with self._opener.open(req) as resp:
                 raw = resp.read().decode("utf-8")
                 rows = json.loads(raw) if raw.strip() else []
                 return rows[0] if rows else None
@@ -180,7 +187,7 @@ class SupabaseClient:
         req.add_header("Prefer", "resolution=merge-duplicates,return=representation")
         req.add_header("on_conflict", "tidycal_booking_id")
         try:
-            with urllib.request.urlopen(req, context=self._ssl) as resp:
+            with self._opener.open(req) as resp:
                 raw = resp.read().decode("utf-8")
                 rows = json.loads(raw) if raw.strip() else []
                 return rows[0] if rows else None
@@ -208,7 +215,7 @@ class SupabaseClient:
         req.add_header("Content-Type", "application/json")
         req.add_header("Prefer", "return=representation")
         try:
-            with urllib.request.urlopen(req, context=self._ssl) as resp:
+            with self._opener.open(req) as resp:
                 return json.loads(resp.read().decode("utf-8"))
         except Exception as e:
             print(f"[Supabase Error] update_discovery_call_status → {e}")
@@ -225,7 +232,7 @@ class SupabaseClient:
         req.add_header("Content-Type", "application/json")
         req.add_header("Prefer", "return=representation")
         try:
-            with urllib.request.urlopen(req, context=self._ssl) as resp:
+            with self._opener.open(req) as resp:
                 return json.loads(resp.read().decode("utf-8"))
         except Exception as e:
             print(f"[Supabase Error] update_discovery_call_by_client → {e}")
@@ -269,7 +276,7 @@ class SupabaseClient:
         req.add_header("Content-Type", "application/json")
         req.add_header("Prefer", "resolution=merge-duplicates,return=representation")
         try:
-            with urllib.request.urlopen(req, context=self._ssl) as resp:
+            with self._opener.open(req) as resp:
                 raw = resp.read().decode("utf-8")
                 rows = json.loads(raw) if raw.strip() else []
                 return rows[0] if rows else None
@@ -306,7 +313,7 @@ class SupabaseClient:
         req.add_header("Content-Type", "application/json")
         req.add_header("Prefer", "return=representation")
         try:
-            with urllib.request.urlopen(req, context=self._ssl) as resp:
+            with self._opener.open(req) as resp:
                 rows = json.loads(resp.read().decode("utf-8"))
                 return rows[0] if rows else None
         except Exception as e:
@@ -371,7 +378,7 @@ class SupabaseClient:
         req.add_header("Content-Type", "application/json")
         req.add_header("Prefer", "return=representation")
         try:
-            with urllib.request.urlopen(req, context=self._ssl) as resp:
+            with self._opener.open(req) as resp:
                 rows = json.loads(resp.read().decode("utf-8"))
                 return rows[0] if rows else None
         except Exception as e:
