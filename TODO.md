@@ -1,3 +1,11 @@
+inbox (ideas abd thoights to process)
+- reconcile uoloaded cideos and metadata with drop calendar. 
+
+=====
+
+
+
+
 # Systemized Health — Master TODO & Task List
 
 *Last Updated: 2026-08-01*
