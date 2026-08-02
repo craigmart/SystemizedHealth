@@ -98,8 +98,10 @@ class SupabaseClient:
     # ── clients table ───────────────────────────────────────────────────────
     def upsert_client(self, data: dict) -> dict | None:
         """Insert or update a client by email. Returns the upserted row."""
+        # PostgREST requires on_conflict as a query parameter
+        url = f"{self.rest}/clients?on_conflict=email"
         req = urllib.request.Request(
-            f"{self.rest}/clients",
+            url,
             data=json.dumps(data).encode(),
             method="POST"
         )
@@ -107,7 +109,6 @@ class SupabaseClient:
         req.add_header("Authorization", f"Bearer {self.key}")
         req.add_header("Content-Type", "application/json")
         req.add_header("Prefer", "resolution=merge-duplicates,return=representation")
-        req.add_header("on_conflict", "email")
 
         try:
             with self._opener.open(req) as resp:
@@ -117,6 +118,9 @@ class SupabaseClient:
         except urllib.error.HTTPError as e:
             err = e.read().decode("utf-8")
             print(f"[Supabase Error] upsert_client → HTTP {e.code}: {err}")
+            # If resolution=merge-duplicates is restricted by DB constraints, fallback to fetch existing client
+            if e.code == 409:
+                return self.get_client_by_email(data.get("email", ""))
             return None
         except Exception as e:
             print(f"[Supabase Error] upsert_client → {e}")
@@ -146,8 +150,9 @@ class SupabaseClient:
     # ── client_demographics table ───────────────────────────────────────────
     def upsert_demographics(self, client_id: str, data: dict) -> dict | None:
         data["client_id"] = client_id
+        url = f"{self.rest}/client_demographics?on_conflict=client_id"
         req = urllib.request.Request(
-            f"{self.rest}/client_demographics",
+            url,
             data=json.dumps(data).encode(),
             method="POST"
         )
@@ -155,7 +160,6 @@ class SupabaseClient:
         req.add_header("Authorization", f"Bearer {self.key}")
         req.add_header("Content-Type", "application/json")
         req.add_header("Prefer", "resolution=merge-duplicates,return=representation")
-        req.add_header("on_conflict", "client_id")
         try:
             with self._opener.open(req) as resp:
                 raw = resp.read().decode("utf-8")
@@ -176,8 +180,9 @@ class SupabaseClient:
 
     # ── discovery_calls table ───────────────────────────────────────────────
     def upsert_discovery_call(self, data: dict) -> dict | None:
+        url = f"{self.rest}/discovery_calls?on_conflict=tidycal_booking_id"
         req = urllib.request.Request(
-            f"{self.rest}/discovery_calls",
+            url,
             data=json.dumps(data).encode(),
             method="POST"
         )
@@ -185,7 +190,6 @@ class SupabaseClient:
         req.add_header("Authorization", f"Bearer {self.key}")
         req.add_header("Content-Type", "application/json")
         req.add_header("Prefer", "resolution=merge-duplicates,return=representation")
-        req.add_header("on_conflict", "tidycal_booking_id")
         try:
             with self._opener.open(req) as resp:
                 raw = resp.read().decode("utf-8")
