@@ -44,7 +44,9 @@
 
 ## 4. Marketing & Conversion Funnel Setup
 - [ ] **TidyCal Redirect**: Configure TidyCal event redirect to route completed bookings to `https://call.systemizedhealth.com/success`.
-- [ ] **Tracking Implementation**:
-  - [ ] Embed Google Tag Manager container snippet on frontend landing & success pages.
-  - [ ] Configure GA4 page view tag and `TidyCal_Booking` conversion event trigger in GTM.
+- [ ] **Tracking Implementation & Verification**:
+  - [ ] Embed Google Tag Manager container snippet on frontend landing (`call.systemizedhealth.com`) & success (`/success`) pages.
+  - [ ] Configure GA4 page view tag and `generate_lead` conversion event trigger in GTM.
+  - [ ] Set up Meta (Facebook) Base Pixel and `Lead` event tracking on `/success`.
+  - [ ] Check and verify all tracking codes using Meta Pixel Helper and Google Tag Assistant.
 - [ ] **CRM Conversion Tracking**: Track conversion status from free 20-minute Discovery Call to paid 2-Hour Coaching Intensive in Supabase CRM.

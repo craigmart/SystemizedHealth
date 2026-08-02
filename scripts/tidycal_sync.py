@@ -136,16 +136,20 @@ def sync_booking_to_db(booking, verbose=False):
     answers = booking.get("questions") or booking.get("answers") or booking.get("form_responses") or []
     primary_glitch = ""
     os_level_focus = ""
+    source_video = "V0B Discovery Call"
 
     if isinstance(answers, list):
         for item in answers:
             if isinstance(item, dict):
                 q_text = str(item.get("question") or item.get("label") or "").lower()
-                a_text = str(item.get("answer") or item.get("value") or "")
+                a_text = str(item.get("answer") or item.get("value") or "").strip()
                 if "glitch" in q_text or "bottleneck" in q_text or "pain" in q_text:
                     primary_glitch = a_text
                 elif "level" in q_text or "os" in q_text:
                     os_level_focus = a_text
+                elif any(kw in q_text for kw in ["video", "source", "code", "referral", "how did you"]):
+                    if a_text:
+                        source_video = a_text
 
     if not client_email:
         print(f"[Warning] Skipping booking ID {booking_id} due to missing email.")
@@ -154,11 +158,12 @@ def sync_booking_to_db(booking, verbose=False):
     # 1. Upsert Client Record
     cursor.execute("""
     INSERT INTO clients (name, email, source_video, updated_at)
-    VALUES (?, ?, 'V0B Discovery Call', CURRENT_TIMESTAMP)
+    VALUES (?, ?, ?, CURRENT_TIMESTAMP)
     ON CONFLICT(email) DO UPDATE SET
         name = excluded.name,
+        source_video = COALESCE(excluded.source_video, clients.source_video),
         updated_at = CURRENT_TIMESTAMP;
-    """, (client_name, client_email))
+    """, (client_name, client_email, source_video))
 
     # Retrieve Client ID
     cursor.execute("SELECT id FROM clients WHERE email = ?", (client_email,))
@@ -187,7 +192,7 @@ def sync_booking_to_db(booking, verbose=False):
 
     conn.commit()
     conn.close()
-    print(f"  ✅ Synced [SQLite]: {client_name} ({client_email}) — Scheduled: {scheduled_time}")
+    print(f"  ✅ Synced [SQLite]: {client_name} ({client_email}) — Source: {source_video} — Scheduled: {scheduled_time}")
 
     # ── Supabase dual-write ─────────────────────────────────────────
     if _supabase:
@@ -195,7 +200,7 @@ def sync_booking_to_db(booking, verbose=False):
             sb_client = _supabase.upsert_client({
                 "name"        : client_name,
                 "email"       : client_email,
-                "source_video": "V0B Discovery Call",
+                "source_video": source_video,
                 "status"      : "Cancelled" if status_raw == "Cancelled" else "Booked",
             })
             if sb_client:
