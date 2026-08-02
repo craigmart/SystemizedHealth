@@ -260,7 +260,15 @@ def cmd_cache(db: SupabaseClient):
     out_path = Path(__file__).parent.parent / "docs" / "video_pipeline_cache.json"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(_json.dumps(payload, indent=2, default=str))
-    print(f"\n  ✅  Cache written → {out_path}  ({len(videos)} videos)\n")
+    print(f"\n  ✅  Cache written → {out_path}  ({len(videos)} videos)")
+
+    # Also auto-update iCalendar (.ics) feed
+    try:
+        from generate_ical import generate_ics
+        generate_ics()
+    except Exception as e:
+        print(f"  ⚠️  iCal feed generation warning: {e}")
+    print()
 
 
 # ─────────────────────────────────────────────────────────────────────────────
