@@ -39,7 +39,7 @@ from supabase_client import SupabaseClient
 CSV_PATH = os.path.join(PROJECT_ROOT, "Master_Video_Pipeline.csv")
 
 PIPELINE_SEED = [
-    {"video_number": "001", "code": "80.V0B",     "format_type": "Long",  "title": "Health Info & Biology Baseline",                                  "status": "Uploaded",             "drop_date": "2026-08-03", "uploaded_date": "2026-07-26", "jdex_code": "80.10", "os_level": "Level 1: FMR", "notes": "Published"},
+    {"video_number": "001", "code": "80.V0B",     "format_type": "Long",  "title": "Knowledge Isn't Enough—Here's What Actually Works",       "status": "Uploaded",             "drop_date": "2026-08-03", "uploaded_date": "2026-07-26", "jdex_code": "80.10", "os_level": "Level 1: FMR", "notes": "Published"},
     {"video_number": "002", "code": "80.V0A",     "format_type": "Long",  "title": "230,000 Patient Visits",                                          "status": "Uploaded",             "drop_date": "2026-08-17", "uploaded_date": "2026-07-26", "jdex_code": "80.10", "os_level": "Baseline",     "notes": "Published"},
     {"video_number": "003", "code": "80.V1B1",    "format_type": "Long",  "title": "Exercise Optional (Movement Mandatory)",                           "status": "Uploaded",             "drop_date": "2026-08-10", "uploaded_date": "2026-07-26", "jdex_code": "77.01", "os_level": "Level 1: FMR", "notes": "Published"},
     {"video_number": "004", "code": "80.V0A1",    "format_type": "Long",  "title": "Systemized OS Framework",                                         "status": "In Production",        "drop_date": "2026-08-24", "uploaded_date": None,         "jdex_code": "81.05", "os_level": "Level 1: FMR", "notes": "Currently Editing"},
