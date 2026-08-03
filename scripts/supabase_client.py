@@ -389,6 +389,60 @@ class SupabaseClient:
             print(f"[Supabase Error] update_task_status → {e}")
             return None
 
+    # ── channel_monthly_stats table ──────────────────────────────────────────
+    def upsert_channel_monthly_stats(self, data: dict) -> dict | None:
+        """Upsert a monthly channel stats snapshot."""
+        url = f"{self.rest}/channel_monthly_stats?on_conflict=report_month"
+        req = urllib.request.Request(
+            url,
+            data=json.dumps(data).encode(),
+            method="POST"
+        )
+        req.add_header("apikey", self.key)
+        req.add_header("Authorization", f"Bearer {self.key}")
+        req.add_header("Content-Type", "application/json")
+        req.add_header("Prefer", "resolution=merge-duplicates,return=representation")
+        try:
+            with self._opener.open(req) as resp:
+                raw = resp.read().decode("utf-8")
+                rows = json.loads(raw) if raw.strip() else []
+                return rows[0] if rows else None
+        except Exception as e:
+            print(f"[Supabase Error] upsert_channel_monthly_stats → {e}")
+            return None
+
+    def get_channel_monthly_stats(self, report_month: str) -> dict | None:
+        rows = self._request("GET", "channel_monthly_stats",
+                             params={"report_month": f"eq.{report_month}", "limit": "1"})
+        return rows[0] if rows else None
+
+    # ── eom_reports table ───────────────────────────────────────────────────
+    def upsert_eom_report(self, data: dict) -> dict | None:
+        """Upsert an EOM report entry."""
+        url = f"{self.rest}/eom_reports?on_conflict=report_month"
+        req = urllib.request.Request(
+            url,
+            data=json.dumps(data).encode(),
+            method="POST"
+        )
+        req.add_header("apikey", self.key)
+        req.add_header("Authorization", f"Bearer {self.key}")
+        req.add_header("Content-Type", "application/json")
+        req.add_header("Prefer", "resolution=merge-duplicates,return=representation")
+        try:
+            with self._opener.open(req) as resp:
+                raw = resp.read().decode("utf-8")
+                rows = json.loads(raw) if raw.strip() else []
+                return rows[0] if rows else None
+        except Exception as e:
+            print(f"[Supabase Error] upsert_eom_report → {e}")
+            return None
+
+    def get_eom_report(self, report_month: str) -> dict | None:
+        rows = self._request("GET", "eom_reports",
+                             params={"report_month": f"eq.{report_month}", "limit": "1"})
+        return rows[0] if rows else None
+
 
 # ── CLI test mode ───────────────────────────────────────────────────────────
 if __name__ == "__main__":

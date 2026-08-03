@@ -1,6 +1,6 @@
 # ⏱️ 48-Hour Velocity & Real-Time Pulse Report
 
-*Last System Update: `2026-08-02 21:50:55`*
+*Last System Update: `2026-08-03 11:28:48`*
 
 ---
 
@@ -17,7 +17,7 @@
 
 ## 📊 Pipeline Real-Time Status
 
-* **Uploaded / Staged Videos**: `3`
+* **Uploaded / Staged Videos**: `25`
 * **In Production**: `1`
 * **Ready for Audio Riff**: `5`
 
@@ -25,7 +25,7 @@
 
 ## 🎯 Next Scheduled Drops (Immediate 48-Hour Window)
 
-- **2026-08-03** | `80.V0B` (Long): **Health Info & Biology Baseline** — *[Uploaded]*
+- **2026-08-03** | `80.V0B` (Long): **Knowledge Isn't Enough—Here's What Actually Works** — *[Uploaded]*
 - **2026-08-04** | `80.V0B-S1` (Short): **Why Health Information Alone Keeps You Broken** — *[Editing]*
 
 ---

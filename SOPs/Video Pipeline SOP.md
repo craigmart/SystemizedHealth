@@ -92,6 +92,12 @@ python3 scripts/video_pipeline.py --doc
 
 # Write docs/video_pipeline_cache.json (for offline / agent reads)
 python3 scripts/video_pipeline.py --cache
+
+# Generate Month-to-Date (MTD) pace report & end-of-month projections
+python3 scripts/analytics_manager.py --mtd
+
+# Pull End-of-Month (EOM) report (e.g. July 2026)
+python3 scripts/analytics_manager.py --eom 2026-07
 ```
 
 ---
