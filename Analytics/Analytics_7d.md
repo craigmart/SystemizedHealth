@@ -1,6 +1,6 @@
 # 📅 7-Day Weekly Performance & Drop Calendar Report
 
-*Last System Update: `2026-07-29 18:09:03`*
+*Last System Update: `2026-08-02 21:24:56`*
 
 ---
 
@@ -21,8 +21,10 @@ Upcoming content drops scheduled for the next 7 days:
 
 | Drop Date | Code | Format | Title | Status | JDex Topic |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **2026-08-03** | `80.V0A` | Long | 230,000 Patient Visits | **Uploaded** | `77.03` |
-| **2026-08-04** | `80.V0A-S1` | Short | The Biological Reason Monday Resolutions Always Fail | **Editing** | `41.03` |
+| **2026-08-03** | `80.V0B` | Long | Health Info & Biology Baseline | **Uploaded** | `81.05` |
+| **2026-08-04** | `80.V0B-S1` | Short | Why Health Information Alone Keeps You Broken | **Editing** | `42.02` |
+| **2026-08-06** | `80.V0B-S2` | Short | The Hidden System Glitch Ruining Your Body | **Ready for Audio Riff** | `77.03` |
+| **2026-08-08** | `80.V0B-S3` | Short | Stop Buying Health Advice from Coaches Who Dont Know Physiology | **Ready for Audio Riff** | `77.01` |
 
 ---
 

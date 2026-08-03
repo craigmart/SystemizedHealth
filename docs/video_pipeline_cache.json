@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-02T13:02:27.011891+00:00",
+  "generated": "2026-08-03T01:27:14.770493+00:00",
   "count": 16,
   "videos": [
     {
@@ -13,14 +13,14 @@
       "os_level": "Level 1: FMR",
       "folder_path": null,
       "status": "Uploaded",
-      "drop_date": "2026-08-17",
+      "drop_date": "2026-08-03",
       "uploaded_date": "2026-07-26",
       "youtube_id": null,
       "primary_keyword": null,
       "vidiq_title_score": 0,
       "notes": "Published",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-01T13:02:44.226154+00:00"
+      "updated_at": "2026-08-03T01:27:05.588605+00:00"
     },
     {
       "id": "2fedea5e-ea20-4e31-9a95-d453adfa427e",
@@ -33,14 +33,14 @@
       "os_level": "Baseline",
       "folder_path": null,
       "status": "Uploaded",
-      "drop_date": "2026-08-03",
+      "drop_date": "2026-08-17",
       "uploaded_date": "2026-07-26",
       "youtube_id": null,
       "primary_keyword": null,
       "vidiq_title_score": 0,
       "notes": "Published",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-01T13:02:44.226154+00:00"
+      "updated_at": "2026-08-03T01:27:05.69005+00:00"
     },
     {
       "id": "f64ec39a-3ecd-4525-90c1-ddf3635aea76",
@@ -60,7 +60,7 @@
       "vidiq_title_score": 0,
       "notes": "Published",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-01T13:02:44.226154+00:00"
+      "updated_at": "2026-08-03T01:27:05.787866+00:00"
     },
     {
       "id": "686ffa93-02e8-4cd8-ae26-125b0c359d7e",
@@ -80,7 +80,7 @@
       "vidiq_title_score": 0,
       "notes": "Currently Editing",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-01T13:02:44.226154+00:00"
+      "updated_at": "2026-08-03T01:27:05.87974+00:00"
     },
     {
       "id": "d73fe165-3592-418f-a0af-6e9436e22190",
@@ -93,14 +93,14 @@
       "os_level": "Level 1: FMR",
       "folder_path": null,
       "status": "Editing",
-      "drop_date": "2026-08-18",
+      "drop_date": "2026-08-04",
       "uploaded_date": null,
       "youtube_id": null,
       "primary_keyword": null,
       "vidiq_title_score": 0,
       "notes": "6/6 Shots Filmed \u2014 Editing (#edit)",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-01T13:02:44.226154+00:00"
+      "updated_at": "2026-08-03T01:27:06.540913+00:00"
     },
     {
       "id": "2e48954c-bbd6-426f-9b7f-1f1ac7da3e8b",
@@ -113,14 +113,14 @@
       "os_level": "Level 1: FMR",
       "folder_path": null,
       "status": "Ready for Audio Riff",
-      "drop_date": "2026-08-20",
+      "drop_date": "2026-08-06",
       "uploaded_date": null,
       "youtube_id": null,
       "primary_keyword": null,
       "vidiq_title_score": 0,
       "notes": "Pre-Recording Blueprint Ready",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-01T13:02:44.226154+00:00"
+      "updated_at": "2026-08-03T01:27:07.163101+00:00"
     },
     {
       "id": "575283bb-b128-479d-9263-b1370a9359a5",
@@ -133,14 +133,14 @@
       "os_level": "Level 1: FMR",
       "folder_path": null,
       "status": "Ready for Audio Riff",
-      "drop_date": "2026-08-22",
+      "drop_date": "2026-08-08",
       "uploaded_date": null,
       "youtube_id": null,
       "primary_keyword": null,
       "vidiq_title_score": 0,
       "notes": "Pre-Recording Blueprint Ready",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-01T13:02:44.226154+00:00"
+      "updated_at": "2026-08-03T01:27:07.781063+00:00"
     },
     {
       "id": "c4dbc019-9cf5-4faa-97b9-4621ca8b66dc",
@@ -153,14 +153,14 @@
       "os_level": "Level 1: FMR",
       "folder_path": null,
       "status": "Editing",
-      "drop_date": "2026-08-04",
+      "drop_date": "2026-08-18",
       "uploaded_date": null,
       "youtube_id": null,
       "primary_keyword": null,
       "vidiq_title_score": 0,
       "notes": "6/6 Shots Filmed \u2014 Editing (#edit)",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-01T13:02:44.226154+00:00"
+      "updated_at": "2026-08-03T01:27:08.37347+00:00"
     },
     {
       "id": "0c41c280-c101-4f7d-a1cf-3b67bf8c8f59",
@@ -173,14 +173,14 @@
       "os_level": "Level 1: FMR",
       "folder_path": null,
       "status": "Editing",
-      "drop_date": "2026-08-06",
+      "drop_date": "2026-08-20",
       "uploaded_date": null,
       "youtube_id": null,
       "primary_keyword": null,
       "vidiq_title_score": 0,
       "notes": "6/6 Shots Filmed \u2014 Editing (#edit)",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-01T13:02:44.226154+00:00"
+      "updated_at": "2026-08-03T01:27:09.192776+00:00"
     },
     {
       "id": "df7be480-8be4-43f0-9b9b-f2fb4b26a9d0",
@@ -193,14 +193,14 @@
       "os_level": "Level 1: FMR",
       "folder_path": null,
       "status": "Editing",
-      "drop_date": "2026-08-08",
+      "drop_date": "2026-08-22",
       "uploaded_date": null,
       "youtube_id": null,
       "primary_keyword": null,
       "vidiq_title_score": 0,
       "notes": "6/6 Shots Filmed \u2014 Editing (#edit)",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-01T13:02:44.226154+00:00"
+      "updated_at": "2026-08-03T01:27:09.805819+00:00"
     },
     {
       "id": "93620b11-1d5c-4260-b372-1d8c4c00f913",
@@ -220,7 +220,7 @@
       "vidiq_title_score": 0,
       "notes": "Pre-Recording Blueprint Ready",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-01T13:02:44.226154+00:00"
+      "updated_at": "2026-08-03T01:27:10.455279+00:00"
     },
     {
       "id": "a5152367-9d5b-45d2-87fe-f6b5e38c8094",
@@ -240,7 +240,7 @@
       "vidiq_title_score": 0,
       "notes": "Pre-Recording Blueprint Ready",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-01T13:02:44.226154+00:00"
+      "updated_at": "2026-08-03T01:27:10.992628+00:00"
     },
     {
       "id": "3961cd23-b2d6-4fe1-9739-87a29fa6e450",
@@ -260,7 +260,7 @@
       "vidiq_title_score": 0,
       "notes": "Pre-Recording Blueprint Ready",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-01T13:02:44.226154+00:00"
+      "updated_at": "2026-08-03T01:27:11.805703+00:00"
     },
     {
       "id": "5d4be38f-220a-4641-993f-c7c2728cf5dd",
@@ -280,7 +280,7 @@
       "vidiq_title_score": 0,
       "notes": "6/6 Shots Filmed \u2014 Editing (#edit)",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-01T13:02:44.226154+00:00"
+      "updated_at": "2026-08-03T01:27:12.412973+00:00"
     },
     {
       "id": "7e661ff6-c06b-4652-8733-fa1390551e71",
@@ -300,7 +300,7 @@
       "vidiq_title_score": 0,
       "notes": "6/6 Shots Filmed \u2014 Editing (#edit)",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-01T13:02:44.226154+00:00"
+      "updated_at": "2026-08-03T01:27:13.121133+00:00"
     },
     {
       "id": "db822830-8ae5-4133-bdc9-2618077bcffd",
@@ -320,7 +320,7 @@
       "vidiq_title_score": 0,
       "notes": "6/6 Shots Filmed \u2014 Editing (#edit)",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-01T13:02:44.226154+00:00"
+      "updated_at": "2026-08-03T01:27:14.043913+00:00"
     }
   ]
 }

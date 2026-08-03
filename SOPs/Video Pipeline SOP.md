@@ -6,14 +6,19 @@ This document defines the authoritative operating standard for managing the Syst
 
 ## 1. Source of Truth
 
-| Layer | System | Access |
+**Supabase (`videos` table) is the absolute single Source of Truth** for all video metadata, drop dates, status progression, and production scheduling.
+
+- **Mandatory Supabase Sync**: Any modification to video drop schedules, titles, or status MUST be updated directly in Supabase (via `python3 scripts/db_manager.py --seed`, `python3 scripts/video_pipeline.py --status <code> <status>`, or `python3 scripts/video_pipeline.py --add '<json>'`).
+- **Derived Downstream Targets**: Local SQLite (`database/videos.db`), markdown reports (`TODO.md`, `Analytics/`), local cache (`docs/video_pipeline_cache.json`), and iCalendar feeds (`publication_calendar.ics`) are derived targets synced from Supabase.
+
+| Layer | System | Role & Access |
 | :--- | :--- | :--- |
-| **Database** | Supabase `videos` table | REST API — `https://qkeloxawnpvyfasujonv.supabase.co` |
-| **CLI Tool** | `scripts/video_pipeline.py` | Run from terminal in project root |
-| **Agent Access** | Direct Supabase REST (RLS disabled on `videos`) | Agent queries live without a local cache |
+| **Primary Source of Truth** | **Supabase `videos` table** | REST API — `https://qkeloxawnpvyfasujonv.supabase.co` |
+| **Primary Sync Tool** | `scripts/db_manager.py` / `scripts/video_pipeline.py` | Command line management engine |
+| **Local Cache** | `docs/video_pipeline_cache.json` | Generated from Supabase via `video_pipeline.py --cache` |
 | **Archived Files** | `backups/pipeline_archive/` | Historical reference only — do not edit |
 
-> Never edit `backups/pipeline_archive/Master_Video_Pipeline.md` or `.csv`. They are frozen snapshots.
+> Never edit `backups/pipeline_archive/Master_Video_Pipeline.md` or `.csv`. They are frozen snapshots. All live schedule changes must be executed against Supabase.
 
 ---
 

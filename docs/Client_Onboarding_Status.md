@@ -34,15 +34,15 @@ This document maintains the live operational status, verification checklist, and
 
 | Client ID | Name | Email | Status | Scheduled Time |
 | :--- | :--- | :--- | :--- | :--- |
-| 157 | Test | tesh@hh.b | Booked | 2026-08-11T22:00:00.000000Z |
-| 31 | CraigTest | craigandersondc-dum@gmail.com | Booked | 2026-08-07T15:00:00.000000Z |
+| 31 | CraigTest | craigandersondc-dum@gmail.com | Agreement Signed | 2026-08-07T15:00:00.000000Z |
 
 <details>
-<summary><b>View Cancelled / Test Records (8)</b></summary>
+<summary><b>View Cancelled / Test Records (9)</b></summary>
 
 | Client ID | Name | Email | Status | Scheduled Time |
 | :--- | :--- | :--- | :--- | :--- |
 | 18 | dummy6 | craigandersondc-dummy6@gmail.com | Cancelled | 2026-08-11T22:30:00.000000Z |
+| 157 | Test | tesh@hh.b | Cancelled | 2026-08-11T22:00:00.000000Z |
 | 19 | dummy3 | craigandersondc-dummy3@gmail.com | Cancelled | 2026-08-08T13:00:00.000000Z |
 | 15 | lastone | craigandersondc-lastone@gmail.com | Cancelled | 2026-08-07T17:00:00.000000Z |
 | 17 | test5 | craigandersondc-test5@gmail.com | Cancelled | 2026-08-07T14:30:00.000000Z |

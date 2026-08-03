@@ -88,10 +88,10 @@ def update_sheet(web_app_url, title, code, format_type, uploaded, drop_date, sta
 AUGUST_CALENDAR = [
     # Week 1
     {"week": "Week 1 (Aug 1 - Aug 7)", "items": [
-        {"code": "80.V0A", "title": "230,000 Patient Visits", "format": "Long", "uploaded": "2026-07-20", "drop_date": "2026-08-03", "status": "Uploaded"},
-        {"code": "80.V0A-S1", "title": "Why Monday Health Resolutions Fail", "format": "Short", "uploaded": "2026-07-20", "drop_date": "2026-08-04", "status": "Uploaded"},
-        {"code": "80.V0A-S2", "title": "The Biological Sequence of Change", "format": "Short", "uploaded": "2026-07-20", "drop_date": "2026-08-06", "status": "Uploaded"},
-        {"code": "80.V0A-S3", "title": "Stop Treating Health Like an Emergency", "format": "Short", "uploaded": "2026-07-20", "drop_date": "2026-08-08", "status": "Uploaded"}
+        {"code": "80.V0B", "title": "Health Info & Biology Baseline", "format": "Long", "uploaded": "2026-07-24", "drop_date": "2026-08-03", "status": "Uploaded"},
+        {"code": "80.V0B-S1", "title": "Information Overload vs Implementation", "format": "Short", "uploaded": "2026-07-24", "drop_date": "2026-08-04", "status": "Uploaded"},
+        {"code": "80.V0B-S2", "title": "Finding Your System Glitch", "format": "Short", "uploaded": "2026-07-24", "drop_date": "2026-08-06", "status": "Uploaded"},
+        {"code": "80.V0B-S3", "title": "Doctor vs Coach: Rebuilding Baseline", "format": "Short", "uploaded": "2026-07-24", "drop_date": "2026-08-08", "status": "Uploaded"}
     ]},
     # Week 2
     {"week": "Week 2 (Aug 8 - Aug 14)", "items": [
@@ -102,10 +102,10 @@ AUGUST_CALENDAR = [
     ]},
     # Week 3
     {"week": "Week 3 (Aug 15 - Aug 21)", "items": [
-        {"code": "80.V0B", "title": "Health Info & Biology Baseline", "format": "Long", "uploaded": "2026-07-24", "drop_date": "2026-08-17", "status": "Uploaded"},
-        {"code": "80.V0B-S1", "title": "Information Overload vs Implementation", "format": "Short", "uploaded": "2026-07-24", "drop_date": "2026-08-18", "status": "Uploaded"},
-        {"code": "80.V0B-S2", "title": "Finding Your System Glitch", "format": "Short", "uploaded": "2026-07-24", "drop_date": "2026-08-20", "status": "Uploaded"},
-        {"code": "80.V0B-S3", "title": "Doctor vs Coach: Rebuilding Baseline", "format": "Short", "uploaded": "2026-07-24", "drop_date": "2026-08-22", "status": "Uploaded"}
+        {"code": "80.V0A", "title": "230,000 Patient Visits", "format": "Long", "uploaded": "2026-07-20", "drop_date": "2026-08-17", "status": "Uploaded"},
+        {"code": "80.V0A-S1", "title": "Why Monday Health Resolutions Fail", "format": "Short", "uploaded": "2026-07-20", "drop_date": "2026-08-18", "status": "Uploaded"},
+        {"code": "80.V0A-S2", "title": "The Biological Sequence of Change", "format": "Short", "uploaded": "2026-07-20", "drop_date": "2026-08-20", "status": "Uploaded"},
+        {"code": "80.V0A-S3", "title": "Stop Treating Health Like an Emergency", "format": "Short", "uploaded": "2026-07-20", "drop_date": "2026-08-22", "status": "Uploaded"}
     ]},
     # Week 4
     {"week": "Week 4 (Aug 22 - Aug 31)", "items": [
