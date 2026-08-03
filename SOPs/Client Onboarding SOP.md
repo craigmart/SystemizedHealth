@@ -81,6 +81,19 @@ flowchart TD
 
 ---
 
+### Step 6: Client Web Application Provisioning & Subscriber Platform
+- **Scope**: Dedicated web application for active coaching clients and subscribers.
+- **Prototype Reference**: Testing active implementation with `HollyApp` in external repository (`/Users/craiganderson/Developer/HollyApp`).
+- **Functionality**:
+  1. Personal client portal / dashboard for tracking Level 1–3 Systemized OS metrics (Fuel, Move, Rest, TLC, Execution).
+  2. Direct sync with Supabase client records (`coaching_sessions`, `coaching_notes`).
+  3. Custom subscriber portal for ongoing habit tracking and coaching content.
+- **Workflow**:
+  - Upon converting a client to the Coaching Intensive, clone/instantiate client web app environment.
+  - Link client ID and credentials in `database/clients.db` / Supabase `clients` table.
+
+---
+
 ## 3. Operations Checklist (Pre-Launch Verification)
 
 | Item | Step | Description | Status |
@@ -91,3 +104,4 @@ flowchart TD
 | **04** | **Step 4** | Setup Discovery Call Agreement Google Form & TidyCal redirect. | ✅ **Verified** |
 | **05** | **Step 5** | Verify Fathom.ai Google Calendar auto-join integration. | 🔄 **In Progress** |
 | **06** | **Database** | Create `clients` and `discovery_calls` tables in `database/clients.db` & sync TidyCal. | ✅ **Verified** |
+| **07** | **Step 6** | Provision client-specific webapp portal for coaching clients & subscribers. | 🔄 **Testing (HollyApp)** |

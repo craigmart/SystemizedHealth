@@ -47,6 +47,7 @@ inbox (ideas abd thoights to process)
   - [`python3 scripts/client_db_manager.py --doc`](file:///Users/craiganderson/Developer/SystemizedHealth/scripts/client_db_manager.py)
   - [`python3 scripts/video_pipeline.py --cache`](file:///Users/craiganderson/Developer/SystemizedHealth/scripts/video_pipeline.py)
 - [ ] **Status Verification**: Review and verify living onboarding report in [`docs/Client_Onboarding_Status.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/Client_Onboarding_Status.md).
+- [ ] **Client Web App Deliverable**: Build and deploy individual client webapps for health tracking & coaching (currently prototyping with `HollyApp` in separate repository; to be rolled out to all coaching clients & subscribers).
 
 ---
 
