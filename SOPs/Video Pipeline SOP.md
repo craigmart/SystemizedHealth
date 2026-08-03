@@ -127,6 +127,16 @@ python3 scripts/video_pipeline.py --status 80.V0A-S1 Uploaded
 
 When set to `Uploaded`, `uploaded_date` is automatically stamped with today's date.
 
+### Renaming a Video & Calendar Sync
+
+Whenever a video's title or drop schedule is renamed or updated in Supabase:
+1. Update the record in Supabase (e.g. updating the `title` attribute).
+2. Immediately refresh the local cache, status documentation, and iCalendar feed by running:
+   ```bash
+   python3 scripts/video_pipeline.py --cache --doc
+   ```
+   *(This automatically regenerates `docs/video_pipeline_cache.json`, `docs/Video_Pipeline_Status.md`, and `docs/publication_calendar.ics` so that all calendar subscriptions reflect the updated title).*
+
 ---
 
 ## 7. Agent Protocol

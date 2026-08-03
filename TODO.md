@@ -24,7 +24,7 @@ inbox (ideas abd thoights to process)
 - [ ] **Long-Form Video Editing**:
   - [ ] `80.V0A1`: *Systemized OS Framework* (Drop Date: 2026-08-24) — Currently Editing
 - [ ] **Short-Form Video Editing (Filmed, Pending Edit)**:
-  - [ ] `80.V0B-S1`: *Why Health Information Alone Keeps You Broken* (Drop: 2026-08-04)
+  - [x] `80.V0B-S1`: *Do Less to Get More* (Drop: 2026-08-04 @ 6:00 AM) — Scheduled
   - [ ] `80.V0A-S1`: *The Biological Reason Monday Resolutions Always Fail* (Drop: 2026-08-18)
   - [ ] `80.V0A-S2`: *The Exact Biological Sequence Your Body Needs to Change* (Drop: 2026-08-20)
   - [ ] `80.V0A-S3`: *Stop Treating Your Health Like an Emergency Room* (Drop: 2026-08-22)

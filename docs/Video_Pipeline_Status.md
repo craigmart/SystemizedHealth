@@ -13,7 +13,7 @@
 | **002** | `80.V0A` | Long | 230,000 Patient Visits | 2026-08-17 | ✅ Uploaded | 2026-08-03 |
 | **003** | `80.V1B1` | Long | Exercise Optional (Movement Mandatory) | 2026-08-10 | ✅ Uploaded | 2026-07-26 |
 | **004** | `80.V0A1` | Long | Systemized OS Framework | 2026-08-24 | ⚙️ In Production | — |
-| **005** | `80.V0B-S1` | Short | Why Health Information Alone Keeps You Broken | 2026-08-04 | ✂️ Editing | — |
+| **005** | `80.V0B-S1` | Short | Do Less to Get More | 2026-08-04 | ✅ Uploaded | 2026-08-03 |
 | **006** | `80.V0B-S2` | Short | The Hidden System Glitch Ruining Your Body | 2026-08-18 | 🎙️ Ready for Audio Riff | — |
 | **007** | `80.V0B-S3` | Short | Stop Buying Health Advice from Coaches Who Dont Know Physiology | 2026-08-20 | 🎙️ Ready for Audio Riff | — |
 | **008** | `80.V0A-S1` | Short | The Biological Reason Monday Resolutions Always Fail | 2026-08-06 | ✂️ Editing | — |
@@ -25,12 +25,34 @@
 | **014** | `80.V0A1-S1` | Short | Why Relying on Willpower Guarantees Physical Burnout | 2026-08-25 | ✂️ Editing | — |
 | **015** | `80.V0A1-S2` | Short | The Level 1 FMR Baseline Every Body Needs to Master | 2026-08-27 | ✂️ Editing | — |
 | **016** | `80.V0A1-S3` | Short | The 3-Tier Health Pyramid That Fixes Chronic Fatigue | 2026-08-29 | ✂️ Editing | — |
+| **H001** | `HIST.L01` | Long | The Biological Reality of GLP-1: Fuel vs. Motivation | 2026-03-24 | ✅ Uploaded | 2026-03-24 |
+| **H002** | `HIST.L02` | Long | The Neurological Reality of Workout Recovery | 2026-01-22 | ✅ Uploaded | 2026-01-22 |
+| **H003** | `HIST.L03` | Long | The Biological Cost of an Unstructured Week | 2026-01-14 | ✅ Uploaded | 2026-01-14 |
+| **H004** | `HIST.L04` | Long | The Neurological Limit of Daily Effort | 2026-01-06 | ✅ Uploaded | 2026-01-06 |
+| **H005** | `HIST.L05` | Long | The Biological Requirement for Weekly Structure | 2026-01-01 | ✅ Uploaded | 2026-01-01 |
+| **H006** | `HIST.L06` | Long | The Metabolic Glitch Behind Morning Hunger | 2026-03-12 | ✅ Uploaded | 2026-03-12 |
+| **H007** | `HIST.L07` | Long | Why Supplements Cannot Fix a Broken Baseline | 2026-03-21 | ✅ Uploaded | 2026-03-21 |
+| **HS001** | `HIST.S01` | Short | The Biological Calibration for Morning Hunger | 2026-03-21 | ✅ Uploaded | 2026-03-21 |
+| **HS002** | `HIST.S02` | Short | The Biological Mechanics of Habit Attachment | 2026-01-13 | ✅ Uploaded | 2026-01-13 |
+| **HS003** | `HIST.S03` | Short | Your steps have been tracked your whole life | 2026-03-30 | ✅ Uploaded | 2026-03-30 |
+| **HS004** | `HIST.S04` | Short | The Biological Prerequisite for Fasting | 2026-04-03 | ✅ Uploaded | 2026-04-03 |
+| **HS005** | `HIST.S05` | Short | Start Running from ZERO | 2026-02-07 | ✅ Uploaded | 2026-02-07 |
+| **HS006** | `HIST.S06` | Short | The Neurological Function of Clarity | 2026-01-15 | ✅ Uploaded | 2026-01-15 |
+| **HS007** | `HIST.S07` | Short | The Biological Failure of Motivation | 2026-01-08 | ✅ Uploaded | 2026-01-08 |
+| **HS008** | `HIST.S08` | Short | The Neurological Reality of Willpower | 2026-01-07 | ✅ Uploaded | 2026-01-07 |
+| **HS009** | `HIST.S09` | Short | The Biological Minimum for Daily Steps | 2026-03-23 | ✅ Uploaded | 2026-03-23 |
+| **HS010** | `HIST.S10` | Short | The Neurological Failure of Random Workouts | 2026-01-20 | ✅ Uploaded | 2026-01-20 |
+| **HS011** | `HIST.S11` | Short | The Neurological Cost of GLP-1 | 2026-03-26 | ✅ Uploaded | 2026-03-26 |
+| **HS012** | `HIST.S12` | Short | The Biological Mandate for Recovery | 2026-01-21 | ✅ Uploaded | 2026-01-21 |
+| **HS013** | `HIST.S13` | Short | The Biological Necessity of Weekly Structure | 2026-01-13 | ✅ Uploaded | 2026-01-13 |
+| **HS014** | `HIST.S14` | Short | The Neurological Cost of Decision Fatigue | 2026-01-16 | ✅ Uploaded | 2026-01-16 |
+| **HS015** | `HIST.S15` | Short | The Clinical Architecture of Anchor Habits | 2026-01-09 | ✅ Uploaded | 2026-01-09 |
 
 ---
 
 ## 📊 Status Summary
 
 - 🎙️ **Ready for Audio Riff**: 5
-- ✂️ **Editing**: 7
+- ✂️ **Editing**: 6
 - ⚙️ **In Production**: 1
-- ✅ **Uploaded**: 3
+- ✅ **Uploaded**: 26
