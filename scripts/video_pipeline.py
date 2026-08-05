@@ -18,7 +18,7 @@ import argparse
 import json
 import sys
 from collections import Counter
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 from pathlib import Path
 
 # ── Import shared Supabase client ──────────────────────────────────────────
@@ -239,6 +239,46 @@ def cmd_doc(db: SupabaseClient, output_path: str = None):
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(doc)
     print(f"\n  ✅  Report written → {out_path}\n")
+    generate_drop_schedule(videos=videos)
+
+
+def generate_drop_schedule(videos: list = None, db: SupabaseClient = None):
+    """Generate Drop_Schedule.md (and docs/Drop_Schedule.md) with only drop date and video code."""
+    if videos is None:
+        if db is None:
+            db = SupabaseClient()
+        videos = db.get_all_videos()
+
+    if not videos:
+        print("No videos found to generate drop schedule.")
+        return
+
+    dated_videos = [v for v in videos if v.get("drop_date")]
+    dated_videos.sort(key=lambda v: v["drop_date"])
+
+    lines = ["# Drop Schedule", ""]
+    for v in dated_videos:
+        raw_date = v["drop_date"]
+        try:
+            dt = datetime.strptime(raw_date, "%Y-%m-%d")
+            date_str = f"{dt.month}/{dt.day}/{dt.strftime('%y')}"
+        except Exception:
+            date_str = raw_date
+
+        code = v.get("code", "")
+        if code.startswith("80."):
+            code = code[3:]
+
+        lines.append(f"{date_str} {code}")
+
+    content = "\n".join(lines) + "\n"
+
+    root_path = Path(__file__).parent.parent / "Drop_Schedule.md"
+    docs_path = Path(__file__).parent.parent / "docs" / "Drop_Schedule.md"
+
+    root_path.write_text(content, encoding="utf-8")
+    docs_path.write_text(content, encoding="utf-8")
+    print(f"  ✅  Drop Schedule written → {root_path}")
 
 
 def cmd_cache(db: SupabaseClient):
@@ -262,12 +302,14 @@ def cmd_cache(db: SupabaseClient):
     out_path.write_text(_json.dumps(payload, indent=2, default=str))
     print(f"\n  ✅  Cache written → {out_path}  ({len(videos)} videos)")
 
-    # Also auto-update iCalendar (.ics) feed
+    # Also auto-update iCalendar (.ics) feed and Drop Schedule
     try:
         from generate_ical import generate_ics
         generate_ics()
     except Exception as e:
         print(f"  ⚠️  iCal feed generation warning: {e}")
+
+    generate_drop_schedule(videos=videos)
     print()
 
 
@@ -288,22 +330,24 @@ Examples:
   python3 scripts/video_pipeline.py --status 80.V0A1 "In Production"
   python3 scripts/video_pipeline.py --add '{"video_number":"017","code":"80.V1B2","format_type":"Long","title":"New Video"}'
   python3 scripts/video_pipeline.py --doc
+  python3 scripts/video_pipeline.py --schedule
         """,
     )
 
-    parser.add_argument("--list",   action="store_true", help="List all videos")
-    parser.add_argument("--filter", metavar="STATUS",    help="Filter --list by status")
-    parser.add_argument("--week",   action="store_true", help="Show next week's drop schedule")
-    parser.add_argument("--status", nargs=2, metavar=("CODE", "STATUS"),
+    parser.add_argument("--list",     action="store_true", help="List all videos")
+    parser.add_argument("--filter",   metavar="STATUS",    help="Filter --list by status")
+    parser.add_argument("--week",     action="store_true", help="Show next week's drop schedule")
+    parser.add_argument("--status",   nargs=2, metavar=("CODE", "STATUS"),
                         help="Update video status: --status <code> <new_status>")
-    parser.add_argument("--add",    metavar="JSON",      help="Add/upsert a video from JSON string")
-    parser.add_argument("--doc",    action="store_true", help="Generate docs/Video_Pipeline_Status.md")
-    parser.add_argument("--cache",  action="store_true", help="Write docs/video_pipeline_cache.json (for agent/offline reads)")
-    parser.add_argument("--out",    metavar="PATH",      help="Output path override for --doc")
+    parser.add_argument("--add",      metavar="JSON",      help="Add/upsert a video from JSON string")
+    parser.add_argument("--doc",      action="store_true", help="Generate docs/Video_Pipeline_Status.md")
+    parser.add_argument("--cache",    action="store_true", help="Write docs/video_pipeline_cache.json (for agent/offline reads)")
+    parser.add_argument("--schedule", action="store_true", help="Generate Drop_Schedule.md")
+    parser.add_argument("--out",      metavar="PATH",      help="Output path override for --doc")
 
     args = parser.parse_args()
 
-    if not any([args.list, args.week, args.status, args.add, args.doc, args.cache]):
+    if not any([args.list, args.week, args.status, args.add, args.doc, args.cache, args.schedule]):
         parser.print_help()
         sys.exit(0)
 
@@ -326,6 +370,9 @@ Examples:
 
     if args.cache:
         cmd_cache(db)
+
+    if args.schedule:
+        generate_drop_schedule(db=db)
 
 
 if __name__ == "__main__":

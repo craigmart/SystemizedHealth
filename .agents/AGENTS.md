@@ -45,6 +45,6 @@ Whenever Dr. Anderson says *"I have a new audio script for [Code/Folder]"*, prov
    - Bracketed performance/delivery cues (`[breath]`, `[pause]`, `[gesture]`, `[tone shift]`, `[eye contact shift]`).
    - Official CTA standard (`call.systemizedhealth.com`).
    - Writing Guardrails (no AI jargon, no em dashes).
-4. **Pipeline Auto-Advance**: Advance video status to `Ready to Film` in Supabase/SQLite, and refresh `docs/video_pipeline_cache.json`, `docs/Video_Pipeline_Status.md`, and `TODO.md`.
+4. **Pipeline Auto-Advance**: Advance video status to `Ready to Film` in Supabase/SQLite, and refresh `docs/video_pipeline_cache.json`, `docs/Video_Pipeline_Status.md`, [`Drop_Schedule.md`](file:///Users/craiganderson/Developer/SystemizedHealth/Drop_Schedule.md), and `TODO.md`.
 
 
