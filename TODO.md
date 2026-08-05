@@ -1,3 +1,5 @@
+
+look at big picture  schedule
 inbox (ideas abd thoights to process)
 - reconcile uoloaded cideos and metadata with drop calendar. 
 
