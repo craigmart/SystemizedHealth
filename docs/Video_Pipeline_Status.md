@@ -1,6 +1,6 @@
 # Video Pipeline Status
 
-> **Source of truth:** Supabase `videos` table  |  Generated: 2026-08-03
+> **Source of truth:** Supabase `videos` table  |  Generated: 2026-08-04
 > To update status: `python3 scripts/video_pipeline.py --status <code> <status>`
 
 ---
@@ -13,9 +13,9 @@
 | **002** | `80.V0A` | Long | 230,000 Patient Visits | 2026-08-17 | ✅ Uploaded | 2026-08-03 |
 | **003** | `80.V1B1` | Long | Exercise Optional (Movement Mandatory) | 2026-08-10 | ✅ Uploaded | 2026-07-26 |
 | **004** | `80.V0A1` | Long | Systemized OS Framework | 2026-08-24 | ⚙️ In Production | — |
-| **005** | `80.V0B-S1` | Short | Do Less to Get More | 2026-08-04 | ✅ Uploaded | 2026-08-03 |
-| **006** | `80.V0B-S2` | Short | The Hidden System Glitch Ruining Your Body | 2026-08-18 | 🎙️ Ready for Audio Riff | — |
-| **007** | `80.V0B-S3` | Short | Stop Buying Health Advice from Coaches Who Dont Know Physiology | 2026-08-20 | 🎙️ Ready for Audio Riff | — |
+| **005** | `80.V0B-S1` | Short | Do Less to Get More | 2026-08-04 | ✅ Uploaded | 2026-08-04 |
+| **006** | `80.V0B-S2` | Short | The Hidden System Glitch Ruining Your Body | 2026-08-18 | 🎬 Ready to Film | — |
+| **007** | `80.V0B-S3` | Short | Stop Buying Health Advice from Coaches Who Dont Know Physiology | 2026-08-20 | 🎬 Ready to Film | — |
 | **008** | `80.V0A-S1` | Short | The Biological Reason Monday Resolutions Always Fail | 2026-08-06 | ✂️ Editing | — |
 | **009** | `80.V0A-S2` | Short | The Exact Biological Sequence Your Body Needs to Change | 2026-08-08 | ✂️ Editing | — |
 | **010** | `80.V0A-S3` | Short | Stop Treating Your Health Like an Emergency Room | 2026-08-22 | ✂️ Editing | — |
@@ -29,9 +29,7 @@
 | **H002** | `HIST.L02` | Long | The Neurological Reality of Workout Recovery | 2026-01-22 | ✅ Uploaded | 2026-01-22 |
 | **H003** | `HIST.L03` | Long | The Biological Cost of an Unstructured Week | 2026-01-14 | ✅ Uploaded | 2026-01-14 |
 | **H004** | `HIST.L04` | Long | The Neurological Limit of Daily Effort | 2026-01-06 | ✅ Uploaded | 2026-01-06 |
-| **H005** | `HIST.L05` | Long | The Biological Requirement for Weekly Structure | 2026-01-01 | ✅ Uploaded | 2026-01-01 |
-| **H006** | `HIST.L06` | Long | The Metabolic Glitch Behind Morning Hunger | 2026-03-12 | ✅ Uploaded | 2026-03-12 |
-| **H007** | `HIST.L07` | Long | Why Supplements Cannot Fix a Broken Baseline | 2026-03-21 | ✅ Uploaded | 2026-03-21 |
+| **H006** | `HIST.L06` | Long | The Metabolic Glitch Behind Morning Hunger | 2026-03-12 | ✅ Uploaded | 2026-01-01 |
 | **HS001** | `HIST.S01` | Short | The Biological Calibration for Morning Hunger | 2026-03-21 | ✅ Uploaded | 2026-03-21 |
 | **HS002** | `HIST.S02` | Short | The Biological Mechanics of Habit Attachment | 2026-01-13 | ✅ Uploaded | 2026-01-13 |
 | **HS003** | `HIST.S03` | Short | Your steps have been tracked your whole life | 2026-03-30 | ✅ Uploaded | 2026-03-30 |
@@ -52,7 +50,8 @@
 
 ## 📊 Status Summary
 
-- 🎙️ **Ready for Audio Riff**: 5
+- 🎙️ **Ready for Audio Riff**: 3
+- 🎬 **Ready to Film**: 2
 - ✂️ **Editing**: 6
 - ⚙️ **In Production**: 1
-- ✅ **Uploaded**: 26
+- ✅ **Uploaded**: 24

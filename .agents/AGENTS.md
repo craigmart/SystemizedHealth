@@ -31,3 +31,20 @@ Whenever writing, scripting, outlining, or generating metadata/descriptions for 
 - **To update video status**, provide the exact terminal command for Dr. Anderson to run:
   - `python3 scripts/video_pipeline.py --status <code> <new_status>`
 
+---
+
+## 4. Stage 2 Teleprompter Script Auto-Processing Protocol
+Whenever Dr. Anderson says *"I have a new audio script for [Code/Folder]"*, provides a raw dictation transcript, or points to `#audiodraft` in Workflowy:
+1. **Disregard all previous outlines & talking points**: The raw audio transcript is the single source of truth for the video.
+2. **Save Raw Transcript (`-A` File)**: Save the raw spoken dictation text to `Videos/[Folder]/V[Code]-A Raw Audio Transcript.txt`.
+3. **Generate Stage 2 Teleprompter Script (`-B` File)**: Format the spoken text into `Videos/[Folder]/V[Code] Script - [Title].md` using:
+   - Header: `# [Code]: [Title]` + metadata block (`Suggested Settings`, `JDex Topic Code`).
+   - Section 1 & 2: Title Ideas and Hook Options with vidIQ ratings.
+   - Section 3: Teleprompter clips formatted with `### [Code]>[ClipNum] — [Title] #film #[context]` (`#insidetruck`, `#outside`, `#driving`, etc.).
+   - Consolidated single spoken paragraph per clip (no sentence bullets).
+   - Bracketed performance/delivery cues (`[breath]`, `[pause]`, `[gesture]`, `[tone shift]`, `[eye contact shift]`).
+   - Official CTA standard (`call.systemizedhealth.com`).
+   - Writing Guardrails (no AI jargon, no em dashes).
+4. **Pipeline Auto-Advance**: Advance video status to `Ready to Film` in Supabase/SQLite, and refresh `docs/video_pipeline_cache.json`, `docs/Video_Pipeline_Status.md`, and `TODO.md`.
+
+

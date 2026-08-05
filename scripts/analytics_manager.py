@@ -64,8 +64,23 @@ def sync_vidiq_historical_data():
     print(f"Fetching live channel intelligence from vidIQ for channel {CHANNEL_ID}...")
 
     ch_stats = call_mcp_tool("vidiq_channel_stats", {"channelId": CHANNEL_ID}, api_key)
-    long_data = call_mcp_tool("vidiq_channel_videos", {"channelId": CHANNEL_ID, "videoFormat": "long"}, api_key)
-    short_data = call_mcp_tool("vidiq_channel_videos", {"channelId": CHANNEL_ID, "videoFormat": "short"}, api_key)
+    
+    # Fetch both popular and recent videos for complete catalog coverage
+    long_pop = call_mcp_tool("vidiq_channel_videos", {"channelId": CHANNEL_ID, "videoFormat": "long", "popular": True}, api_key)
+    long_rec = call_mcp_tool("vidiq_channel_videos", {"channelId": CHANNEL_ID, "videoFormat": "long", "popular": False}, api_key)
+    short_pop = call_mcp_tool("vidiq_channel_videos", {"channelId": CHANNEL_ID, "videoFormat": "short", "popular": True}, api_key)
+    short_rec = call_mcp_tool("vidiq_channel_videos", {"channelId": CHANNEL_ID, "videoFormat": "short", "popular": False}, api_key)
+
+    # Merge and deduplicate by videoId
+    long_dict = {}
+    for v in (long_pop.get("videos", []) if long_pop else []) + (long_rec.get("videos", []) if long_rec else []):
+        long_dict[v["videoId"]] = v
+    long_videos = list(long_dict.values())
+
+    short_dict = {}
+    for v in (short_pop.get("videos", []) if short_pop else []) + (short_rec.get("videos", []) if short_rec else []):
+        short_dict[v["videoId"]] = v
+    short_videos = list(short_dict.values())
 
     conn = get_db()
     cursor = conn.cursor()
@@ -78,64 +93,129 @@ def sync_vidiq_historical_data():
 
     daily_stats = ch_stats.get("dailyStats", []) if ch_stats else []
 
-    long_videos = long_data.get("videos", []) if long_data else []
-    short_videos = short_data.get("videos", []) if short_data else []
-
     print(f"  ✅ Retrieved: Total Views={total_views:,}, Subscribers={subscribers}, Long Videos={len(long_videos)}, Shorts={len(short_videos)}")
 
-    # Store historical long videos
-    for idx, v in enumerate(long_videos, 1):
-        v_num = f"H{idx:03d}"
-        code = f"HIST.L{idx:02d}"
+    def find_matching_video(v_title, v_id, format_type):
+        # 1. First check if youtube_id is already assigned to a primary video (video_number not starting with H)
+        cursor.execute("SELECT id, video_number, code, title FROM videos WHERE youtube_id = ? AND video_number NOT LIKE 'H%';", (v_id,))
+        row = cursor.fetchone()
+        if row:
+            return dict(row)
+
+        # 2. Check primary videos (not starting with H) by title match or alias
+        v_norm = v_title.lower().strip().replace("—", "-").replace("–", "-")
+        cursor.execute("SELECT id, video_number, code, title FROM videos WHERE format_type = ? AND video_number NOT LIKE 'H%';", (format_type,))
+        for r in cursor.fetchall():
+            r_dict = dict(r)
+            r_norm = r_dict["title"].lower().strip().replace("—", "-").replace("–", "-")
+            if v_norm == r_norm or v_norm.startswith(r_norm) or r_norm.startswith(v_norm):
+                return r_dict
+            if ("do less to get more" in v_norm or "why health information" in v_norm) and ("do less to get more" in r_norm or "why health information" in r_norm):
+                return r_dict
+            if ("20,000 patients" in v_norm or "230,000 patient" in v_norm) and ("20,000 patients" in r_norm or "230,000 patient" in r_norm):
+                return r_dict
+
+        # 3. Fallback to any existing video with this youtube_id
+        cursor.execute("SELECT id, video_number, code, title FROM videos WHERE youtube_id = ?;", (v_id,))
+        row = cursor.fetchone()
+        if row:
+            return dict(row)
+
+        return None
+
+    # Sync Long Videos
+    h_idx = 1
+    for v in long_videos:
         pub_date = v.get("publishedAt", "")[:10]
+        vph = v.get("vph") or 0.0
+        views = v.get("viewCount", 0)
+        likes = v.get("likeCount", 0)
+        comments = v.get("commentCount", 0)
         
-        cursor.execute("""
-        INSERT INTO videos (video_number, code, format_type, title, status, drop_date, uploaded_date, youtube_id)
-        VALUES (?, ?, 'Long', ?, 'Uploaded', ?, ?, ?)
-        ON CONFLICT(video_number) DO UPDATE SET
-            code=excluded.code,
-            title=excluded.title,
-            status='Uploaded',
-            drop_date=excluded.drop_date,
-            uploaded_date=excluded.uploaded_date,
-            youtube_id=excluded.youtube_id;
-        """, (v_num, code, v["title"], pub_date, pub_date, v["videoId"]))
+        match = find_matching_video(v["title"], v["videoId"], "Long")
+        if match:
+            v_id = match["id"]
+            v_num = match["video_number"]
+            cursor.execute("""
+            UPDATE videos SET youtube_id = ?, uploaded_date = ?, status = 'Uploaded' WHERE id = ?;
+            """, (v["videoId"], pub_date, v_id))
+            if sb:
+                sb.update_video_status(v_num, "Uploaded", extra={"youtube_id": v["videoId"], "uploaded_date": pub_date})
+        else:
+            v_num = f"H{h_idx:03d}"
+            code = f"HIST.L{h_idx:02d}"
+            h_idx += 1
+            cursor.execute("""
+            INSERT INTO videos (video_number, code, format_type, title, status, drop_date, uploaded_date, youtube_id)
+            VALUES (?, ?, 'Long', ?, 'Uploaded', ?, ?, ?)
+            ON CONFLICT(video_number) DO UPDATE SET
+                code=excluded.code,
+                title=excluded.title,
+                status='Uploaded',
+                drop_date=excluded.drop_date,
+                uploaded_date=excluded.uploaded_date,
+                youtube_id=excluded.youtube_id;
+            """, (v_num, code, v["title"], pub_date, pub_date, v["videoId"]))
+            cursor.execute("SELECT id FROM videos WHERE video_number = ?;", (v_num,))
+            v_id = cursor.fetchone()["id"]
+            if sb:
+                sb.upsert_video({"video_number": v_num, "code": code, "format_type": "Long", "title": v["title"], "status": "Uploaded", "drop_date": pub_date, "uploaded_date": pub_date, "youtube_id": v["videoId"]})
 
-        cursor.execute("SELECT id FROM videos WHERE video_number = ?;", (v_num,))
-        v_id = cursor.fetchone()["id"]
-
-        vph = v.get("vph") or 0.0
         cursor.execute("""
         INSERT INTO video_stats (video_id, snapshot_date, views, vph, likes, comments)
         VALUES (?, ?, ?, ?, ?, ?);
-        """, (v_id, snapshot_date, v.get("viewCount", 0), vph, v.get("likeCount", 0), v.get("commentCount", 0)))
+        """, (v_id, snapshot_date, views, vph, likes, comments))
+        if sb:
+            sb_video = sb.get_video_by_number(v_num)
+            if sb_video and "id" in sb_video:
+                sb.add_video_stats(sb_video["id"], {"snapshot_date": snapshot_date, "views": views, "vph": vph, "likes": likes, "comments": comments})
 
-    # Store historical short videos
-    for idx, v in enumerate(short_videos, 1):
-        v_num = f"HS{idx:03d}"
-        code = f"HIST.S{idx:02d}"
+    # Sync Short Videos
+    hs_idx = 1
+    for v in short_videos:
         pub_date = v.get("publishedAt", "")[:10]
-
-        cursor.execute("""
-        INSERT INTO videos (video_number, code, format_type, title, status, drop_date, uploaded_date, youtube_id)
-        VALUES (?, ?, 'Short', ?, 'Uploaded', ?, ?, ?)
-        ON CONFLICT(video_number) DO UPDATE SET
-            code=excluded.code,
-            title=excluded.title,
-            status='Uploaded',
-            drop_date=excluded.drop_date,
-            uploaded_date=excluded.uploaded_date,
-            youtube_id=excluded.youtube_id;
-        """, (v_num, code, v["title"], pub_date, pub_date, v["videoId"]))
-
-        cursor.execute("SELECT id FROM videos WHERE video_number = ?;", (v_num,))
-        v_id = cursor.fetchone()["id"]
-
         vph = v.get("vph") or 0.0
+        views = v.get("viewCount", 0)
+        likes = v.get("likeCount", 0)
+        comments = v.get("commentCount", 0)
+
+        match = find_matching_video(v["title"], v["videoId"], "Short")
+        if match:
+            v_id = match["id"]
+            v_num = match["video_number"]
+            cursor.execute("""
+            UPDATE videos SET youtube_id = ?, uploaded_date = ?, status = 'Uploaded' WHERE id = ?;
+            """, (v["videoId"], pub_date, v_id))
+            if sb:
+                sb.update_video_status(v_num, "Uploaded", extra={"youtube_id": v["videoId"], "uploaded_date": pub_date})
+        else:
+            v_num = f"HS{hs_idx:03d}"
+            code = f"HIST.S{hs_idx:02d}"
+            hs_idx += 1
+            cursor.execute("""
+            INSERT INTO videos (video_number, code, format_type, title, status, drop_date, uploaded_date, youtube_id)
+            VALUES (?, ?, 'Short', ?, 'Uploaded', ?, ?, ?)
+            ON CONFLICT(video_number) DO UPDATE SET
+                code=excluded.code,
+                title=excluded.title,
+                status='Uploaded',
+                drop_date=excluded.drop_date,
+                uploaded_date=excluded.uploaded_date,
+                youtube_id=excluded.youtube_id;
+            """, (v_num, code, v["title"], pub_date, pub_date, v["videoId"]))
+            cursor.execute("SELECT id FROM videos WHERE video_number = ?;", (v_num,))
+            v_id = cursor.fetchone()["id"]
+            if sb:
+                sb.upsert_video({"video_number": v_num, "code": code, "format_type": "Short", "title": v["title"], "status": "Uploaded", "drop_date": pub_date, "uploaded_date": pub_date, "youtube_id": v["videoId"]})
+
         cursor.execute("""
         INSERT INTO video_stats (video_id, snapshot_date, views, vph, likes, comments)
         VALUES (?, ?, ?, ?, ?, ?);
-        """, (v_id, snapshot_date, v.get("viewCount", 0), vph, v.get("likeCount", 0), v.get("commentCount", 0)))
+        """, (v_id, snapshot_date, views, vph, likes, comments))
+        if sb:
+            sb_video = sb.get_video_by_number(v_num)
+            if sb_video and "id" in sb_video:
+                sb.add_video_stats(sb_video["id"], {"snapshot_date": snapshot_date, "views": views, "vph": vph, "likes": likes, "comments": comments})
 
     conn.commit()
     conn.close()
@@ -179,7 +259,7 @@ def compute_mtd_report():
     mtd_views_gained = max(current_views - july_31_views, 0)
     mtd_subs_gained = max(current_subs - july_31_subs, 0)
 
-    # Real non-test discovery call leads in August
+    # Real non-test discovery call leads in August (Active / Scheduled / Agreement Signed)
     client_db_path = os.path.join(REPO_ROOT, "database", "clients.db")
     mtd_real_leads = 0
     if os.path.exists(client_db_path):
@@ -189,7 +269,11 @@ def compute_mtd_report():
         SELECT count(*) FROM discovery_calls d
         JOIN clients c ON c.id = d.client_id
         WHERE strftime('%Y-%m', d.scheduled_time) = ?
-        AND c.email NOT LIKE '%test%' AND c.email NOT LIKE '%dummy%' AND c.email NOT LIKE '%hh.b%';
+        AND d.status != 'Cancelled'
+        AND c.email NOT LIKE '%test%' 
+        AND c.email NOT LIKE '%dummy%' 
+        AND c.email NOT LIKE '%hh.b%'
+        AND c.email NOT LIKE '%craigandersondc%';
         """, (current_month_str,))
         mtd_real_leads = client_cursor.fetchone()[0]
         client_conn.close()

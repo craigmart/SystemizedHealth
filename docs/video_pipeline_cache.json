@@ -1,6 +1,6 @@
 {
-  "generated": "2026-08-03T21:38:56.861992+00:00",
-  "count": 38,
+  "generated": "2026-08-05T01:42:44.958861+00:00",
+  "count": 36,
   "videos": [
     {
       "id": "dc8d3b8c-b3c1-4697-9e3c-d7a803df028a",
@@ -15,12 +15,12 @@
       "status": "Uploaded",
       "drop_date": "2026-08-03",
       "uploaded_date": "2026-08-03",
-      "youtube_id": null,
+      "youtube_id": "EQyStOr47KI",
       "primary_keyword": null,
       "vidiq_title_score": 0,
       "notes": "Published",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-03T14:16:08.11277+00:00"
+      "updated_at": "2026-08-04T23:47:41.859809+00:00"
     },
     {
       "id": "2fedea5e-ea20-4e31-9a95-d453adfa427e",
@@ -35,12 +35,12 @@
       "status": "Uploaded",
       "drop_date": "2026-08-17",
       "uploaded_date": "2026-08-03",
-      "youtube_id": null,
+      "youtube_id": "Menybk7p3TI",
       "primary_keyword": null,
       "vidiq_title_score": 0,
       "notes": "Published",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-03T14:16:07.630115+00:00"
+      "updated_at": "2026-08-04T23:47:42.523963+00:00"
     },
     {
       "id": "f64ec39a-3ecd-4525-90c1-ddf3635aea76",
@@ -94,13 +94,13 @@
       "folder_path": null,
       "status": "Uploaded",
       "drop_date": "2026-08-04",
-      "uploaded_date": "2026-08-03",
-      "youtube_id": null,
+      "uploaded_date": "2026-08-04",
+      "youtube_id": "RnrGj1l3tDc",
       "primary_keyword": null,
       "vidiq_title_score": 0,
       "notes": "6/6 Shots Filmed \u2014 Editing (#edit)",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-03T21:38:56.437501+00:00"
+      "updated_at": "2026-08-04T23:47:47.495566+00:00"
     },
     {
       "id": "2e48954c-bbd6-426f-9b7f-1f1ac7da3e8b",
@@ -112,7 +112,7 @@
       "jdex_code": "77.03",
       "os_level": "Level 1: FMR",
       "folder_path": null,
-      "status": "Ready for Audio Riff",
+      "status": "Ready to Film",
       "drop_date": "2026-08-18",
       "uploaded_date": null,
       "youtube_id": null,
@@ -120,7 +120,7 @@
       "vidiq_title_score": 0,
       "notes": "Pre-Recording Blueprint Ready",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-03T14:17:40.603639+00:00"
+      "updated_at": "2026-08-05T00:02:28.181214+00:00"
     },
     {
       "id": "575283bb-b128-479d-9263-b1370a9359a5",
@@ -132,7 +132,7 @@
       "jdex_code": "77.01",
       "os_level": "Level 1: FMR",
       "folder_path": null,
-      "status": "Ready for Audio Riff",
+      "status": "Ready to Film",
       "drop_date": "2026-08-20",
       "uploaded_date": null,
       "youtube_id": null,
@@ -140,7 +140,7 @@
       "vidiq_title_score": 0,
       "notes": "Pre-Recording Blueprint Ready",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-03T14:17:40.806692+00:00"
+      "updated_at": "2026-08-05T01:42:44.75217+00:00"
     },
     {
       "id": "c4dbc019-9cf5-4faa-97b9-4621ca8b66dc",
@@ -340,7 +340,7 @@
       "vidiq_title_score": 0,
       "notes": null,
       "created_at": "2026-08-03T15:28:32.672732+00:00",
-      "updated_at": "2026-08-03T15:30:08.736951+00:00"
+      "updated_at": "2026-08-04T23:47:40.7326+00:00"
     },
     {
       "id": "be7a3be3-aaee-4568-a49d-765d3cc604b5",
@@ -360,7 +360,7 @@
       "vidiq_title_score": 0,
       "notes": null,
       "created_at": "2026-08-03T15:28:32.783955+00:00",
-      "updated_at": "2026-08-03T15:30:08.903183+00:00"
+      "updated_at": "2026-08-04T23:47:41.010217+00:00"
     },
     {
       "id": "37540c9d-ee6a-4d76-a304-7450f43a1a5b",
@@ -380,7 +380,7 @@
       "vidiq_title_score": 0,
       "notes": null,
       "created_at": "2026-08-03T15:28:32.872456+00:00",
-      "updated_at": "2026-08-03T15:30:08.996816+00:00"
+      "updated_at": "2026-08-04T23:47:41.300029+00:00"
     },
     {
       "id": "20160880-7927-4224-a3b8-614b644ca5ff",
@@ -400,27 +400,7 @@
       "vidiq_title_score": 0,
       "notes": null,
       "created_at": "2026-08-03T15:28:32.965975+00:00",
-      "updated_at": "2026-08-03T15:30:09.096336+00:00"
-    },
-    {
-      "id": "9fd2583a-0fd4-4429-abd3-02488f565386",
-      "video_number": "H005",
-      "code": "HIST.L05",
-      "format_type": "Long",
-      "title": "The Biological Requirement for Weekly Structure",
-      "description": null,
-      "jdex_code": null,
-      "os_level": null,
-      "folder_path": null,
-      "status": "Uploaded",
-      "drop_date": "2026-01-01",
-      "uploaded_date": "2026-01-01",
-      "youtube_id": "7PBxkzu3l-Q",
-      "primary_keyword": null,
-      "vidiq_title_score": 0,
-      "notes": null,
-      "created_at": "2026-08-03T15:28:33.060247+00:00",
-      "updated_at": "2026-08-03T15:30:09.187028+00:00"
+      "updated_at": "2026-08-04T23:47:41.583903+00:00"
     },
     {
       "id": "23d00130-ab4b-4251-aedb-73ffeabfe17b",
@@ -434,33 +414,13 @@
       "folder_path": null,
       "status": "Uploaded",
       "drop_date": "2026-03-12",
-      "uploaded_date": "2026-03-12",
-      "youtube_id": "8_hrdHBkXHw",
+      "uploaded_date": "2026-01-01",
+      "youtube_id": "7PBxkzu3l-Q",
       "primary_keyword": null,
       "vidiq_title_score": 0,
       "notes": null,
       "created_at": "2026-08-03T15:28:33.150634+00:00",
-      "updated_at": "2026-08-03T15:30:09.298983+00:00"
-    },
-    {
-      "id": "0355ad85-5a70-408f-b086-26046c9bd47e",
-      "video_number": "H007",
-      "code": "HIST.L07",
-      "format_type": "Long",
-      "title": "Why Supplements Cannot Fix a Broken Baseline",
-      "description": null,
-      "jdex_code": null,
-      "os_level": null,
-      "folder_path": null,
-      "status": "Uploaded",
-      "drop_date": "2026-03-21",
-      "uploaded_date": "2026-03-21",
-      "youtube_id": "k_9aspbRXJE",
-      "primary_keyword": null,
-      "vidiq_title_score": 0,
-      "notes": null,
-      "created_at": "2026-08-03T15:28:33.242232+00:00",
-      "updated_at": "2026-08-03T15:30:09.467349+00:00"
+      "updated_at": "2026-08-04T23:47:42.230386+00:00"
     },
     {
       "id": "780d77a6-cb85-4f18-a832-1fb89c3e3685",
@@ -480,10 +440,10 @@
       "vidiq_title_score": 0,
       "notes": null,
       "created_at": "2026-08-03T15:28:33.333875+00:00",
-      "updated_at": "2026-08-03T15:30:09.575254+00:00"
+      "updated_at": "2026-08-04T23:47:43.181124+00:00"
     },
     {
-      "id": "f3340f6a-6e9e-41f2-8767-4ac6b7aaa2d1",
+      "id": "34bc3e8f-d963-45cf-8b0f-ff9ef6e2967d",
       "video_number": "HS002",
       "code": "HIST.S02",
       "format_type": "Short",
@@ -499,8 +459,8 @@
       "primary_keyword": null,
       "vidiq_title_score": 0,
       "notes": null,
-      "created_at": "2026-08-03T15:28:33.428047+00:00",
-      "updated_at": "2026-08-03T15:30:09.703165+00:00"
+      "created_at": "2026-08-04T23:47:43.468008+00:00",
+      "updated_at": "2026-08-04T23:47:43.468008+00:00"
     },
     {
       "id": "ec07957b-5d9b-4f2c-bb35-da0e20778450",
@@ -520,7 +480,7 @@
       "vidiq_title_score": 0,
       "notes": null,
       "created_at": "2026-08-03T15:28:33.520313+00:00",
-      "updated_at": "2026-08-03T15:30:09.794695+00:00"
+      "updated_at": "2026-08-04T23:47:43.749078+00:00"
     },
     {
       "id": "521108bf-ef35-4022-8e94-b2d5dba90108",
@@ -540,7 +500,7 @@
       "vidiq_title_score": 0,
       "notes": null,
       "created_at": "2026-08-03T15:28:33.614491+00:00",
-      "updated_at": "2026-08-03T15:30:09.889894+00:00"
+      "updated_at": "2026-08-04T23:47:44.049797+00:00"
     },
     {
       "id": "c091c11c-bdcd-4d7c-b4e5-3f44197c10e9",
@@ -560,7 +520,7 @@
       "vidiq_title_score": 0,
       "notes": null,
       "created_at": "2026-08-03T15:28:33.715+00:00",
-      "updated_at": "2026-08-03T15:30:09.977202+00:00"
+      "updated_at": "2026-08-04T23:47:44.335481+00:00"
     },
     {
       "id": "f3a73f74-b03a-4c39-8ac0-9950a04870d7",
@@ -580,7 +540,7 @@
       "vidiq_title_score": 0,
       "notes": null,
       "created_at": "2026-08-03T15:28:33.803106+00:00",
-      "updated_at": "2026-08-03T15:30:10.062573+00:00"
+      "updated_at": "2026-08-04T23:47:44.65623+00:00"
     },
     {
       "id": "c11eb548-03a1-436a-aa18-ff71f4fb9d5d",
@@ -600,7 +560,7 @@
       "vidiq_title_score": 0,
       "notes": null,
       "created_at": "2026-08-03T15:28:33.897306+00:00",
-      "updated_at": "2026-08-03T15:30:10.161883+00:00"
+      "updated_at": "2026-08-04T23:47:44.953478+00:00"
     },
     {
       "id": "b397577a-b1e8-482c-8171-7940c3450543",
@@ -620,7 +580,7 @@
       "vidiq_title_score": 0,
       "notes": null,
       "created_at": "2026-08-03T15:28:33.992308+00:00",
-      "updated_at": "2026-08-03T15:30:10.252803+00:00"
+      "updated_at": "2026-08-04T23:47:45.222305+00:00"
     },
     {
       "id": "910a8284-b44b-4e4a-ae6e-1b40b5ee6b6a",
@@ -640,7 +600,7 @@
       "vidiq_title_score": 0,
       "notes": null,
       "created_at": "2026-08-03T15:28:34.093647+00:00",
-      "updated_at": "2026-08-03T15:30:10.34778+00:00"
+      "updated_at": "2026-08-04T23:47:45.503441+00:00"
     },
     {
       "id": "d093a88e-9332-49d5-a674-e33ef774f538",
@@ -660,7 +620,7 @@
       "vidiq_title_score": 0,
       "notes": null,
       "created_at": "2026-08-03T15:28:41.935999+00:00",
-      "updated_at": "2026-08-03T15:30:10.440584+00:00"
+      "updated_at": "2026-08-04T23:47:45.775265+00:00"
     },
     {
       "id": "8e2e96d1-45fa-416a-a58c-db1fbcc0e4fc",
@@ -680,7 +640,7 @@
       "vidiq_title_score": 0,
       "notes": null,
       "created_at": "2026-08-03T15:28:42.033247+00:00",
-      "updated_at": "2026-08-03T15:30:10.551428+00:00"
+      "updated_at": "2026-08-04T23:47:46.043767+00:00"
     },
     {
       "id": "3e24fb5b-8e50-42ec-bd6a-b79b9cc8af83",
@@ -700,7 +660,7 @@
       "vidiq_title_score": 0,
       "notes": null,
       "created_at": "2026-08-03T15:28:42.119198+00:00",
-      "updated_at": "2026-08-03T15:30:10.648937+00:00"
+      "updated_at": "2026-08-04T23:47:46.321873+00:00"
     },
     {
       "id": "b857578f-1737-45e4-b32f-853758e6cf40",
@@ -720,7 +680,7 @@
       "vidiq_title_score": 0,
       "notes": null,
       "created_at": "2026-08-03T15:28:42.214807+00:00",
-      "updated_at": "2026-08-03T15:30:10.754682+00:00"
+      "updated_at": "2026-08-04T23:47:46.613983+00:00"
     },
     {
       "id": "58214a5a-7f5e-4fb7-901e-fa1e3ba594af",
@@ -740,7 +700,7 @@
       "vidiq_title_score": 0,
       "notes": null,
       "created_at": "2026-08-03T15:28:42.318344+00:00",
-      "updated_at": "2026-08-03T15:30:10.851646+00:00"
+      "updated_at": "2026-08-04T23:47:46.902794+00:00"
     },
     {
       "id": "147d1017-cb3c-4198-9520-241f77bf2ab1",
@@ -760,7 +720,7 @@
       "vidiq_title_score": 0,
       "notes": null,
       "created_at": "2026-08-03T15:28:42.409986+00:00",
-      "updated_at": "2026-08-03T15:30:10.953396+00:00"
+      "updated_at": "2026-08-04T23:47:47.184675+00:00"
     }
   ]
 }

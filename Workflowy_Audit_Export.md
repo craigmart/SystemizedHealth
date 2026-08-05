@@ -7,3 +7,514 @@
 > - Edit names, tags, or bullets directly in this file to update them in Workflowy.
 
 ---
+
+- [ ] **80.V - Video Production Pipeline** `<!-- id: 677ca675-32e8-4fcd-b69f-d2b5469e16b9 -->`
+  - [ ] **80.V0A1 - Systemized OS Framework #edit** `<!-- id: 40b5d6ae-8341-4447-a00b-6b7c61c759b1 -->`
+    - [x] **✂️ EDIT &amp; HOOK DIRECTIONS** `<!-- id: a9cd8307-d7c4-4334-97b7-203d20421e19 -->`
+      - [x] **Trim verbal warm-up ('Hey, I'm Dr. Anderson...') &amp; repeated 'just tell me what to do' phrases** `<!-- id: 45cec625-1e2c-4dea-8c8d-caef71aefc1c -->`
+      - [x] **Hook Option 1 (Tight Studio Edit): Lead directly with 'Have you ever reached the point where you just want someone to look at your health and say: Just tell me exactly what to do?'** `<!-- id: 5214af62-2d40-428e-8cc0-84b3147b0c69 -->`
+      - [x] **Hook Option 2 (Pattern Interrupt): Lead with 'We are completely overwhelmed by health advice...' (Camera B / location shift)** `<!-- id: 93d34df1-a58a-48f7-8493-375137b81c79 -->`
+      - [x] **Hook Option 3 (Cold Open): B-roll overlay of decision overload before cutting to studio A-roll** `<!-- id: 79365245-050c-45a5-a167-075f89bdd4da -->`
+    - [ ] **80.V0A1 Production Checklist #task** `<!-- id: 0e9b76c1-e06c-4c36-bb33-7e6a541196bc -->`
+      - [ ] **2. Multi-Cam &amp; Framing Cuts** `<!-- id: 9bf2fe53-ed4c-40b7-a12e-262c5e4e7142 -->`
+        - [ ] **[ ] Angle B Switch at Dog & Fence Analogy ('For example, a dog in a yard...')** `<!-- id: 734be14a-9163-4bc9-a6ee-c8d2785a2bf8 -->`
+        - [ ] **[ ] Angle A Punch-in at Level 2 Connection (digital zoom on personal spirituality segment)** `<!-- id: f20537e9-7338-4140-8f44-f6a18311a48e -->`
+        - [ ] **[ ] Angle A Reset at Level 3 Transition (reset framing to wide/medium Angle A)** `<!-- id: ca223aba-78fe-4a53-82f1-dbf56fe7afd5 -->`
+      - [ ] **3. B-Roll &amp; Visual Asset Sourcing** `<!-- id: be8d6383-9b56-4684-a25b-0d3bd7fd48c7 -->`
+        - [ ] **[ ] Choice Paradox / Overwhelm Montage (rapid-fire: whole food -> pillow -> dialing dad)** `<!-- id: 54fce711-663d-436f-a775-222971163b82 -->`
+        - [ ] **[ ] Dog & Fence Visual Asset (80.2627-N1-002: 2D graphic or stock clip)** `<!-- id: 543eb817-c26d-4f7b-a8a3-c3fffba31ff0 -->`
+        - [ ] **[ ] Level 1 (FMR) B-Roll: Clean whole food prep clip (Fuel)** `<!-- id: 531df1e0-ea13-4849-9dd5-afde922baaf4 -->`
+        - [ ] **[ ] Level 1 (FMR) B-Roll: 10-second run-in-place clip (Move)** `<!-- id: dad2451e-7d03-4ffe-add4-bb9d22a90004 -->`
+        - [ ] **[ ] Level 1 (FMR) B-Roll: Brain motor cortex neuron firing graphic (Move)** `<!-- id: a6b62e64-d94e-432f-9290-36752ed5febd -->`
+        - [ ] **[ ] Level 1 (FMR) B-Roll: Sleep / recovery visual (Rest)** `<!-- id: b942625d-9230-4c7a-bd93-3545e3c763bd -->`
+        - [ ] **[ ] Level 2 (TLC) B-Roll: Journaling on desk / thoughtful reflection** `<!-- id: 359389a2-da42-41f4-a560-d336dcf54da8 -->`
+        - [ ] **[ ] Level 2 (TLC) B-Roll: Open vs closed cognitive loops diagram** `<!-- id: 637330e2-e1c4-42f8-85f0-f2562e7720ea -->`
+        - [ ] **[ ] Level 3 (POP) B-Roll: Outdoor movement / play clip (Play)** `<!-- id: 3f1eaf7b-3a3c-4ea9-b0f6-2488d21b77ea -->`
+        - [ ] **[ ] Level 3 (POP) B-Roll: Digital task list / calendar organization clip (Organize)** `<!-- id: a6931e41-3925-427d-aa1f-75cbddfa8db8 -->`
+      - [ ] **4. On-Screen Graphics (Left Overlays)** `<!-- id: f11db7a3-9c0f-4522-a109-067e3d00be3c -->`
+        - [ ] **[ ] Level 1 Title Card (LEVEL 1: FMR - Fuel • Move • Rest)** `<!-- id: d08bf830-3e21-48a2-a041-77669c2998d2 -->`
+        - [ ] **[ ] Level 2 Title Card (LEVEL 2: TLC - Think • Learn • Connect)** `<!-- id: 3ab9cf7f-f2b8-44c9-9421-8262bc27e829 -->`
+        - [ ] **[ ] Level 3 Title Card (LEVEL 3: POP - Play • Organize • Purpose)** `<!-- id: d3925eff-6159-46c2-8c99-1ace0ca96168 -->`
+        - [ ] **[ ] Master OS Pyramid Diagram Overlay (3-tiered Systemized OS graphic)** `<!-- id: 40c86874-55ca-4b8a-ade2-e6371bb1ed8c -->`
+      - [ ] **5. Web App Integration &amp; Outro CTA** `<!-- id: 05129618-db37-49ab-9316-1eb9e2cdd9ed -->`
+        - [ ] **[ ] Record 5-10s Web App UI dynamic screen capture** `<!-- id: bb0fc9f8-95b7-4c47-97de-87c44cb798fd -->`
+        - [ ] **[ ] Build QR Code Split-Screen Layout (Web App QR Code + screen capture demo)** `<!-- id: 6bde8828-da12-4326-947f-83aef39d782c -->`
+        - [ ] **[ ] Software Patch Outro Callout ('Subscribe for OS updates & patches')** `<!-- id: d48c9ceb-58ca-42b4-a738-e05aeb8a7ab2 -->`
+      - [ ] **6. Pick-Ups &amp; Location Shots (Optional)** `<!-- id: 3d355629-4adc-4cab-80ea-6fa9deb6c036 -->`
+        - [ ] **[ ] Outdoor Teaser Hook Clip (15-second location-shift intro before studio cut)** `<!-- id: 07f01341-5a8f-4c7b-988a-654acbe4e304 -->`
+  - [ ] **80.V0B-S1: Information Overload vs Implementation** `<!-- id: 98a6f57c-a79f-4a5f-b31d-4611f944fa0b -->`
+    - [ ] **<b>Video Code</b>: <code>80.V0B-S1</code>** `<!-- id: a7c5a78a-8bca-4fde-a2c1-215d5291bd2d -->`
+    - [ ] **<b>Parent Video</b>: <code>80.V0B</code> (<i>Health Info & Biology Baseline</i>)** `<!-- id: 329b158d-d451-4d79-bbbc-4f8789e73903 -->`
+    - [ ] **<b>Suggested Settings</b>: <code>#insidetruck</code> <code>#whilebusy</code> <code>#outside</code>** `<!-- id: 0e2d2712-6e07-4dfd-a21c-4e7a4d1073fc -->`
+    - [ ] **<b>JDex Topic Code</b>: <code>80.11</code> (<i>Systemized OS Framework</i>)** `<!-- id: 29643b31-bed4-4915-99aa-6ddb8ae6dbe3 -->`
+    - [ ] **1. Hook** `<!-- id: 900cff05-7c05-49dc-9174-c07bcea9df8b -->`
+      - [ ] **"Look, if you're like most people I see in the clinic, you don't need another health podcast, supplement stack, or Monday morning resolution."** `<!-- id: 4317b095-047b-4d5d-ad89-3f076701214d -->`
+    - [ ] **2. Talking Points (For Audio Riffing)** `<!-- id: 2dbbec7b-a7a8-4d36-b50f-3ba82e159b35 -->`
+      - [ ] **2.1 The Problem<i></i>: High performers aren't failing due to a lack of knowledge; they are drowning in scattered health advice without an operating system.** `<!-- id: e25089a8-99e3-460f-a025-1641c1e4b9fc -->`
+      - [ ] **2.2 The Biological Reframe<i></i>: Knowing <i>what</i> to do is useless if your nervous system is too fatigued to execute it. Information without biological sequencing creates execution friction.** `<!-- id: 2bdd553e-e418-4326-bece-be4a7322a12d -->`
+      - [ ] **2.3 Clinical Scenario<i></i>: Patient comes into the clinic with 15 different supplement bottles and 3 workout apps, but can't touch their toes or sleep 6 hours straight.** `<!-- id: a5d34d88-4b57-4ccf-8b7a-581a6ec11445 -->`
+      - [ ] **2.4 Casual Research Reference<i></i>: Marcora et al. (2009) <i>J Appl Physiol</i> showing cognitive overload inhibits physical motor plan execution in the brain. <a href="https://pubmed.ncbi.nlm.nih.gov/19131473/">https://pubmed.ncbi.nlm.nih.gov/19131473/</a>** `<!-- id: 2a546721-8359-4f15-9d17-9bc5bd275993 -->`
+      - [ ] **2.5 The Takeaway<i></i>: Stop adding new hacks. Pick one foundational baseline habit—Fuel, Move, or Rest—and automate it before adding anything else.** `<!-- id: e99ca1d6-eef5-442c-94c1-ae398a5f74f7 -->`
+    - [ ] **3. CTA** `<!-- id: 89005965-5df1-4191-918e-b30cc76333d5 -->`
+      - [ ] **"If you're ready to stop collecting health facts and actually install a biological system that fits your life, set up a free Systemized Discovery Call with me or check out our app unpacking the OS. I'll see you in the next video."** `<!-- id: d4b8064f-a478-443b-9e6a-cce26c61a616 -->`
+    - [ ] **Audio draft** `<!-- id: fb6ead49-890f-44ea-807d-158c204ee38c -->`
+      - [ ] **In my 30 years of patient care, I've come to realize that... most health problems require simplification, doing less, focusing more. For example, let's say a patient or a person has been a couch potato for 10 years, they decide, all right, I've had enough. I am... getting off this couch. I'm going to run a marathon. And they buy shoes, they join the club. They change their lives. They change all the different aspects of their daily routine. And they push and push, and use their willpower. And after five weeks, something happens. And a lot of these folks never make it to that goal. This is a common... instinct among humans. We know what we should be doing, and we decide we have to make up for lost time. This, my friend, is not the way to do it. You cannot need a makeup for lost time. You need to rebuild the architecture inside your mind, inside your life, and inside your daily systems that can be built on and expanded over time as they take root. If you want to do that marathon, before you say, Hey, I'm gonna sign up for that marathon, why don't you see if you can go for a walk, 15 minutes a day, for five days in a row? See if you can do that, and if you can do that, then you take it up another notch. and another notch, and you slowly build, over time, build the habit to where it is a permanent habit. It's a new way you operate. It isn't a flash in the pan, or something where failure is highly possible. So pick the small things, take the small steps. and then just don't stop. The rest of your life, small step, small step, little growth. Small step, a little growth.** `<!-- id: ad882e71-b957-4cb2-ae9b-43950829f7bd -->`
+    - [ ] **Shots** `<!-- id: 2e98678c-bdef-44e3-a420-9e432d01fd79 -->`
+      - [ ] **80.V0B-S1>1 — The Hook #edit #insidetruck** `<!-- id: 448fc518-91f7-42b5-974d-da7c5836d9f3 -->`
+        - [ ] **In my 30 years of patient care, [breath] I've come to realize that most health problems require simplification: [pause] doing less and focusing more.** `<!-- id: 6a09d8df-e010-436b-a423-598ab8d2f7fa -->`
+      - [ ] **80.V0B-S1>2 — The Couch Potato to Marathon Trap #edit #insidetruck** `<!-- id: 5b027284-f876-4720-9d11-f2a10c89d200 -->`
+        - [ ] **Let's say someone's been a couch potato for 10 years and decides, "I've had enough, I'm gonna run a marathon." [breath] They buy shoes, join a club, change their whole daily routine, [tone shift] and push using pure willpower. And after five weeks, something breaks... and they never reach that goal.** `<!-- id: 1adff422-fe92-4247-9077-897a47850513 -->`
+      - [ ] **80.V0B-S1>3 — You Cannot Make Up for Lost Time #film #whilebusy** `<!-- id: 2b2bed61-54cf-468a-a1a8-0df7d3697448 -->`
+        - [ ] **This is a common instinct. We decide we have to make up for lost time. [breath] My friend, this is not how biology works. [eye contact shift] You cannot make up for lost time. You have to rebuild the biological architecture inside your mind, your life, and your daily systems.** `<!-- id: a71f85d0-dffa-4bdc-875c-fff29851b9c8 -->`
+      - [ ] **80.V0B-S1>4 — The 15-Minute Walk Benchmark #film #whilebusy** `<!-- id: f1900e19-cd37-484d-b090-03f7bfc2ffdf -->`
+        - [ ] **If you want to run that marathon... [breath] before you sign up, see if you can go for a 15-minute walk five days in a row. [pause] See if you can do that first. If you can, then take it up a notch... and slowly build over time until the habit becomes permanent hardware.** `<!-- id: 2ad62096-cc23-40b6-9e63-c99fe65b8e64 -->`
+      - [ ] **80.V0B-S1>5 — Small Steps, Little Growth #edit #outside** `<!-- id: 7cb2b8e0-253b-4c57-a0bc-88b3fc2dad58 -->`
+        - [ ] **Pick the small things and take the small steps. [breath] Then just don't stop. For the rest of your life: [gesture] small step, small step, little growth. Small step, a little growth.** `<!-- id: e307e497-9855-41df-a0a9-55529b614217 -->`
+      - [ ] **80.V0B-S1>6 — Outro CTA #edit #outside** `<!-- id: 351b3c67-f5ce-47d3-8a65-c1a44d46124c -->`
+        - [ ] **If you're ready to stop collecting health advice and actually install a biological system that fits your life, [breath] set up a free Systemized Discovery Call with me or check out our app unpacking the OS. [gesture] I'll see you in the next video.** `<!-- id: 4def0f12-24f6-4e76-9c1f-24de392834c1 -->`
+    - [ ] **Shots** `<!-- id: 7669b17e-c3b9-4b4f-9650-b59e9f8b7aba -->`
+      - [ ] **80.V0B-S1>1 — The Hook #edit #insidetruck** `<!-- id: 004ef513-fdf9-4ed6-8ee1-635580bfea46 -->`
+        - [ ] **In my 30 years of patient care, [breath] I've come to realize that most health problems require simplification: [pause] doing less and focusing more.** `<!-- id: 71dfb4b6-e2cb-4097-b4fd-472bc2d5a64c -->`
+      - [ ] **80.V0B-S1>2 — The Couch Potato to Marathon Trap #edit #insidetruck** `<!-- id: 77529192-1cc1-412b-8140-a8dc78087cc5 -->`
+        - [ ] **Let's say someone's been a couch potato for 10 years and decides, "I've had enough, I'm gonna run a marathon." [breath] They buy shoes, join a club, change their whole daily routine, [tone shift] and push using pure willpower. And after five weeks, something breaks... and they never reach that goal.** `<!-- id: e120cfdc-7ac0-4e39-bc80-1c37cb4b8e8d -->`
+      - [ ] **80.V0B-S1>3 — You Cannot Make Up for Lost Time #film #whilebusy** `<!-- id: 10055483-c0c4-47f6-89a8-c6e3ec0b4370 -->`
+        - [ ] **This is a common instinct. We decide we have to make up for lost time. [breath] My friend, this is not how biology works. [eye contact shift] You cannot make up for lost time. You have to rebuild the biological architecture inside your mind, your life, and your daily systems.** `<!-- id: 536535e4-ac3a-4604-a2b3-b28cc3ce8d12 -->`
+      - [ ] **80.V0B-S1>4 — The 15-Minute Walk Benchmark #film #whilebusy** `<!-- id: 28367f99-33ad-46ac-970f-a554122e62ec -->`
+        - [ ] **If you want to run that marathon... [breath] before you sign up, see if you can go for a 15-minute walk five days in a row. [pause] See if you can do that first. If you can, then take it up a notch... and slowly build over time until the habit becomes permanent hardware.** `<!-- id: b4f394ab-4b02-4d5b-a3e8-40df8687fc62 -->`
+      - [ ] **80.V0B-S1>5 — Small Steps, Little Growth #edit #outside** `<!-- id: cf11fe6c-becb-4923-8cd2-29c85f09876d -->`
+        - [ ] **Pick the small things and take the small steps. [breath] Then just don't stop. For the rest of your life: [gesture] small step, small step, little growth. Small step, a little growth.** `<!-- id: f570b8e2-b0c6-4030-927f-472c988a415e -->`
+      - [ ] **80.V0B-S1>6 — Outro CTA #edit #outside** `<!-- id: 29e8c354-f528-41b9-afc3-42e669920161 -->`
+        - [ ] **If you're ready to stop collecting health advice and actually install a biological system that fits your life, [breath] set up a free Systemized Discovery Call with me or check out our app unpacking the OS. [gesture] I'll see you in the next video.** `<!-- id: 36bd33a0-bc71-4b02-af1d-ea3646cf869a -->`
+  - [ ] **80.V0A-S1: Why Monday Health Resolutions Fail** `<!-- id: 05a69931-ef84-4292-bd92-b00e1bb682f0 -->`
+    - [ ] **<b>Video Code</b>: <code>80.V0A-S1</code>** `<!-- id: 1ec95615-b04e-414d-9d16-109c50f8b636 -->`
+    - [ ] **<b>Parent Video</b>: <code>80.V0A</code> (<i>230,000 Patient Visits</i>)** `<!-- id: 0cbb078b-526b-4857-9a8d-deef86875745 -->`
+    - [ ] **<b>Suggested Settings</b>: <code>#insidetruck</code> <code>#shopping</code> <code>#outside</code>** `<!-- id: 062e75fc-53e0-457c-a35d-e7e7a2756dba -->`
+    - [ ] **<b>JDex Topic Code</b>: <code>41.03</code> (<i>Habit Creation</i>)** `<!-- id: 13af3cf1-403b-4aef-b5bd-0701da91a323 -->`
+    - [ ] **1. Hook** `<!-- id: 4a3cd184-e87f-4bb1-8556-d2deb2ea0d89 -->`
+      - [ ] **"If you've ever swore on Sunday night that 'starting Monday, everything changes,' and then quit by Thursday... I want to tell you why that's not a character flaw."** `<!-- id: 3a4f2f60-436e-436b-9d00-fcc1d101588e -->`
+    - [ ] **2. Talking Points (For Audio Riffing)** `<!-- id: e8546208-32b6-4d4b-81ce-2d330ae795c6 -->`
+      - [ ] **2.1 The Myth<i></i>: People think quitting a new diet or intense workout routine on Thursday means they lack discipline or willpower.** `<!-- id: 90bc4a4c-47a8-4c6a-82b1-c8d84deef972 -->`
+      - [ ] **2.2 The Biological Reality<i></i>: Human physiology is hardwired for homeostasis and energy conservation. Shocking your biology with 5 massive changes triggers a stress response.** `<!-- id: 55d270ec-067d-4e3b-be32-c220cecec119 -->`
+      - [ ] **2.3 Clinical Experience<i></i>: 230,000 patient visits showed me that people who succeed long-term never overhaul their life on Monday—they change ONE micro-variable at a time.** `<!-- id: c37d0aa3-3ad9-4cd9-a3d9-c35e6f1febed -->`
+      - [ ] **2.4 Casual Research Reference<i></i>: McEwen (1998) <i>N Engl J Med</i> showing sympathetic stress response forces emergency shutdown under sudden drastic routine changes. <a href="https://pubmed.ncbi.nlm.nih.gov/9428819/">https://pubmed.ncbi.nlm.nih.gov/9428819/</a>** `<!-- id: b8505195-b16b-440e-83eb-d895e4035f81 -->`
+      - [ ] **2.5 Action Step<i></i>: Pick one micro-habit (like 30 seconds of incline plank or drinking 16oz of water before coffee) and lock it in for 7 days.** `<!-- id: 8b760f3a-3422-4327-9c0a-193df27a4f88 -->`
+    - [ ] **3. CTA** `<!-- id: bae41218-09df-4e22-b1fe-6244106bba00 -->`
+      - [ ] **"If you want to stop failing Monday resolutions and build a low-friction biological system instead, set up a free Systemized Discovery Call or grab our app unpacking the OS. I'll see you in the next video."** `<!-- id: 8a9d61ff-9535-4ec5-91e9-be63e5ded3d7 -->`
+    - [ ] **Audio transcription draft** `<!-- id: 17f7ee8a-e8e1-4c92-8880-58f0907258dd -->`
+      - [ ] **If you get the idea that you want to start fresh Monday, and you're just gonna correct all your issues, I would recommend that you start smaller than you think. So let's unpack this just a little bit. If you're going to fail at a goal, which most people do in their health. I'm sorry to say that it's the case. You can increase your chance of success by downshifting your goal to a more realistic goal. So instead of saying, Monday, I'm gonna start training for a marathon, say, Monday, I'm gonna get up and I'm going to walk or run. for five minutes. Then I'm gonna go to work and do my normal, regular stuff. And I'm gonna do that every other day. for the next week. That's my goal. Not run a marathon, but to begin the process, it can be action that will eventually lead to building to where you can actually run that marathon.** `<!-- id: d3adf000-c2f4-4e0b-9b68-56efb388e459 -->`
+    - [ ] **Shots** `<!-- id: c891c84e-3ad6-4053-8008-4f6074276818 -->`
+      - [ ] **80.V0A-S1>1 — The Hook #edit #insidetruck** `<!-- id: 12b4cc0e-8465-445f-a8d3-9b7a65b51da4 -->`
+        - [ ] **If you get the idea that you want to start fresh Monday, [breath] and you're just gonna correct all your health issues... [pause] I would recommend that you start smaller than you think.** `<!-- id: bdbc0ea5-4072-4afd-b0f6-506ea23da2b8 -->`
+      - [ ] **80.V0A-S1>2 — The Unpack & Downshift Concept #edit #insidetruck** `<!-- id: e0f68d33-cc88-4525-98b9-804cb88e0611 -->`
+        - [ ] **So let me unpack this just a little bit. [breath] If you're going to fail at a goal—which most people do in their health, [tone shift] I'm sorry to say that's the case... [breath] You can increase your chance of success by downshifting your goal to a more realistic goal.** `<!-- id: e9607bfa-8bc9-4365-9ad4-902f9fb787d8 -->`
+      - [ ] **80.V0A-S1>3 — The Marathon Contrast #edit #outside** `<!-- id: 0d866a79-d057-4563-965e-ec1290f91b22 -->`
+        - [ ] **So instead of saying, "Monday, I'm gonna start training for a marathon," [breath] say, "Monday, I'm gonna get up and I'm going to walk or run for five minutes."** `<!-- id: a82ff76c-22b2-4508-9e95-1c94ae238da0 -->`
+      - [ ] **80.V0A-S1>4 — Low-Friction Schedule #edit #outside** `<!-- id: e06848a9-07a7-48a7-9ca9-d95386771ecf -->`
+        - [ ] **Then go to work and do your normal, regular stuff. [breath] And do that every other day for the next week. [eye contact shift] That's your goal.** `<!-- id: fc1ef5f1-764a-4edd-8274-1cef3619d810 -->`
+      - [ ] **80.V0A-S1>5 — Process Over Finish Line #film #shopping** `<!-- id: 5b54108d-1396-47c8-be62-b2dd3cd8c6e5 -->`
+        - [ ] **Not run a marathon right out of the gate, [pause] but to begin the process. [breath] It's that small, consistent action that will eventually build to where you can actually run that marathon.** `<!-- id: fd2c9511-6ea1-4482-b107-70ae9f9b1485 -->`
+      - [ ] **80.V0A-S1>6 — Outro CTA #film #shopping** `<!-- id: a132cd62-35db-4b3e-9672-b2ba26d5b02e -->`
+        - [ ] **If you're ready to stop failing Monday resolutions and build a low-friction biological system instead, [breath] set up a free Systemized Discovery Call or grab our app unpacking the OS. [gesture] I'll see you in the next video.** `<!-- id: b46c9a70-a7e6-44c2-9168-efe752cc0541 -->`
+    - [ ] **Shots** `<!-- id: 32e685df-6093-4c03-8c9a-409016835551 -->`
+      - [ ] **80.V0A-S1>1 — The Hook #edit #insidetruck** `<!-- id: d9d60d2b-22f0-4f12-859b-6e0fd3b7fdbd -->`
+        - [ ] **If you get the idea that you want to start fresh Monday, [breath] and you're just gonna correct all your health issues... [pause] I would recommend that you start smaller than you think.** `<!-- id: 3a559932-59bc-42e9-9c94-abea60af3fad -->`
+      - [ ] **80.V0A-S1>2 — The Unpack & Downshift Concept #edit #insidetruck** `<!-- id: a6ef6fc7-dc11-44bf-a185-32d3266e28c0 -->`
+        - [ ] **So let me unpack this just a little bit. [breath] If you're going to fail at a goal—which most people do in their health, [tone shift] I'm sorry to say that's the case... [breath] You can increase your chance of success by downshifting your goal to a more realistic goal.** `<!-- id: d0679133-7ea0-4de0-8380-ecba1876f314 -->`
+      - [ ] **80.V0A-S1>3 — The Marathon Contrast #edit #outside** `<!-- id: 8706207f-5ab6-49d5-9adc-a7c6a1b8e447 -->`
+        - [ ] **So instead of saying, "Monday, I'm gonna start training for a marathon," [breath] say, "Monday, I'm gonna get up and I'm going to walk or run for five minutes."** `<!-- id: 7f50060c-27c3-4671-8b6c-0abea6df53b8 -->`
+      - [ ] **80.V0A-S1>4 — Low-Friction Schedule #edit #outside** `<!-- id: 3918bdae-6276-4fff-b864-d5334b77d54b -->`
+        - [ ] **Then go to work and do your normal, regular stuff. [breath] And do that every other day for the next week. [eye contact shift] That's your goal.** `<!-- id: f527393c-9d93-4cd3-b838-c4cf1e867548 -->`
+      - [ ] **80.V0A-S1>5 — Process Over Finish Line #film #shopping** `<!-- id: 43852027-6b18-4d1d-91ce-2cc1f90c2b75 -->`
+        - [ ] **Not run a marathon right out of the gate, [pause] but to begin the process. [breath] It's that small, consistent action that will eventually build to where you can actually run that marathon.** `<!-- id: afb4faeb-e23f-42ee-a40b-4fa75f27c704 -->`
+      - [ ] **80.V0A-S1>6 — Outro CTA #film #shopping** `<!-- id: c514c612-d550-4e19-928d-e144d99cf4d9 -->`
+        - [ ] **If you're ready to stop failing Monday resolutions and build a low-friction biological system instead, [breath] set up a free Systemized Discovery Call or grab our app unpacking the OS. [gesture] I'll see you in the next video.** `<!-- id: 9289c764-aca3-453f-bd60-6767cddc1b20 -->`
+  - [ ] **80.V0B-S3: Doctor vs Coach: Rebuilding Baseline #<u>write</u>** `<!-- id: ad47b1c6-71c8-4547-906d-8c9867e31943 -->`
+    - [ ] **<b>Video Code</b>: <code>80.V0B-S3</code>** `<!-- id: af2cec83-0aa6-46d1-83db-062dd67eb0fa -->`
+    - [ ] **<b>Parent Video</b>: <code>80.V0B</code> (<i>Health Info & Biology Baseline</i>)** `<!-- id: 9ce9b0ec-f3b6-4d21-8a61-1b2189a037a2 -->`
+    - [ ] **<b>Suggested Settings</b>: <code>#studio</code> <code>#outside</code> <code>#whilebusy</code>** `<!-- id: 48839888-7661-410f-a03f-8369f31f419f -->`
+    - [ ] **<b>JDex Topic Code</b>: <code>77.01</code> (<i>Clinical Practice & Joint Biomechanics</i>)** `<!-- id: 7be01e5d-76f9-4149-ad3d-56724f6e876c -->`
+    - [ ] **1. Hook** `<!-- id: d33853d8-0145-4586-80eb-cd40312e0d23 -->`
+      - [ ] **"Here's something I've noticed after 30 years in chiropractic practice: a doctor treats your symptoms when you break, but a fitness coach often pushes you until you break."** `<!-- id: d4be5ddc-963a-4259-8085-3bedfc581870 -->`
+    - [ ] **2. Talking Points (For Audio Riffing)** `<!-- id: eb7d83a3-6057-4838-8071-6fcedc8e2818 -->`
+      - [ ] **2.1 The Friction<i></i>: The health industry forces a choice between reactive medicine (fixing damage) and extreme fitness coaching (pushing past fatigue).** `<!-- id: 8ad95748-3116-40fd-932c-12a680ab4b85 -->`
+      - [ ] **2.2 The Missing Role<i></i>: What high performers actually need is clinical guidance on building an underlying biological baseline—Fuel, Movement, and Rest.** `<!-- id: fc204154-21da-4571-8789-6b84f9db3bde -->`
+      - [ ] **2.3 Clinical Insight<i></i>: Over 230,000 patient visits taught me that most exercise injuries happen because people build strength on top of a dysfunctional foundation.** `<!-- id: 5634edf6-78a2-4fe9-b88b-c286341c7ea5 -->`
+      - [ ] **2.4 Casual Research Reference<i></i>: Andriacchi et al. (2004) <i>Ann Biomed Eng</i> showing minor joint misalignment quadruples cartilage stress under heavy load. <a href="https://pubmed.ncbi.nlm.nih.gov/15095819/">https://pubmed.ncbi.nlm.nih.gov/15095819/</a>** `<!-- id: ea766893-0984-42b7-8b97-a7b98b8fa705 -->`
+      - [ ] **2.5 The Takeaway<i></i>: You don't need more intensity. You need biological alignment first.** `<!-- id: 5db6622f-13db-475d-b14e-7ddc6abeb4f2 -->`
+    - [ ] **3. CTA** `<!-- id: b56d9ba3-ac03-4b58-94c8-c8bd64e8a8d3 -->`
+      - [ ] **"If you want a clinical approach to rebuilding your physical baseline without the gym bro hype, set up a free Systemized Discovery Call or grab our app unpacking the OS. I'll see you in the next video."** `<!-- id: 7c25329e-22d4-4ad4-a409-3a2d883ce24c -->`
+    - [ ] **audio rough draft #audiodraft** `<!-- id: 05799229-b7cc-4276-ae2f-1daf9e26d3bd -->`
+      - [ ] **Hard to get healthy, you have to think about where you are, you know, raw health. I like to think of health as three different levels, level one is the foundation. This is where you have a good basis of eating right, moving properly and getting good rest. Second level is... I mean, you can start to think bigger and plan and focus on your mental health and... environment. Normal three, is where you can plan, focus on the future and goal setting. Double check all this. I think I'm off a little bit with my operating system. But finding, determining where you are, that's where you have to start. is hard to make big time, goals, when you're not getting much sleep. Get the levels right in the right order, and we'll start seeing progress in the overall elephant goals.** `<!-- id: 9e8a8295-ddfb-4de1-9e23-68a40fe7759d -->`
+  - [ ] **80.V0B-S2: Finding Your System Glitch #<u>write</u>** `<!-- id: 22be0d20-ad81-4076-9a5e-0d2da194f628 -->`
+    - [ ] **<b>Video Code</b>: <code>80.V0B-S2</code>** `<!-- id: f6ede8be-9bf1-4976-bd72-1373e70c6085 -->`
+    - [ ] **<b>Parent Video</b>: <code>80.V0B</code> (<i>Health Info & Biology Baseline</i>)** `<!-- id: 6f4e2c0e-a0e3-4f5c-bfaf-fdf04bfe46a3 -->`
+    - [ ] **<b>Suggested Settings</b>: <code>#driving</code> <code>#outside</code> <code>#insidetruck</code>** `<!-- id: 5f41a0d9-fb4d-4776-a7bb-892c399e1d94 -->`
+    - [ ] **<b>JDex Topic Code</b>: <code>77.03</code> (<i>Clinical Consult & Neurological Assessment</i>)** `<!-- id: 2f6cacaf-8f62-40d4-a713-6242f526bc7d -->`
+    - [ ] **1. Hook** `<!-- id: 7f21d398-884a-4573-85d2-93315f0a2467 -->`
+      - [ ] **"Whenever someone comes into my office with chronic tightness or low energy, they usually blame their age. But 90% of the time, it's just a system glitch in their biological baseline."** `<!-- id: d920e299-6edb-494c-a0c9-7488537e5627 -->`
+    - [ ] **2. Talking Points (For Audio Riffing)** `<!-- id: 9c7f7b8d-c49d-4933-b11e-04645bc40dbd -->`
+      - [ ] **2.1 The Problem<i></i>: People mistake a simple neurological/somatic glitch for permanent aging or degeneration.** `<!-- id: 754289d1-4f7f-43b2-a252-e010c7ffed06 -->`
+      - [ ] **2.2 The Biological Reframe<i></i>: Your body isn't broken; it's running a corrupted routine in the background because a foundational baseline habit (Fuel, Movement, or Rest) is misaligned.** `<!-- id: c759e1c7-28d6-4bc2-9c0d-5a20fc4848c9 -->`
+      - [ ] **2.3 Clinical Example<i></i>: A patient complaining of tight hamstrings for 5 years—it wasn't short muscles, it was an inhibited glute motor pattern caused by sitting at a desk 10 hours a day.** `<!-- id: a3b54f9c-b9b9-42cf-81da-a42d3fc53f2e -->`
+      - [ ] **2.4 Casual Research Reference<i></i>: Tsao et al. (2008) <i>Brain</i> showing motor cortex reorganization causes motor map errors. <a href="https://pubmed.ncbi.nlm.nih.gov/18669505/">https://pubmed.ncbi.nlm.nih.gov/18669505/</a>** `<!-- id: f3dd2e2c-4842-4fca-ba56-d8d15d447145 -->`
+      - [ ] **2.5 The Action Step<i></i>: Test your system. Hold an incline plank or do a 30-second breath reset. Identify whether your glitch is physical fatigue or structural inhibition.** `<!-- id: 86ecaabc-b607-4dc2-a0c7-92e3b9281fff -->`
+    - [ ] **3. CTA** `<!-- id: 735c1831-707f-46a7-9781-5829f1d337f6 -->`
+      - [ ] **"If you want to isolate the exact biological glitch holding your body back, book a free Systemized Discovery Call with me or check out our app unpacking the OS. I'll see you in the next video."** `<!-- id: b36623d6-7c3a-4a87-9885-1e3b5d5a13ae -->`
+    - [ ] **audio, rough draft #audiodraft** `<!-- id: f9d1707d-6a92-414d-887b-222e3b9f3966 -->`
+      - [ ] **You probably always heard that more back pain can be caused. It can be a symptom of depression and anxiety and mental health issues. Well, it is true. You can actually have back pain when you're depressed, and it's not just a incidental connection. It actually is basic neuroscience. When your brain is focused on... Well, actually, when your brain is not... firing as fast as it should, as rapid as it should, it's almost like the RPMs of the brain are low. When this happens, it doesn't do quite as efficient. One of its main jobs, and that is to inhibit or relax, muscle time, and the body. So, when the RPMs of your brain are not fired them as fast as they should. The muscles in your body will increase their tone, generally. This is a normal phenomenon. This moment is supposed to work. That's why going for a run, or even laughing, and connecting with people, can help reduce back payments through this normal physiology. They would need to work. When we have back pain, it's often just a symptom of something else. Solve back pain. You have to look at, like, why you're getting back here.** `<!-- id: 97cc5c6c-0f6e-4bb4-ab24-1473acfd6957 -->`
+  - [ ] **80.V0A-S3: Stop Treating Health Like an Emergency #edit** `<!-- id: 65d28662-3e70-47dc-a7f3-3cdd81a304ec -->`
+    - [ ] **<b>Video Code</b>: <code>80.V0A-S3</code>** `<!-- id: 0a39f350-c577-4a97-b1cb-8763b8be45b8 -->`
+    - [ ] **<b>Parent Video</b>: <code>80.V0A</code> (<i>230,000 Patient Visits</i>)** `<!-- id: 13cb1cae-d645-410b-9a1a-c37f03c667c7 -->`
+    - [ ] **<b>Suggested Settings</b>: <code>#insidetruck</code> <code>#driving</code> <code>#outside</code>** `<!-- id: 951df350-4a7d-4562-8177-9515c1247fc4 -->`
+    - [ ] **<b>JDex Topic Code</b>: <code>77.02</code> (<i>Clinical Symptom Management</i>)** `<!-- id: 44878ac0-1415-4fc7-8b6d-fc3936558987 -->`
+    - [ ] **1. Hook** `<!-- id: 69d203c2-312a-4e1d-b69e-80676f68b497 -->`
+      - [ ] **"If you only care about your body when your back locks up or your energy completely crashes... you're running your health like an emergency room instead of an operating system."** `<!-- id: b8be22e6-3a1a-4170-b977-f807128e1b23 -->`
+    - [ ] **2. Talking Points (For Audio Riffing)** `<!-- id: 49f4adda-aca8-42cf-8b9c-a151ddeb47cc -->`
+      - [ ] **2.1 The Pattern<i></i>: People ignore subtle warning signs (stiffness, brain fog, poor sleep) for months, then react frantically when pain hits.** `<!-- id: 3950431d-66d4-4f57-9c94-8feb75f58964 -->`
+      - [ ] **2.2 The Biological Reframe<i></i>: Pain isn't the start of the problem—it's the late-stage alarm signal. True health is a background operating system running quiet, low-friction habits daily.** `<!-- id: 63f05d80-8622-417c-90fa-6b36b5fcadc1 -->`
+      - [ ] **2.3 Clinical Anecdote<i></i>: In 30 years of clinical practice, 9 out of 10 "sudden back spasms" were actually caused by 6 months of silent somatic micro-trauma.** `<!-- id: dfa7bce7-7c89-4408-a8ba-27a5755d11e7 -->`
+      - [ ] **2.4 Casual Research Reference<i></i>: Brinjikji et al. (2015) <i>AJNR</i> showing 80% of structural joint breakdown occurs silently long before the first pain signal. <a href="https://pubmed.ncbi.nlm.nih.gov/25430861/">https://pubmed.ncbi.nlm.nih.gov/25430861/</a>** `<!-- id: 72aa8360-a2ac-4e85-855d-a0a5e7b98698 -->`
+      - [ ] **2.5 Action Step<i></i>: Don't wait for the emergency. Check your Level 1 FMR baseline today.** `<!-- id: bc480acc-659f-457c-9fcb-1463885f2306 -->`
+    - [ ] **3. CTA** `<!-- id: 8ce11781-32b8-4180-ac09-c8ee59c97ae0 -->`
+      - [ ] **"If you want to transition from emergency firefighting to a smooth biological operating system, book a free Systemized Discovery Call or grab our app unpacking the OS. I'll see you in the next video."** `<!-- id: f47fa79b-1417-410b-951e-5af6e6e4365e -->`
+    - [ ] **Audio draft transcript** `<!-- id: cf3ddd13-fe0c-4a40-a670-4b16a5187f39 -->`
+      - [ ] **What you do today is gonna make a difference tomorrow. We can make this really simple. A study... found that... vigorous exercise a few times a week reduces the occurrence of long term. Musculoskeletal pain, that's back pain, neck pain, shoulder pain, knee pain, et cetera. And older adults engage in vigorous activity. And what does that look like? Well, simple. Two or three times a week, I want you to walk, move briskly, or do some kind of activity where you break a sweat. You wanna physically... break a sweat. That means you have generated enough heat, enough activity, enough metabolic activity in your body, that requires you to... increase your heart rate, and engage your autonomic nervous system. so that you sweat. That's what I want you to do. If you get to that point, 20 to 40 minutes, 2 to 3 times a week, you're gonna be on your way to maintaining your health and reducing the chance of muscular skeletal, pain and discomfort as you get older.** `<!-- id: 06798f9a-7378-4fc2-b183-e552bb8aece9 -->`
+    - [ ] **Shots** `<!-- id: c6cc1a28-7d6c-4f97-96b9-ea0e0b306453 -->`
+      - [ ] **80.V0A-S3>1 — The Hook #edit #insidetruck** `<!-- id: f2ccad2a-63fc-41fa-b6cc-6678213983c2 -->`
+        - [ ] **What you do today is gonna make a difference tomorrow. [breath] We can make this really simple.** `<!-- id: e2ba9cc9-1f3b-4b66-a0b4-9b9948a4335d -->`
+      - [ ] **80.V0A-S3>2 — Clinical Research Evidence #edit #insidetruck** `<!-- id: 54bc4703-f749-42fc-b850-e096bfd61003 -->`
+        - [ ] **A major study found that vigorous exercise a few times a week... [pause] reduces the occurrence of long-term musculoskeletal pain—that's back pain, neck pain, shoulder pain, knee pain, et cetera. [breath] And older adults who engage in vigorous activity stay pain-free far longer.** `<!-- id: 5f4c2a7b-73e4-4880-b555-c1d48b57be52 -->`
+      - [ ] **80.V0A-S3>3 — Defining Vigorous Movement #film #driving** `<!-- id: 4063bbce-cb7f-4079-8f49-815659fca775 -->`
+        - [ ] **And what does that look like? [tone shift] Well, simple. [breath] Two or three times a week, I want you to walk, move briskly, or do some kind of activity where you break a sweat.** `<!-- id: a0f1fdee-5247-4f50-9600-e7b7dbc9048e -->`
+      - [ ] **80.V0A-S3>4 — The Autonomic Sweat Metric #film #driving** `<!-- id: fd3c4d9f-bacd-42e6-9583-37ab6b24e406 -->`
+        - [ ] **You wanna physically break a sweat. [breath] That means you have generated enough heat, enough activity, enough metabolic activity in your body... [breath] that requires you to increase your heart rate, and engage your autonomic nervous system so that you sweat.** `<!-- id: 8e77d11f-d3fd-4d7f-a1f4-6fa336c68214 -->`
+      - [ ] **80.V0A-S3>5 — Dosage & Healthy Aging #edit #outside** `<!-- id: 0ce889f2-1c3b-4bea-94ac-53ac8d4c1508 -->`
+        - [ ] **That's what I want you to do. [breath] If you get to that point—20 to 40 minutes, 2 to 3 times a week... [eye contact shift] you're gonna be on your way to maintaining your health and reducing the chance of musculoskeletal pain and discomfort as you get older.** `<!-- id: 7b84f11d-5b5f-4ece-8097-f5673745d164 -->`
+      - [ ] **80.V0A-S3>6 — Outro CTA #edit #outside** `<!-- id: fc03c34f-f247-402b-a917-9c53964935c6 -->`
+        - [ ] **If you want to transition from emergency firefighting to a smooth biological operating system, [breath] book a free Systemized Discovery Call or grab our app unpacking the OS. [gesture] I'll see you in the next video.** `<!-- id: 1056a1e9-9372-4bad-884b-86637610117c -->`
+  - [ ] **80.V0A-S2: The Biological Sequence of Change** `<!-- id: 9146cb9c-964c-4563-b47f-811d5ff4150d -->`
+    - [ ] **<b>Video Code</b>: <code>80.V0A-S2</code>** `<!-- id: 24c54dea-09d0-44c6-842f-3a7d58ed8772 -->`
+    - [ ] **<b>Parent Video</b>: <code>80.V0A</code> (<i>230,000 Patient Visits</i>)** `<!-- id: c0ef4460-7300-491c-9a74-37828869f956 -->`
+    - [ ] **<b>Suggested Settings</b>: <code>#outside</code> <code>#cuttinggrass</code> <code>#whilebusy</code>** `<!-- id: bef761b1-785c-4456-b5cb-7dcf9705b1a6 -->`
+    - [ ] **<b>JDex Topic Code</b>: <code>80.11</code> (<i>Autonomic Sequence & Systemized OS</i>)** `<!-- id: 444e67b0-0877-4e32-aef5-4be207d48ac8 -->`
+    - [ ] **1. Hook** `<!-- id: f8416472-2de9-4e4f-b463-0b4ffd11521f -->`
+      - [ ] **"Most high performers are exhausted because they're trying to fix emotional stress and high-level goals while their physical foundation is literally falling apart."** `<!-- id: 79a4debb-aa3f-49fb-b678-99d71ca54585 -->`
+    - [ ] **2. Talking Points (For Audio Riffing)** `<!-- id: 3cd03bd5-a625-49a3-a00c-81bae2bf59f7 -->`
+      - [ ] **2.1 The Problem: People try to solve mental burnout or business goals (Level 3) without fixing sleep or hydration (Level 1 FMR).** `<!-- id: 980c71e3-74a9-4043-ab47-238f0116748c -->`
+      - [ ] **2.2 Biological Hierarchy<i></i>: Your nervous system prioritizes survival and metabolic baseline before granting cognitive focus or physical performance.** `<!-- id: c3dc7c35-1a6a-4a69-bdea-d5153d5fe293 -->`
+      - [ ] **2.3 Clinical Reality<i></i>: 30 years in chiropractic care showed that trying to optimize mindset while your nervous system is biologically exhausted is a waste of time.** `<!-- id: 137f99d4-0cbe-4abe-80c6-a4d93d4208b8 -->`
+      - [ ] **2.4 Casual Research Reference<i></i>: Seiler et al. (2007) <i>Med Sci Sports Exerc</i> demonstrating autonomic recovery follows a strict biological sequence: metabolic stability -> structural movement -> cognitive focus. <a href="https://pubmed.ncbi.nlm.nih.gov/17762370/">https://pubmed.ncbi.nlm.nih.gov/17762370/</a>** `<!-- id: c94ed3cd-da9f-4c46-9bbb-dd6b273e156e -->`
+      - [ ] **2.5 Action Step<i></i>: Level 1 comes first: Fuel, Move, Rest. If movement is your weak link, do 30 seconds of incline plank a day. Don't worry about an hour at the gym.** `<!-- id: 57d040db-c527-4c3d-9cd8-364a9a119eb4 -->`
+    - [ ] **3. CTA** `<!-- id: c0e917e5-bdf3-459f-936e-f1eec5605cb2 -->`
+      - [ ] **"If you want to install health habits in the exact order your biology demands, book a free Systemized Discovery Call or grab our app unpacking the OS. I'll see you in the next video."** `<!-- id: cf5f4b23-e651-4aef-8c59-40dcf51b030b -->`
+    - [ ] **Audio draft transcript** `<!-- id: 828fde08-751a-44b7-b058-06700575c974 -->`
+      - [ ] **There are two systems that kick in to respond to stress. The nervous system, through the autonomic component of the nervous system, and the energy system, The nervous system is short term, instant. It's instant reaction, it spikes your... pulse and spikes your blood pressure, it helps you respond to the immediate stressor. The long term response to stress comes from the hypothylamic pituitary axis, HPA. And this is hormonal. The hormones long term will change in response to stress. So that's the way it works when ramping up to a stressor. And it also works the same way, man, ramping down. You have to focus on the metabolic pathways first. Fuel. movement and rest. Fuel movement and rest are the first step in recovering from stress. So if you got some stress going on, just pick one of those. and pick a very small goal. If it's fuel, try to cut your carbs a little bit. Drink more water, if it's movement, go for a brief walk, do a 30 second plank. If it's rest, grab a nap this afternoon. See if you can do that three days in a row, see if you start feeling better.** `<!-- id: 92a87c63-bafb-4333-b95c-1b5ad59f269c -->`
+    - [ ] **Shots** `<!-- id: b555305e-fc16-4211-bb2c-b842df1d2831 -->`
+      - [ ] **80.V0A-S2>1 — The Hook (Two Stress Systems) #edit #outside** `<!-- id: 86c03c6b-b804-4ebb-a2bd-8162782649c5 -->`
+        - [ ] **There are two systems that kick in to respond to stress. [breath] The nervous system—through the autonomic component of the nervous system— [pause] and the energy system.** `<!-- id: b3712693-0221-4140-80ed-b1d8d2e0bd32 -->`
+      - [ ] **80.V0A-S2>2 — Short-Term Autonomic vs. HPA Axis #edit #outside** `<!-- id: f682576a-5361-47e7-a06b-66cf57439815 -->`
+        - [ ] **The nervous system is short term, instant. [breath] It's instant reaction: it spikes your pulse and spikes your blood pressure to help you respond to the immediate stressor.** `<!-- id: 8f9c63c5-79a9-458c-bc65-be82b3f698ae -->`
+      - [ ] **80.V0A-S2>3 — Chronic Hormonal Response #film #cuttinggrass** `<!-- id: 0925bed7-147a-4bfb-a1af-5f56bdb9d5fe -->`
+        - [ ] **The long-term response to stress comes from your hypothalamic-pituitary axis—the HPA axis. [breath] And this is hormonal. The hormones long term will change in response to chronic stress.** `<!-- id: 19cdda72-ec33-4675-85b2-2298053f2138 -->`
+      - [ ] **80.V0A-S2>4 — Ramping Down Stress (Metabolic First) #film #cuttinggrass** `<!-- id: aad3a96e-5fda-4782-928b-f801fc955352 -->`
+        - [ ] **So that's the way it works when ramping up to a stressor... [breath] And it also works the exact same way, man, ramping down. [tone shift]** `<!-- id: a932aa43-5ec5-462b-8664-e000494ac1a2 -->`
+      - [ ] **80.V0A-S2>5 — Level 1 FMR Micro-Actions #film #whilebusy** `<!-- id: 8c4acef7-3eea-4b84-9581-a4997fc5ae43 -->`
+        - [ ] **You have to focus on the metabolic pathways first: Fuel, Movement, and Rest. [breath] Fuel, movement, and rest are the mandatory first step in recovering from stress. [breath] So if you got some stress going on, [pause] just pick one of those pillars and pick a very small goal. If it's Fuel: try to cut your carbs a little bit, or drink more water. If it's Movement: go for a brief walk, or do a 30-second plank. If it's Rest: grab a nap this afternoon.** `<!-- id: 3f4bd764-d61b-4f81-a1f2-58669d618525 -->`
+      - [ ] **80.V0A-S2>6 — The 3-Day Test & Outro CTA #film #whilebusy** `<!-- id: c4cb1a75-0710-4a8b-83b9-d74f89751592 -->`
+        - [ ] **See if you can do that three days in a row, [gesture] and see if you start feeling better. [breath] If you want to install health habits in the exact order your biology demands, set up a free Systemized Discovery Call or grab our app unpacking the OS. I'll see you in the next video.** `<!-- id: 1d560ce3-cb53-4613-a38d-3a0bb3e74a93 -->`
+  - [ ] **80.V1B1-S1: Why Exercise is Optional #<u>write</u>** `<!-- id: f908f0a7-f8d3-44fa-87f6-3053dedb5a38 -->`
+    - [ ] **<b>Video Code</b>: <code>80.V1B1-S1</code>** `<!-- id: 41f7fec1-d054-4bbf-9256-46e0a001e7fe -->`
+    - [ ] **<b>Parent Video</b>: <code>80.V1B1</code> (<i>Exercise Optional / Movement Mandatory</i>)** `<!-- id: 6b2e6473-d0fb-4473-8e51-627799bdb83f -->`
+    - [ ] **<b>Suggested Settings</b>: <code>#whilebusy</code> <code>#shopping</code> <code>#outside</code>** `<!-- id: edbee80f-ade2-45c4-a5c5-ef1e31a7e13a -->`
+    - [ ] **<b>JDex Topic Code</b>: <code>77.01</code> (<i>Physical Movement & Energetics</i>)** `<!-- id: 734c89c5-190b-4e6f-a9dc-74d0043123d5 -->`
+    - [ ] **1. Hook** `<!-- id: cbc9a574-6d8a-4c20-b0e1-0bfc76c5c6ff -->`
+      - [ ] **"If you hate grinding on a treadmill going nowhere... good. Your biology agrees with you. Exercise is optional—movement is mandatory."** `<!-- id: 6ce4f456-a931-477e-9d28-e48bc7981196 -->`
+    - [ ] **2. Talking Points (For Audio Riffing)** `<!-- id: bd80b75f-b957-4539-9015-c4105e6beba6 -->`
+      - [ ] **2.1 The Relief<i></i>: People feel guilty when they can't force themselves to go to the gym 5 days a week. Ditch the guilt.** `<!-- id: b5aa1d93-9258-4d5e-8c8c-e5ca5ffa11e4 -->`
+      - [ ] **2.2 Biological Fact<i></i>: Human physiology is designed for high-frequency, low-load somatic movement throughout the day, not 1 hour of intense gym suffering followed by 10 hours of desk sitting.** `<!-- id: 27bf6b08-46fe-4037-91ab-3a04b963f13f -->`
+      - [ ] **2.3 Clinical Insight<i></i>: Sitting motionless all day and then doing heavy squats at 6 PM is a recipe for spinal disc herniation.** `<!-- id: 447bd728-33ae-449d-9229-6bec70f1893b -->`
+      - [ ] **2.4 Casual Research Reference<i></i>: Pontzer et al. (2012) <i>PLoS One</i> showing hunter-gatherers rarely engage in cardio sessions, but move low-intensity all day. <a href="https://pubmed.ncbi.nlm.nih.gov/22848382/">https://pubmed.ncbi.nlm.nih.gov/22848382/</a>** `<!-- id: fc24305e-73d6-43a2-9b61-ca9d563680ef -->`
+      - [ ] **2.5 Action Step<i></i>: Integrate movement micro-breaks into daily life (standing calf raises, desk planks, walking while talking on the phone).** `<!-- id: 7fb62329-25db-4be8-bcc4-3a8cd5537aef -->`
+    - [ ] **3. CTA** `<!-- id: 422dcf29-c08d-47c6-865a-cee3ae63aaf8 -->`
+      - [ ] **"If you want to build joint health and vitality without spending hours at the gym, set up a free Systemized Discovery Call or grab our app unpacking the OS. I'll see you in the next video."** `<!-- id: 06820d98-108c-4853-b904-bffcfe99433a -->`
+  - [ ] **80.V1B1-S2: Joint Imbibition: How Joints Eat** `<!-- id: f40cf409-525f-4dae-bb20-127094a581e2 -->`
+    - [ ] **<b>Video Code</b>: <code>80.V1B1-S2</code>** `<!-- id: e7bd71b3-7c36-4010-84ee-6480cf193260 -->`
+    - [ ] **<b>Parent Video</b>: <code>80.V1B1</code> (<i>Exercise Optional / Movement Mandatory</i>)** `<!-- id: 9b753049-be87-4d7b-a804-3008d9e4a9d9 -->`
+    - [ ] **<b>Suggested Settings</b>: <code>#insidetruck</code> <code>#outside</code> <code>#studio</code>** `<!-- id: d0573cbf-105e-42a1-a63f-2ca42983141d -->`
+    - [ ] **<b>JDex Topic Code</b>: <code>77.01</code> (<i>Spinal Biomechanics & Hydrostatics</i>)** `<!-- id: 6eb2bf1e-8fe5-48a9-9a04-4e464cfcc934 -->`
+    - [ ] **1. Hook** `<!-- id: 3c2f9654-0530-4d44-8da2-09551b4772f6 -->`
+      - [ ] **"Did you know that your spinal cartilage and joint surfaces have zero blood supply? They literally can't eat unless you move them."** `<!-- id: 8f616b1c-e646-4bb6-b403-1aaa55763356 -->`
+    - [ ] **2. Talking Points (For Audio Riffing)** `<!-- id: 35ab0c01-b31c-4809-a53e-e6a019089614 -->`
+      - [ ] **2.1 Anatomical Fact<i></i>: Adult joint cartilage and intervertebral discs are avascular (no direct blood vessels).** `<!-- id: bfbe10d6-0f2a-44c3-be69-fabd0e681831 -->`
+      - [ ] **2.2 The Mechanism (Imbibition)<i></i>: Joints rely on a mechanical pump mechanism called imbibition. When loaded, fluid is squeezed out; when decompressed, fresh nutrient-rich fluid is sucked back in like a sponge.** `<!-- id: 99857641-192b-4355-bdf6-3922cec5f97f -->`
+      - [ ] **2.3 The Danger<i></i>: Sitting motionless at a desk starves your joint cartilage of oxygen and nutrients.** `<!-- id: 9b58ed33-f809-4716-bccd-a9812b67705f -->`
+      - [ ] **2.4 Casual Research Reference<i></i>: Urban & Roberts (2003) <i>Arthritis Res Ther</i> demonstrating joint fluid exchange relies on mechanical hydrostatic pressure. <a href="https://pubmed.ncbi.nlm.nih.gov/12723977/">https://pubmed.ncbi.nlm.nih.gov/12723977/</a>** `<!-- id: 23af2a84-7952-4457-ad6b-d924f624b955 -->`
+      - [ ] **2.5 Action Step<i></i>: Every 45 minutes, perform gentle spinal rotations or pelvic tilts to pump your discs.** `<!-- id: cf8b2578-f9af-4549-9735-c38170d3de7d -->`
+    - [ ] **3. CTA** `<!-- id: 8a5618cf-0b84-426b-8180-ab00783d4950 -->`
+      - [ ] **"If you want to protect your joints from premature decay and keep your spine nourished for life, set up a free Systemized Discovery Call or grab our app unpacking the OS. I'll see you in the next video."** `<!-- id: 62a6b8ab-f0ec-4215-857d-ca9852d1a7be -->`
+  - [ ] **80.V1B1-S3: Cortical Smudging: Why Back Pain Spasms** `<!-- id: 6f8f6370-2fd3-44eb-aa68-a3807819dfc1 -->`
+    - [ ] **<b>Video Code</b>: <code>80.V1B1-S3</code>** `<!-- id: 1b737690-cf99-49c5-8865-9e4b7e958958 -->`
+    - [ ] **<b>Parent Video</b>: <code>80.V1B1</code> (<i>Exercise Optional / Movement Mandatory</i>)** `<!-- id: 38b74666-4593-47ae-aec9-23a4e58b794a -->`
+    - [ ] **<b>Suggested Settings</b>: <code>#insidetruck</code> <code>#driving</code> <code>#outside</code>** `<!-- id: ba24922c-59fa-44ed-8eac-01c8d5654dd5 -->`
+    - [ ] **<b>JDex Topic Code</b>: <code>77.03</code> (<i>Sensory Motor Map & Cortical Representation</i>)** `<!-- id: cda49191-b613-4286-be69-5d4aa9cc1a12 -->`
+    - [ ] **1. Hook** `<!-- id: 4c5ddc4b-752e-4a7f-bdae-442548273846 -->`
+      - [ ] **"Ever bent over to pick up a pencil and had your back lock up in violent spasms? That wasn't a pulled muscle—that was your brain smudging your motor map."** `<!-- id: 38534617-0a49-4c16-88ec-822918247eb1 -->`
+    - [ ] **2. Talking Points (For Audio Riffing)** `<!-- id: c7b644c5-ccab-4ad3-b866-02186a8cd3a5 -->`
+      - [ ] **2.1 The Puzzle<i></i>: Why does a tiny, light movement (picking up a sock or pencil) trigger a massive, excruciating muscle spasm in the lower back?** `<!-- id: f5f1ea93-f458-4f75-a669-e58203af71ae -->`
+      - [ ] **2.2 Neurological Mechanism<i></i>: Cortical Smudging. The brain has a high-definition motor map (homunculus) of your spine. If you don't move through full ranges daily, the map blurs like a smudged mirror.** `<!-- id: 3fc0b39d-a949-4ab0-a2eb-d53de24f913d -->`
+      - [ ] **2.3 The Threat Response<i></i>: When you make a surprise movement, the blurred brain map freaks out because it can't sense precise joint position, triggering a protective muscle lock-up.** `<!-- id: d09b683f-3040-457e-b4c6-2fc29de3ef1c -->`
+      - [ ] **2.4 Casual Research Reference<i></i>: Moseley & Flor (2012) <i>Neurorehabil Neural Repair</i> showing lack of varied movement blurs cortical representations. <a href="https://pubmed.ncbi.nlm.nih.gov/22331213/">https://pubmed.ncbi.nlm.nih.gov/22331213/</a>** `<!-- id: 1d9159ce-d748-4d63-9283-18fc534ebc76 -->`
+      - [ ] **2.5 Action Step<i></i>: Sharp sensory feedback resets the map—do slow, controlled cat-camels or tactile spinal tracing daily.** `<!-- id: fed4204b-efab-4dc6-8dfc-193bb3c2c94e -->`
+    - [ ] **3. CTA** `<!-- id: e9f4f70d-749a-4fa0-a66e-a81af6fb0747 -->`
+      - [ ] **"If you want to clear your brain's motor map and eliminate random muscle spasms for good, book a free Systemized Discovery Call or grab our app unpacking the OS. I'll see you in the next video."** `<!-- id: e8dbb1df-0c35-4558-a38a-ca22aa9c7c7f -->`
+  - [ ] **80.V0A1-S1: The Willpower Trap** `<!-- id: cb9366de-e092-4db8-b1a2-fc9fdb7418fe -->`
+    - [ ] **<b>Video Code</b>: <code>80.V0A1-S1</code>** `<!-- id: 36733732-a3c4-484b-aa89-2d8246e54463 -->`
+    - [ ] **<b>Parent Video</b>: <code>80.V0A1</code> (<i>Systemized OS Framework</i>)** `<!-- id: 1d3d8242-55ee-48f5-a85f-a433b5b72072 -->`
+    - [ ] **<b>Suggested Settings</b>: <code>#whilebusy</code> <code>#insidetruck</code> <code>#outside</code>** `<!-- id: 4675668c-f0d7-4947-b95b-9ea583dc60b5 -->`
+    - [ ] **<b>JDex Topic Code</b>: <code>42.06</code> (<i>Ego Depletion & Executive Control</i>)** `<!-- id: 3cbfa912-34f0-424b-99d5-5c0561f63d88 -->`
+    - [ ] **1. Hook** `<!-- id: 8c63f39b-d0dd-422b-a8cb-bc9db404b211 -->`
+      - [ ] **"If you're relying on sheer willpower and discipline to keep your health together... you are running your body on a battery that's guaranteed to run out."** `<!-- id: ceda6e22-66bc-4027-95ee-f6732ff00342 -->`
+    - [ ] **2. Talking Points (For Audio Riffing)** `<!-- id: 2fb5f79a-cb4f-4792-9374-276476bbea36 -->`
+      - [ ] **2.1 The Illusion<i></i>: High performers think they just need more grit to stick to complex health routines.** `<!-- id: 7ed7cdc7-78ef-43d6-93fb-33d3de9ba3e6 -->`
+      - [ ] **2.2 The Biological Bottleneck<i></i>: Willpower relies on the prefrontal cortex, which is exhaustible. By 5 PM, decision fatigue sets in and your brain defaults to energy-saving habits.** `<!-- id: 49fcd61a-d091-4b78-96c2-f23cebe048d6 -->`
+      - [ ] **2.3 Clinical Reality<i></i>: 30 years in practice showed me that patient compliance drops to zero when routines require active decision-making after a stressful workday.** `<!-- id: 878c671d-6de4-40d2-9d70-e10c239b072c -->`
+      - [ ] **2.4 Casual Research Reference<i></i>: Inzlicht & Schmeichel (2012) <i>Perspect Psychol Sci</i> proving executive control drains predictably under cognitive load. <a href="https://pubmed.ncbi.nlm.nih.gov/26168503/">https://pubmed.ncbi.nlm.nih.gov/26168503/</a>** `<!-- id: 7ca87659-22e6-4918-9110-7b03c376abbd -->`
+      - [ ] **2.5 The Solution<i></i>: Automate habits into friction-free systems. Structure is freedom.** `<!-- id: 48f829a6-ec42-44fc-9be0-9f075090ad2a -->`
+    - [ ] **3. CTA** `<!-- id: 454e1ec2-2d58-45e4-9712-1d8974a6e997 -->`
+      - [ ] **"If you want to stop relying on exhausting willpower and build automated health systems that run in the background, set up a free Systemized Discovery Call or grab our app unpacking the OS. I'll see you in the next video."** `<!-- id: c4577fc9-43a9-467f-855a-05e2f99b3e86 -->`
+    - [ ] **Audio draft transcript** `<!-- id: 7724bf8f-f189-48cd-8c10-ca849a6be4cb -->`
+      - [ ] **I know you've relied on willpower to get a lot of stuff done, and that's great. Willpower is fantastic, especially when you have a lot of it. I want you to think of willpower as a battery. Think of the battery in your phone, and the way that you can get a lot of work done on your phone. The more work you're doing, the more apps you have open, the faster your battery drains. Willpower is exactly the same. Now, how do you improve or boost your battery in your phone? Will you charge it? How do you charge your willbound? Well, there are several ways. One way is to offload the cognitive burden that you have. So if you're trying to remember to take out the trash, or you remember to pick up that thing that you saw back there, or you have to make that call to that person, or whatever you have to do, all those little pieces take up some cognitive bandwidth. And this, cognitive bandwidth is needed for willpower. So if you lose your cognitive bandwidth, the cognitive energy, your willpower's gonna go down, and you just want to have that cookie, or eat that cheesecake, and forget about it. So, how to get some immediate boost and willpower and cognitive energy, write down everything that's taking up minds, taking up cognitive space in your head and see how that feels.** `<!-- id: 960dfa34-1dad-4989-9d22-3ee7d430c42c -->`
+    - [ ] **Shots** `<!-- id: dcf00b7b-1f10-47b4-b5af-3d65f569960c -->`
+      - [ ] **80.V0A1-S1>1 — The Hook #film #whilebusy** `<!-- id: 3b2b2a18-e063-4868-a0c3-b77d89bfd56d -->`
+      - [ ] **80.V0A1-S1>2 — Phone Battery Metaphor #film #whilebusy** `<!-- id: a6017075-b2df-46cd-a8f0-10e238157203 -->`
+      - [ ] **80.V0A1-S1>3 — How to Charge Willpower #edit #insidetruck** `<!-- id: 025f0ff7-5438-407f-a5ad-5ea09c8e7ccf -->`
+      - [ ] **80.V0A1-S1>4 — Open Cognitive Apps #edit #outside** `<!-- id: 35dcad15-d60c-4b42-965b-4902c1233e2f -->`
+      - [ ] **80.V0A1-S1>5 — The 5 PM Collapse & Immediate Action #edit #outside** `<!-- id: f621bc7a-86fa-4316-9420-f84a26f18fe6 -->`
+      - [ ] **80.V0A1-S1>6 — Outro CTA #edit #outside** `<!-- id: bb6b387b-9b74-443a-ae1b-de8e243fd172 -->`
+  - [ ] **80.V0A1-S2: Level 1 FMR Baseline** `<!-- id: 738e2ebe-9069-4b85-bbdc-0e7f8c36fce1 -->`
+    - [ ] **<b>Video Code</b>: <code>80.V0A1-S2</code>** `<!-- id: 06288174-744b-4e74-ad85-b2b492ed24ec -->`
+    - [ ] **<b>Parent Video</b>: <code>80.V0A1</code> (<i>Systemized OS Framework</i>)** `<!-- id: 4e501f9a-63b4-410c-9e28-abaacae9cf18 -->`
+    - [ ] **<b>Suggested Settings</b>: <code>#outside</code> <code>#insidetruck</code> <code>#studio</code>** `<!-- id: 5ba0b82e-d6a4-4f90-bc62-d51bc83aecba -->`
+    - [ ] **<b>JDex Topic Code</b>: <code>80.11</code> (<i>Level 1 FMR Biological Foundation</i>)** `<!-- id: 3b97dc57-4f98-431b-8ea5-cc3d734e2bf4 -->`
+    - [ ] **1. Hook** `<!-- id: 5f5b9301-3ce7-4df1-91ea-db0509928248 -->`
+      - [ ] **"Before you spend a single dollar on fancy red light therapy, ice baths, or biohacking gadgets... let's talk about Level 1 FMR."** `<!-- id: 7fa79f63-fc0e-4a24-9bfe-292affd4b15b -->`
+    - [ ] **2. Talking Points (For Audio Riffing)** `<!-- id: 8ecf5ad0-0831-433d-8dc5-0c7f9cfcc4a0 -->`
+      - [ ] **2.1 The Distraction<i></i>: People love buying expensive biohacks while ignoring that they get 5 hours of broken sleep and drink no water.** `<!-- id: bee50623-9e26-48ce-816a-e38693feafb4 -->`
+      - [ ] **2.2 The FMR Framework<i></i>: Level 1 of the Systemized OS is non-negotiable: Fuel (hydration & real nutrient density), Move (daily low-load somatic pump), and Rest (circadian alignment).** `<!-- id: d803ad99-2c74-4c1f-ac47-dacf58a1d1b9 -->`
+      - [ ] **2.3 Clinical Insight<i></i>: In 230,000 patient visits, fixing Level 1 cleared up 80% of what patients thought were complex medical problems.** `<!-- id: 43f15b7c-3b19-49a2-a986-a706bbf28a4f -->`
+      - [ ] **2.4 Casual Research Reference<i></i>: Calder et al. (2011) <i>Br J Nutr</i> showing optimizing basic hydration, circadian rest, and low-load movement resolves systemic low-grade inflammation. <a href="https://pubmed.ncbi.nlm.nih.gov/22133051/">https://pubmed.ncbi.nlm.nih.gov/22133051/</a>** `<!-- id: 5b106156-a04a-4356-95c7-40943b7caf85 -->`
+      - [ ] **2.5 Action Step<i></i>: Audit your baseline today. Which pillar is lagging: Fuel, Move, or Rest?** `<!-- id: 41a56954-bd61-41c7-96bd-07c9e29e7db0 -->`
+    - [ ] **3. CTA** `<!-- id: 015f29fb-ae8c-41bc-838d-2d3252a08c0d -->`
+      - [ ] **&quot;If you want to audit your Level 1 FMR baseline and get your physical foundation solid, book a free Systemized Discovery Call or check out our app unpacking the OS. I'll see you in the next video.&quot;** `<!-- id: c8a00b76-94ea-430f-970c-3d3344aaa3e7 -->`
+    - [ ] **Audio draft transcript** `<!-- id: 625dc73e-c17e-458a-b82b-c7c159d695d1 -->`
+      - [ ] **All right, you've decided to get healthy, and so you're gonna go out and buy something. You're gonna get a trinket, or a little watch, or something that's gonna measure your steps. It's got technology, it's got AI built into it. And honestly, that is a complete distraction. Do not want to do that. That is not for you if you're just starting to reclaim your health. You have to focus on the basics. Now, I have a systemized operating system framework which has three levels. Level one is what you have to focus on. Level one is food, movement, and rest, food movement and rest. You gotta get this down before you can really get into the more advanced stuff, and buying trinkets, buying little gadgets, is not for you. It's not going to be the answer if you do not have food moving and rest taken care of. Now, if that trinket can help you with any of those topics. Then maybe you can consider it. But please. I would do a little... sample life adjustment before you buy anything. So if you feel your problem is food. Try to eat a little bit better. Don't worry about doing a new diet. Just eat a little bit better. Just see if you have inside of you what it takes to eat a little bit better. Maybe you don't have as many cookies, maybe you drink a little more water. Just a little bit. Just enough to start you down that path. And if you keep this up, you want to take it up a notch, maybe you start tracking your diet, watching your mackerel, getting a scale, and really just dialing in that number, but see if you can get into it before you commit. Second, if movement is your thing. Maybe instead of buying that gym membership, maybe you do a daily walk and say, if I can walk every day, 30 minutes for 10 days, then I'll get that membership. You have to prove to yourself... that you can make these changes from within, not from outside by buying an outside gadget or trinket. If rest is your thing. Track, when you go to sleep, and when you get up on a piece of paper for 10 nights, figure out the average time you go to sleep, and when you get up, and then just stick with that average, go to sleep, and get up at the same time for another 10 days. That's it. Just do that. If you can do that, if you can get standardized, systematized, in the way you sleep, then you want to take it up a notch. Maybe get a sleep tracker if you want to, if you need that. But see if you can just do it from inside. from your desire to change. And that desire plus a gadget may be something you want to do. Don't put the gadget before.** `<!-- id: d8c61dfb-ed75-46ec-88f1-dc34e8a36721 -->`
+    - [ ] **Shots** `<!-- id: e8d1316a-786a-42fe-8f61-e122e2033417 -->`
+      - [ ] **80.V0A1-S2>1 — The Hook (Trinket Distraction) #edit #outside** `<!-- id: 7838d20c-0519-4fe8-ab9c-3bd0044cf1d2 -->`
+      - [ ] **80.V0A1-S2>2 — The Level 1 FMR Rule #edit #outside** `<!-- id: 5f07c0ce-769f-4164-91e5-8c96f4149170 -->`
+      - [ ] **80.V0A1-S2>3 — Prove the Food Baseline First #edit #insidetruck** `<!-- id: 6e3c5bd1-39db-4091-8aa6-e67f9d77bdc1 -->`
+      - [ ] **80.V0A1-S2>4 — Prove the Movement Baseline First #edit #insidetruck** `<!-- id: 1610f76c-0323-4da5-992b-4309a7b65036 -->`
+      - [ ] **80.V0A1-S2>5 — Prove the Rest Baseline First #film #studio** `<!-- id: 99c7e718-437a-4c0f-834c-fbcdee37ed05 -->`
+      - [ ] **80.V0A1-S2>6 — Outro CTA #film #studio** `<!-- id: bec8585f-90f3-4cc3-b7b6-76844c16047b -->`
+  - [ ] **80.V0A1-S3: The 3-Tier Health Pyramid** `<!-- id: 968af5a3-f781-45d9-a44e-9e364422f819 -->`
+    - [ ] **<b>Video Code</b>: <code>80.V0A1-S3</code>** `<!-- id: d8dbdba8-991c-4553-a809-720f1eebd732 -->`
+    - [ ] **<b>Parent Video</b>: <code>80.V0A1</code> (<i>Systemized OS Framework</i>)** `<!-- id: 8fbbfad9-227f-491f-8873-9de9d26e3215 -->`
+    - [ ] **<b>Suggested Settings</b>: <code>#insidetruck</code> <code>#outside</code> <code>#whilebusy</code>** `<!-- id: 98ce2ed5-91d0-4cff-a8d8-9d2709611b72 -->`
+    - [ ] **<b>JDex Topic Code</b>: <code>80.11</code> (<i>3-Tier Health Architecture</i>)** `<!-- id: adecd4af-11b8-4c8d-b05c-64d43e842aa0 -->`
+    - [ ] **1. Hook** `<!-- id: dfa7aca3-b030-40a1-88c9-1b8cb6c045e6 -->`
+      - [ ] **"Think of your health like an operating system on your phone. If the hardware is overheating, downloading fancy new apps isn't going to help."** `<!-- id: 5b664941-d6fd-464e-be0e-ffa55e3fb14c -->`
+    - [ ] **2. Talking Points (For Audio Riffing)** `<!-- id: 8e68b7cb-dc46-4e3f-8df9-3f8d0b7c3fc0 -->`
+      - [ ] **2.1 The Architecture<i></i>: Systemized Health uses a 3-Tier Operating System: Level 1 FMR (Baseline), Level 2 TLC (Internal), and Level 3 POP (External).** `<!-- id: c99bd1ad-17d3-4e5b-9c10-10d537381a3e -->`
+      - [ ] **2.2 The Core Rule<i></i>: Level 3 external execution is impossible if Level 1 baseline is broken.** `<!-- id: 045a904d-cd72-4436-93e8-24eeeab25720 -->`
+      - [ ] **2.3 Clinical Insight<i></i>: Over 30 years, I've watched high performers collapse because they tried to run Level 3 life goals on a crashing Level 1 engine.** `<!-- id: 654646a8-d96b-4b5d-94c4-60a17760732c -->`
+      - [ ] **2.4 Casual Research Reference<i></i>: Kitano (2002) <i>Science</i> showing complex biological networks fail predictably when higher-order metabolic demands exceed baseline energy production. <a href="https://pubmed.ncbi.nlm.nih.gov/11872829/">https://pubmed.ncbi.nlm.nih.gov/11872829/</a>** `<!-- id: cb332519-0be6-4907-bd6b-a64e2ae8d80a -->`
+      - [ ] **2.5 Action Step<i></i>: Fix your Level 1 foundation so your Level 3 performance can actually thrive.** `<!-- id: bae1f36b-60f1-4254-9696-17b38527aca5 -->`
+    - [ ] **3. CTA** `<!-- id: 027f40c3-775a-4604-a32f-ad505d9119c6 -->`
+      - [ ] **"If you want to map your body across the 3-Tier Systemized OS pyramid, book a free Systemized Discovery Call or grab our app unpacking the OS. I'll see you in the next video."** `<!-- id: 88ce7d17-ce75-4065-90a2-408c49509f70 -->`
+    - [ ] **Audio Draft transcript** `<!-- id: 56f0e8e0-e54a-4495-b44d-528d6544b77c -->`
+      - [ ] **It's hard to worry about planning and your future when the basics of the present are not handled. This is Maslow's hierarchy of needs. This concept applies also to rebuilding your health. There are three levels that you have to go through. Ah, correct that. You can't get to the intermediate or more advanced. concepts of becoming a healthier person if you don't have the basic level taken care of. Basic level that I've defined in the systemized operating system is F, M, R, fuel, movement, and rest. If you are having trouble in these areas, they need to be handled first before you really get good at planning, goal setting, and even working on your mental health. Without proper nutrition, movement, and rest. You can't properly get your mental health in order or your emotional life in order. It's all built on this foundation, all of it. So look at fuel, movement rest. What you eat, how active you are, how much you move, and how much you rest, and decide to choose one of those this week to work on. Pick a small step and just move on it. One small step. That's all it takes to rework and rewrite your future.** `<!-- id: f04098fe-a1d0-40d6-bfca-0a02023632bf -->`
+    - [ ] **Shots** `<!-- id: 9d0ecaa1-e8c0-4406-8b5a-2d08e1328506 -->`
+  - [ ] **#<u>write</u>  &gt;  #<u>film</u>  &gt;  #<u>edit</u>  &gt;  #<u>approve</u> &gt;  #<u>publish</u>** `<!-- id: 4b0966d5-0833-460e-a42c-b5a741846bd6 -->`
+- [ ] **80.10 - Operations &amp; Systems** `<!-- id: ffb06114-f8ce-4b1b-a22d-c8eb66ecd824 -->`
+  - [ ] **80.10.WF.2 Set up client onboarding website** `<!-- id: 00fb2934-2306-4762-8159-40fa76c51b86 -->`
+  - [ ] **80.10.WF.3 //NCMIC** `<!-- id: 07d9a114-1f75-4bb3-94a0-8fd15e696cc2 -->`
+  - [ ] **80.10 //Google number with Systemized health #task** `<!-- id: 51849292-7a59-4068-8c62-deb7773af609 -->`
+  - [ ] **80.10.WF.2A - Contacts for HubSpot #task** `<!-- id: c466762c-3083-416d-9727-c19e5d6576ed -->`
+  - [ ] **80.10-WF - Schedule** `<!-- id: f83c0276-1447-4b16-bceb-ebc54fefb5be -->`
+    - [ ] **📅 August 2026 Publication Schedule** `<!-- id: de78bc46-da71-4a33-866d-244f7c31ef0d -->`
+      - [ ] **🗓️ Week 1 (Aug 1 - Aug 7)** `<!-- id: 9c23b808-f798-4ccd-a378-253932e2204f -->`
+        - [ ] **🎬 2026-08-03 — 80.V0A: 230,000 Patient Visits (Long) [Uploaded]** `<!-- id: a5d4c36b-418d-4ed5-a2fe-509822f468e3 -->`
+        - [ ] **⚡ 2026-08-04 — 80.V0A-S1: Why Monday Health Resolutions Fail (Short) [Uploaded]** `<!-- id: a40e91cf-c731-4187-8e9b-1095c637e6d4 -->`
+        - [ ] **⚡ 2026-08-06 — 80.V0A-S2: The Biological Sequence of Change (Short) [Uploaded]** `<!-- id: ec99a954-0763-4f54-bd5f-5192a60fb220 -->`
+        - [ ] **⚡ 2026-08-08 — 80.V0A-S3: Stop Treating Health Like an Emergency (Short) [Uploaded]** `<!-- id: 3a89ecd1-e13e-4fb2-b686-cbb5fb75dd41 -->`
+      - [ ] **🗓️ Week 2 (Aug 8 - Aug 14)** `<!-- id: b0abadf2-7c84-42f1-b356-08a1b4d3b5dc -->`
+        - [ ] **🎬 2026-08-10 — 80.V1B1: Exercise Optional (Movement Mandatory) (Long) [Uploaded]** `<!-- id: ca92b7ec-b29a-4f28-bafc-ef0319d1417e -->`
+        - [ ] **⚡ 2026-08-11 — 80.V1B1-S1: Why Exercise is Optional (Short) [Uploaded]** `<!-- id: c36713d2-6b27-49db-a61f-2dc83931d178 -->`
+        - [ ] **⚡ 2026-08-13 — 80.V1B1-S2: Joint Imbibition: How Joints Eat (Short) [Uploaded]** `<!-- id: a7d7befd-0969-4b7b-8883-7f9e5115d087 -->`
+        - [ ] **⚡ 2026-08-15 — 80.V1B1-S3: Cortical Smudging: Why Back Pain Spasms (Short) [Uploaded]** `<!-- id: 74b03211-7a6d-47f3-8cc0-17dbb45cd195 -->`
+      - [ ] **🗓️ Week 3 (Aug 15 - Aug 21)** `<!-- id: eb1bd34c-cf74-406b-a24b-9a4c7f7f79da -->`
+        - [ ] **🎬 2026-08-17 — 80.V0B: Health Info & Biology Baseline (Long) [Uploaded]** `<!-- id: c5a4fc92-807f-40f1-8703-4fa5219d1fd9 -->`
+        - [ ] **⚡ 2026-08-18 — 80.V0B-S1: Information Overload vs Implementation (Short) [Uploaded]** `<!-- id: d13cbf18-d53d-439a-8909-8e72349123c0 -->`
+        - [ ] **⚡ 2026-08-20 — 80.V0B-S2: Finding Your System Glitch (Short) [Uploaded]** `<!-- id: cd1568c6-4f87-4177-932d-9b619f8e7af0 -->`
+        - [ ] **⚡ 2026-08-22 — 80.V0B-S3: Doctor vs Coach: Rebuilding Baseline (Short) [Uploaded]** `<!-- id: 96e7e91d-c104-4145-b6c2-9a50182e4c5c -->`
+      - [ ] **🗓️ Week 4 (Aug 22 - Aug 31)** `<!-- id: 1051a9b4-171c-4541-85b9-461c2a181c00 -->`
+        - [ ] **🎬 2026-08-24 — 80.V0A1: Systemized OS Framework (Long) [In Edit]** `<!-- id: aee14b41-1c40-43b0-9aee-ea62ddbec7b1 -->`
+        - [ ] **⚡ 2026-08-25 — 80.V0A1-S1: The Willpower Trap (Short) [Planned]** `<!-- id: 537abdbe-46f1-4f7f-b4a4-99d1b02042f1 -->`
+        - [ ] **⚡ 2026-08-27 — 80.V0A1-S2: Level 1 FMR Baseline (Short) [Planned]** `<!-- id: c770c1f2-1f79-482b-beb2-497d4d2ecd62 -->`
+        - [ ] **⚡ 2026-08-29 — 80.V0A1-S3: Discovery Call Coaching Protocol (Short) [Planned]** `<!-- id: 5570b8f9-26e9-4171-995d-3bfe4436955a -->`
+      - [ ] **🗓️ Week 1 (Aug 1 - Aug 7)** `<!-- id: 559bddd2-f422-4c97-bbaa-cafda9b5f8d5 -->`
+        - [ ] **🎬 2026-08-03 — 80.V0A: 230,000 Patient Visits (Long) [Uploaded]** `<!-- id: 25f4d435-e89c-477b-885f-0c0a9c72863e -->`
+        - [ ] **⚡ 2026-08-04 — 80.V0A-S1: Why Monday Health Resolutions Fail (Short) [Uploaded]** `<!-- id: dea0bbd1-e416-4a05-9849-ca97e9ee0cd2 -->`
+        - [ ] **⚡ 2026-08-06 — 80.V0A-S2: The Biological Sequence of Change (Short) [Uploaded]** `<!-- id: 691304db-d0fe-4f8a-8b9f-d7f8e2f54909 -->`
+        - [ ] **⚡ 2026-08-08 — 80.V0A-S3: Stop Treating Health Like an Emergency (Short) [Uploaded]** `<!-- id: 16614f4a-5f66-4b28-970e-93a148d503d0 -->`
+      - [ ] **🗓️ Week 2 (Aug 8 - Aug 14)** `<!-- id: 430b92e0-2a5e-4221-bcc8-ed119a01b9be -->`
+        - [ ] **🎬 2026-08-10 — 80.V1B1: Exercise Optional (Movement Mandatory) (Long) [Uploaded]** `<!-- id: ad2875ed-fa32-4851-8b12-78512b023550 -->`
+        - [ ] **⚡ 2026-08-11 — 80.V1B1-S1: Why Exercise is Optional (Short) [Uploaded]** `<!-- id: 83f0e5f1-262f-40b1-9851-72c09b26bef4 -->`
+        - [ ] **⚡ 2026-08-13 — 80.V1B1-S2: Joint Imbibition: How Joints Eat (Short) [Uploaded]** `<!-- id: df8424a2-1208-4f42-8bc2-8bd8ee36f6b3 -->`
+        - [ ] **⚡ 2026-08-15 — 80.V1B1-S3: Cortical Smudging: Why Back Pain Spasms (Short) [Uploaded]** `<!-- id: c05c4d03-c9a2-41cf-aa82-e785a17c3877 -->`
+      - [ ] **🗓️ Week 3 (Aug 15 - Aug 21)** `<!-- id: 45efacce-d25b-4f6a-bb7f-0279c0331df8 -->`
+        - [ ] **🎬 2026-08-17 — 80.V0B: Health Info & Biology Baseline (Long) [Uploaded]** `<!-- id: 3be6dbbd-df5d-4d5c-be8e-8485f1a7b651 -->`
+        - [ ] **⚡ 2026-08-18 — 80.V0B-S1: Information Overload vs Implementation (Short) [Uploaded]** `<!-- id: 3d59375e-04e1-4047-be8a-b6cb2bbd370b -->`
+        - [ ] **⚡ 2026-08-20 — 80.V0B-S2: Finding Your System Glitch (Short) [Uploaded]** `<!-- id: 6a118f77-c363-47b0-a4c1-129dbd8ab565 -->`
+        - [ ] **⚡ 2026-08-22 — 80.V0B-S3: Doctor vs Coach: Rebuilding Baseline (Short) [Uploaded]** `<!-- id: 7e58f56d-43b8-491a-b488-df435f153084 -->`
+      - [ ] **🗓️ Week 4 (Aug 22 - Aug 31)** `<!-- id: 27eb1637-5d26-43de-bbf2-a18749a56118 -->`
+        - [ ] **🎬 2026-08-24 — 80.V0A1: Systemized OS Framework (Long) [In Edit]** `<!-- id: 64269e78-8bb6-4db3-a99a-5ffce9d90ebe -->`
+        - [ ] **⚡ 2026-08-25 — 80.V0A1-S1: The Willpower Trap (Short) [Planned]** `<!-- id: 8599828b-5d9c-4f49-bfa9-86480e11593a -->`
+        - [ ] **⚡ 2026-08-27 — 80.V0A1-S2: Level 1 FMR Baseline (Short) [Planned]** `<!-- id: 024234bb-6cf9-42a5-bf4d-ba6e4d1a349b -->`
+        - [ ] **⚡ 2026-08-29 — 80.V0A1-S3: Discovery Call Coaching Protocol (Short) [Planned]** `<!-- id: f03b5b60-9fb0-4a41-8279-4c7f3cc91861 -->`
+      - [ ] **🗓️ Week 1 (Aug 1 - Aug 7)** `<!-- id: 8f888fb3-2519-42f9-9550-ef3efedc0bce -->`
+        - [ ] **🎬 2026-08-03 — 80.V0A: 230,000 Patient Visits (Long) [Uploaded]** `<!-- id: dd594d40-b095-431a-8541-a54af14d7feb -->`
+        - [ ] **⚡ 2026-08-04 — 80.V0A-S1: Why Monday Health Resolutions Fail (Short) [Uploaded]** `<!-- id: 498e5b6c-0188-4298-a7b0-4f75285eaf51 -->`
+        - [ ] **⚡ 2026-08-06 — 80.V0A-S2: The Biological Sequence of Change (Short) [Uploaded]** `<!-- id: af7bf430-4b81-4637-8766-45327ba4525f -->`
+        - [ ] **⚡ 2026-08-08 — 80.V0A-S3: Stop Treating Health Like an Emergency (Short) [Uploaded]** `<!-- id: 914db60e-61a3-45f7-8756-3ef6796f34fa -->`
+      - [ ] **🗓️ Week 2 (Aug 8 - Aug 14)** `<!-- id: 311ca3e2-f139-4dd2-8437-8aa441685b8a -->`
+        - [ ] **🎬 2026-08-10 — 80.V1B1: Exercise Optional (Movement Mandatory) (Long) [Uploaded]** `<!-- id: 86a43931-2d98-423d-b654-4198031a11e2 -->`
+        - [ ] **⚡ 2026-08-11 — 80.V1B1-S1: Why Exercise is Optional (Short) [Uploaded]** `<!-- id: e2461734-1f9c-4969-beab-c0dacf296f9c -->`
+        - [ ] **⚡ 2026-08-13 — 80.V1B1-S2: Joint Imbibition: How Joints Eat (Short) [Uploaded]** `<!-- id: 12432457-175a-4345-8142-d528af52bb7b -->`
+        - [ ] **⚡ 2026-08-15 — 80.V1B1-S3: Cortical Smudging: Why Back Pain Spasms (Short) [Uploaded]** `<!-- id: 672f4323-ce69-4822-aa2a-972f0d6b88c6 -->`
+      - [ ] **🗓️ Week 3 (Aug 15 - Aug 21)** `<!-- id: 1adcd5e1-df20-4dc3-ae0e-a6bde5c9ccdb -->`
+        - [ ] **🎬 2026-08-17 — 80.V0B: Health Info & Biology Baseline (Long) [Uploaded]** `<!-- id: 9254e687-03a4-476d-81c3-823ba78ce2c4 -->`
+        - [ ] **⚡ 2026-08-18 — 80.V0B-S1: Information Overload vs Implementation (Short) [Uploaded]** `<!-- id: 1763cf0b-c423-4608-85d3-0318113bccea -->`
+        - [ ] **⚡ 2026-08-20 — 80.V0B-S2: Finding Your System Glitch (Short) [Uploaded]** `<!-- id: 8c34d595-79cc-4542-99ab-7e6c9d220667 -->`
+        - [ ] **⚡ 2026-08-22 — 80.V0B-S3: Doctor vs Coach: Rebuilding Baseline (Short) [Uploaded]** `<!-- id: 005f1282-4d8e-450d-a988-4141cf1ffc86 -->`
+      - [ ] **🗓️ Week 4 (Aug 22 - Aug 31)** `<!-- id: 6310360c-6237-4e9b-84eb-d4bbbe764996 -->`
+        - [ ] **🎬 2026-08-24 — 80.V0A1: Systemized OS Framework (Long) [In Edit]** `<!-- id: 1cee3167-ffda-4e75-a993-eab837b862dc -->`
+        - [ ] **⚡ 2026-08-25 — 80.V0A1-S1: The Willpower Trap (Short) [Planned]** `<!-- id: 7b4394ae-5839-4ebe-8bed-a66eab2f343d -->`
+        - [ ] **⚡ 2026-08-27 — 80.V0A1-S2: Level 1 FMR Baseline (Short) [Planned]** `<!-- id: 0fbd9a89-ab58-4527-a108-4a3d84fff785 -->`
+        - [ ] **⚡ 2026-08-29 — 80.V0A1-S3: The 3-Tier Health Pyramid (Short) [Planned]** `<!-- id: 0a687734-ce90-4b17-aec3-9d96f7cf6025 -->`
+  - [ ] **80.10.WF.3 Unpack and consider world in SOPs #task** `<!-- id: 2ef344fb-d0c0-4ba1-9452-a5486e1c7f56 -->`
+  - [ ] **80.10.WF.1 Tactics for SH #review** `<!-- id: 06895961-f6bc-49c1-a9d2-2474e1469ffa -->`
+- [ ] **80.80 General B Roll** `<!-- id: d4143c74-9e95-4e7f-bdc8-6164b2b7c3a8 -->`
+- [ ] **📊 Daily Analytics & Task Reports** `<!-- id: 55048e21-201d-48b0-82a2-da5f5a5a4d27 -->`
+  - [ ] **📊 Systemized Health Daily Report — 2026-07-29** `<!-- id: dc55d40b-fec5-4566-b6df-b289e48cc492 -->`
+    - [ ] **📈 Pipeline Status: 3 Uploaded | 6 In Production** `<!-- id: 462f4c67-626d-4b4c-8d72-8c8404934699 -->`
+    - [ ] **⏱️ Channel Performance Across 4 Timeframes:** `<!-- id: 22610df5-53cc-4b4d-967f-e1a4185111e5 -->`
+    - [ ] **Last 48 Hours: 0 Views | 0.0 Avg VPH Velocity** `<!-- id: ab4965b8-13ec-4f26-8556-09d4c0ae6ed3 -->`
+    - [ ] **Last 7 Days: 0 Views | 0 Likes | 0.0% Avg CTR** `<!-- id: ace51230-a432-4c30-b35e-def43661a79c -->`
+    - [ ] **Last 28 Days: 0 Views | 0 Likes | +0 Subscribers** `<!-- id: 9029dfa1-2dbf-4db6-b315-4c597fed998a -->`
+    - [ ] **All Time (Lifetime): 0 Total Views | 0 Likes | 0 Comments** `<!-- id: b7f9b84a-ecd2-4548-ba75-ca327e355825 -->`
+    - [ ] **📅 Upcoming Video Drops (Next 7 Days):** `<!-- id: dab5cfe8-85da-45f8-b1b6-64c0ccaff8ad -->`
+    - [ ] **2026-08-03 | 80.V0A (Long): 230,000 Patient Visits [Uploaded]** `<!-- id: b9817113-e2f8-4921-a27a-4ec86f26c145 -->`
+    - [ ] **2026-08-04 | 80.V0A-S1 (Short): The Biological Reason Monday Resolutions Always Fail [Editing]** `<!-- id: 9287a327-d9fc-4503-8281-f3357f8bdd77 -->`
+    - [ ] **2026-08-06 | 80.V0A-S2 (Short): The Exact Biological Sequence Your Body Needs to Change [Editing]** `<!-- id: 6ed17930-d895-4b12-acf6-f2033f2cdd53 -->`
+    - [ ] **2026-08-08 | 80.V0A-S3 (Short): Stop Treating Your Health Like an Emergency Room [Editing]** `<!-- id: b75e057e-0f4f-4687-af2a-bb0e8b593339 -->`
+    - [ ] **2026-08-10 | 80.V1B1 (Long): Exercise Optional (Movement Mandatory) [Uploaded]** `<!-- id: f8e562fa-1fda-45fe-b695-7a9b6a7f2e5a -->`
+    - [ ] **2026-08-11 | 80.V1B1-S1 (Short): Exercise is Optional But Movement is Biologically Mandatory [Ready for Audio Riff]** `<!-- id: 1b51cd0d-9eb1-4204-a12f-4c0dfd3a3e2f -->`
+    - [ ] **2026-08-13 | 80.V1B1-S2 (Short): Joint Imbibition: The Only Way Your Joints Actually Get Nourished [Ready for Audio Riff]** `<!-- id: aea16ac4-b7df-4ecc-a145-965b1041d289 -->`
+    - [ ] **⏳ Open Production Tasks & Due Dates:** `<!-- id: 3f89e907-f039-4cdd-b9da-97eba0bbc0a8 -->`
+    - [ ] **[Due: 2026-08-01] 80.V0A1 — Phase I: Audio Dictation (-A) (Phase I)** `<!-- id: f99c39ac-7c81-4ec1-83c9-38b05f8962f8 -->`
+    - [ ] **[Due: 2026-08-01] 80.V0B-S1 — Phase I: Audio Dictation (-A) (Phase I)** `<!-- id: d533d92f-191a-4252-9682-6e7e55da0283 -->`
+    - [ ] **[Due: 2026-08-01] 80.V0B-S2 — Phase I: Audio Dictation (-A) (Phase I)** `<!-- id: 5beba41d-d477-4655-9242-32e7b504c730 -->`
+    - [ ] **[Due: 2026-08-01] 80.V0B-S3 — Phase I: Audio Dictation (-A) (Phase I)** `<!-- id: 85ebaa44-5328-43fd-a797-d1a947a565af -->`
+    - [ ] **[Due: 2026-08-01] 80.V0A-S1 — Phase I: Audio Dictation (-A) (Phase I)** `<!-- id: 41344f1a-538e-4274-a8b5-242ec311ed5d -->`
+    - [ ] **[Due: 2026-08-01] 80.V0A-S2 — Phase I: Audio Dictation (-A) (Phase I)** `<!-- id: ef5d0a41-6be7-4a50-a471-2e4d6035c0c9 -->`
+    - [ ] **[Due: 2026-08-01] 80.V0A-S3 — Phase I: Audio Dictation (-A) (Phase I)** `<!-- id: 19e6da6b-80c1-4ffd-8b73-e0560ce28627 -->`
+    - [ ] **[Due: 2026-08-01] 80.V1B1-S1 — Phase I: Audio Dictation (-A) (Phase I)** `<!-- id: efd9d401-0270-48ee-b849-39043fdda542 -->`
+    - [ ] **[Due: 2026-08-01] 80.V1B1-S2 — Phase I: Audio Dictation (-A) (Phase I)** `<!-- id: ac318efe-3954-4186-b865-8860661a8d81 -->`
+    - [ ] **[Due: 2026-08-01] 80.V1B1-S3 — Phase I: Audio Dictation (-A) (Phase I)** `<!-- id: 7755e725-f03b-4f84-ae7c-68af88440394 -->`
+    - [ ] **[Due: 2026-08-01] 80.V0A1-S1 — Phase I: Audio Dictation (-A) (Phase I)** `<!-- id: efc4f867-9b41-4b0f-aa62-814ea92e675e -->`
+    - [ ] **[Due: 2026-08-01] 80.V0A1-S2 — Phase I: Audio Dictation (-A) (Phase I)** `<!-- id: 32b2c05f-b287-4f68-882c-501c4aa05921 -->`
+    - [ ] **[Due: 2026-08-01] 80.V0A1-S3 — Phase I: Audio Dictation (-A) (Phase I)** `<!-- id: c62bb715-92a3-423f-8ffb-92f65158d39f -->`
+    - [ ] **[Due: 2026-08-01] 80.V0A1 — Phase I: Audio Dictation (-A) (Phase I)** `<!-- id: 40970361-db27-4e4d-8941-5347104d5641 -->`
+    - [ ] **[Due: 2026-08-01] 80.V0B-S1 — Phase I: Audio Dictation (-A) (Phase I)** `<!-- id: 240a8203-a1c0-48b2-afb8-aaf3fb4f433e -->`
+    - [ ] **[Due: 2026-08-01] 80.V0B-S2 — Phase I: Audio Dictation (-A) (Phase I)** `<!-- id: 1bb88f92-d669-4569-bfae-f9165423c48c -->`
+    - [ ] **[Due: 2026-08-01] 80.V0B-S3 — Phase I: Audio Dictation (-A) (Phase I)** `<!-- id: 4adb6e0e-b652-4273-843e-a569b6ad16c5 -->`
+    - [ ] **[Due: 2026-08-01] 80.V0A-S1 — Phase I: Audio Dictation (-A) (Phase I)** `<!-- id: 8a56cd81-5411-4ec8-9e84-077aea00c839 -->`
+    - [ ] **[Due: 2026-08-01] 80.V0A-S2 — Phase I: Audio Dictation (-A) (Phase I)** `<!-- id: 96f5b695-bfb5-4679-a891-44d416412fde -->`
+    - [ ] **[Due: 2026-08-01] 80.V0A-S3 — Phase I: Audio Dictation (-A) (Phase I)** `<!-- id: 1f893cf0-0a68-4639-b6bd-d59fdb26e92d -->`
+    - [ ] **[Due: 2026-08-01] 80.V1B1-S1 — Phase I: Audio Dictation (-A) (Phase I)** `<!-- id: b1d08900-4f94-49a8-85d1-604a9f1a28e7 -->`
+    - [ ] **[Due: 2026-08-01] 80.V1B1-S2 — Phase I: Audio Dictation (-A) (Phase I)** `<!-- id: 89e9bd3b-fe67-4b42-9dd0-79a75fc43b3d -->`
+    - [ ] **[Due: 2026-08-01] 80.V1B1-S3 — Phase I: Audio Dictation (-A) (Phase I)** `<!-- id: 22c7c0ec-d910-4a8d-aee3-00135c55ad84 -->`
+    - [ ] **[Due: 2026-08-01] 80.V0A1-S1 — Phase I: Audio Dictation (-A) (Phase I)** `<!-- id: 2674dc8b-8a25-4115-a49a-cc8491d9e9a0 -->`
+    - [ ] **[Due: 2026-08-01] 80.V0A1-S2 — Phase I: Audio Dictation (-A) (Phase I)** `<!-- id: de373553-cda5-47f1-9114-87201f6bcdb5 -->`
+    - [ ] **[Due: 2026-08-01] 80.V0A1-S3 — Phase I: Audio Dictation (-A) (Phase I)** `<!-- id: 80d1dcff-6e1a-4cb9-8fda-92ce1301edc5 -->`
+    - [ ] **[Due: 2026-08-05] 80.V0A1 — Phase II: Script Blueprint (-B) (Phase II)** `<!-- id: f8e59cee-f654-4701-b225-1d6d04fd6ea5 -->`
+    - [ ] **[Due: 2026-08-05] 80.V0B-S1 — Phase II: Script Blueprint (-B) (Phase II)** `<!-- id: 8fa1f7be-ca05-4b0d-ba26-71cb7c62b463 -->`
+    - [ ] **[Due: 2026-08-05] 80.V0B-S2 — Phase II: Script Blueprint (-B) (Phase II)** `<!-- id: ce127a0a-1f63-4a3d-877c-9145dc530749 -->`
+    - [ ] **[Due: 2026-08-05] 80.V0B-S3 — Phase II: Script Blueprint (-B) (Phase II)** `<!-- id: bd66b2bd-34d6-4ed2-8429-e8dba6daf1b0 -->`
+    - [ ] **[Due: 2026-08-05] 80.V0A-S1 — Phase II: Script Blueprint (-B) (Phase II)** `<!-- id: 066af97e-84aa-465a-99bf-bdf0b4aa58e6 -->`
+    - [ ] **[Due: 2026-08-05] 80.V0A-S2 — Phase II: Script Blueprint (-B) (Phase II)** `<!-- id: 79b66128-d556-4c2d-bf27-2a279d3ff8d3 -->`
+    - [ ] **[Due: 2026-08-05] 80.V0A-S3 — Phase II: Script Blueprint (-B) (Phase II)** `<!-- id: fcd8d3dc-8efb-447e-9256-013e515bf4e2 -->`
+    - [ ] **[Due: 2026-08-05] 80.V1B1-S1 — Phase II: Script Blueprint (-B) (Phase II)** `<!-- id: 97b4a263-ac8b-42a5-bb6a-7d541aadb61e -->`
+    - [ ] **[Due: 2026-08-05] 80.V1B1-S2 — Phase II: Script Blueprint (-B) (Phase II)** `<!-- id: 699aadc3-0251-4aff-a374-2b044f7c690b -->`
+    - [ ] **[Due: 2026-08-05] 80.V1B1-S3 — Phase II: Script Blueprint (-B) (Phase II)** `<!-- id: 4e503815-6ff8-495f-8080-1154d22936f4 -->`
+    - [ ] **[Due: 2026-08-05] 80.V0A1-S1 — Phase II: Script Blueprint (-B) (Phase II)** `<!-- id: 4549e718-afc7-459e-978f-28ddf68ba45c -->`
+    - [ ] **[Due: 2026-08-05] 80.V0A1-S2 — Phase II: Script Blueprint (-B) (Phase II)** `<!-- id: 4842d0b2-03ad-4b15-8ceb-d69c701e9a80 -->`
+    - [ ] **[Due: 2026-08-05] 80.V0A1-S3 — Phase II: Script Blueprint (-B) (Phase II)** `<!-- id: 8c80f61e-b285-41b9-9d65-c9984e412a74 -->`
+    - [ ] **[Due: 2026-08-05] 80.V0A1 — Phase II: Script Blueprint (-B) (Phase II)** `<!-- id: a588eaf8-85db-4b60-b617-9afe9a8423c1 -->`
+    - [ ] **[Due: 2026-08-05] 80.V0B-S1 — Phase II: Script Blueprint (-B) (Phase II)** `<!-- id: 6712d867-eee0-4224-a81a-3419ef647d65 -->`
+    - [ ] **[Due: 2026-08-05] 80.V0B-S2 — Phase II: Script Blueprint (-B) (Phase II)** `<!-- id: a344250d-74ec-4f92-b6ba-4a7474b469d8 -->`
+    - [ ] **[Due: 2026-08-05] 80.V0B-S3 — Phase II: Script Blueprint (-B) (Phase II)** `<!-- id: ebca936d-48ef-4968-8670-96a4d711a328 -->`
+    - [ ] **[Due: 2026-08-05] 80.V0A-S1 — Phase II: Script Blueprint (-B) (Phase II)** `<!-- id: cc3d5ca5-a002-4f70-8778-f24b0fd9ef03 -->`
+    - [ ] **[Due: 2026-08-05] 80.V0A-S2 — Phase II: Script Blueprint (-B) (Phase II)** `<!-- id: e37763f4-b25b-4a7f-aace-9b6395207d54 -->`
+    - [ ] **[Due: 2026-08-05] 80.V0A-S3 — Phase II: Script Blueprint (-B) (Phase II)** `<!-- id: 8962783c-a8bd-4e8d-9a3b-e89e747ed167 -->`
+    - [ ] **[Due: 2026-08-05] 80.V1B1-S1 — Phase II: Script Blueprint (-B) (Phase II)** `<!-- id: c0d444aa-6b74-4f92-b3a3-28c7dd88da48 -->`
+    - [ ] **[Due: 2026-08-05] 80.V1B1-S2 — Phase II: Script Blueprint (-B) (Phase II)** `<!-- id: e603d724-7264-4895-babd-ca77192457d0 -->`
+    - [ ] **[Due: 2026-08-05] 80.V1B1-S3 — Phase II: Script Blueprint (-B) (Phase II)** `<!-- id: 2f870ac1-b4dd-4643-86dd-c63d3ef751e8 -->`
+    - [ ] **[Due: 2026-08-05] 80.V0A1-S1 — Phase II: Script Blueprint (-B) (Phase II)** `<!-- id: 1092e352-3bbf-4860-a8af-c309edc5f25d -->`
+    - [ ] **[Due: 2026-08-05] 80.V0A1-S2 — Phase II: Script Blueprint (-B) (Phase II)** `<!-- id: 7f461ca1-1b4a-4b1b-9c97-4d6d1b82966a -->`
+    - [ ] **[Due: 2026-08-05] 80.V0A1-S3 — Phase II: Script Blueprint (-B) (Phase II)** `<!-- id: 4a6f84bd-09b3-445b-8770-a1c6ca6ef7e0 -->`
+    - [ ] **[Due: 2026-08-05] 80.V0B-S1 — Phase IV: Video Editing & Assembly (Phase IV)** `<!-- id: 8ddac2a0-0066-4d32-8fcb-0eb9d4ba5975 -->`
+    - [ ] **[Due: 2026-08-05] 80.V0A-S1 — Phase IV: Video Editing & Assembly (Phase IV)** `<!-- id: adfe7af2-489b-4ad4-aa5d-e29c4115e5a1 -->`
+    - [ ] **[Due: 2026-08-05] 80.V0A-S2 — Phase IV: Video Editing & Assembly (Phase IV)** `<!-- id: a0a5274a-4114-443a-8e0d-fb9de66a44c8 -->`
+    - [ ] **[Due: 2026-08-05] 80.V0A-S3 — Phase IV: Video Editing & Assembly (Phase IV)** `<!-- id: 5ba6600b-830c-45bb-b24a-b410c2c7bf52 -->`
+    - [ ] **[Due: 2026-08-05] 80.V0A1-S1 — Phase IV: Video Editing & Assembly (Phase IV)** `<!-- id: b1d46ac7-443b-46af-88ec-c8b5d3f978a7 -->`
+    - [ ] **[Due: 2026-08-05] 80.V0A1-S2 — Phase IV: Video Editing & Assembly (Phase IV)** `<!-- id: ab7695f5-1bf0-4198-8ed8-d58b84a8702b -->`
+    - [ ] **[Due: 2026-08-05] 80.V0A1-S3 — Phase IV: Video Editing & Assembly (Phase IV)** `<!-- id: a3da8ee8-9c81-4d46-8b32-4ebeacea7aa4 -->`
+    - [ ] **[Due: 2026-08-10] 80.V0A1 — Phase III: On-Camera Filming (Phase III)** `<!-- id: 60952c4d-1e95-4335-81b7-5577abf4ff66 -->`
+    - [ ] **[Due: 2026-08-10] 80.V0B-S2 — Phase III: On-Camera Filming (Phase III)** `<!-- id: 31201e8d-a4ff-4a98-9562-038c9bd3add9 -->`
+    - [ ] **[Due: 2026-08-10] 80.V0B-S3 — Phase III: On-Camera Filming (Phase III)** `<!-- id: 4e65158a-623c-4b5d-a1e8-218033d63812 -->`
+    - [ ] **[Due: 2026-08-10] 80.V1B1-S1 — Phase III: On-Camera Filming (Phase III)** `<!-- id: 4a479d21-b27b-45f9-8137-f23f24deb654 -->`
+    - [ ] **[Due: 2026-08-10] 80.V1B1-S2 — Phase III: On-Camera Filming (Phase III)** `<!-- id: 8ba68e1d-13b1-4415-8576-0761d3a1451d -->`
+    - [ ] **[Due: 2026-08-10] 80.V1B1-S3 — Phase III: On-Camera Filming (Phase III)** `<!-- id: 5fcc339d-23df-4593-9406-a3c084263c0b -->`
+    - [ ] **[Due: 2026-08-10] 80.V0A1 — Phase III: On-Camera Filming (Phase III)** `<!-- id: 06b8f1e5-33b7-42e0-8c4e-7021732ea8ad -->`
+    - [ ] **[Due: 2026-08-10] 80.V0B-S2 — Phase III: On-Camera Filming (Phase III)** `<!-- id: 101c1509-b20e-4d1b-9068-c2afbfe26a08 -->`
+    - [ ] **[Due: 2026-08-10] 80.V0B-S3 — Phase III: On-Camera Filming (Phase III)** `<!-- id: 38fc5d30-c8f8-423e-93ef-6d7da62f16b7 -->`
+    - [ ] **[Due: 2026-08-10] 80.V1B1-S1 — Phase III: On-Camera Filming (Phase III)** `<!-- id: 6d3d47ba-eac1-4e59-9adb-4f47f907c361 -->`
+    - [ ] **[Due: 2026-08-10] 80.V1B1-S2 — Phase III: On-Camera Filming (Phase III)** `<!-- id: f0b4e1a5-bfe3-4206-9370-9164e9c2c13e -->`
+    - [ ] **[Due: 2026-08-10] 80.V1B1-S3 — Phase III: On-Camera Filming (Phase III)** `<!-- id: c6bc1a4c-572b-44c5-8300-b061816f79fb -->`
+    - [ ] **[Due: 2026-08-12] 80.V0A1 — Phase III: Workflowy Sync (Phase III)** `<!-- id: dd5a3fac-ceb2-4c2e-9005-e6c0fed0e804 -->`
+    - [ ] **[Due: 2026-08-12] 80.V0B-S1 — Phase III: Workflowy Sync (Phase III)** `<!-- id: 0fc85148-70c2-4dcd-9904-1685297488ae -->`
+    - [ ] **[Due: 2026-08-12] 80.V0B-S2 — Phase III: Workflowy Sync (Phase III)** `<!-- id: 7f55f9ff-1385-42cb-ae3a-5b8753c4e0db -->`
+    - [ ] **[Due: 2026-08-12] 80.V0B-S3 — Phase III: Workflowy Sync (Phase III)** `<!-- id: 5d407212-c832-4b43-aec2-bf5d5f26b77e -->`
+    - [ ] **[Due: 2026-08-12] 80.V0A-S1 — Phase III: Workflowy Sync (Phase III)** `<!-- id: 0660b19a-4049-4bc9-ac4c-ca5ab195ab14 -->`
+    - [ ] **[Due: 2026-08-12] 80.V0A-S2 — Phase III: Workflowy Sync (Phase III)** `<!-- id: a6073e1a-7893-4737-9365-d619659260b0 -->`
+    - [ ] **[Due: 2026-08-12] 80.V0A-S3 — Phase III: Workflowy Sync (Phase III)** `<!-- id: f0f08465-80f4-4ccb-88a5-93e6c7fba0e4 -->`
+    - [ ] **[Due: 2026-08-12] 80.V1B1-S1 — Phase III: Workflowy Sync (Phase III)** `<!-- id: 0a5f1f72-d297-420b-ab14-b07ad2772839 -->`
+    - [ ] **[Due: 2026-08-12] 80.V1B1-S2 — Phase III: Workflowy Sync (Phase III)** `<!-- id: 3d5a4788-6c29-44a4-9188-7550b1e32472 -->`
+    - [ ] **[Due: 2026-08-12] 80.V1B1-S3 — Phase III: Workflowy Sync (Phase III)** `<!-- id: 15f7c36e-9554-44f4-8143-e5ca23bc141d -->`
+    - [ ] **[Due: 2026-08-12] 80.V0A1-S1 — Phase III: Workflowy Sync (Phase III)** `<!-- id: aeb50161-7c24-4daa-a7a6-cdb89ea58cc7 -->`
+    - [ ] **[Due: 2026-08-12] 80.V0A1-S2 — Phase III: Workflowy Sync (Phase III)** `<!-- id: 5e9b9fff-45d4-4913-9c5e-981465ece7df -->`
+    - [ ] **[Due: 2026-08-12] 80.V0A1-S3 — Phase III: Workflowy Sync (Phase III)** `<!-- id: 80f28cf7-32ee-4735-949d-1496af3f95e1 -->`
+    - [ ] **[Due: 2026-08-12] 80.V0A1 — Phase III: Workflowy Sync (Phase III)** `<!-- id: 4654f995-82b6-4e34-bef8-1830f27e63eb -->`
+    - [ ] **[Due: 2026-08-12] 80.V0B-S1 — Phase III: Workflowy Sync (Phase III)** `<!-- id: 5677d43c-5913-4700-9dbf-e873d423a7dc -->`
+    - [ ] **[Due: 2026-08-12] 80.V0B-S2 — Phase III: Workflowy Sync (Phase III)** `<!-- id: 68420a72-7b10-419b-9382-7dcaed010f5d -->`
+    - [ ] **[Due: 2026-08-12] 80.V0B-S3 — Phase III: Workflowy Sync (Phase III)** `<!-- id: 0b6f70ae-85e2-44db-9ace-30d29233efe4 -->`
+    - [ ] **[Due: 2026-08-12] 80.V0A-S1 — Phase III: Workflowy Sync (Phase III)** `<!-- id: 1556ee48-c842-45a4-974f-0b9e03152f08 -->`
+    - [ ] **[Due: 2026-08-12] 80.V0A-S2 — Phase III: Workflowy Sync (Phase III)** `<!-- id: c06ff4aa-c4ec-4413-ac44-f0d5a10e26e0 -->`
+    - [ ] **[Due: 2026-08-12] 80.V0A-S3 — Phase III: Workflowy Sync (Phase III)** `<!-- id: 19700345-9241-45a7-ab0c-18dfdd696a30 -->`
+    - [ ] **[Due: 2026-08-12] 80.V1B1-S1 — Phase III: Workflowy Sync (Phase III)** `<!-- id: 360e550d-a40a-4de6-9c55-177f0abb7589 -->`
+    - [ ] **[Due: 2026-08-12] 80.V1B1-S2 — Phase III: Workflowy Sync (Phase III)** `<!-- id: e966f31e-695d-4602-9a54-10cd810bbd1a -->`
+    - [ ] **[Due: 2026-08-12] 80.V1B1-S3 — Phase III: Workflowy Sync (Phase III)** `<!-- id: 4b919fe1-e371-459c-924c-04897d11be31 -->`
+    - [ ] **[Due: 2026-08-12] 80.V0A1-S1 — Phase III: Workflowy Sync (Phase III)** `<!-- id: 6228a674-bec4-4549-b9db-ceaebacd9320 -->`
+    - [ ] **[Due: 2026-08-12] 80.V0A1-S2 — Phase III: Workflowy Sync (Phase III)** `<!-- id: 7c933def-a67b-4c60-979e-0cf3466382a2 -->`
+    - [ ] **[Due: 2026-08-12] 80.V0A1-S3 — Phase III: Workflowy Sync (Phase III)** `<!-- id: 3cbbb374-e764-411d-8f87-478b609c84d7 -->`

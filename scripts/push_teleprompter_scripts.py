@@ -14,6 +14,8 @@ API_BASE = "https://workflowy.com/api/v1/nodes"
 
 NODE_MAP = {
     "80.V0B-S1": "98a6f57c-a79f-4a5f-b31d-4611f944fa0b",
+    "80.V0B-S2": "f092f66d-1bf8-8686-aa68-54cdd969476b",
+    "80.V0B-S3": "eda9003c-e092-491c-b4db-ee24ff43eb89",
     "80.V0A-S1": "05a69931-ef84-4292-bd92-b00e1bb682f0",
     "80.V0A-S2": "9146cb9c-964c-4563-b47f-811d5ff4150d",
     "80.V0A-S3": "65d28662-3e70-47dc-a7f3-3cdd81a304ec",
@@ -78,6 +80,8 @@ def push_scripts():
 
     targets = [
         ("80.V0B-S1", "Videos/005 - Information Overload vs Implementation (80.V0B-S1)/V0B-S1 Script - Information Overload vs Implementation.md"),
+        ("80.V0B-S2", "Videos/006 - Finding Your System Glitch (80.V0B-S2)/V0B-S2 Script - Finding Your System Glitch.md"),
+        ("80.V0B-S3", "Videos/007 - Doctor vs Coach Rebuilding Baseline (80.V0B-S3)/V0B-S3 Script - Doctor vs Coach Rebuilding Baseline.md"),
         ("80.V0A-S1", "Videos/008 - Why Monday Health Resolutions Fail (80.V0A-S1)/V0A-S1 Script - Why Monday Health Resolutions Fail.md"),
         ("80.V0A-S2", "Videos/009 - The Biological Sequence of Change (80.V0A-S2)/V0A-S2 Script - The Biological Sequence of Change.md"),
         ("80.V0A-S3", "Videos/010 - Stop Treating Health Like an Emergency (80.V0A-S3)/V0A-S3 Script - Stop Treating Health Like an Emergency.md"),
