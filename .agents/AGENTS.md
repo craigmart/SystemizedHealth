@@ -18,6 +18,7 @@ Whenever writing, scripting, outlining, or generating metadata/descriptions for 
      - `python3 scripts/client_db_manager.py --doc` (Refreshes [`docs/Client_Onboarding_Status.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/Client_Onboarding_Status.md))
      - `python3 scripts/sync_published_videos.py` (Syncs published videos from vidIQ to Vault)
      - `python3 scripts/video_pipeline.py --cache` (Refreshes [`docs/video_pipeline_cache.json`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/video_pipeline_cache.json))
+     - `python3 scripts/sync_jdex_titles.py` (Appends JDex descriptions to JDex files)
 - Master task list location: [`TODO.md`](file:///Users/craiganderson/Developer/SystemizedHealth/TODO.md).
 - Database location: [`database/clients.db`](file:///Users/craiganderson/Developer/SystemizedHealth/database/clients.db).
 - Living report location: [`docs/Client_Onboarding_Status.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/Client_Onboarding_Status.md).
