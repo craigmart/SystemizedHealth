@@ -2,6 +2,7 @@
 .env
 scripts/.env
 *.env
+scripts/config.json
 
 # Python
 __pycache__/

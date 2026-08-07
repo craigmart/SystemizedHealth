@@ -21,6 +21,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from vidiq_sync import call_mcp_tool, load_config
 from supabase_client import SupabaseClient
 import sqlite3
+import clean_published_script
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 VIDEOS_DIR = PROJECT_ROOT / "Obsidian_Vault" / "Videos"
@@ -182,6 +183,9 @@ def sync_published_videos():
                     
                 if folder.name != new_folder_name:
                     folder.rename(new_folder_path)
+                    
+                # Clean the script now that it's published
+                clean_published_script.process_file(new_file_path)
 
     conn.commit()
     conn.close()
