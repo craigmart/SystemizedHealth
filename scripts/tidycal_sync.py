@@ -192,7 +192,7 @@ def sync_booking_to_db(booking, verbose=False):
 
     conn.commit()
     conn.close()
-    print(f"  ✅ Synced [SQLite]: {client_name} ({client_email}) — Source: {source_video} — Scheduled: {scheduled_time}")
+    print(f"  ✅ Synced [SQLite]: {client_name} ({client_email}) — Source: {source_video} — Scheduled: {scheduled_time} — Status: {status_raw}")
 
     # ── Supabase dual-write ─────────────────────────────────────────
     if _supabase:
@@ -243,7 +243,9 @@ def main():
     if bookings is None:
         return
 
-    print(f"Found {len(bookings)} bookings on TidyCal.")
+    active_count = sum(1 for b in bookings if not b.get("cancelled_at") and not b.get("deleted_at"))
+    cancelled_count = len(bookings) - active_count
+    print(f"Found {len(bookings)} total historical bookings on TidyCal ({active_count} active, {cancelled_count} cancelled).")
     for b in bookings:
         sync_booking_to_db(b, verbose=args.verbose)
 

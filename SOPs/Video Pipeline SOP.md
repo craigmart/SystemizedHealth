@@ -106,7 +106,7 @@ python3 scripts/analytics_manager.py --eom 2026-07
 
 1. Run `--add` with the required fields: `video_number`, `code`, `format_type`, `title`
 2. Optionally include: `drop_date`, `status`, `jdex_code`, `os_level`, `notes`
-3. Create the local folder: `Videos/[###] - [Title] ([Code])/`
+3. Create the local folder: `Videos/[ShortCode] - [Title] ([FullCode])/`
 4. Verify with `python3 scripts/video_pipeline.py --list`
 
 ---

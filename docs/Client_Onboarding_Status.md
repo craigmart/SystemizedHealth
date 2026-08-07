@@ -1,6 +1,6 @@
 # Systemized Health — Client Onboarding & CRM Status
 
-*Last Updated: 2026-08-05*
+*Last Updated: 2026-08-07*
 
 This document maintains the live operational status, verification checklist, and active client intake registry for Systemized Health's **Free 20-Minute Systemized Discovery Call** funnel.
 
@@ -34,10 +34,10 @@ This document maintains the live operational status, verification checklist, and
 
 | Client ID | Name | Email | Status | Scheduled Time |
 | :--- | :--- | :--- | :--- | :--- |
-| 31 | CraigTest | craigandersondc-dum@gmail.com | Agreement Signed | 2026-08-07T15:00:00.000000Z |
+| - | No active bookings | - | - | - |
 
 <details>
-<summary><b>View Cancelled / Test Records (9)</b></summary>
+<summary><b>View Cancelled / Test Records (10)</b></summary>
 
 | Client ID | Name | Email | Status | Scheduled Time |
 | :--- | :--- | :--- | :--- | :--- |
@@ -45,6 +45,7 @@ This document maintains the live operational status, verification checklist, and
 | 157 | Test | tesh@hh.b | Cancelled | 2026-08-11T22:00:00.000000Z |
 | 19 | dummy3 | craigandersondc-dummy3@gmail.com | Cancelled | 2026-08-08T13:00:00.000000Z |
 | 15 | lastone | craigandersondc-lastone@gmail.com | Cancelled | 2026-08-07T17:00:00.000000Z |
+| 31 | CraigTest | craigandersondc-dum@gmail.com | Cancelled | 2026-08-07T15:00:00.000000Z |
 | 17 | test5 | craigandersondc-test5@gmail.com | Cancelled | 2026-08-07T14:30:00.000000Z |
 | 20 | Dummy 2 | craigandersondc-dummy2@gmail.com | Cancelled | 2026-08-07T13:30:00.000000Z |
 | 16 | test77 | craigandersondc-test77@gmail.com | Cancelled | 2026-08-07T12:30:00.000000Z |

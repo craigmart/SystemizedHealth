@@ -86,22 +86,22 @@ def reconcile(api_key):
         {
             "code": "80.V0A",
             "title": "🎬 80.V0A - 230,000 Patient Visits",
-            "file": "Videos/002 - 20000 Patients (80.V0A)/V0A-B Script.txt"
+            "file": "Videos/V0A - 20000 Patients (80.V0A)/V0A-B Script.txt"
         },
         {
             "code": "80.V0A1",
             "title": "🎬 80.V0A1 - Systemized OS Framework",
-            "file": "Videos/004 - Systemized OS (80.V0A1)/V0A1-B Script Outline.txt"
+            "file": "Videos/V0A1 - Systemized OS (80.V0A1)/V0A1-B Script Outline.txt"
         },
         {
             "code": "80.V1B1",
             "title": "🎬 80.V1B1 - Exercise Optional (Movement Mandatory)",
-            "file": "Videos/003 - Exercise Optional (80.V1B1)/V1B1-B Script.txt"
+            "file": "Videos/V1B1 - Exercise Optional (80.V1B1)/V1B1-B Script.txt"
         },
         {
             "code": "80.V0B",
             "title": "🎬 80.V0B - Health Info & Biology Baseline",
-            "file": "Videos/001 - Health Info (80.V0B)/V0B-B Script Outline.txt"
+            "file": "Videos/V0B - Health Info (80.V0B)/V0B-B Script Outline.txt"
         }
     ]
 

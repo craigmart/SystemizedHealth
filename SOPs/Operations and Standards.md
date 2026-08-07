@@ -35,14 +35,14 @@ All content blueprints, local media assets, and external integrations adhere str
 
 **Structural Application Examples**: `80.V1` represents the foundational long-form clinical narrative. `80.V1A` indicates a strategic conceptual branch developed directly from the parent video. `80.V1A1` identifies a micro-content short extracted directly from that secondary asset.
 
-### Dedicated Video Folder Structure (001 - 099)
+### Dedicated Video Folder Structure
 Every video—regardless of whether it is a long-form video or a short-form video—gets its own dedicated top-level directory directly under `Videos/`.
-- **Sequential Creation Order**: Folders are numbered strictly in creation order using 3-digit prefixes (`001`, `002`, `003`, ..., `099`).
+- **Video Code Prefixing**: Folders start directly with the video code (`V0B`, `V0A-S1`, etc.) so parent videos and their child shorts group together alphabetically in Finder.
 - **No Nested Scripts**: Short-form video scripts and assets are NOT nested inside long-form video folders. Each video has its own isolated folder.
-- **Johnny Decimal Grouping**: The Johnny Decimal taxonomy code (e.g., `80.V0A`, `80.V0A1-S3`) is included in the folder name and file names so they group together seamlessly in the card system.
-- **Folder Naming Format**: `Videos/[###] - [Title] ([Code])/`
-  - *Example Long Video*: `Videos/004 - Systemized OS (80.V0A1)/`
-  - *Example Short Video*: `Videos/016 - The 3-Tier Health Pyramid (80.V0A1-S3)/`
+- **Johnny Decimal Grouping**: The Johnny Decimal taxonomy code (e.g., `80.V0A`, `80.V0A1-S3`) is included at the end of the folder name so full taxonomy remains explicitly declared.
+- **Folder Naming Format**: `Videos/[ShortCode] - [Title] ([FullCode])/`
+  - *Example Long Video*: `Videos/V0A1 - Systemized OS (80.V0A1)/`
+  - *Example Short Video*: `Videos/V0A1-S3 - The 3-Tier Health Pyramid (80.V0A1-S3)/`
 
 ### Video Asset File Naming Standard (-A, -B, -C)
 Inside each video's dedicated directory, files follow the 3-stage suffix convention:

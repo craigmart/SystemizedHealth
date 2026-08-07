@@ -79,15 +79,15 @@ def push_scripts():
         sys.exit(1)
 
     targets = [
-        ("80.V0B-S1", "Videos/005 - Information Overload vs Implementation (80.V0B-S1)/V0B-S1 Script - Information Overload vs Implementation.md"),
-        ("80.V0B-S2", "Videos/006 - Finding Your System Glitch (80.V0B-S2)/V0B-S2 Script - Finding Your System Glitch.md"),
-        ("80.V0B-S3", "Videos/007 - Doctor vs Coach Rebuilding Baseline (80.V0B-S3)/V0B-S3 Script - Doctor vs Coach Rebuilding Baseline.md"),
-        ("80.V0A-S1", "Videos/008 - Why Monday Health Resolutions Fail (80.V0A-S1)/V0A-S1 Script - Why Monday Health Resolutions Fail.md"),
-        ("80.V0A-S2", "Videos/009 - The Biological Sequence of Change (80.V0A-S2)/V0A-S2 Script - The Biological Sequence of Change.md"),
-        ("80.V0A-S3", "Videos/010 - Stop Treating Health Like an Emergency (80.V0A-S3)/V0A-S3 Script - Stop Treating Health Like an Emergency.md"),
-        ("80.V0A1-S1", "Videos/014 - The Willpower Trap (80.V0A1-S1)/V0A1-S1 Script - The Willpower Trap.md"),
-        ("80.V0A1-S2", "Videos/015 - Level 1 FMR Baseline (80.V0A1-S2)/V0A1-S2 Script - Level 1 FMR Baseline.md"),
-        ("80.V0A1-S3", "Videos/016 - The 3-Tier Health Pyramid (80.V0A1-S3)/V0A1-S3 Script - The 3-Tier Health Pyramid.md")
+        ("80.V0B-S1", "Videos/V0B-S1 - Information Overload vs Implementation (80.V0B-S1)/V0B-S1 Script - Information Overload vs Implementation.md"),
+        ("80.V0B-S2", "Videos/V0B-S2 - Finding Your System Glitch (80.V0B-S2)/V0B-S2 Script - Finding Your System Glitch.md"),
+        ("80.V0B-S3", "Videos/V0B-S3 - Doctor vs Coach Rebuilding Baseline (80.V0B-S3)/V0B-S3 Script - Doctor vs Coach Rebuilding Baseline.md"),
+        ("80.V0A-S1", "Videos/V0A-S1 - Why Monday Health Resolutions Fail (80.V0A-S1)/V0A-S1 Script - Why Monday Health Resolutions Fail.md"),
+        ("80.V0A-S2", "Videos/V0A-S2 - The Biological Sequence of Change (80.V0A-S2)/V0A-S2 Script - The Biological Sequence of Change.md"),
+        ("80.V0A-S3", "Videos/V0A-S3 - Stop Treating Health Like an Emergency (80.V0A-S3)/V0A-S3 Script - Stop Treating Health Like an Emergency.md"),
+        ("80.V0A1-S1", "Videos/V0A1-S1 - The Willpower Trap (80.V0A1-S1)/V0A1-S1 Script - The Willpower Trap.md"),
+        ("80.V0A1-S2", "Videos/V0A1-S2 - Level 1 FMR Baseline (80.V0A1-S2)/V0A1-S2 Script - Level 1 FMR Baseline.md"),
+        ("80.V0A1-S3", "Videos/V0A1-S3 - The 3-Tier Health Pyramid (80.V0A1-S3)/V0A1-S3 Script - The 3-Tier Health Pyramid.md")
     ]
 
     project_root = os.path.dirname(os.path.dirname(__file__))
