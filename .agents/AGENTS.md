@@ -16,6 +16,7 @@ Whenever writing, scripting, outlining, or generating metadata/descriptions for 
      - `python3 scripts/tidycal_sync.py` (Pulls new TidyCal bookings)
      - `python3 scripts/sync_agreements.py` (Pulls Google Form agreement responses)
      - `python3 scripts/client_db_manager.py --doc` (Refreshes [`docs/Client_Onboarding_Status.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/Client_Onboarding_Status.md))
+     - `python3 scripts/sync_published_videos.py` (Syncs published videos from vidIQ to Vault)
      - `python3 scripts/video_pipeline.py --cache` (Refreshes [`docs/video_pipeline_cache.json`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/video_pipeline_cache.json))
 - Master task list location: [`TODO.md`](file:///Users/craiganderson/Developer/SystemizedHealth/TODO.md).
 - Database location: [`database/clients.db`](file:///Users/craiganderson/Developer/SystemizedHealth/database/clients.db).
@@ -34,10 +35,10 @@ Whenever writing, scripting, outlining, or generating metadata/descriptions for 
 ---
 
 ## 4. Stage 2 Teleprompter Script Auto-Processing Protocol
-Whenever Dr. Anderson says *"I have a new audio script for [Code/Folder]"*, provides a raw dictation transcript, or points to `#audiodraft` in Workflowy:
+Whenever Dr. Anderson says *"I have a new audio script for [Code/Folder]"*, provides a raw dictation transcript in chat, or pastes the transcript into the Obsidian video file with the tag `#audiodraft`:
 1. **Disregard all previous outlines & talking points**: The raw audio transcript is the single source of truth for the video.
-2. **Save Raw Transcript (`-A` File)**: Save the raw spoken dictation text to `Videos/[Folder]/V[Code]-A Raw Audio Transcript.txt`.
-3. **Generate Stage 2 Teleprompter Script (`-B` File)**: Format the spoken text into `Videos/[Folder]/V[Code] Script - [Title].md` using:
+2. **Save Raw Transcript (`-A` File)**: Save the raw spoken dictation text to `Obsidian_Vault/Videos/[Folder]/V[Code]-A Raw Audio Transcript.txt`.
+3. **Generate Stage 2 Teleprompter Script (`-B` File)**: Format the spoken text into `Obsidian_Vault/Videos/[Folder]/V[Code] Script - [Title].md` using:
    - Header: `# [Code]: [Title]` + metadata block (`Suggested Settings`, `JDex Topic Code`).
    - Section 1 & 2: Title Ideas and Hook Options with vidIQ ratings.
    - Section 3: Teleprompter clips formatted with `### [Code]>[ClipNum] — [Title] #film #[context]` (`#insidetruck`, `#outside`, `#driving`, etc.).

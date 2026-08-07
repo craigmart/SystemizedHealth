@@ -8,362 +8,362 @@ X-WR-TIMEZONE:America/New_York
 X-WR-CALDESC:Publication drop dates and video pipeline schedule for Systemized Health
 BEGIN:VEVENT
 UID:video-80-v0b-20260803@systemizedhealth.com
-DTSTAMP:20260807T104245Z
+DTSTAMP:20260807T121208Z
 DTSTART;VALUE=DATE:20260803
 DTEND;VALUE=DATE:20260804
 SUMMARY:🎬 [Long] 80.V0B: Knowledge Isn't Enough—Here's What Actually Works
-DESCRIPTION:Video Code: 80.V0B\nFormat: Long\nStatus: Uploaded\nOS Level: Level 1: FMR\nNotes: Published\nCTA Link: http://call.systemizedhealth.com/
-STATUS:CONFIRMED
+DESCRIPTION:Video Code: 80.V0B\nFormat: Long\nStatus: #published\nOS Level: Level 1: FMR\nNotes: Published\nCTA Link: http://call.systemizedhealth.com/
+STATUS:TENTATIVE
 CATEGORIES:Publication,YouTube,Content Drop
 END:VEVENT
 BEGIN:VEVENT
 UID:video-80-v0a-20260817@systemizedhealth.com
-DTSTAMP:20260807T104245Z
+DTSTAMP:20260807T121208Z
 DTSTART;VALUE=DATE:20260817
 DTEND;VALUE=DATE:20260818
-SUMMARY:🎬 [Long] 80.V0A: 230\,000 Patient Visits
-DESCRIPTION:Video Code: 80.V0A\nFormat: Long\nStatus: Uploaded\nOS Level: Baseline\nNotes: Published\nCTA Link: http://call.systemizedhealth.com/
-STATUS:CONFIRMED
+SUMMARY:🎬 [Long] 80.V0A: 20\,000 Patients Taught Me This One Biological Reality
+DESCRIPTION:Video Code: 80.V0A\nFormat: Long\nStatus: #published\nOS Level: Baseline\nNotes: Published\nCTA Link: http://call.systemizedhealth.com/
+STATUS:TENTATIVE
 CATEGORIES:Publication,YouTube,Content Drop
 END:VEVENT
 BEGIN:VEVENT
 UID:video-80-v1b1-20260810@systemizedhealth.com
-DTSTAMP:20260807T104245Z
+DTSTAMP:20260807T121208Z
 DTSTART;VALUE=DATE:20260810
 DTEND;VALUE=DATE:20260811
 SUMMARY:🎬 [Long] 80.V1B1: Exercise Optional (Movement Mandatory)
-DESCRIPTION:Video Code: 80.V1B1\nFormat: Long\nStatus: Uploaded\nOS Level: Level 1: FMR\nNotes: Published\nCTA Link: http://call.systemizedhealth.com/
-STATUS:CONFIRMED
+DESCRIPTION:Video Code: 80.V1B1\nFormat: Long\nStatus: #published\nOS Level: Level 1: FMR\nNotes: Published\nCTA Link: http://call.systemizedhealth.com/
+STATUS:TENTATIVE
 CATEGORIES:Publication,YouTube,Content Drop
 END:VEVENT
 BEGIN:VEVENT
 UID:video-80-v0a1-20260824@systemizedhealth.com
-DTSTAMP:20260807T104245Z
+DTSTAMP:20260807T121208Z
 DTSTART;VALUE=DATE:20260824
 DTEND;VALUE=DATE:20260825
 SUMMARY:🎬 [Long] 80.V0A1: Systemized OS Framework
-DESCRIPTION:Video Code: 80.V0A1\nFormat: Long\nStatus: In Production\nOS Level: Level 1: FMR\nNotes: Currently Editing\nCTA Link: http://call.systemizedhealth.com/
+DESCRIPTION:Video Code: 80.V0A1\nFormat: Long\nStatus: #edit\nOS Level: Level 1: FMR\nNotes: Currently Editing\nCTA Link: http://call.systemizedhealth.com/
 STATUS:TENTATIVE
 CATEGORIES:Publication,YouTube,Content Drop
 END:VEVENT
 BEGIN:VEVENT
 UID:video-80-v0b-s1-20260804@systemizedhealth.com
-DTSTAMP:20260807T104245Z
+DTSTAMP:20260807T121208Z
 DTSTART;VALUE=DATE:20260804
 DTEND;VALUE=DATE:20260805
 SUMMARY:⚡ [Short] 80.V0B-S1: Do Less to Get More
-DESCRIPTION:Video Code: 80.V0B-S1\nFormat: Short\nStatus: Uploaded\nOS Level: Level 1: FMR\nNotes: 6/6 Shots Filmed — Editing (#edit)\nCTA Link: http://call.systemizedhealth.com/
-STATUS:CONFIRMED
+DESCRIPTION:Video Code: 80.V0B-S1\nFormat: Short\nStatus: #published\nOS Level: Level 1: FMR\nNotes: 6/6 Shots Filmed — Editing (#edit)\nCTA Link: http://call.systemizedhealth.com/
+STATUS:TENTATIVE
 CATEGORIES:Publication,YouTube,Content Drop
 END:VEVENT
 BEGIN:VEVENT
 UID:video-80-v0b-s2-20260818@systemizedhealth.com
-DTSTAMP:20260807T104245Z
+DTSTAMP:20260807T121208Z
 DTSTART;VALUE=DATE:20260818
 DTEND;VALUE=DATE:20260819
-SUMMARY:⚡ [Short] 80.V0B-S2: The Hidden System Glitch Ruining Your Body
-DESCRIPTION:Video Code: 80.V0B-S2\nFormat: Short\nStatus: Ready to Film\nOS Level: Level 1: FMR\nNotes: Pre-Recording Blueprint Ready\nCTA Link: http://call.systemizedhealth.com/
+SUMMARY:⚡ [Short] 80.V0B-S2: Stop Setting Marathon Goals on Monday (Downshift for Success)
+DESCRIPTION:Video Code: 80.V0B-S2\nFormat: Short\nStatus: #published\nOS Level: Level 1: FMR\nNotes: Pre-Recording Blueprint Ready\nCTA Link: http://call.systemizedhealth.com/
 STATUS:TENTATIVE
 CATEGORIES:Publication,YouTube,Content Drop
 END:VEVENT
 BEGIN:VEVENT
 UID:video-80-v0b-s3-20260820@systemizedhealth.com
-DTSTAMP:20260807T104245Z
+DTSTAMP:20260807T121208Z
 DTSTART;VALUE=DATE:20260820
 DTEND;VALUE=DATE:20260821
 SUMMARY:⚡ [Short] 80.V0B-S3: Stop Buying Health Advice from Coaches Who Dont Know Physiology
-DESCRIPTION:Video Code: 80.V0B-S3\nFormat: Short\nStatus: Ready to Film\nOS Level: Level 1: FMR\nNotes: Pre-Recording Blueprint Ready\nCTA Link: http://call.systemizedhealth.com/
+DESCRIPTION:Video Code: 80.V0B-S3\nFormat: Short\nStatus: #film\nOS Level: Level 1: FMR\nNotes: Pre-Recording Blueprint Ready\nCTA Link: http://call.systemizedhealth.com/
 STATUS:TENTATIVE
 CATEGORIES:Publication,YouTube,Content Drop
 END:VEVENT
 BEGIN:VEVENT
 UID:video-80-v0a-s1-20260806@systemizedhealth.com
-DTSTAMP:20260807T104245Z
+DTSTAMP:20260807T121208Z
 DTSTART;VALUE=DATE:20260806
 DTEND;VALUE=DATE:20260807
 SUMMARY:⚡ [Short] 80.V0A-S1: The Biological Reason Monday Resolutions Always Fail
-DESCRIPTION:Video Code: 80.V0A-S1\nFormat: Short\nStatus: Editing\nOS Level: Level 1: FMR\nNotes: 6/6 Shots Filmed — Editing (#edit)\nCTA Link: http://call.systemizedhealth.com/
+DESCRIPTION:Video Code: 80.V0A-S1\nFormat: Short\nStatus: #edit\nOS Level: Level 1: FMR\nNotes: 6/6 Shots Filmed — Editing (#edit)\nCTA Link: http://call.systemizedhealth.com/
 STATUS:TENTATIVE
 CATEGORIES:Publication,YouTube,Content Drop
 END:VEVENT
 BEGIN:VEVENT
 UID:video-80-v0a-s2-20260808@systemizedhealth.com
-DTSTAMP:20260807T104245Z
+DTSTAMP:20260807T121208Z
 DTSTART;VALUE=DATE:20260808
 DTEND;VALUE=DATE:20260809
 SUMMARY:⚡ [Short] 80.V0A-S2: The Exact Biological Sequence Your Body Needs to Change
-DESCRIPTION:Video Code: 80.V0A-S2\nFormat: Short\nStatus: Editing\nOS Level: Level 1: FMR\nNotes: 6/6 Shots Filmed — Editing (#edit)\nCTA Link: http://call.systemizedhealth.com/
+DESCRIPTION:Video Code: 80.V0A-S2\nFormat: Short\nStatus: #edit\nOS Level: Level 1: FMR\nNotes: 6/6 Shots Filmed — Editing (#edit)\nCTA Link: http://call.systemizedhealth.com/
 STATUS:TENTATIVE
 CATEGORIES:Publication,YouTube,Content Drop
 END:VEVENT
 BEGIN:VEVENT
 UID:video-80-v0a-s3-20260822@systemizedhealth.com
-DTSTAMP:20260807T104245Z
+DTSTAMP:20260807T121208Z
 DTSTART;VALUE=DATE:20260822
 DTEND;VALUE=DATE:20260823
 SUMMARY:⚡ [Short] 80.V0A-S3: Stop Treating Your Health Like an Emergency Room
-DESCRIPTION:Video Code: 80.V0A-S3\nFormat: Short\nStatus: Editing\nOS Level: Level 1: FMR\nNotes: 6/6 Shots Filmed — Editing (#edit)\nCTA Link: http://call.systemizedhealth.com/
+DESCRIPTION:Video Code: 80.V0A-S3\nFormat: Short\nStatus: #edit\nOS Level: Level 1: FMR\nNotes: 6/6 Shots Filmed — Editing (#edit)\nCTA Link: http://call.systemizedhealth.com/
 STATUS:TENTATIVE
 CATEGORIES:Publication,YouTube,Content Drop
 END:VEVENT
 BEGIN:VEVENT
 UID:video-80-v1b1-s1-20260811@systemizedhealth.com
-DTSTAMP:20260807T104245Z
+DTSTAMP:20260807T121208Z
 DTSTART;VALUE=DATE:20260811
 DTEND;VALUE=DATE:20260812
 SUMMARY:⚡ [Short] 80.V1B1-S1: Why Exercise is Optional
-DESCRIPTION:Video Code: 80.V1B1-S1\nFormat: Short\nStatus: Ready for Audio Riff\nOS Level: Level 1: FMR\nNotes: Pre-Recording Blueprint Ready\nCTA Link: http://call.systemizedhealth.com/
+DESCRIPTION:Video Code: 80.V1B1-S1\nFormat: Short\nStatus: #write\nOS Level: Level 1: FMR\nNotes: Pre-Recording Blueprint Ready\nCTA Link: http://call.systemizedhealth.com/
 STATUS:TENTATIVE
 CATEGORIES:Publication,YouTube,Content Drop
 END:VEVENT
 BEGIN:VEVENT
 UID:video-80-v1b1-s2-20260813@systemizedhealth.com
-DTSTAMP:20260807T104245Z
+DTSTAMP:20260807T121208Z
 DTSTART;VALUE=DATE:20260813
 DTEND;VALUE=DATE:20260814
 SUMMARY:⚡ [Short] 80.V1B1-S2: Joint Imbibition: The Only Way Your Joints Actually Get Nourished
-DESCRIPTION:Video Code: 80.V1B1-S2\nFormat: Short\nStatus: Ready for Audio Riff\nOS Level: Level 1: FMR\nNotes: Pre-Recording Blueprint Ready\nCTA Link: http://call.systemizedhealth.com/
+DESCRIPTION:Video Code: 80.V1B1-S2\nFormat: Short\nStatus: #write\nOS Level: Level 1: FMR\nNotes: Pre-Recording Blueprint Ready\nCTA Link: http://call.systemizedhealth.com/
 STATUS:TENTATIVE
 CATEGORIES:Publication,YouTube,Content Drop
 END:VEVENT
 BEGIN:VEVENT
 UID:video-80-v1b1-s3-20260815@systemizedhealth.com
-DTSTAMP:20260807T104245Z
+DTSTAMP:20260807T121208Z
 DTSTART;VALUE=DATE:20260815
 DTEND;VALUE=DATE:20260816
 SUMMARY:⚡ [Short] 80.V1B1-S3: Cortical Smudging: Why Your Back Pain Randomly Spasms
-DESCRIPTION:Video Code: 80.V1B1-S3\nFormat: Short\nStatus: Ready for Audio Riff\nOS Level: Level 1: FMR\nNotes: Pre-Recording Blueprint Ready\nCTA Link: http://call.systemizedhealth.com/
+DESCRIPTION:Video Code: 80.V1B1-S3\nFormat: Short\nStatus: #write\nOS Level: Level 1: FMR\nNotes: Pre-Recording Blueprint Ready\nCTA Link: http://call.systemizedhealth.com/
 STATUS:TENTATIVE
 CATEGORIES:Publication,YouTube,Content Drop
 END:VEVENT
 BEGIN:VEVENT
 UID:video-80-v0a1-s1-20260825@systemizedhealth.com
-DTSTAMP:20260807T104245Z
+DTSTAMP:20260807T121208Z
 DTSTART;VALUE=DATE:20260825
 DTEND;VALUE=DATE:20260826
 SUMMARY:⚡ [Short] 80.V0A1-S1: Why Relying on Willpower Guarantees Physical Burnout
-DESCRIPTION:Video Code: 80.V0A1-S1\nFormat: Short\nStatus: Editing\nOS Level: Level 1: FMR\nNotes: 6/6 Shots Filmed — Editing (#edit)\nCTA Link: http://call.systemizedhealth.com/
+DESCRIPTION:Video Code: 80.V0A1-S1\nFormat: Short\nStatus: #edit\nOS Level: Level 1: FMR\nNotes: 6/6 Shots Filmed — Editing (#edit)\nCTA Link: http://call.systemizedhealth.com/
 STATUS:TENTATIVE
 CATEGORIES:Publication,YouTube,Content Drop
 END:VEVENT
 BEGIN:VEVENT
 UID:video-80-v0a1-s2-20260827@systemizedhealth.com
-DTSTAMP:20260807T104245Z
+DTSTAMP:20260807T121208Z
 DTSTART;VALUE=DATE:20260827
 DTEND;VALUE=DATE:20260828
 SUMMARY:⚡ [Short] 80.V0A1-S2: The Level 1 FMR Baseline Every Body Needs to Master
-DESCRIPTION:Video Code: 80.V0A1-S2\nFormat: Short\nStatus: Editing\nOS Level: Level 1: FMR\nNotes: 6/6 Shots Filmed — Editing (#edit)\nCTA Link: http://call.systemizedhealth.com/
+DESCRIPTION:Video Code: 80.V0A1-S2\nFormat: Short\nStatus: #edit\nOS Level: Level 1: FMR\nNotes: 6/6 Shots Filmed — Editing (#edit)\nCTA Link: http://call.systemizedhealth.com/
 STATUS:TENTATIVE
 CATEGORIES:Publication,YouTube,Content Drop
 END:VEVENT
 BEGIN:VEVENT
 UID:video-80-v0a1-s3-20260829@systemizedhealth.com
-DTSTAMP:20260807T104245Z
+DTSTAMP:20260807T121208Z
 DTSTART;VALUE=DATE:20260829
 DTEND;VALUE=DATE:20260830
 SUMMARY:⚡ [Short] 80.V0A1-S3: The 3-Tier Health Pyramid That Fixes Chronic Fatigue
-DESCRIPTION:Video Code: 80.V0A1-S3\nFormat: Short\nStatus: Editing\nOS Level: Level 1: FMR\nNotes: 6/6 Shots Filmed — Editing (#edit)\nCTA Link: http://call.systemizedhealth.com/
+DESCRIPTION:Video Code: 80.V0A1-S3\nFormat: Short\nStatus: #edit\nOS Level: Level 1: FMR\nNotes: 6/6 Shots Filmed — Editing (#edit)\nCTA Link: http://call.systemizedhealth.com/
 STATUS:TENTATIVE
 CATEGORIES:Publication,YouTube,Content Drop
 END:VEVENT
 BEGIN:VEVENT
 UID:video-hist-l01-20260324@systemizedhealth.com
-DTSTAMP:20260807T104245Z
+DTSTAMP:20260807T121208Z
 DTSTART;VALUE=DATE:20260324
 DTEND;VALUE=DATE:20260325
 SUMMARY:🎬 [Long] HIST.L01: The Biological Reality of GLP-1: Fuel vs. Motivation
-DESCRIPTION:Video Code: HIST.L01\nFormat: Long\nStatus: Uploaded\nCTA Link: http://call.systemizedhealth.com/
-STATUS:CONFIRMED
+DESCRIPTION:Video Code: HIST.L01\nFormat: Long\nStatus: #published\nCTA Link: http://call.systemizedhealth.com/
+STATUS:TENTATIVE
 CATEGORIES:Publication,YouTube,Content Drop
 END:VEVENT
 BEGIN:VEVENT
 UID:video-hist-l02-20260122@systemizedhealth.com
-DTSTAMP:20260807T104245Z
+DTSTAMP:20260807T121208Z
 DTSTART;VALUE=DATE:20260122
 DTEND;VALUE=DATE:20260123
 SUMMARY:🎬 [Long] HIST.L02: The Neurological Reality of Workout Recovery
-DESCRIPTION:Video Code: HIST.L02\nFormat: Long\nStatus: Uploaded\nCTA Link: http://call.systemizedhealth.com/
-STATUS:CONFIRMED
+DESCRIPTION:Video Code: HIST.L02\nFormat: Long\nStatus: #published\nCTA Link: http://call.systemizedhealth.com/
+STATUS:TENTATIVE
 CATEGORIES:Publication,YouTube,Content Drop
 END:VEVENT
 BEGIN:VEVENT
 UID:video-hist-l03-20260114@systemizedhealth.com
-DTSTAMP:20260807T104245Z
+DTSTAMP:20260807T121208Z
 DTSTART;VALUE=DATE:20260114
 DTEND;VALUE=DATE:20260115
 SUMMARY:🎬 [Long] HIST.L03: The Biological Cost of an Unstructured Week
-DESCRIPTION:Video Code: HIST.L03\nFormat: Long\nStatus: Uploaded\nCTA Link: http://call.systemizedhealth.com/
-STATUS:CONFIRMED
+DESCRIPTION:Video Code: HIST.L03\nFormat: Long\nStatus: #published\nCTA Link: http://call.systemizedhealth.com/
+STATUS:TENTATIVE
 CATEGORIES:Publication,YouTube,Content Drop
 END:VEVENT
 BEGIN:VEVENT
 UID:video-hist-l04-20260106@systemizedhealth.com
-DTSTAMP:20260807T104245Z
+DTSTAMP:20260807T121208Z
 DTSTART;VALUE=DATE:20260106
 DTEND;VALUE=DATE:20260107
 SUMMARY:🎬 [Long] HIST.L04: The Neurological Limit of Daily Effort
-DESCRIPTION:Video Code: HIST.L04\nFormat: Long\nStatus: Uploaded\nCTA Link: http://call.systemizedhealth.com/
-STATUS:CONFIRMED
+DESCRIPTION:Video Code: HIST.L04\nFormat: Long\nStatus: #published\nCTA Link: http://call.systemizedhealth.com/
+STATUS:TENTATIVE
 CATEGORIES:Publication,YouTube,Content Drop
 END:VEVENT
 BEGIN:VEVENT
 UID:video-hist-l06-20260312@systemizedhealth.com
-DTSTAMP:20260807T104245Z
+DTSTAMP:20260807T121208Z
 DTSTART;VALUE=DATE:20260312
 DTEND;VALUE=DATE:20260313
 SUMMARY:🎬 [Long] HIST.L06: The Metabolic Glitch Behind Morning Hunger
-DESCRIPTION:Video Code: HIST.L06\nFormat: Long\nStatus: Uploaded\nCTA Link: http://call.systemizedhealth.com/
-STATUS:CONFIRMED
+DESCRIPTION:Video Code: HIST.L06\nFormat: Long\nStatus: #published\nCTA Link: http://call.systemizedhealth.com/
+STATUS:TENTATIVE
 CATEGORIES:Publication,YouTube,Content Drop
 END:VEVENT
 BEGIN:VEVENT
-UID:video-hist-s01-20260321@systemizedhealth.com
-DTSTAMP:20260807T104245Z
-DTSTART;VALUE=DATE:20260321
-DTEND;VALUE=DATE:20260322
-SUMMARY:⚡ [Short] HIST.S01: The Biological Calibration for Morning Hunger
-DESCRIPTION:Video Code: HIST.S01\nFormat: Short\nStatus: Uploaded\nCTA Link: http://call.systemizedhealth.com/
-STATUS:CONFIRMED
-CATEGORIES:Publication,YouTube,Content Drop
-END:VEVENT
-BEGIN:VEVENT
-UID:video-hist-s02-20260113@systemizedhealth.com
-DTSTAMP:20260807T104245Z
+UID:video-hist-s01-20260113@systemizedhealth.com
+DTSTAMP:20260807T121208Z
 DTSTART;VALUE=DATE:20260113
 DTEND;VALUE=DATE:20260114
-SUMMARY:⚡ [Short] HIST.S02: The Biological Mechanics of Habit Attachment
-DESCRIPTION:Video Code: HIST.S02\nFormat: Short\nStatus: Uploaded\nCTA Link: http://call.systemizedhealth.com/
-STATUS:CONFIRMED
+SUMMARY:⚡ [Short] HIST.S01: The Biological Mechanics of Habit Attachment
+DESCRIPTION:Video Code: HIST.S01\nFormat: Short\nStatus: #published\nCTA Link: http://call.systemizedhealth.com/
+STATUS:TENTATIVE
+CATEGORIES:Publication,YouTube,Content Drop
+END:VEVENT
+BEGIN:VEVENT
+UID:video-hist-s02-20260806@systemizedhealth.com
+DTSTAMP:20260807T121208Z
+DTSTART;VALUE=DATE:20260806
+DTEND;VALUE=DATE:20260807
+SUMMARY:⚡ [Short] HIST.S02: Stop Setting Marathon Goals on Monday (Downshift for Success)
+DESCRIPTION:Video Code: HIST.S02\nFormat: Short\nStatus: #published\nCTA Link: http://call.systemizedhealth.com/
+STATUS:TENTATIVE
 CATEGORIES:Publication,YouTube,Content Drop
 END:VEVENT
 BEGIN:VEVENT
 UID:video-hist-s03-20260330@systemizedhealth.com
-DTSTAMP:20260807T104245Z
+DTSTAMP:20260807T121208Z
 DTSTART;VALUE=DATE:20260330
 DTEND;VALUE=DATE:20260331
 SUMMARY:⚡ [Short] HIST.S03: Your steps have been tracked your whole life
-DESCRIPTION:Video Code: HIST.S03\nFormat: Short\nStatus: Uploaded\nCTA Link: http://call.systemizedhealth.com/
-STATUS:CONFIRMED
+DESCRIPTION:Video Code: HIST.S03\nFormat: Short\nStatus: #published\nCTA Link: http://call.systemizedhealth.com/
+STATUS:TENTATIVE
 CATEGORIES:Publication,YouTube,Content Drop
 END:VEVENT
 BEGIN:VEVENT
 UID:video-hist-s04-20260403@systemizedhealth.com
-DTSTAMP:20260807T104245Z
+DTSTAMP:20260807T121208Z
 DTSTART;VALUE=DATE:20260403
 DTEND;VALUE=DATE:20260404
 SUMMARY:⚡ [Short] HIST.S04: The Biological Prerequisite for Fasting
-DESCRIPTION:Video Code: HIST.S04\nFormat: Short\nStatus: Uploaded\nCTA Link: http://call.systemizedhealth.com/
-STATUS:CONFIRMED
+DESCRIPTION:Video Code: HIST.S04\nFormat: Short\nStatus: #published\nCTA Link: http://call.systemizedhealth.com/
+STATUS:TENTATIVE
 CATEGORIES:Publication,YouTube,Content Drop
 END:VEVENT
 BEGIN:VEVENT
 UID:video-hist-s05-20260207@systemizedhealth.com
-DTSTAMP:20260807T104245Z
+DTSTAMP:20260807T121208Z
 DTSTART;VALUE=DATE:20260207
 DTEND;VALUE=DATE:20260208
 SUMMARY:⚡ [Short] HIST.S05: Start Running from ZERO
-DESCRIPTION:Video Code: HIST.S05\nFormat: Short\nStatus: Uploaded\nCTA Link: http://call.systemizedhealth.com/
-STATUS:CONFIRMED
+DESCRIPTION:Video Code: HIST.S05\nFormat: Short\nStatus: #published\nCTA Link: http://call.systemizedhealth.com/
+STATUS:TENTATIVE
 CATEGORIES:Publication,YouTube,Content Drop
 END:VEVENT
 BEGIN:VEVENT
 UID:video-hist-s06-20260115@systemizedhealth.com
-DTSTAMP:20260807T104245Z
+DTSTAMP:20260807T121208Z
 DTSTART;VALUE=DATE:20260115
 DTEND;VALUE=DATE:20260116
 SUMMARY:⚡ [Short] HIST.S06: The Neurological Function of Clarity
-DESCRIPTION:Video Code: HIST.S06\nFormat: Short\nStatus: Uploaded\nCTA Link: http://call.systemizedhealth.com/
-STATUS:CONFIRMED
+DESCRIPTION:Video Code: HIST.S06\nFormat: Short\nStatus: #published\nCTA Link: http://call.systemizedhealth.com/
+STATUS:TENTATIVE
 CATEGORIES:Publication,YouTube,Content Drop
 END:VEVENT
 BEGIN:VEVENT
 UID:video-hist-s07-20260108@systemizedhealth.com
-DTSTAMP:20260807T104245Z
+DTSTAMP:20260807T121208Z
 DTSTART;VALUE=DATE:20260108
 DTEND;VALUE=DATE:20260109
 SUMMARY:⚡ [Short] HIST.S07: The Biological Failure of Motivation
-DESCRIPTION:Video Code: HIST.S07\nFormat: Short\nStatus: Uploaded\nCTA Link: http://call.systemizedhealth.com/
-STATUS:CONFIRMED
+DESCRIPTION:Video Code: HIST.S07\nFormat: Short\nStatus: #published\nCTA Link: http://call.systemizedhealth.com/
+STATUS:TENTATIVE
 CATEGORIES:Publication,YouTube,Content Drop
 END:VEVENT
 BEGIN:VEVENT
 UID:video-hist-s08-20260107@systemizedhealth.com
-DTSTAMP:20260807T104245Z
+DTSTAMP:20260807T121208Z
 DTSTART;VALUE=DATE:20260107
 DTEND;VALUE=DATE:20260108
 SUMMARY:⚡ [Short] HIST.S08: The Neurological Reality of Willpower
-DESCRIPTION:Video Code: HIST.S08\nFormat: Short\nStatus: Uploaded\nCTA Link: http://call.systemizedhealth.com/
-STATUS:CONFIRMED
+DESCRIPTION:Video Code: HIST.S08\nFormat: Short\nStatus: #published\nCTA Link: http://call.systemizedhealth.com/
+STATUS:TENTATIVE
 CATEGORIES:Publication,YouTube,Content Drop
 END:VEVENT
 BEGIN:VEVENT
 UID:video-hist-s09-20260323@systemizedhealth.com
-DTSTAMP:20260807T104245Z
+DTSTAMP:20260807T121208Z
 DTSTART;VALUE=DATE:20260323
 DTEND;VALUE=DATE:20260324
 SUMMARY:⚡ [Short] HIST.S09: The Biological Minimum for Daily Steps
-DESCRIPTION:Video Code: HIST.S09\nFormat: Short\nStatus: Uploaded\nCTA Link: http://call.systemizedhealth.com/
-STATUS:CONFIRMED
+DESCRIPTION:Video Code: HIST.S09\nFormat: Short\nStatus: #published\nCTA Link: http://call.systemizedhealth.com/
+STATUS:TENTATIVE
 CATEGORIES:Publication,YouTube,Content Drop
 END:VEVENT
 BEGIN:VEVENT
 UID:video-hist-s10-20260120@systemizedhealth.com
-DTSTAMP:20260807T104245Z
+DTSTAMP:20260807T121208Z
 DTSTART;VALUE=DATE:20260120
 DTEND;VALUE=DATE:20260121
 SUMMARY:⚡ [Short] HIST.S10: The Neurological Failure of Random Workouts
-DESCRIPTION:Video Code: HIST.S10\nFormat: Short\nStatus: Uploaded\nCTA Link: http://call.systemizedhealth.com/
-STATUS:CONFIRMED
+DESCRIPTION:Video Code: HIST.S10\nFormat: Short\nStatus: #published\nCTA Link: http://call.systemizedhealth.com/
+STATUS:TENTATIVE
 CATEGORIES:Publication,YouTube,Content Drop
 END:VEVENT
 BEGIN:VEVENT
 UID:video-hist-s11-20260326@systemizedhealth.com
-DTSTAMP:20260807T104245Z
+DTSTAMP:20260807T121208Z
 DTSTART;VALUE=DATE:20260326
 DTEND;VALUE=DATE:20260327
 SUMMARY:⚡ [Short] HIST.S11: The Neurological Cost of GLP-1
-DESCRIPTION:Video Code: HIST.S11\nFormat: Short\nStatus: Uploaded\nCTA Link: http://call.systemizedhealth.com/
-STATUS:CONFIRMED
+DESCRIPTION:Video Code: HIST.S11\nFormat: Short\nStatus: #published\nCTA Link: http://call.systemizedhealth.com/
+STATUS:TENTATIVE
 CATEGORIES:Publication,YouTube,Content Drop
 END:VEVENT
 BEGIN:VEVENT
 UID:video-hist-s12-20260121@systemizedhealth.com
-DTSTAMP:20260807T104245Z
+DTSTAMP:20260807T121208Z
 DTSTART;VALUE=DATE:20260121
 DTEND;VALUE=DATE:20260122
 SUMMARY:⚡ [Short] HIST.S12: The Biological Mandate for Recovery
-DESCRIPTION:Video Code: HIST.S12\nFormat: Short\nStatus: Uploaded\nCTA Link: http://call.systemizedhealth.com/
-STATUS:CONFIRMED
+DESCRIPTION:Video Code: HIST.S12\nFormat: Short\nStatus: #published\nCTA Link: http://call.systemizedhealth.com/
+STATUS:TENTATIVE
 CATEGORIES:Publication,YouTube,Content Drop
 END:VEVENT
 BEGIN:VEVENT
 UID:video-hist-s13-20260113@systemizedhealth.com
-DTSTAMP:20260807T104245Z
+DTSTAMP:20260807T121208Z
 DTSTART;VALUE=DATE:20260113
 DTEND;VALUE=DATE:20260114
 SUMMARY:⚡ [Short] HIST.S13: The Biological Necessity of Weekly Structure
-DESCRIPTION:Video Code: HIST.S13\nFormat: Short\nStatus: Uploaded\nCTA Link: http://call.systemizedhealth.com/
-STATUS:CONFIRMED
+DESCRIPTION:Video Code: HIST.S13\nFormat: Short\nStatus: #published\nCTA Link: http://call.systemizedhealth.com/
+STATUS:TENTATIVE
 CATEGORIES:Publication,YouTube,Content Drop
 END:VEVENT
 BEGIN:VEVENT
 UID:video-hist-s14-20260116@systemizedhealth.com
-DTSTAMP:20260807T104245Z
+DTSTAMP:20260807T121208Z
 DTSTART;VALUE=DATE:20260116
 DTEND;VALUE=DATE:20260117
 SUMMARY:⚡ [Short] HIST.S14: The Neurological Cost of Decision Fatigue
-DESCRIPTION:Video Code: HIST.S14\nFormat: Short\nStatus: Uploaded\nCTA Link: http://call.systemizedhealth.com/
-STATUS:CONFIRMED
+DESCRIPTION:Video Code: HIST.S14\nFormat: Short\nStatus: #published\nCTA Link: http://call.systemizedhealth.com/
+STATUS:TENTATIVE
 CATEGORIES:Publication,YouTube,Content Drop
 END:VEVENT
 BEGIN:VEVENT
 UID:video-hist-s15-20260109@systemizedhealth.com
-DTSTAMP:20260807T104245Z
+DTSTAMP:20260807T121208Z
 DTSTART;VALUE=DATE:20260109
 DTEND;VALUE=DATE:20260110
 SUMMARY:⚡ [Short] HIST.S15: The Clinical Architecture of Anchor Habits
-DESCRIPTION:Video Code: HIST.S15\nFormat: Short\nStatus: Uploaded\nCTA Link: http://call.systemizedhealth.com/
-STATUS:CONFIRMED
+DESCRIPTION:Video Code: HIST.S15\nFormat: Short\nStatus: #published\nCTA Link: http://call.systemizedhealth.com/
+STATUS:TENTATIVE
 CATEGORIES:Publication,YouTube,Content Drop
 END:VEVENT
 END:VCALENDAR

@@ -27,25 +27,21 @@ from supabase_client import SupabaseClient
 
 # ── Status ordering for display ────────────────────────────────────────────
 STATUS_ORDER = [
-    "Idea",
-    "Script Ready",
-    "Ready for Audio Riff",
-    "Ready to Film",
-    "Filming",
-    "Editing",
-    "In Production",
-    "Uploaded",
+    "#idea",
+    "#write",
+    "#film",
+    "#edit",
+    "#uploaded",
+    "#published",
 ]
 
 STATUS_EMOJI = {
-    "Idea":                 "💡",
-    "Script Ready":         "📝",
-    "Ready for Audio Riff": "🎙️",
-    "Ready to Film":        "🎬",
-    "Filming":              "📸",
-    "Editing":              "✂️",
-    "In Production":        "⚙️",
-    "Uploaded":             "✅",
+    "#idea":      "💡",
+    "#write":     "📝",
+    "#film":      "🎬",
+    "#edit":      "✂️",
+    "#uploaded":  "📤",
+    "#published": "✅",
 }
 
 
@@ -127,7 +123,7 @@ def cmd_week(db: SupabaseClient):
         print(fmt_row(v))
     print(f"{'─'*114}\n")
 
-    needs_work = [v for v in dropping if v.get("status") != "Uploaded"]
+    needs_work = [v for v in dropping if v.get("status") not in ["#uploaded", "#published"]]
     if needs_work:
         print(f"  ⚠️  {len(needs_work)} video(s) still need work before upload:\n")
         for v in needs_work:
@@ -149,7 +145,7 @@ def cmd_status(db: SupabaseClient, code: str, new_status: str, extra: dict = Non
             print(f"     • {s}")
         sys.exit(1)
 
-    if new_status == "Uploaded":
+    if new_status in ["#uploaded", "#published"]:
         extra = extra or {}
         extra.setdefault("uploaded_date", date.today().isoformat())
 
@@ -324,10 +320,10 @@ def main():
         epilog="""
 Examples:
   python3 scripts/video_pipeline.py --list
-  python3 scripts/video_pipeline.py --list --filter Editing
+  python3 scripts/video_pipeline.py --list --filter '#edit'
   python3 scripts/video_pipeline.py --week
-  python3 scripts/video_pipeline.py --status 80.V0A-S1 Uploaded
-  python3 scripts/video_pipeline.py --status 80.V0A1 "In Production"
+  python3 scripts/video_pipeline.py --status 80.V0A-S1 '#uploaded'
+  python3 scripts/video_pipeline.py --status 80.V0A1 '#edit'
   python3 scripts/video_pipeline.py --add '{"video_number":"017","code":"80.V1B2","format_type":"Long","title":"New Video"}'
   python3 scripts/video_pipeline.py --doc
   python3 scripts/video_pipeline.py --schedule

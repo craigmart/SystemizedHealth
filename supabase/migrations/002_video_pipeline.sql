@@ -19,16 +19,14 @@ CREATE TABLE IF NOT EXISTS videos (
     jdex_code           TEXT,                      -- JDex knowledge reference
     os_level            TEXT,                      -- e.g. "Level 1: FMR"
     folder_path         TEXT,                      -- Local Videos/ folder path
-    status              TEXT NOT NULL DEFAULT 'Idea'
+    status              TEXT NOT NULL DEFAULT '#idea'
                         CHECK (status IN (
-                            'Idea',
-                            'Script Ready',
-                            'Ready for Audio Riff',
-                            'Ready to Film',
-                            'Filming',
-                            'Editing',
-                            'In Production',
-                            'Uploaded'
+                            '#idea',
+                            '#write',
+                            '#film',
+                            '#edit',
+                            '#uploaded',
+                            '#published'
                         )),
     drop_date           DATE,
     uploaded_date       DATE,
@@ -138,22 +136,22 @@ CREATE TRIGGER trg_videos_updated
 -- ============================================================
 INSERT INTO videos (video_number, code, format_type, title, status, drop_date, uploaded_date, jdex_code, os_level, notes)
 VALUES
-    ('001', '80.V0B',      'Long',  'Health Info & Biology Baseline',                                    'Uploaded',              '2026-08-03', '2026-07-26', '80.10', 'Level 1: FMR', 'Published'),
-    ('002', '80.V0A',      'Long',  '230,000 Patient Visits',                                            'Uploaded',              '2026-08-17', '2026-07-26', '80.10', 'Baseline',     'Published'),
-    ('003', '80.V1B1',     'Long',  'Exercise Optional (Movement Mandatory)',                             'Uploaded',              '2026-08-10', '2026-07-26', '77.01', 'Level 1: FMR', 'Published'),
-    ('004', '80.V0A1',     'Long',  'Systemized OS Framework',                                           'In Production',         '2026-08-24', NULL,         '81.05', 'Level 1: FMR', 'Currently Editing'),
-    ('005', '80.V0B-S1',   'Short', 'Why Health Information Alone Keeps You Broken',                     'Editing',               '2026-08-04', NULL,         '42.02', 'Level 1: FMR', '6/6 Shots Filmed — Editing (#edit)'),
-    ('006', '80.V0B-S2',   'Short', 'The Hidden System Glitch Ruining Your Body',                        'Ready for Audio Riff',  '2026-08-06', NULL,         '77.03', 'Level 1: FMR', 'Pre-Recording Blueprint Ready'),
-    ('007', '80.V0B-S3',   'Short', 'Stop Buying Health Advice from Coaches Who Dont Know Physiology',   'Ready for Audio Riff',  '2026-08-08', NULL,         '77.01', 'Level 1: FMR', 'Pre-Recording Blueprint Ready'),
-    ('008', '80.V0A-S1',   'Short', 'The Biological Reason Monday Resolutions Always Fail',              'Editing',               '2026-08-18', NULL,         '41.03', 'Level 1: FMR', '6/6 Shots Filmed — Editing (#edit)'),
-    ('009', '80.V0A-S2',   'Short', 'The Exact Biological Sequence Your Body Needs to Change',           'Editing',               '2026-08-20', NULL,         '42.04', 'Level 1: FMR', '6/6 Shots Filmed — Editing (#edit)'),
-    ('010', '80.V0A-S3',   'Short', 'Stop Treating Your Health Like an Emergency Room',                  'Editing',               '2026-08-22', NULL,         '77.02', 'Level 1: FMR', '6/6 Shots Filmed — Editing (#edit)'),
-    ('011', '80.V1B1-S1',  'Short', 'Why Exercise is Optional',                                          'Ready for Audio Riff',  '2026-08-11', NULL,         '77.01', 'Level 1: FMR', 'Pre-Recording Blueprint Ready'),
-    ('012', '80.V1B1-S2',  'Short', 'Joint Imbibition: The Only Way Your Joints Actually Get Nourished', 'Ready for Audio Riff',  '2026-08-13', NULL,         '77.01', 'Level 1: FMR', 'Pre-Recording Blueprint Ready'),
-    ('013', '80.V1B1-S3',  'Short', 'Cortical Smudging: Why Your Back Pain Randomly Spasms',             'Ready for Audio Riff',  '2026-08-15', NULL,         '77.03', 'Level 1: FMR', 'Pre-Recording Blueprint Ready'),
-    ('014', '80.V0A1-S1',  'Short', 'Why Relying on Willpower Guarantees Physical Burnout',              'Editing',               '2026-08-25', NULL,         '42.06', 'Level 1: FMR', '6/6 Shots Filmed — Editing (#edit)'),
-    ('015', '80.V0A1-S2',  'Short', 'The Level 1 FMR Baseline Every Body Needs to Master',               'Editing',               '2026-08-27', NULL,         '81.05', 'Level 1: FMR', '6/6 Shots Filmed — Editing (#edit)'),
-    ('016', '80.V0A1-S3',  'Short', 'The 3-Tier Health Pyramid That Fixes Chronic Fatigue',              'Editing',               '2026-08-29', NULL,         '43.11', 'Level 1: FMR', '6/6 Shots Filmed — Editing (#edit)')
+    ('001', '80.V0B',      'Long',  'Health Info & Biology Baseline',                                    '#published',            '2026-08-03', '2026-07-26', '80.10', 'Level 1: FMR', 'Published'),
+    ('002', '80.V0A',      'Long',  '230,000 Patient Visits',                                            '#published',            '2026-08-17', '2026-07-26', '80.10', 'Baseline',     'Published'),
+    ('003', '80.V1B1',     'Long',  'Exercise Optional (Movement Mandatory)',                             '#published',            '2026-08-10', '2026-07-26', '77.01', 'Level 1: FMR', 'Published'),
+    ('004', '80.V0A1',     'Long',  'Systemized OS Framework',                                           '#edit',                 '2026-08-24', NULL,         '81.05', 'Level 1: FMR', 'Currently Editing'),
+    ('005', '80.V0B-S1',   'Short', 'Why Health Information Alone Keeps You Broken',                     '#edit',                 '2026-08-04', NULL,         '42.02', 'Level 1: FMR', '6/6 Shots Filmed — Editing (#edit)'),
+    ('006', '80.V0B-S2',   'Short', 'The Hidden System Glitch Ruining Your Body',                        '#write',                '2026-08-06', NULL,         '77.03', 'Level 1: FMR', 'Pre-Recording Blueprint Ready'),
+    ('007', '80.V0B-S3',   'Short', 'Stop Buying Health Advice from Coaches Who Dont Know Physiology',   '#write',                '2026-08-08', NULL,         '77.01', 'Level 1: FMR', 'Pre-Recording Blueprint Ready'),
+    ('008', '80.V0A-S1',   'Short', 'The Biological Reason Monday Resolutions Always Fail',              '#edit',                 '2026-08-18', NULL,         '41.03', 'Level 1: FMR', '6/6 Shots Filmed — Editing (#edit)'),
+    ('009', '80.V0A-S2',   'Short', 'The Exact Biological Sequence Your Body Needs to Change',           '#edit',                 '2026-08-20', NULL,         '42.04', 'Level 1: FMR', '6/6 Shots Filmed — Editing (#edit)'),
+    ('010', '80.V0A-S3',   'Short', 'Stop Treating Your Health Like an Emergency Room',                  '#edit',                 '2026-08-22', NULL,         '77.02', 'Level 1: FMR', '6/6 Shots Filmed — Editing (#edit)'),
+    ('011', '80.V1B1-S1',  'Short', 'Why Exercise is Optional',                                          '#write',                '2026-08-11', NULL,         '77.01', 'Level 1: FMR', 'Pre-Recording Blueprint Ready'),
+    ('012', '80.V1B1-S2',  'Short', 'Joint Imbibition: The Only Way Your Joints Actually Get Nourished', '#write',                '2026-08-13', NULL,         '77.01', 'Level 1: FMR', 'Pre-Recording Blueprint Ready'),
+    ('013', '80.V1B1-S3',  'Short', 'Cortical Smudging: Why Your Back Pain Randomly Spasms',             '#write',                '2026-08-15', NULL,         '77.03', 'Level 1: FMR', 'Pre-Recording Blueprint Ready'),
+    ('014', '80.V0A1-S1',  'Short', 'Why Relying on Willpower Guarantees Physical Burnout',              '#edit',                 '2026-08-25', NULL,         '42.06', 'Level 1: FMR', '6/6 Shots Filmed — Editing (#edit)'),
+    ('015', '80.V0A1-S2',  'Short', 'The Level 1 FMR Baseline Every Body Needs to Master',               '#edit',                 '2026-08-27', NULL,         '81.05', 'Level 1: FMR', '6/6 Shots Filmed — Editing (#edit)'),
+    ('016', '80.V0A1-S3',  'Short', 'The 3-Tier Health Pyramid That Fixes Chronic Fatigue',              '#edit',                 '2026-08-29', NULL,         '43.11', 'Level 1: FMR', '6/6 Shots Filmed — Editing (#edit)')
 ON CONFLICT (video_number) DO UPDATE SET
     code            = EXCLUDED.code,
     title           = EXCLUDED.title,

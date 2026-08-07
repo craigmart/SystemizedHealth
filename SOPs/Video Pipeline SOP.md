@@ -32,7 +32,7 @@ This document defines the authoritative operating standard for managing the Syst
 | `format_type` | TEXT | `Long` or `Short` |
 | `title` | TEXT | Full video title |
 | `drop_date` | DATE | Scheduled YouTube publish date |
-| `status` | TEXT | Current pipeline stage (see §3) |
+| `status` | TEXT | Current pipeline tag (e.g. `#idea`, `#write`, etc.) |
 | `uploaded_date` | DATE | Date uploaded to YouTube (auto-stamped) |
 | `youtube_id` | TEXT | YouTube video ID (once published) |
 | `jdex_code` | TEXT | JDex knowledge reference code |
@@ -48,22 +48,20 @@ This document defines the authoritative operating standard for managing the Syst
 
 ## 3. Pipeline Status Progression
 
-Every video moves strictly through these statuses in order:
+Every video moves strictly through these tags in order:
 
 ```
-Idea → Script Ready → Ready for Audio Riff → Ready to Film → Filming → Editing → In Production → Uploaded
+#idea → #write → #film → #edit → #uploaded → #published
 ```
 
-| Status | Meaning |
+| Tag | Meaning |
 | :--- | :--- |
-| `Idea` | Concept identified, not yet scripted |
-| `Script Ready` | Pre-recording outline or teleprompter script complete |
-| `Ready for Audio Riff` | Blueprint ready; waiting for Dr. Anderson's audio brainstorm |
-| `Ready to Film` | Full script finalized in Workflowy under `Shots` |
-| `Filming` | On-set recording in progress |
-| `Editing` | Footage captured; editing in LumaFusion / Descript |
-| `In Production` | Editing complete; final review before upload |
-| `Uploaded` | Live on YouTube (auto-stamps `uploaded_date`) |
+| `#idea` | Working on the idea |
+| `#write` | These are videos that are in the writing stage (outline or audio riff) |
+| `#film` | Ready to film (context tags used here like `#outside`, `#studio`, etc.) |
+| `#edit` | Footage captured; there is editing to be done |
+| `#uploaded` | Sitting in YT Studio ready, all set (auto-stamps `uploaded_date`) |
+| `#published` | The video has dropped and is live |
 
 ---
 
@@ -75,14 +73,14 @@ All pipeline operations use `scripts/video_pipeline.py` from the project root:
 # View full pipeline
 python3 scripts/video_pipeline.py --list
 
-# Filter by status
-python3 scripts/video_pipeline.py --list --filter Editing
+# Filter by tag
+python3 scripts/video_pipeline.py --list --filter '#edit'
 
 # Next week's drops + upload gap warnings
 python3 scripts/video_pipeline.py --week
 
-# Update a video's status (auto-stamps uploaded_date when Uploaded)
-python3 scripts/video_pipeline.py --status 80.V0A-S1 Uploaded
+# Update a video's tag (auto-stamps uploaded_date when #uploaded or #published)
+python3 scripts/video_pipeline.py --status 80.V0A-S1 '#uploaded'
 
 # Add or upsert a new video
 python3 scripts/video_pipeline.py --add '{"video_number":"017","code":"80.V1B2","format_type":"Long","title":"New Video Title","drop_date":"2026-09-07"}'
@@ -106,7 +104,7 @@ python3 scripts/analytics_manager.py --eom 2026-07
 
 1. Run `--add` with the required fields: `video_number`, `code`, `format_type`, `title`
 2. Optionally include: `drop_date`, `status`, `jdex_code`, `os_level`, `notes`
-3. Create the local folder: `Videos/[ShortCode] - [Title] ([FullCode])/`
+3. Create the local folder: `Obsidian_Vault/Videos/[ShortCode] - [Title] ([FullCode])/`
 4. Verify with `python3 scripts/video_pipeline.py --list`
 
 ---
@@ -116,16 +114,16 @@ python3 scripts/analytics_manager.py --eom 2026-07
 When a video advances through production, update Supabase immediately:
 
 ```bash
-python3 scripts/video_pipeline.py --status <code> <new_status>
+python3 scripts/video_pipeline.py --status <code> '<new_tag>'
 ```
 
 Examples:
 ```bash
-python3 scripts/video_pipeline.py --status 80.V0A-S1 Editing
-python3 scripts/video_pipeline.py --status 80.V0A-S1 Uploaded
+python3 scripts/video_pipeline.py --status 80.V0A-S1 '#edit'
+python3 scripts/video_pipeline.py --status 80.V0A-S1 '#uploaded'
 ```
 
-When set to `Uploaded`, `uploaded_date` is automatically stamped with today's date.
+When set to `#uploaded` or `#published`, `uploaded_date` is automatically stamped with today's date.
 
 ### Renaming a Video & Calendar Sync
 

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-07T10:42:45.399340+00:00",
+  "generated": "2026-08-07T12:12:08.557960+00:00",
   "count": 36,
   "videos": [
     {
@@ -12,7 +12,7 @@
       "jdex_code": "80.10",
       "os_level": "Level 1: FMR",
       "folder_path": null,
-      "status": "Uploaded",
+      "status": "#published",
       "drop_date": "2026-08-03",
       "uploaded_date": "2026-08-03",
       "youtube_id": "EQyStOr47KI",
@@ -20,19 +20,19 @@
       "vidiq_title_score": 0,
       "notes": "Published",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-05T01:58:29.83317+00:00"
+      "updated_at": "2026-08-07T12:12:08.090527+00:00"
     },
     {
       "id": "2fedea5e-ea20-4e31-9a95-d453adfa427e",
       "video_number": "002",
       "code": "80.V0A",
       "format_type": "Long",
-      "title": "230,000 Patient Visits",
+      "title": "20,000 Patients Taught Me This One Biological Reality",
       "description": null,
       "jdex_code": "80.10",
       "os_level": "Baseline",
       "folder_path": null,
-      "status": "Uploaded",
+      "status": "#published",
       "drop_date": "2026-08-17",
       "uploaded_date": "2026-08-03",
       "youtube_id": "Menybk7p3TI",
@@ -40,7 +40,7 @@
       "vidiq_title_score": 0,
       "notes": "Published",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-05T01:58:30.754003+00:00"
+      "updated_at": "2026-08-07T12:12:08.197909+00:00"
     },
     {
       "id": "f64ec39a-3ecd-4525-90c1-ddf3635aea76",
@@ -52,7 +52,7 @@
       "jdex_code": "77.01",
       "os_level": "Level 1: FMR",
       "folder_path": null,
-      "status": "Uploaded",
+      "status": "#published",
       "drop_date": "2026-08-10",
       "uploaded_date": "2026-07-26",
       "youtube_id": null,
@@ -60,7 +60,7 @@
       "vidiq_title_score": 0,
       "notes": "Published",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-03T01:27:05.787866+00:00"
+      "updated_at": "2026-08-07T11:26:36.686132+00:00"
     },
     {
       "id": "686ffa93-02e8-4cd8-ae26-125b0c359d7e",
@@ -72,7 +72,7 @@
       "jdex_code": "81.05",
       "os_level": "Level 1: FMR",
       "folder_path": null,
-      "status": "In Production",
+      "status": "#edit",
       "drop_date": "2026-08-24",
       "uploaded_date": null,
       "youtube_id": null,
@@ -80,7 +80,7 @@
       "vidiq_title_score": 0,
       "notes": "Currently Editing",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-03T01:27:05.87974+00:00"
+      "updated_at": "2026-08-07T11:26:36.686132+00:00"
     },
     {
       "id": "d73fe165-3592-418f-a0af-6e9436e22190",
@@ -92,7 +92,7 @@
       "jdex_code": "42.02",
       "os_level": "Level 1: FMR",
       "folder_path": null,
-      "status": "Uploaded",
+      "status": "#published",
       "drop_date": "2026-08-04",
       "uploaded_date": "2026-08-04",
       "youtube_id": "RnrGj1l3tDc",
@@ -100,27 +100,27 @@
       "vidiq_title_score": 0,
       "notes": "6/6 Shots Filmed \u2014 Editing (#edit)",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-05T01:58:40.444794+00:00"
+      "updated_at": "2026-08-07T12:12:08.385272+00:00"
     },
     {
       "id": "2e48954c-bbd6-426f-9b7f-1f1ac7da3e8b",
       "video_number": "006",
       "code": "80.V0B-S2",
       "format_type": "Short",
-      "title": "The Hidden System Glitch Ruining Your Body",
+      "title": "Stop Setting Marathon Goals on Monday (Downshift for Success)",
       "description": null,
       "jdex_code": "77.03",
       "os_level": "Level 1: FMR",
       "folder_path": null,
-      "status": "Ready to Film",
+      "status": "#published",
       "drop_date": "2026-08-18",
-      "uploaded_date": null,
-      "youtube_id": null,
+      "uploaded_date": "2026-08-06",
+      "youtube_id": "ppTBTpV3lIQ",
       "primary_keyword": null,
       "vidiq_title_score": 0,
       "notes": "Pre-Recording Blueprint Ready",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-05T00:02:28.181214+00:00"
+      "updated_at": "2026-08-07T12:12:08.293112+00:00"
     },
     {
       "id": "575283bb-b128-479d-9263-b1370a9359a5",
@@ -132,7 +132,7 @@
       "jdex_code": "77.01",
       "os_level": "Level 1: FMR",
       "folder_path": null,
-      "status": "Ready to Film",
+      "status": "#film",
       "drop_date": "2026-08-20",
       "uploaded_date": null,
       "youtube_id": null,
@@ -140,7 +140,7 @@
       "vidiq_title_score": 0,
       "notes": "Pre-Recording Blueprint Ready",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-05T01:42:44.75217+00:00"
+      "updated_at": "2026-08-07T11:26:36.686132+00:00"
     },
     {
       "id": "c4dbc019-9cf5-4faa-97b9-4621ca8b66dc",
@@ -152,7 +152,7 @@
       "jdex_code": "41.03",
       "os_level": "Level 1: FMR",
       "folder_path": null,
-      "status": "Editing",
+      "status": "#edit",
       "drop_date": "2026-08-06",
       "uploaded_date": null,
       "youtube_id": null,
@@ -160,7 +160,7 @@
       "vidiq_title_score": 0,
       "notes": "6/6 Shots Filmed \u2014 Editing (#edit)",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-03T14:17:40.136822+00:00"
+      "updated_at": "2026-08-07T11:26:36.686132+00:00"
     },
     {
       "id": "0c41c280-c101-4f7d-a1cf-3b67bf8c8f59",
@@ -172,7 +172,7 @@
       "jdex_code": "42.04",
       "os_level": "Level 1: FMR",
       "folder_path": null,
-      "status": "Editing",
+      "status": "#edit",
       "drop_date": "2026-08-08",
       "uploaded_date": null,
       "youtube_id": null,
@@ -180,7 +180,7 @@
       "vidiq_title_score": 0,
       "notes": "6/6 Shots Filmed \u2014 Editing (#edit)",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-03T14:17:40.354324+00:00"
+      "updated_at": "2026-08-07T11:26:36.686132+00:00"
     },
     {
       "id": "df7be480-8be4-43f0-9b9b-f2fb4b26a9d0",
@@ -192,7 +192,7 @@
       "jdex_code": "77.02",
       "os_level": "Level 1: FMR",
       "folder_path": null,
-      "status": "Editing",
+      "status": "#edit",
       "drop_date": "2026-08-22",
       "uploaded_date": null,
       "youtube_id": null,
@@ -200,7 +200,7 @@
       "vidiq_title_score": 0,
       "notes": "6/6 Shots Filmed \u2014 Editing (#edit)",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-03T01:27:09.805819+00:00"
+      "updated_at": "2026-08-07T11:26:36.686132+00:00"
     },
     {
       "id": "93620b11-1d5c-4260-b372-1d8c4c00f913",
@@ -212,7 +212,7 @@
       "jdex_code": "77.01",
       "os_level": "Level 1: FMR",
       "folder_path": null,
-      "status": "Ready for Audio Riff",
+      "status": "#write",
       "drop_date": "2026-08-11",
       "uploaded_date": null,
       "youtube_id": null,
@@ -220,7 +220,7 @@
       "vidiq_title_score": 0,
       "notes": "Pre-Recording Blueprint Ready",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-03T01:27:10.455279+00:00"
+      "updated_at": "2026-08-07T11:26:36.686132+00:00"
     },
     {
       "id": "a5152367-9d5b-45d2-87fe-f6b5e38c8094",
@@ -232,7 +232,7 @@
       "jdex_code": "77.01",
       "os_level": "Level 1: FMR",
       "folder_path": null,
-      "status": "Ready for Audio Riff",
+      "status": "#write",
       "drop_date": "2026-08-13",
       "uploaded_date": null,
       "youtube_id": null,
@@ -240,7 +240,7 @@
       "vidiq_title_score": 0,
       "notes": "Pre-Recording Blueprint Ready",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-03T01:27:10.992628+00:00"
+      "updated_at": "2026-08-07T11:26:36.686132+00:00"
     },
     {
       "id": "3961cd23-b2d6-4fe1-9739-87a29fa6e450",
@@ -252,7 +252,7 @@
       "jdex_code": "77.03",
       "os_level": "Level 1: FMR",
       "folder_path": null,
-      "status": "Ready for Audio Riff",
+      "status": "#write",
       "drop_date": "2026-08-15",
       "uploaded_date": null,
       "youtube_id": null,
@@ -260,7 +260,7 @@
       "vidiq_title_score": 0,
       "notes": "Pre-Recording Blueprint Ready",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-03T01:27:11.805703+00:00"
+      "updated_at": "2026-08-07T11:26:36.686132+00:00"
     },
     {
       "id": "5d4be38f-220a-4641-993f-c7c2728cf5dd",
@@ -272,7 +272,7 @@
       "jdex_code": "42.06",
       "os_level": "Level 1: FMR",
       "folder_path": null,
-      "status": "Editing",
+      "status": "#edit",
       "drop_date": "2026-08-25",
       "uploaded_date": null,
       "youtube_id": null,
@@ -280,7 +280,7 @@
       "vidiq_title_score": 0,
       "notes": "6/6 Shots Filmed \u2014 Editing (#edit)",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-03T01:27:12.412973+00:00"
+      "updated_at": "2026-08-07T11:26:36.686132+00:00"
     },
     {
       "id": "7e661ff6-c06b-4652-8733-fa1390551e71",
@@ -292,7 +292,7 @@
       "jdex_code": "81.05",
       "os_level": "Level 1: FMR",
       "folder_path": null,
-      "status": "Editing",
+      "status": "#edit",
       "drop_date": "2026-08-27",
       "uploaded_date": null,
       "youtube_id": null,
@@ -300,7 +300,7 @@
       "vidiq_title_score": 0,
       "notes": "6/6 Shots Filmed \u2014 Editing (#edit)",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-03T01:27:13.121133+00:00"
+      "updated_at": "2026-08-07T11:26:36.686132+00:00"
     },
     {
       "id": "db822830-8ae5-4133-bdc9-2618077bcffd",
@@ -312,7 +312,7 @@
       "jdex_code": "43.11",
       "os_level": "Level 1: FMR",
       "folder_path": null,
-      "status": "Editing",
+      "status": "#edit",
       "drop_date": "2026-08-29",
       "uploaded_date": null,
       "youtube_id": null,
@@ -320,7 +320,7 @@
       "vidiq_title_score": 0,
       "notes": "6/6 Shots Filmed \u2014 Editing (#edit)",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-03T01:27:14.043913+00:00"
+      "updated_at": "2026-08-07T11:26:36.686132+00:00"
     },
     {
       "id": "abac8e64-3d31-40b8-8f06-1226bfb922d5",
@@ -332,7 +332,7 @@
       "jdex_code": null,
       "os_level": null,
       "folder_path": null,
-      "status": "Uploaded",
+      "status": "#published",
       "drop_date": "2026-03-24",
       "uploaded_date": "2026-03-24",
       "youtube_id": "bvmmlepNU_I",
@@ -340,7 +340,7 @@
       "vidiq_title_score": 0,
       "notes": null,
       "created_at": "2026-08-03T15:28:32.672732+00:00",
-      "updated_at": "2026-08-05T01:58:27.143098+00:00"
+      "updated_at": "2026-08-07T11:26:36.686132+00:00"
     },
     {
       "id": "be7a3be3-aaee-4568-a49d-765d3cc604b5",
@@ -352,7 +352,7 @@
       "jdex_code": null,
       "os_level": null,
       "folder_path": null,
-      "status": "Uploaded",
+      "status": "#published",
       "drop_date": "2026-01-22",
       "uploaded_date": "2026-01-22",
       "youtube_id": "cGXl54siR8c",
@@ -360,7 +360,7 @@
       "vidiq_title_score": 0,
       "notes": null,
       "created_at": "2026-08-03T15:28:32.783955+00:00",
-      "updated_at": "2026-08-05T01:58:27.846661+00:00"
+      "updated_at": "2026-08-07T11:26:36.686132+00:00"
     },
     {
       "id": "37540c9d-ee6a-4d76-a304-7450f43a1a5b",
@@ -372,7 +372,7 @@
       "jdex_code": null,
       "os_level": null,
       "folder_path": null,
-      "status": "Uploaded",
+      "status": "#published",
       "drop_date": "2026-01-14",
       "uploaded_date": "2026-01-14",
       "youtube_id": "MGzcr5xWJ98",
@@ -380,7 +380,7 @@
       "vidiq_title_score": 0,
       "notes": null,
       "created_at": "2026-08-03T15:28:32.872456+00:00",
-      "updated_at": "2026-08-05T01:58:28.558683+00:00"
+      "updated_at": "2026-08-07T11:26:36.686132+00:00"
     },
     {
       "id": "20160880-7927-4224-a3b8-614b644ca5ff",
@@ -392,7 +392,7 @@
       "jdex_code": null,
       "os_level": null,
       "folder_path": null,
-      "status": "Uploaded",
+      "status": "#published",
       "drop_date": "2026-01-06",
       "uploaded_date": "2026-01-06",
       "youtube_id": "gUQJlS9WgtY",
@@ -400,7 +400,7 @@
       "vidiq_title_score": 0,
       "notes": null,
       "created_at": "2026-08-03T15:28:32.965975+00:00",
-      "updated_at": "2026-08-05T01:58:29.167017+00:00"
+      "updated_at": "2026-08-07T11:26:36.686132+00:00"
     },
     {
       "id": "23d00130-ab4b-4251-aedb-73ffeabfe17b",
@@ -412,7 +412,7 @@
       "jdex_code": null,
       "os_level": null,
       "folder_path": null,
-      "status": "Uploaded",
+      "status": "#published",
       "drop_date": "2026-03-12",
       "uploaded_date": "2026-01-01",
       "youtube_id": "7PBxkzu3l-Q",
@@ -420,47 +420,47 @@
       "vidiq_title_score": 0,
       "notes": null,
       "created_at": "2026-08-03T15:28:33.150634+00:00",
-      "updated_at": "2026-08-05T01:58:30.466553+00:00"
+      "updated_at": "2026-08-07T11:26:36.686132+00:00"
     },
     {
       "id": "780d77a6-cb85-4f18-a832-1fb89c3e3685",
       "video_number": "HS001",
       "code": "HIST.S01",
       "format_type": "Short",
-      "title": "The Biological Calibration for Morning Hunger",
-      "description": null,
-      "jdex_code": null,
-      "os_level": null,
-      "folder_path": null,
-      "status": "Uploaded",
-      "drop_date": "2026-03-21",
-      "uploaded_date": "2026-03-21",
-      "youtube_id": "zHiBt3dbte4",
-      "primary_keyword": null,
-      "vidiq_title_score": 0,
-      "notes": null,
-      "created_at": "2026-08-03T15:28:33.333875+00:00",
-      "updated_at": "2026-08-05T01:58:31.575228+00:00"
-    },
-    {
-      "id": "34bc3e8f-d963-45cf-8b0f-ff9ef6e2967d",
-      "video_number": "HS002",
-      "code": "HIST.S02",
-      "format_type": "Short",
       "title": "The Biological Mechanics of Habit Attachment",
       "description": null,
       "jdex_code": null,
       "os_level": null,
       "folder_path": null,
-      "status": "Uploaded",
+      "status": "#published",
       "drop_date": "2026-01-13",
       "uploaded_date": "2026-01-13",
       "youtube_id": "n2A3Wi2g2uM",
       "primary_keyword": null,
       "vidiq_title_score": 0,
       "notes": null,
+      "created_at": "2026-08-03T15:28:33.333875+00:00",
+      "updated_at": "2026-08-07T12:05:57.296813+00:00"
+    },
+    {
+      "id": "34bc3e8f-d963-45cf-8b0f-ff9ef6e2967d",
+      "video_number": "HS002",
+      "code": "HIST.S02",
+      "format_type": "Short",
+      "title": "Stop Setting Marathon Goals on Monday (Downshift for Success)",
+      "description": null,
+      "jdex_code": null,
+      "os_level": null,
+      "folder_path": null,
+      "status": "#published",
+      "drop_date": "2026-08-06",
+      "uploaded_date": "2026-08-06",
+      "youtube_id": "ppTBTpV3lIQ",
+      "primary_keyword": null,
+      "vidiq_title_score": 0,
+      "notes": null,
       "created_at": "2026-08-04T23:47:43.468008+00:00",
-      "updated_at": "2026-08-05T01:58:31.923923+00:00"
+      "updated_at": "2026-08-07T12:05:49.018031+00:00"
     },
     {
       "id": "ec07957b-5d9b-4f2c-bb35-da0e20778450",
@@ -472,7 +472,7 @@
       "jdex_code": null,
       "os_level": null,
       "folder_path": null,
-      "status": "Uploaded",
+      "status": "#published",
       "drop_date": "2026-03-30",
       "uploaded_date": "2026-03-30",
       "youtube_id": "F16bN5jbV8w",
@@ -480,7 +480,7 @@
       "vidiq_title_score": 0,
       "notes": null,
       "created_at": "2026-08-03T15:28:33.520313+00:00",
-      "updated_at": "2026-08-05T01:58:32.19648+00:00"
+      "updated_at": "2026-08-07T11:26:36.686132+00:00"
     },
     {
       "id": "521108bf-ef35-4022-8e94-b2d5dba90108",
@@ -492,7 +492,7 @@
       "jdex_code": null,
       "os_level": null,
       "folder_path": null,
-      "status": "Uploaded",
+      "status": "#published",
       "drop_date": "2026-04-03",
       "uploaded_date": "2026-04-03",
       "youtube_id": "SzoLkKy67X8",
@@ -500,7 +500,7 @@
       "vidiq_title_score": 0,
       "notes": null,
       "created_at": "2026-08-03T15:28:33.614491+00:00",
-      "updated_at": "2026-08-05T01:58:32.694416+00:00"
+      "updated_at": "2026-08-07T11:26:36.686132+00:00"
     },
     {
       "id": "c091c11c-bdcd-4d7c-b4e5-3f44197c10e9",
@@ -512,7 +512,7 @@
       "jdex_code": null,
       "os_level": null,
       "folder_path": null,
-      "status": "Uploaded",
+      "status": "#published",
       "drop_date": "2026-02-07",
       "uploaded_date": "2026-02-07",
       "youtube_id": "8FKzFafJ6lY",
@@ -520,7 +520,7 @@
       "vidiq_title_score": 0,
       "notes": null,
       "created_at": "2026-08-03T15:28:33.715+00:00",
-      "updated_at": "2026-08-05T01:58:32.99039+00:00"
+      "updated_at": "2026-08-07T11:26:36.686132+00:00"
     },
     {
       "id": "f3a73f74-b03a-4c39-8ac0-9950a04870d7",
@@ -532,7 +532,7 @@
       "jdex_code": null,
       "os_level": null,
       "folder_path": null,
-      "status": "Uploaded",
+      "status": "#published",
       "drop_date": "2026-01-15",
       "uploaded_date": "2026-01-15",
       "youtube_id": "h957-iWfypA",
@@ -540,7 +540,7 @@
       "vidiq_title_score": 0,
       "notes": null,
       "created_at": "2026-08-03T15:28:33.803106+00:00",
-      "updated_at": "2026-08-05T01:58:33.54828+00:00"
+      "updated_at": "2026-08-07T11:26:36.686132+00:00"
     },
     {
       "id": "c11eb548-03a1-436a-aa18-ff71f4fb9d5d",
@@ -552,7 +552,7 @@
       "jdex_code": null,
       "os_level": null,
       "folder_path": null,
-      "status": "Uploaded",
+      "status": "#published",
       "drop_date": "2026-01-08",
       "uploaded_date": "2026-01-08",
       "youtube_id": "YT_6EukW9M4",
@@ -560,7 +560,7 @@
       "vidiq_title_score": 0,
       "notes": null,
       "created_at": "2026-08-03T15:28:33.897306+00:00",
-      "updated_at": "2026-08-05T01:58:34.222421+00:00"
+      "updated_at": "2026-08-07T11:26:36.686132+00:00"
     },
     {
       "id": "b397577a-b1e8-482c-8171-7940c3450543",
@@ -572,7 +572,7 @@
       "jdex_code": null,
       "os_level": null,
       "folder_path": null,
-      "status": "Uploaded",
+      "status": "#published",
       "drop_date": "2026-01-07",
       "uploaded_date": "2026-01-07",
       "youtube_id": "iH7R_MXE92s",
@@ -580,7 +580,7 @@
       "vidiq_title_score": 0,
       "notes": null,
       "created_at": "2026-08-03T15:28:33.992308+00:00",
-      "updated_at": "2026-08-05T01:58:34.828383+00:00"
+      "updated_at": "2026-08-07T11:26:36.686132+00:00"
     },
     {
       "id": "910a8284-b44b-4e4a-ae6e-1b40b5ee6b6a",
@@ -592,7 +592,7 @@
       "jdex_code": null,
       "os_level": null,
       "folder_path": null,
-      "status": "Uploaded",
+      "status": "#published",
       "drop_date": "2026-03-23",
       "uploaded_date": "2026-03-23",
       "youtube_id": "-ps4rpApMl8",
@@ -600,7 +600,7 @@
       "vidiq_title_score": 0,
       "notes": null,
       "created_at": "2026-08-03T15:28:34.093647+00:00",
-      "updated_at": "2026-08-05T01:58:35.428669+00:00"
+      "updated_at": "2026-08-07T11:26:36.686132+00:00"
     },
     {
       "id": "d093a88e-9332-49d5-a674-e33ef774f538",
@@ -612,7 +612,7 @@
       "jdex_code": null,
       "os_level": null,
       "folder_path": null,
-      "status": "Uploaded",
+      "status": "#published",
       "drop_date": "2026-01-20",
       "uploaded_date": "2026-01-20",
       "youtube_id": "oS-1-se9-Vw",
@@ -620,7 +620,7 @@
       "vidiq_title_score": 0,
       "notes": null,
       "created_at": "2026-08-03T15:28:41.935999+00:00",
-      "updated_at": "2026-08-05T01:58:36.016431+00:00"
+      "updated_at": "2026-08-07T11:26:36.686132+00:00"
     },
     {
       "id": "8e2e96d1-45fa-416a-a58c-db1fbcc0e4fc",
@@ -632,7 +632,7 @@
       "jdex_code": null,
       "os_level": null,
       "folder_path": null,
-      "status": "Uploaded",
+      "status": "#published",
       "drop_date": "2026-03-26",
       "uploaded_date": "2026-03-26",
       "youtube_id": "-jvtwj_tTpE",
@@ -640,7 +640,7 @@
       "vidiq_title_score": 0,
       "notes": null,
       "created_at": "2026-08-03T15:28:42.033247+00:00",
-      "updated_at": "2026-08-05T01:58:36.68508+00:00"
+      "updated_at": "2026-08-07T11:26:36.686132+00:00"
     },
     {
       "id": "3e24fb5b-8e50-42ec-bd6a-b79b9cc8af83",
@@ -652,7 +652,7 @@
       "jdex_code": null,
       "os_level": null,
       "folder_path": null,
-      "status": "Uploaded",
+      "status": "#published",
       "drop_date": "2026-01-21",
       "uploaded_date": "2026-01-21",
       "youtube_id": "qSDkAcapvT0",
@@ -660,7 +660,7 @@
       "vidiq_title_score": 0,
       "notes": null,
       "created_at": "2026-08-03T15:28:42.119198+00:00",
-      "updated_at": "2026-08-05T01:58:37.477284+00:00"
+      "updated_at": "2026-08-07T11:26:36.686132+00:00"
     },
     {
       "id": "b857578f-1737-45e4-b32f-853758e6cf40",
@@ -672,7 +672,7 @@
       "jdex_code": null,
       "os_level": null,
       "folder_path": null,
-      "status": "Uploaded",
+      "status": "#published",
       "drop_date": "2026-01-13",
       "uploaded_date": "2026-01-13",
       "youtube_id": "Y8yEZnk6uSw",
@@ -680,7 +680,7 @@
       "vidiq_title_score": 0,
       "notes": null,
       "created_at": "2026-08-03T15:28:42.214807+00:00",
-      "updated_at": "2026-08-05T01:58:38.096212+00:00"
+      "updated_at": "2026-08-07T11:26:36.686132+00:00"
     },
     {
       "id": "58214a5a-7f5e-4fb7-901e-fa1e3ba594af",
@@ -692,7 +692,7 @@
       "jdex_code": null,
       "os_level": null,
       "folder_path": null,
-      "status": "Uploaded",
+      "status": "#published",
       "drop_date": "2026-01-16",
       "uploaded_date": "2026-01-16",
       "youtube_id": "AtMN9oEjR2s",
@@ -700,7 +700,7 @@
       "vidiq_title_score": 0,
       "notes": null,
       "created_at": "2026-08-03T15:28:42.318344+00:00",
-      "updated_at": "2026-08-05T01:58:38.750518+00:00"
+      "updated_at": "2026-08-07T11:26:36.686132+00:00"
     },
     {
       "id": "147d1017-cb3c-4198-9520-241f77bf2ab1",
@@ -712,7 +712,7 @@
       "jdex_code": null,
       "os_level": null,
       "folder_path": null,
-      "status": "Uploaded",
+      "status": "#published",
       "drop_date": "2026-01-09",
       "uploaded_date": "2026-01-09",
       "youtube_id": "_Mzizq3SDW8",
@@ -720,7 +720,7 @@
       "vidiq_title_score": 0,
       "notes": null,
       "created_at": "2026-08-03T15:28:42.409986+00:00",
-      "updated_at": "2026-08-05T01:58:39.612139+00:00"
+      "updated_at": "2026-08-07T11:26:36.686132+00:00"
     }
   ]
 }

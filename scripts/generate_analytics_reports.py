@@ -145,9 +145,9 @@ def generate_48h_report(data):
 
 ## 📊 Pipeline Real-Time Status
 
-* **Uploaded / Staged Videos**: `{data['status_counts'].get('Uploaded', 0)}`
-* **In Production**: `{data['status_counts'].get('In Production', 0)}`
-* **Ready for Audio Riff**: `{data['status_counts'].get('Ready for Audio Riff', 0)}`
+* **Uploaded / Staged Videos**: `{data['status_counts'].get('#published', 0) + data['status_counts'].get('#uploaded', 0)}`
+* **In Production**: `{data['status_counts'].get('#edit', 0)}`
+* **Ready for Audio Riff**: `{data['status_counts'].get('#write', 0)}`
 
 ---
 
@@ -210,7 +210,7 @@ Upcoming content drops scheduled for the next 7 days:
 
 ## ⏳ Weekly Production Milestones
 
-* **Long-Form Videos Uploaded**: `{len([v for v in data['all_videos'] if v['format_type'] == 'Long' and v['status'] == 'Uploaded'])}`
+* **Long-Form Videos Uploaded**: `{len([v for v in data['all_videos'] if v['format_type'] == 'Long' and v['status'] in ['#uploaded', '#published']])}`
 * **Short-Form Blueprints Ready**: `{len([v for v in data['all_videos'] if v['format_type'] == 'Short'])}`
 * **Active Open Tasks Due**: `{len(data['open_tasks'])}`
 

@@ -147,11 +147,11 @@ def sync_vidiq_historical_data():
             h_idx += 1
             cursor.execute("""
             INSERT INTO videos (video_number, code, format_type, title, status, drop_date, uploaded_date, youtube_id)
-            VALUES (?, ?, 'Long', ?, 'Uploaded', ?, ?, ?)
+            VALUES (?, ?, 'Long', ?, '#published', ?, ?, ?)
             ON CONFLICT(video_number) DO UPDATE SET
                 code=excluded.code,
                 title=excluded.title,
-                status='Uploaded',
+                status='#published',
                 drop_date=excluded.drop_date,
                 uploaded_date=excluded.uploaded_date,
                 youtube_id=excluded.youtube_id;
@@ -159,7 +159,7 @@ def sync_vidiq_historical_data():
             cursor.execute("SELECT id FROM videos WHERE video_number = ?;", (v_num,))
             v_id = cursor.fetchone()["id"]
             if sb:
-                sb.upsert_video({"video_number": v_num, "code": code, "format_type": "Long", "title": v["title"], "status": "Uploaded", "drop_date": pub_date, "uploaded_date": pub_date, "youtube_id": v["videoId"]})
+                sb.upsert_video({"video_number": v_num, "code": code, "format_type": "Long", "title": v["title"], "status": "#published", "drop_date": pub_date, "uploaded_date": pub_date, "youtube_id": v["videoId"]})
 
         cursor.execute("""
         INSERT INTO video_stats (video_id, snapshot_date, views, vph, likes, comments)
@@ -194,11 +194,11 @@ def sync_vidiq_historical_data():
             hs_idx += 1
             cursor.execute("""
             INSERT INTO videos (video_number, code, format_type, title, status, drop_date, uploaded_date, youtube_id)
-            VALUES (?, ?, 'Short', ?, 'Uploaded', ?, ?, ?)
+            VALUES (?, ?, 'Short', ?, '#published', ?, ?, ?)
             ON CONFLICT(video_number) DO UPDATE SET
                 code=excluded.code,
                 title=excluded.title,
-                status='Uploaded',
+                status='#published',
                 drop_date=excluded.drop_date,
                 uploaded_date=excluded.uploaded_date,
                 youtube_id=excluded.youtube_id;
@@ -206,7 +206,7 @@ def sync_vidiq_historical_data():
             cursor.execute("SELECT id FROM videos WHERE video_number = ?;", (v_num,))
             v_id = cursor.fetchone()["id"]
             if sb:
-                sb.upsert_video({"video_number": v_num, "code": code, "format_type": "Short", "title": v["title"], "status": "Uploaded", "drop_date": pub_date, "uploaded_date": pub_date, "youtube_id": v["videoId"]})
+                sb.upsert_video({"video_number": v_num, "code": code, "format_type": "Short", "title": v["title"], "status": "#published", "drop_date": pub_date, "uploaded_date": pub_date, "youtube_id": v["videoId"]})
 
         cursor.execute("""
         INSERT INTO video_stats (video_id, snapshot_date, views, vph, likes, comments)
@@ -433,7 +433,7 @@ def compute_eom_report(report_month="2026-07"):
     # Status breakdown
     cursor.execute("SELECT status, count(*) as count FROM videos GROUP BY status;")
     status_counts = {r["status"]: r["count"] for r in cursor.fetchall()}
-    uploaded_count = status_counts.get("Uploaded", 0)
+    uploaded_count = status_counts.get("#published", 0) + status_counts.get("#uploaded", 0)
 
     # Fetch stats per video
     cursor.execute("""
@@ -479,10 +479,10 @@ def compute_eom_report(report_month="2026-07"):
     short_videos = [r for r in stats_rows if r["format_type"] == "Short"]
 
     top_5_long_all_time = sorted(long_videos, key=lambda x: x["views"], reverse=True)[:5]
-    top_5_long_month = sorted([v for v in long_videos if v.get("status") == "Uploaded"], key=lambda x: x["views"], reverse=True)[:5]
+    top_5_long_month = sorted([v for v in long_videos if v.get("status") in ["#uploaded", "#published"]], key=lambda x: x["views"], reverse=True)[:5]
 
     top_5_shorts_all_time = sorted(short_videos, key=lambda x: x["views"], reverse=True)[:5]
-    top_5_shorts_month = sorted([v for v in short_videos if v.get("status") == "Uploaded"], key=lambda x: x["views"], reverse=True)[:5]
+    top_5_shorts_month = sorted([v for v in short_videos if v.get("status") in ["#uploaded", "#published"]], key=lambda x: x["views"], reverse=True)[:5]
     if not top_5_shorts_month:
         top_5_shorts_month = top_5_shorts_all_time[:5]
 
