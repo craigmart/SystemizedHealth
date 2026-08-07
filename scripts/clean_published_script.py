@@ -127,7 +127,12 @@ def clean_all_published():
                 if file.name.endswith(".md"):
                     with open(file, "r", encoding="utf-8") as f:
                         content = f.read()
-                    if "**Status**: #published" in content:
+                    # Check if the YAML tags contain 'published' or '#published'
+                    yaml_match = re.search(r'^---(.*?)---', content, re.MULTILINE | re.DOTALL)
+                    is_published = False
+                    if yaml_match and 'published' in yaml_match.group(1).lower():
+                        is_published = True
+                    if is_published:
                         if "## Final Transcript" not in content:
                             if process_file(file):
                                 count += 1
