@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-08T11:40:54.392492+00:00",
+  "generated": "2026-08-08T11:48:45.230714+00:00",
   "count": 36,
   "videos": [
     {
@@ -20,7 +20,7 @@
       "vidiq_title_score": 0,
       "notes": "Published",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-07T12:12:08.090527+00:00"
+      "updated_at": "2026-08-08T11:48:44.527498+00:00"
     },
     {
       "id": "2fedea5e-ea20-4e31-9a95-d453adfa427e",
@@ -40,7 +40,7 @@
       "vidiq_title_score": 0,
       "notes": "Published",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-07T12:12:08.197909+00:00"
+      "updated_at": "2026-08-08T11:48:44.618233+00:00"
     },
     {
       "id": "f64ec39a-3ecd-4525-90c1-ddf3635aea76",
@@ -52,15 +52,15 @@
       "jdex_code": "77.01",
       "os_level": "Level 1: FMR",
       "folder_path": null,
-      "status": "#published",
+      "status": "#uploaded",
       "drop_date": "2026-08-10",
-      "uploaded_date": "2026-07-26",
+      "uploaded_date": "2026-08-08",
       "youtube_id": null,
       "primary_keyword": null,
       "vidiq_title_score": 0,
       "notes": "Published",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-07T11:26:36.686132+00:00"
+      "updated_at": "2026-08-08T11:47:33.47341+00:00"
     },
     {
       "id": "686ffa93-02e8-4cd8-ae26-125b0c359d7e",
@@ -100,7 +100,7 @@
       "vidiq_title_score": 0,
       "notes": "6/6 Shots Filmed \u2014 Editing (#edit)",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-07T12:12:08.385272+00:00"
+      "updated_at": "2026-08-08T11:48:44.792305+00:00"
     },
     {
       "id": "2e48954c-bbd6-426f-9b7f-1f1ac7da3e8b",
@@ -120,7 +120,7 @@
       "vidiq_title_score": 0,
       "notes": "Pre-Recording Blueprint Ready",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-07T12:12:08.293112+00:00"
+      "updated_at": "2026-08-08T11:48:44.705477+00:00"
     },
     {
       "id": "575283bb-b128-479d-9263-b1370a9359a5",
