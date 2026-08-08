@@ -48,5 +48,6 @@ Whenever Dr. Anderson says *"I have a new audio script for [Code/Folder]"*, prov
    - Official CTA standard (`call.systemizedhealth.com`).
    - Writing Guardrails (no AI jargon, no em dashes).
 4. **Pipeline Auto-Advance**: Advance video status to `Ready to Film` in Supabase/SQLite, and refresh `docs/video_pipeline_cache.json`, `docs/Video_Pipeline_Status.md`, [`Drop_Schedule.md`](file:///Users/craiganderson/Developer/SystemizedHealth/Drop_Schedule.md), and `TODO.md`.
+   - **MANDATORY**: Whenever a script is polished and pushed to the `#film` queue, you MUST copy the entire formatted teleprompter script (from Section 3) and append the snippets to the bottom of the `Obsidian_Vault/_Filming_Dashboard.md` file under the `## 📜 Script Snippets` section. Maintain sorting by Video Code.
 
 
