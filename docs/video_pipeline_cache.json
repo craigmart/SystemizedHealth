@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-08T11:48:45.230714+00:00",
+  "generated": "2026-08-08T12:39:04.223218+00:00",
   "count": 36,
   "videos": [
     {
@@ -132,7 +132,7 @@
       "jdex_code": "77.01",
       "os_level": "Level 1: FMR",
       "folder_path": null,
-      "status": "#film",
+      "status": "#edit",
       "drop_date": "2026-08-20",
       "uploaded_date": null,
       "youtube_id": null,
@@ -140,7 +140,7 @@
       "vidiq_title_score": 0,
       "notes": "Pre-Recording Blueprint Ready",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-08T11:40:54.222243+00:00"
+      "updated_at": "2026-08-08T12:39:02.961723+00:00"
     },
     {
       "id": "c4dbc019-9cf5-4faa-97b9-4621ca8b66dc",
@@ -212,7 +212,7 @@
       "jdex_code": "77.01",
       "os_level": "Level 1: FMR",
       "folder_path": null,
-      "status": "#film",
+      "status": "#edit",
       "drop_date": "2026-08-11",
       "uploaded_date": null,
       "youtube_id": null,
@@ -220,7 +220,7 @@
       "vidiq_title_score": 0,
       "notes": "Pre-Recording Blueprint Ready",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-08T11:40:53.021287+00:00"
+      "updated_at": "2026-08-08T12:39:03.314815+00:00"
     },
     {
       "id": "a5152367-9d5b-45d2-87fe-f6b5e38c8094",
@@ -232,7 +232,7 @@
       "jdex_code": "77.01",
       "os_level": "Level 1: FMR",
       "folder_path": null,
-      "status": "#film",
+      "status": "#edit",
       "drop_date": "2026-08-13",
       "uploaded_date": null,
       "youtube_id": null,
@@ -240,7 +240,7 @@
       "vidiq_title_score": 0,
       "notes": "Pre-Recording Blueprint Ready",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-08T11:40:53.49057+00:00"
+      "updated_at": "2026-08-08T12:39:03.731665+00:00"
     },
     {
       "id": "3961cd23-b2d6-4fe1-9739-87a29fa6e450",
@@ -252,7 +252,7 @@
       "jdex_code": "77.03",
       "os_level": "Level 1: FMR",
       "folder_path": null,
-      "status": "#film",
+      "status": "#edit",
       "drop_date": "2026-08-15",
       "uploaded_date": null,
       "youtube_id": null,
@@ -260,7 +260,7 @@
       "vidiq_title_score": 0,
       "notes": "Pre-Recording Blueprint Ready",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-08T11:40:53.843386+00:00"
+      "updated_at": "2026-08-08T12:39:04.015903+00:00"
     },
     {
       "id": "5d4be38f-220a-4641-993f-c7c2728cf5dd",
