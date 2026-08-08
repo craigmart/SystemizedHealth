@@ -37,12 +37,12 @@ Whenever writing, scripting, outlining, or generating metadata/descriptions for 
 
 ## 4. Stage 2 Teleprompter Script Auto-Processing Protocol
 Whenever Dr. Anderson says *"I have a new audio script for [Code/Folder]"*, provides a raw dictation transcript in chat, or pastes the transcript into the Obsidian video file with the tag `#audiodraft`:
-1. **Disregard all previous outlines & talking points**: The raw audio transcript is the single source of truth for the video.
-2. **Save Raw Transcript (`-A` File)**: Save the raw spoken dictation text to `Obsidian_Vault/Videos/[Folder]/V[Code]-A Raw Audio Transcript.txt`.
-3. **Generate Stage 2 Teleprompter Script (`-B` File)**: Format the spoken text into `Obsidian_Vault/Videos/[Folder]/V[Code] Script - [Title].md` using:
+1. **Interpret Audio as a Brainstorming Draft**: The raw audio dictation is a conceptual baseline containing the core propositions to cover, *not* a rigid word-for-word script. 
+2. **Save Raw Transcript**: Append the raw spoken dictation text to the bottom of the main script file (`Obsidian_Vault/Videos/[Folder]/V[Code] Script - [Title].md`) under a `## Raw Audio Draft Transcript (Reference)` header. Do NOT create a separate file.
+3. **Generate & Polish Stage 2 Teleprompter Script**: Transform the raw dictation into a highly polished, teleprompter-ready script. Actively edit for pacing, flow, and story arc. Remove filler, tighten sentences, and strictly adhere to Dr. Anderson's established writing voice and guardrails as defined in [`SOPs/Writing Voice.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/Writing%20Voice.md) and [`SOPs/Writing Guidance.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/Writing%20Guidance.md). Format into `Obsidian_Vault/Videos/[Folder]/V[Code] Script - [Title].md` using:
    - Header: `# [Code]: [Title]` + metadata block (`Suggested Settings`, `JDex Topic Code`). When adding the `JDex Topic Code` link in the metadata block, **always link to the exact, full JDex filename** (e.g., `[[77.01 Documentation]]`) rather than just the numeric code (`[[77.01]]`) to prevent Obsidian from auto-creating empty duplicate files.
    - Section 1 & 2: Title Ideas and Hook Options with vidIQ ratings.
-   - Section 3: Teleprompter clips formatted as plain paragraphs without headers. At the end of each paragraph, append the clip code and context tags: `[Code].[ClipNum] #[context]` (e.g., `80.V0B-S3.1 #truck #film`).
+   - Section 3: Teleprompter clips formatted as plain paragraphs without headers. At the end of each paragraph, append the clip code and context tags: `[Code].[ClipNum] #[context]` (e.g., `80.V0B-S3.1 #film #insidetruck`).
    - Consolidated single spoken paragraph per clip (no sentence bullets).
    - Bracketed performance/delivery cues (`[breath]`, `[pause]`, `[gesture]`, `[tone shift]`, `[eye contact shift]`).
    - Official CTA standard (`call.systemizedhealth.com`).

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-07T12:12:08.557960+00:00",
+  "generated": "2026-08-08T11:06:29.616429+00:00",
   "count": 36,
   "videos": [
     {
@@ -212,7 +212,7 @@
       "jdex_code": "77.01",
       "os_level": "Level 1: FMR",
       "folder_path": null,
-      "status": "#write",
+      "status": "#film",
       "drop_date": "2026-08-11",
       "uploaded_date": null,
       "youtube_id": null,
@@ -220,7 +220,7 @@
       "vidiq_title_score": 0,
       "notes": "Pre-Recording Blueprint Ready",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-07T11:26:36.686132+00:00"
+      "updated_at": "2026-08-08T11:06:28.605589+00:00"
     },
     {
       "id": "a5152367-9d5b-45d2-87fe-f6b5e38c8094",
@@ -232,7 +232,7 @@
       "jdex_code": "77.01",
       "os_level": "Level 1: FMR",
       "folder_path": null,
-      "status": "#write",
+      "status": "#film",
       "drop_date": "2026-08-13",
       "uploaded_date": null,
       "youtube_id": null,
@@ -240,7 +240,7 @@
       "vidiq_title_score": 0,
       "notes": "Pre-Recording Blueprint Ready",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-07T11:26:36.686132+00:00"
+      "updated_at": "2026-08-08T11:06:29.043188+00:00"
     },
     {
       "id": "3961cd23-b2d6-4fe1-9739-87a29fa6e450",
@@ -252,7 +252,7 @@
       "jdex_code": "77.03",
       "os_level": "Level 1: FMR",
       "folder_path": null,
-      "status": "#write",
+      "status": "#film",
       "drop_date": "2026-08-15",
       "uploaded_date": null,
       "youtube_id": null,
@@ -260,7 +260,7 @@
       "vidiq_title_score": 0,
       "notes": "Pre-Recording Blueprint Ready",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-07T11:26:36.686132+00:00"
+      "updated_at": "2026-08-08T11:06:29.403225+00:00"
     },
     {
       "id": "5d4be38f-220a-4641-993f-c7c2728cf5dd",
