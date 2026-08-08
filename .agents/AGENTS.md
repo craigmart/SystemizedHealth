@@ -40,7 +40,7 @@ Whenever Dr. Anderson says *"I have a new audio script for [Code/Folder]"*, prov
 1. **Disregard all previous outlines & talking points**: The raw audio transcript is the single source of truth for the video.
 2. **Save Raw Transcript (`-A` File)**: Save the raw spoken dictation text to `Obsidian_Vault/Videos/[Folder]/V[Code]-A Raw Audio Transcript.txt`.
 3. **Generate Stage 2 Teleprompter Script (`-B` File)**: Format the spoken text into `Obsidian_Vault/Videos/[Folder]/V[Code] Script - [Title].md` using:
-   - Header: `# [Code]: [Title]` + metadata block (`Suggested Settings`, `JDex Topic Code`).
+   - Header: `# [Code]: [Title]` + metadata block (`Suggested Settings`, `JDex Topic Code`). When adding the `JDex Topic Code` link in the metadata block, **always link to the exact, full JDex filename** (e.g., `[[77.01 Documentation]]`) rather than just the numeric code (`[[77.01]]`) to prevent Obsidian from auto-creating empty duplicate files.
    - Section 1 & 2: Title Ideas and Hook Options with vidIQ ratings.
    - Section 3: Teleprompter clips formatted as plain paragraphs without headers. At the end of each paragraph, append the clip code and context tags: `[Code].[ClipNum] #[context]` (e.g., `80.V0B-S3.1 #truck #film`).
    - Consolidated single spoken paragraph per clip (no sentence bullets).
