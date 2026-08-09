@@ -41,10 +41,10 @@
 | **030** | `80.V1C4-S1` | Short | Desk Job Exhaustion | 2026-09-22 | 📝 #write | — |
 | **031** | `80.V1C4-S2` | Short | Decision Fatigue | 2026-09-24 | 📝 #write | — |
 | **032** | `80.V1C4-S3` | Short | Protecting the Battery | 2026-09-26 | 📝 #write | — |
-| **033** | `80.V1A` | Long | The Biological Cost of Fake Fuel | 2026-08-17 | 💡 #idea | — |
-| **034** | `80.V1A-S1` | Short | The Mid-Afternoon Crash | 2026-08-18 | 💡 #idea | — |
-| **035** | `80.V1A-S2` | Short | Cellular Hydration | 2026-08-20 | 💡 #idea | — |
-| **036** | `80.V1A-S3` | Short | The Biological Reality of Diets | 2026-08-21 | 💡 #idea | — |
+| **033** | `80.V1A` | Long | The Biological Cost of Fake Fuel | 2026-08-17 | 📝 #write | — |
+| **034** | `80.V1A-S1` | Short | The Mid-Afternoon Crash | 2026-08-18 | 📝 #write | — |
+| **035** | `80.V1A-S2` | Short | Cellular Hydration | 2026-08-20 | 📝 #write | — |
+| **036** | `80.V1A-S3` | Short | The Biological Reality of Diets | 2026-08-21 | 📝 #write | — |
 | **H001** | `HIST.L01` | Long | The Biological Reality of GLP-1: Fuel vs. Motivation | 2026-03-24 | ✅ #published | 2026-03-24 |
 | **H002** | `HIST.L02` | Long | The Neurological Reality of Workout Recovery | 2026-01-22 | ✅ #published | 2026-01-22 |
 | **H003** | `HIST.L03` | Long | The Biological Cost of an Unstructured Week | 2026-01-14 | ✅ #published | 2026-01-14 |
@@ -70,7 +70,6 @@
 
 ## 📊 Status Summary
 
-- 💡 **#idea**: 4
-- 📝 **#write**: 16
+- 📝 **#write**: 20
 - ✂️ **#edit**: 8
 - ✅ **#published**: 28
