@@ -56,3 +56,8 @@ Whenever Dr. Anderson says *"I have a new audio script for [Code/Folder]"*, prov
 Whenever Dr. Anderson says to "look for agent comments" or similar phrasing, it **always** refers to the `agent_message` field in the video pipeline database (Supabase). Do not search Obsidian documents, TODOs, or local source code files for these comments.
 - Read from the local cache via `docs/video_pipeline_cache.json`.
 - If the cache is stale or missing the recent comment, prompt Dr. Anderson to run `python3 scripts/video_pipeline.py --cache` to pull the latest updates.
+
+---
+
+## 6. Agent Action Logging
+When Dr. Anderson leaves an action or comment in the `agent_message` field and you (the agent) process it, you MUST append a simple text log of the action taken to the bottom of the corresponding Obsidian video script page under an `## Agent Log` header (e.g., "Processed dictation and generated Stage 2 script", "Adjusted hook based on agent message", etc.) just for the record.

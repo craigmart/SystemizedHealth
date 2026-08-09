@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { supabase } from './supabase';
-import { Calendar, CheckSquare, AlertCircle, RefreshCw, ChevronLeft, Save, Tag, TrendingUp, Clock, FileVideo, Scissors, Film, X } from 'lucide-react';
+import { Calendar, CheckSquare, AlertCircle, RefreshCw, ChevronLeft, Save, Tag, TrendingUp, Clock, FileVideo, Scissors, Film, X, ExternalLink } from 'lucide-react';
 import { addDays, isBefore, parseISO, differenceInDays } from 'date-fns';
 
 const STAGE_CHECKLISTS = {
@@ -138,6 +138,7 @@ function App() {
 
   const editingVideos = videos.filter(v => v.status === '#edit');
   const readyToFilmVideos = videos.filter(v => v.status === '#film');
+  const writingVideos = videos.filter(v => v.status === '#write');
 
   const openModal = (title, videoList) => {
     setMetricModal({ title, videos: videoList.sort(sortByDropDate) });
@@ -174,6 +175,16 @@ function App() {
           <div>
             <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Pending Audio</div>
             <div style={{ fontSize: '1.25rem', fontWeight: 'bold', lineHeight: '1.2' }}>{needsDrafting.length}</div>
+          </div>
+        </div>
+
+        <div className="card" onClick={() => openModal('In Writing', writingVideos)} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.75rem 1rem', cursor: 'pointer' }}>
+          <div style={{ backgroundColor: '#b45309', color: '#fff', padding: '0.5rem', borderRadius: '50%', display: 'flex' }}>
+            <Scissors size={20} />
+          </div>
+          <div>
+            <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>In Writing</div>
+            <div style={{ fontSize: '1.25rem', fontWeight: 'bold', lineHeight: '1.2' }}>{writingVideos.length}</div>
           </div>
         </div>
 
@@ -387,9 +398,19 @@ function VideoDetail({ video, onUpdate }) {
   return (
     <div className="card" style={{ maxWidth: '800px', margin: '0 auto' }}>
       <div style={{ marginBottom: '2rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '1rem' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
-          <h2>{localVideo.code}: {localVideo.title}</h2>
-          {getStatusBadge(localVideo.status)}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '1rem', marginBottom: '1rem' }}>
+          <h2 style={{ margin: 0, lineHeight: '1.3' }}>{localVideo.code}: {localVideo.title}</h2>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexShrink: 0 }}>
+            <a
+              href={`obsidian://search?vault=Obsidian_Vault&query=${encodeURIComponent(`"${localVideo.code}"`)}`}
+              className="btn btn-outline"
+              style={{ padding: '0.35rem 0.75rem', fontSize: '0.8rem', backgroundColor: 'var(--bg-color)', textDecoration: 'none' }}
+            >
+              <ExternalLink size={14} />
+              Open in Obsidian
+            </a>
+            {getStatusBadge(localVideo.status)}
+          </div>
         </div>
         <div style={{ display: 'flex', gap: '2rem', color: 'var(--text-secondary)', fontSize: '0.9rem', alignItems: 'center' }}>
           <span><strong>Format:</strong> {localVideo.format_type}</span>
