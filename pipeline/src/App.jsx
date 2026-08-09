@@ -50,7 +50,7 @@ function App() {
       .from('videos')
       .select('*')
       .order('video_number', { ascending: true });
-    
+
     if (error) console.error("Error fetching videos:", error);
     else {
       setVideos(data || []);
@@ -156,7 +156,7 @@ function App() {
             <FileVideo size={24} />
           </div>
           <div>
-            <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Total Pipeline Videos</div>
+            <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Total Videos</div>
             <div style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>{videos.length}</div>
           </div>
         </div>
@@ -166,14 +166,14 @@ function App() {
             <Clock size={24} />
           </div>
           <div>
-            <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Pending Drafts</div>
+            <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Pending Audio Draft</div>
             <div style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>{needsDrafting.length}</div>
           </div>
         </div>
 
         <div className="card" style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1.5rem' }}>
-          <div style={{ backgroundColor: 'var(--primary-color)', color: '#fff', padding: '0.75rem', borderRadius: '50%' }}>
-            <Scissors size={24} />
+          <div style={{ width: '48px', height: '48px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <img src="/favicon.png" alt="Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
           </div>
           <div>
             <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>In Editing</div>
@@ -183,66 +183,66 @@ function App() {
       </div>
 
       <div className="dashboard-grid">
-      <div className="card">
-        <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
-          <AlertCircle size={20} color="var(--danger-color)" /> Action Items
-        </h2>
-        <div className="videos-list">
-          {needsDrafting.map(v => (
-            <div key={v.code} className="video-item" style={{ cursor: 'pointer' }} onClick={() => setCurrentVideo(v)}>
-              <div className="video-header">
-                <strong>{v.code}: {v.title}</strong>
-                {getStatusBadge(v.status)}
+        <div className="card">
+          <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
+            <AlertCircle size={20} color="var(--danger-color)" /> Action Items
+          </h2>
+          <div className="videos-list">
+            {needsDrafting.map(v => (
+              <div key={v.code} className="video-item" style={{ cursor: 'pointer' }} onClick={() => setCurrentVideo(v)}>
+                <div className="video-header">
+                  <strong>{v.code}: {v.title}</strong>
+                  {getStatusBadge(v.status)}
+                </div>
+                <div className="video-meta">
+                  <span>Needs Audio Draft (Drop: {v.drop_date})</span>
+                </div>
               </div>
-              <div className="video-meta">
-                <span>Needs Audio Draft (Drop: {v.drop_date})</span>
+            ))}
+            {needsPublishing.map(v => (
+              <div key={v.code} className="video-item" style={{ borderLeft: '3px solid var(--danger-color)', cursor: 'pointer' }} onClick={() => setCurrentVideo(v)}>
+                <div className="video-header">
+                  <strong>{v.code}: {v.title}</strong>
+                  {getStatusBadge(v.status)}
+                </div>
+                <div className="video-meta">
+                  <span>Due in &lt; 21 days! (Drop: {v.drop_date})</span>
+                </div>
               </div>
-            </div>
-          ))}
-          {needsPublishing.map(v => (
-            <div key={v.code} className="video-item" style={{ borderLeft: '3px solid var(--danger-color)', cursor: 'pointer' }} onClick={() => setCurrentVideo(v)}>
-              <div className="video-header">
-                <strong>{v.code}: {v.title}</strong>
-                {getStatusBadge(v.status)}
-              </div>
-              <div className="video-meta">
-                <span>Due in &lt; 21 days! (Drop: {v.drop_date})</span>
-              </div>
-            </div>
-          ))}
-          {needsDrafting.length === 0 && needsPublishing.length === 0 && (
-            <p>You are ahead of schedule! 🎉</p>
-          )}
+            ))}
+            {needsDrafting.length === 0 && needsPublishing.length === 0 && (
+              <p>You are ahead of schedule! 🎉</p>
+            )}
+          </div>
         </div>
-      </div>
 
-      <div className="card">
-        <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
-          <Calendar size={20} color="var(--accent-color)" /> Runway Overview
-        </h2>
-        <div className="videos-list" style={{ maxHeight: '400px', overflowY: 'auto' }}>
-          {videos
-            .filter(v => {
-              if (!v.drop_date) return false;
-              const d = parseISO(v.drop_date);
-              d.setHours(0,0,0,0);
-              return d > todayDate;
-            })
-            .sort(sortByDropDate)
-            .map(v => (
-            <div key={v.code} className="video-item" style={{ cursor: 'pointer' }} onClick={() => setCurrentVideo(v)}>
-              <div className="video-header">
-                <strong>{v.code}</strong>
-                {getStatusBadge(v.status)}
-              </div>
-              <div className="video-meta">
-                <span>{v.title}</span>
-                <span style={{ marginLeft: 'auto', fontWeight: 'bold' }}>{v.drop_date}</span>
-              </div>
-            </div>
-          ))}
+        <div className="card">
+          <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
+            <Calendar size={20} color="var(--accent-color)" /> Runway Overview
+          </h2>
+          <div className="videos-list" style={{ maxHeight: '400px', overflowY: 'auto' }}>
+            {videos
+              .filter(v => {
+                if (!v.drop_date) return false;
+                const d = parseISO(v.drop_date);
+                d.setHours(0, 0, 0, 0);
+                return d > todayDate;
+              })
+              .sort(sortByDropDate)
+              .map(v => (
+                <div key={v.code} className="video-item" style={{ cursor: 'pointer' }} onClick={() => setCurrentVideo(v)}>
+                  <div className="video-header">
+                    <strong>{v.code}</strong>
+                    {getStatusBadge(v.status)}
+                  </div>
+                  <div className="video-meta">
+                    <span>{v.title}</span>
+                    <span style={{ marginLeft: 'auto', fontWeight: 'bold' }}>{v.drop_date}</span>
+                  </div>
+                </div>
+              ))}
+          </div>
         </div>
-      </div>
       </div>
     </div>
   );
@@ -297,12 +297,12 @@ function VideoDetail({ video, onUpdate }) {
     setSaving(true);
     const { error } = await supabase
       .from('videos')
-      .update({ 
+      .update({
         agent_message: agentMessage,
-        raw_transcript: transcript 
+        raw_transcript: transcript
       })
       .eq('video_number', localVideo.video_number);
-    
+
     if (error) alert("Error saving: " + error.message);
     else onUpdate();
     setSaving(false);
@@ -314,7 +314,7 @@ function VideoDetail({ video, onUpdate }) {
       .from('videos')
       .update({ status: newStatus })
       .eq('video_number', localVideo.video_number);
-    
+
     if (error) alert("Error changing status: " + error.message);
     else onUpdate();
   };
@@ -322,12 +322,12 @@ function VideoDetail({ video, onUpdate }) {
   const toggleChecklist = async (key) => {
     const newChecklist = { ...checklist, [key]: !checklist[key] };
     setChecklist(newChecklist);
-    
+
     const { error } = await supabase
       .from('videos')
       .update({ edit_checklist: newChecklist })
       .eq('video_number', localVideo.video_number);
-      
+
     if (error) alert("Error saving checklist: " + error.message);
   };
 
@@ -348,11 +348,11 @@ function VideoDetail({ video, onUpdate }) {
         <div style={{ display: 'flex', gap: '2rem', color: 'var(--text-secondary)', fontSize: '0.9rem', alignItems: 'center' }}>
           <span><strong>Format:</strong> {localVideo.format_type}</span>
           <span><strong>Drop Date:</strong> {localVideo.drop_date || 'TBD'}</span>
-          
+
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginLeft: 'auto' }}>
             <Tag size={16} />
-            <select 
-              value={localVideo.status} 
+            <select
+              value={localVideo.status}
               onChange={handleStatusChange}
               style={{ padding: '0.25rem 0.5rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', backgroundColor: 'var(--card-bg)' }}
             >
@@ -365,11 +365,11 @@ function VideoDetail({ video, onUpdate }) {
       </div>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-        
+
         {/* Agent Message Box */}
         <div>
           <h3 style={{ fontSize: '1rem', marginBottom: '0.5rem' }}>Message to Agent (Antigravity)</h3>
-          <textarea 
+          <textarea
             value={agentMessage}
             onChange={(e) => setAgentMessage(e.target.value)}
             style={{ width: '100%', height: '80px', padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', fontFamily: 'inherit', resize: 'vertical' }}
@@ -380,7 +380,7 @@ function VideoDetail({ video, onUpdate }) {
         {/* Audio Draft Section (only for early stages) */}
         {(localVideo.status === '#idea' || localVideo.status === '#write') && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-            
+
             {/* Rough Outline Reference Display */}
             {localVideo.rough_outline && (
               <div style={{ backgroundColor: 'var(--bg-color)', padding: '1.5rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
@@ -397,7 +397,7 @@ function VideoDetail({ video, onUpdate }) {
               <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>
                 Paste your dictated transcript here. The agent will read this to generate the Stage 2 teleprompter script.
               </p>
-              <textarea 
+              <textarea
                 value={transcript}
                 onChange={(e) => setTranscript(e.target.value)}
                 style={{ width: '100%', height: '200px', padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', fontFamily: 'inherit', resize: 'vertical' }}
@@ -424,9 +424,9 @@ function VideoDetail({ video, onUpdate }) {
             <div className="checklist">
               {currentChecklist.map(item => (
                 <label key={item.key} className={`checklist-item ${checklist[item.key] ? 'checked' : ''}`} style={{ cursor: 'pointer' }}>
-                  <input 
-                    type="checkbox" 
-                    checked={!!checklist[item.key]} 
+                  <input
+                    type="checkbox"
+                    checked={!!checklist[item.key]}
                     onChange={() => toggleChecklist(item.key)}
                   />
                   <span className="checklist-label">{item.label}</span>
