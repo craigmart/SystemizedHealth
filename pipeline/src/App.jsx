@@ -398,19 +398,9 @@ function VideoDetail({ video, onUpdate }) {
   return (
     <div className="card" style={{ maxWidth: '800px', margin: '0 auto' }}>
       <div style={{ marginBottom: '2rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '1rem' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '1rem', marginBottom: '1rem' }}>
-          <h2 style={{ margin: 0, lineHeight: '1.3' }}>{localVideo.code}: {localVideo.title}</h2>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexShrink: 0 }}>
-            <a
-              href={`obsidian://search?vault=Obsidian_Vault&query=${encodeURIComponent(`"${localVideo.code}"`)}`}
-              className="btn btn-outline"
-              style={{ padding: '0.35rem 0.75rem', fontSize: '0.8rem', backgroundColor: 'var(--bg-color)', textDecoration: 'none' }}
-            >
-              <ExternalLink size={14} />
-              Open in Obsidian
-            </a>
-            {getStatusBadge(localVideo.status)}
-          </div>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
+          <h2>{localVideo.code}: {localVideo.title}</h2>
+          {getStatusBadge(localVideo.status)}
         </div>
         <div style={{ display: 'flex', gap: '2rem', color: 'var(--text-secondary)', fontSize: '0.9rem', alignItems: 'center' }}>
           <span><strong>Format:</strong> {localVideo.format_type}</span>
@@ -474,12 +464,21 @@ function VideoDetail({ video, onUpdate }) {
           </div>
         )}
 
-        {/* Save Button for Text Fields */}
-        <div>
+        {/* Action Buttons */}
+        <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
           <button className="btn btn-primary" onClick={handleSaveText} disabled={saving}>
             <Save size={16} />
             {saving ? 'Saving...' : 'Save Text Fields'}
           </button>
+          
+          <a
+            href={`obsidian://search?vault=Obsidian_Vault&query=${encodeURIComponent(`path:"${localVideo.code}"`)}`}
+            className="btn btn-outline"
+            style={{ textDecoration: 'none' }}
+          >
+            <ExternalLink size={16} />
+            Open Script in Obsidian
+          </a>
         </div>
 
         {/* Interactive Editing Checklist */}
