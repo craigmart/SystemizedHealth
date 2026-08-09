@@ -19,6 +19,7 @@
 | **008** | `80.V0A-S1` | Short | The Biological Reason Monday Resolutions Always Fail | 2026-08-06 | ✅ #published | 2026-08-09 |
 | **009** | `80.V0A-S2` | Short | The Exact Biological Sequence Your Body Needs to Change | 2026-08-08 | ✅ #published | — |
 | **010** | `80.V0A-S3` | Short | Stop Treating Your Health Like an Emergency Room | 2026-08-22 | ✂️ #edit | — |
+| **011** | `80.V1B1-S1` | Short | Why Exercise is Optional | 2026-08-11 | ✂️ #edit | — |
 | **012** | `80.V1B1-S2` | Short | Joint Imbibition: The Only Way Your Joints Actually Get Nourished | 2026-08-13 | ✂️ #edit | — |
 | **013** | `80.V1B1-S3` | Short | Cortical Smudging: Why Your Back Pain Randomly Spasms | 2026-08-15 | ✂️ #edit | — |
 | **014** | `80.V0A1-S1` | Short | Why Relying on Willpower Guarantees Physical Burnout | 2026-08-25 | ✂️ #edit | — |
@@ -66,5 +67,5 @@
 ## 📊 Status Summary
 
 - 📝 **#write**: 16
-- ✂️ **#edit**: 7
+- ✂️ **#edit**: 8
 - ✅ **#published**: 28
