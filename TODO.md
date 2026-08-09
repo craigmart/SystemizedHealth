@@ -40,6 +40,22 @@ inbox (ideas abd thoights to process)
 - [ ] **Ready to Film (Audio Riff Complete)**:
   - [ ] `80.V0B-S2`: *Why Depression Causes Back Pain* (Drop: 2026-08-18)
 - [ ] **Short-Form Audio Riffs (Blueprint Ready, Pending Audio)**:
+  - [ ] `80.V1C1`: *Biological Debt of Sleep* (Drop: 2026-08-31)
+  - [ ] `80.V1C1-S1`: *Weekend Catch-Up Myth* (Drop: 2026-09-01)
+  - [ ] `80.V1C1-S2`: *Brain Night Shift* (Drop: 2026-09-03)
+  - [ ] `80.V1C1-S3`: *Caffeine Illusion* (Drop: 2026-09-05)
+  - [ ] `80.V1C2`: *Fake Rest* (Drop: 2026-09-07)
+  - [ ] `80.V1C2-S1`: *Netflix Exhaustion* (Drop: 2026-09-08)
+  - [ ] `80.V1C2-S2`: *Phone Scrolling Cost* (Drop: 2026-09-10)
+  - [ ] `80.V1C2-S3`: *The Off Switch* (Drop: 2026-09-12)
+  - [ ] `80.V1C3`: *Digestive Rest* (Drop: 2026-09-14)
+  - [ ] `80.V1C3-S1`: *Energy Cost of Digestion* (Drop: 2026-09-15)
+  - [ ] `80.V1C3-S2`: *The Maintenance Window* (Drop: 2026-09-17)
+  - [ ] `80.V1C3-S3`: *Fasting is not a diet* (Drop: 2026-09-19)
+  - [ ] `80.V1C4`: *Cognitive Load* (Drop: 2026-09-21)
+  - [ ] `80.V1C4-S1`: *Desk Job Exhaustion* (Drop: 2026-09-22)
+  - [ ] `80.V1C4-S2`: *Decision Fatigue* (Drop: 2026-09-24)
+  - [ ] `80.V1C4-S3`: *Protecting the Battery* (Drop: 2026-09-26)
 
 ---
 

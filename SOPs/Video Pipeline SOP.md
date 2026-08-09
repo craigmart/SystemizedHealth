@@ -46,7 +46,28 @@ This document defines the authoritative operating standard for managing the Syst
 
 ---
 
-## 3. Pipeline Status Progression
+## 3. Video Coding Nomenclature
+
+Video codes (e.g., `80.V1B1`) must align directly with the Systemized OS Framework structure to ensure all content can be mapped backward to its biological origin.
+
+**Level Prefix:**
+* `V0` = Baseline / Foundation (e.g., `V0A`, `V0B`)
+* `V1` = Level 1 FMR (Fuel, Move, Rest)
+* `V2` = Level 2 TLC (Think, Learn, Connect)
+* `V3` = Level 3 POP (Play, Organize, Purpose)
+
+**Pillar Suffix (Alphabetical Mapping):**
+Within each Level, the alphabet dictates the specific pillar being discussed.
+* **Level 1 (FMR):** A = Fuel, B = Move, C = Rest.
+  * Example: `80.V1B1` = Level 1, Movement, Video 1.
+  * Example: `80.V1C2` = Level 1, Rest, Video 2.
+
+**Short-Form Clips:**
+Short-form clips carved out from a long-form video simply append `-S[Number]` to the parent code (e.g., `80.V1C2-S1`).
+
+---
+
+## 4. Pipeline Status Progression
 
 Every video moves strictly through these tags in order:
 
