@@ -40,6 +40,10 @@ inbox (ideas abd thoights to process)
 - [ ] **Ready to Film (Audio Riff Complete)**:
   - [x] `80.V0B-S2`: *Why Depression Causes Back Pain* (Drop: 2026-08-06) — Uploaded & Live
 - [ ] **Short-Form Audio Riffs (Blueprint Ready, Pending Audio)**:
+  - [ ] `80.V1A`: *The Biological Cost of Fake Fuel* (Drop: 2026-08-17)
+  - [ ] `80.V1A-S1`: *The Mid-Afternoon Crash* (Drop: 2026-08-18)
+  - [ ] `80.V1A-S2`: *Cellular Hydration* (Drop: 2026-08-20)
+  - [ ] `80.V1A-S3`: *The Biological Reality of Diets* (Drop: 2026-08-21)
   - [ ] `80.V1C1`: *Biological Debt of Sleep* (Drop: 2026-08-31)
   - [ ] `80.V1C1-S1`: *Weekend Catch-Up Myth* (Drop: 2026-09-01)
   - [ ] `80.V1C1-S2`: *Brain Night Shift* (Drop: 2026-09-03)
