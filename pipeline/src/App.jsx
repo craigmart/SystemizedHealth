@@ -221,7 +221,15 @@ function App() {
           <Calendar size={20} color="var(--accent-color)" /> Runway Overview
         </h2>
         <div className="videos-list" style={{ maxHeight: '400px', overflowY: 'auto' }}>
-          {videos.filter(v => v.drop_date).sort(sortByDropDate).map(v => (
+          {videos
+            .filter(v => {
+              if (!v.drop_date) return false;
+              const d = parseISO(v.drop_date);
+              d.setHours(0,0,0,0);
+              return d > todayDate;
+            })
+            .sort(sortByDropDate)
+            .map(v => (
             <div key={v.code} className="video-item" style={{ cursor: 'pointer' }} onClick={() => setCurrentVideo(v)}>
               <div className="video-header">
                 <strong>{v.code}</strong>
