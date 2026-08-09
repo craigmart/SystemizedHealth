@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { supabase } from './supabase';
-import { Calendar, CheckSquare, AlertCircle, RefreshCw, ChevronLeft, Save, Tag, TrendingUp, Clock, FileVideo, Edit3 } from 'lucide-react';
+import { Calendar, CheckSquare, AlertCircle, RefreshCw, ChevronLeft, Save, Tag, TrendingUp, Clock, FileVideo, Scissors } from 'lucide-react';
 import { addDays, isBefore, parseISO, differenceInDays } from 'date-fns';
 
 const STAGE_CHECKLISTS = {
@@ -110,13 +110,31 @@ function App() {
   };
 
   // Metrics Calculation
-  const scheduledVideos = videos.filter(v => v.drop_date && (v.status === '#uploaded' || v.status === '#published'));
-  let latestDate = today;
-  if (scheduledVideos.length > 0) {
-    const dates = scheduledVideos.map(v => parseISO(v.drop_date));
-    latestDate = new Date(Math.max(...dates));
+  const todayDate = new Date();
+  todayDate.setHours(0, 0, 0, 0);
+
+  const unfinishedFuture = videos.filter(v => {
+    if (!v.drop_date) return false;
+    const dropDate = parseISO(v.drop_date);
+    dropDate.setHours(0, 0, 0, 0);
+    const isFinished = v.status === '#uploaded' || v.status === '#published';
+    return !isFinished && dropDate >= todayDate;
+  });
+
+  let daysAhead = 0;
+  if (unfinishedFuture.length > 0) {
+    const dates = unfinishedFuture.map(v => parseISO(v.drop_date).setHours(0, 0, 0, 0));
+    const earliestUnfinished = new Date(Math.min(...dates));
+    daysAhead = Math.max(0, Math.floor((earliestUnfinished - todayDate) / (1000 * 60 * 60 * 24)) - 1);
+  } else {
+    const scheduledVideos = videos.filter(v => v.drop_date && (v.status === '#uploaded' || v.status === '#published'));
+    if (scheduledVideos.length > 0) {
+      const dates = scheduledVideos.map(v => parseISO(v.drop_date).setHours(0, 0, 0, 0));
+      const latestDate = new Date(Math.max(...dates));
+      daysAhead = Math.max(0, Math.floor((latestDate - todayDate) / (1000 * 60 * 60 * 24)));
+    }
   }
-  const daysAhead = Math.max(0, differenceInDays(latestDate, today));
+
   const editingCount = videos.filter(v => v.status === '#edit').length;
 
   const renderDashboard = () => (
@@ -155,7 +173,7 @@ function App() {
 
         <div className="card" style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1.5rem' }}>
           <div style={{ backgroundColor: 'var(--primary-color)', color: '#fff', padding: '0.75rem', borderRadius: '50%' }}>
-            <Edit3 size={24} />
+            <Scissors size={24} />
           </div>
           <div>
             <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>In Editing</div>
