@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-09T19:59:39.285288+00:00",
+  "generated": "2026-08-09T21:18:51.191494+00:00",
   "count": 56,
   "videos": [
     {
@@ -260,9 +260,9 @@
       "vidiq_title_score": 0,
       "notes": null,
       "created_at": "2026-08-09T19:43:52.997749+00:00",
-      "updated_at": "2026-08-09T19:59:39.06741+00:00",
-      "raw_transcript": null,
-      "agent_message": null,
+      "updated_at": "2026-08-09T20:44:23.315899+00:00",
+      "raw_transcript": "Test",
+      "agent_message": "",
       "edit_checklist": null,
       "rough_outline": "**1. The Hook:**\n\"You do not need to go to the gym to be healthy. In fact, if you are chronically stressed, the gym is actively making you worse.\"\n\n**2. Biological Reframe:**\n* Biology doesn't know what a 'workout' is. It only understands tissue load and mechanical signaling. \n* We have conflated 'exercise' (a modern, concentrated, high-intensity artificial stressor) with 'movement' (a low-level, continuous biological requirement).\n* When you are already in a state of high chronic stress, layering on a high-intensity workout spikes cortisol further, crashing your baseline instead of building it up.\n\n**3. The Hormonal Mechanism:**\n* If your biological battery is drained, a high-intensity workout signals to your body that you are fighting for your life.\n* The body compensates for this massive energy output by shutting down non-essential functions (like deep digestion and cellular repair) and aggressively hoarding body fat to survive.\n\n**4. Actionable Takeaway & CTA:**\n* Stop forcing grueling workouts when you're exhausted. Switch to low-level 'movement'\u2014like a 20-minute walk\u2014to flush the lymphatic system and lower cortisol without the massive metabolic cost. \n* \"Book your free 20-minute Systemized Discovery Call: call.systemizedhealth.com\"\n"
     },
@@ -284,9 +284,9 @@
       "vidiq_title_score": 0,
       "notes": "Pre-Recording Blueprint Ready",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-09T18:06:41.324739+00:00",
-      "raw_transcript": null,
-      "agent_message": null,
+      "updated_at": "2026-08-09T20:24:56.26176+00:00",
+      "raw_transcript": "",
+      "agent_message": "Teet",
       "edit_checklist": "{\"edit_import\":true}",
       "rough_outline": null
     },

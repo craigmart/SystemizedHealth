@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { supabase } from './supabase';
-import { Calendar, CheckSquare, AlertCircle, RefreshCw, ChevronLeft, Save, Tag, TrendingUp, Clock, FileVideo, Scissors } from 'lucide-react';
+import { Calendar, CheckSquare, AlertCircle, RefreshCw, ChevronLeft, Save, Tag, TrendingUp, Clock, FileVideo, Scissors, Film, X } from 'lucide-react';
 import { addDays, isBefore, parseISO, differenceInDays } from 'date-fns';
 
 const STAGE_CHECKLISTS = {
@@ -43,6 +43,7 @@ function App() {
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentVideo, setCurrentVideo] = useState(null);
+  const [metricModal, setMetricModal] = useState(null);
 
   const fetchVideos = async () => {
     setLoading(true);
@@ -135,49 +136,64 @@ function App() {
     }
   }
 
-  const editingCount = videos.filter(v => v.status === '#edit').length;
+  const editingVideos = videos.filter(v => v.status === '#edit');
+  const readyToFilmVideos = videos.filter(v => v.status === '#film');
+
+  const openModal = (title, videoList) => {
+    setMetricModal({ title, videos: videoList.sort(sortByDropDate) });
+  };
 
   const renderDashboard = () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
       {/* Metrics Bar */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
-        <div className="card" style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1.5rem' }}>
-          <div style={{ backgroundColor: daysAhead >= 21 ? 'var(--success-color)' : 'var(--danger-color)', color: '#fff', padding: '0.75rem', borderRadius: '50%' }}>
-            <TrendingUp size={24} />
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '0.75rem' }}>
+        <div className="card" onClick={() => openModal('Upcoming Runway (Unfinished)', unfinishedFuture)} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.75rem 1rem', cursor: 'pointer' }}>
+          <div style={{ backgroundColor: daysAhead >= 21 ? 'var(--success-color)' : 'var(--danger-color)', color: '#fff', padding: '0.5rem', borderRadius: '50%', display: 'flex' }}>
+            <TrendingUp size={20} />
           </div>
           <div>
-            <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Days Ahead (Goal: 21)</div>
-            <div style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>{daysAhead}</div>
+            <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Days Ahead</div>
+            <div style={{ fontSize: '1.25rem', fontWeight: 'bold', lineHeight: '1.2' }}>{daysAhead}</div>
           </div>
         </div>
 
-        <div className="card" style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1.5rem' }}>
-          <div style={{ backgroundColor: 'var(--accent-color)', color: '#fff', padding: '0.75rem', borderRadius: '50%' }}>
-            <FileVideo size={24} />
+        <div className="card" onClick={() => openModal('All Videos', videos)} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.75rem 1rem', cursor: 'pointer' }}>
+          <div style={{ backgroundColor: 'var(--accent-color)', color: '#fff', padding: '0.5rem', borderRadius: '50%', display: 'flex' }}>
+            <FileVideo size={20} />
           </div>
           <div>
-            <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Total Videos</div>
-            <div style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>{videos.length}</div>
+            <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Total Videos</div>
+            <div style={{ fontSize: '1.25rem', fontWeight: 'bold', lineHeight: '1.2' }}>{videos.length}</div>
           </div>
         </div>
 
-        <div className="card" style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1.5rem' }}>
-          <div style={{ backgroundColor: '#ff9800', color: '#fff', padding: '0.75rem', borderRadius: '50%' }}>
-            <Clock size={24} />
+        <div className="card" onClick={() => openModal('Pending Audio Draft', needsDrafting)} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.75rem 1rem', cursor: 'pointer' }}>
+          <div style={{ backgroundColor: '#ff9800', color: '#fff', padding: '0.5rem', borderRadius: '50%', display: 'flex' }}>
+            <Clock size={20} />
           </div>
           <div>
-            <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Pending Audio Draft</div>
-            <div style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>{needsDrafting.length}</div>
+            <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Pending Audio</div>
+            <div style={{ fontSize: '1.25rem', fontWeight: 'bold', lineHeight: '1.2' }}>{needsDrafting.length}</div>
           </div>
         </div>
 
-        <div className="card" style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1.5rem' }}>
-          <div style={{ width: '48px', height: '48px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div className="card" onClick={() => openModal('Ready to Film', readyToFilmVideos)} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.75rem 1rem', cursor: 'pointer' }}>
+          <div style={{ backgroundColor: 'var(--danger-color)', color: '#fff', padding: '0.5rem', borderRadius: '50%', display: 'flex' }}>
+            <Film size={20} />
+          </div>
+          <div>
+            <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Ready to Film</div>
+            <div style={{ fontSize: '1.25rem', fontWeight: 'bold', lineHeight: '1.2' }}>{readyToFilmVideos.length}</div>
+          </div>
+        </div>
+
+        <div className="card" onClick={() => openModal('In Editing', editingVideos)} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.75rem 1rem', cursor: 'pointer' }}>
+          <div style={{ width: '36px', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <img src="/favicon.png" alt="Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
           </div>
           <div>
-            <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>In Editing</div>
-            <div style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>{editingCount}</div>
+            <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>In Editing</div>
+            <div style={{ fontSize: '1.25rem', fontWeight: 'bold', lineHeight: '1.2' }}>{editingVideos.length}</div>
           </div>
         </div>
       </div>
@@ -243,6 +259,37 @@ function App() {
           </div>
         </div>
       </div>
+
+      {/* Metric Modal Overlay */}
+      {metricModal && (
+        <div className="modal-overlay" onClick={() => setMetricModal(null)}>
+          <div className="modal-content" onClick={e => e.stopPropagation()}>
+            <div className="modal-header">
+              <h2>{metricModal.title}</h2>
+              <button className="btn btn-outline" onClick={() => setMetricModal(null)} style={{ padding: '0.5rem' }}>
+                <X size={20} />
+              </button>
+            </div>
+            {metricModal.videos.length === 0 ? (
+              <p>No videos found for this metric.</p>
+            ) : (
+              <div className="videos-list">
+                {metricModal.videos.map(v => (
+                  <div key={v.code} className="video-item" style={{ cursor: 'pointer' }} onClick={() => { setCurrentVideo(v); setMetricModal(null); }}>
+                    <div className="video-header">
+                      <strong>{v.code}: {v.title}</strong>
+                      {getStatusBadge(v.status)}
+                    </div>
+                    <div className="video-meta">
+                      <span>Drop: {v.drop_date || 'TBD'}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 

@@ -50,4 +50,9 @@ Whenever Dr. Anderson says *"I have a new audio script for [Code/Folder]"*, prov
 4. **Pipeline Auto-Advance**: Advance video status to `Ready to Film` in Supabase/SQLite, and refresh `docs/video_pipeline_cache.json`, `docs/Video_Pipeline_Status.md`, [`Drop_Schedule.md`](file:///Users/craiganderson/Developer/SystemizedHealth/Drop_Schedule.md), and `TODO.md`.
    - **MANDATORY**: Whenever a script is polished and pushed to the `#film` queue, you MUST copy the entire formatted teleprompter script (from Section 3) and append the snippets to the bottom of the `Obsidian_Vault/_Filming_Dashboard.md` file under the `## 📜 Script Snippets` section. Maintain sorting by Video Code.
 
+---
 
+## 5. "Agent Comments" Source Directive
+Whenever Dr. Anderson says to "look for agent comments" or similar phrasing, it **always** refers to the `agent_message` field in the video pipeline database (Supabase). Do not search Obsidian documents, TODOs, or local source code files for these comments.
+- Read from the local cache via `docs/video_pipeline_cache.json`.
+- If the cache is stale or missing the recent comment, prompt Dr. Anderson to run `python3 scripts/video_pipeline.py --cache` to pull the latest updates.
