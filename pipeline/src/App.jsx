@@ -20,8 +20,29 @@ function App() {
   };
 
   useEffect(() => {
-    fetchVideos();
+    if (supabase) {
+      fetchVideos();
+    }
   }, []);
+
+  if (!supabase) {
+    return (
+      <div className="container">
+        <div className="card" style={{ borderColor: 'var(--danger-color)' }}>
+          <h2 style={{ color: 'var(--danger-color)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <AlertCircle size={24} /> Configuration Error
+          </h2>
+          <p>The Supabase environment variables are missing.</p>
+          <p style={{ marginTop: '1rem' }}>Please ensure you have added exactly these two variables in your Netlify <strong>Site settings &gt; Environment variables</strong>:</p>
+          <ul style={{ marginTop: '0.5rem', marginLeft: '1.5rem', color: 'var(--text-secondary)' }}>
+            <li><strong>VITE_SUPABASE_URL</strong></li>
+            <li><strong>VITE_SUPABASE_KEY</strong></li>
+          </ul>
+          <p style={{ marginTop: '1rem' }}>Once added, you will need to trigger a new deploy in Netlify (Deploys &gt; Trigger deploy &gt; Clear cache and deploy site).</p>
+        </div>
+      </div>
+    );
+  }
 
   // Compute metrics for the views
   const today = new Date();
