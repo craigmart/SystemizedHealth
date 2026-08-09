@@ -121,12 +121,21 @@ python3 scripts/analytics_manager.py --eom 2026-07
 
 ---
 
-## 5. Adding a New Video
+## 5. Adding a New Video & Generating Outlines
 
 1. Run `--add` with the required fields: `video_number`, `code`, `format_type`, `title`
-2. Optionally include: `drop_date`, `status`, `jdex_code`, `os_level`, `notes`
-3. Create the local folder: `Obsidian_Vault/Videos/[ShortCode] - [Title] ([FullCode])/`
-4. Verify with `python3 scripts/video_pipeline.py --list`
+2. Optionally include: `drop_date`, `status`, `jdex_code`, `os_level`, `notes`, `rough_outline`
+   > [!IMPORTANT]
+   > The web App dashboard explicitly looks for the `rough_outline` field to display the Pre-Recording Outline Reference on the video page. You MUST sync your markdown outlines to this field so they are available while recording the audio draft.
+3. Create the local folder and Markdown file: `Obsidian_Vault/Videos/[ShortCode] - [Title] ([FullCode])/`
+4. **Generate the Pre-Recording Outline:**
+   The initial Markdown file must contain a `## Outline for Audio Dictation:` section structured with:
+   - **The Hook:** A punchy opening.
+   - **Biological Reframe:** Translating the problem into the FMR framework.
+   - **Clinical Insight / Study:** A credible, real-world biological or psychological study reference.
+   - **Actionable Takeaway & CTA:** A simple step the viewer can take today, ending with the official CTA.
+5. Verify with `python3 scripts/video_pipeline.py --list`
+6. Sync the generated outline text to the Supabase `rough_outline` field so it displays in the App.
 
 ---
 
