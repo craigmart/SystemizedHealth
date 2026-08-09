@@ -177,15 +177,17 @@ def sync_published_videos():
                     f.write(content)
                 
                 # Rename file then folder
-                new_file_path = folder / new_file_name
+                temp_new_file_path = folder / new_file_name
                 if file.name != new_file_name:
-                    file.rename(new_file_path)
+                    file.rename(temp_new_file_path)
                     
                 if folder.name != new_folder_name:
                     folder.rename(new_folder_path)
                     
+                final_file_path = new_folder_path / new_file_name
+                
                 # Clean the script now that it's published
-                clean_published_script.process_file(new_file_path)
+                clean_published_script.process_file(final_file_path)
 
     conn.commit()
     conn.close()

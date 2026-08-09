@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-08T12:39:04.223218+00:00",
+  "generated": "2026-08-08T20:14:32.970974+00:00",
   "count": 36,
   "videos": [
     {
@@ -20,7 +20,7 @@
       "vidiq_title_score": 0,
       "notes": "Published",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-08T11:48:44.527498+00:00"
+      "updated_at": "2026-08-08T20:14:32.244233+00:00"
     },
     {
       "id": "2fedea5e-ea20-4e31-9a95-d453adfa427e",
@@ -40,7 +40,7 @@
       "vidiq_title_score": 0,
       "notes": "Published",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-08T11:48:44.618233+00:00"
+      "updated_at": "2026-08-08T20:14:32.430101+00:00"
     },
     {
       "id": "f64ec39a-3ecd-4525-90c1-ddf3635aea76",
@@ -100,7 +100,7 @@
       "vidiq_title_score": 0,
       "notes": "6/6 Shots Filmed \u2014 Editing (#edit)",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-08T11:48:44.792305+00:00"
+      "updated_at": "2026-08-08T20:14:32.786088+00:00"
     },
     {
       "id": "2e48954c-bbd6-426f-9b7f-1f1ac7da3e8b",
@@ -120,27 +120,27 @@
       "vidiq_title_score": 0,
       "notes": "Pre-Recording Blueprint Ready",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-08T11:48:44.705477+00:00"
+      "updated_at": "2026-08-08T20:14:32.690296+00:00"
     },
     {
       "id": "575283bb-b128-479d-9263-b1370a9359a5",
       "video_number": "007",
       "code": "80.V0B-S3",
       "format_type": "Short",
-      "title": "Stop Buying Health Advice from Coaches Who Dont Know Physiology",
+      "title": "Stop Trying to Fix Stress Backward (Fuel, Move, Rest First)",
       "description": null,
       "jdex_code": "77.01",
       "os_level": "Level 1: FMR",
       "folder_path": null,
-      "status": "#edit",
+      "status": "#published",
       "drop_date": "2026-08-20",
-      "uploaded_date": null,
-      "youtube_id": null,
+      "uploaded_date": "2026-08-08",
+      "youtube_id": "PEtbNdFOK_k",
       "primary_keyword": null,
       "vidiq_title_score": 0,
       "notes": "Pre-Recording Blueprint Ready",
       "created_at": "2026-08-01T13:02:44.226154+00:00",
-      "updated_at": "2026-08-08T12:39:02.961723+00:00"
+      "updated_at": "2026-08-08T20:14:32.58996+00:00"
     },
     {
       "id": "c4dbc019-9cf5-4faa-97b9-4621ca8b66dc",
