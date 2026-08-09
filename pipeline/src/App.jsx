@@ -188,28 +188,27 @@ function App() {
             <AlertCircle size={20} color="var(--danger-color)" /> Action Items
           </h2>
           <div className="videos-list">
-            {needsDrafting.map(v => (
-              <div key={v.code} className="video-item" style={{ cursor: 'pointer' }} onClick={() => setCurrentVideo(v)}>
-                <div className="video-header">
-                  <strong>{v.code}: {v.title}</strong>
-                  {getStatusBadge(v.status)}
+            {[...new Set([...needsPublishing, ...needsDrafting])].sort(sortByDropDate).map(v => {
+              const isPublishUrgent = needsPublishing.includes(v);
+              const message = isPublishUrgent 
+                ? `Due in < 21 days! (Drop: ${v.drop_date})` 
+                : `Needs Audio Draft (Drop: ${v.drop_date})`;
+              const borderStyle = isPublishUrgent 
+                ? { borderLeft: '3px solid var(--danger-color)', cursor: 'pointer' } 
+                : { cursor: 'pointer' };
+
+              return (
+                <div key={v.code} className="video-item" style={borderStyle} onClick={() => setCurrentVideo(v)}>
+                  <div className="video-header">
+                    <strong>{v.code}: {v.title}</strong>
+                    {getStatusBadge(v.status)}
+                  </div>
+                  <div className="video-meta">
+                    <span>{message}</span>
+                  </div>
                 </div>
-                <div className="video-meta">
-                  <span>Needs Audio Draft (Drop: {v.drop_date})</span>
-                </div>
-              </div>
-            ))}
-            {needsPublishing.map(v => (
-              <div key={v.code} className="video-item" style={{ borderLeft: '3px solid var(--danger-color)', cursor: 'pointer' }} onClick={() => setCurrentVideo(v)}>
-                <div className="video-header">
-                  <strong>{v.code}: {v.title}</strong>
-                  {getStatusBadge(v.status)}
-                </div>
-                <div className="video-meta">
-                  <span>Due in &lt; 21 days! (Drop: {v.drop_date})</span>
-                </div>
-              </div>
-            ))}
+              );
+            })}
             {needsDrafting.length === 0 && needsPublishing.length === 0 && (
               <p>You are ahead of schedule! 🎉</p>
             )}
