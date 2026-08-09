@@ -27,18 +27,18 @@ inbox (ideas abd thoights to process)
   - [ ] `80.V0A1`: *Systemized OS Framework* (Drop Date: 2026-08-24) — Currently Editing
 - [ ] **Short-Form Video Editing (Filmed, Pending Edit)**:
   - [x] `80.V0B-S1`: *Do Less to Get More* (Drop: 2026-08-04 @ 6:00 AM) — Uploaded & Live
-  - [ ] `80.V0A-S1`: *The Biological Reason Monday Resolutions Always Fail* (Drop: 2026-08-06) — Currently Editing
+  - [x] `80.V0A-S1`: *The Biological Reason Monday Resolutions Always Fail* (Drop: 2026-08-06) — Uploaded & Live
   - [ ] `80.V0A-S2`: *The Exact Biological Sequence Your Body Needs to Change* (Drop: 2026-08-08) — Currently Editing
   - [ ] `80.V0A-S3`: *Stop Treating Your Health Like an Emergency Room* (Drop: 2026-08-22)
   - [ ] `80.V0A1-S1`: *Why Relying on Willpower Guarantees Physical Burnout* (Drop: 2026-08-25)
   - [ ] `80.V0A1-S2`: *The Level 1 FMR Baseline Every Body Needs to Master* (Drop: 2026-08-27)
   - [ ] `80.V0A1-S3`: *The 3-Tier Health Pyramid That Fixes Chronic Fatigue* (Drop: 2026-08-29)
-  - [ ] `80.V0B-S3`: *The 3 Levels of the Biological OS* (Drop: 2026-08-20)
+  - [x] `80.V0B-S3`: *The 3 Levels of the Biological OS* (Drop: 2026-08-08) — Uploaded & Live
   - [ ] `80.V1B1-S1`: *Why Exercise is Optional* (Drop: 2026-08-11)
   - [ ] `80.V1B1-S2`: *Joint Imbibition: The Only Way Your Joints Actually Get Nourished* (Drop: 2026-08-13)
   - [ ] `80.V1B1-S3`: *Cortical Smudging: Why Your Back Pain Randomly Spasms* (Drop: 2026-08-15)
 - [ ] **Ready to Film (Audio Riff Complete)**:
-  - [ ] `80.V0B-S2`: *Why Depression Causes Back Pain* (Drop: 2026-08-18)
+  - [x] `80.V0B-S2`: *Why Depression Causes Back Pain* (Drop: 2026-08-06) — Uploaded & Live
 - [ ] **Short-Form Audio Riffs (Blueprint Ready, Pending Audio)**:
   - [ ] `80.V1C1`: *Biological Debt of Sleep* (Drop: 2026-08-31)
   - [ ] `80.V1C1-S1`: *Weekend Catch-Up Myth* (Drop: 2026-09-01)

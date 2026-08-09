@@ -10,12 +10,12 @@
 | # | Code | Format | Title | Drop Date | Status | Uploaded |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **001** | `80.V0B` | Long | Knowledge Isn't Enough—Here's What Actually Works | 2026-08-03 | ✅ #published | 2026-08-03 |
-| **002** | `80.V0A` | Long | 20,000 Patients Taught Me This One Biological Reality | 2026-08-17 | ✅ #published | 2026-08-03 |
+| **002** | `80.V0A` | Long | 20,000 Patients Taught Me This One Biological Reality | 2026-08-03 | ✅ #published | 2026-08-03 |
 | **003** | `80.V1B1` | Long | Exercise Optional (Movement Mandatory) | 2026-08-10 | ✅ #published | 2026-08-08 |
 | **004** | `80.V0A1` | Long | Systemized OS Framework | 2026-08-24 | ✂️ #edit | — |
 | **005** | `80.V0B-S1` | Short | Do Less to Get More | 2026-08-04 | ✅ #published | 2026-08-04 |
-| **006** | `80.V0B-S2` | Short | Stop Setting Marathon Goals on Monday (Downshift for Success) | 2026-08-18 | ✅ #published | 2026-08-06 |
-| **007** | `80.V0B-S3` | Short | Stop Trying to Fix Stress Backward (Fuel, Move, Rest First) | 2026-08-20 | ✅ #published | 2026-08-08 |
+| **006** | `80.V0B-S2` | Short | Stop Setting Marathon Goals on Monday (Downshift for Success) | 2026-08-06 | ✅ #published | 2026-08-06 |
+| **007** | `80.V0B-S3` | Short | Stop Trying to Fix Stress Backward (Fuel, Move, Rest First) | 2026-08-08 | ✅ #published | 2026-08-08 |
 | **008** | `80.V0A-S1` | Short | The Biological Reason Monday Resolutions Always Fail | 2026-08-06 | ✅ #published | 2026-08-09 |
 | **009** | `80.V0A-S2` | Short | The Exact Biological Sequence Your Body Needs to Change | 2026-08-08 | ✅ #published | — |
 | **010** | `80.V0A-S3` | Short | Stop Treating Your Health Like an Emergency Room | 2026-08-22 | ✂️ #edit | — |
