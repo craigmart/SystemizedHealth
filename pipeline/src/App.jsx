@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { supabase } from './supabase';
-import { Calendar, CheckSquare, AlertCircle, RefreshCw, ChevronLeft, Save, Tag } from 'lucide-react';
-import { addDays, isBefore, parseISO } from 'date-fns';
+import { Calendar, CheckSquare, AlertCircle, RefreshCw, ChevronLeft, Save, Tag, TrendingUp, Clock, FileVideo, Edit3 } from 'lucide-react';
+import { addDays, isBefore, parseISO, differenceInDays } from 'date-fns';
 
 const STAGE_CHECKLISTS = {
   '#idea': [
@@ -109,8 +109,62 @@ function App() {
     return <span className={`badge badge-${s}`}>{status}</span>;
   };
 
+  // Metrics Calculation
+  const scheduledVideos = videos.filter(v => v.drop_date && (v.status === '#uploaded' || v.status === '#published'));
+  let latestDate = today;
+  if (scheduledVideos.length > 0) {
+    const dates = scheduledVideos.map(v => parseISO(v.drop_date));
+    latestDate = new Date(Math.max(...dates));
+  }
+  const daysAhead = Math.max(0, differenceInDays(latestDate, today));
+  const editingCount = videos.filter(v => v.status === '#edit').length;
+
   const renderDashboard = () => (
-    <div className="dashboard-grid">
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+      {/* Metrics Bar */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
+        <div className="card" style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1.5rem' }}>
+          <div style={{ backgroundColor: daysAhead >= 21 ? 'var(--success-color)' : 'var(--danger-color)', color: '#fff', padding: '0.75rem', borderRadius: '50%' }}>
+            <TrendingUp size={24} />
+          </div>
+          <div>
+            <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Days Ahead (Goal: 21)</div>
+            <div style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>{daysAhead}</div>
+          </div>
+        </div>
+
+        <div className="card" style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1.5rem' }}>
+          <div style={{ backgroundColor: 'var(--accent-color)', color: '#fff', padding: '0.75rem', borderRadius: '50%' }}>
+            <FileVideo size={24} />
+          </div>
+          <div>
+            <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Total Pipeline Videos</div>
+            <div style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>{videos.length}</div>
+          </div>
+        </div>
+
+        <div className="card" style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1.5rem' }}>
+          <div style={{ backgroundColor: '#ff9800', color: '#fff', padding: '0.75rem', borderRadius: '50%' }}>
+            <Clock size={24} />
+          </div>
+          <div>
+            <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Pending Drafts</div>
+            <div style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>{needsDrafting.length}</div>
+          </div>
+        </div>
+
+        <div className="card" style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1.5rem' }}>
+          <div style={{ backgroundColor: 'var(--primary-color)', color: '#fff', padding: '0.75rem', borderRadius: '50%' }}>
+            <Edit3 size={24} />
+          </div>
+          <div>
+            <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>In Editing</div>
+            <div style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>{editingCount}</div>
+          </div>
+        </div>
+      </div>
+
+      <div className="dashboard-grid">
       <div className="card">
         <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
           <AlertCircle size={20} color="var(--danger-color)" /> Action Items
@@ -163,6 +217,7 @@ function App() {
           ))}
         </div>
       </div>
+      </div>
     </div>
   );
 
@@ -179,7 +234,7 @@ function App() {
             Refresh
           </button>
         ) : (
-          <button className="btn btn-outline" onClick={() => { setCurrentVideo(null); fetchVideos(); }}>
+          <button className="btn btn-outline" onClick={() => setCurrentVideo(null)}>
             <ChevronLeft size={16} />
             Back to Dashboard
           </button>
