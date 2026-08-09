@@ -1,7 +1,43 @@
 import { useEffect, useState } from 'react';
 import { supabase } from './supabase';
-import { Calendar, CheckSquare, AlertCircle, RefreshCw, ChevronLeft, Save } from 'lucide-react';
+import { Calendar, CheckSquare, AlertCircle, RefreshCw, ChevronLeft, Save, Tag } from 'lucide-react';
 import { addDays, isBefore, parseISO } from 'date-fns';
+
+const STAGE_CHECKLISTS = {
+  '#idea': [
+    { key: 'idea_outline', label: 'Generate Idea & Rough Outline Proposal (Hook, Points, CTA)' },
+    { key: 'idea_audio', label: 'Record raw conversational audio brainstorm' },
+    { key: 'idea_paste', label: 'Paste audio transcript in dashboard for Stage 2 polish' }
+  ],
+  '#write': [
+    { key: 'write_format', label: 'Format Teleprompter Script with Clip Sub-Codes' },
+    { key: 'write_cues', label: 'Ensure single paragraphs per clip & add performance cues' },
+    { key: 'write_sync', label: 'Sync script to Obsidian _Filming_Dashboard.md' }
+  ],
+  '#film': [
+    { key: 'film_review', label: 'Review Obsidian script on set' },
+    { key: 'film_record', label: 'Record A-Roll clips matching exact sub-codes' },
+    { key: 'film_transcribe', label: 'Auto-transcribe final A-Roll to lock in final version' }
+  ],
+  '#edit': [
+    { key: 'edit_import', label: 'Import A-Roll and organize by clip sub-codes' },
+    { key: 'edit_descript', label: 'Descript: Transcription & Filler Word Removal' },
+    { key: 'edit_aroll', label: 'A-Roll Edited & Paced' },
+    { key: 'edit_broll', label: 'B-Roll, Images & Graphics Added' },
+    { key: 'edit_captions', label: 'Captions & Subtitles Generated' },
+    { key: 'edit_audio', label: 'Audio Mastered & Color Graded' },
+    { key: 'edit_export', label: 'Final Export & QC' }
+  ],
+  '#uploaded': [
+    { key: 'up_studio', label: 'Video uploaded to YouTube Studio' },
+    { key: 'up_meta', label: 'Metadata (Titles, JDex Tags) dialed in' },
+    { key: 'up_cta', label: 'CTA descriptions and links verified' },
+    { key: 'up_thumb', label: 'Custom Thumbnail uploaded and reviewed' },
+    { key: 'up_schedule', label: 'Video explicitly scheduled for exact drop date' }
+  ]
+};
+
+const STATUS_OPTIONS = ['#idea', '#write', '#film', '#edit', '#uploaded', '#published'];
 
 function App() {
   const [videos, setVideos] = useState([]);
@@ -16,7 +52,14 @@ function App() {
       .order('video_number', { ascending: true });
     
     if (error) console.error("Error fetching videos:", error);
-    else setVideos(data || []);
+    else {
+      setVideos(data || []);
+      // If we are currently viewing a video, update its local object
+      if (currentVideo) {
+        const updated = data.find(v => v.id === currentVideo.id);
+        if (updated) setCurrentVideo(updated);
+      }
+    }
     setLoading(false);
   };
 
@@ -34,18 +77,11 @@ function App() {
             <AlertCircle size={24} /> Configuration Error
           </h2>
           <p>The Supabase environment variables are missing.</p>
-          <p style={{ marginTop: '1rem' }}>Please ensure you have added exactly these two variables in your Netlify <strong>Site settings &gt; Environment variables</strong>:</p>
-          <ul style={{ marginTop: '0.5rem', marginLeft: '1.5rem', color: 'var(--text-secondary)' }}>
-            <li><strong>VITE_SUPABASE_URL</strong></li>
-            <li><strong>VITE_SUPABASE_KEY</strong></li>
-          </ul>
-          <p style={{ marginTop: '1rem' }}>Once added, you will need to trigger a new deploy in Netlify (Deploys &gt; Trigger deploy &gt; Clear cache and deploy site).</p>
         </div>
       </div>
     );
   }
 
-  // Sorting helper: closest drop_date first
   const sortByDropDate = (a, b) => {
     if (!a.drop_date) return 1;
     if (!b.drop_date) return -1;
@@ -68,8 +104,6 @@ function App() {
     return (isBefore(dropDate, draftTarget) && (v.status === '#idea' || v.status === '#write'));
   }).sort(sortByDropDate);
 
-  const editingVideos = videos.filter(v => v.status === '#edit').sort(sortByDropDate);
-
   const getStatusBadge = (status) => {
     const s = status ? status.replace('#', '') : 'idea';
     return <span className={`badge badge-${s}`}>{status}</span>;
@@ -77,7 +111,6 @@ function App() {
 
   const renderDashboard = () => (
     <div className="dashboard-grid">
-      {/* Actionable Pipeline View */}
       <div className="card">
         <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
           <AlertCircle size={20} color="var(--danger-color)" /> Action Items
@@ -111,7 +144,6 @@ function App() {
         </div>
       </div>
 
-      {/* Runway Calendar View */}
       <div className="card">
         <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
           <Calendar size={20} color="var(--accent-color)" /> Runway Overview
@@ -157,7 +189,7 @@ function App() {
       {loading && !currentVideo ? (
         <p>Loading pipeline data...</p>
       ) : currentVideo ? (
-        <VideoDetail video={currentVideo} />
+        <VideoDetail video={currentVideo} onUpdate={fetchVideos} />
       ) : (
         renderDashboard()
       )}
@@ -165,12 +197,20 @@ function App() {
   );
 }
 
-// Sub-component for the detail view
-function VideoDetail({ video }) {
+function VideoDetail({ video, onUpdate }) {
+  const [localVideo, setLocalVideo] = useState(video);
   const [agentMessage, setAgentMessage] = useState(video.agent_message || '');
   const [transcript, setTranscript] = useState(video.raw_transcript || '');
   const [checklist, setChecklist] = useState(video.edit_checklist || {});
   const [saving, setSaving] = useState(false);
+
+  // Sync state if prop changes
+  useEffect(() => {
+    setLocalVideo(video);
+    setAgentMessage(video.agent_message || '');
+    setTranscript(video.raw_transcript || '');
+    setChecklist(video.edit_checklist || {});
+  }, [video]);
 
   const handleSaveText = async () => {
     setSaving(true);
@@ -180,11 +220,22 @@ function VideoDetail({ video }) {
         agent_message: agentMessage,
         raw_transcript: transcript 
       })
-      .eq('video_number', video.video_number);
+      .eq('video_number', localVideo.video_number);
     
     if (error) alert("Error saving: " + error.message);
-    else alert("Saved successfully!");
+    else onUpdate();
     setSaving(false);
+  };
+
+  const handleStatusChange = async (e) => {
+    const newStatus = e.target.value;
+    const { error } = await supabase
+      .from('videos')
+      .update({ status: newStatus })
+      .eq('video_number', localVideo.video_number);
+    
+    if (error) alert("Error changing status: " + error.message);
+    else onUpdate();
   };
 
   const toggleChecklist = async (key) => {
@@ -194,7 +245,7 @@ function VideoDetail({ video }) {
     const { error } = await supabase
       .from('videos')
       .update({ edit_checklist: newChecklist })
-      .eq('video_number', video.video_number);
+      .eq('video_number', localVideo.video_number);
       
     if (error) alert("Error saving checklist: " + error.message);
   };
@@ -204,16 +255,31 @@ function VideoDetail({ video }) {
     return <span className={`badge badge-${s}`}>{status}</span>;
   };
 
+  const currentChecklist = STAGE_CHECKLISTS[localVideo.status] || [];
+
   return (
     <div className="card" style={{ maxWidth: '800px', margin: '0 auto' }}>
       <div style={{ marginBottom: '2rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '1rem' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
-          <h2>{video.code}: {video.title}</h2>
-          {getStatusBadge(video.status)}
+          <h2>{localVideo.code}: {localVideo.title}</h2>
+          {getStatusBadge(localVideo.status)}
         </div>
-        <div style={{ display: 'flex', gap: '2rem', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
-          <span><strong>Format:</strong> {video.format_type}</span>
-          <span><strong>Drop Date:</strong> {video.drop_date || 'TBD'}</span>
+        <div style={{ display: 'flex', gap: '2rem', color: 'var(--text-secondary)', fontSize: '0.9rem', alignItems: 'center' }}>
+          <span><strong>Format:</strong> {localVideo.format_type}</span>
+          <span><strong>Drop Date:</strong> {localVideo.drop_date || 'TBD'}</span>
+          
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginLeft: 'auto' }}>
+            <Tag size={16} />
+            <select 
+              value={localVideo.status} 
+              onChange={handleStatusChange}
+              style={{ padding: '0.25rem 0.5rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', backgroundColor: 'var(--card-bg)' }}
+            >
+              {STATUS_OPTIONS.map(opt => (
+                <option key={opt} value={opt}>{opt}</option>
+              ))}
+            </select>
+          </div>
         </div>
       </div>
 
@@ -222,9 +288,6 @@ function VideoDetail({ video }) {
         {/* Agent Message Box */}
         <div>
           <h3 style={{ fontSize: '1rem', marginBottom: '0.5rem' }}>Message to Agent (Antigravity)</h3>
-          <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>
-            Leave instructions here for the agent regarding this video.
-          </p>
           <textarea 
             value={agentMessage}
             onChange={(e) => setAgentMessage(e.target.value)}
@@ -233,19 +296,33 @@ function VideoDetail({ video }) {
           />
         </div>
 
-        {/* Audio Draft Box (only for early stages) */}
-        {(video.status === '#idea' || video.status === '#write') && (
-          <div>
-            <h3 style={{ fontSize: '1rem', marginBottom: '0.5rem' }}>Raw Audio Draft Transcript</h3>
-            <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>
-              Paste your dictated transcript here. The agent will read this to generate the Stage 2 teleprompter script.
-            </p>
-            <textarea 
-              value={transcript}
-              onChange={(e) => setTranscript(e.target.value)}
-              style={{ width: '100%', height: '300px', padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', fontFamily: 'inherit', resize: 'vertical' }}
-              placeholder="Paste raw transcript here..."
-            />
+        {/* Audio Draft Section (only for early stages) */}
+        {(localVideo.status === '#idea' || localVideo.status === '#write') && (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            
+            {/* Rough Outline Reference Display */}
+            {localVideo.rough_outline && (
+              <div style={{ backgroundColor: 'var(--bg-color)', padding: '1.5rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
+                <h3 style={{ fontSize: '1.1rem', marginBottom: '1rem', color: 'var(--primary-color)' }}>Pre-Recording Outline Reference</h3>
+                <div style={{ whiteSpace: 'pre-wrap', fontSize: '0.95rem', lineHeight: '1.6' }}>
+                  {localVideo.rough_outline}
+                </div>
+              </div>
+            )}
+
+            {/* Audio Draft Input Box */}
+            <div>
+              <h3 style={{ fontSize: '1rem', marginBottom: '0.5rem' }}>Raw Audio Draft Transcript</h3>
+              <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>
+                Paste your dictated transcript here. The agent will read this to generate the Stage 2 teleprompter script.
+              </p>
+              <textarea 
+                value={transcript}
+                onChange={(e) => setTranscript(e.target.value)}
+                style={{ width: '100%', height: '200px', padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', fontFamily: 'inherit', resize: 'vertical' }}
+                placeholder="Paste raw transcript here..."
+              />
+            </div>
           </div>
         )}
 
@@ -257,20 +334,14 @@ function VideoDetail({ video }) {
           </button>
         </div>
 
-        {/* Interactive Editing Checklist (only for edit stage) */}
-        {video.status === '#edit' && (
+        {/* Interactive Editing Checklist */}
+        {currentChecklist.length > 0 && (
           <div style={{ marginTop: '1rem', paddingTop: '2rem', borderTop: '1px solid var(--border-color)' }}>
             <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem', fontSize: '1.25rem' }}>
-              <CheckSquare size={20} color="var(--success-color)" /> Editing Quality Control
+              <CheckSquare size={20} color="var(--success-color)" /> {localVideo.status} Checklist
             </h3>
             <div className="checklist">
-              {[
-                { key: 'aroll', label: 'A-Roll Edited & Paced' },
-                { key: 'broll', label: 'B-Roll & Graphics Added' },
-                { key: 'audio', label: 'Audio Mastered (EQ, Compression)' },
-                { key: 'color', label: 'Color Grading' },
-                { key: 'export', label: 'Export & QC' }
-              ].map(item => (
+              {currentChecklist.map(item => (
                 <label key={item.key} className={`checklist-item ${checklist[item.key] ? 'checked' : ''}`} style={{ cursor: 'pointer' }}>
                   <input 
                     type="checkbox" 
