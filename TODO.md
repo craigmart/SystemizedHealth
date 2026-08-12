@@ -34,7 +34,7 @@ inbox (ideas abd thoights to process)
   - [ ] `80.V0A1-S2`: *The Level 1 FMR Baseline Every Body Needs to Master* (Drop: 2026-08-27)
   - [ ] `80.V0A1-S3`: *The 3-Tier Health Pyramid That Fixes Chronic Fatigue* (Drop: 2026-08-29)
   - [x] `80.V0B-S3`: *The 3 Levels of the Biological OS* (Drop: 2026-08-08) — Uploaded & Live
-  - [ ] `80.V1B1-S1`: *Why Exercise is Optional* (Drop: 2026-08-11)
+  - [x] `80.V1B1-S1`: *Why Exercise is Optional* (Drop: 2026-08-11) — Uploaded & Live
   - [ ] `80.V1B1-S2`: *Joint Imbibition: The Only Way Your Joints Actually Get Nourished* (Drop: 2026-08-13)
   - [ ] `80.V1B1-S3`: *Cortical Smudging: Why Your Back Pain Randomly Spasms* (Drop: 2026-08-15)
 - [ ] **Ready to Film (Audio Riff Complete)**:

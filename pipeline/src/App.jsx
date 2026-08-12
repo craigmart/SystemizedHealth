@@ -20,13 +20,14 @@ const STAGE_CHECKLISTS = {
     { key: 'film_transcribe', label: 'Auto-transcribe final A-Roll to lock in final version' }
   ],
   '#edit': [
-    { key: 'edit_import', label: 'Import A-Roll and organize by clip sub-codes' },
-    { key: 'edit_descript', label: 'Descript: Transcription & Filler Word Removal' },
-    { key: 'edit_aroll', label: 'A-Roll Edited & Paced' },
-    { key: 'edit_broll', label: 'B-Roll, Images & Graphics Added' },
-    { key: 'edit_captions', label: 'Captions & Subtitles Generated' },
-    { key: 'edit_audio', label: 'Audio Mastered & Color Graded' },
-    { key: 'edit_export', label: 'Final Export & QC' }
+    { key: 'edit_lut', label: 'Apply LUT and Color (LF)' },
+    { key: 'edit_trim', label: 'Trim (LF)' },
+    { key: 'edit_clarity', label: 'Edit for Clarity (DE)' },
+    { key: 'edit_subtitles', label: 'Add Subtitles (DE)' },
+    { key: 'edit_audio', label: 'Enhance Audio (Adobe + LF)' },
+    { key: 'edit_upload', label: 'Upload (YT-S)' },
+    { key: 'edit_metadata', label: 'Meta Data (YT-S)' },
+    { key: 'edit_schedule', label: 'Schedule (YT-S)' }
   ],
   '#uploaded': [
     { key: 'up_studio', label: 'Video uploaded to YouTube Studio' },
