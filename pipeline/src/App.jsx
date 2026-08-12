@@ -216,7 +216,7 @@ function App() {
             <AlertCircle size={20} color="var(--danger-color)" /> Action Items
           </h2>
           <div className="videos-list">
-            {[...new Set([...needsPublishing, ...needsDrafting])].sort(sortByDropDate).map(v => {
+            {[...new Set([...needsPublishing, ...needsDrafting])].sort(sortByDropDate).slice(0, 5).map(v => {
               const isPublishUrgent = needsPublishing.includes(v);
               const message = isPublishUrgent 
                 ? `Due in < 21 days! (Drop: ${v.drop_date})` 
@@ -253,7 +253,7 @@ function App() {
                 if (!v.drop_date) return false;
                 const d = parseISO(v.drop_date);
                 d.setHours(0, 0, 0, 0);
-                return d > todayDate;
+                return d >= todayDate && d <= addDays(todayDate, 10);
               })
               .sort(sortByDropDate)
               .map(v => (

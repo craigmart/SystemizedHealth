@@ -36,7 +36,7 @@ inbox (ideas abd thoights to process)
   - [x] `80.V0B-S3`: *The 3 Levels of the Biological OS* (Drop: 2026-08-08) — Uploaded & Live
   - [x] `80.V1B1-S1`: *Why Exercise is Optional* (Drop: 2026-08-11) — Uploaded & Live
   - [ ] `80.V1B1-S2`: *Joint Imbibition: The Only Way Your Joints Actually Get Nourished* (Drop: 2026-08-13)
-  - [ ] `80.V1B1-S3`: *Cortical Smudging: Why Your Back Pain Randomly Spasms* (Drop: 2026-08-15)
+  - [x] `80.V1B1-S3`: *Cortical Smudging: Why Your Back Pain Randomly Spasms* (Drop: 2026-08-15)
 - [ ] **Ready to Film (Audio Riff Complete)**:
   - [x] `80.V0B-S2`: *Why Depression Causes Back Pain* (Drop: 2026-08-06) — Uploaded & Live
 - [ ] **Short-Form Audio Riffs (Blueprint Ready, Pending Audio)**:

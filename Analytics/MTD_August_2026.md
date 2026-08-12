@@ -1,7 +1,7 @@
 # 📊 Month-to-Date (MTD) & Real Monthly Projections — August 2026
 
 *Systemized Health Channel Performance Pace & Content Planning Intelligence*
-*Report Generated: `2026-08-04 21:58:41` | As of: `2026-08-04` (Day 4 of 31)*
+*Report Generated: `2026-08-12 17:12:13` | As of: `2026-08-12` (Day 12 of 31)*
 *Data Source: Live vidIQ API & Database Delta Tracking (`Channel: Craig Anderson, D.C.`)*
 
 ---
@@ -9,15 +9,15 @@
 ## ⏱️ Month Progress & Pace Summary
 
 ```
-Month Elapsed: [==                  ] 12.9% (4/31 Days)
+Month Elapsed: [=======             ] 38.7% (12/31 Days)
 ```
 
 ### 1. Actual August Month-to-Date (MTD) Performance
 
-| Metric | Baseline at July 31 | Current Total (2026-08-04) | MTD Actual Gained (Aug 1-4) | Daily MTD Pace |
+| Metric | Baseline at July 31 | Current Total (2026-08-12) | MTD Actual Gained (Aug 1-12) | Daily MTD Pace |
 | :--- | :---: | :---: | :---: | :---: |
-| **Total Channel Views** | `9,077` | `9,099` | **`+22`** | `5.5 views/day` |
-| **Subscribers Gained** | `32` | `34` | **`+3`** | `0.75 subs/day` |
+| **Total Channel Views** | `9,077` | `11,052` | **`+1,975`** | `164.58 views/day` |
+| **Subscribers Gained** | `32` | `46` | **`+15`** | `1.25 subs/day` |
 | **Discovery Call Leads (Real)** | `0` | `0` | **`+0`** | `0.0 leads/day` |
 
 ---
@@ -26,8 +26,8 @@ Month Elapsed: [==                  ] 12.9% (4/31 Days)
 
 | Projection Metric | Current MTD Pace | Projected August Gains | Projected Total at Aug 31 | Run-Rate Status |
 | :--- | :--- | :--- | :--- | :--- |
-| **August New Views** | `5.5 views/day` | **`+170`** | **`9,269` views** | 🚀 Launch Drop Day 1 (Aug 3) |
-| **August New Subscribers** | `0.75 subs/day` | **`+23`** | **`+23` subs** | 🟢 Baseline Audience |
+| **August New Views** | `164.58 views/day` | **`+5,102`** | **`16,154` views** | 🚀 Launch Drop Day 1 (Aug 3) |
+| **August New Subscribers** | `1.25 subs/day` | **`+38`** | **`+38` subs** | 🟢 Baseline Audience |
 | **August Discovery Call Leads** | `0.0 leads/day` | **`+0`** | **`+0` leads** | 📞 Funnel Active |
 
 ---
@@ -40,11 +40,11 @@ Month Elapsed: [==                  ] 12.9% (4/31 Days)
 
 | Rank | Video # | Code | Title | Current Velocity | Total Views | Planning Recommendation |
 | :---: | :---: | :--- | :--- | :---: | :---: | :--- |
-| **#1** | `002` | `80.V0A` | 230,000 Patient Visits: The Biological OS Framework | **`0.0146 VPH`** | `16` | 🎯 High Conversion Topic |
-| **#2** | `H001` | `HIST.L01` | The Biological Reality of GLP-1: Fuel vs. Motivation | **`0.0138 VPH`** | `48` | 🎯 High Conversion Topic |
-| **#3** | `H002` | `HIST.L02` | The Neurological Reality of Workout Recovery | **`0.0025 VPH`** | `14` | 🎯 High Conversion Topic |
-| **#4** | `001` | `80.V0B` | Knowledge Isn't Enough—Here's What Actually Works | **`0.0013 VPH`** | `7` | 🎯 High Conversion Topic |
-| **#5** | `H003` | `HIST.L03` | The Biological Cost of an Unstructured Week | **`0.0009 VPH`** | `30` | 🎯 High Conversion Topic |
+| **#1** | `003` | `80.V1B1` | Exercise is Optional, Movement is not. | **`0.2143 VPH`** | `12` | 🎯 High Conversion Topic |
+| **#2** | `002` | `80.V0A` | 20,000 Patients Taught Me This One Biological Reality | **`0.0223 VPH`** | `27` | 🎯 High Conversion Topic |
+| **#3** | `H001` | `HIST.L01` | The Biological Reality of GLP-1: Fuel vs. Motivation | **`0.0130 VPH`** | `48` | 🎯 High Conversion Topic |
+| **#4** | `H002` | `HIST.L02` | The Neurological Reality of Workout Recovery | **`0.0024 VPH`** | `14` | 🎯 High Conversion Topic |
+| **#5** | `001` | `80.V0B` | Knowledge Isn't Enough—Here's What Actually Works | **`0.0022 VPH`** | `8` | 🎯 High Conversion Topic |
 
 ---
 
@@ -52,11 +52,11 @@ Month Elapsed: [==                  ] 12.9% (4/31 Days)
 
 | Rank | Video # | Code | Title | Current Velocity | Total Views | Planning Recommendation |
 | :---: | :---: | :--- | :--- | :---: | :---: | :--- |
-| **#1** | `005` | `80.V0B-S1` | Why Health Information Alone Keeps You Broken | **`23.2667 VPH`** | `349` | 📱 Replicate Hook Structure |
-| **#2** | `HS001` | `HIST.S01` | The Biological Calibration for Morning Hunger | **`0.0000 VPH`** | `1,665` | 📱 Replicate Hook Structure |
-| **#3** | `HS002` | `HIST.S02` | The Biological Mechanics of Habit Attachment | **`0.0000 VPH`** | `1,312` | 📱 Replicate Hook Structure |
-| **#4** | `HS003` | `HIST.S03` | Your steps have been tracked your whole life | **`0.0000 VPH`** | `1,308` | 📱 Replicate Hook Structure |
-| **#5** | `HS004` | `HIST.S04` | The Biological Prerequisite for Fasting | **`0.0000 VPH`** | `1,210` | 📱 Replicate Hook Structure |
+| **#1** | `006` | `80.V0B-S2` | Stop Setting Marathon Goals on Monday (Downshift for Success) | **`5.0519 VPH`** | `778` | 📱 Replicate Hook Structure |
+| **#2** | `HS003` | `HIST.S03` | No Gym? No Problem! Move More Every Day #health #wellness #shorts | **`3.0000 VPH`** | `105` | 📱 Replicate Hook Structure |
+| **#3** | `007` | `80.V0B-S3` | Stop Trying to Fix Stress Backward (Fuel, Move, Rest First) | **`2.3689 VPH`** | `244` | 📱 Replicate Hook Structure |
+| **#4** | `HS001` | `HIST.S01` | The Biological Calibration for Morning Hunger | **`0.0000 VPH`** | `1,665` | 📱 Replicate Hook Structure |
+| **#5** | `HS002` | `HIST.S02` | The Biological Mechanics of Habit Attachment | **`0.0000 VPH`** | `1,312` | 📱 Replicate Hook Structure |
 
 ---
 

@@ -78,33 +78,61 @@ def fetch_analytics_data(conn):
     # 6. Stats - 48 Hours
     cursor.execute("""
     SELECT COALESCE(SUM(views), 0) as views, COALESCE(SUM(vph), 0.0) as vph, COALESCE(SUM(likes), 0) as likes, COALESCE(SUM(comments), 0) as comments
-    FROM video_stats
-    WHERE snapshot_date >= ?;
+    FROM (
+        SELECT views, vph, likes, comments
+        FROM video_stats
+        JOIN videos ON video_stats.video_id = videos.id
+        WHERE snapshot_date >= ?
+        GROUP BY video_id
+        HAVING snapshot_date = MAX(snapshot_date)
+    );
     """, (t_48h,))
-    stats_48h = dict(cursor.fetchone())
+    res_48h = cursor.fetchone()
+    stats_48h = dict(res_48h) if res_48h else {"views": 0, "vph": 0.0, "likes": 0, "comments": 0}
 
     # 7. Stats - 7 Days
     cursor.execute("""
     SELECT COALESCE(SUM(views), 0) as views, COALESCE(SUM(likes), 0) as likes, COALESCE(AVG(ctr_pct), 0.0) as avg_ctr, COALESCE(SUM(comments), 0) as comments
-    FROM video_stats
-    WHERE snapshot_date >= ?;
+    FROM (
+        SELECT views, likes, ctr_pct, comments
+        FROM video_stats
+        JOIN videos ON video_stats.video_id = videos.id
+        WHERE snapshot_date >= ?
+        GROUP BY video_id
+        HAVING snapshot_date = MAX(snapshot_date)
+    );
     """, (t_7d,))
-    stats_7d = dict(cursor.fetchone())
+    res_7d = cursor.fetchone()
+    stats_7d = dict(res_7d) if res_7d else {"views": 0, "likes": 0, "avg_ctr": 0.0, "comments": 0}
 
     # 8. Stats - 28 Days
     cursor.execute("""
     SELECT COALESCE(SUM(views), 0) as views, COALESCE(SUM(likes), 0) as likes, COALESCE(SUM(subscribers_gained), 0) as subs, COALESCE(AVG(ctr_pct), 0.0) as avg_ctr
-    FROM video_stats
-    WHERE snapshot_date >= ?;
+    FROM (
+        SELECT views, likes, subscribers_gained, ctr_pct
+        FROM video_stats
+        JOIN videos ON video_stats.video_id = videos.id
+        WHERE snapshot_date >= ?
+        GROUP BY video_id
+        HAVING snapshot_date = MAX(snapshot_date)
+    );
     """, (t_28d,))
-    stats_28d = dict(cursor.fetchone())
+    res_28d = cursor.fetchone()
+    stats_28d = dict(res_28d) if res_28d else {"views": 0, "likes": 0, "subs": 0, "avg_ctr": 0.0}
 
     # 9. Stats - All Time
     cursor.execute("""
     SELECT COALESCE(SUM(views), 0) as views, COALESCE(SUM(likes), 0) as likes, COALESCE(SUM(comments), 0) as comments, COALESCE(SUM(subscribers_gained), 0) as subs
-    FROM video_stats;
+    FROM (
+        SELECT views, likes, comments, subscribers_gained
+        FROM video_stats
+        JOIN videos ON video_stats.video_id = videos.id
+        GROUP BY video_id
+        HAVING snapshot_date = MAX(snapshot_date)
+    );
     """)
-    stats_all_time = dict(cursor.fetchone())
+    res_all = cursor.fetchone()
+    stats_all_time = dict(res_all) if res_all else {"views": 0, "likes": 0, "comments": 0, "subs": 0}
 
     return {
         "today_str": today_str,
