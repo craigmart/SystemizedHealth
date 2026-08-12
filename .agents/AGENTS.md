@@ -25,13 +25,13 @@ Whenever writing, scripting, outlining, or generating metadata/descriptions for 
 
 ---
 
-## 3. Video Pipeline — Agent Read Protocol
+## 3. Video Pipeline — Agent Read & Write Protocol
 - **Source of truth**: Supabase `videos` table (managed via `scripts/video_pipeline.py`).
-- **Agent cannot call Supabase directly** (sandbox DNS restriction). Always read from the local cache instead:
+- **Agent Read Protocol**: Always read from the local cache instead of hitting the database directly:
   - Cache file: [`docs/video_pipeline_cache.json`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/video_pipeline_cache.json)
   - If cache is missing or stale (>24h), prompt Dr. Anderson to run: `python3 scripts/video_pipeline.py --cache`
-- **To update video status**, provide the exact terminal command for Dr. Anderson to run:
-  - `python3 scripts/video_pipeline.py --status <code> <new_status>`
+- **Agent Write Protocol (Database Updates)**: The Agent CAN and SHOULD execute the local python pipeline script via the terminal to update the database on behalf of Dr. Anderson.
+  - To update video status or clear agent messages, run: `python3 scripts/video_pipeline.py --status <code> <new_status> --add '{"agent_message":""}'`
 
 ---
 
@@ -50,7 +50,7 @@ Whenever Dr. Anderson says *"I have a new audio script for [Code/Folder]"*, prov
    - Writing Guardrails (no AI jargon, no em dashes).
 5. **Pipeline Auto-Advance**: Advance video status to `Ready to Film` in Supabase/SQLite, and refresh `docs/video_pipeline_cache.json`, `docs/Video_Pipeline_Status.md`, [`Drop_Schedule.md`](file:///Users/craiganderson/Developer/SystemizedHealth/Drop_Schedule.md), and `TODO.md`.
    - **Dashboard Update**: Whenever a script is polished and pushed to the `#film` queue, you MUST copy the entire formatted teleprompter script (from Section 3) and append the snippets to the bottom of the `Obsidian_Vault/_Filming_Dashboard.md` file under the `## 📜 Script Snippets` section.
-   - **Terminal Commands**: Provide Dr. Anderson the exact terminal commands to advance the status to `#film` AND clear the `agent_message` field via the `--add` parameter (e.g., `python3 scripts/video_pipeline.py --status 80.V1A '#film' --add '{"video_number":"TBD","code":"80.V1A","format_type":"Long","title":"[Title]","agent_message":""}'`).
+   - **Terminal Execution**: Run the terminal command to advance the status to `#film` AND clear the `agent_message` field via the `--add` parameter (e.g., `python3 scripts/video_pipeline.py --status 80.V1A '#film' --add '{"video_number":"TBD","code":"80.V1A","format_type":"Long","title":"[Title]","agent_message":""}'`) on behalf of Dr. Anderson.
 
 ---
 

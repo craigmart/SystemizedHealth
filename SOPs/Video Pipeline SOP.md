@@ -169,10 +169,10 @@ Whenever a video's title or drop schedule is renamed or updated in Supabase:
 
 ## 7. Agent Protocol
 
-- The AI agent reads the `videos` table directly via Supabase REST API — no local cache required.
-- To update a video's status, the agent will provide the exact `--status` command for Dr. Anderson to run from his terminal.
-- The agent can query live drop schedules, status summaries, and upload gaps on demand.
-- Session startup includes running `python3 scripts/video_pipeline.py --cache` to write a fresh local snapshot.
+- The AI agent reads from the local cache (`docs/video_pipeline_cache.json`) to avoid REST API limits/sandbox restrictions.
+- To update a video's status or clear agent messages, the agent will execute the exact `--status` and `--add` commands using `scripts/video_pipeline.py` in the terminal on behalf of Dr. Anderson.
+- The agent can query live drop schedules, status summaries, and upload gaps on demand (via local cache or by running pipeline scripts).
+- Session startup requires running `python3 scripts/video_pipeline.py --cache` to write a fresh local snapshot.
 
 ---
 
