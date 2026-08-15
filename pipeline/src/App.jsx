@@ -498,7 +498,7 @@ function VideoDetail({ video, onUpdate }) {
           </button>
 
           <a
-            href={`obsidian://open?vault=Obsidian_Vault&file=${encodeURIComponent(`${localVideo.code.replace(/^80\./, '')} Script - ${localVideo.title.replace(/[\\/:*?"<>|']/g, '')}`)}`}
+            href={`obsidian://open?vault=SystemizedHealth_Vault&file=${encodeURIComponent(`${localVideo.code.replace(/^80\./, '')} Script - ${localVideo.title.replace(/[\\/:*?"<>|']/g, '')}.md`)}`}
             className="btn btn-outline"
             style={{ textDecoration: 'none' }}
           >
