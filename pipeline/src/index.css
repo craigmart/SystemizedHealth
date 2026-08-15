@@ -264,3 +264,62 @@ p {
   padding-bottom: 1rem;
   border-bottom: 1px solid var(--border-color);
 }
+
+/* Markdown Content Styling */
+.markdown-content h1, .markdown-content h2, .markdown-content h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.markdown-content h1 { font-size: 1.75rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
+.markdown-content h2 { font-size: 1.25rem; }
+
+.markdown-content p {
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+}
+
+.markdown-content ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+}
+
+.markdown-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+}
+
+.markdown-content th, .markdown-content td {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  text-align: left;
+}
+
+.markdown-content th {
+  background-color: var(--bg-color);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.markdown-content blockquote {
+  border-left: 4px solid var(--accent-color);
+  background-color: var(--bg-color);
+  padding: 1rem;
+  margin: 1.5rem 0;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.markdown-content blockquote p {
+  margin-bottom: 0;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.markdown-content hr {
+  border: 0;
+  border-top: 1px solid var(--border-color);
+  margin: 2rem 0;
+}

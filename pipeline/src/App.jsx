@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { supabase } from './supabase';
 import { Calendar, CheckSquare, AlertCircle, RefreshCw, ChevronLeft, Save, Tag, TrendingUp, Clock, FileVideo, Scissors, Film, X, ExternalLink, BarChart2, LayoutDashboard } from 'lucide-react';
 import { addDays, isBefore, parseISO, differenceInDays } from 'date-fns';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 const STAGE_CHECKLISTS = {
   '#idea': [
@@ -219,11 +221,11 @@ function App() {
           <div className="videos-list">
             {[...new Set([...needsPublishing, ...needsDrafting])].sort(sortByDropDate).slice(0, 10).map(v => {
               const isPublishUrgent = needsPublishing.includes(v);
-              const message = isPublishUrgent 
-                ? `Due in < 21 days! (Drop: ${v.drop_date})` 
+              const message = isPublishUrgent
+                ? `Due in < 21 days! (Drop: ${v.drop_date})`
                 : `Needs Audio Draft (Drop: ${v.drop_date})`;
-              const borderStyle = isPublishUrgent 
-                ? { borderLeft: '3px solid var(--danger-color)', cursor: 'pointer' } 
+              const borderStyle = isPublishUrgent
+                ? { borderLeft: '3px solid var(--danger-color)', cursor: 'pointer' }
                 : { cursor: 'pointer' };
 
               return (
@@ -310,20 +312,20 @@ function App() {
     <div className="container">
       <header className="section-header">
         <div>
-          <h1>Systemized Health Pipeline</h1>
+          <h1>Systemizd Pipeline</h1>
           <p>Systemized Health central dashboard</p>
         </div>
         {!currentVideo ? (
           <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
             <div style={{ display: 'flex', background: 'var(--surface-color)', padding: '0.25rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
-              <button 
+              <button
                 className={`btn ${activeTab === 'pipeline' ? 'btn-primary' : 'btn-outline'}`}
                 style={{ border: 'none', borderRadius: '4px', boxShadow: 'none' }}
                 onClick={() => setActiveTab('pipeline')}
               >
                 <LayoutDashboard size={16} /> Pipeline
               </button>
-              <button 
+              <button
                 className={`btn ${activeTab === 'analytics' ? 'btn-primary' : 'btn-outline'}`}
                 style={{ border: 'none', borderRadius: '4px', boxShadow: 'none' }}
                 onClick={() => setActiveTab('analytics')}
@@ -494,7 +496,7 @@ function VideoDetail({ video, onUpdate }) {
             <Save size={16} />
             {saving ? 'Saving...' : 'Save Text Fields'}
           </button>
-          
+
           <a
             href={`obsidian://open?vault=Obsidian_Vault&file=${encodeURIComponent(`${localVideo.code.replace(/^80\./, '')} Script - ${localVideo.title.replace(/[\\/:*?"<>|']/g, '')}`)}`}
             className="btn btn-outline"
@@ -534,63 +536,31 @@ function VideoDetail({ video, onUpdate }) {
 export default App;
 
 function AnalyticsSummary() {
-  const [data, setData] = useState(null);
+  const [markdown, setMarkdown] = useState('');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/analytics.json')
-      .then(res => res.json())
-      .then(json => {
-        setData(json);
+    fetch('/Analytics.md')
+      .then(res => res.text())
+      .then(text => {
+        setMarkdown(text);
         setLoading(false);
       })
       .catch(err => {
-        console.error("Error fetching analytics:", err);
+        console.error("Error fetching analytics markdown:", err);
         setLoading(false);
       });
   }, []);
 
   if (loading) return <p>Loading Analytics...</p>;
-  if (!data) return <p>Failed to load Analytics Summary. Ensure the generate script was run.</p>;
+  if (!markdown) return <p>Failed to load Analytics Summary. Ensure the markdown file is copied to public folder.</p>;
 
   return (
     <div className="analytics-summary" style={{ marginTop: '1rem' }}>
-      <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-        <BarChart2 /> Analytics Summary
-      </h2>
-      <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>
-        Last updated: {data.updated_at_str}
-      </p>
-      
-      <div className="dashboard-grid">
-        <div className="card">
-          <h3>⏱️ 48-Hour Pulse</h3>
-          <p><strong>Views:</strong> {data.stats_48h.views.toLocaleString()}</p>
-          <p><strong>VPH:</strong> {data.stats_48h.vph}</p>
-          <p><strong>Likes:</strong> {data.stats_48h.likes.toLocaleString()}</p>
-          <p><strong>Comments:</strong> {data.stats_48h.comments.toLocaleString()}</p>
-        </div>
-        
-        <div className="card">
-          <h3>📅 7-Day Performance</h3>
-          <p><strong>Views:</strong> {data.stats_7d.views.toLocaleString()}</p>
-          <p><strong>Avg CTR:</strong> {data.stats_7d.avg_ctr}%</p>
-          <p><strong>Likes:</strong> {data.stats_7d.likes.toLocaleString()}</p>
-        </div>
-        
-        <div className="card">
-          <h3>🚀 28-Day Growth</h3>
-          <p><strong>Views:</strong> {data.stats_28d.views.toLocaleString()}</p>
-          <p><strong>Subs Gained:</strong> +{data.stats_28d.subs.toLocaleString()}</p>
-          <p><strong>Likes:</strong> {data.stats_28d.likes.toLocaleString()}</p>
-        </div>
-        
-        <div className="card">
-          <h3>🏆 Lifetime Totals</h3>
-          <p><strong>Views:</strong> {data.stats_all_time.views.toLocaleString()}</p>
-          <p><strong>Subs Gained:</strong> +{data.stats_all_time.subs.toLocaleString()}</p>
-          <p><strong>Total Assets:</strong> {data.total_videos}</p>
-        </div>
+      <div className="card markdown-content">
+        <ReactMarkdown remarkPlugins={[remarkGfm]}>
+          {markdown}
+        </ReactMarkdown>
       </div>
     </div>
   );
