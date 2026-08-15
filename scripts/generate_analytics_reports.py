@@ -13,6 +13,7 @@ import os
 import sys
 import sqlite3
 import json
+import re
 from datetime import datetime, timedelta
 
 REPO_ROOT = os.path.dirname(os.path.dirname(__file__))
@@ -336,6 +337,30 @@ def generate_alltime_report(data):
         f.write(content)
     return filepath
 
+def generate_video_paths():
+    app_dir = os.path.join(REPO_ROOT, "pipeline", "public")
+    if not os.path.exists(app_dir):
+        os.makedirs(app_dir)
+    filepath = os.path.join(app_dir, "video_paths.json")
+    
+    vault_dir = os.path.join(REPO_ROOT, "Obsidian_Vault", "Videos")
+    paths = {}
+    if os.path.exists(vault_dir):
+        for root, dirs, files in os.walk(vault_dir):
+            for f in files:
+                if f.endswith(".md"):
+                    folder_name = os.path.basename(root)
+                    match = re.search(r'\(80\.([A-Z0-9\-]+)\)', folder_name)
+                    if match:
+                        code = "80." + match.group(1)
+                        if "Script" in f or "Polish and B-Roll" in f:
+                            rel_path = os.path.join(root, f).split("Obsidian_Vault/")[1]
+                            paths[code] = rel_path
+    
+    with open(filepath, "w") as f:
+        json.dump(paths, f, indent=2)
+    return filepath
+
 def generate_json_for_app(data):
     app_dir = os.path.join(REPO_ROOT, "pipeline", "public")
     if not os.path.exists(app_dir):
@@ -356,6 +381,7 @@ def main():
     f3 = generate_28d_report(data)
     f4 = generate_alltime_report(data)
     f_json = generate_json_for_app(data)
+    f_paths = generate_video_paths()
 
     print("Successfully generated all 4 timeframe Analytics Reports in Analytics/:")
     print(f"  - {f1}")
@@ -363,6 +389,7 @@ def main():
     print(f"  - {f3}")
     print(f"  - {f4}")
     print(f"  - {f_json} (App Data)")
+    print(f"  - {f_paths} (App Video Paths)")
 
 if __name__ == "__main__":
     main()

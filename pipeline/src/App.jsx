@@ -367,6 +367,19 @@ function VideoDetail({ video, onUpdate }) {
   const [transcript, setTranscript] = useState(video.raw_transcript || '');
   const [checklist, setChecklist] = useState(video.edit_checklist || {});
   const [saving, setSaving] = useState(false);
+  const [videoPath, setVideoPath] = useState(null);
+
+  // Fetch specific video path
+  useEffect(() => {
+    fetch('/video_paths.json')
+      .then(res => res.json())
+      .then(data => {
+        if (data && data[video.code]) {
+          setVideoPath(data[video.code]);
+        }
+      })
+      .catch(console.error);
+  }, [video.code]);
 
   // Sync state if prop changes
   useEffect(() => {
@@ -498,7 +511,9 @@ function VideoDetail({ video, onUpdate }) {
           </button>
 
           <a
-            href={`obsidian://open?vault=SystemizedHealth_Vault&file=${encodeURIComponent(`${localVideo.code.replace(/^80\./, '')} Script - ${localVideo.title.replace(/[\\/:*?"<>|']/g, '')}.md`)}`}
+            href={videoPath 
+              ? `obsidian://open?vault=SystemizedHealth_Vault&file=${encodeURIComponent(videoPath)}` 
+              : `obsidian://search?vault=SystemizedHealth_Vault&query=${encodeURIComponent(`path:"${localVideo.code}"`)}`}
             className="btn btn-outline"
             style={{ textDecoration: 'none' }}
           >

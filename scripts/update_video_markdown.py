@@ -35,19 +35,16 @@ def main():
                 if content.startswith("---"):
                     continue
 
-                # Find the video code in the content
-                # "Video Code**: `80.V0B-S1`"
-                code_match = re.search(r"Video Code\*\*:\s*`([^`]+)`", content)
-                if not code_match:
+                folder_name = os.path.basename(root)
+                match = re.search(r'\(80\.([A-Z0-9\-]+)\)', folder_name)
+                if not match:
                     continue
+                code = "80." + match.group(1)
                 
-                code = code_match.group(1)
-                video_data = video_map.get(code)
-                if not video_data:
-                    continue
+                video_data = video_map.get(code, {})
 
                 # Parse suggested settings
-                settings_match = re.search(r"Suggested Settings\*\*:\s*([^\n]+)", content)
+                settings_match = re.search(r"Suggested Settings\*?\*?:\s*([^\n]+)", content)
                 settings_tags = []
                 if settings_match:
                     settings_str = settings_match.group(1)
@@ -55,7 +52,7 @@ def main():
 
                 # Create YAML
                 status = video_data.get("status", "#idea")
-                format_type = video_data.get("format_type", "")
+                format_type = video_data.get("format_type", "Long" if "-S" not in code else "Short")
                 drop_date = video_data.get("drop_date", "")
                 
                 tags = ["#video", status] + settings_tags
