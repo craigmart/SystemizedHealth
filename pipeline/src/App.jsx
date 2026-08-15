@@ -513,7 +513,7 @@ function VideoDetail({ video, onUpdate }) {
           <a
             href={videoPath 
               ? `obsidian://open?vault=SystemizedHealth_Vault&file=${encodeURIComponent(videoPath)}` 
-              : `obsidian://search?vault=SystemizedHealth_Vault&query=${encodeURIComponent(`path:"${localVideo.code}"`)}`}
+              : `obsidian://search?vault=SystemizedHealth_Vault&query=${encodeURIComponent(`"${localVideo.code.replace(/^80\./, '')}"`)}`}
             className="btn btn-outline"
             style={{ textDecoration: 'none' }}
           >
