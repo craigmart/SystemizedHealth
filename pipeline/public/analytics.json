@@ -1,6 +1,6 @@
 {
   "today_str": "2026-08-15",
-  "updated_at_str": "2026-08-15 14:38:48",
+  "updated_at_str": "2026-08-15 14:43:51",
   "total_videos": 37,
   "status_counts": {
     "#published": 11,
@@ -933,96 +933,116 @@
     "comments": 12,
     "subs": 0
   },
-  "top_10_views": [
+  "top_10_outliers": [
     {
-      "video_number": "HS001",
-      "code": "HIST.S01",
-      "title": "Your steps have been tracked your whole life",
-      "format_type": "Short",
-      "views": 1665,
+      "video_number": "004",
+      "code": "80.V0A1",
+      "title": "Systemized OS Framework: The 3-Tier Health Pyramid",
+      "format_type": "Long",
+      "views": 0,
       "vph": 0.0,
-      "ctr_pct": 0.0
+      "ctr_pct": 0.0,
+      "outlier_score": 0.0,
+      "vidiq_score": 0.0
     },
     {
-      "video_number": "HS002",
-      "code": "HIST.S02",
+      "video_number": "008",
+      "code": "80.V0A-S1",
+      "title": "The Biological Reason Monday Resolutions Always Fail",
+      "format_type": "Short",
+      "views": 0,
+      "vph": 0.0,
+      "ctr_pct": 0.0,
+      "outlier_score": 0.0,
+      "vidiq_score": 0.0
+    },
+    {
+      "video_number": "009",
+      "code": "80.V0A-S2",
+      "title": "The Exact Biological Sequence Your Body Needs to Change",
+      "format_type": "Short",
+      "views": 0,
+      "vph": 0.0,
+      "ctr_pct": 0.0,
+      "outlier_score": 0.0,
+      "vidiq_score": 0.0
+    },
+    {
+      "video_number": "010",
+      "code": "80.V0A-S3",
+      "title": "Stop Treating Your Health Like an Emergency Room",
+      "format_type": "Short",
+      "views": 0,
+      "vph": 0.0,
+      "ctr_pct": 0.0,
+      "outlier_score": 0.0,
+      "vidiq_score": 0.0
+    },
+    {
+      "video_number": "012",
+      "code": "80.V1B1-S2",
       "title": "How do the Joints in your Body Stay Healthy? - Its not good bloodflow.",
       "format_type": "Short",
-      "views": 1312,
+      "views": 0,
       "vph": 0.0,
-      "ctr_pct": 0.0
+      "ctr_pct": 0.0,
+      "outlier_score": 0.0,
+      "vidiq_score": 0.0
     },
     {
-      "video_number": "HS001",
-      "code": "HIST.S01",
-      "title": "Your steps have been tracked your whole life",
+      "video_number": "013",
+      "code": "80.V1B1-S3",
+      "title": "Cortical Smudging: A reason for Sudden Back Pain #backpain #tips",
       "format_type": "Short",
-      "views": 1310,
+      "views": 0,
       "vph": 0.0,
-      "ctr_pct": 0.0
+      "ctr_pct": 0.0,
+      "outlier_score": 0.0,
+      "vidiq_score": 0.0
     },
     {
-      "video_number": "HS004",
-      "code": "HIST.S04",
-      "title": "The Biological Prerequisite for Fasting",
+      "video_number": "014",
+      "code": "80.V0A1-S1",
+      "title": "Why Relying on Willpower Guarantees Physical Burnout",
       "format_type": "Short",
-      "views": 1211,
+      "views": 0,
       "vph": 0.0,
-      "ctr_pct": 0.0
+      "ctr_pct": 0.0,
+      "outlier_score": 0.0,
+      "vidiq_score": 0.0
     },
     {
-      "video_number": "HS005",
-      "code": "HIST.S05",
-      "title": "Start Running from ZERO",
+      "video_number": "015",
+      "code": "80.V0A1-S2",
+      "title": "The Level 1 FMR Baseline Every Body Needs to Master",
       "format_type": "Short",
-      "views": 996,
+      "views": 0,
       "vph": 0.0,
-      "ctr_pct": 0.0
+      "ctr_pct": 0.0,
+      "outlier_score": 0.0,
+      "vidiq_score": 0.0
     },
     {
-      "video_number": "HS002",
-      "code": "HIST.S02",
-      "title": "How do the Joints in your Body Stay Healthy? - Its not good bloodflow.",
+      "video_number": "016",
+      "code": "80.V0A1-S3",
+      "title": "The 3-Tier Health Pyramid That Fixes Chronic Fatigue",
       "format_type": "Short",
-      "views": 893,
-      "vph": 17.173076923076923,
-      "ctr_pct": 0.0
+      "views": 0,
+      "vph": 0.0,
+      "ctr_pct": 0.0,
+      "outlier_score": 0.0,
+      "vidiq_score": 0.0
     },
     {
-      "video_number": "HS006",
-      "code": "HIST.S06",
-      "title": "The Neurological Function of Clarity",
-      "format_type": "Short",
-      "views": 891,
-      "vph": 0.0,
-      "ctr_pct": 0.0
-    },
-    {
-      "video_number": "005",
-      "code": "80.V0B-S1",
-      "title": "Do Less to Get More",
-      "format_type": "Short",
-      "views": 803,
-      "vph": 0.0,
-      "ctr_pct": 0.0
-    },
-    {
-      "video_number": "006",
-      "code": "80.V0B-S2",
-      "title": "Stop Setting Marathon Goals on Monday (Downshift for Success)",
-      "format_type": "Short",
-      "views": 780,
-      "vph": 0.0,
-      "ctr_pct": 0.0
-    },
-    {
-      "video_number": "HS007",
-      "code": "HIST.S07",
-      "title": "The Biological Failure of Motivation",
-      "format_type": "Short",
-      "views": 402,
-      "vph": 0.0,
-      "ctr_pct": 0.0
+      "video_number": "H001",
+      "code": "HIST.L01",
+      "title": "The Biological Reality of GLP-1: Fuel vs. Motivation",
+      "format_type": "Long",
+      "views": 48,
+      "vph": 0.012779552715654952,
+      "ctr_pct": 0.0,
+      "outlier_score": 0.0,
+      "vidiq_score": 0.0
     }
   ]
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { supabase } from './supabase';
-import { Calendar, CheckSquare, AlertCircle, RefreshCw, ChevronLeft, Save, Tag, TrendingUp, Clock, FileVideo, Scissors, Film, X, ExternalLink, BarChart2, LayoutDashboard, Eye, Users, Award } from 'lucide-react';
+import { Calendar, CheckSquare, AlertCircle, RefreshCw, ChevronLeft, Save, Tag, TrendingUp, Clock, FileVideo, Scissors, Film, X, ExternalLink, BarChart2, LayoutDashboard, Eye, Users, Award, Flame } from 'lucide-react';
 import { addDays, isBefore, parseISO, differenceInDays } from 'date-fns';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -570,42 +570,65 @@ function AnalyticsSummary() {
   if (loading) return <p>Loading Analytics Dashboard...</p>;
   if (!data) return <p>Failed to load Analytics Summary. Ensure scripts/generate_analytics_reports.py has run successfully.</p>;
 
-  const s_all = data.stats_all_time || {};
+  const s_48h = data.stats_48h || {};
+  const s_7d = data.stats_7d || {};
   const s_28d = data.stats_28d || {};
-  const top10 = data.top_10_views || [];
+  const s_all = data.stats_all_time || {};
+  const top10 = data.top_10_outliers || [];
 
   return (
     <div className="analytics-dashboard" style={{ marginTop: '1.5rem' }}>
       
-      {/* Executive Metric Cards */}
+      {/* 48-Hour Real-Time Pulse */}
+      <h2 style={{ fontSize: '1.25rem', marginBottom: '1rem', color: 'var(--text-primary)' }}>⚡ 48-Hour Real-Time Pulse</h2>
       <div className="analytics-grid">
         <div className="metric-card">
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <Eye size={18} color="var(--primary-color)" />
-            <span className="metric-label">All-Time Lifetime Views</span>
+            <Eye size={16} color="#6366f1" />
+            <span className="metric-label">48-Hour Views</span>
           </div>
-          <span className="metric-value">{(s_all.views || 0).toLocaleString()}</span>
+          <span className="metric-value">{(s_48h.views || 0).toLocaleString()}</span>
         </div>
         
         <div className="metric-card">
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <TrendingUp size={18} color="var(--primary-color)" />
-            <span className="metric-label">28-Day Monthly Views</span>
+            <TrendingUp size={16} color="#6366f1" />
+            <span className="metric-label">Avg VPH</span>
+          </div>
+          <span className="metric-value">{(s_48h.vph || 0).toFixed(1)}</span>
+        </div>
+      </div>
+
+      {/* 7-Day & 28-Day Performance */}
+      <h2 style={{ fontSize: '1.25rem', marginBottom: '1rem', marginTop: '1rem', color: 'var(--text-primary)' }}>📅 Weekly & Monthly Growth</h2>
+      <div className="analytics-grid">
+        <div className="metric-card">
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <Eye size={16} color="#a855f7" />
+            <span className="metric-label">7-Day Total Views</span>
+          </div>
+          <span className="metric-value">{(s_7d.views || 0).toLocaleString()}</span>
+        </div>
+
+        <div className="metric-card">
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <Eye size={16} color="#ec4899" />
+            <span className="metric-label">28-Day Total Views</span>
           </div>
           <span className="metric-value">{(s_28d.views || 0).toLocaleString()}</span>
         </div>
         
         <div className="metric-card">
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <Users size={18} color="var(--primary-color)" />
-            <span className="metric-label">Total Subscribers Gained</span>
+            <Users size={16} color="#ec4899" />
+            <span className="metric-label">Subscribers Gained</span>
           </div>
           <span className="metric-value">+{(s_all.subs || 0).toLocaleString()}</span>
         </div>
         
         <div className="metric-card">
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <BarChart2 size={18} color="var(--primary-color)" />
+            <BarChart2 size={16} color="#ec4899" />
             <span className="metric-label">28-Day Avg CTR</span>
           </div>
           <span className="metric-value">{(s_28d.avg_ctr || 0).toFixed(1)}%</span>
@@ -614,11 +637,11 @@ function AnalyticsSummary() {
 
       {/* Top 10 List */}
       <div className="top-10-container">
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
-          <Award size={20} color="var(--primary-color)" />
-          <h2 style={{ margin: 0 }}>Top 10 Highest Performing Videos</h2>
+        <div className="top-10-header">
+          <Flame size={24} color="#ff416c" />
+          <h2>Top 10 vidIQ Viral Outliers</h2>
         </div>
-        <p style={{ margin: 0, fontSize: '0.875rem' }}>Ranked by All-Time View Count</p>
+        <p style={{ margin: '0 0 1.5rem 0', fontSize: '0.875rem', color: 'var(--text-secondary)' }}>Ranked by vidIQ Outlier Score indicating massive breakout potential.</p>
         
         <div className="top-10-list">
           {top10.map((v, index) => (
@@ -628,17 +651,35 @@ function AnalyticsSummary() {
               href={`obsidian://search?vault=SystemizedHealth_Vault&query="${v.code.replace(/^80\./, '')}"`}
             >
               <span className="top-10-rank">#{index + 1}</span>
+              
               <div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, overflow: 'hidden' }}>
                 <span className="top-10-title">{v.title}</span>
-                <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
-                  {v.code} • {v.format_type}
-                </span>
+                <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', marginTop: '0.25rem' }}>
+                  <span className="status-pill" style={{ background: 'var(--surface-color)', color: 'var(--text-secondary)' }}>{v.format_type}</span>
+                  <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
+                    Code: {v.code}
+                  </span>
+                </div>
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', flexShrink: 0 }}>
-                <span className="top-10-stat">{(v.views || 0).toLocaleString()} views</span>
-                <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
-                  {v.ctr_pct ? `${v.ctr_pct.toFixed(1)}% CTR` : 'N/A CTR'}
-                </span>
+              
+              <div className="top-10-stats-group">
+                <div className="top-10-stat-block">
+                  <span className="top-10-stat-value">{(v.views || 0).toLocaleString()}</span>
+                  <span className="top-10-stat-label">Views</span>
+                </div>
+                
+                {v.ctr_pct ? (
+                  <div className="top-10-stat-block">
+                    <span className="top-10-stat-value" style={{ color: v.ctr_pct > 8 ? '#10b981' : 'var(--text-primary)' }}>{v.ctr_pct.toFixed(1)}%</span>
+                    <span className="top-10-stat-label">CTR</span>
+                  </div>
+                ) : null}
+
+                {v.outlier_score && v.outlier_score >= 1.0 ? (
+                  <div className="outlier-badge">
+                    <Flame size={12} /> {v.outlier_score.toFixed(1)}x
+                  </div>
+                ) : null}
               </div>
             </a>
           ))}
