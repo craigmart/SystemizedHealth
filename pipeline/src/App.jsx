@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { supabase } from './supabase';
-import { Calendar, CheckSquare, AlertCircle, RefreshCw, ChevronLeft, Save, Tag, TrendingUp, Clock, FileVideo, Scissors, Film, X, ExternalLink, BarChart2, LayoutDashboard } from 'lucide-react';
+import { Calendar, CheckSquare, AlertCircle, RefreshCw, ChevronLeft, Save, Tag, TrendingUp, Clock, FileVideo, Scissors, Film, X, ExternalLink, BarChart2, LayoutDashboard, Eye, Users, Award } from 'lucide-react';
 import { addDays, isBefore, parseISO, differenceInDays } from 'date-fns';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -551,37 +551,104 @@ function VideoDetail({ video, onUpdate }) {
 export default App;
 
 function AnalyticsSummary() {
-  const [markdown, setMarkdown] = useState('');
+  const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/Analytics.md')
-      .then(res => res.text())
-      .then(text => {
-        setMarkdown(text);
+    fetch('/analytics.json')
+      .then(res => res.json())
+      .then(json => {
+        setData(json);
         setLoading(false);
       })
       .catch(err => {
-        console.error("Error fetching analytics markdown:", err);
+        console.error("Error fetching analytics json:", err);
         setLoading(false);
       });
   }, []);
 
-  if (loading) return <p>Loading Analytics...</p>;
-  if (!markdown) return <p>Failed to load Analytics Summary. Ensure the markdown file is copied to public folder.</p>;
+  if (loading) return <p>Loading Analytics Dashboard...</p>;
+  if (!data) return <p>Failed to load Analytics Summary. Ensure scripts/generate_analytics_reports.py has run successfully.</p>;
 
-  // Convert Obsidian Wikilinks [[Page|Text]] and [[Page]] to clickable obsidian:// links
-  const processedMarkdown = markdown
-    .replace(/\[\[([^|\]]+)\|([^\]]+)\]\]/g, '[$2](obsidian://search?vault=SystemizedHealth_Vault&query="$1")')
-    .replace(/\[\[([^\]]+)\]\]/g, '[$1](obsidian://search?vault=SystemizedHealth_Vault&query="$1")');
+  const s_all = data.stats_all_time || {};
+  const s_28d = data.stats_28d || {};
+  const top10 = data.top_10_views || [];
 
   return (
-    <div className="analytics-summary" style={{ marginTop: '1rem' }}>
-      <div className="card markdown-content">
-        <ReactMarkdown remarkPlugins={[remarkGfm]}>
-          {processedMarkdown}
-        </ReactMarkdown>
+    <div className="analytics-dashboard" style={{ marginTop: '1.5rem' }}>
+      
+      {/* Executive Metric Cards */}
+      <div className="analytics-grid">
+        <div className="metric-card">
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <Eye size={18} color="var(--primary-color)" />
+            <span className="metric-label">All-Time Lifetime Views</span>
+          </div>
+          <span className="metric-value">{(s_all.views || 0).toLocaleString()}</span>
+        </div>
+        
+        <div className="metric-card">
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <TrendingUp size={18} color="var(--primary-color)" />
+            <span className="metric-label">28-Day Monthly Views</span>
+          </div>
+          <span className="metric-value">{(s_28d.views || 0).toLocaleString()}</span>
+        </div>
+        
+        <div className="metric-card">
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <Users size={18} color="var(--primary-color)" />
+            <span className="metric-label">Total Subscribers Gained</span>
+          </div>
+          <span className="metric-value">+{(s_all.subs || 0).toLocaleString()}</span>
+        </div>
+        
+        <div className="metric-card">
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <BarChart2 size={18} color="var(--primary-color)" />
+            <span className="metric-label">28-Day Avg CTR</span>
+          </div>
+          <span className="metric-value">{(s_28d.avg_ctr || 0).toFixed(1)}%</span>
+        </div>
       </div>
+
+      {/* Top 10 List */}
+      <div className="top-10-container">
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
+          <Award size={20} color="var(--primary-color)" />
+          <h2 style={{ margin: 0 }}>Top 10 Highest Performing Videos</h2>
+        </div>
+        <p style={{ margin: 0, fontSize: '0.875rem' }}>Ranked by All-Time View Count</p>
+        
+        <div className="top-10-list">
+          {top10.map((v, index) => (
+            <a 
+              key={v.video_number} 
+              className="top-10-item"
+              href={`obsidian://search?vault=SystemizedHealth_Vault&query="${v.code.replace(/^80\./, '')}"`}
+            >
+              <span className="top-10-rank">#{index + 1}</span>
+              <div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, overflow: 'hidden' }}>
+                <span className="top-10-title">{v.title}</span>
+                <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
+                  {v.code} • {v.format_type}
+                </span>
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', flexShrink: 0 }}>
+                <span className="top-10-stat">{(v.views || 0).toLocaleString()} views</span>
+                <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
+                  {v.ctr_pct ? `${v.ctr_pct.toFixed(1)}% CTR` : 'N/A CTR'}
+                </span>
+              </div>
+            </a>
+          ))}
+          {top10.length === 0 && <p style={{ color: 'var(--text-secondary)', padding: '1rem 0' }}>No video performance data available yet.</p>}
+        </div>
+      </div>
+
+      <p style={{ textAlign: 'center', fontSize: '0.75rem', color: 'var(--text-secondary)', marginTop: '2rem' }}>
+        Dashboard generated from live database. Last synced: {data.updated_at_str}
+      </p>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 # 🏆 All-Time Lifetime Channel Catalog & Executive Report
 
-*Last System Update: `2026-08-15 12:40:46`*
+*Last System Update: `2026-08-15 14:38:48`*
 
 ---
 
@@ -20,18 +20,18 @@
 
 | Video # | Code | Format | Title | Drop Date | Status | JDex Topic |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **001** | `80.V0B` | Long | Knowledge Isn't Enough—Here's What Actually Works | 2026-08-03 | **Uploaded** | `81.05` |
-| **002** | `80.V0A` | Long | 20,000 Patients Taught Me This One Biological Reality | 2026-08-17 | **Uploaded** | `77.03` |
-| **003** | `80.V1B1` | Long | Exercise is Optional, Movement is not. | 2026-08-10 | **Uploaded** | `81.02` |
+| **001** | `80.V0B` | Long | Knowledge Isn't Enough—Here's What Actually Works | 2026-08-03 | **#published** | `81.05` |
+| **002** | `80.V0A` | Long | 20,000 Patients Taught Me This One Biological Reality | 2026-08-17 | **#published** | `77.03` |
+| **003** | `80.V1B1` | Long | Exercise is Optional, Movement is not. | 2026-08-10 | **#published** | `81.02` |
 | **004** | `80.V0A1` | Long | Systemized OS Framework: The 3-Tier Health Pyramid | 2026-08-24 | **In Production** | `81.05` |
-| **005** | `80.V0B-S1` | Short | Do Less to Get More | 2026-08-04 | **Uploaded** | `42.02` |
-| **006** | `80.V0B-S2` | Short | Stop Setting Marathon Goals on Monday (Downshift for Success) | 2026-08-06 | **Uploaded** | `77.03` |
-| **007** | `80.V0B-S3` | Short | Stop Trying to Fix Stress Backward (Fuel, Move, Rest First) | 2026-08-08 | **Uploaded** | `77.01` |
+| **005** | `80.V0B-S1` | Short | Do Less to Get More | 2026-08-04 | **#published** | `42.02` |
+| **006** | `80.V0B-S2` | Short | Stop Setting Marathon Goals on Monday (Downshift for Success) | 2026-08-06 | **#published** | `77.03` |
+| **007** | `80.V0B-S3` | Short | Stop Trying to Fix Stress Backward (Fuel, Move, Rest First) | 2026-08-08 | **#published** | `77.01` |
 | **008** | `80.V0A-S1` | Short | The Biological Reason Monday Resolutions Always Fail | 2026-08-18 | **Editing** | `41.03` |
 | **009** | `80.V0A-S2` | Short | The Exact Biological Sequence Your Body Needs to Change | 2026-08-20 | **Editing** | `42.04` |
 | **010** | `80.V0A-S3` | Short | Stop Treating Your Health Like an Emergency Room | 2026-08-22 | **Editing** | `77.02` |
-| **012** | `80.V1B1-S2` | Short | Joint Imbibition: The Only Way Your Joints Get Nourished | 2026-08-13 | **Ready for Audio Riff** | `81.02` |
-| **013** | `80.V1B1-S3` | Short | Cortical Smudging: Why Your Back Pain Randomly Spasms | 2026-08-15 | **Ready for Audio Riff** | `82.09` |
+| **012** | `80.V1B1-S2` | Short | How do the Joints in your Body Stay Healthy? - Its not good bloodflow. | 2026-08-13 | **#published** | `81.02` |
+| **013** | `80.V1B1-S3` | Short | Cortical Smudging: A reason for Sudden Back Pain #backpain #tips | 2026-08-15 | **#published** | `82.09` |
 | **014** | `80.V0A1-S1` | Short | Why Relying on Willpower Guarantees Physical Burnout | 2026-08-25 | **Editing** | `42.06` |
 | **015** | `80.V0A1-S2` | Short | The Level 1 FMR Baseline Every Body Needs to Master | 2026-08-27 | **Editing** | `81.05` |
 | **016** | `80.V0A1-S3` | Short | The 3-Tier Health Pyramid That Fixes Chronic Fatigue | 2026-08-29 | **Editing** | `43.11` |

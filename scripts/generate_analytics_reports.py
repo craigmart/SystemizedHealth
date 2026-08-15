@@ -136,6 +136,16 @@ def fetch_analytics_data(conn):
     res_all = cursor.fetchone()
     stats_all_time = dict(res_all) if res_all else {"views": 0, "likes": 0, "comments": 0, "subs": 0}
 
+    # 10. Top 10 Videos by Views
+    cursor.execute('''
+    SELECT v.video_number, v.code, v.title, v.format_type, s.views, s.vph, s.ctr_pct
+    FROM video_stats s
+    JOIN videos v ON s.video_id = v.id
+    WHERE s.snapshot_date = (SELECT MAX(snapshot_date) FROM video_stats WHERE video_id = v.id)
+    ORDER BY s.views DESC LIMIT 10;
+    ''')
+    top_10_views = [dict(r) for r in cursor.fetchall()]
+
     return {
         "today_str": today_str,
         "updated_at_str": updated_at_str,
@@ -148,8 +158,10 @@ def fetch_analytics_data(conn):
         "stats_48h": stats_48h,
         "stats_7d": stats_7d,
         "stats_28d": stats_28d,
-        "stats_all_time": stats_all_time
+        "stats_all_time": stats_all_time,
+        "top_10_views": top_10_views
     }
+
 
 def generate_48h_report(data):
     filepath = os.path.join(ANALYTICS_DIR, "Analytics_48h.md")
