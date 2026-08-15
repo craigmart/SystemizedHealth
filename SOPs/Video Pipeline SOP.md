@@ -233,3 +233,21 @@ python3 scripts/sync_agreements.py       # Pull Google Form agreements
 python3 scripts/client_db_manager.py --doc  # Refresh Client_Onboarding_Status.md
 python3 scripts/video_pipeline.py --cache   # Refresh video_pipeline_cache.json
 ```
+
+---
+
+## 9. App-to-Obsidian Deep Linking Architecture
+
+The web dashboard (`pipeline/src/App.jsx`) uses Obsidian's native URI schemes to deep-link directly into local video script files. To ensure 100% reliability even when file names and database titles diverge, the following architecture is maintained:
+
+1. **Vault Name Requirement:** The `vault=` parameter MUST exactly match the physical root folder name of the vault where iCloud stores it, not the local symlink name. In this project, the true vault folder name is `SystemizedHealth_Vault`.
+2. **Absolute File Mapping (`video_paths.json`):** 
+   - Supabase titles frequently differ from Obsidian filenames due to punctuation stripping or manual abbreviation.
+   - The script `scripts/generate_analytics_reports.py` automatically scans the `Obsidian_Vault/Videos/` directory, extracts the video codes from folder names using regex, and maps the exact relative file paths.
+   - It outputs this mapping to `pipeline/public/video_paths.json`.
+3. **App Link Logic (`obsidian://open`):** 
+   - The React app fetches `video_paths.json` dynamically.
+   - When a user clicks "Open Script in Obsidian", the app looks up the exact literal file path and fires: `obsidian://open?vault=SystemizedHealth_Vault&file=[exact_path]`.
+4. **Fallback Logic (`obsidian://search`):** 
+   - If a script is newly created and the `video_paths.json` map hasn't updated yet, the app gracefully falls back to: `obsidian://search?vault=SystemizedHealth_Vault&query="[Code]"`. 
+   - This executes an exact phrase search for the base code (e.g., `"V2A-S1"`), stripping the `80.` prefix and omitting the strict `path:` constraint, immediately revealing the new file in the Obsidian search pane.
