@@ -20,6 +20,26 @@
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #0f172a;
+    --surface-color: #1e293b;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --border-color: #334155;
+    
+    --accent-color: #0ea5e9;
+    --accent-hover: #38bdf8;
+  }
+
+  .badge-idea { background-color: #1e293b; color: #cbd5e1; }
+  .badge-write { background-color: #422006; color: #fcd34d; }
+  .badge-film { background-color: #450a0a; color: #fca5a5; }
+  .badge-edit { background-color: #3b0764; color: #d8b4fe; }
+  .badge-uploaded { background-color: #082f49; color: #7dd3fc; }
+  .badge-published { background-color: #064e3b; color: #6ee7b7; }
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
