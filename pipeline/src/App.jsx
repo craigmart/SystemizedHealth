@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { supabase } from './supabase';
-import { Calendar, CheckSquare, AlertCircle, RefreshCw, ChevronLeft, Save, Tag, TrendingUp, Clock, FileVideo, Scissors, Film, X, ExternalLink } from 'lucide-react';
+import { Calendar, CheckSquare, AlertCircle, RefreshCw, ChevronLeft, Save, Tag, TrendingUp, Clock, FileVideo, Scissors, Film, X, ExternalLink, BarChart2, LayoutDashboard } from 'lucide-react';
 import { addDays, isBefore, parseISO, differenceInDays } from 'date-fns';
 
 const STAGE_CHECKLISTS = {
@@ -45,6 +45,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [currentVideo, setCurrentVideo] = useState(null);
   const [metricModal, setMetricModal] = useState(null);
+  const [activeTab, setActiveTab] = useState('pipeline');
 
   const fetchVideos = async () => {
     setLoading(true);
@@ -309,14 +310,34 @@ function App() {
     <div className="container">
       <header className="section-header">
         <div>
-          <h1>Video Production Pipeline</h1>
+          <h1>Systemized Health Pipeline</h1>
           <p>Systemized Health central dashboard</p>
         </div>
         {!currentVideo ? (
-          <button className="btn btn-outline" onClick={fetchVideos} disabled={loading}>
-            <RefreshCw size={16} className={loading ? "animate-spin" : ""} />
-            Refresh
-          </button>
+          <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+            <div style={{ display: 'flex', background: 'var(--surface-color)', padding: '0.25rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
+              <button 
+                className={`btn ${activeTab === 'pipeline' ? 'btn-primary' : 'btn-outline'}`}
+                style={{ border: 'none', borderRadius: '4px', boxShadow: 'none' }}
+                onClick={() => setActiveTab('pipeline')}
+              >
+                <LayoutDashboard size={16} /> Pipeline
+              </button>
+              <button 
+                className={`btn ${activeTab === 'analytics' ? 'btn-primary' : 'btn-outline'}`}
+                style={{ border: 'none', borderRadius: '4px', boxShadow: 'none' }}
+                onClick={() => setActiveTab('analytics')}
+              >
+                <BarChart2 size={16} /> Analytics
+              </button>
+            </div>
+            {activeTab === 'pipeline' && (
+              <button className="btn btn-outline" onClick={fetchVideos} disabled={loading}>
+                <RefreshCw size={16} className={loading ? "animate-spin" : ""} />
+                Refresh
+              </button>
+            )}
+          </div>
         ) : (
           <button className="btn btn-outline" onClick={() => setCurrentVideo(null)}>
             <ChevronLeft size={16} />
@@ -329,8 +350,10 @@ function App() {
         <p>Loading pipeline data...</p>
       ) : currentVideo ? (
         <VideoDetail video={currentVideo} onUpdate={fetchVideos} />
-      ) : (
+      ) : activeTab === 'pipeline' ? (
         renderDashboard()
+      ) : (
+        <AnalyticsSummary />
       )}
     </div>
   );
@@ -473,7 +496,7 @@ function VideoDetail({ video, onUpdate }) {
           </button>
           
           <a
-            href={`obsidian://search?vault=Obsidian_Vault&query=${encodeURIComponent(`path:"${localVideo.code}"`)}`}
+            href={`obsidian://open?vault=Obsidian_Vault&file=${encodeURIComponent(`${localVideo.code.replace(/^80\./, '')} Script - ${localVideo.title.replace(/[\\/:*?"<>|']/g, '')}`)}`}
             className="btn btn-outline"
             style={{ textDecoration: 'none' }}
           >
@@ -509,3 +532,66 @@ function VideoDetail({ video, onUpdate }) {
 }
 
 export default App;
+
+function AnalyticsSummary() {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch('/analytics.json')
+      .then(res => res.json())
+      .then(json => {
+        setData(json);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error("Error fetching analytics:", err);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) return <p>Loading Analytics...</p>;
+  if (!data) return <p>Failed to load Analytics Summary. Ensure the generate script was run.</p>;
+
+  return (
+    <div className="analytics-summary" style={{ marginTop: '1rem' }}>
+      <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+        <BarChart2 /> Analytics Summary
+      </h2>
+      <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>
+        Last updated: {data.updated_at_str}
+      </p>
+      
+      <div className="dashboard-grid">
+        <div className="card">
+          <h3>⏱️ 48-Hour Pulse</h3>
+          <p><strong>Views:</strong> {data.stats_48h.views.toLocaleString()}</p>
+          <p><strong>VPH:</strong> {data.stats_48h.vph}</p>
+          <p><strong>Likes:</strong> {data.stats_48h.likes.toLocaleString()}</p>
+          <p><strong>Comments:</strong> {data.stats_48h.comments.toLocaleString()}</p>
+        </div>
+        
+        <div className="card">
+          <h3>📅 7-Day Performance</h3>
+          <p><strong>Views:</strong> {data.stats_7d.views.toLocaleString()}</p>
+          <p><strong>Avg CTR:</strong> {data.stats_7d.avg_ctr}%</p>
+          <p><strong>Likes:</strong> {data.stats_7d.likes.toLocaleString()}</p>
+        </div>
+        
+        <div className="card">
+          <h3>🚀 28-Day Growth</h3>
+          <p><strong>Views:</strong> {data.stats_28d.views.toLocaleString()}</p>
+          <p><strong>Subs Gained:</strong> +{data.stats_28d.subs.toLocaleString()}</p>
+          <p><strong>Likes:</strong> {data.stats_28d.likes.toLocaleString()}</p>
+        </div>
+        
+        <div className="card">
+          <h3>🏆 Lifetime Totals</h3>
+          <p><strong>Views:</strong> {data.stats_all_time.views.toLocaleString()}</p>
+          <p><strong>Subs Gained:</strong> +{data.stats_all_time.subs.toLocaleString()}</p>
+          <p><strong>Total Assets:</strong> {data.total_videos}</p>
+        </div>
+      </div>
+    </div>
+  );
+}

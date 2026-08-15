@@ -12,6 +12,7 @@ Generates 4 dedicated timeframe analytics report files in `Analytics/`:
 import os
 import sys
 import sqlite3
+import json
 from datetime import datetime, timedelta
 
 REPO_ROOT = os.path.dirname(os.path.dirname(__file__))
@@ -335,6 +336,15 @@ def generate_alltime_report(data):
         f.write(content)
     return filepath
 
+def generate_json_for_app(data):
+    app_dir = os.path.join(REPO_ROOT, "pipeline", "public")
+    if not os.path.exists(app_dir):
+        os.makedirs(app_dir)
+    filepath = os.path.join(app_dir, "analytics.json")
+    with open(filepath, "w") as f:
+        json.dump(data, f, indent=2)
+    return filepath
+
 def main():
     ensure_analytics_dir()
     conn = get_db_connection()
@@ -345,12 +355,14 @@ def main():
     f2 = generate_7d_report(data)
     f3 = generate_28d_report(data)
     f4 = generate_alltime_report(data)
+    f_json = generate_json_for_app(data)
 
     print("Successfully generated all 4 timeframe Analytics Reports in Analytics/:")
     print(f"  - {f1}")
     print(f"  - {f2}")
     print(f"  - {f3}")
     print(f"  - {f4}")
+    print(f"  - {f_json} (App Data)")
 
 if __name__ == "__main__":
     main()
