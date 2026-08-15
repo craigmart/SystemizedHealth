@@ -10,7 +10,7 @@ inbox (ideas abd thoights to process)
 
 # Systemized Health — Master TODO & Task List
 
-*Last Updated: 2026-08-01*
+*Last Updated: 2026-08-14*
 
 ---
 
@@ -37,29 +37,28 @@ inbox (ideas abd thoights to process)
   - [x] `80.V1B1-S1`: *Why Exercise is Optional* (Drop: 2026-08-11) — Uploaded & Live
   - [ ] `80.V1B1-S2`: *Joint Imbibition: The Only Way Your Joints Actually Get Nourished* (Drop: 2026-08-13)
   - [x] `80.V1B1-S3`: *Cortical Smudging: Why Your Back Pain Randomly Spasms* (Drop: 2026-08-15)
-- [ ] **Ready to Film (Audio Riff Complete)**:
-  - [x] `80.V0B-S2`: *Why Depression Causes Back Pain* (Drop: 2026-08-06) — Uploaded & Live
-  - [ ] `80.V1A-S1`: *The Mid-Afternoon Crash* (Drop: 2026-08-18)
-  - [ ] `80.V1A-S2`: *Cellular Hydration* (Drop: 2026-08-20)
-- [ ] **Short-Form Audio Riffs (Blueprint Ready, Pending Audio)**:
-  - [ ] `80.V1A`: *The Biological Cost of Fake Fuel* (Drop: 2026-08-17)
+- [ ] **Ready to Film (Scripts Updated — Contrarian Rewrite Complete)**:
+  - [ ] `80.V1A`: *The Biological Cost of Fake Fuel* (Drop: 2026-08-17) — Script rewritten, film tomorrow
+  - [ ] `80.V1A-S1`: *The Mid-Afternoon Crash* (Drop: 2026-08-18) — Script rewritten, film tomorrow
+  - [ ] `80.V1A-S2`: *Cellular Hydration* (Drop: 2026-08-20) — Script rewritten, film tomorrow
+- [ ] **Write Audio Dictation (Outline Scripts Written — Awaiting Dictation)**:
   - [ ] `80.V1A-S3`: *The Biological Reality of Diets* (Drop: 2026-08-21)
-  - [ ] `80.V1C1`: *Biological Debt of Sleep* (Drop: 2026-08-31)
-  - [ ] `80.V1C1-S1`: *Weekend Catch-Up Myth* (Drop: 2026-09-01)
-  - [ ] `80.V1C1-S2`: *Brain Night Shift* (Drop: 2026-09-03)
-  - [ ] `80.V1C1-S3`: *Caffeine Illusion* (Drop: 2026-09-05)
-  - [ ] `80.V1C2`: *Fake Rest* (Drop: 2026-09-07)
-  - [ ] `80.V1C2-S1`: *Netflix Exhaustion* (Drop: 2026-09-08)
-  - [ ] `80.V1C2-S2`: *Phone Scrolling Cost* (Drop: 2026-09-10)
-  - [ ] `80.V1C2-S3`: *The Off Switch* (Drop: 2026-09-12)
-  - [ ] `80.V1C3`: *Digestive Rest* (Drop: 2026-09-14)
-  - [ ] `80.V1C3-S1`: *Energy Cost of Digestion* (Drop: 2026-09-15)
-  - [ ] `80.V1C3-S2`: *The Maintenance Window* (Drop: 2026-09-17)
-  - [ ] `80.V1C3-S3`: *Fasting is not a diet* (Drop: 2026-09-19)
-  - [ ] `80.V1C4`: *Cognitive Load* (Drop: 2026-09-21)
-  - [ ] `80.V1C4-S1`: *Desk Job Exhaustion* (Drop: 2026-09-22)
-  - [ ] `80.V1C4-S2`: *Decision Fatigue* (Drop: 2026-09-24)
-  - [ ] `80.V1C4-S3`: *Protecting the Battery* (Drop: 2026-09-26)
+  - [ ] `80.V1C1`: *Biological Debt of Sleep* (Drop: 2026-08-31) — Outline script written
+  - [ ] `80.V1C1-S1`: *Weekend Catch-Up Myth* (Drop: 2026-09-01) — Outline script written
+  - [ ] `80.V1C1-S2`: *Brain Night Shift* (Drop: 2026-09-03) — Outline script written
+  - [ ] `80.V1C1-S3`: *Caffeine Illusion* (Drop: 2026-09-05) — Outline script written
+  - [ ] `80.V1C2`: *Fake Rest* (Drop: 2026-09-07) — Outline script written
+  - [ ] `80.V1C2-S1`: *Netflix Exhaustion* (Drop: 2026-09-08) — Outline script written
+  - [ ] `80.V1C2-S2`: *Phone Scrolling Cost* (Drop: 2026-09-10) — Outline script written
+  - [ ] `80.V1C2-S3`: *The Off Switch* (Drop: 2026-09-12) — Outline script written
+  - [ ] `80.V1C3`: *Digestive Rest* (Drop: 2026-09-14) — Outline script written
+  - [ ] `80.V1C3-S1`: *Energy Cost of Digestion* (Drop: 2026-09-15) — Outline script written
+  - [ ] `80.V1C3-S2`: *The Maintenance Window* (Drop: 2026-09-17) — Outline script written
+  - [ ] `80.V1C3-S3`: *Fasting is not a diet* (Drop: 2026-09-19) — Outline script written
+  - [ ] `80.V1C4`: *Cognitive Load* (Drop: 2026-09-21) — Outline script written
+  - [ ] `80.V1C4-S1`: *Desk Job Exhaustion* (Drop: 2026-09-22) — Outline script written
+  - [ ] `80.V1C4-S2`: *Decision Fatigue* (Drop: 2026-09-24) — Outline script written
+  - [ ] `80.V1C4-S3`: *Protecting the Battery* (Drop: 2026-09-26) — Outline script written
 
 ---
 
