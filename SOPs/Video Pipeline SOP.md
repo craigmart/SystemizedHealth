@@ -139,7 +139,54 @@ python3 scripts/analytics_manager.py --eom 2026-07
 
 ---
 
-## 6. Updating Status
+## 6. Stage 2 — Audio Draft → Teleprompter Script
+
+After recording an audio dictation draft, the agent processes it into a polished, teleprompter-ready script. This is triggered by any of the following:
+
+- Dr. Anderson says *"I have a new audio script for [Code]"* and pastes a transcript in chat
+- The transcript is pasted into the Obsidian video file with the tag `#audiodraft`
+- **Dr. Anderson says "run the process" or "pull from the app"** — in this case, the agent reads `raw_transcript` fields directly from the local pipeline cache (`docs/video_pipeline_cache.json`) and processes **all videos that have a populated `raw_transcript`**, regardless of current pipeline status (status is updated as appropriate after scripting)
+
+### Step-by-Step Process
+
+1. **Interpret as Brainstorming Draft**: The raw audio dictation is a conceptual baseline containing the core propositions to cover — not a rigid word-for-word script.
+
+2. **Save Raw Transcript**: Append the raw spoken dictation text to the bottom of the main script file (`Obsidian_Vault/Videos/[Folder]/V[Code] Script - [Title].md`) under a `## Raw Audio Draft Transcript (Reference)` header. Do NOT create a separate file.
+
+3. **Draft for Review — Implementation Plan First**: Transform the raw dictation into a polished teleprompter-ready script. Actively edit for pacing, flow, and story arc. Remove filler, tighten sentences, and strictly adhere to Dr. Anderson's established writing voice and guardrails as defined in [`SOPs/Writing Voice.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/Writing%20Voice.md) and [`SOPs/Writing Guidance.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/Writing%20Guidance.md).
+   > [!IMPORTANT]
+   > **Always present the drafted script hooks and clips to Dr. Anderson in an Implementation Plan artifact for review and approval before modifying any Vault files.**
+
+4. **Format & Save (Once Approved)**:
+   Format into `Obsidian_Vault/Videos/[Folder]/V[Code] Script - [Title].md` using:
+   - **Header**: `# [Code]: [Title]` + metadata block (`Suggested Settings`, `JDex Topic Code`).
+     - When adding the `JDex Topic Code` link, **always link to the exact, full JDex filename** (e.g., `[[77.01 Documentation]]`) — not just the numeric code (`[[77.01]]`) — to prevent Obsidian from creating empty duplicate files.
+   - **Section 1 & 2**: Title Ideas and Hook Options with vidIQ ratings.
+   - **Section 3**: Teleprompter clips formatted as plain paragraphs without headers.
+     - At the end of each paragraph, append the clip code and context tags: `[Code].[ClipNum] #[context]` (e.g., `80.V0B-S3.1 #film #insidetruck`).
+     - One consolidated spoken paragraph per clip (no sentence bullets).
+     - Include bracketed performance/delivery cues: `[breath]`, `[pause]`, `[gesture]`, `[tone shift]`, `[eye contact shift]`.
+     - End with official CTA: *"Book your free 20-minute Systemized Discovery Call: call.systemizedhealth.com"*
+   - Apply all Writing Guardrails (no AI jargon, no em dashes).
+
+5. **Pipeline Auto-Advance**:
+   - Advance video status to `#film` in Supabase and clear the `agent_message` field:
+     ```bash
+     python3 scripts/video_pipeline.py --status [Code] '#film' --add '{"video_number":"[num]","code":"[Code]","format_type":"[type]","title":"[Title]","agent_message":""}'
+     ```
+   - Refresh all derived docs:
+     ```bash
+     python3 scripts/video_pipeline.py --cache
+     ```
+   - Update `Drop_Schedule.md` and `TODO.md`.
+
+6. **Dashboard Update**: Copy the entire formatted teleprompter script (Section 3) and append the clips to the bottom of `Obsidian_Vault/_Filming_Dashboard.md` under the `## 📜 Script Snippets` section.
+
+7. **Agent Log**: Append a simple action log to the bottom of the Obsidian script file under an `## Agent Log` header (e.g., *"Processed dictation and generated Stage 2 teleprompter script"*).
+
+---
+
+## 7. Updating Status
 
 When a video advances through production, update Supabase immediately:
 
