@@ -216,7 +216,7 @@ function App() {
             <AlertCircle size={20} color="var(--danger-color)" /> Action Items
           </h2>
           <div className="videos-list">
-            {[...new Set([...needsPublishing, ...needsDrafting])].sort(sortByDropDate).slice(0, 5).map(v => {
+            {[...new Set([...needsPublishing, ...needsDrafting])].sort(sortByDropDate).slice(0, 10).map(v => {
               const isPublishUrgent = needsPublishing.includes(v);
               const message = isPublishUrgent 
                 ? `Due in < 21 days! (Drop: ${v.drop_date})` 
@@ -247,7 +247,7 @@ function App() {
           <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
             <Calendar size={20} color="var(--accent-color)" /> Runway Overview
           </h2>
-          <div className="videos-list" style={{ maxHeight: '400px', overflowY: 'auto' }}>
+          <div className="videos-list">
             {videos
               .filter(v => {
                 if (!v.drop_date) return false;
