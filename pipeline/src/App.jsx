@@ -570,11 +570,16 @@ function AnalyticsSummary() {
   if (loading) return <p>Loading Analytics...</p>;
   if (!markdown) return <p>Failed to load Analytics Summary. Ensure the markdown file is copied to public folder.</p>;
 
+  // Convert Obsidian Wikilinks [[Page|Text]] and [[Page]] to clickable obsidian:// links
+  const processedMarkdown = markdown
+    .replace(/\[\[([^|\]]+)\|([^\]]+)\]\]/g, '[$2](obsidian://search?vault=SystemizedHealth_Vault&query="$1")')
+    .replace(/\[\[([^\]]+)\]\]/g, '[$1](obsidian://search?vault=SystemizedHealth_Vault&query="$1")');
+
   return (
     <div className="analytics-summary" style={{ marginTop: '1rem' }}>
       <div className="card markdown-content">
         <ReactMarkdown remarkPlugins={[remarkGfm]}>
-          {markdown}
+          {processedMarkdown}
         </ReactMarkdown>
       </div>
     </div>
