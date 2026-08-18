@@ -14,13 +14,13 @@
 
 ## 2. Video Pipeline Production Queue
 
-### 🔴 In Editing (`#edit`) — 6 videos
+### 🔴 In Editing (`#edit`) — 5 videos
 - [ ] `80.V0A1`: *Systemized OS Framework* — Drop: 2026-08-24
 - [ ] `80.V0A-S3`: *Stop Treating Your Health Like an Emergency Room* — Drop: 2026-08-22
 - [ ] `80.V0A1-S1`: *Why Relying on Willpower Guarantees Physical Burnout* — Drop: 2026-08-25
 - [ ] `80.V0A1-S2`: *The Level 1 FMR Baseline Every Body Needs to Master* — Drop: 2026-08-27
 - [ ] `80.V0A1-S3`: *The 3-Tier Health Pyramid That Fixes Chronic Fatigue* — Drop: 2026-08-29
-- [ ] `80.V1A-S3`: *The Biological Reality of Diets* — Drop: 2026-08-21 ⚠️ **NEXT UP**
+
 
 ### 🎬 Ready to Film (`#film`) — 1 video
 - [ ] `80.V1A`: *The Biological Cost of Fake Fuel* — Drop: 2026-08-17
