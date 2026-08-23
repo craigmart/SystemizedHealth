@@ -513,7 +513,7 @@ function VideoDetail({ video, onUpdate }) {
           <a
             href={videoPath 
               ? `obsidian://open?vault=SystemizedHealth_Vault&file=${encodeURIComponent(videoPath)}` 
-              : `obsidian://search?vault=SystemizedHealth_Vault&query=${encodeURIComponent(`"${localVideo.code.replace(/^80\./, '')}"`)}`}
+              : `obsidian://search?vault=SystemizedHealth_Vault&query=${encodeURIComponent(`"${localVideo.code}"`)}`}
             className="btn btn-outline"
             style={{ textDecoration: 'none' }}
           >
@@ -648,7 +648,7 @@ function AnalyticsSummary() {
             <a 
               key={v.video_number} 
               className="top-10-item"
-              href={`obsidian://search?vault=SystemizedHealth_Vault&query="${v.code.replace(/^80\./, '')}"`}
+              href={`obsidian://search?vault=SystemizedHealth_Vault&query="${v.code}"`}
             >
               <span className="top-10-rank">#{index + 1}</span>
               

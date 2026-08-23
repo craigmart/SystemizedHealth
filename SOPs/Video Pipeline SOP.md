@@ -127,7 +127,7 @@ python3 scripts/analytics_manager.py --eom 2026-07
 2. Optionally include: `drop_date`, `status`, `jdex_code`, `os_level`, `notes`, `rough_outline`
    > [!IMPORTANT]
    > The web App dashboard explicitly looks for the `rough_outline` field to display the Pre-Recording Outline Reference on the video page. You MUST sync your markdown outlines to this field so they are available while recording the audio draft.
-3. Create the local folder and Markdown file: `Obsidian_Vault/Videos/[ShortCode] - [Title] ([FullCode])/`
+3. Create the local Markdown file: `Obsidian_Vault/Zettlekasten/[Code] Script - [Title].md`
 4. **Generate the Pre-Recording Outline:**
    The initial Markdown file must contain a `## Outline for Audio Dictation:` section structured with:
    - **The Hook:** A punchy opening.
@@ -151,16 +151,19 @@ After recording an audio dictation draft, the agent processes it into a polished
 
 1. **Interpret as Brainstorming Draft**: The raw audio dictation is a conceptual baseline containing the core propositions to cover — not a rigid word-for-word script.
 
-2. **Save Raw Transcript**: Append the raw spoken dictation text to the bottom of the main script file (`Obsidian_Vault/Videos/[Folder]/V[Code] Script - [Title].md`) under a `## Raw Audio Draft Transcript (Reference)` header. Do NOT create a separate file.
+2. **Save Raw Transcript**: Append the raw spoken dictation text to the bottom of the main script file (`Obsidian_Vault/Zettlekasten/[Code] Script - [Title].md`) under a `## Raw Audio Draft Transcript (Reference)` header. Do NOT create a separate file.
 
 3. **Draft for Review — Implementation Plan First**: Transform the raw dictation into a polished teleprompter-ready script. Actively edit for pacing, flow, and story arc. Remove filler, tighten sentences, and strictly adhere to Dr. Anderson's established writing voice and guardrails as defined in [`SOPs/Writing Voice.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/Writing%20Voice.md) and [`SOPs/Writing Guidance.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/Writing%20Guidance.md).
    > [!IMPORTANT]
    > **Always present the drafted script hooks and clips to Dr. Anderson in an Implementation Plan artifact for review and approval before modifying any Vault files.**
 
 4. **Format & Save (Once Approved)**:
-   Format into `Obsidian_Vault/Videos/[Folder]/V[Code] Script - [Title].md` using:
-   - **Header**: `# [Code]: [Title]` + metadata block (`Suggested Settings`, `JDex Topic Code`).
-     - When adding the `JDex Topic Code` link, **always link to the exact, full JDex filename** (e.g., `[[77.01 Documentation]]`) — not just the numeric code (`[[77.01]]`) — to prevent Obsidian from creating empty duplicate files.
+   Format into `Obsidian_Vault/Zettlekasten/[Code] Script - [Title].md` using:
+   - **No H1 Header**: The filename acts as the primary title in Obsidian, so do NOT include a `# [Code]: [Title]` header.
+   - **Metadata**: Add any relevant tags, the `drop_date`, and JDex topics to the YAML frontmatter. Only include `YouTube ID`, `Views`, and `Parent Video` in the markdown body's metadata block.
+   - **Post-Filming YAML Cleanup**: Once a video reaches the `#edit`, `#uploaded`, or `#published` stages, the pipeline sync scripts (`update_video_markdown.py`) will automatically strip out all temporary "suggested setting" tags (e.g., `#driving`, `#insidetruck`), leaving only the primary `#video` tag and the final status tag in the YAML frontmatter.
+   - **Post-Filming Body Cleanup**: Running `clean_video_script.py` automatically strips away the pre-production scaffolding (Hook Ideas, Raw Draft), leaving only the Final Transcript, extracted JDex Propositions, and the Changelog.
+     - When adding the `JDex Topic Code` link in YAML or body, **always link to the exact, full JDex filename** (e.g., `[[77.01 Documentation]]`) — not just the numeric code (`[[77.01]]`) — to prevent Obsidian from creating empty duplicate files.
    - **Section 1 & 2**: Title Ideas and Hook Options with vidIQ ratings.
    - **Section 3**: Teleprompter clips formatted as plain paragraphs without headers.
      - At the end of each paragraph, append the clip code and context tags: `[Code].[ClipNum] #[context]` (e.g., `80.V0B-S3.1 #film #insidetruck`).
@@ -243,11 +246,11 @@ The web dashboard (`pipeline/src/App.jsx`) uses Obsidian's native URI schemes to
 1. **Vault Name Requirement:** The `vault=` parameter MUST exactly match the physical root folder name of the vault where iCloud stores it, not the local symlink name. In this project, the true vault folder name is `SystemizedHealth_Vault`.
 2. **Absolute File Mapping (`video_paths.json`):** 
    - Supabase titles frequently differ from Obsidian filenames due to punctuation stripping or manual abbreviation.
-   - The script `scripts/generate_analytics_reports.py` automatically scans the `Obsidian_Vault/Videos/` directory, extracts the video codes from folder names using regex, and maps the exact relative file paths.
+   - The script `scripts/generate_video_paths.py` automatically scans the `Obsidian_Vault/Zettlekasten/` directory, extracts the video codes from the file names using regex, and maps the exact relative file paths.
    - It outputs this mapping to `pipeline/public/video_paths.json`.
 3. **App Link Logic (`obsidian://open`):** 
    - The React app fetches `video_paths.json` dynamically.
    - When a user clicks "Open Script in Obsidian", the app looks up the exact literal file path and fires: `obsidian://open?vault=SystemizedHealth_Vault&file=[exact_path]`.
 4. **Fallback Logic (`obsidian://search`):** 
    - If a script is newly created and the `video_paths.json` map hasn't updated yet, the app gracefully falls back to: `obsidian://search?vault=SystemizedHealth_Vault&query="[Code]"`. 
-   - This executes an exact phrase search for the base code (e.g., `"V2A-S1"`), stripping the `80.` prefix and omitting the strict `path:` constraint, immediately revealing the new file in the Obsidian search pane.
+   - This executes an exact phrase search for the full base code (e.g., `"80.V2A-S1"`), immediately revealing the new file in the Obsidian search pane.

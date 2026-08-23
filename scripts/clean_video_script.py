@@ -16,12 +16,12 @@ from pathlib import Path
 from datetime import datetime
 
 try:
-    import google.generativeai as genai
+    from google import genai
 except ImportError:
     genai = None
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-VIDEOS_DIR = PROJECT_ROOT / "Obsidian_Vault" / "Videos"
+VIDEOS_DIR = PROJECT_ROOT / "Obsidian_Vault" / "Zettlekasten"
 JDEX_FILE = PROJECT_ROOT / "JDex_Export.md"
 CONFIG_FILE = PROJECT_ROOT / "scripts" / "config.json"
 
@@ -77,8 +77,11 @@ OUTPUT FORMAT:
 - Proposition 2 [[JDexCode]]
 """
     try:
-        model = genai.GenerativeModel('gemini-flash-latest')
-        response = model.generate_content(prompt)
+        client = genai.Client(api_key=api_key)
+        response = client.models.generate_content(
+            model='gemini-2.5-flash',
+            contents=prompt,
+        )
         return response.text.strip()
     except Exception as e:
         return f"*(Error generating propositions: {e})*"
@@ -96,6 +99,21 @@ def process_file(file_path):
         return False
         
     header_block = header_match.group(1).strip()
+    
+    # Clean up YAML tags
+    yaml_match = re.search(r'^---(.*?)---', header_block, re.MULTILINE | re.DOTALL)
+    if yaml_match:
+        yaml_content = yaml_match.group(1)
+        tags_block = re.search(r'(tags:.*?)(?=\n[a-z_]+:|\n---|$)', yaml_content, flags=re.DOTALL)
+        if tags_block:
+            tags_str = tags_block.group(1)
+            new_tags = "tags:\n  - \"#video\"\n"
+            if "published" in tags_str.lower(): new_tags += "  - \"#published\"\n"
+            elif "uploaded" in tags_str.lower(): new_tags += "  - \"#uploaded\"\n"
+            elif "edit" in tags_str.lower(): new_tags += "  - \"#edit\"\n"
+            
+            new_yaml_content = yaml_content.replace(tags_str, new_tags)
+            header_block = header_block.replace(yaml_content, new_yaml_content)
     
     # Extract Section 3
     s3_match = re.search(r"## 3\. Full Script[^\n]*\n(.*?)## 4\.", content, flags=re.DOTALL)
@@ -129,23 +147,21 @@ def process_file(file_path):
 
 def clean_all_eligible():
     count = 0
-    for folder in VIDEOS_DIR.iterdir():
-        if folder.is_dir():
-            for file in folder.iterdir():
-                if file.name.endswith(".md"):
-                    with open(file, "r", encoding="utf-8") as f:
-                        content = f.read()
-                    # Check if the YAML tags contain 'edit', 'uploaded', or 'published'
-                    yaml_match = re.search(r'^---(.*?)---', content, re.MULTILINE | re.DOTALL)
-                    is_eligible = False
-                    if yaml_match:
-                        tags = yaml_match.group(1).lower()
-                        if any(t in tags for t in ['edit', 'uploaded', 'published']):
-                            is_eligible = True
-                    if is_eligible:
-                        if "## Final Transcript" not in content:
-                            if process_file(file):
-                                count += 1
+    for file in VIDEOS_DIR.iterdir():
+        if file.is_file() and file.name.endswith(".md"):
+            with open(file, "r", encoding="utf-8") as f:
+                content = f.read()
+            # Check if the YAML tags contain 'edit', 'uploaded', or 'published'
+            yaml_match = re.search(r'^---(.*?)---', content, re.MULTILINE | re.DOTALL)
+            is_eligible = False
+            if yaml_match:
+                tags = yaml_match.group(1).lower()
+                if any(t in tags for t in ['edit', 'uploaded', 'published']):
+                    is_eligible = True
+            if is_eligible:
+                if "## Final Transcript" not in content:
+                    if process_file(file):
+                        count += 1
     print(f"✅ Cleaned {count} eligible video scripts.")
 
 if __name__ == "__main__":

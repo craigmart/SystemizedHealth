@@ -24,7 +24,7 @@ import sqlite3
 import clean_video_script
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-VIDEOS_DIR = PROJECT_ROOT / "Obsidian_Vault" / "Videos"
+VIDEOS_DIR = PROJECT_ROOT / "Obsidian_Vault" / "Zettlekasten"
 CHANNEL_ID = "UCSnF1YqGqmNosGdX5JqY1gQ"
 DB_PATH = PROJECT_ROOT / "database" / "videos.db"
 
@@ -70,16 +70,11 @@ def fetch_live_videos():
     return list(unique_videos.values())
 
 def find_markdown_file(code):
-    """Finds the markdown file and its parent folder for a given video code."""
-    # Look for a folder that starts with the shortcode
-    short_code = code.split(".")[-1] # e.g. "80.V0B-S1" -> "V0B-S1"
-    
-    for folder in VIDEOS_DIR.iterdir():
-        if folder.is_dir() and folder.name.startswith(f"{short_code} -"):
-            for file in folder.iterdir():
-                if file.name.endswith(".md") and file.name.startswith(f"{short_code} Script"):
-                    return folder, file
-    return None, None
+    """Finds the markdown file for a given video code."""
+    for file in VIDEOS_DIR.iterdir():
+        if file.is_file() and file.name.endswith(".md") and file.name.startswith(f"{code} "):
+            return file
+    return None
 
 def sync_published_videos():
     live_videos = fetch_live_videos()
@@ -144,15 +139,12 @@ def sync_published_videos():
                 })
 
             # Update File System
-            folder, file = find_markdown_file(code)
-            if folder and file:
-                short_code = code.split(".")[-1]
+            file = find_markdown_file(code)
+            if file:
                 safe_title = sanitize_filename(yt_title)
                 
-                new_folder_name = f"{short_code} - {safe_title} ({code})"
-                new_file_name = f"{short_code} Script - {safe_title}.md"
-                
-                new_folder_path = VIDEOS_DIR / new_folder_name
+                new_file_name = f"{code} Script - {safe_title}.md"
+                new_file_path = VIDEOS_DIR / new_file_name
                 
                 # Read content before renaming
                 with open(file, "r", encoding="utf-8") as f:
@@ -185,15 +177,11 @@ def sync_published_videos():
                 with open(file, "w", encoding="utf-8") as f:
                     f.write(content)
                 
-                # Rename file then folder
-                temp_new_file_path = folder / new_file_name
+                # Rename file
                 if file.name != new_file_name:
-                    file.rename(temp_new_file_path)
+                    file.rename(new_file_path)
                     
-                if folder.name != new_folder_name:
-                    folder.rename(new_folder_path)
-                    
-                final_file_path = new_folder_path / new_file_name
+                final_file_path = new_file_path
                 
                 # Clean the script now that it's published
                 clean_video_script.process_file(final_file_path)

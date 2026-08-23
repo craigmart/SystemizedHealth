@@ -35,21 +35,13 @@ All content blueprints, local media assets, and external integrations adhere str
 
 **Structural Application Examples**: `80.V1` represents the foundational long-form clinical narrative. `80.V1A` indicates a strategic conceptual branch developed directly from the parent video. `80.V1A1` identifies a micro-content short extracted directly from that secondary asset.
 
-### Dedicated Video Folder Structure
-Every video—regardless of whether it is a long-form video or a short-form video—gets its own dedicated top-level directory directly under `Videos/`.
-- **Video Code Prefixing**: Folders start directly with the video code (`V0B`, `V0A-S1`, etc.) so parent videos and their child shorts group together alphabetically in Finder.
-- **No Nested Scripts**: Short-form video scripts and assets are NOT nested inside long-form video folders. Each video has its own isolated folder.
-- **Johnny Decimal Grouping**: The Johnny Decimal taxonomy code (e.g., `80.V0A`, `80.V0A1-S3`) is included at the end of the folder name so full taxonomy remains explicitly declared.
-- **Folder Naming Format**: `Videos/[ShortCode] - [Title] ([FullCode])/`
-  - *Example Long Video*: `Videos/V0A1 - Systemized OS (80.V0A1)/`
-  - *Example Short Video*: `Videos/V0A1-S3 - The 3-Tier Health Pyramid (80.V0A1-S3)/`
-
-### Video Asset File Naming Standard (-A, -B, -C)
-Inside each video's dedicated directory, files follow the 3-stage suffix convention:
-- **`V[Code]-A [Name]`**: **Raw Brainstorming Audio Transcript** (Transcript of Dr. Anderson's raw audio dictation/brainstorm).
-- **`V[Code]-B [Name]`**: **Pre-Recording Outline / Script** (Editorial outline or script blueprint written by Technical Editor).
-- **`V[Code]-C [Name]`**: **A-Roll Recording Transcript** (Gold standard transcript of what Dr. Anderson recorded on camera).
-- **`V[Code]-S# Script - [Name].md`**: **Short Script File** (Markdown pre-recording outline or teleprompter script for short-form content).
+### Unified Video Script Architecture
+Every video—regardless of whether it is a long-form video or a short-form video—is managed within a single unified Markdown file located in `Obsidian_Vault/Zettlekasten/`.
+- **Flat Directory**: No nested folders. All scripts live alongside other Zettelkasten notes.
+- **Naming Format**: `[Code] Script - [Title].md`
+  - *Example Long Video*: `80.V0A1 Script - Systemized OS Framework.md`
+  - *Example Short Video*: `80.V0A1-S3 Script - The 3-Tier Health Pyramid.md`
+- **Single Source of Truth File**: The raw audio transcription, hooks, teleprompter script, and final propositions are all contained within this single Markdown file, separated by clear headers.
 
 ---
 
@@ -58,8 +50,8 @@ Inside each video's dedicated directory, files follow the 3-stage suffix convent
 Content creation moves through three distinct phases:
 
 ### Phase I: The Raw Input (Dr. Anderson)
-- **Audio Brainstorming (`-A` files)**: Dr. Anderson records raw, conversational audio notes using a voice recorder or phone app while driving, walking, or between clinical patient visits.
-- **Transcription**: The audio is transcribed directly into `V[Code]-A Raw Audio Transcript.txt` inside the video directory.
+- **Audio Brainstorming**: Dr. Anderson records raw, conversational audio notes using a voice recorder or phone app.
+- **Transcription**: The audio is transcribed and appended to the bottom of the main `[Code] Script - [Title].md` file under a `## Raw Audio Draft Transcript (Reference)` header.
 
 ### Phase II: The Editorial Filters (AI Technical Editor / Gemini)
 The Technical Editor reviews the raw audio transcript against three core SOP documents:
@@ -67,17 +59,11 @@ The Technical Editor reviews the raw audio transcript against three core SOP doc
 2. **[Writing Voice SOP](file:///Users/craiganderson/Library/Mobile%20Documents/com~apple~CloudDocs/SystemizedHealth/SOPs/Writing%20Voice.md)**: Spoken register, clinical tone, and rhythm.
 3. **[Systemized OS Framework SOP](file:///Users/craiganderson/Library/Mobile%20Documents/com~apple~CloudDocs/SystemizedHealth/SOPs/Systemized%20OS%20Framework.md)**: Alignment with Level 1 (FMR), Level 2 (TLC), or Level 3 (POP).
 
-### Phase III: The Final Script & Production (`-B` & `-C` files)
-- **Script Outline Generation (`-B` file)**: The Technical Editor drafts the polished outline or teleprompter script and saves it to `V[Code]-B Script Outline.txt` or `V[Code]-S# Script - [Name].md`.
-- **Workflowy Sync**: Outlines are pushed to Workflowy under `Shots` for mobile access on set.
-- **Workflowy Tag Progression**: Every video node in Workflowy moves strictly through 5 standardized pipeline stage tags:
-  - `#write`: Active script development & editing (from audio transcription to teleprompter-ready script).
-  - `#film`: Script is finalized and staged in Workflowy, ready to record on set.
-  - `#edit`: Recording is complete; media is staged for editing in LumaFusion and Descript.
-  - `#upload` (or `#approve`): Editing is complete; ready for video upload, metadata/thumbnail review, and checklist execution.
-  - `#publish`: Metadata verified and asset is ready to publish across channels.
-- **On-Camera Recording**: Dr. Anderson records on camera using the outline/teleprompter script in Workflowy.
-- **Final Transcript (`-C` file)**: The final A-roll recording is transcribed into `V[Code]-C Draft Transcript.txt` to lock in the final version.
+### Phase III: The Final Script & Production
+- **Script Outline Generation**: The Technical Editor drafts the polished teleprompter script directly into the main `.md` file.
+- **Filming Dashboard Sync**: Script snippets are pushed to the `_Filming_Dashboard.md` in Obsidian for mobile access on set.
+- **On-Camera Recording**: Dr. Anderson records on camera using the outline/teleprompter script.
+- **Post-Filming Cleanup**: Once filming is complete (status `#edit` or beyond), the file is cleaned using `scripts/clean_video_script.py`, which strips out redundant YAML tags and brainstorming headers, leaving only the Final Transcript, extracted JDex Propositions, and the Changelog.
 
 ---
 

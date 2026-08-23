@@ -305,6 +305,12 @@ def cmd_cache(db: SupabaseClient):
     except Exception as e:
         print(f"  ⚠️  iCal feed generation warning: {e}")
 
+    try:
+        from generate_video_paths import generate_paths
+        generate_paths()
+    except Exception as e:
+        print(f"  ⚠️  Video paths generation warning: {e}")
+
     generate_drop_schedule(videos=videos)
     print()
 
