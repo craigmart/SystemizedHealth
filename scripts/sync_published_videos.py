@@ -21,7 +21,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from vidiq_sync import call_mcp_tool, load_config
 from supabase_client import SupabaseClient
 import sqlite3
-import clean_published_script
+import clean_video_script
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 VIDEOS_DIR = PROJECT_ROOT / "Obsidian_Vault" / "Videos"
@@ -173,6 +173,15 @@ def sync_published_videos():
                 # Make sure status is #published
                 content = re.sub(r"\*\*Status\*\*:[^\n]+\n", "**Status**: #published  \n", content)
                 
+                # Append to Changelog
+                today_iso = datetime.now().strftime("%Y-%m-%d")
+                log_msg = f"- [{today_iso}] Status updated to #published. Title updated to '{yt_title}'."
+                
+                if "## Changelog" in content:
+                    content += f"\n{log_msg}\n"
+                else:
+                    content += f"\n## Changelog\n\n{log_msg}\n"
+                
                 with open(file, "w", encoding="utf-8") as f:
                     f.write(content)
                 
@@ -187,7 +196,7 @@ def sync_published_videos():
                 final_file_path = new_folder_path / new_file_name
                 
                 # Clean the script now that it's published
-                clean_published_script.process_file(final_file_path)
+                clean_video_script.process_file(final_file_path)
 
     conn.commit()
     conn.close()

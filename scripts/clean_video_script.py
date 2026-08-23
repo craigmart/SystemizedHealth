@@ -13,6 +13,7 @@ import os
 import re
 import json
 from pathlib import Path
+from datetime import datetime
 
 try:
     import google.generativeai as genai
@@ -112,14 +113,21 @@ def process_file(file_path):
     print(f"Processing {file_path.name}...")
     propositions = extract_propositions(clean_script)
     
+    changelog_match = re.search(r"## Changelog\n(.*)", content, flags=re.DOTALL)
+    changelog = changelog_match.group(1).strip() if changelog_match else ""
+    
     new_content = f"{header_block}\n\n## Final Transcript\n\n{clean_script}\n\n## Propositions\n\n{propositions}\n"
+    if changelog:
+        new_content += f"\n## Changelog\n\n{changelog}\n"
+    else:
+        new_content += f"\n## Changelog\n\n- [{datetime.now().strftime('%Y-%m-%d')}] Script cleaned and propositions extracted.\n"
     
     with open(file_path, "w", encoding="utf-8") as f:
         f.write(new_content)
         
     return True
 
-def clean_all_published():
+def clean_all_eligible():
     count = 0
     for folder in VIDEOS_DIR.iterdir():
         if folder.is_dir():
@@ -127,21 +135,23 @@ def clean_all_published():
                 if file.name.endswith(".md"):
                     with open(file, "r", encoding="utf-8") as f:
                         content = f.read()
-                    # Check if the YAML tags contain 'published' or '#published'
+                    # Check if the YAML tags contain 'edit', 'uploaded', or 'published'
                     yaml_match = re.search(r'^---(.*?)---', content, re.MULTILINE | re.DOTALL)
-                    is_published = False
-                    if yaml_match and 'published' in yaml_match.group(1).lower():
-                        is_published = True
-                    if is_published:
+                    is_eligible = False
+                    if yaml_match:
+                        tags = yaml_match.group(1).lower()
+                        if any(t in tags for t in ['edit', 'uploaded', 'published']):
+                            is_eligible = True
+                    if is_eligible:
                         if "## Final Transcript" not in content:
                             if process_file(file):
                                 count += 1
-    print(f"✅ Cleaned {count} published video scripts.")
+    print(f"✅ Cleaned {count} eligible video scripts.")
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
         # Process specific file
         process_file(Path(sys.argv[1]))
     else:
-        # Process all published
-        clean_all_published()
+        # Process all eligible
+        clean_all_eligible()

@@ -63,5 +63,10 @@ Whenever Dr. Anderson says to "look for agent comments" or similar phrasing, it 
 
 ---
 
-## 6. Agent Action Logging
-When Dr. Anderson leaves an action or comment in the `agent_message` field and you (the agent) process it, you MUST append a simple text log of the action taken to the bottom of the corresponding Obsidian video script page under an `## Agent Log` header (e.g., "Processed dictation and generated Stage 2 script", "Adjusted hook based on agent message", etc.) just for the record.
+## 6. Changelog & Agent Action Logging
+When Dr. Anderson leaves an action or comment in the `agent_message` field and you (the agent) process it, or if you make any state changes to a script (e.g., `#film` to `#edit`), you MUST append a timestamped log to the bottom of the corresponding Obsidian video script page under a `## Changelog` header. 
+- Example: `- [2026-08-23] Processed dictation and generated Stage 2 script.`
+- Example: `- [2026-08-23] Status updated to #edit (Filming complete).`
+
+**File Standardization (Post-Filming):**
+Once a video reaches the `#edit` stage (filming is complete), the file transitions to a study and reference tool. The `scripts/clean_video_script.py` script should be run to strip out titles, hook options, and vidIQ scores, leaving only the final transcript and JDex-linked propositions. The `## Changelog` must be preserved.
