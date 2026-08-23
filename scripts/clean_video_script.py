@@ -90,41 +90,36 @@ def process_file(file_path):
     with open(file_path, "r", encoding="utf-8") as f:
         content = f.read()
         
-    # We want to keep: YAML, H1, and the Metadata block.
-    # The metadata block usually ends before "## 1. Title Ideas"
-    
-    header_match = re.search(r"(---.*?---.*?\n# .*?\n.*?\*\*JDex Topic Code\*\*:[^\n]+\n)", content, flags=re.DOTALL)
-    if not header_match:
-        print(f"Skipping {file_path.name} - could not parse header.")
+    # We want to keep: YAML
+    yaml_match = re.search(r'^(---.*?---)', content, flags=re.MULTILINE | re.DOTALL)
+    if not yaml_match:
+        print(f"Skipping {file_path.name} - could not parse YAML header.")
         return False
         
-    header_block = header_match.group(1).strip()
+    yaml_content = yaml_match.group(1)
     
-    # Clean up YAML tags
-    yaml_match = re.search(r'^---(.*?)---', header_block, re.MULTILINE | re.DOTALL)
-    if yaml_match:
-        yaml_content = yaml_match.group(1)
-        tags_block = re.search(r'(tags:.*?)(?=\n[a-z_]+:|\n---|$)', yaml_content, flags=re.DOTALL)
-        if tags_block:
-            tags_str = tags_block.group(1)
-            new_tags = "tags:\n  - \"#video\"\n"
-            if "published" in tags_str.lower(): new_tags += "  - \"#published\"\n"
-            elif "uploaded" in tags_str.lower(): new_tags += "  - \"#uploaded\"\n"
-            elif "edit" in tags_str.lower(): new_tags += "  - \"#edit\"\n"
+    tags_block = re.search(r'(tags:.*?)(?=\n[a-z_]+:|\n---|$)', yaml_content, flags=re.DOTALL)
+    if tags_block:
+        tags_str = tags_block.group(1)
+        new_tags = "tags:\n  - \"#video\"\n"
+        if "published" in tags_str.lower(): new_tags += "  - \"#published\"\n"
+        elif "uploaded" in tags_str.lower(): new_tags += "  - \"#uploaded\"\n"
+        elif "edit" in tags_str.lower(): new_tags += "  - \"#edit\"\n"
+        
+        yaml_content = yaml_content.replace(tags_str, new_tags)
+    
+    header_block = yaml_content
+    
+    # Extract script content
+    s3_match = re.search(r"## 3\. Full Script[^\n]*\n(.*?)(?:## 4\.|## 5\.|## Propositions|## Changelog|## Raw Audio|$)", content, flags=re.DOTALL)
+    
+    if not s3_match:
+        # Fallback to finding Final Transcript if already partially cleaned
+        s3_match = re.search(r"## Final Transcript[^\n]*\n(.*?)(?:## Propositions|## Changelog|$)", content, flags=re.DOTALL)
+        if not s3_match:
+            print(f"Skipping {file_path.name} - could not find Section 3 or Final Transcript.")
+            return False
             
-            new_yaml_content = yaml_content.replace(tags_str, new_tags)
-            header_block = header_block.replace(yaml_content, new_yaml_content)
-    
-    # Extract Section 3
-    s3_match = re.search(r"## 3\. Full Script[^\n]*\n(.*?)## 4\.", content, flags=re.DOTALL)
-    if not s3_match:
-        # Maybe there is no Section 4? Try to just get everything until next H2
-        s3_match = re.search(r"## 3\. Full Script[^\n]*\n(.*?)(?:## 4\.|## 5\.|## Propositions|$)", content, flags=re.DOTALL)
-        
-    if not s3_match:
-        print(f"Skipping {file_path.name} - could not find Section 3.")
-        return False
-        
     raw_script = s3_match.group(1)
     clean_script = clean_transcript(raw_script)
     
