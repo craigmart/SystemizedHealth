@@ -52,8 +52,6 @@ def extract_propositions(transcript):
     if not api_key:
         return "*(Gemini API key missing in config.json. Please add it to generate propositions.)*"
         
-    genai.configure(api_key=api_key)
-    
     jdex_context = ""
     if JDEX_FILE.exists():
         with open(JDEX_FILE, "r") as f:
@@ -79,7 +77,7 @@ OUTPUT FORMAT:
     try:
         client = genai.Client(api_key=api_key)
         response = client.models.generate_content(
-            model='gemini-2.5-flash',
+            model='gemini-3.6-flash',
             contents=prompt,
         )
         return response.text.strip()
