@@ -162,6 +162,36 @@ function App() {
           </div>
         </div>
 
+        <div className="card" onClick={() => openModal('Writing', writingVideos)} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.75rem 1rem', cursor: 'pointer' }}>
+          <div style={{ backgroundColor: '#b45309', color: '#fff', padding: '0.5rem', borderRadius: '50%', display: 'flex' }}>
+            <Scissors size={20} />
+          </div>
+          <div>
+            <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Writing</div>
+            <div style={{ fontSize: '1.25rem', fontWeight: 'bold', lineHeight: '1.2' }}>{writingVideos.length}</div>
+          </div>
+        </div>
+
+        <div className="card" onClick={() => openModal('Filming', readyToFilmVideos)} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.75rem 1rem', cursor: 'pointer' }}>
+          <div style={{ backgroundColor: 'var(--danger-color)', color: '#fff', padding: '0.5rem', borderRadius: '50%', display: 'flex' }}>
+            <Film size={20} />
+          </div>
+          <div>
+            <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Filming</div>
+            <div style={{ fontSize: '1.25rem', fontWeight: 'bold', lineHeight: '1.2' }}>{readyToFilmVideos.length}</div>
+          </div>
+        </div>
+
+        <div className="card" onClick={() => openModal('Editing', editingVideos)} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.75rem 1rem', cursor: 'pointer' }}>
+          <div style={{ width: '36px', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <img src="/favicon.png" alt="Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+          </div>
+          <div>
+            <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Editing</div>
+            <div style={{ fontSize: '1.25rem', fontWeight: 'bold', lineHeight: '1.2' }}>{editingVideos.length}</div>
+          </div>
+        </div>
+
         <div className="card" onClick={() => openModal('All Videos', videos)} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.75rem 1rem', cursor: 'pointer' }}>
           <div style={{ backgroundColor: 'var(--accent-color)', color: '#fff', padding: '0.5rem', borderRadius: '50%', display: 'flex' }}>
             <FileVideo size={20} />
@@ -169,46 +199,6 @@ function App() {
           <div>
             <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Total Videos</div>
             <div style={{ fontSize: '1.25rem', fontWeight: 'bold', lineHeight: '1.2' }}>{videos.length}</div>
-          </div>
-        </div>
-
-        <div className="card" onClick={() => openModal('Pending Audio Draft', needsDrafting)} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.75rem 1rem', cursor: 'pointer' }}>
-          <div style={{ backgroundColor: '#ff9800', color: '#fff', padding: '0.5rem', borderRadius: '50%', display: 'flex' }}>
-            <Clock size={20} />
-          </div>
-          <div>
-            <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Pending Audio</div>
-            <div style={{ fontSize: '1.25rem', fontWeight: 'bold', lineHeight: '1.2' }}>{needsDrafting.length}</div>
-          </div>
-        </div>
-
-        <div className="card" onClick={() => openModal('In Writing', writingVideos)} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.75rem 1rem', cursor: 'pointer' }}>
-          <div style={{ backgroundColor: '#b45309', color: '#fff', padding: '0.5rem', borderRadius: '50%', display: 'flex' }}>
-            <Scissors size={20} />
-          </div>
-          <div>
-            <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>In Writing</div>
-            <div style={{ fontSize: '1.25rem', fontWeight: 'bold', lineHeight: '1.2' }}>{writingVideos.length}</div>
-          </div>
-        </div>
-
-        <div className="card" onClick={() => openModal('Ready to Film', readyToFilmVideos)} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.75rem 1rem', cursor: 'pointer' }}>
-          <div style={{ backgroundColor: 'var(--danger-color)', color: '#fff', padding: '0.5rem', borderRadius: '50%', display: 'flex' }}>
-            <Film size={20} />
-          </div>
-          <div>
-            <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Ready to Film</div>
-            <div style={{ fontSize: '1.25rem', fontWeight: 'bold', lineHeight: '1.2' }}>{readyToFilmVideos.length}</div>
-          </div>
-        </div>
-
-        <div className="card" onClick={() => openModal('In Editing', editingVideos)} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.75rem 1rem', cursor: 'pointer' }}>
-          <div style={{ width: '36px', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <img src="/favicon.png" alt="Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
-          </div>
-          <div>
-            <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>In Editing</div>
-            <div style={{ fontSize: '1.25rem', fontWeight: 'bold', lineHeight: '1.2' }}>{editingVideos.length}</div>
           </div>
         </div>
       </div>
