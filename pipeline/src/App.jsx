@@ -216,6 +216,34 @@ function App() {
       <div className="dashboard-grid">
         <div className="card">
           <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
+            <Calendar size={20} color="var(--accent-color)" /> Pipeline
+          </h2>
+          <div className="videos-list">
+            {videos
+              .filter(v => {
+                if (!v.drop_date) return false;
+                const d = parseISO(v.drop_date);
+                d.setHours(0, 0, 0, 0);
+                return d >= todayDate && d <= addDays(todayDate, 10);
+              })
+              .sort(sortByDropDate)
+              .map(v => (
+                <div key={v.code} className="video-item" style={{ cursor: 'pointer' }} onClick={() => setCurrentVideo(v)}>
+                  <div className="video-header">
+                    <strong>{v.code}</strong>
+                    {getStatusBadge(v.status)}
+                  </div>
+                  <div className="video-meta">
+                    <span>{v.title}</span>
+                    <span style={{ marginLeft: 'auto', fontWeight: 'bold' }}>{v.drop_date}</span>
+                  </div>
+                </div>
+              ))}
+          </div>
+        </div>
+
+        <div className="card">
+          <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
             <AlertCircle size={20} color="var(--danger-color)" /> Action Items
           </h2>
           <div className="videos-list">
@@ -243,34 +271,6 @@ function App() {
             {needsDrafting.length === 0 && needsPublishing.length === 0 && (
               <p>You are ahead of schedule! 🎉</p>
             )}
-          </div>
-        </div>
-
-        <div className="card">
-          <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
-            <Calendar size={20} color="var(--accent-color)" /> Runway Overview
-          </h2>
-          <div className="videos-list">
-            {videos
-              .filter(v => {
-                if (!v.drop_date) return false;
-                const d = parseISO(v.drop_date);
-                d.setHours(0, 0, 0, 0);
-                return d >= todayDate && d <= addDays(todayDate, 10);
-              })
-              .sort(sortByDropDate)
-              .map(v => (
-                <div key={v.code} className="video-item" style={{ cursor: 'pointer' }} onClick={() => setCurrentVideo(v)}>
-                  <div className="video-header">
-                    <strong>{v.code}</strong>
-                    {getStatusBadge(v.status)}
-                  </div>
-                  <div className="video-meta">
-                    <span>{v.title}</span>
-                    <span style={{ marginLeft: 'auto', fontWeight: 'bold' }}>{v.drop_date}</span>
-                  </div>
-                </div>
-              ))}
           </div>
         </div>
       </div>
