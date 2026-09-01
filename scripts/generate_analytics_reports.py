@@ -350,28 +350,11 @@ def generate_alltime_report(data):
     return filepath
 
 def generate_video_paths():
-    app_dir = os.path.join(REPO_ROOT, "pipeline", "public")
-    if not os.path.exists(app_dir):
-        os.makedirs(app_dir)
-    filepath = os.path.join(app_dir, "video_paths.json")
-    
-    vault_dir = os.path.join(REPO_ROOT, "Obsidian_Vault", "Videos")
-    paths = {}
-    if os.path.exists(vault_dir):
-        for root, dirs, files in os.walk(vault_dir):
-            for f in files:
-                if f.endswith(".md"):
-                    folder_name = os.path.basename(root)
-                    match = re.search(r'\(80\.([A-Z0-9\-]+)\)', folder_name)
-                    if match:
-                        code = "80." + match.group(1)
-                        if "Script" in f or "Polish and B-Roll" in f:
-                            rel_path = os.path.join(root, f).split("Obsidian_Vault/")[1]
-                            paths[code] = rel_path
-    
-    with open(filepath, "w") as f:
-        json.dump(paths, f, indent=2)
-    return filepath
+    import sys
+    sys.path.append(os.path.join(REPO_ROOT, "scripts"))
+    from generate_video_paths import generate_paths
+    generate_paths()
+    return os.path.join(REPO_ROOT, "pipeline", "public", "video_paths.json")
 
 def generate_json_for_app(data):
     app_dir = os.path.join(REPO_ROOT, "pipeline", "public")
