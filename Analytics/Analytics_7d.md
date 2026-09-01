@@ -1,6 +1,6 @@
 # 📅 7-Day Weekly Performance & Drop Calendar Report
 
-*Last System Update: `2026-09-01 09:21:09`*
+*Last System Update: `2026-09-01 09:35:34`*
 
 ---
 
@@ -24,8 +24,8 @@ Upcoming content drops scheduled for the next 7 days:
 | **2026-09-01** | `80.V1C1-S1` | Short | Weekend Catch-Up Myth | **#film** | `80.11` |
 | **2026-09-03** | `80.V1C1-S2` | Short | Brain Night Shift | **#film** | `80.11` |
 | **2026-09-05** | `80.V1C1-S3` | Short | Caffeine Illusion | **#write** | `80.11` |
-| **2026-09-07** | `80.V1C2` | Long | Fake Rest vs Nervous System Downtime | **#write** | `80.11` |
-| **2026-09-08** | `80.V1C2-S1` | Short | Netflix Exhaustion | **#write** | `80.11` |
+| **2026-09-07** | `TBD-021` | Long | Placeholder | **#idea** | `80.11` |
+| **2026-09-08** | `TBD-022` | Short | Placeholder | **#idea** | `80.11` |
 
 ---
 
