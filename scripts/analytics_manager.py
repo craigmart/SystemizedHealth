@@ -137,10 +137,10 @@ def sync_vidiq_historical_data():
             v_id = match["id"]
             v_num = match["video_number"]
             cursor.execute("""
-            UPDATE videos SET youtube_id = ?, uploaded_date = ?, status = 'Uploaded' WHERE id = ?;
+            UPDATE videos SET youtube_id = ?, uploaded_date = ?, status = '#uploaded' WHERE id = ?;
             """, (v["videoId"], pub_date, v_id))
             if sb:
-                sb.update_video_status(v_num, "Uploaded", extra={"youtube_id": v["videoId"], "uploaded_date": pub_date})
+                sb.update_video_status(v_num, "#uploaded", extra={"youtube_id": v["videoId"], "uploaded_date": pub_date})
         else:
             v_num = f"H{h_idx:03d}"
             code = f"HIST.L{h_idx:02d}"
@@ -184,10 +184,10 @@ def sync_vidiq_historical_data():
             v_id = match["id"]
             v_num = match["video_number"]
             cursor.execute("""
-            UPDATE videos SET youtube_id = ?, uploaded_date = ?, status = 'Uploaded' WHERE id = ?;
+            UPDATE videos SET youtube_id = ?, uploaded_date = ?, status = '#uploaded' WHERE id = ?;
             """, (v["videoId"], pub_date, v_id))
             if sb:
-                sb.update_video_status(v_num, "Uploaded", extra={"youtube_id": v["videoId"], "uploaded_date": pub_date})
+                sb.update_video_status(v_num, "#uploaded", extra={"youtube_id": v["videoId"], "uploaded_date": pub_date})
         else:
             v_num = f"HS{hs_idx:03d}"
             code = f"HIST.S{hs_idx:02d}"
@@ -572,7 +572,7 @@ def render_markdown_report(data):
 | **Total Lifetime Channel Views** | **`{data['total_views']:,}`** | Verified via vidIQ API | 📊 Live Channel Baseline |
 | **Total Subscribers** | **`{data['total_subscribers']}`** | Verified via vidIQ API | 🟢 Active Audience |
 | **Total Catalog Assets** | **`{data['total_videos']}`** ({data['total_long_count']} Long, {data['total_short_count']} Shorts) | Historical + 16 Launch Assets | 🎬 Complete Catalog |
-| **Uploaded / Active Videos** | **`{data['uploaded_count']}`** | Live YouTube & Staging | 📹 Published + Staged |
+| **#uploaded / Active Videos** | **`{data['uploaded_count']}`** | Live YouTube & Staging | 📹 Published + Staged |
 | **Total Video Likes** | **`{data['total_likes']:,}`** | Verified Engagement | 👍 Audience Engagement |
 | **Total Video Comments** | **`{data['total_comments']}`** | Community Responses | 💬 Feedback Active |
 | **Discovery Call Leads Booked** | **`{data['discovery_call_leads']}`** | Primary Funnel Conversion | 📞 Lead Funnel Ready |

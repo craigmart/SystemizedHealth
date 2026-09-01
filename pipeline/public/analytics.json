@@ -1,116 +1,166 @@
 {
-  "today_str": "2026-08-15",
-  "updated_at_str": "2026-08-15 14:43:51",
-  "total_videos": 37,
+  "today_str": "2026-09-01",
+  "updated_at_str": "2026-09-01 09:00:03",
+  "total_videos": 58,
   "status_counts": {
-    "#published": 11,
-    "Editing": 6,
-    "In Production": 1,
-    "Uploaded": 19
+    "#edit": 2,
+    "#film": 3,
+    "#published": 40,
+    "#write": 13
   },
   "format_counts": {
-    "Long": 11,
-    "Short": 26
+    "Long": 15,
+    "Short": 43
   },
   "upcoming_drops": [
     {
-      "video_number": "013",
-      "code": "80.V1B1-S3",
+      "video_number": "018",
+      "code": "80.V1C1-S1",
       "format_type": "Short",
-      "title": "Cortical Smudging: A reason for Sudden Back Pain #backpain #tips",
-      "drop_date": "2026-08-15",
-      "status": "#published",
-      "jdex_code": "82.09",
+      "title": "Weekend Catch-Up Myth",
+      "drop_date": "2026-09-01",
+      "status": "#film",
+      "jdex_code": "80.11",
       "os_level": "Level 1: FMR"
     },
     {
-      "video_number": "HS003",
-      "code": "HIST.S03",
+      "video_number": "019",
+      "code": "80.V1C1-S2",
       "format_type": "Short",
-      "title": "The Surprising Reason for Sudden Back Pain #backpain #tips",
-      "drop_date": "2026-08-15",
-      "status": "#published",
-      "jdex_code": null,
-      "os_level": null
+      "title": "Brain Night Shift",
+      "drop_date": "2026-09-03",
+      "status": "#film",
+      "jdex_code": "80.11",
+      "os_level": "Level 1: FMR"
     },
     {
-      "video_number": "002",
-      "code": "80.V0A",
+      "video_number": "020",
+      "code": "80.V1C1-S3",
+      "format_type": "Short",
+      "title": "Caffeine Illusion",
+      "drop_date": "2026-09-05",
+      "status": "#write",
+      "jdex_code": "80.11",
+      "os_level": "Level 1: FMR"
+    },
+    {
+      "video_number": "021",
+      "code": "80.V1C2",
       "format_type": "Long",
-      "title": "20,000 Patients Taught Me This One Biological Reality",
-      "drop_date": "2026-08-17",
-      "status": "#published",
-      "jdex_code": "77.03",
-      "os_level": "Baseline"
-    },
-    {
-      "video_number": "008",
-      "code": "80.V0A-S1",
-      "format_type": "Short",
-      "title": "The Biological Reason Monday Resolutions Always Fail",
-      "drop_date": "2026-08-18",
-      "status": "Editing",
-      "jdex_code": "41.03",
+      "title": "Fake Rest vs Nervous System Downtime",
+      "drop_date": "2026-09-07",
+      "status": "#write",
+      "jdex_code": "80.11",
       "os_level": "Level 1: FMR"
     },
     {
-      "video_number": "009",
-      "code": "80.V0A-S2",
+      "video_number": "022",
+      "code": "80.V1C2-S1",
       "format_type": "Short",
-      "title": "The Exact Biological Sequence Your Body Needs to Change",
-      "drop_date": "2026-08-20",
-      "status": "Editing",
-      "jdex_code": "42.04",
+      "title": "Netflix Exhaustion",
+      "drop_date": "2026-09-08",
+      "status": "#write",
+      "jdex_code": "80.11",
       "os_level": "Level 1: FMR"
     },
     {
-      "video_number": "010",
-      "code": "80.V0A-S3",
+      "video_number": "023",
+      "code": "80.V1C2-S2",
       "format_type": "Short",
-      "title": "Stop Treating Your Health Like an Emergency Room",
-      "drop_date": "2026-08-22",
-      "status": "Editing",
-      "jdex_code": "77.02",
+      "title": "Phone Scrolling Cost",
+      "drop_date": "2026-09-10",
+      "status": "#write",
+      "jdex_code": "80.11",
       "os_level": "Level 1: FMR"
     },
     {
-      "video_number": "004",
-      "code": "80.V0A1",
+      "video_number": "024",
+      "code": "80.V1C2-S3",
+      "format_type": "Short",
+      "title": "The Off Switch",
+      "drop_date": "2026-09-12",
+      "status": "#write",
+      "jdex_code": "80.11",
+      "os_level": "Level 1: FMR"
+    },
+    {
+      "video_number": "025",
+      "code": "80.V1C3",
       "format_type": "Long",
-      "title": "Systemized OS Framework: The 3-Tier Health Pyramid",
-      "drop_date": "2026-08-24",
-      "status": "In Production",
-      "jdex_code": "81.05",
+      "title": "Digestive Rest and Fasting",
+      "drop_date": "2026-09-14",
+      "status": "#write",
+      "jdex_code": "80.11",
       "os_level": "Level 1: FMR"
     },
     {
-      "video_number": "014",
-      "code": "80.V0A1-S1",
+      "video_number": "026",
+      "code": "80.V1C3-S1",
       "format_type": "Short",
-      "title": "Why Relying on Willpower Guarantees Physical Burnout",
-      "drop_date": "2026-08-25",
-      "status": "Editing",
+      "title": "Energy Cost of Digestion",
+      "drop_date": "2026-09-15",
+      "status": "#write",
+      "jdex_code": "80.11",
+      "os_level": "Level 1: FMR"
+    },
+    {
+      "video_number": "027",
+      "code": "80.V1C3-S2",
+      "format_type": "Short",
+      "title": "The Maintenance Window",
+      "drop_date": "2026-09-17",
+      "status": "#write",
+      "jdex_code": "80.11",
+      "os_level": "Level 1: FMR"
+    },
+    {
+      "video_number": "028",
+      "code": "80.V1C3-S3",
+      "format_type": "Short",
+      "title": "Fasting is not a diet",
+      "drop_date": "2026-09-19",
+      "status": "#write",
+      "jdex_code": "80.11",
+      "os_level": "Level 1: FMR"
+    },
+    {
+      "video_number": "029",
+      "code": "80.V1C4",
+      "format_type": "Long",
+      "title": "Cognitive Load and Ego Depletion",
+      "drop_date": "2026-09-21",
+      "status": "#write",
       "jdex_code": "42.06",
       "os_level": "Level 1: FMR"
     },
     {
-      "video_number": "015",
-      "code": "80.V0A1-S2",
+      "video_number": "030",
+      "code": "80.V1C4-S1",
       "format_type": "Short",
-      "title": "The Level 1 FMR Baseline Every Body Needs to Master",
-      "drop_date": "2026-08-27",
-      "status": "Editing",
-      "jdex_code": "81.05",
+      "title": "Desk Job Exhaustion",
+      "drop_date": "2026-09-22",
+      "status": "#write",
+      "jdex_code": "42.06",
       "os_level": "Level 1: FMR"
     },
     {
-      "video_number": "016",
-      "code": "80.V0A1-S3",
+      "video_number": "031",
+      "code": "80.V1C4-S2",
       "format_type": "Short",
-      "title": "The 3-Tier Health Pyramid That Fixes Chronic Fatigue",
-      "drop_date": "2026-08-29",
-      "status": "Editing",
-      "jdex_code": "43.11",
+      "title": "Decision Fatigue",
+      "drop_date": "2026-09-24",
+      "status": "#write",
+      "jdex_code": "42.06",
+      "os_level": "Level 1: FMR"
+    },
+    {
+      "video_number": "032",
+      "code": "80.V1C4-S3",
+      "format_type": "Short",
+      "title": "Protecting the Battery",
+      "drop_date": "2026-09-26",
+      "status": "#write",
+      "jdex_code": "42.06",
       "os_level": "Level 1: FMR"
     }
   ],
@@ -122,7 +172,7 @@
       "title": "Knowledge Isn't Enough\u2014Here's What Actually Works",
       "drop_date": "2026-08-03",
       "status": "#published",
-      "jdex_code": "81.05",
+      "jdex_code": "80.10",
       "os_level": "Level 1: FMR",
       "uploaded_date": "2026-08-03"
     },
@@ -131,9 +181,9 @@
       "code": "80.V0A",
       "format_type": "Long",
       "title": "20,000 Patients Taught Me This One Biological Reality",
-      "drop_date": "2026-08-17",
+      "drop_date": "2026-08-03",
       "status": "#published",
-      "jdex_code": "77.03",
+      "jdex_code": "80.10",
       "os_level": "Baseline",
       "uploaded_date": "2026-08-03"
     },
@@ -144,7 +194,7 @@
       "title": "Exercise is Optional, Movement is not.",
       "drop_date": "2026-08-10",
       "status": "#published",
-      "jdex_code": "81.02",
+      "jdex_code": "77.01",
       "os_level": "Level 1: FMR",
       "uploaded_date": "2026-08-10"
     },
@@ -152,12 +202,12 @@
       "video_number": "004",
       "code": "80.V0A1",
       "format_type": "Long",
-      "title": "Systemized OS Framework: The 3-Tier Health Pyramid",
+      "title": "Systemized OS Framework",
       "drop_date": "2026-08-24",
-      "status": "In Production",
+      "status": "#published",
       "jdex_code": "81.05",
       "os_level": "Level 1: FMR",
-      "uploaded_date": null
+      "uploaded_date": "2026-08-25"
     },
     {
       "video_number": "005",
@@ -174,7 +224,7 @@
       "video_number": "006",
       "code": "80.V0B-S2",
       "format_type": "Short",
-      "title": "Stop Setting Marathon Goals on Monday (Downshift for Success)",
+      "title": "Aim Smaller, Win Bigger #goals #success",
       "drop_date": "2026-08-06",
       "status": "#published",
       "jdex_code": "77.03",
@@ -196,34 +246,45 @@
       "video_number": "008",
       "code": "80.V0A-S1",
       "format_type": "Short",
-      "title": "The Biological Reason Monday Resolutions Always Fail",
-      "drop_date": "2026-08-18",
-      "status": "Editing",
+      "title": "Coffee Won't Fix Your Afternoon Crash #bloodsugar #over50",
+      "drop_date": "2026-08-06",
+      "status": "#published",
       "jdex_code": "41.03",
       "os_level": "Level 1: FMR",
-      "uploaded_date": null
+      "uploaded_date": "2026-08-18"
     },
     {
       "video_number": "009",
       "code": "80.V0A-S2",
       "format_type": "Short",
-      "title": "The Exact Biological Sequence Your Body Needs to Change",
-      "drop_date": "2026-08-20",
-      "status": "Editing",
+      "title": "Why Chugging Water can Dehydrate you",
+      "drop_date": "2026-08-08",
+      "status": "#published",
       "jdex_code": "42.04",
       "os_level": "Level 1: FMR",
-      "uploaded_date": null
+      "uploaded_date": "2026-08-20"
     },
     {
       "video_number": "010",
       "code": "80.V0A-S3",
       "format_type": "Short",
-      "title": "Stop Treating Your Health Like an Emergency Room",
+      "title": "Break a Sweat 3 Times a Week (Prevent Musculoskeletal Pain)",
       "drop_date": "2026-08-22",
-      "status": "Editing",
+      "status": "#published",
       "jdex_code": "77.02",
       "os_level": "Level 1: FMR",
-      "uploaded_date": null
+      "uploaded_date": "2026-08-22"
+    },
+    {
+      "video_number": "011",
+      "code": "80.V1B1-S1",
+      "format_type": "Short",
+      "title": "Why Exercise is Optional",
+      "drop_date": "2026-08-11",
+      "status": "#published",
+      "jdex_code": "77.01",
+      "os_level": "Level 1: FMR",
+      "uploaded_date": "2026-08-15"
     },
     {
       "video_number": "012",
@@ -232,7 +293,7 @@
       "title": "How do the Joints in your Body Stay Healthy? - Its not good bloodflow.",
       "drop_date": "2026-08-13",
       "status": "#published",
-      "jdex_code": "81.02",
+      "jdex_code": "77.01",
       "os_level": "Level 1: FMR",
       "uploaded_date": "2026-08-13"
     },
@@ -243,7 +304,7 @@
       "title": "Cortical Smudging: A reason for Sudden Back Pain #backpain #tips",
       "drop_date": "2026-08-15",
       "status": "#published",
-      "jdex_code": "82.09",
+      "jdex_code": "77.03",
       "os_level": "Level 1: FMR",
       "uploaded_date": "2026-08-15"
     },
@@ -253,73 +314,304 @@
       "format_type": "Short",
       "title": "Why Relying on Willpower Guarantees Physical Burnout",
       "drop_date": "2026-08-25",
-      "status": "Editing",
+      "status": "#published",
       "jdex_code": "42.06",
       "os_level": "Level 1: FMR",
-      "uploaded_date": null
+      "uploaded_date": "2026-08-25"
     },
     {
       "video_number": "015",
       "code": "80.V0A1-S2",
       "format_type": "Short",
-      "title": "The Level 1 FMR Baseline Every Body Needs to Master",
+      "title": "Prove it before you buy it - don\u2019t fall for health gadgets",
       "drop_date": "2026-08-27",
-      "status": "Editing",
+      "status": "#edit",
       "jdex_code": "81.05",
       "os_level": "Level 1: FMR",
-      "uploaded_date": null
+      "uploaded_date": "2026-08-27"
     },
     {
       "video_number": "016",
       "code": "80.V0A1-S3",
       "format_type": "Short",
-      "title": "The 3-Tier Health Pyramid That Fixes Chronic Fatigue",
+      "title": "This is why you aren't getting healthier #health #fitness #motivation",
       "drop_date": "2026-08-29",
-      "status": "Editing",
+      "status": "#edit",
       "jdex_code": "43.11",
       "os_level": "Level 1: FMR",
+      "uploaded_date": "2026-08-29"
+    },
+    {
+      "video_number": "017",
+      "code": "80.V1C1",
+      "format_type": "Long",
+      "title": "Biological Debt of Sleep",
+      "drop_date": "2026-08-31",
+      "status": "#film",
+      "jdex_code": "80.11",
+      "os_level": "Level 1: FMR",
       "uploaded_date": null
+    },
+    {
+      "video_number": "018",
+      "code": "80.V1C1-S1",
+      "format_type": "Short",
+      "title": "Weekend Catch-Up Myth",
+      "drop_date": "2026-09-01",
+      "status": "#film",
+      "jdex_code": "80.11",
+      "os_level": "Level 1: FMR",
+      "uploaded_date": null
+    },
+    {
+      "video_number": "019",
+      "code": "80.V1C1-S2",
+      "format_type": "Short",
+      "title": "Brain Night Shift",
+      "drop_date": "2026-09-03",
+      "status": "#film",
+      "jdex_code": "80.11",
+      "os_level": "Level 1: FMR",
+      "uploaded_date": null
+    },
+    {
+      "video_number": "020",
+      "code": "80.V1C1-S3",
+      "format_type": "Short",
+      "title": "Caffeine Illusion",
+      "drop_date": "2026-09-05",
+      "status": "#write",
+      "jdex_code": "80.11",
+      "os_level": "Level 1: FMR",
+      "uploaded_date": null
+    },
+    {
+      "video_number": "021",
+      "code": "80.V1C2",
+      "format_type": "Long",
+      "title": "Fake Rest vs Nervous System Downtime",
+      "drop_date": "2026-09-07",
+      "status": "#write",
+      "jdex_code": "80.11",
+      "os_level": "Level 1: FMR",
+      "uploaded_date": null
+    },
+    {
+      "video_number": "022",
+      "code": "80.V1C2-S1",
+      "format_type": "Short",
+      "title": "Netflix Exhaustion",
+      "drop_date": "2026-09-08",
+      "status": "#write",
+      "jdex_code": "80.11",
+      "os_level": "Level 1: FMR",
+      "uploaded_date": null
+    },
+    {
+      "video_number": "023",
+      "code": "80.V1C2-S2",
+      "format_type": "Short",
+      "title": "Phone Scrolling Cost",
+      "drop_date": "2026-09-10",
+      "status": "#write",
+      "jdex_code": "80.11",
+      "os_level": "Level 1: FMR",
+      "uploaded_date": null
+    },
+    {
+      "video_number": "024",
+      "code": "80.V1C2-S3",
+      "format_type": "Short",
+      "title": "The Off Switch",
+      "drop_date": "2026-09-12",
+      "status": "#write",
+      "jdex_code": "80.11",
+      "os_level": "Level 1: FMR",
+      "uploaded_date": null
+    },
+    {
+      "video_number": "025",
+      "code": "80.V1C3",
+      "format_type": "Long",
+      "title": "Digestive Rest and Fasting",
+      "drop_date": "2026-09-14",
+      "status": "#write",
+      "jdex_code": "80.11",
+      "os_level": "Level 1: FMR",
+      "uploaded_date": null
+    },
+    {
+      "video_number": "026",
+      "code": "80.V1C3-S1",
+      "format_type": "Short",
+      "title": "Energy Cost of Digestion",
+      "drop_date": "2026-09-15",
+      "status": "#write",
+      "jdex_code": "80.11",
+      "os_level": "Level 1: FMR",
+      "uploaded_date": null
+    },
+    {
+      "video_number": "027",
+      "code": "80.V1C3-S2",
+      "format_type": "Short",
+      "title": "The Maintenance Window",
+      "drop_date": "2026-09-17",
+      "status": "#write",
+      "jdex_code": "80.11",
+      "os_level": "Level 1: FMR",
+      "uploaded_date": null
+    },
+    {
+      "video_number": "028",
+      "code": "80.V1C3-S3",
+      "format_type": "Short",
+      "title": "Fasting is not a diet",
+      "drop_date": "2026-09-19",
+      "status": "#write",
+      "jdex_code": "80.11",
+      "os_level": "Level 1: FMR",
+      "uploaded_date": null
+    },
+    {
+      "video_number": "029",
+      "code": "80.V1C4",
+      "format_type": "Long",
+      "title": "Cognitive Load and Ego Depletion",
+      "drop_date": "2026-09-21",
+      "status": "#write",
+      "jdex_code": "42.06",
+      "os_level": "Level 1: FMR",
+      "uploaded_date": null
+    },
+    {
+      "video_number": "030",
+      "code": "80.V1C4-S1",
+      "format_type": "Short",
+      "title": "Desk Job Exhaustion",
+      "drop_date": "2026-09-22",
+      "status": "#write",
+      "jdex_code": "42.06",
+      "os_level": "Level 1: FMR",
+      "uploaded_date": null
+    },
+    {
+      "video_number": "031",
+      "code": "80.V1C4-S2",
+      "format_type": "Short",
+      "title": "Decision Fatigue",
+      "drop_date": "2026-09-24",
+      "status": "#write",
+      "jdex_code": "42.06",
+      "os_level": "Level 1: FMR",
+      "uploaded_date": null
+    },
+    {
+      "video_number": "032",
+      "code": "80.V1C4-S3",
+      "format_type": "Short",
+      "title": "Protecting the Battery",
+      "drop_date": "2026-09-26",
+      "status": "#write",
+      "jdex_code": "42.06",
+      "os_level": "Level 1: FMR",
+      "uploaded_date": null
+    },
+    {
+      "video_number": "033",
+      "code": "80.V1A",
+      "format_type": "Long",
+      "title": "The Biological Cost of Fake Fuel",
+      "drop_date": "2026-08-17",
+      "status": "#published",
+      "jdex_code": "77.01",
+      "os_level": "Level 1: FMR",
+      "uploaded_date": null
+    },
+    {
+      "video_number": "034",
+      "code": "80.V1A-S1",
+      "format_type": "Short",
+      "title": "The Mid-Afternoon Crash",
+      "drop_date": "2026-08-18",
+      "status": "#published",
+      "jdex_code": "77.01",
+      "os_level": "Level 1: FMR",
+      "uploaded_date": null
+    },
+    {
+      "video_number": "035",
+      "code": "80.V1A-S2",
+      "format_type": "Short",
+      "title": "Cellular Hydration",
+      "drop_date": "2026-08-20",
+      "status": "#published",
+      "jdex_code": "77.01",
+      "os_level": "Level 1: FMR",
+      "uploaded_date": null
+    },
+    {
+      "video_number": "036",
+      "code": "80.V1A-S3",
+      "format_type": "Short",
+      "title": "The Biological Reality of Diets",
+      "drop_date": "2026-08-21",
+      "status": "#published",
+      "jdex_code": "77.01",
+      "os_level": "Level 1: FMR",
+      "uploaded_date": "2026-08-17"
     },
     {
       "video_number": "H001",
       "code": "HIST.L01",
       "format_type": "Long",
-      "title": "The Biological Reality of GLP-1: Fuel vs. Motivation",
-      "drop_date": "2026-03-24",
-      "status": "Uploaded",
+      "title": "The Biological Requirement for Weekly Structure",
+      "drop_date": "2026-01-01",
+      "status": "#published",
       "jdex_code": null,
       "os_level": null,
-      "uploaded_date": "2026-03-24"
+      "uploaded_date": "2026-01-01"
     },
     {
       "video_number": "H002",
       "code": "HIST.L02",
       "format_type": "Long",
-      "title": "The Neurological Reality of Workout Recovery",
-      "drop_date": "2026-01-22",
-      "status": "Uploaded",
+      "title": "The Biological Reality of GLP-1: Fuel vs. Motivation",
+      "drop_date": "2026-03-24",
+      "status": "#published",
       "jdex_code": null,
       "os_level": null,
-      "uploaded_date": "2026-01-22"
+      "uploaded_date": "2026-03-24"
     },
     {
       "video_number": "H003",
       "code": "HIST.L03",
       "format_type": "Long",
-      "title": "The Biological Cost of an Unstructured Week",
-      "drop_date": "2026-01-14",
-      "status": "Uploaded",
+      "title": "The Nervous System Secret to Consistent Gains",
+      "drop_date": "2026-01-22",
+      "status": "#published",
       "jdex_code": null,
       "os_level": null,
-      "uploaded_date": "2026-01-14"
+      "uploaded_date": "2026-01-22"
     },
     {
       "video_number": "H004",
       "code": "HIST.L04",
       "format_type": "Long",
-      "title": "The Neurological Limit of Daily Effort",
+      "title": "The Biological Cost of an Unstructured Week",
+      "drop_date": "2026-01-14",
+      "status": "#published",
+      "jdex_code": null,
+      "os_level": null,
+      "uploaded_date": "2026-01-14"
+    },
+    {
+      "video_number": "H005",
+      "code": "HIST.L05",
+      "format_type": "Long",
+      "title": "Decision Fatigue Is Destroying Your Productivity",
       "drop_date": "2026-01-06",
-      "status": "Uploaded",
+      "status": "#published",
       "jdex_code": null,
       "os_level": null,
       "uploaded_date": "2026-01-06"
@@ -328,111 +620,89 @@
       "video_number": "H006",
       "code": "HIST.L06",
       "format_type": "Long",
-      "title": "The Biological Requirement for Weekly Structure",
-      "drop_date": "2026-01-01",
-      "status": "Uploaded",
+      "title": "The real reason you're exhausted at 3pm",
+      "drop_date": "2026-08-17",
+      "status": "#published",
       "jdex_code": null,
       "os_level": null,
-      "uploaded_date": "2026-01-01"
-    },
-    {
-      "video_number": "H008",
-      "code": "HIST.L08",
-      "format_type": "Long",
-      "title": "The Metabolic Glitch Behind Morning Hunger",
-      "drop_date": "2026-03-12",
-      "status": "Uploaded",
-      "jdex_code": null,
-      "os_level": null,
-      "uploaded_date": "2026-03-12"
-    },
-    {
-      "video_number": "H009",
-      "code": "HIST.L09",
-      "format_type": "Long",
-      "title": "Why Supplements Cannot Fix a Broken Baseline",
-      "drop_date": "2026-03-21",
-      "status": "Uploaded",
-      "jdex_code": null,
-      "os_level": null,
-      "uploaded_date": "2026-03-21"
+      "uploaded_date": "2026-08-17"
     },
     {
       "video_number": "HS001",
       "code": "HIST.S01",
       "format_type": "Short",
-      "title": "Your steps have been tracked your whole life",
-      "drop_date": "2026-03-30",
-      "status": "#published",
-      "jdex_code": null,
-      "os_level": null,
-      "uploaded_date": "2026-03-30"
-    },
-    {
-      "video_number": "HS002",
-      "code": "HIST.S02",
-      "format_type": "Short",
-      "title": "How do the Joints in your Body Stay Healthy? - Its not good bloodflow.",
-      "drop_date": "2026-08-13",
-      "status": "#published",
-      "jdex_code": null,
-      "os_level": null,
-      "uploaded_date": "2026-08-13"
-    },
-    {
-      "video_number": "HS003",
-      "code": "HIST.S03",
-      "format_type": "Short",
-      "title": "The Surprising Reason for Sudden Back Pain #backpain #tips",
-      "drop_date": "2026-08-15",
-      "status": "#published",
-      "jdex_code": null,
-      "os_level": null,
-      "uploaded_date": "2026-08-15"
-    },
-    {
-      "video_number": "HS004",
-      "code": "HIST.S04",
-      "format_type": "Short",
       "title": "The Biological Prerequisite for Fasting",
       "drop_date": "2026-04-03",
-      "status": "Uploaded",
+      "status": "#published",
       "jdex_code": null,
       "os_level": null,
       "uploaded_date": "2026-04-03"
     },
     {
-      "video_number": "HS005",
-      "code": "HIST.S05",
+      "video_number": "HS002",
+      "code": "HIST.S02",
       "format_type": "Short",
       "title": "Start Running from ZERO",
       "drop_date": "2026-02-07",
-      "status": "Uploaded",
+      "status": "#published",
       "jdex_code": null,
       "os_level": null,
       "uploaded_date": "2026-02-07"
     },
     {
-      "video_number": "HS006",
-      "code": "HIST.S06",
+      "video_number": "HS003",
+      "code": "HIST.S03",
       "format_type": "Short",
       "title": "The Neurological Function of Clarity",
       "drop_date": "2026-01-15",
-      "status": "Uploaded",
+      "status": "#published",
       "jdex_code": null,
       "os_level": null,
       "uploaded_date": "2026-01-15"
     },
     {
-      "video_number": "HS007",
-      "code": "HIST.S07",
+      "video_number": "HS004",
+      "code": "HIST.S04",
       "format_type": "Short",
       "title": "The Biological Failure of Motivation",
       "drop_date": "2026-01-08",
-      "status": "Uploaded",
+      "status": "#published",
       "jdex_code": null,
       "os_level": null,
       "uploaded_date": "2026-01-08"
+    },
+    {
+      "video_number": "HS005",
+      "code": "HIST.S05",
+      "format_type": "Short",
+      "title": "Why you have zero willpower left #productivity #psychology",
+      "drop_date": "2026-08-26",
+      "status": "#published",
+      "jdex_code": null,
+      "os_level": null,
+      "uploaded_date": "2026-08-26"
+    },
+    {
+      "video_number": "HS006",
+      "code": "HIST.S06",
+      "format_type": "Short",
+      "title": "The Lazy Way to Get Fit (It Actually Works) #shorts #fitness #hack",
+      "drop_date": "2026-08-11",
+      "status": "#published",
+      "jdex_code": null,
+      "os_level": null,
+      "uploaded_date": "2026-08-11"
+    },
+    {
+      "video_number": "HS007",
+      "code": "HIST.S07",
+      "format_type": "Short",
+      "title": "Diets wont work, here's what does.",
+      "drop_date": "2026-08-21",
+      "status": "#published",
+      "jdex_code": null,
+      "os_level": null,
+      "uploaded_date": "2026-08-21"
     },
     {
       "video_number": "HS008",
@@ -440,7 +710,7 @@
       "format_type": "Short",
       "title": "The Neurological Reality of Willpower",
       "drop_date": "2026-01-07",
-      "status": "Uploaded",
+      "status": "#published",
       "jdex_code": null,
       "os_level": null,
       "uploaded_date": "2026-01-07"
@@ -451,7 +721,7 @@
       "format_type": "Short",
       "title": "The Biological Minimum for Daily Steps",
       "drop_date": "2026-03-23",
-      "status": "Uploaded",
+      "status": "#published",
       "jdex_code": null,
       "os_level": null,
       "uploaded_date": "2026-03-23"
@@ -462,7 +732,7 @@
       "format_type": "Short",
       "title": "The Neurological Failure of Random Workouts",
       "drop_date": "2026-01-20",
-      "status": "Uploaded",
+      "status": "#published",
       "jdex_code": null,
       "os_level": null,
       "uploaded_date": "2026-01-20"
@@ -473,7 +743,7 @@
       "format_type": "Short",
       "title": "The Neurological Cost of GLP-1",
       "drop_date": "2026-03-26",
-      "status": "Uploaded",
+      "status": "#published",
       "jdex_code": null,
       "os_level": null,
       "uploaded_date": "2026-03-26"
@@ -484,7 +754,7 @@
       "format_type": "Short",
       "title": "The Biological Mandate for Recovery",
       "drop_date": "2026-01-21",
-      "status": "Uploaded",
+      "status": "#published",
       "jdex_code": null,
       "os_level": null,
       "uploaded_date": "2026-01-21"
@@ -495,7 +765,7 @@
       "format_type": "Short",
       "title": "The Biological Necessity of Weekly Structure",
       "drop_date": "2026-01-13",
-      "status": "Uploaded",
+      "status": "#published",
       "jdex_code": null,
       "os_level": null,
       "uploaded_date": "2026-01-13"
@@ -506,7 +776,7 @@
       "format_type": "Short",
       "title": "The Neurological Cost of Decision Fatigue",
       "drop_date": "2026-01-16",
-      "status": "Uploaded",
+      "status": "#published",
       "jdex_code": null,
       "os_level": null,
       "uploaded_date": "2026-01-16"
@@ -517,532 +787,47 @@
       "format_type": "Short",
       "title": "The Clinical Architecture of Anchor Habits",
       "drop_date": "2026-01-09",
-      "status": "Uploaded",
+      "status": "#published",
       "jdex_code": null,
       "os_level": null,
       "uploaded_date": "2026-01-09"
+    },
+    {
+      "video_number": "TBD",
+      "code": "80.V0A-S3-B",
+      "format_type": "Short",
+      "title": "The Easiest Way to Eliminate Back Pain",
+      "drop_date": "2026-08-23",
+      "status": "#published",
+      "jdex_code": null,
+      "os_level": null,
+      "uploaded_date": null
     }
   ],
-  "open_tasks": [
-    {
-      "task_name": "Phase I: Audio Dictation (-A)",
-      "phase": "Phase I",
-      "status": "Pending",
-      "due_date": "2026-08-01",
-      "code": "80.V0A1",
-      "title": "Systemized OS Framework: The 3-Tier Health Pyramid"
-    },
-    {
-      "task_name": "Phase I: Audio Dictation (-A)",
-      "phase": "Phase I",
-      "status": "Pending",
-      "due_date": "2026-08-01",
-      "code": "80.V0B-S1",
-      "title": "Do Less to Get More"
-    },
-    {
-      "task_name": "Phase I: Audio Dictation (-A)",
-      "phase": "Phase I",
-      "status": "Pending",
-      "due_date": "2026-08-01",
-      "code": "80.V0B-S2",
-      "title": "Stop Setting Marathon Goals on Monday (Downshift for Success)"
-    },
-    {
-      "task_name": "Phase I: Audio Dictation (-A)",
-      "phase": "Phase I",
-      "status": "Pending",
-      "due_date": "2026-08-01",
-      "code": "80.V0B-S3",
-      "title": "Stop Trying to Fix Stress Backward (Fuel, Move, Rest First)"
-    },
-    {
-      "task_name": "Phase I: Audio Dictation (-A)",
-      "phase": "Phase I",
-      "status": "Pending",
-      "due_date": "2026-08-01",
-      "code": "80.V0A-S1",
-      "title": "The Biological Reason Monday Resolutions Always Fail"
-    },
-    {
-      "task_name": "Phase I: Audio Dictation (-A)",
-      "phase": "Phase I",
-      "status": "Pending",
-      "due_date": "2026-08-01",
-      "code": "80.V0A-S2",
-      "title": "The Exact Biological Sequence Your Body Needs to Change"
-    },
-    {
-      "task_name": "Phase I: Audio Dictation (-A)",
-      "phase": "Phase I",
-      "status": "Pending",
-      "due_date": "2026-08-01",
-      "code": "80.V0A-S3",
-      "title": "Stop Treating Your Health Like an Emergency Room"
-    },
-    {
-      "task_name": "Phase I: Audio Dictation (-A)",
-      "phase": "Phase I",
-      "status": "Pending",
-      "due_date": "2026-08-01",
-      "code": "80.V1B1-S2",
-      "title": "How do the Joints in your Body Stay Healthy? - Its not good bloodflow."
-    },
-    {
-      "task_name": "Phase I: Audio Dictation (-A)",
-      "phase": "Phase I",
-      "status": "Pending",
-      "due_date": "2026-08-01",
-      "code": "80.V1B1-S3",
-      "title": "Cortical Smudging: A reason for Sudden Back Pain #backpain #tips"
-    },
-    {
-      "task_name": "Phase I: Audio Dictation (-A)",
-      "phase": "Phase I",
-      "status": "Pending",
-      "due_date": "2026-08-01",
-      "code": "80.V0A1-S1",
-      "title": "Why Relying on Willpower Guarantees Physical Burnout"
-    },
-    {
-      "task_name": "Phase I: Audio Dictation (-A)",
-      "phase": "Phase I",
-      "status": "Pending",
-      "due_date": "2026-08-01",
-      "code": "80.V0A1-S2",
-      "title": "The Level 1 FMR Baseline Every Body Needs to Master"
-    },
-    {
-      "task_name": "Phase I: Audio Dictation (-A)",
-      "phase": "Phase I",
-      "status": "Pending",
-      "due_date": "2026-08-01",
-      "code": "80.V0A1-S3",
-      "title": "The 3-Tier Health Pyramid That Fixes Chronic Fatigue"
-    },
-    {
-      "task_name": "Phase II: Script Blueprint (-B)",
-      "phase": "Phase II",
-      "status": "Pending",
-      "due_date": "2026-08-05",
-      "code": "80.V0A1",
-      "title": "Systemized OS Framework: The 3-Tier Health Pyramid"
-    },
-    {
-      "task_name": "Phase II: Script Blueprint (-B)",
-      "phase": "Phase II",
-      "status": "Pending",
-      "due_date": "2026-08-05",
-      "code": "80.V0B-S1",
-      "title": "Do Less to Get More"
-    },
-    {
-      "task_name": "Phase II: Script Blueprint (-B)",
-      "phase": "Phase II",
-      "status": "Pending",
-      "due_date": "2026-08-05",
-      "code": "80.V0B-S2",
-      "title": "Stop Setting Marathon Goals on Monday (Downshift for Success)"
-    },
-    {
-      "task_name": "Phase II: Script Blueprint (-B)",
-      "phase": "Phase II",
-      "status": "Pending",
-      "due_date": "2026-08-05",
-      "code": "80.V0B-S3",
-      "title": "Stop Trying to Fix Stress Backward (Fuel, Move, Rest First)"
-    },
-    {
-      "task_name": "Phase II: Script Blueprint (-B)",
-      "phase": "Phase II",
-      "status": "Pending",
-      "due_date": "2026-08-05",
-      "code": "80.V0A-S1",
-      "title": "The Biological Reason Monday Resolutions Always Fail"
-    },
-    {
-      "task_name": "Phase II: Script Blueprint (-B)",
-      "phase": "Phase II",
-      "status": "Pending",
-      "due_date": "2026-08-05",
-      "code": "80.V0A-S2",
-      "title": "The Exact Biological Sequence Your Body Needs to Change"
-    },
-    {
-      "task_name": "Phase II: Script Blueprint (-B)",
-      "phase": "Phase II",
-      "status": "Pending",
-      "due_date": "2026-08-05",
-      "code": "80.V0A-S3",
-      "title": "Stop Treating Your Health Like an Emergency Room"
-    },
-    {
-      "task_name": "Phase II: Script Blueprint (-B)",
-      "phase": "Phase II",
-      "status": "Pending",
-      "due_date": "2026-08-05",
-      "code": "80.V1B1-S2",
-      "title": "How do the Joints in your Body Stay Healthy? - Its not good bloodflow."
-    },
-    {
-      "task_name": "Phase II: Script Blueprint (-B)",
-      "phase": "Phase II",
-      "status": "Pending",
-      "due_date": "2026-08-05",
-      "code": "80.V1B1-S3",
-      "title": "Cortical Smudging: A reason for Sudden Back Pain #backpain #tips"
-    },
-    {
-      "task_name": "Phase II: Script Blueprint (-B)",
-      "phase": "Phase II",
-      "status": "Pending",
-      "due_date": "2026-08-05",
-      "code": "80.V0A1-S1",
-      "title": "Why Relying on Willpower Guarantees Physical Burnout"
-    },
-    {
-      "task_name": "Phase II: Script Blueprint (-B)",
-      "phase": "Phase II",
-      "status": "Pending",
-      "due_date": "2026-08-05",
-      "code": "80.V0A1-S2",
-      "title": "The Level 1 FMR Baseline Every Body Needs to Master"
-    },
-    {
-      "task_name": "Phase II: Script Blueprint (-B)",
-      "phase": "Phase II",
-      "status": "Pending",
-      "due_date": "2026-08-05",
-      "code": "80.V0A1-S3",
-      "title": "The 3-Tier Health Pyramid That Fixes Chronic Fatigue"
-    },
-    {
-      "task_name": "Phase IV: Video Editing & Assembly",
-      "phase": "Phase IV",
-      "status": "In Progress",
-      "due_date": "2026-08-05",
-      "code": "80.V0B-S1",
-      "title": "Do Less to Get More"
-    },
-    {
-      "task_name": "Phase IV: Video Editing & Assembly",
-      "phase": "Phase IV",
-      "status": "In Progress",
-      "due_date": "2026-08-05",
-      "code": "80.V0A-S1",
-      "title": "The Biological Reason Monday Resolutions Always Fail"
-    },
-    {
-      "task_name": "Phase IV: Video Editing & Assembly",
-      "phase": "Phase IV",
-      "status": "In Progress",
-      "due_date": "2026-08-05",
-      "code": "80.V0A-S2",
-      "title": "The Exact Biological Sequence Your Body Needs to Change"
-    },
-    {
-      "task_name": "Phase IV: Video Editing & Assembly",
-      "phase": "Phase IV",
-      "status": "In Progress",
-      "due_date": "2026-08-05",
-      "code": "80.V0A-S3",
-      "title": "Stop Treating Your Health Like an Emergency Room"
-    },
-    {
-      "task_name": "Phase IV: Video Editing & Assembly",
-      "phase": "Phase IV",
-      "status": "In Progress",
-      "due_date": "2026-08-05",
-      "code": "80.V0A1-S1",
-      "title": "Why Relying on Willpower Guarantees Physical Burnout"
-    },
-    {
-      "task_name": "Phase IV: Video Editing & Assembly",
-      "phase": "Phase IV",
-      "status": "In Progress",
-      "due_date": "2026-08-05",
-      "code": "80.V0A1-S2",
-      "title": "The Level 1 FMR Baseline Every Body Needs to Master"
-    },
-    {
-      "task_name": "Phase IV: Video Editing & Assembly",
-      "phase": "Phase IV",
-      "status": "In Progress",
-      "due_date": "2026-08-05",
-      "code": "80.V0A1-S3",
-      "title": "The 3-Tier Health Pyramid That Fixes Chronic Fatigue"
-    },
-    {
-      "task_name": "Phase III: On-Camera Filming",
-      "phase": "Phase III",
-      "status": "Pending",
-      "due_date": "2026-08-10",
-      "code": "80.V0A1",
-      "title": "Systemized OS Framework: The 3-Tier Health Pyramid"
-    },
-    {
-      "task_name": "Phase III: On-Camera Filming",
-      "phase": "Phase III",
-      "status": "Pending",
-      "due_date": "2026-08-10",
-      "code": "80.V0B-S2",
-      "title": "Stop Setting Marathon Goals on Monday (Downshift for Success)"
-    },
-    {
-      "task_name": "Phase III: On-Camera Filming",
-      "phase": "Phase III",
-      "status": "Pending",
-      "due_date": "2026-08-10",
-      "code": "80.V0B-S3",
-      "title": "Stop Trying to Fix Stress Backward (Fuel, Move, Rest First)"
-    },
-    {
-      "task_name": "Phase III: On-Camera Filming",
-      "phase": "Phase III",
-      "status": "Pending",
-      "due_date": "2026-08-10",
-      "code": "80.V1B1-S2",
-      "title": "How do the Joints in your Body Stay Healthy? - Its not good bloodflow."
-    },
-    {
-      "task_name": "Phase III: On-Camera Filming",
-      "phase": "Phase III",
-      "status": "Pending",
-      "due_date": "2026-08-10",
-      "code": "80.V1B1-S3",
-      "title": "Cortical Smudging: A reason for Sudden Back Pain #backpain #tips"
-    },
-    {
-      "task_name": "Phase III: Workflowy Sync",
-      "phase": "Phase III",
-      "status": "Pending",
-      "due_date": "2026-08-12",
-      "code": "80.V0A1",
-      "title": "Systemized OS Framework: The 3-Tier Health Pyramid"
-    },
-    {
-      "task_name": "Phase III: Workflowy Sync",
-      "phase": "Phase III",
-      "status": "Pending",
-      "due_date": "2026-08-12",
-      "code": "80.V0B-S1",
-      "title": "Do Less to Get More"
-    },
-    {
-      "task_name": "Phase III: Workflowy Sync",
-      "phase": "Phase III",
-      "status": "Pending",
-      "due_date": "2026-08-12",
-      "code": "80.V0B-S2",
-      "title": "Stop Setting Marathon Goals on Monday (Downshift for Success)"
-    },
-    {
-      "task_name": "Phase III: Workflowy Sync",
-      "phase": "Phase III",
-      "status": "Pending",
-      "due_date": "2026-08-12",
-      "code": "80.V0B-S3",
-      "title": "Stop Trying to Fix Stress Backward (Fuel, Move, Rest First)"
-    },
-    {
-      "task_name": "Phase III: Workflowy Sync",
-      "phase": "Phase III",
-      "status": "Pending",
-      "due_date": "2026-08-12",
-      "code": "80.V0A-S1",
-      "title": "The Biological Reason Monday Resolutions Always Fail"
-    },
-    {
-      "task_name": "Phase III: Workflowy Sync",
-      "phase": "Phase III",
-      "status": "Pending",
-      "due_date": "2026-08-12",
-      "code": "80.V0A-S2",
-      "title": "The Exact Biological Sequence Your Body Needs to Change"
-    },
-    {
-      "task_name": "Phase III: Workflowy Sync",
-      "phase": "Phase III",
-      "status": "Pending",
-      "due_date": "2026-08-12",
-      "code": "80.V0A-S3",
-      "title": "Stop Treating Your Health Like an Emergency Room"
-    },
-    {
-      "task_name": "Phase III: Workflowy Sync",
-      "phase": "Phase III",
-      "status": "Pending",
-      "due_date": "2026-08-12",
-      "code": "80.V1B1-S2",
-      "title": "How do the Joints in your Body Stay Healthy? - Its not good bloodflow."
-    },
-    {
-      "task_name": "Phase III: Workflowy Sync",
-      "phase": "Phase III",
-      "status": "Pending",
-      "due_date": "2026-08-12",
-      "code": "80.V1B1-S3",
-      "title": "Cortical Smudging: A reason for Sudden Back Pain #backpain #tips"
-    },
-    {
-      "task_name": "Phase III: Workflowy Sync",
-      "phase": "Phase III",
-      "status": "Pending",
-      "due_date": "2026-08-12",
-      "code": "80.V0A1-S1",
-      "title": "Why Relying on Willpower Guarantees Physical Burnout"
-    },
-    {
-      "task_name": "Phase III: Workflowy Sync",
-      "phase": "Phase III",
-      "status": "Pending",
-      "due_date": "2026-08-12",
-      "code": "80.V0A1-S2",
-      "title": "The Level 1 FMR Baseline Every Body Needs to Master"
-    },
-    {
-      "task_name": "Phase III: Workflowy Sync",
-      "phase": "Phase III",
-      "status": "Pending",
-      "due_date": "2026-08-12",
-      "code": "80.V0A1-S3",
-      "title": "The 3-Tier Health Pyramid That Fixes Chronic Fatigue"
-    }
-  ],
+  "open_tasks": [],
   "stats_48h": {
-    "views": 9776,
-    "vph": 1.3287096049541784,
-    "likes": 148,
-    "comments": 12
+    "views": 0,
+    "vph": 0.0,
+    "likes": 0,
+    "comments": 0
   },
   "stats_7d": {
-    "views": 9776,
-    "likes": 148,
+    "views": 0,
+    "likes": 0,
     "avg_ctr": 0.0,
-    "comments": 12
+    "comments": 0
   },
   "stats_28d": {
-    "views": 9776,
-    "likes": 148,
+    "views": 0,
+    "likes": 0,
     "subs": 0,
     "avg_ctr": 0.0
   },
   "stats_all_time": {
-    "views": 9776,
-    "likes": 148,
-    "comments": 12,
+    "views": 0,
+    "likes": 0,
+    "comments": 0,
     "subs": 0
   },
-  "top_10_outliers": [
-    {
-      "video_number": "004",
-      "code": "80.V0A1",
-      "title": "Systemized OS Framework: The 3-Tier Health Pyramid",
-      "format_type": "Long",
-      "views": 0,
-      "vph": 0.0,
-      "ctr_pct": 0.0,
-      "outlier_score": 0.0,
-      "vidiq_score": 0.0
-    },
-    {
-      "video_number": "008",
-      "code": "80.V0A-S1",
-      "title": "The Biological Reason Monday Resolutions Always Fail",
-      "format_type": "Short",
-      "views": 0,
-      "vph": 0.0,
-      "ctr_pct": 0.0,
-      "outlier_score": 0.0,
-      "vidiq_score": 0.0
-    },
-    {
-      "video_number": "009",
-      "code": "80.V0A-S2",
-      "title": "The Exact Biological Sequence Your Body Needs to Change",
-      "format_type": "Short",
-      "views": 0,
-      "vph": 0.0,
-      "ctr_pct": 0.0,
-      "outlier_score": 0.0,
-      "vidiq_score": 0.0
-    },
-    {
-      "video_number": "010",
-      "code": "80.V0A-S3",
-      "title": "Stop Treating Your Health Like an Emergency Room",
-      "format_type": "Short",
-      "views": 0,
-      "vph": 0.0,
-      "ctr_pct": 0.0,
-      "outlier_score": 0.0,
-      "vidiq_score": 0.0
-    },
-    {
-      "video_number": "012",
-      "code": "80.V1B1-S2",
-      "title": "How do the Joints in your Body Stay Healthy? - Its not good bloodflow.",
-      "format_type": "Short",
-      "views": 0,
-      "vph": 0.0,
-      "ctr_pct": 0.0,
-      "outlier_score": 0.0,
-      "vidiq_score": 0.0
-    },
-    {
-      "video_number": "013",
-      "code": "80.V1B1-S3",
-      "title": "Cortical Smudging: A reason for Sudden Back Pain #backpain #tips",
-      "format_type": "Short",
-      "views": 0,
-      "vph": 0.0,
-      "ctr_pct": 0.0,
-      "outlier_score": 0.0,
-      "vidiq_score": 0.0
-    },
-    {
-      "video_number": "014",
-      "code": "80.V0A1-S1",
-      "title": "Why Relying on Willpower Guarantees Physical Burnout",
-      "format_type": "Short",
-      "views": 0,
-      "vph": 0.0,
-      "ctr_pct": 0.0,
-      "outlier_score": 0.0,
-      "vidiq_score": 0.0
-    },
-    {
-      "video_number": "015",
-      "code": "80.V0A1-S2",
-      "title": "The Level 1 FMR Baseline Every Body Needs to Master",
-      "format_type": "Short",
-      "views": 0,
-      "vph": 0.0,
-      "ctr_pct": 0.0,
-      "outlier_score": 0.0,
-      "vidiq_score": 0.0
-    },
-    {
-      "video_number": "016",
-      "code": "80.V0A1-S3",
-      "title": "The 3-Tier Health Pyramid That Fixes Chronic Fatigue",
-      "format_type": "Short",
-      "views": 0,
-      "vph": 0.0,
-      "ctr_pct": 0.0,
-      "outlier_score": 0.0,
-      "vidiq_score": 0.0
-    },
-    {
-      "video_number": "H001",
-      "code": "HIST.L01",
-      "title": "The Biological Reality of GLP-1: Fuel vs. Motivation",
-      "format_type": "Long",
-      "views": 48,
-      "vph": 0.012779552715654952,
-      "ctr_pct": 0.0,
-      "outlier_score": 0.0,
-      "vidiq_score": 0.0
-    }
-  ]
+  "top_10_outliers": []
 }
