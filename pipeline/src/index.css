@@ -38,6 +38,7 @@
   .badge-edit { background-color: #3b0764; color: #d8b4fe; }
   .badge-uploaded { background-color: #082f49; color: #7dd3fc; }
   .badge-published { background-color: #064e3b; color: #6ee7b7; }
+  .badge-cards { background-color: #2e1065; color: #c4b5fd; border: 1px solid #5b21b6; }
 }
 
 * {
@@ -141,6 +142,7 @@ p {
 .badge-edit { background-color: #f3e8ff; color: #7e22ce; }
 .badge-uploaded { background-color: #e0f2fe; color: #0369a1; }
 .badge-published { background-color: #d1fae5; color: #047857; }
+.badge-cards { background-color: #ede9fe; color: #6d28d9; border: 1px solid #ddd6fe; }
 
 /* Dashboard Layout */
 .dashboard-grid {

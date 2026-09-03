@@ -17,3 +17,4 @@ database/*.db
 
 # Supabase backups — large JSON dumps excluded, CSVs tracked
 backups/*_backup.json
+supabase/.temp/

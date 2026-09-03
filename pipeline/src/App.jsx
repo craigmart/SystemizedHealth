@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { supabase } from './supabase';
-import { Calendar, CheckSquare, AlertCircle, RefreshCw, ChevronLeft, Save, Tag, TrendingUp, Clock, FileVideo, Scissors, Film, X, ExternalLink, BarChart2, LayoutDashboard, Eye, Users, Award, Flame } from 'lucide-react';
+import { Calendar, CheckSquare, AlertCircle, RefreshCw, ChevronLeft, Save, Tag, TrendingUp, Clock, FileVideo, Scissors, Film, X, ExternalLink, BarChart2, LayoutDashboard, Eye, Users, Award, Flame, BookOpen, Check } from 'lucide-react';
 import { addDays, isBefore, parseISO, differenceInDays } from 'date-fns';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -44,6 +44,8 @@ const STATUS_OPTIONS = ['#idea', '#write', '#film', '#edit', '#uploaded', '#publ
 
 function App() {
   const [videos, setVideos] = useState([]);
+  const [videoPaths, setVideoPaths] = useState({});
+  const [actionFilter, setActionFilter] = useState('all');
   const [loading, setLoading] = useState(true);
   const [currentVideo, setCurrentVideo] = useState(null);
   const [metricModal, setMetricModal] = useState(null);
@@ -72,7 +74,39 @@ function App() {
     if (supabase) {
       fetchVideos();
     }
+    fetch('/video_paths.json')
+      .then(res => res.json())
+      .then(data => {
+        if (data) setVideoPaths(data);
+      })
+      .catch(console.error);
   }, []);
+
+  const getObsidianUri = (code) => {
+    const p = videoPaths[code];
+    if (p) {
+      return `obsidian://open?vault=SystemizedHealth_Vault&file=${encodeURIComponent(p)}`;
+    }
+    return `obsidian://search?vault=SystemizedHealth_Vault&query=${encodeURIComponent(`"${code}"`)}`;
+  };
+
+  const handleMarkCardsDone = async (e, video) => {
+    e.stopPropagation();
+    try {
+      const { error } = await supabase
+        .from('videos')
+        .update({ cards_created: true })
+        .eq('video_number', video.video_number);
+
+      if (error) {
+        alert("Error marking cards complete: " + error.message);
+      } else {
+        fetchVideos();
+      }
+    } catch (err) {
+      console.error("Error updating cards_created:", err);
+    }
+  };
 
   if (!supabase) {
     return (
@@ -107,6 +141,10 @@ function App() {
     if (!v.drop_date) return false;
     const dropDate = parseISO(v.drop_date);
     return (isBefore(dropDate, draftTarget) && (v.status === '#idea' || v.status === '#write'));
+  }).sort(sortByDropDate);
+
+  const needsCards = videos.filter(v => {
+    return v.status === '#published' && !v.cards_created && !v.code?.startsWith('HIST');
   }).sort(sortByDropDate);
 
   const getStatusBadge = (status) => {
@@ -148,7 +186,55 @@ function App() {
     setMetricModal({ title, videos: videoList.sort(sortByDropDate) });
   };
 
-  const renderDashboard = () => (
+  const renderDashboard = () => {
+    const cardActionItems = needsCards.map(v => ({
+      video: v,
+      type: 'cards',
+      code: v.code,
+      title: v.title,
+      drop_date: v.drop_date,
+      badgeText: 'Review for main cards',
+      badgeClass: 'badge-cards',
+      message: 'Read OB file & migrate ideas to 3x5 cards'
+    }));
+
+    const publishActionItems = needsPublishing.map(v => ({
+      video: v,
+      type: 'publish',
+      code: v.code,
+      title: v.title,
+      drop_date: v.drop_date,
+      badgeText: 'Due Soon',
+      badgeClass: 'badge-film',
+      message: `Due in < 21 days! (Drop: ${v.drop_date})`
+    }));
+
+    const draftActionItems = needsDrafting.map(v => ({
+      video: v,
+      type: 'draft',
+      code: v.code,
+      title: v.title,
+      drop_date: v.drop_date,
+      badgeText: 'Needs Draft',
+      badgeClass: 'badge-write',
+      message: `Needs Audio Draft (Drop: ${v.drop_date})`
+    }));
+
+    let filteredActionItems = [];
+    if (actionFilter === 'cards') {
+      filteredActionItems = cardActionItems;
+    } else if (actionFilter === 'drafts') {
+      filteredActionItems = draftActionItems;
+    } else if (actionFilter === 'publish') {
+      filteredActionItems = publishActionItems;
+    } else {
+      // 'all': Priority is publishing urgency, then main card reviews, then drafts
+      filteredActionItems = [...publishActionItems, ...cardActionItems, ...draftActionItems];
+    }
+
+    const displayActionItems = filteredActionItems.slice(0, 10);
+
+    return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
       {/* Metrics Bar */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '0.75rem' }}>
@@ -183,8 +269,8 @@ function App() {
         </div>
 
         <div className="card" onClick={() => openModal('Editing', editingVideos)} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.75rem 1rem', cursor: 'pointer' }}>
-          <div style={{ width: '36px', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <img src="/favicon.png" alt="Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+          <div style={{ backgroundColor: '#7e22ce', color: '#fff', padding: '0.5rem', borderRadius: '50%', display: 'flex' }}>
+            <Clock size={20} />
           </div>
           <div>
             <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Editing</div>
@@ -192,7 +278,7 @@ function App() {
           </div>
         </div>
 
-        <div className="card" onClick={() => openModal('All Videos', videos)} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.75rem 1rem', cursor: 'pointer' }}>
+        <div className="card" onClick={() => openModal('All Scheduled Videos', videos.filter(v => v.drop_date))} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.75rem 1rem', cursor: 'pointer' }}>
           <div style={{ backgroundColor: 'var(--accent-color)', color: '#fff', padding: '0.5rem', borderRadius: '50%', display: 'flex' }}>
             <FileVideo size={20} />
           </div>
@@ -233,33 +319,145 @@ function App() {
         </div>
 
         <div className="card">
-          <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
-            <AlertCircle size={20} color="var(--danger-color)" /> Action Items
-          </h2>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1rem' }}>
+            <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', margin: 0 }}>
+              <AlertCircle size={20} color="var(--danger-color)" /> Action Items (Next 10)
+            </h2>
+            <div style={{ display: 'flex', gap: '0.25rem', background: 'var(--bg-color)', padding: '0.2rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', fontSize: '0.75rem' }}>
+              <button
+                type="button"
+                className="btn"
+                style={{
+                  padding: '0.2rem 0.5rem',
+                  fontSize: '0.75rem',
+                  borderRadius: '4px',
+                  backgroundColor: actionFilter === 'all' ? 'var(--surface-color)' : 'transparent',
+                  color: actionFilter === 'all' ? 'var(--text-primary)' : 'var(--text-secondary)',
+                  fontWeight: actionFilter === 'all' ? '600' : 'normal',
+                  boxShadow: actionFilter === 'all' ? 'var(--shadow-sm)' : 'none'
+                }}
+                onClick={() => setActionFilter('all')}
+              >
+                All
+              </button>
+              <button
+                type="button"
+                className="btn"
+                style={{
+                  padding: '0.2rem 0.5rem',
+                  fontSize: '0.75rem',
+                  borderRadius: '4px',
+                  backgroundColor: actionFilter === 'cards' ? '#8b5cf6' : 'transparent',
+                  color: actionFilter === 'cards' ? '#fff' : 'var(--text-secondary)',
+                  fontWeight: actionFilter === 'cards' ? '600' : 'normal'
+                }}
+                onClick={() => setActionFilter('cards')}
+              >
+                🗂️ Cards ({needsCards.length})
+              </button>
+              <button
+                type="button"
+                className="btn"
+                style={{
+                  padding: '0.2rem 0.5rem',
+                  fontSize: '0.75rem',
+                  borderRadius: '4px',
+                  backgroundColor: actionFilter === 'drafts' ? '#b45309' : 'transparent',
+                  color: actionFilter === 'drafts' ? '#fff' : 'var(--text-secondary)',
+                  fontWeight: actionFilter === 'drafts' ? '600' : 'normal'
+                }}
+                onClick={() => setActionFilter('drafts')}
+              >
+                🎙️ Drafts ({needsDrafting.length})
+              </button>
+              <button
+                type="button"
+                className="btn"
+                style={{
+                  padding: '0.2rem 0.5rem',
+                  fontSize: '0.75rem',
+                  borderRadius: '4px',
+                  backgroundColor: actionFilter === 'publish' ? 'var(--danger-color)' : 'transparent',
+                  color: actionFilter === 'publish' ? '#fff' : 'var(--text-secondary)',
+                  fontWeight: actionFilter === 'publish' ? '600' : 'normal'
+                }}
+                onClick={() => setActionFilter('publish')}
+              >
+                ⚡ Publish ({needsPublishing.length})
+              </button>
+            </div>
+          </div>
+
           <div className="videos-list">
-            {[...new Set([...needsPublishing, ...needsDrafting])].sort(sortByDropDate).slice(0, 10).map(v => {
-              const isPublishUrgent = needsPublishing.includes(v);
-              const message = isPublishUrgent
-                ? `Due in < 21 days! (Drop: ${v.drop_date})`
-                : `Needs Audio Draft (Drop: ${v.drop_date})`;
-              const borderStyle = isPublishUrgent
-                ? { borderLeft: '3px solid var(--danger-color)', cursor: 'pointer' }
-                : { cursor: 'pointer' };
+            {displayActionItems.map(item => {
+              const borderLeftColor = item.type === 'cards' 
+                ? '#8b5cf6' 
+                : item.type === 'publish' 
+                ? 'var(--danger-color)' 
+                : 'var(--warning-color)';
 
               return (
-                <div key={v.code} className="video-item" style={borderStyle} onClick={() => setCurrentVideo(v)}>
+                <div
+                  key={`${item.type}-${item.code}`}
+                  className="video-item"
+                  style={{ borderLeft: `4px solid ${borderLeftColor}`, cursor: 'pointer', transition: 'all 0.15s ease' }}
+                  onClick={() => setCurrentVideo(item.video)}
+                >
                   <div className="video-header">
-                    <strong>{v.code}: {v.title}</strong>
-                    {getStatusBadge(v.status)}
+                    <strong>{item.code}: {item.title}</strong>
+                    <span className={`badge ${item.badgeClass}`}>{item.badgeText}</span>
                   </div>
-                  <div className="video-meta">
-                    <span>{message}</span>
+                  <div className="video-meta" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '0.35rem', flexWrap: 'wrap', gap: '0.5rem' }}>
+                    <span>{item.message}</span>
+                    {item.type === 'cards' && (
+                      <div style={{ display: 'flex', gap: '0.4rem', alignItems: 'center', marginLeft: 'auto' }}>
+                        <a
+                          href={getObsidianUri(item.code)}
+                          onClick={e => e.stopPropagation()}
+                          className="btn btn-outline"
+                          style={{
+                            padding: '0.2rem 0.5rem',
+                            fontSize: '0.75rem',
+                            borderRadius: 'var(--radius-sm)',
+                            textDecoration: 'none',
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '0.3rem'
+                          }}
+                          title="Open script in Obsidian"
+                        >
+                          <ExternalLink size={12} /> Read OB
+                        </a>
+                        <button
+                          type="button"
+                          onClick={e => handleMarkCardsDone(e, item.video)}
+                          className="btn"
+                          style={{
+                            padding: '0.2rem 0.6rem',
+                            fontSize: '0.75rem',
+                            borderRadius: 'var(--radius-sm)',
+                            backgroundColor: '#8b5cf6',
+                            color: '#fff',
+                            border: 'none',
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '0.3rem',
+                            cursor: 'pointer'
+                          }}
+                          title="Log cards completed in database"
+                        >
+                          <Check size={12} /> Cards Done
+                        </button>
+                      </div>
+                    )}
                   </div>
                 </div>
               );
             })}
-            {needsDrafting.length === 0 && needsPublishing.length === 0 && (
-              <p>You are ahead of schedule! 🎉</p>
+            {displayActionItems.length === 0 && (
+              <p style={{ padding: '1rem', textAlign: 'center', color: 'var(--text-secondary)' }}>
+                You are ahead of schedule! No action items pending. 🎉
+              </p>
             )}
           </div>
         </div>
@@ -297,6 +495,7 @@ function App() {
       )}
     </div>
   );
+};
 
   return (
     <div className="container">
@@ -451,6 +650,61 @@ function VideoDetail({ video, onUpdate }) {
       </div>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+
+        {/* 3x5 Cards Section for Published Videos */}
+        {localVideo.status === '#published' && (
+          <div style={{
+            backgroundColor: localVideo.cards_created ? 'rgba(16, 185, 129, 0.08)' : 'rgba(139, 92, 246, 0.08)',
+            border: `1px solid ${localVideo.cards_created ? 'var(--success-color)' : '#8b5cf6'}`,
+            borderRadius: 'var(--radius-md)',
+            padding: '1rem 1.25rem',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: '1rem',
+            flexWrap: 'wrap'
+          }}>
+            <div>
+              <div style={{ fontWeight: '600', display: 'flex', alignItems: 'center', gap: '0.5rem', color: localVideo.cards_created ? 'var(--success-color)' : '#8b5cf6' }}>
+                <BookOpen size={18} />
+                {localVideo.cards_created ? '3x5 Main Cards Created' : 'Review for Main Cards'}
+              </div>
+              <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginTop: '0.25rem' }}>
+                {localVideo.cards_created 
+                  ? 'Key propositions have been reviewed and migrated to physical 3x5 cards.' 
+                  : 'Read the Obsidian script and transfer key propositions to your physical 3x5 index cards.'}
+              </div>
+            </div>
+            <button
+              type="button"
+              className="btn"
+              style={{
+                backgroundColor: localVideo.cards_created ? 'transparent' : '#8b5cf6',
+                borderColor: localVideo.cards_created ? 'var(--success-color)' : '#7c3aed',
+                color: localVideo.cards_created ? 'var(--success-color)' : '#fff',
+                border: `1px solid ${localVideo.cards_created ? 'var(--success-color)' : '#7c3aed'}`,
+                whiteSpace: 'nowrap',
+                cursor: 'pointer'
+              }}
+              onClick={async () => {
+                const nextVal = !localVideo.cards_created;
+                const { error } = await supabase
+                  .from('videos')
+                  .update({ cards_created: nextVal })
+                  .eq('video_number', localVideo.video_number);
+
+                if (error) alert("Error updating cards: " + error.message);
+                else {
+                  setLocalVideo(prev => ({ ...prev, cards_created: nextVal }));
+                  onUpdate();
+                }
+              }}
+            >
+              <Check size={16} />
+              {localVideo.cards_created ? 'Cards Done (Click to Undo)' : 'Mark Cards Done'}
+            </button>
+          </div>
+        )}
 
         {/* Agent Message Box */}
         <div>
