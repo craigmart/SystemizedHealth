@@ -248,7 +248,7 @@ At the start of every session, run:
 python3 scripts/tidycal_sync.py          # Pull new TidyCal bookings
 python3 scripts/sync_agreements.py       # Pull Google Form agreements
 python3 scripts/client_db_manager.py --doc  # Refresh Client_Onboarding_Status.md
-python3 scripts/sync_obsidian_tags.py       # Detect manual tag changes and sync to Supabase
+python3 scripts/sync_obsidian_tags.py       # Sync authoritative App/database statuses down to Obsidian Vault tags
 python3 scripts/video_pipeline.py --cache   # Refresh video_pipeline_cache.json
 ```
 
