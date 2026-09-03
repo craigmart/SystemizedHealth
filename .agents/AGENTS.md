@@ -51,7 +51,7 @@ Whenever Dr. Anderson says *"I have a new audio script for [Code/Folder]"*, prov
    - Consolidated single spoken paragraph per clip (no sentence bullets).
    - Bracketed performance/delivery cues (`[breath]`, `[pause]`, `[gesture]`, `[tone shift]`, `[eye contact shift]`).
    - Official CTA standard (`call.systemizedhealth.com`).
-   - Writing Guardrails (no AI jargon, no em dashes).
+   - Writing Guardrails (no AI jargon, no em dashes, no hashtags in filenames).
 5. **Pipeline Auto-Advance**: Advance video status to `Ready to Film` in Supabase/SQLite, and refresh `docs/video_pipeline_cache.json`, `docs/Video_Pipeline_Status.md`, [`Drop_Schedule.md`](file:///Users/craiganderson/Developer/SystemizedHealth/Drop_Schedule.md), and `TODO.md`.
    - **Dashboard Update**: Whenever a script is polished and pushed to the `#film` queue, you MUST copy the entire formatted teleprompter script (from Section 3) and append the snippets to the bottom of the `Obsidian_Vault/_Filming_Dashboard.md` file under the `## 📜 Script Snippets` section.
    - **Terminal Execution**: Run the terminal command to advance the status to `#film` AND clear the `agent_message` field via the `--add` parameter (e.g., `python3 scripts/video_pipeline.py --status 80.V1A '#film' --add '{"video_number":"TBD","code":"80.V1A","format_type":"Long","title":"[Title]","agent_message":""}'`) on behalf of Dr. Anderson.

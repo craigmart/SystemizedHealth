@@ -85,7 +85,8 @@ function App() {
   const getObsidianUri = (code) => {
     const p = videoPaths[code];
     if (p) {
-      return `obsidian://open?vault=SystemizedHealth_Vault&file=${encodeURIComponent(p)}`;
+      const encoded = p.split('/').map(encodeURIComponent).join('/');
+      return `obsidian://open?vault=SystemizedHealth_Vault&file=${encoded}`;
     }
     return `obsidian://search?vault=SystemizedHealth_Vault&query=${encodeURIComponent(`"${code}"`)}`;
   };
@@ -758,7 +759,7 @@ function VideoDetail({ video, onUpdate }) {
 
           <a
             href={videoPath 
-              ? `obsidian://open?vault=SystemizedHealth_Vault&file=${encodeURIComponent(videoPath)}` 
+              ? `obsidian://open?vault=SystemizedHealth_Vault&file=${videoPath.split('/').map(encodeURIComponent).join('/')}` 
               : `obsidian://search?vault=SystemizedHealth_Vault&query=${encodeURIComponent(`"${localVideo.code}"`)}`}
             className="btn btn-outline"
             style={{ textDecoration: 'none' }}

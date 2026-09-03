@@ -34,7 +34,13 @@ def get_db():
     return conn
 
 def sanitize_filename(name):
-    return name.replace("/", "-").replace(":", "-").replace("\\", "-").strip()
+    clean = re.sub(r'\s*#[a-zA-Z0-9_-]+', '', name)
+    clean = clean.replace('—', ' - ').replace('–', ' - ')
+    for ch in ['/', ':', '\\', '?', '*', '"', '<', '>', '|']:
+        clean = clean.replace(ch, '-')
+    clean = re.sub(r'\s+', ' ', clean)
+    clean = clean.replace(' - - ', ' - ').strip(' -.')
+    return clean
 
 def fetch_live_videos():
     cfg = load_config()
