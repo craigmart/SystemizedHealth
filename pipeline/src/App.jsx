@@ -405,7 +405,9 @@ function App() {
                 >
                   <div className="video-header">
                     <strong>{item.code}: {item.title}</strong>
-                    <span className={`badge ${item.badgeClass}`}>{item.badgeText}</span>
+                    {item.type !== 'cards' && (
+                      <span className={`badge ${item.badgeClass}`}>{item.badgeText}</span>
+                    )}
                   </div>
                   <div className="video-meta" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '0.35rem', flexWrap: 'wrap', gap: '0.5rem' }}>
                     <span>{item.message}</span>
