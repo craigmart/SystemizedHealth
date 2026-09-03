@@ -324,6 +324,20 @@ class SupabaseClient:
             print(f"[Supabase Error] update_video_status → {e}")
             return None
 
+    def delete_video_by_code(self, code: str) -> bool:
+        """Deletes a video by code. Returns True if successful."""
+        url = f"{self.rest}/videos?code=eq.{urllib.parse.quote(code)}"
+        req = urllib.request.Request(url, method="DELETE")
+        req.add_header("apikey", self.key)
+        req.add_header("Authorization", f"Bearer {self.key}")
+        req.add_header("Prefer", "return=representation")
+        try:
+            with self._opener.open(req) as resp:
+                return True
+        except Exception as e:
+            print(f"[Supabase Error] delete_video_by_code → {e}")
+            return False
+
     # ── video_stats table ────────────────────────────────────────────────────
     def add_video_stats(self, video_id: str, data: dict) -> dict | None:
         """Insert a performance snapshot for a video."""

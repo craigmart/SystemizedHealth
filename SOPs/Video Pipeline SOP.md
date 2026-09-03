@@ -215,6 +215,20 @@ Whenever a video's title or drop schedule is renamed or updated in Supabase:
    ```
    *(This automatically regenerates `docs/video_pipeline_cache.json`, `docs/Video_Pipeline_Status.md`, and `docs/publication_calendar.ics` so that all calendar subscriptions reflect the updated title).*
 
+### Title Changes in YouTube Studio & vidIQ Sync Protocol
+
+When adjusting video titles directly in YouTube Studio (e.g., A/B testing, character limits, or virality tweaks at upload time):
+1. **Reconciliation Hierarchy**: The sync engine (`scripts/sync_published_videos.py` and `scripts/analytics_manager.py`) automatically matches published YouTube videos to pipeline records using this priority:
+   - **Primary Match**: Exact YouTube Video ID (`youtube_id`).
+   - **Secondary Match**: Normalized Title match (handles minor punctuation/casing differences).
+   - **Fallback Match**: Published Drop Date (`drop_date` or `uploaded_date`) + Format Type (`Long` / `Short`).
+2. **Title Ingestion**: Once matched, the live YouTube title automatically updates the database and the Obsidian vault script filename, preserving the canonical video code (e.g., `80.V1A`, `80.V1B1-S1`).
+3. **No Duplicate `HIST.*` Codes**: `HIST.*` codes are strictly frozen and reserved for the legacy pre-August 2026 catalog. The sync engine will **never** spawn a `HIST.*` row for videos published in August 2026 or later. If a title cannot be automatically matched, the script logs a warning so it can be linked to its existing production code rather than generating a duplicate.
+4. **Best Practice**: Whenever a video is uploaded and scheduled in YouTube Studio, paste the YouTube Video ID or link into chat so it can be stamped to the production code immediately via:
+   ```bash
+   python3 scripts/video_pipeline.py --status [Code] '#uploaded' --add '{"video_number":"[num]","code":"[Code]","format_type":"[type]","title":"[Title]","youtube_id":"[YT_ID]"}'
+   ```
+
 ---
 
 ## 7. Agent Protocol

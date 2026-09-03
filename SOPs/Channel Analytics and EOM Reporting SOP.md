@@ -34,6 +34,9 @@ python3 scripts/analytics_manager.py --sync-all
 python3 scripts/generate_analytics_reports.py
 ```
 
+> [!NOTE]
+> `analytics_manager.py --sync-all` reconciles videos against the primary pipeline (`80.*`) using YouTube ID, normalized title, and drop date. It will never create duplicate `HIST.*` rows for videos published August 2026 or later.
+
 ---
 
 ## 3. Weekly Month-to-Date (MTD) Cadence & Pace Projections

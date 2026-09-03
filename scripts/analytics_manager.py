@@ -95,7 +95,7 @@ def sync_vidiq_historical_data():
 
     print(f"  ✅ Retrieved: Total Views={total_views:,}, Subscribers={subscribers}, Long Videos={len(long_videos)}, Shorts={len(short_videos)}")
 
-    def find_matching_video(v_title, v_id, format_type):
+    def find_matching_video(v_title, v_id, format_type, pub_date=None):
         # 1. First check if youtube_id is already assigned to a primary video (video_number not starting with H)
         cursor.execute("SELECT id, video_number, code, title FROM videos WHERE youtube_id = ? AND video_number NOT LIKE 'H%';", (v_id,))
         row = cursor.fetchone()
@@ -115,7 +115,17 @@ def sync_vidiq_historical_data():
             if ("20,000 patients" in v_norm or "230,000 patient" in v_norm) and ("20,000 patients" in r_norm or "230,000 patient" in r_norm):
                 return r_dict
 
-        # 3. Fallback to any existing video with this youtube_id
+        # 3. Fallback: match by publish date and format type for primary pipeline videos
+        if pub_date:
+            cursor.execute("""
+                SELECT id, video_number, code, title FROM videos 
+                WHERE format_type = ? AND (drop_date = ? OR uploaded_date = ?) AND video_number NOT LIKE 'H%';
+            """, (format_type, pub_date, pub_date))
+            date_matches = cursor.fetchall()
+            if len(date_matches) == 1:
+                return dict(date_matches[0])
+
+        # 4. Fallback to any existing video with this youtube_id
         cursor.execute("SELECT id, video_number, code, title FROM videos WHERE youtube_id = ?;", (v_id,))
         row = cursor.fetchone()
         if row:
@@ -132,7 +142,7 @@ def sync_vidiq_historical_data():
         likes = v.get("likeCount", 0)
         comments = v.get("commentCount", 0)
         
-        match = find_matching_video(v["title"], v["videoId"], "Long")
+        match = find_matching_video(v["title"], v["videoId"], "Long", pub_date)
         if match:
             v_id = match["id"]
             v_num = match["video_number"]
@@ -141,6 +151,9 @@ def sync_vidiq_historical_data():
             """, (v["videoId"], pub_date, v_id))
             if sb:
                 sb.update_video_status(v_num, "#uploaded", extra={"youtube_id": v["videoId"], "uploaded_date": pub_date})
+        elif pub_date and pub_date >= "2026-08-01":
+            print(f"⚠️ Unmatched recent Long video '{v['title']}' ({v['videoId']}) published {pub_date}. Skipped creating duplicate HIST row.")
+            continue
         else:
             v_num = f"H{h_idx:03d}"
             code = f"HIST.L{h_idx:02d}"
@@ -179,7 +192,7 @@ def sync_vidiq_historical_data():
         likes = v.get("likeCount", 0)
         comments = v.get("commentCount", 0)
 
-        match = find_matching_video(v["title"], v["videoId"], "Short")
+        match = find_matching_video(v["title"], v["videoId"], "Short", pub_date)
         if match:
             v_id = match["id"]
             v_num = match["video_number"]
@@ -188,6 +201,9 @@ def sync_vidiq_historical_data():
             """, (v["videoId"], pub_date, v_id))
             if sb:
                 sb.update_video_status(v_num, "#uploaded", extra={"youtube_id": v["videoId"], "uploaded_date": pub_date})
+        elif pub_date and pub_date >= "2026-08-01":
+            print(f"⚠️ Unmatched recent Short '{v['title']}' ({v['videoId']}) published {pub_date}. Skipped creating duplicate HIST row.")
+            continue
         else:
             v_num = f"HS{hs_idx:03d}"
             code = f"HIST.S{hs_idx:02d}"
