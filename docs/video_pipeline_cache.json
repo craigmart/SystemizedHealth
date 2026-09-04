@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-04T11:16:24.088010+00:00",
+  "generated": "2026-09-04T11:48:54.660448+00:00",
   "count": 54,
   "videos": [
     {
@@ -532,7 +532,7 @@
       "video_number": "022",
       "code": "80.V1B2-S1",
       "format_type": "Short",
-      "title": "TBD (80.V1B2 Short 1)",
+      "title": "How Do the Discs in Your Spine Stay Healthy? (It's NOT Bloodflow)",
       "description": null,
       "jdex_code": "81.05",
       "os_level": "Level 1: FMR",
@@ -545,10 +545,10 @@
       "vidiq_title_score": 0,
       "notes": null,
       "created_at": "2026-09-01T12:59:25.811589+00:00",
-      "updated_at": "2026-09-04T11:05:04.813705+00:00",
-      "raw_transcript": "Let's talk about why you're bored and exhausted when you binge watch or spend a lot of time looking at a flat screen. So if you're binge watching, well, 1st of all, anything that's good and enjoyable, if you do too much or overdo it, comes a problem. can actually become more of a negative than a positive. Entertainment has a lot of value. Distractions occasionally are good. Constant distractions. Constant entertainment, constant simulation, does have an impact. Well, the impact is on a part of the brain called the amygdala. The amygdala, processes your input. through your all your senses, mostly eyes and ears. and determines if there is a threat, if there are... threatening things. Hmm, I guess we can't get there, huh? So it\u2019s not that binge watching Netflix is a problem. It\u2019s if that\u2019s one of your main activities in life may have some unneeded mental exhaustion something about.",
+      "updated_at": "2026-09-04T11:48:54.053077+00:00",
+      "raw_transcript": "If you have lower back pain, you gotta know something. The discs in your spine between the vertebrae have no blood supply. There's nothing. There's no blood going to the discs. They were created in your body before the cardiovascular system. It's very old tissue. Now what does this mean to you today? Well if you don't have blood to the disks how do they stay healthy?\n\nIt's movement. You have to move. They're like sponges. There's fluid that will go in and out based on movement. If you don't move then there's no fluid going in and out and over the years they'll slowly go downhill. Movement is key. If you don't move as they say \u201cyou lose it.\u201d And that's very true when it comes to the back",
       "agent_message": "",
-      "edit_checklist": null,
+      "edit_checklist": "{\"edit_lut\":true,\"edit_trim\":true,\"edit_clarity\":true,\"edit_subtitles\":true}",
       "rough_outline": "**1. The Hook:**\n\"Why are you still exhausted after a 4-hour Netflix binge?\"\n\n**2. Biological Reframe:**\nBinge-watching keeps your brain in a state of high emotional arousal and sensory processing. You are physically resting your muscles, but your nervous system is processing high-stakes fictional drama as real stress.\n\n**3. Clinical Insight / Study:**\nResearch in the *Journal of Clinical Sleep Medicine (Exelmans & Van den Bulck, 2017)* links binge-viewing to poorer sleep quality, increased pre-sleep arousal, and elevated fatigue the next day.\n\n**4. Actionable Takeaway & CTA:**\nTreat screens like a high-intensity workout for your eyes and brain. You need a cool-down period before sleep. \"Book your free 20-minute Systemized Discovery Call: call.systemizedhealth.com\"",
       "cards_created": false
     },
