@@ -152,9 +152,24 @@ def sync_published_videos():
                 new_file_name = f"{code} Script - {safe_title}.md"
                 new_file_path = VIDEOS_DIR / new_file_name
                 
-                # Read content before renaming
-                with open(file, "r", encoding="utf-8") as f:
-                    content = f.read()
+                # Update YAML frontmatter with views and url
+                m = re.match(r'^---\n(.*?)\n---\n(.*)', content, re.DOTALL)
+                if m:
+                    yaml_body = m.group(1)
+                    rest = m.group(2)
+                    yt_url = f"https://www.youtube.com/watch?v={yt_id}"
+                    
+                    if re.search(r'^views:\s*.*$', yaml_body, re.MULTILINE):
+                        yaml_body = re.sub(r'^views:\s*.*$', f'views: {views}', yaml_body, flags=re.MULTILINE)
+                    else:
+                        yaml_body += f'\nviews: {views}'
+                        
+                    if re.search(r'^url:\s*.*$', yaml_body, re.MULTILINE):
+                        yaml_body = re.sub(r'^url:\s*.*$', f'url: "{yt_url}"', yaml_body, flags=re.MULTILINE)
+                    else:
+                        yaml_body += f'\nurl: "{yt_url}"'
+                        
+                    content = f'---\n{yaml_body.strip()}\n---\n{rest}'
 
                 # Update H1
                 content = re.sub(r"^# .*\n", f"# {code}: {safe_title}\n", content, flags=re.MULTILINE)
