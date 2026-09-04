@@ -46,24 +46,54 @@ This document defines the authoritative operating standard for managing the Syst
 
 ---
 
-## 3. Video Coding Nomenclature
+## 3. Video Coding Nomenclature (Zettelkasten Library Standard)
 
-Video codes (e.g., `80.V1B1`) must align directly with the Systemized OS Framework structure to ensure all content can be mapped backward to its biological origin.
+> [!IMPORTANT]
+> **Videos are coded strictly by TOPIC, NEVER by order of production or drop date.**
+> The video library functions as a **Zettelkasten** (slip-box) archive. Every video code places the content into a permanent topical index so Dr. Anderson can immediately see which topics are well-developed and which are thin.
 
-**Level Prefix:**
-* `V0` = Baseline / Foundation (e.g., `V0A`, `V0B`)
-* `V1` = Level 1 FMR (Fuel, Move, Rest)
-* `V2` = Level 2 TLC (Think, Learn, Connect)
-* `V3` = Level 3 POP (Play, Organize, Purpose)
+### Root Identifier:
+* `80.V` = Systemized Health Video
 
-**Pillar Suffix (Alphabetical Mapping):**
-Within each Level, the alphabet dictates the specific pillar being discussed.
-* **Level 1 (FMR):** A = Fuel, B = Move, C = Rest.
-  * Example: `80.V1B1` = Level 1, Movement, Video 1.
-  * Example: `80.V1C2` = Level 1, Rest, Video 2.
+---
 
-**Short-Form Clips:**
-Short-form clips carved out from a long-form video simply append `-S[Number]` to the parent code (e.g., `80.V1C2-S1`).
+### Master Taxonomy Structure:
+
+* **`80.V0` — Meta Topics**
+  * High-level channel philosophy, Systemized OS architecture, clinical worldview (*e.g., 20,000 Patients Biological Reality, Knowledge vs. Action, Systemized OS Overview*).
+* **`80.V1` — Foundational Framework (FMR)**
+  * `80.V1A` — Fuel, Food & Energy *(Nutrition, hydration, metabolic rate, blood sugar, coffee, cellular energy)*
+  * `80.V1B` — Move & Activity *(Biomechanics, joints, non-exercise movement, spine, fascia, walking)*
+  * `80.V1C` — Rest & Recover *(Sleep architecture, circadian rhythms, nervous system downtime, recovery debt)*
+* **`80.V2` — Inward Framework (TLC)**
+  * `80.V2A` — Think & Process *(Cognitive load, mental clarity, stress calibration, emotional regulation)*
+  * `80.V2B` — Learn & Challenge *(Skill acquisition, intellectual growth, neuroplasticity)*
+  * `80.V2C` — Connect with Creator and Creation *(Spiritual resonance, relational health, environmental connection)*
+* **`80.V3` — Outward Framework (POP)**
+  * `80.V3A` — Play *(Joy, unstructured experimentation, creative expression)*
+  * `80.V3B` — Organize & Goal Setting *(Systems creation, workflow management, habit architecture, anchor habits)*
+  * `80.V3C` — Purpose & Planning *(Long-term life vision, execution, life alignment)*
+* **`80.V4` — Lab Deep Dives**
+  * Advanced clinical diagnostics, biomarker breakdowns, blood panels, lab tests.
+
+---
+
+### Topic Branch Numbering & Shorts:
+
+1. **Sequential Numbers Within Topic Branches**:
+   * Numbering increments within the specific topic leaf:
+     * `80.V1A1` = First video in Fuel
+     * `80.V1A2` = Second video in Fuel (e.g. Coffee)
+     * `80.V1B1` = First video in Movement (Exercise vs. Movement)
+     * `80.V1B2` = Second video in Movement (Joint Health)
+     * `80.V1C1` = First video in Rest (Sleep Debt)
+     * `80.V1C2` = Second video in Rest (Nervous System Recovery)
+2. **Waterfall Shorts (`-S[Number]`)**:
+   * Shorts derived directly from a long-form parent append `-S1`, `-S2`, `-S3` to that parent's code:
+     * Example: `80.V1C2-S1` is the first waterfall short from `80.V1C2`.
+3. **No Misfiling Standalone Topics**:
+   * Standalone videos or shorts must be classified under their biological topic branch, **not** under the general meta bucket or an arbitrary production bundle.
+   * *Example*: A short discussing coffee or hydration belongs in `80.V1A` (e.g., `80.V1A2`), never under `80.V0A`.
 
 ---
 
@@ -121,21 +151,25 @@ python3 scripts/analytics_manager.py --eom 2026-07
 
 ---
 
-## 5. Adding a New Video & Generating Outlines
+## 5. Stage 1 — Ideation & Draft Outlines (Gemini Notebook Bridge)
 
-1. Run `--add` with the required fields: `video_number`, `code`, `format_type`, `title`
-2. Optionally include: `drop_date`, `status`, `jdex_code`, `os_level`, `notes`, `rough_outline`
-   > [!IMPORTANT]
-   > The web App dashboard explicitly looks for the `rough_outline` field to display the Pre-Recording Outline Reference on the video page. You MUST sync your markdown outlines to this field so they are available while recording the audio draft.
-3. Create the local Markdown file: `Obsidian_Vault/Zettlekasten/[Code] Script - [Title].md`
-4. **Generate the Pre-Recording Outline:**
-   The initial Markdown file must contain a `## Outline for Audio Dictation:` section structured with:
-   - **The Hook:** A punchy opening.
-   - **Biological Reframe:** Translating the problem into the FMR framework.
-   - **Clinical Insight / Study:** A credible, real-world biological or psychological study reference.
-   - **Actionable Takeaway & CTA:** A simple step the viewer can take today, ending with the official CTA.
-5. Verify with `python3 scripts/video_pipeline.py --list`
-6. Sync the generated outline text to the Supabase `rough_outline` field so it displays in the App.
+All initial topic ideation, conceptualization, and draft outlines for video production are developed in **Gemini Notebook / NotebookLM** using Dr. Anderson's private archive of 30+ years of lecture transcripts, clinical seminar notes, and research.
+
+See [`SOPs/Gemini Notebook Topic Planning SOP.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/Gemini%20Notebook%20Topic%20Planning%20SOP.md) for the authoritative two-way bridge protocol.
+
+### Step-by-Step Stage 1 Workflow:
+1. **Context Export**: Upload [`docs/CNS_Topic_Trajectory_Brief.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/CNS_Topic_Trajectory_Brief.md), [`SOPs/Systemized OS Framework.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/Systemized%20OS%20Framework.md), and [`SOPs/Writing Voice.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/Writing%20Voice.md) into Gemini Notebook.
+2. **Notebook Synthesis**: Interrogate your transcripts using the targeted prompts in the brief to extract your unique clinical metaphors, autonomic analogies, 3 Long-Form themes, and 9 Waterfall Shorts with draft outlines for each.
+3. **Repo Intake**: Paste the synthesized topics and draft outlines into [`docs/topic_intake.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/topic_intake.md) (or into chat).
+4. **Database & Vault Generation**:
+   - Run `--add` with required fields (`video_number`, `code`, `format_type`, `title`, `drop_date`, `status: '#write'`, `jdex_code`, `os_level`).
+   - Sync the generated draft outline text to the Supabase and SQLite `rough_outline` field so it displays in the web App during recording.
+   - Create local Markdown files: `Obsidian_Vault/Zettlekasten/[Code] Script - [Title].md` containing the `## Outline for Audio Dictation:` section structured with:
+     - **The Hook:** A punchy opening.
+     - **Biological Reframe:** Translating the problem into the FMR/CNS framework.
+     - **Clinical Insight / Analogy:** A credible clinical mechanism or patient metaphor from the transcripts.
+     - **Actionable Takeaway & CTA:** A simple step the viewer can take today, ending with the official CTA.
+5. **Handoff to Dictation**: With status at `#write`, Dr. Anderson reviews the outline (on desktop or in the web App) and records his raw audio dictation riff.
 
 ---
 

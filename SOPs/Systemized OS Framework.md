@@ -48,13 +48,16 @@ graph BT
 *Stands for Think, Learn, Connect.* This level develops mental capacity and emotional calibration. It is only addressed after physical stability is established.
 * **Think and Process**: Cognitive clarity, emotional processing, stress calibration.
 * **Learn and Challenge**: Intellectual growth, skill acquisition, cognitive stimulation.
-* **Connect**: Relational health, social connection, emotional resonance.
+* **Connect with Creator and Creation**: Spiritual resonance, relational health, social connection, and environmental alignment.
 
 ### Level 3: External (POP)
 *Stands for Play, Organize, Purpose.* This level covers engagement with the outer world and environmental interaction. It requires the stability of Level 1 and the processing clarity of Level 2.
 * **Play**: Joy, experimentation, creative expression.
-* **Organize and Goal Setting**: Systems creation, workflow management, strategic goal execution.
+* **Organize and Goal Setting**: Systems creation, workflow management, strategic goal execution, habit architecture.
 * **Purpose and Planning**: Long-term vision, life alignment, actionable planning.
+
+### Level 4: Lab Deep Dives
+Advanced clinical diagnostics, biomarker breakdowns, blood panels, and specialized functional medicine lab testing.
 
 ---
 

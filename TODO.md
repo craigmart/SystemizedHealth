@@ -25,24 +25,15 @@
 ### 🎬 Ready to Film (`#film`) — 1 video
 - [ ] `80.V1A`: *The Biological Cost of Fake Fuel* — Drop: 2026-08-17
 
-### ✍️ In Writing (`#write`) — 14 videos
-*(Scripts exist — awaiting audio dictation or polish)*
-- [ ] `80.V1C1`: *Biological Debt of Sleep* — Drop: 2026-08-31
-- [ ] `80.V1C1-S1`: *Weekend Catch-Up Myth* — Drop: 2026-09-01
-- [ ] `80.V1C1-S2`: *Brain Night Shift* — Drop: 2026-09-03
-- [ ] `80.V1C1-S3`: *Caffeine Illusion* — Drop: 2026-09-05
-- [ ] `80.V1C2`: *Fake Rest vs Nervous System Downtime* — Drop: 2026-09-07
-- [ ] `80.V1C2-S1`: *Netflix Exhaustion* — Drop: 2026-09-08
-- [ ] `80.V1C2-S2`: *Phone Scrolling Cost* — Drop: 2026-09-10
-- [ ] `80.V1C2-S3`: *The Off Switch* — Drop: 2026-09-12
-- [ ] `80.V1C3`: *Digestive Rest and Fasting* — Drop: 2026-09-14
-- [ ] `80.V1C3-S1`: *Energy Cost of Digestion* — Drop: 2026-09-15
-- [ ] `80.V1C3-S2`: *The Maintenance Window* — Drop: 2026-09-17
-- [ ] `80.V1C3-S3`: *Fasting is not a diet* — Drop: 2026-09-19
-- [ ] `80.V1C4`: *Cognitive Load and Ego Depletion* — Drop: 2026-09-21
-- [ ] `80.V1C4-S1`: *Desk Job Exhaustion* — Drop: 2026-09-22
-- [ ] `80.V1C4-S2`: *Decision Fatigue* — Drop: 2026-09-24
-- [ ] `80.V1C4-S3`: *Protecting the Battery* — Drop: 2026-09-26
+### ✍️ In Writing (`#write`) & Ideation (`#idea`)
+- [ ] `80.V1B2`: *Is running good for low back pain* (Long — Level 1 Movement / Pillar B, branch 2)
+*(Weeks of Sep 7, Sep 14, Sep 21 — Active Stage 1 ideation & draft outlines in Gemini Notebook)*
+- [ ] **Stage 1 CNS Ideation & Draft Outlines (Gemini Notebook)**:
+  - Active Brief: [`docs/CNS_Topic_Trajectory_Brief.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/CNS_Topic_Trajectory_Brief.md)
+  - Target Intake: [`docs/topic_intake.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/topic_intake.md)
+  - Week 1 (Drop: 2026-09-07 to 2026-09-12): `80.V1C2` + 3 Waterfall Shorts
+  - Week 2 (Drop: 2026-09-14 to 2026-09-19): `80.V1C3` + 3 Waterfall Shorts
+  - Week 3 (Drop: 2026-09-21 to 2026-09-26): `80.V1C4` + 3 Waterfall Shorts
 
 ---
 

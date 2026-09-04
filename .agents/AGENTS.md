@@ -36,7 +36,16 @@ Whenever writing, scripting, outlining, or generating metadata/descriptions for 
 
 ---
 
-## 4. Stage 2 Teleprompter Script Auto-Processing Protocol
+## 4. Stage 1 Ideation & Draft Outline Protocol (Gemini Notebook Bridge)
+All initial topic ideation, conceptualization, and draft outlines for video production are developed by Dr. Anderson in Gemini Notebook / NotebookLM using his private archive of 30+ years of lecture transcripts, clinical seminar notes, and research.
+- **Authoritative SOP**: [`SOPs/Gemini Notebook Topic Planning SOP.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/Gemini%20Notebook%20Topic%20Planning%20SOP.md).
+- **Active Briefing Doc**: [`docs/CNS_Topic_Trajectory_Brief.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/CNS_Topic_Trajectory_Brief.md) (uploaded alongside `SOPs/Writing Voice.md` and `SOPs/Systemized OS Framework.md`).
+- **Ingestion**: When Dr. Anderson pastes the synthesized topics and draft outlines (via chat or [`docs/topic_intake.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/topic_intake.md)), the agent immediately scores titles with vidIQ, assigns Johnny Decimal (JDex) codes, seeds Supabase/SQLite (including the `rough_outline` field for the App), and scaffolds the markdown outline files in `Obsidian_Vault/Zettlekasten/`.
+- **Handoff to Dictation**: Dr. Anderson uses these draft outlines to record his raw audio dictation riffs, which then triggers the Stage 2 protocol below.
+
+---
+
+## 5. Stage 2 Teleprompter Script Auto-Processing Protocol
 Whenever Dr. Anderson says *"I have a new audio script for [Code/Folder]"*, provides a raw dictation transcript in chat, or pastes the transcript into the Obsidian video file with the tag `#audiodraft`:
 1. **Interpret Audio as a Brainstorming Draft**: The raw audio dictation is a conceptual baseline containing the core propositions to cover, *not* a rigid word-for-word script. 
 2. **Save Raw Transcript**: Append the raw spoken dictation text to the bottom of the main script file (`Obsidian_Vault/Zettlekasten/[Code] Script - [Title].md`) under a `## Raw Audio Draft Transcript (Reference)` header. Do NOT create a separate file.
@@ -58,14 +67,14 @@ Whenever Dr. Anderson says *"I have a new audio script for [Code/Folder]"*, prov
 
 ---
 
-## 5. "Agent Comments" Source Directive
+## 6. "Agent Comments" Source Directive
 Whenever Dr. Anderson says to "look for agent comments" or similar phrasing, it **always** refers to the `agent_message` field in the video pipeline database (Supabase). Do not search Obsidian documents, TODOs, or local source code files for these comments.
 - Read from the local cache via `docs/video_pipeline_cache.json`.
 - If the cache is stale or missing the recent comment, prompt Dr. Anderson to run `python3 scripts/video_pipeline.py --cache` to pull the latest updates.
 
 ---
 
-## 6. Changelog & Agent Action Logging
+## 7. Changelog & Agent Action Logging
 When Dr. Anderson leaves an action or comment in the `agent_message` field and you (the agent) process it, or if you make any state changes to a script (e.g., `#film` to `#edit`), you MUST append a timestamped log to the bottom of the corresponding Obsidian video script page under a `## Changelog` header. 
 - Example: `- [2026-08-23] Processed dictation and generated Stage 2 script.`
 - Example: `- [2026-08-23] Status updated to #edit (Filming complete).`

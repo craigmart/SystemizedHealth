@@ -60,7 +60,7 @@ This document tracks all external software platforms, web applications, database
   3. **Pull Production Status**: AI Technical Editor pulls field tags back into the IDE to verify filming completion and update master pipeline status.
   4. **Zettelkasten Proposition Surfacing**: Clinical propositions extracted from video transcripts are created or updated under the `ZETTELKASTEN` node using the format:
      `[JDex Code] // [Proposition Statement] #Main ([Video Codes])`
-     Example: `72.45 // Gamma motor neurons regulate muscle spindle sensitivity (80.V1, 80.V34)`
+     Example: `72.45 // Gamma motor neurons regulate muscle spindle sensitivity (80.V1B1, 80.V1B2)`
      Execution command: `python scripts/workflowy_sync.py --add-prop --jdex "72.45" --text "[Statement]" --video "[80.V Code]"`. Automatically appends new video codes to existing propositions.
 
 

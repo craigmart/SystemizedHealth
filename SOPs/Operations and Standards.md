@@ -30,18 +30,35 @@ All content blueprints, local media assets, and external integrations adhere str
 
 - **80.05**: [External Resources & Systems Catalog](file:///Users/craiganderson/Library/Mobile%20Documents/com~apple~CloudDocs/SystemizedHealth/SOPs/External%20Resources.md)
 - **80.10**: Operations & Business Standards
-- **80.V0**: [Systemized Health Operating System (OS)](file:///Users/craiganderson/Library/Mobile%20Documents/com~apple~CloudDocs/SystemizedHealth/SOPs/Systemized%20OS%20Framework.md)
-- **Standard Taxonomic Notation**: `80.V[Hierarchy]` (denotes core video assets within the pipeline)
+- **80.V**: Systemized Health Video Library (Zettelkasten Library Taxonomy)
+  - **`80.V0` — Meta Topics**: Systemized OS architecture, 20,000 patients clinical reality, philosophy.
+  - **`80.V1` — Foundational Framework (FMR)**:
+    - `80.V1A` — Fuel, Food & Energy *(Nutrition, hydration, metabolic rate, blood sugar, coffee)*
+    - `80.V1B` — Move & Activity *(Biomechanics, joints, non-exercise movement, spine, walking)*
+      - *Example*: `80.V1B1` (*Exercise is Optional*), `80.V1B2` (*Is running good for low back pain*)
+    - `80.V1C` — Rest & Recover *(Sleep architecture, circadian rhythms, nervous system downtime)*
+  - **`80.V2` — Inward Framework (TLC)**:
+    - `80.V2A` — Think & Process *(Cognitive load, mental clarity, stress calibration)*
+    - `80.V2B` — Learn & Challenge *(Skill acquisition, neuroplasticity)*
+    - `80.V2C` — Connect with Creator and Creation *(Spiritual & relational resonance)*
+  - **`80.V3` — Outward Framework (POP)**:
+    - `80.V3A` — Play *(Joy, unstructured experimentation)*
+    - `80.V3B` — Organize & Goal Setting *(Systems creation, workflow management, anchor habits)*
+    - `80.V3C` — Purpose & Planning *(Long-term vision, execution)*
+  - **`80.V4` — Lab Deep Dives**: Advanced clinical diagnostics, biomarker breakdowns, lab panels.
 
-**Structural Application Examples**: `80.V1` represents the foundational long-form clinical narrative. `80.V1A` indicates a strategic conceptual branch developed directly from the parent video. `80.V1A1` identifies a micro-content short extracted directly from that secondary asset.
+### Topic-Based Zettelkasten Numbering Standard:
+- **Sequential Long Videos**: Increments within the topic leaf (`80.V1B1`, `80.V1B2`, etc.).
+- **Waterfall Shorts**: Append `-S[Number]` to the parent long video (`80.V1B2-S1`, `80.V1B2-S2`, `80.V1B2-S3`).
+- **No Chronological Misfiling**: Content is coded strictly by topic domain, never by drop order.
 
 ### Unified Video Script Architecture
 Every video—regardless of whether it is a long-form video or a short-form video—is managed within a single unified Markdown file located in `Obsidian_Vault/Zettlekasten/`.
 - **Flat Directory**: No nested folders. All scripts live alongside other Zettelkasten notes.
 - **Naming Format**: `[Code] Script - [Title].md`
-  - *Example Long Video*: `80.V0A1 Script - Systemized OS Framework.md`
-  - *Example Short Video*: `80.V0A1-S3 Script - The 3-Tier Health Pyramid.md`
-- **Single Source of Truth File**: The raw audio transcription, hooks, teleprompter script, and final propositions are all contained within this single Markdown file, separated by clear headers.
+  - *Example Long Video*: `80.V1B2 Script - Is running good for low back pain.md`
+  - *Example Short Video*: `80.V1B2-S1 Script - Why Running Can Lock Your Lower Back.md`
+- **Single Source of Truth File**: The pre-recording outline, raw audio transcription, hooks, teleprompter script, and final propositions are all contained within this single Markdown file, separated by clear headers.
 
 ---
 
