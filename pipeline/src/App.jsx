@@ -824,36 +824,36 @@ function AnalyticsSummary() {
   if (loading) return <p>Loading Analytics Dashboard...</p>;
   if (!data) return <p>Failed to load Analytics Summary. Ensure scripts/generate_analytics_reports.py has run successfully.</p>;
 
-  const s_all = data.stats_all_time || {};
+  const s_28d = data.stats_28d || {};
 
   return (
     <div className="analytics-dashboard" style={{ marginTop: '1.5rem' }}>
       
-      {/* Lifetime Performance */}
-      <h2 style={{ fontSize: '1.25rem', marginBottom: '1rem', color: 'var(--text-primary)' }}>✨ Lifetime Performance</h2>
+      {/* 28-Day Performance */}
+      <h2 style={{ fontSize: '1.25rem', marginBottom: '1rem', color: 'var(--text-primary)' }}>📅 28-Day Performance</h2>
       <div className="analytics-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
-        <div className="metric-card" style={{ background: 'linear-gradient(135deg, #1e1e2f 0%, #2a2a40 100%)', border: '1px solid #3d3d5c', padding: '1.5rem', borderRadius: '12px' }}>
+        <div className="metric-card" style={{ background: 'var(--surface-color)', border: '1px solid var(--border-color)', padding: '1.5rem', borderRadius: 'var(--radius-lg)', boxShadow: 'var(--shadow-sm)' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-            <Eye size={16} color="#6366f1" />
-            <span className="metric-label" style={{ color: '#a5b4fc', fontSize: '0.875rem', fontWeight: '600' }}>Lifetime Views</span>
+            <Eye size={16} color="var(--accent-color)" />
+            <span className="metric-label" style={{ color: 'var(--text-secondary)', fontSize: '0.875rem', fontWeight: '600' }}>28-Day Views</span>
           </div>
-          <span className="metric-value" style={{ fontSize: '2rem', color: '#fff', fontWeight: 'bold' }}>{(s_all.views || 0).toLocaleString()}</span>
+          <span className="metric-value" style={{ fontSize: '2rem', color: 'var(--text-primary)', fontWeight: 'bold' }}>{(s_28d.views || 0).toLocaleString()}</span>
         </div>
         
-        <div className="metric-card" style={{ background: 'linear-gradient(135deg, #1e1e2f 0%, #2a2a40 100%)', border: '1px solid #3d3d5c', padding: '1.5rem', borderRadius: '12px' }}>
+        <div className="metric-card" style={{ background: 'var(--surface-color)', border: '1px solid var(--border-color)', padding: '1.5rem', borderRadius: 'var(--radius-lg)', boxShadow: 'var(--shadow-sm)' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
             <ThumbsUp size={16} color="#ec4899" />
-            <span className="metric-label" style={{ color: '#fbcfe8', fontSize: '0.875rem', fontWeight: '600' }}>Lifetime Likes</span>
+            <span className="metric-label" style={{ color: 'var(--text-secondary)', fontSize: '0.875rem', fontWeight: '600' }}>28-Day Likes</span>
           </div>
-          <span className="metric-value" style={{ fontSize: '2rem', color: '#fff', fontWeight: 'bold' }}>{(s_all.likes || 0).toLocaleString()}</span>
+          <span className="metric-value" style={{ fontSize: '2rem', color: 'var(--text-primary)', fontWeight: 'bold' }}>{(s_28d.likes || 0).toLocaleString()}</span>
         </div>
         
-        <div className="metric-card" style={{ background: 'linear-gradient(135deg, #1e1e2f 0%, #2a2a40 100%)', border: '1px solid #3d3d5c', padding: '1.5rem', borderRadius: '12px' }}>
+        <div className="metric-card" style={{ background: 'var(--surface-color)', border: '1px solid var(--border-color)', padding: '1.5rem', borderRadius: 'var(--radius-lg)', boxShadow: 'var(--shadow-sm)' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-            <MessageSquare size={16} color="#10b981" />
-            <span className="metric-label" style={{ color: '#6ee7b7', fontSize: '0.875rem', fontWeight: '600' }}>Lifetime Comments</span>
+            <Users size={16} color="var(--success-color)" />
+            <span className="metric-label" style={{ color: 'var(--text-secondary)', fontSize: '0.875rem', fontWeight: '600' }}>28-Day Subs</span>
           </div>
-          <span className="metric-value" style={{ fontSize: '2rem', color: '#fff', fontWeight: 'bold' }}>{(s_all.comments || 0).toLocaleString()}</span>
+          <span className="metric-value" style={{ fontSize: '2rem', color: 'var(--text-primary)', fontWeight: 'bold' }}>+{(s_28d.subs || 0).toLocaleString()}</span>
         </div>
       </div>
 
@@ -861,18 +861,18 @@ function AnalyticsSummary() {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem', marginTop: '2rem' }}>
         
         {/* Top 10 Shorts */}
-        <div className="top-10-container" style={{ background: 'rgba(255,255,255,0.02)', padding: '1.5rem', borderRadius: '16px' }}>
+        <div className="top-10-container" style={{ background: 'var(--surface-color)', border: '1px solid var(--border-color)', padding: '1.5rem', borderRadius: 'var(--radius-lg)' }}>
           <div className="top-10-header" style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
             <Flame size={24} color="#ff416c" />
-            <h2 style={{ fontSize: '1.25rem', color: '#fff', margin: 0 }}>Top 10 Shorts</h2>
+            <h2 style={{ fontSize: '1.25rem', color: 'var(--text-primary)', margin: 0 }}>Top 10 Shorts</h2>
           </div>
           <div className="top-10-list">
             {(data.top_10_shorts || []).map((v, index) => (
-              <div key={index} className="top-10-item hover-scale" style={{ padding: '0.75rem', background: 'rgba(255,255,255,0.05)', borderRadius: '8px', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '1rem', transition: 'transform 0.2s ease, background 0.2s ease' }}>
-                <span className="top-10-rank" style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#6366f1', width: '30px' }}>#{index + 1}</span>
+              <div key={index} className="top-10-item hover-scale" style={{ padding: '0.75rem', background: 'var(--bg-color)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-md)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '1rem', transition: 'transform 0.2s ease, box-shadow 0.2s ease' }}>
+                <span className="top-10-rank" style={{ fontSize: '1.25rem', fontWeight: 'bold', color: 'var(--accent-color)', width: '30px' }}>#{index + 1}</span>
                 <div style={{ flexGrow: 1, overflow: 'hidden' }}>
-                  <div style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', fontSize: '0.9rem', color: '#fff' }}>{v.title}</div>
-                  <div style={{ fontSize: '0.75rem', color: '#a1a1aa' }}>{(v.views || 0).toLocaleString()} views</div>
+                  <div style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', fontSize: '0.9rem', color: 'var(--text-primary)', fontWeight: '500' }}>{v.title}</div>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>{(v.views || 0).toLocaleString()} views</div>
                 </div>
                 <RankChangeBadge rankChange={v.rank_change} />
               </div>
@@ -882,18 +882,18 @@ function AnalyticsSummary() {
         </div>
 
         {/* Top 10 Longs */}
-        <div className="top-10-container" style={{ background: 'rgba(255,255,255,0.02)', padding: '1.5rem', borderRadius: '16px' }}>
+        <div className="top-10-container" style={{ background: 'var(--surface-color)', border: '1px solid var(--border-color)', padding: '1.5rem', borderRadius: 'var(--radius-lg)' }}>
           <div className="top-10-header" style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
             <TrendingUp size={24} color="#a855f7" />
-            <h2 style={{ fontSize: '1.25rem', color: '#fff', margin: 0 }}>Top 10 Longs</h2>
+            <h2 style={{ fontSize: '1.25rem', color: 'var(--text-primary)', margin: 0 }}>Top 10 Longs</h2>
           </div>
           <div className="top-10-list">
             {(data.top_10_longs || []).map((v, index) => (
-              <div key={index} className="top-10-item hover-scale" style={{ padding: '0.75rem', background: 'rgba(255,255,255,0.05)', borderRadius: '8px', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '1rem', transition: 'transform 0.2s ease, background 0.2s ease' }}>
+              <div key={index} className="top-10-item hover-scale" style={{ padding: '0.75rem', background: 'var(--bg-color)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-md)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '1rem', transition: 'transform 0.2s ease, box-shadow 0.2s ease' }}>
                 <span className="top-10-rank" style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#a855f7', width: '30px' }}>#{index + 1}</span>
                 <div style={{ flexGrow: 1, overflow: 'hidden' }}>
-                  <div style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', fontSize: '0.9rem', color: '#fff' }}>{v.title}</div>
-                  <div style={{ fontSize: '0.75rem', color: '#a1a1aa' }}>{(v.views || 0).toLocaleString()} views</div>
+                  <div style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', fontSize: '0.9rem', color: 'var(--text-primary)', fontWeight: '500' }}>{v.title}</div>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>{(v.views || 0).toLocaleString()} views</div>
                 </div>
                 <RankChangeBadge rankChange={v.rank_change} />
               </div>
