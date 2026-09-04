@@ -26,15 +26,17 @@ sequenceDiagram
     IDE->>User: Generates Trajectory Brief + Packages SOPs
     User->>GN: Uploads Brief, Writing Voice & Systemized OS Framework
 
-    Note over GN: Phase 2: Deep Ideation & Synthesis
+    Note over GN: Phase 2: Deep Ideation & 3x5 Card
     User->>GN: Interrogates 30-year transcripts using targeted prompts
-    GN-->>User: Extracts unique CNS analogies, 3 Longs + 9 Shorts
+    GN-->>User: Extracts unique clinical analogies & mechanisms
+    User->>User: Writes 4-beat outline on physical 3x5 card & records to camera
 
-    Note over User,IDE: Phase 3 & 4: Ingestion & Pipeline Execution
-    User->>IDE: Pastes synthesized topics (via chat or docs/topic_intake.md)
-    IDE->>IDE: Scores titles via live vidIQ engine
-    IDE->>IDE: Assigns JDex codes & updates Supabase/SQLite
-    IDE->>IDE: Generates Obsidian Vault outlines & refreshes drop schedule
+    Note over User,IDE: Phase 3 & 4: Descript Transcript Ingestion & Execution
+    User->>IDE: Pastes exact Descript transcript into App (sets status #edit)
+    IDE->>IDE: Scores titles via live vidIQ engine (target 90+)
+    IDE->>IDE: Archives exact transcript in Obsidian Vault
+    IDE->>IDE: Mines 1-2 clinical propositions to JDex & Workflowy
+    IDE->>IDE: Extracts 3 waterfall shorts segments (-S1, -S2, -S3)
 ```
 
 ---
@@ -86,17 +88,16 @@ Once the topics are refined in Gemini Notebook, Dr. Anderson brings the results 
 
 ## 6. Phase 4: Production Pipeline Execution (Repo Automation)
 
-Upon receiving the intake from Dr. Anderson, the Agent immediately executes the following pipeline sequence:
+Upon receiving the intake or the final Descript transcript from Dr. Anderson, the Agent immediately executes the following pipeline sequence:
 
 1. **Title Optimization & vidIQ Scoring**:
    - Executes `python3 scripts/vidiq_sync.py --score-title "[Title]"` for all proposed long and short titles.
-   - Generates high-CTR title variations (target score: 85–100) adhering strictly to `SOPs/Writing Guidance.md`.
-2. **Knowledge Taxonomy & Metadata Mapping**:
-   - Maps each video to its appropriate Johnny Decimal code in `Obsidian_Vault/JDex/` (e.g., `82 – Neurology`, `42.04 Stress, Anxiety & Depression`, `81.05 Lifestyle Management`).
-   - Assigns official video codes (e.g., `80.V1C2`, `80.V1C2-S1` through `-S3`).
-3. **Database Seeding**:
-   - Updates Supabase and SQLite via `scripts/video_pipeline.py`, updating titles, format types, drop dates, and transitioning status from placeholder to `#write`.
-4. **Vault Generation**:
-   - Creates new Stage 1 outline files in `Obsidian_Vault/Zettlekasten/[Code] Script - [Title].md` with full YAML metadata and rough outline blocks.
-5. **System Refresh**:
-   - Executes `python3 scripts/video_pipeline.py --cache` to sync `Drop_Schedule.md`, `publication_calendar.ics`, and `docs/video_pipeline_cache.json`.
+   - Generates high-CTR title variations (target score: 90–100) adhering strictly to `SOPs/Writing Guidance.md`.
+2. **Obsidian Vault Final Archiving**:
+   - Updates `Obsidian_Vault/Zettlekasten/[Code] Script - [Title].md` to preserve the final transcript under `## Final Spoken Transcript`.
+3. **Zettelkasten Proposition Mining**:
+   - Extracts 1–2 sharp clinical propositions from the spoken text and maps them to their respective Johnny Decimal (JDex) files in `Obsidian_Vault/JDex/` and Workflowy.
+4. **Waterfall Shorts Extraction**:
+   - Isolates the 3 best 30–60 second segments (`-S1`, `-S2`, `-S3`) from the long video transcript, with custom short-form hooks and timestamps for editing.
+5. **Database & Schedule Sync**:
+   - Updates Supabase and SQLite via `scripts/video_pipeline.py`, sets status to `#edit`, and executes `python3 scripts/video_pipeline.py --cache` to sync `Drop_Schedule.md`, `publication_calendar.ics`, and `docs/video_pipeline_cache.json`.

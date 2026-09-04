@@ -62,25 +62,27 @@ Every video—regardless of whether it is a long-form video or a short-form vide
 
 ---
 
-## 4. Production Workflow Phases
+## 4. Production Workflow Phases (The Simplified 3x5 Workflow)
 
-Content creation moves through three distinct phases:
+Content creation moves through two streamlined phases, eliminating teleprompter reading in favor of authentic clinical delivery and high-leverage post-recording automation:
 
-### Phase I: The Raw Input (Dr. Anderson)
-- **Audio Brainstorming**: Dr. Anderson records raw, conversational audio notes using a voice recorder or phone app.
-- **Transcription**: The audio is transcribed and appended to the bottom of the main `[Code] Script - [Title].md` file under a `## Raw Audio Draft Transcript (Reference)` header.
+### Phase I: The 3x5 Card & Direct-to-Camera Filming (Dr. Anderson)
+- **Gemini Notebook Research**: Dr. Anderson mines his clinical lecture archives and transcripts for core analogies and neurological mechanisms.
+- **The 3x5 Card Formulation**: Distills the concept onto a physical 3x5 index card using the 4-Beat Formula:
+  1. *Hook*: Relatable patient friction or myth.
+  2. *Glitch*: The anatomical or neurological mechanism.
+  3. *Analogy*: The clinical teaching metaphor.
+  4. *Protocol & CTA*: Actionable drill/test + `call.systemizedhealth.com`.
+- **Direct-to-Camera Filming**: Dr. Anderson records a personal, unhurried video directly to camera using the card as a mental anchor.
+- **App Logging**: Sets the video status to `#edit` in the web App.
 
-### Phase II: The Editorial Filters (AI Technical Editor / Gemini)
-The Technical Editor reviews the raw audio transcript against three core SOP documents:
-1. **[Writing Guidance SOP](file:///Users/craiganderson/Library/Mobile%20Documents/com~apple~CloudDocs/SystemizedHealth/SOPs/Writing%20Guidance.md)**: Structure, engagement hooks, and pacing.
-2. **[Writing Voice SOP](file:///Users/craiganderson/Library/Mobile%20Documents/com~apple~CloudDocs/SystemizedHealth/SOPs/Writing%20Voice.md)**: Spoken register, clinical tone, and rhythm.
-3. **[Systemized OS Framework SOP](file:///Users/craiganderson/Library/Mobile%20Documents/com~apple~CloudDocs/SystemizedHealth/SOPs/Systemized%20OS%20Framework.md)**: Alignment with Level 1 (FMR), Level 2 (TLC), or Level 3 (POP).
-
-### Phase III: The Final Script & Production
-- **Script Outline Generation**: The Technical Editor drafts the polished teleprompter script directly into the main `.md` file.
-- **Filming Dashboard Sync**: Script snippets are pushed to the `_Filming_Dashboard.md` in Obsidian for mobile access on set.
-- **On-Camera Recording**: Dr. Anderson records on camera using the outline/teleprompter script.
-- **Post-Filming Cleanup**: Once filming is complete (status `#edit` or beyond), the file is cleaned using `scripts/clean_video_script.py`, which strips out redundant YAML tags and brainstorming headers, leaving only the Final Transcript, extracted JDex Propositions, and the Changelog.
+### Phase II: Post-Recording Ingestion & Force Multiplier Suite (AI Technical Editor)
+When Dr. Anderson begins editing in Descript and drops the **final exact spoken transcript** into the web App's `raw_transcript` field:
+1. **vidIQ Title Optimization**: Generates and tests 4–5 title variations with live vidIQ CTR scores (targeting 90+).
+2. **Obsidian Vault Archiving**: Formats `Obsidian_Vault/Zettlekasten/[Code] Script - [Title].md` to preserve the final transcript as a permanent clinical study and reference document under `## Final Spoken Transcript`.
+3. **Zettelkasten Proposition Mining**: Extracts 1–2 sharp clinical propositions from the spoken text and maps them to their respective JDex files in `Obsidian_Vault/JDex/` and Workflowy.
+4. **Waterfall Shorts Extraction**: Identifies the 3 best 30–60 second segments (`-S1`, `-S2`, `-S3`) to cut as waterfall shorts, complete with short-form hooks and editing timestamps.
+5. **Database Sync & Changelog**: Updates Supabase/SQLite, refreshes the local cache, and appends a dated log entry to the script file.
 
 ---
 

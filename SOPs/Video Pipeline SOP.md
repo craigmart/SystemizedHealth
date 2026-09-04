@@ -151,75 +151,54 @@ python3 scripts/analytics_manager.py --eom 2026-07
 
 ---
 
-## 5. Stage 1 — Ideation & Draft Outlines (Gemini Notebook Bridge)
+## 5. Simplified Production Workflow (The 3x5 Card Standard)
 
-All initial topic ideation, conceptualization, and draft outlines for video production are developed in **Gemini Notebook / NotebookLM** using Dr. Anderson's private archive of 30+ years of lecture transcripts, clinical seminar notes, and research.
+Long-form and core videos are produced using Dr. Anderson's streamlined analog-to-camera workflow, eliminating rigid pre-scripting and teleprompter reading in favor of natural, authentic clinical delivery:
 
-See [`SOPs/Gemini Notebook Topic Planning SOP.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/Gemini%20Notebook%20Topic%20Planning%20SOP.md) for the authoritative two-way bridge protocol.
+```
+┌────────────────────────────────────────────────────────┐
+│ [Code] Working Title                                   │
+├────────────────────────────────────────────────────────┤
+│ 1. THE HOOK: Relatable myth, patient fear, or friction │
+│ 2. THE GLITCH: The anatomical/neurological mechanism   │
+│ 3. THE ANALOGY: The clinical teaching metaphor         │
+│ 4. THE PROTOCOL: Actionable test/drill + CTA (call...) │
+└────────────────────────────────────────────────────────┘
+```
 
-### Step-by-Step Stage 1 Workflow:
-1. **Context Export**: Upload [`docs/CNS_Topic_Trajectory_Brief.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/CNS_Topic_Trajectory_Brief.md), [`SOPs/Systemized OS Framework.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/Systemized%20OS%20Framework.md), and [`SOPs/Writing Voice.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/Writing%20Voice.md) into Gemini Notebook.
-2. **Notebook Synthesis**: Interrogate your transcripts using the targeted prompts in the brief to extract your unique clinical metaphors, autonomic analogies, 3 Long-Form themes, and 9 Waterfall Shorts with draft outlines for each.
-3. **Repo Intake**: Paste the synthesized topics and draft outlines into [`docs/topic_intake.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/topic_intake.md) (or into chat).
-4. **Database & Vault Generation**:
-   - Run `--add` with required fields (`video_number`, `code`, `format_type`, `title`, `drop_date`, `status: '#write'`, `jdex_code`, `os_level`).
-   - Sync the generated draft outline text to the Supabase and SQLite `rough_outline` field so it displays in the web App during recording.
-   - Create local Markdown files: `Obsidian_Vault/Zettlekasten/[Code] Script - [Title].md` containing the `## Outline for Audio Dictation:` section structured with:
-     - **The Hook:** A punchy opening.
-     - **Biological Reframe:** Translating the problem into the FMR/CNS framework.
-     - **Clinical Insight / Analogy:** A credible clinical mechanism or patient metaphor from the transcripts.
-     - **Actionable Takeaway & CTA:** A simple step the viewer can take today, ending with the official CTA.
-5. **Handoff to Dictation**: With status at `#write`, Dr. Anderson reviews the outline (on desktop or in the web App) and records his raw audio dictation riff.
+### Production Steps:
+1. **Gemini Notebook Research**: Dr. Anderson reviews research, clinical seminar transcripts, and analogies in Gemini Notebook.
+2. **The 3x5 Index Card**: Dr. Anderson distills the concept onto a physical 3x5 card following the 4-Beat Formula above.
+3. **Direct-to-Camera Filming**: Dr. Anderson records a loosely scripted, highly personal video directly to camera using the card as an anchor.
+4. **App Status Advance**: In the web App, Dr. Anderson sets the video status to `#edit`.
 
 ---
 
-## 6. Stage 2 — Audio Draft → Teleprompter Script
+## 6. Post-Recording Transcript Ingestion & Force Multiplier Protocol
 
-After recording an audio dictation draft, the agent processes it into a polished, teleprompter-ready script. This is triggered by any of the following:
+After filming, when Dr. Anderson begins editing in Descript, he drops the **exact final spoken transcript** into the web App's `raw_transcript` field (or chat/Obsidian). This triggers the Agent's automated post-production suite:
 
-- Dr. Anderson says *"I have a new audio script for [Code]"* and pastes a transcript in chat
-- The transcript is pasted into the Obsidian video file with the tag `#audiodraft`
-- **Dr. Anderson says "run the process" or "pull from the app"** — in this case, the agent reads `raw_transcript` fields directly from the local pipeline cache (`docs/video_pipeline_cache.json`) and processes **all videos that have a populated `raw_transcript`**, regardless of current pipeline status (status is updated as appropriate after scripting)
+### Automated Agent Post-Production Suite:
 
-### Step-by-Step Process
+1. **Title Optimization via vidIQ**:
+   - The Agent analyzes the spoken transcript and scores 4–5 title variations using `scripts/vidiq_sync.py --score-title "[Title]"`, targeting virality scores of 90+ out of 100.
+   - Example:
+     - *Why Running Causes Lower Back Pain (And How to Fix It)* — **vidIQ: 96**
+     - *Is Running Good for Lower Back Pain? (What Actually Happens to Your Spine)* — **vidIQ: 93**
 
-1. **Interpret as Brainstorming Draft**: The raw audio dictation is a conceptual baseline containing the core propositions to cover — not a rigid word-for-word script.
+2. **Obsidian Vault Archiving**:
+   - Formats `Obsidian_Vault/Zettlekasten/[Code] Script - [Title].md` to preserve the final transcript as a permanent clinical study and reference document.
+   - YAML frontmatter contains `#video`, `#edit`, `drop_date`, and full JDex topic links (e.g., `[[81.05 Lifestyle Management]]`).
+   - Injects the exact transcript under `## Final Spoken Transcript`.
 
-2. **Save Raw Transcript**: Append the raw spoken dictation text to the bottom of the main script file (`Obsidian_Vault/Zettlekasten/[Code] Script - [Title].md`) under a `## Raw Audio Draft Transcript (Reference)` header. Do NOT create a separate file.
+3. **Zettelkasten Proposition Mining**:
+   - The Agent extracts 1–2 sharp, authoritative clinical propositions from the spoken words and indexes them to the appropriate JDex category in `Obsidian_Vault/JDex/` and Workflowy.
 
-3. **Draft for Review — Implementation Plan First**: Transform the raw dictation into a polished teleprompter-ready script. Actively edit for pacing, flow, and story arc. Remove filler, tighten sentences, and strictly adhere to Dr. Anderson's established writing voice and guardrails as defined in [`SOPs/Writing Voice.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/Writing%20Voice.md) and [`SOPs/Writing Guidance.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/Writing%20Guidance.md).
-   > [!IMPORTANT]
-   > **Always present the drafted script hooks and clips to Dr. Anderson in an Implementation Plan artifact for review and approval before modifying any Vault files.**
+4. **Waterfall Shorts Extraction**:
+   - The Agent analyzes the exact spoken transcript and isolates the **3 best 30–60 second segments** to cut as waterfall shorts (`[Code]-S1`, `[Code]-S2`, `[Code]-S3`), providing custom short-form hooks and timestamps for editing.
 
-4. **Format & Save (Once Approved)**:
-   Format into `Obsidian_Vault/Zettlekasten/[Code] Script - [Title].md` using:
-   - **No H1 Header**: The filename acts as the primary title in Obsidian, so do NOT include a `# [Code]: [Title]` header.
-   - **Metadata**: Add any relevant tags, the `drop_date`, and JDex topics to the YAML frontmatter. Only include `YouTube ID`, `Views`, and `Parent Video` in the markdown body's metadata block.
-   - **Post-Filming YAML Cleanup**: Once a video reaches the `#edit`, `#uploaded`, or `#published` stages, the pipeline sync scripts (`update_video_markdown.py`) will automatically strip out all temporary "suggested setting" tags (e.g., `#driving`, `#insidetruck`), leaving only the primary `#video` tag and the final status tag in the YAML frontmatter.
-   - **Post-Filming Body Cleanup**: Running `clean_video_script.py` automatically strips away the pre-production scaffolding (Hook Ideas, Raw Draft), leaving only the Final Transcript, extracted JDex Propositions, and the Changelog.
-     - When adding the `JDex Topic Code` link in YAML or body, **always link to the exact, full JDex filename** (e.g., `[[77.01 Documentation]]`) — not just the numeric code (`[[77.01]]`) — to prevent Obsidian from creating empty duplicate files.
-   - **Section 1 & 2**: Title Ideas and Hook Options with vidIQ ratings.
-   - **Section 3**: Teleprompter clips formatted as plain paragraphs without headers.
-     - At the end of each paragraph, append the clip code and context tags: `[Code].[ClipNum] #[context]` (e.g., `80.V0B-S3.1 #film #insidetruck`).
-     - One consolidated spoken paragraph per clip (no sentence bullets).
-     - Include bracketed performance/delivery cues: `[breath]`, `[pause]`, `[gesture]`, `[tone shift]`, `[eye contact shift]`.
-     - End with official CTA: *"Book your free 20-minute Systemized Discovery Call: call.systemizedhealth.com"*
-   - Apply all Writing Guardrails (no AI jargon, no em dashes).
-
-5. **Pipeline Auto-Advance**:
-   - Advance video status to `#film` in Supabase and clear the `agent_message` field:
-     ```bash
-     python3 scripts/video_pipeline.py --status [Code] '#film' --add '{"video_number":"[num]","code":"[Code]","format_type":"[type]","title":"[Title]","agent_message":""}'
-     ```
-   - Refresh all derived docs:
-     ```bash
-     python3 scripts/video_pipeline.py --cache
-     ```
-   - Update `Drop_Schedule.md` and `TODO.md`.
-
-6. **Dashboard Update**: Copy the entire formatted teleprompter script (Section 3) and append the clips to the bottom of `Obsidian_Vault/_Filming_Dashboard.md` under the `## 📜 Script Snippets` section.
-
-7. **Agent Log**: Append a simple action log to the bottom of the Obsidian script file under an `## Agent Log` header (e.g., *"Processed dictation and generated Stage 2 teleprompter script"*).
+5. **Pipeline & Database Synchronization**:
+   - Updates Supabase and SQLite, refreshes `docs/video_pipeline_cache.json`, and appends a dated entry to the `## Changelog`.
 
 ---
 

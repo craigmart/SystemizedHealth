@@ -214,7 +214,9 @@ AI sentences cluster tightly around 15 to 20 words. Human writing swings from 3-
 - **Long Format**: ~15 to 20 minutes on camera.
 - **Short Format**: 60 to 120 seconds on camera.
 
-Use these targets to calibrate script length. A 15-20 min long-form video typically requires 8-12 teleprompter clip paragraphs at a measured clinical pace. A 60-120 sec short typically requires 3-5 tight clip paragraphs. If a script is significantly under or over these targets, adjust clip count or paragraph density before pushing to `#film`.
+Use these targets to calibrate script length.
+- **Long-Form Videos**: Delivered direct-to-camera using Dr. Anderson's 4-beat 3x5 index card workflow (loosely scripted, personal, authentic). The exact Descript transcript becomes the transcript of record in Obsidian, from which propositions and titles are optimized.
+- **Short-Form Videos (Waterfall Shorts)**: Typically 60-120 seconds, carved out directly from the long-form footage or recorded as tight, standalone clips using the paragraph clip standard below.
 - **Workflowy 5-Stage Pipeline Tags**: Every video node in Workflowy moves through five standardized stage hashtags:
   - `#write`: Script is in draft/writing phase (from raw audio dictation transcript to teleprompter script).
   - `#film`: Script is finished and staged in Workflowy under `Shots`, ready to record on set.
