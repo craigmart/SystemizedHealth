@@ -146,6 +146,61 @@ def fetch_analytics_data(conn):
     ''')
     top_10_outliers = [dict(r) for r in cursor.fetchall()]
 
+    # 11. Top 10 Shorts and Longs with Rank Change
+    cursor.execute('''
+        SELECT snapshot_date 
+        FROM video_stats 
+        WHERE snapshot_date <= date('now', '-30 day') 
+        ORDER BY snapshot_date DESC LIMIT 1
+    ''')
+    res = cursor.fetchone()
+    if not res:
+        cursor.execute('SELECT MIN(snapshot_date) as sd FROM video_stats')
+        res = cursor.fetchone()
+    old_snapshot = res['sd'] if res and 'sd' in res.keys() else (res[0] if res else None)
+
+    old_ranks = {}
+    if old_snapshot:
+        cursor.execute('''
+            SELECT v.id AS video_id, 
+                   RANK() OVER(PARTITION BY v.format_type ORDER BY s.views DESC) as rank_30d
+            FROM video_stats s
+            JOIN videos v ON s.video_id = v.id
+            WHERE s.snapshot_date = ?
+        ''', (old_snapshot,))
+        for r in cursor.fetchall():
+            old_ranks[r['video_id']] = r['rank_30d']
+
+    cursor.execute('''
+        SELECT v.id, v.title, v.format_type, s.views
+        FROM video_stats s
+        JOIN videos v ON s.video_id = v.id
+        WHERE s.snapshot_date = (SELECT MAX(snapshot_date) FROM video_stats WHERE video_id = v.id)
+          AND v.format_type = 'Short'
+        ORDER BY s.views DESC LIMIT 10;
+    ''')
+    top_10_shorts = []
+    for i, r in enumerate(cursor.fetchall()):
+        curr_rank = i + 1
+        old_rank = old_ranks.get(r['id'])
+        rank_change = (old_rank - curr_rank) if old_rank else None
+        top_10_shorts.append({'title': r['title'], 'views': r['views'], 'rank_change': rank_change})
+
+    cursor.execute('''
+        SELECT v.id, v.title, v.format_type, s.views
+        FROM video_stats s
+        JOIN videos v ON s.video_id = v.id
+        WHERE s.snapshot_date = (SELECT MAX(snapshot_date) FROM video_stats WHERE video_id = v.id)
+          AND v.format_type = 'Long'
+        ORDER BY s.views DESC LIMIT 10;
+    ''')
+    top_10_longs = []
+    for i, r in enumerate(cursor.fetchall()):
+        curr_rank = i + 1
+        old_rank = old_ranks.get(r['id'])
+        rank_change = (old_rank - curr_rank) if old_rank else None
+        top_10_longs.append({'title': r['title'], 'views': r['views'], 'rank_change': rank_change})
+
     return {
         "today_str": today_str,
         "updated_at_str": updated_at_str,
@@ -159,7 +214,9 @@ def fetch_analytics_data(conn):
         "stats_7d": stats_7d,
         "stats_28d": stats_28d,
         "stats_all_time": stats_all_time,
-        "top_10_outliers": top_10_outliers
+        "top_10_outliers": top_10_outliers,
+        "top_10_shorts": top_10_shorts,
+        "top_10_longs": top_10_longs
     }
 
 

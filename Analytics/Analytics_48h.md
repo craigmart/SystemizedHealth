@@ -1,6 +1,6 @@
 # ⏱️ 48-Hour Velocity & Real-Time Pulse Report
 
-*Last System Update: `2026-09-01 09:35:34`*
+*Last System Update: `2026-09-04 13:02:56`*
 
 ---
 
@@ -17,16 +17,15 @@
 
 ## 📊 Pipeline Real-Time Status
 
-* **Uploaded / Staged Videos**: `40`
-* **In Production**: `2`
+* **Uploaded / Staged Videos**: `38`
+* **In Production**: `0`
 * **Ready for Audio Riff**: `1`
 
 ---
 
 ## 🎯 Next Scheduled Drops (Immediate 48-Hour Window)
 
-- **2026-09-01** | `80.V1C1-S1` (Short): **Weekend Catch-Up Myth** — *[#film]*
-- **2026-09-03** | `80.V1C1-S2` (Short): **Brain Night Shift** — *[#film]*
+- **2026-09-05** | `80.V1C1-S3` (Short): **Caffeine Illusion** — *[#write]*
 
 ---
 *This document is automatically updated daily by `scripts/generate_analytics_reports.py`.*

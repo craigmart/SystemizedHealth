@@ -1,39 +1,18 @@
 {
-  "today_str": "2026-09-01",
-  "updated_at_str": "2026-09-01 09:35:34",
-  "total_videos": 58,
+  "today_str": "2026-09-04",
+  "updated_at_str": "2026-09-04 13:02:56",
+  "total_videos": 54,
   "status_counts": {
-    "#edit": 2,
     "#film": 3,
     "#idea": 12,
-    "#published": 40,
+    "#published": 38,
     "#write": 1
   },
   "format_counts": {
-    "Long": 15,
-    "Short": 43
+    "Long": 14,
+    "Short": 40
   },
   "upcoming_drops": [
-    {
-      "video_number": "018",
-      "code": "80.V1C1-S1",
-      "format_type": "Short",
-      "title": "Weekend Catch-Up Myth",
-      "drop_date": "2026-09-01",
-      "status": "#film",
-      "jdex_code": "80.11",
-      "os_level": "Level 1: FMR"
-    },
-    {
-      "video_number": "019",
-      "code": "80.V1C1-S2",
-      "format_type": "Short",
-      "title": "Brain Night Shift",
-      "drop_date": "2026-09-03",
-      "status": "#film",
-      "jdex_code": "80.11",
-      "os_level": "Level 1: FMR"
-    },
     {
       "video_number": "020",
       "code": "80.V1C1-S3",
@@ -280,12 +259,12 @@
       "video_number": "011",
       "code": "80.V1B1-S1",
       "format_type": "Short",
-      "title": "Why Exercise is Optional",
+      "title": "The Lazy Way to Get Fit (It Actually Works) #shorts #fitness #hack",
       "drop_date": "2026-08-11",
       "status": "#published",
       "jdex_code": "77.01",
       "os_level": "Level 1: FMR",
-      "uploaded_date": "2026-08-15"
+      "uploaded_date": "2026-08-11"
     },
     {
       "video_number": "012",
@@ -313,12 +292,12 @@
       "video_number": "014",
       "code": "80.V0A1-S1",
       "format_type": "Short",
-      "title": "Why Relying on Willpower Guarantees Physical Burnout",
+      "title": "Why you have zero willpower left #productivity #psychology",
       "drop_date": "2026-08-25",
       "status": "#published",
       "jdex_code": "42.06",
       "os_level": "Level 1: FMR",
-      "uploaded_date": "2026-08-25"
+      "uploaded_date": "2026-08-26"
     },
     {
       "video_number": "015",
@@ -326,7 +305,7 @@
       "format_type": "Short",
       "title": "Prove it before you buy it - don\u2019t fall for health gadgets",
       "drop_date": "2026-08-27",
-      "status": "#edit",
+      "status": "#published",
       "jdex_code": "81.05",
       "os_level": "Level 1: FMR",
       "uploaded_date": "2026-08-27"
@@ -337,7 +316,7 @@
       "format_type": "Short",
       "title": "This is why you aren't getting healthier #health #fitness #motivation",
       "drop_date": "2026-08-29",
-      "status": "#edit",
+      "status": "#published",
       "jdex_code": "43.11",
       "os_level": "Level 1: FMR",
       "uploaded_date": "2026-08-29"
@@ -522,12 +501,12 @@
       "video_number": "033",
       "code": "80.V1A",
       "format_type": "Long",
-      "title": "The Biological Cost of Fake Fuel",
+      "title": "The real reason you're exhausted at 3pm",
       "drop_date": "2026-08-17",
       "status": "#published",
       "jdex_code": "77.01",
       "os_level": "Level 1: FMR",
-      "uploaded_date": null
+      "uploaded_date": "2026-08-17"
     },
     {
       "video_number": "034",
@@ -555,12 +534,12 @@
       "video_number": "036",
       "code": "80.V1A-S3",
       "format_type": "Short",
-      "title": "The Biological Reality of Diets",
+      "title": "Diets wont work, here's what does.",
       "drop_date": "2026-08-21",
       "status": "#published",
       "jdex_code": "77.01",
       "os_level": "Level 1: FMR",
-      "uploaded_date": "2026-08-17"
+      "uploaded_date": "2026-08-21"
     },
     {
       "video_number": "H001",
@@ -618,17 +597,6 @@
       "uploaded_date": "2026-01-06"
     },
     {
-      "video_number": "H006",
-      "code": "HIST.L06",
-      "format_type": "Long",
-      "title": "The real reason you're exhausted at 3pm",
-      "drop_date": "2026-08-17",
-      "status": "#published",
-      "jdex_code": null,
-      "os_level": null,
-      "uploaded_date": "2026-08-17"
-    },
-    {
       "video_number": "HS001",
       "code": "HIST.S01",
       "format_type": "Short",
@@ -671,39 +639,6 @@
       "jdex_code": null,
       "os_level": null,
       "uploaded_date": "2026-01-08"
-    },
-    {
-      "video_number": "HS005",
-      "code": "HIST.S05",
-      "format_type": "Short",
-      "title": "Why you have zero willpower left #productivity #psychology",
-      "drop_date": "2026-08-26",
-      "status": "#published",
-      "jdex_code": null,
-      "os_level": null,
-      "uploaded_date": "2026-08-26"
-    },
-    {
-      "video_number": "HS006",
-      "code": "HIST.S06",
-      "format_type": "Short",
-      "title": "The Lazy Way to Get Fit (It Actually Works) #shorts #fitness #hack",
-      "drop_date": "2026-08-11",
-      "status": "#published",
-      "jdex_code": null,
-      "os_level": null,
-      "uploaded_date": "2026-08-11"
-    },
-    {
-      "video_number": "HS007",
-      "code": "HIST.S07",
-      "format_type": "Short",
-      "title": "Diets wont work, here's what does.",
-      "drop_date": "2026-08-21",
-      "status": "#published",
-      "jdex_code": null,
-      "os_level": null,
-      "uploaded_date": "2026-08-21"
     },
     {
       "video_number": "HS008",
@@ -797,12 +732,12 @@
       "video_number": "TBD",
       "code": "80.V0A-S3-B",
       "format_type": "Short",
-      "title": "The Easiest Way to Eliminate Back Pain",
+      "title": "The Easiest Way to Eliminate Back Pain #shorts #painrelief #fitness",
       "drop_date": "2026-08-23",
       "status": "#published",
       "jdex_code": null,
       "os_level": null,
-      "uploaded_date": null
+      "uploaded_date": "2026-08-23"
     }
   ],
   "open_tasks": [],
@@ -813,22 +748,207 @@
     "comments": 0
   },
   "stats_7d": {
-    "views": 0,
-    "likes": 0,
+    "views": 5619,
+    "likes": 210,
     "avg_ctr": 0.0,
-    "comments": 0
+    "comments": 17
   },
   "stats_28d": {
-    "views": 0,
-    "likes": 0,
+    "views": 5619,
+    "likes": 210,
     "subs": 0,
     "avg_ctr": 0.0
   },
   "stats_all_time": {
-    "views": 0,
-    "likes": 0,
-    "comments": 0,
+    "views": 5619,
+    "likes": 210,
+    "comments": 17,
     "subs": 0
   },
-  "top_10_outliers": []
+  "top_10_outliers": [
+    {
+      "video_number": "004",
+      "code": "80.V0A1",
+      "title": "Systemized OS Framework",
+      "format_type": "Long",
+      "views": 0,
+      "vph": 0.0,
+      "ctr_pct": 0.0,
+      "outlier_score": 0.0,
+      "vidiq_score": 0.0
+    },
+    {
+      "video_number": "011",
+      "code": "80.V1B1-S1",
+      "title": "The Lazy Way to Get Fit (It Actually Works) #shorts #fitness #hack",
+      "format_type": "Short",
+      "views": 0,
+      "vph": 0.0,
+      "ctr_pct": 0.0,
+      "outlier_score": 0.0,
+      "vidiq_score": 0.0
+    },
+    {
+      "video_number": "014",
+      "code": "80.V0A1-S1",
+      "title": "Why you have zero willpower left #productivity #psychology",
+      "format_type": "Short",
+      "views": 0,
+      "vph": 0.0,
+      "ctr_pct": 0.0,
+      "outlier_score": 0.0,
+      "vidiq_score": 0.0
+    },
+    {
+      "video_number": "003",
+      "code": "80.V1B1",
+      "title": "Exercise is Optional, Movement is not.",
+      "format_type": "Long",
+      "views": 25,
+      "vph": 0.0,
+      "ctr_pct": 0.0,
+      "outlier_score": 0.0,
+      "vidiq_score": 0.0
+    },
+    {
+      "video_number": "001",
+      "code": "80.V0B",
+      "title": "Knowledge Isn't Enough\u2014Here's What Actually Works",
+      "format_type": "Long",
+      "views": 13,
+      "vph": 0.004992867332382311,
+      "ctr_pct": 0.0,
+      "outlier_score": 0.0,
+      "vidiq_score": 0.0
+    },
+    {
+      "video_number": "002",
+      "code": "80.V0A",
+      "title": "20,000 Patients Taught Me This One Biological Reality",
+      "format_type": "Long",
+      "views": 52,
+      "vph": 0.03165374677002584,
+      "ctr_pct": 0.0,
+      "outlier_score": 0.0,
+      "vidiq_score": 0.0
+    },
+    {
+      "video_number": "012",
+      "code": "80.V1B1-S2",
+      "title": "How do the Joints in your Body Stay Healthy? - Its not good bloodflow.",
+      "format_type": "Short",
+      "views": 1148,
+      "vph": 0.0,
+      "ctr_pct": 0.0,
+      "outlier_score": 0.0,
+      "vidiq_score": 0.0
+    },
+    {
+      "video_number": "005",
+      "code": "80.V0B-S1",
+      "title": "Do Less to Get More",
+      "format_type": "Short",
+      "views": 810,
+      "vph": 0.0,
+      "ctr_pct": 0.0,
+      "outlier_score": 0.0,
+      "vidiq_score": 0.0
+    },
+    {
+      "video_number": "013",
+      "code": "80.V1B1-S3",
+      "title": "Cortical Smudging: A reason for Sudden Back Pain #backpain #tips",
+      "format_type": "Short",
+      "views": 808,
+      "vph": 0.0,
+      "ctr_pct": 0.0,
+      "outlier_score": 0.0,
+      "vidiq_score": 0.0
+    },
+    {
+      "video_number": "016",
+      "code": "80.V0A1-S3",
+      "title": "This is why you aren't getting healthier #health #fitness #motivation",
+      "format_type": "Short",
+      "views": 790,
+      "vph": 11.285714285714286,
+      "ctr_pct": 0.0,
+      "outlier_score": 0.0,
+      "vidiq_score": 0.0
+    }
+  ],
+  "top_10_shorts": [
+    {
+      "title": "How do the Joints in your Body Stay Healthy? - Its not good bloodflow.",
+      "views": 1148,
+      "rank_change": null
+    },
+    {
+      "title": "Do Less to Get More",
+      "views": 810,
+      "rank_change": -1
+    },
+    {
+      "title": "Cortical Smudging: A reason for Sudden Back Pain #backpain #tips",
+      "views": 808,
+      "rank_change": null
+    },
+    {
+      "title": "This is why you aren't getting healthier #health #fitness #motivation",
+      "views": 790,
+      "rank_change": null
+    },
+    {
+      "title": "Aim Smaller, Win Bigger #goals #success",
+      "views": 783,
+      "rank_change": null
+    },
+    {
+      "title": "Break a Sweat 3 Times a Week (Prevent Musculoskeletal Pain)",
+      "views": 414,
+      "rank_change": null
+    },
+    {
+      "title": "Why Chugging Water can Dehydrate you",
+      "views": 411,
+      "rank_change": null
+    },
+    {
+      "title": "Stop Trying to Fix Stress Backward (Fuel, Move, Rest First)",
+      "views": 256,
+      "rank_change": null
+    },
+    {
+      "title": "Coffee Won't Fix Your Afternoon Crash #bloodsugar #over50",
+      "views": 88,
+      "rank_change": null
+    },
+    {
+      "title": "Prove it before you buy it - don\u2019t fall for health gadgets",
+      "views": 21,
+      "rank_change": null
+    }
+  ],
+  "top_10_longs": [
+    {
+      "title": "20,000 Patients Taught Me This One Biological Reality",
+      "views": 52,
+      "rank_change": 0
+    },
+    {
+      "title": "Exercise is Optional, Movement is not.",
+      "views": 25,
+      "rank_change": null
+    },
+    {
+      "title": "Knowledge Isn't Enough\u2014Here's What Actually Works",
+      "views": 13,
+      "rank_change": -1
+    },
+    {
+      "title": "Systemized OS Framework",
+      "views": 0,
+      "rank_change": null
+    }
+  ]
 }
