@@ -10,11 +10,13 @@ import { addDays, isBefore, parseISO, differenceInDays } from 'date-fns';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
-export const PRODUCTION_CHECKLIST_ITEMS = [
+export const LONG_VIDEO_CHECKLIST_ITEMS = [
   { key: 'prep_notebook', phase: 'Planning', label: 'Gemini Notebook research & analogies reviewed' },
   { key: 'prep_card', phase: 'Planning', label: '3x5 Index Card drafted (Hook, Glitch, Analogy, Protocol + CTA)' },
   { key: 'film_recorded', phase: 'Filming', label: 'Direct-to-camera filming recorded (3x5 card anchor)' },
   { key: 'edit_transcript', phase: 'Editing', label: 'Descript spoken transcript dropped into App' },
+  { key: 'edit_broll', phase: 'Editing', label: 'B-roll & visual cutaways added' },
+  { key: 'edit_sound', phase: 'Editing', label: 'Sound design & audio enhancement' },
   { key: 'edit_vidiq', phase: 'Editing', label: 'vidIQ title scoring & optimization (target 90+ virality)' },
   { key: 'edit_obsidian', phase: 'Editing', label: 'Obsidian reference script archived & JDex propositions mined' },
   { key: 'edit_shorts', phase: 'Editing', label: '3 Waterfall Shorts cut & extracted (S1, S2, S3)' },
@@ -24,7 +26,17 @@ export const PRODUCTION_CHECKLIST_ITEMS = [
   { key: 'pub_cards', phase: 'Archived', label: 'Physical 3x5 main cards reviewed and filed' },
 ];
 
-export const CHECKLIST_PHASES = ['All', 'Planning', 'Filming', 'Editing', 'Publishing', 'Archived'];
+export const SHORT_VIDEO_CHECKLIST_ITEMS = [
+  { key: 'short_descript', phase: 'Editing', label: 'Fully edited in Descript (trimming, captions, audio & pacing)' },
+  { key: 'edit_transcript', phase: 'Editing', label: 'Descript spoken transcript dropped into App' },
+  { key: 'edit_vidiq', phase: 'Editing', label: 'vidIQ hook & title scoring (target 90+ virality)' },
+  { key: 'edit_obsidian', phase: 'Editing', label: 'Obsidian script archived & JDex propositions mined' },
+  { key: 'pub_upload', phase: 'Publishing', label: 'YouTube Studio / Shorts upload & CTA call.systemizedhealth.com' },
+  { key: 'pub_schedule', phase: 'Publishing', label: 'Scheduled for drop date' },
+];
+
+export const LONG_CHECKLIST_PHASES = ['All', 'Planning', 'Filming', 'Editing', 'Publishing', 'Archived'];
+export const SHORT_CHECKLIST_PHASES = ['All', 'Editing', 'Publishing'];
 
 const STATUS_OPTIONS = ['#idea', '#write', '#film', '#edit', '#uploaded', '#published'];
 
@@ -738,10 +750,19 @@ function VideoDetail({ video, onUpdate, onBack }) {
     return <span className={`badge badge-${s}`}>{status}</span>;
   };
 
+  // Format-aware checklist setup
+  const isShort = localVideo.format_type === 'Short' || localVideo.code?.includes('-S');
+  const baseChecklistItems = isShort ? SHORT_VIDEO_CHECKLIST_ITEMS : LONG_VIDEO_CHECKLIST_ITEMS;
+  const availablePhases = isShort ? SHORT_CHECKLIST_PHASES : LONG_CHECKLIST_PHASES;
+
+  const currentPhase = availablePhases.map(p => p.toLowerCase()).includes(checklistPhase.toLowerCase()) || checklistPhase === 'custom'
+    ? checklistPhase
+    : 'All';
+
   // Checklist Calculations
   const customTasks = checklist.custom_tasks || [];
-  const totalStandard = PRODUCTION_CHECKLIST_ITEMS.length;
-  const completedStandard = PRODUCTION_CHECKLIST_ITEMS.filter(item => !!checklist[item.key]).length;
+  const totalStandard = baseChecklistItems.length;
+  const completedStandard = baseChecklistItems.filter(item => !!checklist[item.key]).length;
   const totalCustom = customTasks.length;
   const completedCustom = customTasks.filter(t => !!t.done).length;
 
@@ -750,11 +771,11 @@ function VideoDetail({ video, onUpdate, onBack }) {
   const progressPercent = totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0;
 
   // Filter items based on active phase tab
-  const filteredStandardItems = checklistPhase === 'All'
-    ? PRODUCTION_CHECKLIST_ITEMS
-    : PRODUCTION_CHECKLIST_ITEMS.filter(item => item.phase.toLowerCase() === checklistPhase.toLowerCase());
+  const filteredStandardItems = currentPhase === 'All'
+    ? baseChecklistItems
+    : baseChecklistItems.filter(item => item.phase.toLowerCase() === currentPhase.toLowerCase());
 
-  const showCustomTasks = checklistPhase === 'All' || checklistPhase.toLowerCase() === 'custom';
+  const showCustomTasks = currentPhase === 'All' || currentPhase.toLowerCase() === 'custom';
 
   return (
     <div className="card" style={{ maxWidth: '840px', margin: '0 auto' }}>
@@ -817,7 +838,7 @@ function VideoDetail({ video, onUpdate, onBack }) {
         <div className="checklist-section">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.5rem' }}>
             <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', margin: 0, fontSize: '1.15rem' }}>
-              <CheckSquare size={20} color="var(--success-color)" /> Production Checklist
+              <CheckSquare size={20} color="var(--success-color)" /> {isShort ? 'Shorts Checklist (Descript → Upload)' : 'Long Video Production Checklist'}
             </h3>
             <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', fontWeight: '600' }}>
               {completedTasks} of {totalTasks} completed ({progressPercent}%)
@@ -831,11 +852,11 @@ function VideoDetail({ video, onUpdate, onBack }) {
 
           {/* Phase Filter Pills */}
           <div className="checklist-filter-bar">
-            {CHECKLIST_PHASES.map(phase => (
+            {availablePhases.map(phase => (
               <button
                 key={phase}
                 type="button"
-                className={`phase-pill ${checklistPhase.toLowerCase() === phase.toLowerCase() ? 'active' : ''}`}
+                className={`phase-pill ${currentPhase.toLowerCase() === phase.toLowerCase() ? 'active' : ''}`}
                 onClick={() => setChecklistPhase(phase)}
               >
                 {phase}
@@ -844,7 +865,7 @@ function VideoDetail({ video, onUpdate, onBack }) {
             {customTasks.length > 0 && (
               <button
                 type="button"
-                className={`phase-pill ${checklistPhase.toLowerCase() === 'custom' ? 'active' : ''}`}
+                className={`phase-pill ${currentPhase.toLowerCase() === 'custom' ? 'active' : ''}`}
                 onClick={() => setChecklistPhase('custom')}
               >
                 Custom ({customTasks.length})

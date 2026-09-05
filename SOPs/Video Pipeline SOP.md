@@ -200,6 +200,19 @@ After filming, when Dr. Anderson begins editing in Descript, he drops the **exac
 5. **Pipeline & Database Synchronization**:
    - Updates Supabase and SQLite, refreshes `docs/video_pipeline_cache.json`, and appends a dated entry to the `## Changelog`.
 
+### 6.1 Video Checklists: Long Videos vs. Shorts
+
+The web App's per-video production checklist dynamically adapts based on video format to keep your workflow streamlined:
+
+* **Long-Form Videos (`Long`)**:
+  1. *Planning*: Gemini Notebook research & analogies reviewed, 3x5 Index Card drafted.
+  2. *Filming*: Direct-to-camera filming recorded using 3x5 card anchor.
+  3. *Editing*: Descript spoken transcript dropped into App, **B-roll & visual cutaways added**, **Sound design & audio enhancement**, vidIQ title scored (90+), Obsidian script & propositions mined, 3 Waterfall Shorts extracted.
+  4. *Publishing & Archive*: YouTube Studio upload with `call.systemizedhealth.com` CTA, custom thumbnail uploaded, scheduled for drop date, physical 3x5 cards reviewed and filed.
+
+* **Waterfall Shorts (`Short` / `-S[N]`)**:
+  * *Streamlined Descript Workflow*: **Fully edited in Descript** (trimming, captions, audio & pacing), Descript transcript dropped into App, vidIQ hook/title scored, Obsidian script & propositions mapped, YouTube Studio/Shorts upload with `call.systemizedhealth.com` CTA, and scheduled for drop date.
+
 ---
 
 ## 7. Updating Status
