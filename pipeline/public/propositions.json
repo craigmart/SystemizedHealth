@@ -1,9 +1,8 @@
 {
   "80.V1A-S1": [
-    "The mid-afternoon energy crash is driven by an insulin overshoot following a carbohydrate-heavy lunch, causing blood sugar levels to drop below baseline and temporarily starving the brain of glucose [[81.09]].",
-    "Reactive hypoglycemia forces the body to release emergency cortisol and adrenaline, creating a chronic stress cycle that leads to being wired and exhausted [[42.04]].",
-    "Eliminating morning carbohydrates in favor of protein and fat keeps insulin stable throughout the day while shifting carbohydrate intake to dinner allows the body to process them during sleep [[81.05]].",
-    "Compressing the daily eating window through intermittent fasting trains the body to burn fat for fuel rather than relying on constant glucose spikes [[81.05]]."
+    "The mid-afternoon energy slump is driven by an insulin overshoot following high-glycemic lunchtime carbohydrate intake, triggering reactive hypoglycemia that starves cerebral neurons of stable glucose. [[81.09 Anatomy and Physiology]]",
+    "Reactive glycemic plunges force the adrenal glands to release compensatory cortisol and epinephrine, establishing a chronic neuroendocrine stress cycle leaving patients wired yet exhausted. [[42.04 Stress, Anxiety & Depression]]",
+    "Eliminating refined morning carbohydrates in favor of dietary protein and healthy fats stabilizes daytime insulin, while consolidating carbohydrates to the evening facilitates sleep transition. [[81.05 Lifestyle Management]]"
   ],
   "80.V1B2": [
     "Treadmill running imposes pure vertical axial compression on the lumbar spine, whereas forward outdoor locomotion engages the angled annular fibers of the intervertebral disc aligned with natural heel-strike propulsion forces. [[81.05 Lifestyle Management]]",
@@ -14,39 +13,85 @@
     "Sedentary spinal immobility starves intervertebral discs over time; regular axial and rotational movement is the biological prerequisite to halt chronic degenerative disc decay. [[81.05 Lifestyle Management]]"
   ],
   "80.V1A": [
-    "The thermic effect of food (TEF) requires metabolically demanding digestive work for whole foods (burning 20-35% of protein calories and 5-15% of complex carbohydrates), whereas pre-digested ultra-processed food eliminates digestive expenditure and triggers rapid insulin dumping. [[81.09]]",
-    "Synthetic emulsifiers, refined seed oils, and chemical food additives trigger low-grade intestinal mucosal inflammation, shifting the autonomic nervous system into chronic sympathetic overdrive. [[81.09]]",
-    "Ultra-processed food disrupts central leptin signaling, blunting physiological satiety and prompting the adrenal system to release cortisol and adrenaline to counter reactive glycemic instability. [[81.04]]",
-    "Synthetic preservatives degrade the intestinal epithelial barrier, allowing inflammatory particles to translocate into systemic circulation and manifesting clinically as fatigue, brain fog, and arthralgia. [[81.04]]",
-    "Food engineered to hit the industrial \"bliss point\" over-stimulates taste receptors and blunts natural palate sensitivity; a two-week transition to single-ingredient whole foods recalibrates sensory thresholds and restores baseline metabolic energy. [[81.05]]"
+    "The thermic effect of food (TEF) requires metabolically demanding digestive work for whole single-ingredient foods, whereas pre-digested ultra-processed foods eliminate digestive expenditure and trigger rapid postprandial insulin surges. [[81.09 Anatomy and Physiology]]",
+    "Synthetic emulsifiers, industrial seed oils, and food additives induce low-grade intestinal mucosal inflammation, shifting the autonomic nervous system into chronic sympathetic overdrive. [[81.09 Anatomy and Physiology]]",
+    "Industrial food engineered to hit the \"bliss point\" over-saturates palate receptors; transitioning to whole foods for two weeks recalibrates sensory thresholds, appetite satiety, and baseline daytime energy. [[81.05 Lifestyle Management]]"
   ],
   "80.V1A-S3": [
-    "Severe dietary caloric restriction triggers an acute neuroendocrine rebound effect where compensatory cravings lead to behavioral abandonment and rapid fat regain. [[81.05]]",
-    "Sustainable body composition management replaces restrictive dieting with intentional food quality audits, prioritizing high-satiety, whole foods over ultra-processed items. [[81.05]]",
-    "Long-term metabolic transformation is achieved through compounding daily nutritional decisions sustained across months and years rather than cyclical fad diets. [[41.03]]"
+    "Severe dietary caloric restriction triggers a protective neuroendocrine rebound where elevated ghrelin and metabolic down-regulation precipitate behavioral collapse and rapid rebound weight regain. [[81.05 Lifestyle Management]]",
+    "Sustainable body composition management discards restrictive deprivation diets in favor of systematic food quality audits that prioritize high-satiety, nutrient-dense whole foods. [[81.05 Lifestyle Management]]",
+    "Compounding small, frictionless nutritional decisions sustained across months and years rewires dietary identity far more effectively than cyclical extreme weight-loss protocols. [[41.03 Habit Creation]]"
+  ],
+  "80.V1C1-S3": [
+    "Caffeine does not supply cellular or metabolic energy; it acts purely as a competitive antagonist that binds to adenosine receptors in the brain, temporarily masking the perception of biological fatigue. [[82.04 Cellular & Molecular Neuroscience]]",
+    "Adenosine continues to accumulate in the interstitial space during caffeine receptor blockade, producing a severe rebound exhaustion crash once the liver metabolizes the compound. [[81.09 Anatomy and Physiology]]",
+    "Consuming caffeine within 8 to 10 hours of bedtime disrupts deep slow-wave sleep architecture, impairing cellular recovery even if sleep latency remains subjectively unaffected. [[81.05 Lifestyle Management]]"
+  ],
+  "80.V0A1-S2": [
+    "Purchasing consumer health gadgets, wearables, and supplements often functions as an emotional distraction that avoids the unglamorous execution of foundational biological habits (Fuel, Move, Rest). [[42.02 Descision-making & Taking Action]]",
+    "Objective baseline validation requires confirming consistent daily adherence to Level 1 lifestyle mechanics before investing in specialized tracking devices or biohacking interventions. [[81.07 Clinical Research Methods]]",
+    "Sustainable physiological transformation is governed by compounding simple, consistent biological inputs rather than novelty gadgetry. [[41.01 Discipline]]"
+  ],
+  "80.V1B1-S3": [
+    "Monotonous, repetitive postural habits induce \"cortical smudging\" in the primary motor and somatosensory cortex, blurring the brain's internal precision map of deep spinal stabilizing musculature. [[82.02 Functional Systems]]",
+    "Acute, debilitating back spasms often represent a protective neural alarm triggered when an unmapped spinal angle causes the central nervous system to brace in anticipation of tissue damage. [[82.09 Clinical Neuroscience]]",
+    "Introducing rich, unpredictable proprioceptive motor inputs\u2014such as unilateral balance drills and multi-planar articulation\u2014recalibrates sensory-motor cortical resolution and dampens protective spasms. [[82.02 Functional Systems]]"
   ],
   "80.V1B1-S1": [
-    "The central nervous system registers allostatic load cumulatively; forcing strenuous gym workouts while enduring severe psychological stress exacerbates systemic biological strain. [[81.05]]",
-    "While mechanical movement is mandatory for cellular and joint health, structured gym exercise is optional and can be fulfilled through low-friction daily choices like climbing stairs. [[81.02]]",
-    "Overcoming severe burnout requires adhering to biological sequencing: securing restorative rest for human growth hormone release before attempting progressive physical conditioning. [[81.09]]"
+    "The central nervous system processes allostatic stress cumulatively; forcing exhausting workouts during periods of severe cognitive or emotional stress deepens systemic biological burnout. [[82.07 Regulatory Neuroscience]]",
+    "While joint and cellular health mandate daily mechanical motion, formal gym exercise is optional; integrating low-friction incidental choices (like stairs and brisk walking) satisfies biological movement baselines. [[81.05 Lifestyle Management]]",
+    "Restoring depleted physiological reserves requires adhering to biological order: securing restorative rest and metabolic recovery before layering on progressive cardiovascular conditioning. [[81.09 Anatomy and Physiology]]"
+  ],
+  "80.V0A1-S1": [
+    "Executive willpower functions as a finite metabolic battery that rapidly depletes when overburdened with constant decision-making and unresolved mental open loops. [[42.06 Ego depletion]]",
+    "Cognitive bandwidth exhaustion impairs prefrontal cortex self-regulation, prompting reflexive impulse choices and abandoning healthy routines. [[42.02 Descision-making & Taking Action]]",
+    "Offloading mental loops onto physical paper through a structured daily brain sweep clears working memory and immediately preserves willpower reserves for high-leverage execution. [[41.03 Habit Creation]]"
+  ],
+  "80.V1C1": [
+    "Sleep deprivation accumulates as an irreversible biological debt, compromising cellular repair, hormonal regulation, and insulin sensitivity across compounding days. [[81.09 Anatomy and Physiology]]",
+    "The glymphatic waste clearance system operates at maximal efficacy during deep non-REM sleep, utilizing convective cerebrospinal fluid flow to flush neurotoxic metabolites and beta-amyloid from interstitial brain tissue. [[82.07 Regulatory Neuroscience]]",
+    "Chronic sleep debt suppresses prefrontal executive control and amplifies amygdala reactivity, driving systemic neuro-inflammation and sympathetic autonomic dominance. [[82.07 Regulatory Neuroscience]]"
   ],
   "80.V0A1": [
-    "Healthy human function operates as a three-tier hierarchy (Foundational/FMR, Internal/TLC, External/POP) where higher-order cognitive processing and purposeful action cannot be sustained if the biological baseline is depleted. [[80.V0]]",
-    "Behavioral structure acts as an enabler of psychological freedom by establishing clear biological boundaries and eliminating daily decision fatigue. [[41.03]]",
-    "Daily movement provides mandatory sensory and proprioceptive stimulation to fire cerebral cortical neurons and clear mental fatigue, making physical activity a neurological requirement rather than optional fitness. [[82]]",
-    "Cellular growth and tissue repair are gated by restorative rest, with approximately 75% of natural human growth hormone released during deep sleep cycles. [[81.09]]",
-    "Externalizing thoughts, projects, and goals into a trusted physical or digital system offloads working memory and prevents cognitive exhaustion from unresolved open loops. [[64.05]]"
+    "Human biological recovery follows an uncompromising hierarchy: Foundational Hardware (Fuel, Move, Rest) must be stabilized before higher-order cognitive processing (Think, Learn, Connect) or external execution (Play, Organize, Purpose) can function. [[81.05 Lifestyle Management]]",
+    "Daily movement is a mandatory neurological requirement rather than an aesthetic option; mechanoreceptor stimulation from joint articulation drives ascending cortical firing to clear brain fog. [[82.02 Functional Systems]]",
+    "Up to 75% of daily human growth hormone is secreted during deep slow-wave sleep cycles, making non-negotiable rest the biological rate-limiting step for cellular repair. [[81.09 Anatomy and Physiology]]",
+    "Externalizing cognitive commitments, tasks, and friction into trusted physical and digital systems offloads working memory and prevents autonomic exhaustion from unresolved mental loops. [[41.03 Habit Creation]]"
+  ],
+  "80.V0A-S3": [
+    "Engaging in vigorous physical exertion sufficient to break a sweat 2 to 3 times weekly provides measurable clinical protection against chronic cervical, lumbar, and peripheral musculoskeletal pain. [[81.05 Lifestyle Management]]",
+    "The physiological threshold of sweating acts as an objective clinical bio-marker confirming elevated core temperature, peripheral vasodilation, and autonomic sympathetic-parasympathetic heart-rate modulation. [[81.04 Diagnosis]]",
+    "Regular sweat-inducing exertion preserves articular cartilage thickness and synovial lubrication, preventing disuse degeneration throughout aging. [[81.02 Biomechanics]]"
+  ],
+  "80.V0A1-S3": [
+    "Applying Maslow's hierarchy to physiology dictates that higher-order wellness, body composition, and performance goals cannot be attained if foundational biological needs (Fuel, Move, Rest) remain compromised. [[81.05 Lifestyle Management]]",
+    "Attempting ambitious fitness transformations while chronically sleep-deprived and metabolically depleted multiplies neural friction and guarantees behavioral burnout. [[43.11 Goal Setting]]",
+    "Sequencing health interventions by securing baseline physical inputs first eliminates systemic biological resistance and accelerates long-term habit consolidation. [[41.03 Habit Creation]]"
+  ],
+  "80.V1B1-S2": [
+    "Intervertebral discs and articular cartilage are entirely avascular; nutrient delivery and metabolic waste clearance occur exclusively via mechanical pressure gradients (imbibition) generated by joint motion. [[81.02 Biomechanics]]",
+    "Prescribing prolonged bed rest for acute spinal or joint stiffness starves avascular connective tissue of vital fluid exchange, delaying tissue regeneration and worsening stiffness. [[81.01 Chiropractic Technique]]",
+    "Differentiating between acute sharp stabbing pain (a structural protective stop signal) and dull mechanical aching allows patients to safely self-mobilize joints within tolerable pain-free boundaries. [[81.04 Diagnosis]]"
+  ],
+  "80.V1C1-S1": [
+    "Sleeping in on weekends disrupts central circadian entrainment (producing \"social jetlag\"), which desynchronizes peripheral organ clocks and degrades metabolic insulin sensitivity. [[82.07 Regulatory Neuroscience]]",
+    "Weekend sleep rebound fails to reverse the structural and metabolic deficits incurred from five consecutive nights of cumulative biological sleep restriction. [[81.09 Anatomy and Physiology]]",
+    "Maintaining a strict, invariant wake-up time seven days a week stabilizes circadian rhythmicity and promotes robust nighttime sleep architecture. [[81.05 Lifestyle Management]]"
+  ],
+  "80.V1B1": [
+    "Mature articular cartilage and spinal discs lack direct vascular supply; they rely strictly on cyclic mechanical compression and decompression (imbibition) to circulate synovial fluid, exchange nutrients, and expel cellular waste. [[81.02 Biomechanics]]",
+    "Chronic motor immobility degrades the brain's internal proprioceptive mapping in the motor cortex (\"cortical smudging\"), causing the central nervous system to reflexively interpret benign spinal movement as threat or pain. [[82.02 Functional Systems]]",
+    "Daily full-range joint articulation and brief isometric core engagement supply the mandatory mechanical and proprioceptive inputs required to prevent degenerative disuse without structured gym workouts. [[81.05 Lifestyle Management]]"
   ],
   "80.V1A-S2": [
-    "Drinking large volumes of plain water without adequate electrolytes actively flushes key minerals from the body, leading to cellular dehydration. [[81.09]]",
-    "Water requires an osmotic and electrical gradient driven by trace minerals (sodium, potassium, magnesium) to effectively cross cellular membranes into cells. [[81.09]]",
-    "Symptoms such as persistent dry mouth, frequent urination, and afternoon fatigue despite high fluid intake signal electrolyte depletion rather than a lack of water intake. [[81.04]]",
-    "Adding a pinch of high-quality sea salt to drinking water restores osmotic balance and allows kidneys and cells to properly retain and absorb fluid. [[81.05]]"
+    "Consuming excessive volumes of plain demineralized water dilutes extracellular serum sodium, triggering osmotic fluid shifts that paradoxically exacerbate cellular dehydration. [[81.09 Anatomy and Physiology]]",
+    "Intracellular fluid transport requires an osmotic and electrical gradient maintained by essential trace minerals (sodium, potassium, magnesium) acting across cellular membrane sodium-potassium pumps. [[81.09 Anatomy and Physiology]]",
+    "Persistent dry mouth, frequent urination, and afternoon fatigue despite high fluid intake signal cellular electrolyte depletion rather than simple water deficiency. [[81.04 Diagnosis]]",
+    "Adding a pinch of mineral-rich unrefined sea salt to daily water intake restores osmotic equilibrium, enabling renal fluid retention and optimal intracellular hydration. [[81.05 Lifestyle Management]]"
   ],
   "80.V1C1-S2": [
-    "Sleep is an active, metabolically demanding brain state during which declarative memory is transferred from temporary hippocampal storage to long-term cortical storage during slow-wave sleep. [[82]]",
-    "Essential physiological maintenance\u2014including glymphatic waste clearance, cellular repair, and growth hormone release\u2014occurs primarily during the first four hours of sleep. [[81.09]]",
-    "Restricting sleep truncates critical brain maintenance cycles, causing uncleared metabolic waste and impaired memory consolidation that compound negatively over time. [[81.05]]",
-    "Maximizing restorative slow-wave sleep requires establishing consistent bedtime schedules and low-stimulus pre-sleep habits. [[41.03]]"
+    "Slow-wave sleep serves as the mandatory biological window for transferring declarative memory traces from temporary hippocampal networks to long-term neocortical storage sites. [[82.02 Functional Systems]]",
+    "During the first four hours of sleep, astrocytic channels shrink to facilitate a 60% expansion of interstitial space, allowing the glymphatic system to purge neurotoxic metabolic debris. [[82.07 Regulatory Neuroscience]]",
+    "Truncating early nighttime sleep blocks the essential biological maintenance window, resulting in un-cleared cerebral metabolites and cognitive friction the following day. [[81.05 Lifestyle Management]]"
   ]
 }
