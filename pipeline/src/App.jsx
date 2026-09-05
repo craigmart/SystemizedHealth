@@ -778,7 +778,7 @@ function VideoDetail({ video, onUpdate, onBack }) {
   const showCustomTasks = currentPhase === 'All' || currentPhase.toLowerCase() === 'custom';
 
   return (
-    <div className="card" style={{ maxWidth: '840px', margin: '0 auto' }}>
+    <div className="card" style={{ maxWidth: '840px', margin: '0 auto', width: '100%' }}>
       
       {/* Detail Header */}
       <div style={{ marginBottom: '1.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '1.25rem' }}>
@@ -810,7 +810,7 @@ function VideoDetail({ video, onUpdate, onBack }) {
           {localVideo.code}: {localVideo.title}
         </h2>
 
-        <div style={{ display: 'flex', gap: '1.5rem', color: 'var(--text-secondary)', fontSize: '0.875rem', alignItems: 'center', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: '0.75rem 1.25rem', color: 'var(--text-secondary)', fontSize: '0.875rem', alignItems: 'center', flexWrap: 'wrap' }}>
           <span><strong>Format:</strong> {localVideo.format_type}</span>
           <span><strong>Drop Date:</strong> {localVideo.drop_date || 'TBD'}</span>
           {localVideo.vidiq_title_score > 0 && (
@@ -946,7 +946,7 @@ function VideoDetail({ video, onUpdate, onBack }) {
               onChange={(e) => setNewLogEntry(e.target.value)}
               placeholder="Add quick update (e.g. Filmed A-roll on camera, pacing was solid)..."
             />
-            <button type="submit" className="btn btn-primary" style={{ whiteSpace: 'nowrap' }}>
+            <button type="submit" className="btn btn-primary">
               <Plus size={16} /> Add Entry
             </button>
           </form>
