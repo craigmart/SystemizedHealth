@@ -58,7 +58,7 @@ When Dr. Anderson begins editing (in Descript) and drops the **final exact spoke
    - Preserves YAML frontmatter (with tags `#video`, `#edit`, `drop_date`, and `jdex` topics).
    - Injects the final transcript under a clean `## Final Spoken Transcript` section.
 3. **Zettelkasten Proposition Mining**:
-   - The Agent extracts 1–2 sharp clinical propositions from the spoken text and maps them to their respective Johnny Decimal (JDex) files in `Obsidian_Vault/JDex/` and Workflowy.
+   - The Agent extracts 1–2 sharp clinical propositions from the spoken text and maps them to their respective Johnny Decimal (JDex) categories using the authoritative Workflowy master taxonomy ([`docs/JDex_Taxonomy_Reference.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/JDex_Taxonomy_Reference.md)) and `Obsidian_Vault/JDex/`. Run `python3 scripts/sync_workflowy_jdex.py` weekly to discover new or updated codes.
 4. **Waterfall Ideation & Sub-Topic Alignment**:
    - Each video (long or short) is a standalone production with its own recording and editing. The "waterfall" concept refers strictly to ideation (branching related sub-topic angles from the core pillar in Gemini Notebook). Shorts are not sliced from the long video during editing.
 5. **Database & Cache Sync**:
