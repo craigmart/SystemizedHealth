@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-04T13:10:37.781569+00:00",
+  "generated": "2026-09-05T20:01:21.744575+00:00",
   "count": 54,
   "videos": [
     {
@@ -145,12 +145,12 @@
       "vidiq_title_score": 0,
       "notes": "Pre-Recording Blueprint Ready",
       "created_at": "2026-09-01T12:59:21.808657+00:00",
-      "updated_at": "2026-09-04T13:10:37.308565+00:00",
+      "updated_at": "2026-09-04T13:59:44.940311+00:00",
       "raw_transcript": "",
       "agent_message": null,
       "edit_checklist": null,
       "rough_outline": null,
-      "cards_created": false
+      "cards_created": true
     },
     {
       "id": "ef7c938e-e02b-4a75-9da6-76e0768f4d46",
@@ -170,12 +170,12 @@
       "vidiq_title_score": 0,
       "notes": "Pre-Recording Blueprint Ready",
       "created_at": "2026-09-01T12:59:21.713649+00:00",
-      "updated_at": "2026-09-04T13:10:37.131997+00:00",
+      "updated_at": "2026-09-04T13:59:54.206669+00:00",
       "raw_transcript": "",
       "agent_message": null,
       "edit_checklist": null,
       "rough_outline": null,
-      "cards_created": false
+      "cards_created": true
     },
     {
       "id": "aeaea900-e796-433e-9ba7-8b49498883ae",
@@ -220,12 +220,12 @@
       "vidiq_title_score": 0,
       "notes": "6/6 Shots Filmed \u2014 Editing (#edit)",
       "created_at": "2026-09-01T12:59:24.695179+00:00",
-      "updated_at": "2026-09-04T13:10:36.437539+00:00",
+      "updated_at": "2026-09-04T14:00:08.663099+00:00",
       "raw_transcript": null,
       "agent_message": null,
       "edit_checklist": null,
       "rough_outline": null,
-      "cards_created": false
+      "cards_created": true
     },
     {
       "id": "3c1e4db2-94f5-4617-b0b7-8aba04e26f7c",
@@ -518,12 +518,12 @@
       "youtube_id": null,
       "primary_keyword": null,
       "vidiq_title_score": 0,
-      "notes": null,
+      "notes": "- [2026-09-05 16:01] Topic initialized with 3x5 card workflow",
       "created_at": "2026-09-01T12:59:26.08747+00:00",
-      "updated_at": "2026-09-04T10:56:47.520504+00:00",
+      "updated_at": "2026-09-05T20:01:15.800177+00:00",
       "raw_transcript": "Use this in the script\n\nI generally like where this left draft is going and most of it also had some of this to be final script. This seems to be about 20 min long. \n\nAdd some neuroscience for the intelligently person specifically some atmosphere inhibitions visual systems\n\nResearch differentiates between continuous unbroken exposure and cumulative daily volume when assessing autonomic strain, cognitive fatigue, and HPA axis activation:\nContinuous Exposure Thresholds (Per Hour)\n * The 45\u201350 Minute Mark (Cognitive & Autonomic Drop): Studies on sustained visual attention and cognitive load demonstrate that without a break, error rates and sympathetic tone rise sharply after 45 to 50 minutes of continuous screen work.\n * The 50/10 Protocol: Clinical ergonomics and neuroergonomics generally recommend an operating cadence of 50 minutes on / 10 minutes off (or at minimum 5\u201310 minutes of non-screen recovery every hour) to allow visual accommodation muscles to relax and parasympathetic tone (vagal regulation) to reset.\n * The 20-20-20 Ocular Reset: Every 20 minutes, shift focus to an object at least 20 feet away for 20 seconds. While primarily designed to prevent ciliary muscle spasm and digital eye strain, this visual break also interrupts sustained, narrow foveal focus (which correlates with low-level sympathetic vigilance).\nCumulative Thresholds & Autonomic Impact\n * > 2 Continuous Hours (HPA Axis & Cortisol Shift): Binge-watching or continuous gaming/scrolling for over 2 hours without substantial physical movement suppresses Heart Rate Variability (HRV) and elevates salivary cortisol, signaling a sustained stress response rather than a relaxed state.\n * > 4 Hours/Day (Structural & Mood Correlations): Longitudinal neuro-imaging data (such as the ABCD Study) associate recreational screen time exceeding 4 to 7 hours daily with premature cortex thinning in pediatric populations and higher risks of mood dysregulation in adults.\n * The \"First & Last 60 Minutes\" Rule: Screen exposure within the first 30\u201360 minutes of waking spikes early cortisol reactivity and primes hypervigilance for the day. Screen use in the final 60\u201390 minutes before bed suppresses melatonin and disrupts the autonomic drop necessary for restorative slow-wave sleep.\nHigh-Frequency Scrolling vs. Static Reading\n * High-Paced Media (Rapid Cuts / Short-Form Video): Brainwave studies show rapid shifts from alpha waves (calm focus) to high beta/gamma waves (active processing/stress) within 3 to 5 minutes of high-tempo feed interaction due to the continuous micro-surges of dopamine and unpredictable rewards.\n * Static Text/Long-Form: Preserves deeper attentional stability and produces significantly lower autonomic arousal across equivalent time blocks.\n",
-      "agent_message": "",
-      "edit_checklist": null,
+      "agent_message": "Moved to ipad",
+      "edit_checklist": "{\"0\":\"{\",\"1\":\"\\\"\",\"2\":\"e\",\"3\":\"d\",\"4\":\"i\",\"5\":\"t\",\"6\":\"_\",\"7\":\"l\",\"8\":\"u\",\"9\":\"t\",\"10\":\"\\\"\",\"11\":\":\",\"12\":\"t\",\"13\":\"r\",\"14\":\"u\",\"15\":\"e\",\"16\":\",\",\"17\":\"\\\"\",\"18\":\"e\",\"19\":\"d\",\"20\":\"i\",\"21\":\"t\",\"22\":\"_\",\"23\":\"t\",\"24\":\"r\",\"25\":\"i\",\"26\":\"m\",\"27\":\"\\\"\",\"28\":\":\",\"29\":\"t\",\"30\":\"r\",\"31\":\"u\",\"32\":\"e\",\"33\":\",\",\"34\":\"\\\"\",\"35\":\"e\",\"36\":\"d\",\"37\":\"i\",\"38\":\"t\",\"39\":\"_\",\"40\":\"c\",\"41\":\"l\",\"42\":\"a\",\"43\":\"r\",\"44\":\"i\",\"45\":\"t\",\"46\":\"y\",\"47\":\"\\\"\",\"48\":\":\",\"49\":\"t\",\"50\":\"r\",\"51\":\"u\",\"52\":\"e\",\"53\":\"}\",\"edit_lut\":true,\"edit_trim\":true,\"edit_clarity\":true}",
       "rough_outline": "**1. The Hook:**\n\"Sitting on the couch scrolling through your phone is not rest\u2014it\u2019s actually draining your battery.\"\n\n**2. Biological Reframe:**\nThere is a massive biological difference between physical inactivity and neurological rest. Your body might be still, but if you are consuming rapid-fire content, your visual cortex and dopamine pathways are firing at maximum capacity. This keeps you in sympathetic (fight-or-flight) drive.\n\n**3. Clinical Insight / Study:**\nA study in *JAMA Pediatrics (2019)* and related neuro-imaging studies show that high-frequency screen time increases cognitive load and spikes cortisol, preventing the parasympathetic nervous system (rest and digest) from activating.\n\n**4. Actionable Takeaway & CTA:**\nTrue rest requires low sensory input. Swap 20 minutes of scrolling for 20 minutes of a low-load somatic walk or sitting in silence. \"Book your free 20-minute Systemized Discovery Call: call.systemizedhealth.com\"",
       "cards_created": false
     },

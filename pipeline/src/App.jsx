@@ -1,44 +1,30 @@
 import { useEffect, useState } from 'react';
 import { supabase } from './supabase';
-import { Calendar, CheckSquare, AlertCircle, RefreshCw, ChevronLeft, Save, Tag, TrendingUp, Clock, FileVideo, Scissors, Film, X, ExternalLink, BarChart2, LayoutDashboard, Eye, Users, Award, Flame, BookOpen, Check, ThumbsUp, MessageSquare } from 'lucide-react';
+import { 
+  Calendar, CheckSquare, AlertCircle, RefreshCw, ChevronLeft, Save, Tag, 
+  TrendingUp, Clock, FileVideo, Scissors, Film, X, ExternalLink, BarChart2, 
+  LayoutDashboard, Eye, Users, Award, Flame, BookOpen, Check, ThumbsUp, 
+  MessageSquare, Plus, Trash2, ListTodo, FileText, CheckCircle2 
+} from 'lucide-react';
 import { addDays, isBefore, parseISO, differenceInDays } from 'date-fns';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
-const STAGE_CHECKLISTS = {
-  '#idea': [
-    { key: 'idea_outline', label: 'Generate Idea & Rough Outline Proposal (Hook, Points, CTA)' },
-    { key: 'idea_audio', label: 'Record raw conversational audio brainstorm' },
-    { key: 'idea_paste', label: 'Paste audio transcript in dashboard for Stage 2 polish' }
-  ],
-  '#write': [
-    { key: 'write_format', label: 'Format Teleprompter Script with Clip Sub-Codes' },
-    { key: 'write_cues', label: 'Ensure single paragraphs per clip & add performance cues' },
-    { key: 'write_sync', label: 'Sync script to Obsidian _Filming_Dashboard.md' }
-  ],
-  '#film': [
-    { key: 'film_review', label: 'Review Obsidian script on set' },
-    { key: 'film_record', label: 'Record A-Roll clips matching exact sub-codes' },
-    { key: 'film_transcribe', label: 'Auto-transcribe final A-Roll to lock in final version' }
-  ],
-  '#edit': [
-    { key: 'edit_lut', label: 'Apply LUT and Color (LF)' },
-    { key: 'edit_trim', label: 'Trim (LF)' },
-    { key: 'edit_clarity', label: 'Edit for Clarity (DE)' },
-    { key: 'edit_subtitles', label: 'Add Subtitles (DE)' },
-    { key: 'edit_audio', label: 'Enhance Audio (Adobe + LF)' },
-    { key: 'edit_upload', label: 'Upload (YT-S)' },
-    { key: 'edit_metadata', label: 'Meta Data (YT-S)' },
-    { key: 'edit_schedule', label: 'Schedule (YT-S)' }
-  ],
-  '#uploaded': [
-    { key: 'up_studio', label: 'Video uploaded to YouTube Studio' },
-    { key: 'up_meta', label: 'Metadata (Titles, JDex Tags) dialed in' },
-    { key: 'up_cta', label: 'CTA descriptions and links verified' },
-    { key: 'up_thumb', label: 'Custom Thumbnail uploaded and reviewed' },
-    { key: 'up_schedule', label: 'Video explicitly scheduled for exact drop date' }
-  ]
-};
+export const PRODUCTION_CHECKLIST_ITEMS = [
+  { key: 'prep_notebook', phase: 'Planning', label: 'Gemini Notebook research & analogies reviewed' },
+  { key: 'prep_card', phase: 'Planning', label: '3x5 Index Card drafted (Hook, Glitch, Analogy, Protocol + CTA)' },
+  { key: 'film_recorded', phase: 'Filming', label: 'Direct-to-camera filming recorded (3x5 card anchor)' },
+  { key: 'edit_transcript', phase: 'Editing', label: 'Descript spoken transcript dropped into App' },
+  { key: 'edit_vidiq', phase: 'Editing', label: 'vidIQ title scoring & optimization (target 90+ virality)' },
+  { key: 'edit_obsidian', phase: 'Editing', label: 'Obsidian reference script archived & JDex propositions mined' },
+  { key: 'edit_shorts', phase: 'Editing', label: '3 Waterfall Shorts cut & extracted (S1, S2, S3)' },
+  { key: 'pub_upload', phase: 'Publishing', label: 'YouTube Studio upload & CTA call.systemizedhealth.com' },
+  { key: 'pub_thumb', phase: 'Publishing', label: 'Custom thumbnail uploaded & verified' },
+  { key: 'pub_schedule', phase: 'Publishing', label: 'Scheduled for drop date' },
+  { key: 'pub_cards', phase: 'Archived', label: 'Physical 3x5 main cards reviewed and filed' },
+];
+
+export const CHECKLIST_PHASES = ['All', 'Planning', 'Filming', 'Editing', 'Publishing', 'Archived'];
 
 const STATUS_OPTIONS = ['#idea', '#write', '#film', '#edit', '#uploaded', '#published'];
 
@@ -307,7 +293,10 @@ function App() {
               .map(v => (
                 <div key={v.code} className="video-item" style={{ cursor: 'pointer' }} onClick={() => setCurrentVideo(v)}>
                   <div className="video-header">
-                    <strong>{v.code}</strong>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                      <strong>{v.code}</strong>
+                      {v.notes && <span title="Has Production Log / Notes" style={{ fontSize: '0.75rem' }}>📝</span>}
+                    </div>
                     {getStatusBadge(v.status)}
                   </div>
                   <div className="video-meta">
@@ -543,7 +532,7 @@ function App() {
       {loading && !currentVideo ? (
         <p>Loading pipeline data...</p>
       ) : currentVideo ? (
-        <VideoDetail video={currentVideo} onUpdate={fetchVideos} />
+        <VideoDetail video={currentVideo} onUpdate={fetchVideos} onBack={() => setCurrentVideo(null)} />
       ) : activeTab === 'pipeline' ? (
         renderDashboard()
       ) : (
@@ -553,13 +542,27 @@ function App() {
   );
 }
 
-function VideoDetail({ video, onUpdate }) {
+function VideoDetail({ video, onUpdate, onBack }) {
   const [localVideo, setLocalVideo] = useState(video);
   const [agentMessage, setAgentMessage] = useState(video.agent_message || '');
   const [transcript, setTranscript] = useState(video.raw_transcript || '');
-  const [checklist, setChecklist] = useState(video.edit_checklist || {});
+  const [notes, setNotes] = useState(video.notes || '');
+  const [newLogEntry, setNewLogEntry] = useState('');
+  const [newCustomTask, setNewCustomTask] = useState('');
+  const [checklistPhase, setChecklistPhase] = useState('All');
   const [saving, setSaving] = useState(false);
+  const [saveSuccess, setSaveSuccess] = useState(false);
   const [videoPath, setVideoPath] = useState(null);
+
+  const parseChecklist = (raw) => {
+    if (!raw) return {};
+    if (typeof raw === 'string') {
+      try { return JSON.parse(raw); } catch { return {}; }
+    }
+    return raw;
+  };
+
+  const [checklist, setChecklist] = useState(() => parseChecklist(video.edit_checklist));
 
   // Fetch specific video path
   useEffect(() => {
@@ -578,22 +581,65 @@ function VideoDetail({ video, onUpdate }) {
     setLocalVideo(video);
     setAgentMessage(video.agent_message || '');
     setTranscript(video.raw_transcript || '');
-    setChecklist(video.edit_checklist || {});
+    setNotes(video.notes || '');
+    setChecklist(parseChecklist(video.edit_checklist));
   }, [video]);
 
+  // Save all text fields (Notes, Transcript, Agent Message)
   const handleSaveText = async () => {
     setSaving(true);
     const { error } = await supabase
       .from('videos')
       .update({
         agent_message: agentMessage,
-        raw_transcript: transcript
+        raw_transcript: transcript,
+        notes: notes
       })
       .eq('video_number', localVideo.video_number);
 
-    if (error) alert("Error saving: " + error.message);
-    else onUpdate();
+    if (error) {
+      alert("Error saving: " + error.message);
+    } else {
+      setLocalVideo(prev => ({
+        ...prev,
+        agent_message: agentMessage,
+        raw_transcript: transcript,
+        notes: notes
+      }));
+      setSaveSuccess(true);
+      setTimeout(() => setSaveSuccess(false), 2500);
+      onUpdate();
+    }
     setSaving(false);
+  };
+
+  // Quick Add Log Entry
+  const handleAddLogEntry = async (e) => {
+    if (e) e.preventDefault();
+    if (!newLogEntry.trim()) return;
+
+    const now = new Date();
+    const dateStr = now.toLocaleDateString('en-CA');
+    const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+    const formatted = `- [${dateStr} ${timeStr}] ${newLogEntry.trim()}`;
+    const updatedNotes = notes.trim() ? `${formatted}\n${notes.trim()}` : formatted;
+
+    setNotes(updatedNotes);
+    setNewLogEntry('');
+
+    const { error } = await supabase
+      .from('videos')
+      .update({ notes: updatedNotes })
+      .eq('video_number', localVideo.video_number);
+
+    if (error) {
+      alert("Error adding log entry: " + error.message);
+    } else {
+      setLocalVideo(prev => ({ ...prev, notes: updatedNotes }));
+      setSaveSuccess(true);
+      setTimeout(() => setSaveSuccess(false), 2500);
+      onUpdate();
+    }
   };
 
   const handleStatusChange = async (e) => {
@@ -604,11 +650,39 @@ function VideoDetail({ video, onUpdate }) {
       .eq('video_number', localVideo.video_number);
 
     if (error) alert("Error changing status: " + error.message);
+    else {
+      setLocalVideo(prev => ({ ...prev, status: newStatus }));
+      onUpdate();
+    }
+  };
+
+  // Toggle standard checklist item
+  const toggleChecklist = async (key) => {
+    const newChecklist = { ...checklist, [key]: !checklist[key] };
+    setChecklist(newChecklist);
+
+    const updatePayload = { edit_checklist: newChecklist };
+    if (key === 'pub_cards') {
+      const nextCardVal = !checklist[key];
+      updatePayload.cards_created = nextCardVal;
+      setLocalVideo(prev => ({ ...prev, cards_created: nextCardVal }));
+    }
+
+    const { error } = await supabase
+      .from('videos')
+      .update(updatePayload)
+      .eq('video_number', localVideo.video_number);
+
+    if (error) alert("Error saving checklist: " + error.message);
     else onUpdate();
   };
 
-  const toggleChecklist = async (key) => {
-    const newChecklist = { ...checklist, [key]: !checklist[key] };
+  // Toggle custom task
+  const toggleCustomTask = async (taskId) => {
+    const updatedCustom = (checklist.custom_tasks || []).map(t => 
+      t.id === taskId ? { ...t, done: !t.done } : t
+    );
+    const newChecklist = { ...checklist, custom_tasks: updatedCustom };
     setChecklist(newChecklist);
 
     const { error } = await supabase
@@ -616,7 +690,47 @@ function VideoDetail({ video, onUpdate }) {
       .update({ edit_checklist: newChecklist })
       .eq('video_number', localVideo.video_number);
 
-    if (error) alert("Error saving checklist: " + error.message);
+    if (error) alert("Error saving custom task: " + error.message);
+    else onUpdate();
+  };
+
+  // Add custom task
+  const handleAddCustomTask = async (e) => {
+    if (e) e.preventDefault();
+    if (!newCustomTask.trim()) return;
+
+    const newTask = {
+      id: 'task_' + Date.now(),
+      label: newCustomTask.trim(),
+      done: false
+    };
+    const updatedCustom = [...(checklist.custom_tasks || []), newTask];
+    const newChecklist = { ...checklist, custom_tasks: updatedCustom };
+    setChecklist(newChecklist);
+    setNewCustomTask('');
+
+    const { error } = await supabase
+      .from('videos')
+      .update({ edit_checklist: newChecklist })
+      .eq('video_number', localVideo.video_number);
+
+    if (error) alert("Error adding task: " + error.message);
+    else onUpdate();
+  };
+
+  // Delete custom task
+  const handleDeleteCustomTask = async (taskId) => {
+    const updatedCustom = (checklist.custom_tasks || []).filter(t => t.id !== taskId);
+    const newChecklist = { ...checklist, custom_tasks: updatedCustom };
+    setChecklist(newChecklist);
+
+    const { error } = await supabase
+      .from('videos')
+      .update({ edit_checklist: newChecklist })
+      .eq('video_number', localVideo.video_number);
+
+    if (error) alert("Error deleting task: " + error.message);
+    else onUpdate();
   };
 
   const getStatusBadge = (status) => {
@@ -624,25 +738,70 @@ function VideoDetail({ video, onUpdate }) {
     return <span className={`badge badge-${s}`}>{status}</span>;
   };
 
-  const currentChecklist = STAGE_CHECKLISTS[localVideo.status] || [];
+  // Checklist Calculations
+  const customTasks = checklist.custom_tasks || [];
+  const totalStandard = PRODUCTION_CHECKLIST_ITEMS.length;
+  const completedStandard = PRODUCTION_CHECKLIST_ITEMS.filter(item => !!checklist[item.key]).length;
+  const totalCustom = customTasks.length;
+  const completedCustom = customTasks.filter(t => !!t.done).length;
+
+  const totalTasks = totalStandard + totalCustom;
+  const completedTasks = completedStandard + completedCustom;
+  const progressPercent = totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0;
+
+  // Filter items based on active phase tab
+  const filteredStandardItems = checklistPhase === 'All'
+    ? PRODUCTION_CHECKLIST_ITEMS
+    : PRODUCTION_CHECKLIST_ITEMS.filter(item => item.phase.toLowerCase() === checklistPhase.toLowerCase());
+
+  const showCustomTasks = checklistPhase === 'All' || checklistPhase.toLowerCase() === 'custom';
 
   return (
-    <div className="card" style={{ maxWidth: '800px', margin: '0 auto' }}>
-      <div style={{ marginBottom: '2rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '1rem' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
-          <h2>{localVideo.code}: {localVideo.title}</h2>
-          {getStatusBadge(localVideo.status)}
+    <div className="card" style={{ maxWidth: '840px', margin: '0 auto' }}>
+      
+      {/* Detail Header */}
+      <div style={{ marginBottom: '1.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '1.25rem' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem', flexWrap: 'wrap', gap: '0.5rem' }}>
+          {onBack && (
+            <button 
+              className="btn btn-outline" 
+              onClick={onBack}
+              style={{ padding: '0.25rem 0.6rem', fontSize: '0.8rem' }}
+            >
+              <ChevronLeft size={14} /> Back to Pipeline
+            </button>
+          )}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginLeft: 'auto' }}>
+            <a
+              href={videoPath 
+                ? `obsidian://open?vault=SystemizedHealth_Vault&file=${videoPath.split('/').map(encodeURIComponent).join('/')}` 
+                : `obsidian://search?vault=SystemizedHealth_Vault&query=${encodeURIComponent(`"${localVideo.code}"`)}`}
+              className="btn btn-outline"
+              style={{ textDecoration: 'none', padding: '0.25rem 0.6rem', fontSize: '0.8rem' }}
+            >
+              <ExternalLink size={14} /> Open in Obsidian
+            </a>
+            {getStatusBadge(localVideo.status)}
+          </div>
         </div>
-        <div style={{ display: 'flex', gap: '2rem', color: 'var(--text-secondary)', fontSize: '0.9rem', alignItems: 'center' }}>
+
+        <h2 style={{ fontSize: '1.5rem', marginBottom: '0.5rem', lineHeight: '1.3' }}>
+          {localVideo.code}: {localVideo.title}
+        </h2>
+
+        <div style={{ display: 'flex', gap: '1.5rem', color: 'var(--text-secondary)', fontSize: '0.875rem', alignItems: 'center', flexWrap: 'wrap' }}>
           <span><strong>Format:</strong> {localVideo.format_type}</span>
           <span><strong>Drop Date:</strong> {localVideo.drop_date || 'TBD'}</span>
+          {localVideo.vidiq_title_score > 0 && (
+            <span><strong>vidIQ Score:</strong> <span style={{ color: 'var(--success-color)', fontWeight: 'bold' }}>{localVideo.vidiq_title_score}</span>/100</span>
+          )}
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginLeft: 'auto' }}>
             <Tag size={16} />
             <select
               value={localVideo.status}
               onChange={handleStatusChange}
-              style={{ padding: '0.25rem 0.5rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', backgroundColor: 'var(--card-bg)' }}
+              style={{ padding: '0.3rem 0.6rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', backgroundColor: 'var(--card-bg)', fontWeight: '500' }}
             >
               {STATUS_OPTIONS.map(opt => (
                 <option key={opt} value={opt}>{opt}</option>
@@ -652,143 +811,195 @@ function VideoDetail({ video, onUpdate }) {
         </div>
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem' }}>
 
-        {/* 3x5 Cards Section for Published Videos */}
-        {localVideo.status === '#published' && (
-          <div style={{
-            backgroundColor: localVideo.cards_created ? 'rgba(16, 185, 129, 0.08)' : 'rgba(139, 92, 246, 0.08)',
-            border: `1px solid ${localVideo.cards_created ? 'var(--success-color)' : '#8b5cf6'}`,
-            borderRadius: 'var(--radius-md)',
-            padding: '1rem 1.25rem',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            gap: '1rem',
-            flexWrap: 'wrap'
-          }}>
-            <div>
-              <div style={{ fontWeight: '600', display: 'flex', alignItems: 'center', gap: '0.5rem', color: localVideo.cards_created ? 'var(--success-color)' : '#8b5cf6' }}>
-                <BookOpen size={18} />
-                {localVideo.cards_created ? '3x5 Main Cards Created' : 'Review for Main Cards'}
+        {/* 1. Production Checklist Section (Per-Video in Supabase) */}
+        <div className="checklist-section">
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.5rem' }}>
+            <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', margin: 0, fontSize: '1.15rem' }}>
+              <CheckSquare size={20} color="var(--success-color)" /> Production Checklist
+            </h3>
+            <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', fontWeight: '600' }}>
+              {completedTasks} of {totalTasks} completed ({progressPercent}%)
+            </span>
+          </div>
+
+          {/* Progress Bar */}
+          <div className="progress-container">
+            <div className="progress-bar" style={{ width: `${progressPercent}%` }} />
+          </div>
+
+          {/* Phase Filter Pills */}
+          <div className="checklist-filter-bar">
+            {CHECKLIST_PHASES.map(phase => (
+              <button
+                key={phase}
+                type="button"
+                className={`phase-pill ${checklistPhase.toLowerCase() === phase.toLowerCase() ? 'active' : ''}`}
+                onClick={() => setChecklistPhase(phase)}
+              >
+                {phase}
+              </button>
+            ))}
+            {customTasks.length > 0 && (
+              <button
+                type="button"
+                className={`phase-pill ${checklistPhase.toLowerCase() === 'custom' ? 'active' : ''}`}
+                onClick={() => setChecklistPhase('custom')}
+              >
+                Custom ({customTasks.length})
+              </button>
+            )}
+          </div>
+
+          {/* Standard Checklist Items */}
+          <div className="checklist">
+            {filteredStandardItems.map(item => (
+              <label key={item.key} className={`checklist-item ${checklist[item.key] ? 'checked' : ''}`} style={{ cursor: 'pointer' }}>
+                <input
+                  type="checkbox"
+                  checked={!!checklist[item.key]}
+                  onChange={() => toggleChecklist(item.key)}
+                />
+                <span className="phase-tag">{item.phase}</span>
+                <span className="checklist-label">{item.label}</span>
+              </label>
+            ))}
+
+            {/* Custom Tasks for this video */}
+            {showCustomTasks && customTasks.map(task => (
+              <div key={task.id} className={`checklist-item ${task.done ? 'checked' : ''}`}>
+                <input
+                  type="checkbox"
+                  checked={!!task.done}
+                  onChange={() => toggleCustomTask(task.id)}
+                />
+                <span className="phase-tag" style={{ background: '#8b5cf620', color: '#8b5cf6', borderColor: '#8b5cf640' }}>CUSTOM</span>
+                <span className="checklist-label">{task.label}</span>
+                <button
+                  type="button"
+                  onClick={() => handleDeleteCustomTask(task.id)}
+                  style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-secondary)', padding: '0.2rem' }}
+                  title="Delete custom task"
+                >
+                  <Trash2 size={14} />
+                </button>
               </div>
-              <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginTop: '0.25rem' }}>
-                {localVideo.cards_created 
-                  ? 'Key propositions have been reviewed and migrated to physical 3x5 cards.' 
-                  : 'Read the Obsidian script and transfer key propositions to your physical 3x5 index cards.'}
+            ))}
+          </div>
+
+          {/* Add Custom Task Form */}
+          <form onSubmit={handleAddCustomTask} className="custom-task-input">
+            <input
+              type="text"
+              value={newCustomTask}
+              onChange={(e) => setNewCustomTask(e.target.value)}
+              placeholder="Add video-specific task (e.g. Draw spine disc diagram)..."
+            />
+            <button type="submit" className="btn btn-outline" style={{ fontSize: '0.8rem', padding: '0.4rem 0.75rem' }}>
+              <Plus size={14} /> Add Task
+            </button>
+          </form>
+        </div>
+
+        {/* 2. Video Production Log & Notes Section (Stored in Supabase notes) */}
+        <div className="log-box">
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem', flexWrap: 'wrap', gap: '0.5rem' }}>
+            <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', margin: 0, fontSize: '1.15rem' }}>
+              <FileText size={20} color="var(--accent-color)" /> Video Production Log & Notes
+            </h3>
+            <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
+              Synced in Supabase across devices
+            </span>
+          </div>
+
+          <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '1rem' }}>
+            Add quick timestamped notes or log progress from your phone, iPad, or desktop.
+          </p>
+
+          {/* Quick Add Log Entry */}
+          <form onSubmit={handleAddLogEntry} className="log-quick-input">
+            <input
+              type="text"
+              value={newLogEntry}
+              onChange={(e) => setNewLogEntry(e.target.value)}
+              placeholder="Add quick update (e.g. Filmed A-roll on camera, pacing was solid)..."
+            />
+            <button type="submit" className="btn btn-primary" style={{ whiteSpace: 'nowrap' }}>
+              <Plus size={16} /> Add Entry
+            </button>
+          </form>
+
+          {/* Full Notes / Log Textarea */}
+          <textarea
+            className="log-textarea"
+            rows={7}
+            value={notes}
+            onChange={(e) => setNotes(e.target.value)}
+            placeholder="No log entries yet. Use the quick entry box above or type production notes directly here..."
+          />
+        </div>
+
+        {/* 3. Spoken Transcript / Draft Section */}
+        <div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
+            <h3 style={{ fontSize: '1.1rem', margin: 0 }}>
+              {localVideo.status === '#idea' || localVideo.status === '#write'
+                ? 'Raw Audio Brainstorm / Draft Transcript'
+                : 'Final Spoken Transcript (Descript)'}
+            </h3>
+          </div>
+          <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>
+            {localVideo.status === '#idea' || localVideo.status === '#write'
+              ? 'Paste audio dictation or early notes here.'
+              : 'Paste your exact spoken transcript from Descript. Antigravity reads this to score titles (vidIQ), extract waterfall shorts, and mine propositions.'}
+          </p>
+
+          {/* Rough Outline Reference Display (if exists) */}
+          {localVideo.rough_outline && (
+            <div style={{ backgroundColor: 'var(--bg-color)', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', marginBottom: '1rem' }}>
+              <h4 style={{ fontSize: '0.9rem', marginBottom: '0.5rem', color: 'var(--primary-color)' }}>Pre-Recording Outline Reference:</h4>
+              <div style={{ whiteSpace: 'pre-wrap', fontSize: '0.85rem', lineHeight: '1.5' }}>
+                {localVideo.rough_outline}
               </div>
             </div>
-            <button
-              type="button"
-              className="btn"
-              style={{
-                backgroundColor: localVideo.cards_created ? 'transparent' : '#8b5cf6',
-                borderColor: localVideo.cards_created ? 'var(--success-color)' : '#7c3aed',
-                color: localVideo.cards_created ? 'var(--success-color)' : '#fff',
-                border: `1px solid ${localVideo.cards_created ? 'var(--success-color)' : '#7c3aed'}`,
-                whiteSpace: 'nowrap',
-                cursor: 'pointer'
-              }}
-              onClick={async () => {
-                const nextVal = !localVideo.cards_created;
-                const { error } = await supabase
-                  .from('videos')
-                  .update({ cards_created: nextVal })
-                  .eq('video_number', localVideo.video_number);
+          )}
 
-                if (error) alert("Error updating cards: " + error.message);
-                else {
-                  setLocalVideo(prev => ({ ...prev, cards_created: nextVal }));
-                  onUpdate();
-                }
-              }}
-            >
-              <Check size={16} />
-              {localVideo.cards_created ? 'Cards Done (Click to Undo)' : 'Mark Cards Done'}
-            </button>
-          </div>
-        )}
+          <textarea
+            value={transcript}
+            onChange={(e) => setTranscript(e.target.value)}
+            style={{ width: '100%', height: '180px', padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', fontFamily: 'inherit', resize: 'vertical' }}
+            placeholder="Paste transcript here..."
+          />
+        </div>
 
-        {/* Agent Message Box */}
+        {/* 4. Message to Agent (Antigravity) */}
         <div>
           <h3 style={{ fontSize: '1rem', marginBottom: '0.5rem' }}>Message to Agent (Antigravity)</h3>
+          <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>
+            Direct instructions or tasks for Antigravity (stored in Supabase <code>agent_message</code>).
+          </p>
           <textarea
             value={agentMessage}
             onChange={(e) => setAgentMessage(e.target.value)}
             style={{ width: '100%', height: '80px', padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', fontFamily: 'inherit', resize: 'vertical' }}
-            placeholder="e.g., 'Make sure to emphasize the CTA at the end...'"
+            placeholder="e.g., 'Score 5 titles in vidIQ and extract 3 waterfall shorts...'"
           />
         </div>
 
-        {/* Audio Draft Section (only for early stages) */}
-        {(localVideo.status === '#idea' || localVideo.status === '#write') && (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-
-            {/* Rough Outline Reference Display */}
-            {localVideo.rough_outline && (
-              <div style={{ backgroundColor: 'var(--bg-color)', padding: '1.5rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
-                <h3 style={{ fontSize: '1.1rem', marginBottom: '1rem', color: 'var(--primary-color)' }}>Pre-Recording Outline Reference</h3>
-                <div style={{ whiteSpace: 'pre-wrap', fontSize: '0.95rem', lineHeight: '1.6' }}>
-                  {localVideo.rough_outline}
-                </div>
-              </div>
-            )}
-
-            {/* Audio Draft Input Box */}
-            <div>
-              <h3 style={{ fontSize: '1rem', marginBottom: '0.5rem' }}>Raw Audio Draft Transcript</h3>
-              <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>
-                Paste your dictated transcript here. The agent will read this to generate the Stage 2 teleprompter script.
-              </p>
-              <textarea
-                value={transcript}
-                onChange={(e) => setTranscript(e.target.value)}
-                style={{ width: '100%', height: '200px', padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', fontFamily: 'inherit', resize: 'vertical' }}
-                placeholder="Paste raw transcript here..."
-              />
-            </div>
-          </div>
-        )}
-
-        {/* Action Buttons */}
-        <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+        {/* 5. Action Buttons */}
+        <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', paddingTop: '0.5rem', borderTop: '1px solid var(--border-color)', flexWrap: 'wrap' }}>
           <button className="btn btn-primary" onClick={handleSaveText} disabled={saving}>
             <Save size={16} />
-            {saving ? 'Saving...' : 'Save Text Fields'}
+            {saving ? 'Saving to Supabase...' : 'Save All Text Fields'}
           </button>
 
-          <a
-            href={videoPath 
-              ? `obsidian://open?vault=SystemizedHealth_Vault&file=${videoPath.split('/').map(encodeURIComponent).join('/')}` 
-              : `obsidian://search?vault=SystemizedHealth_Vault&query=${encodeURIComponent(`"${localVideo.code}"`)}`}
-            className="btn btn-outline"
-            style={{ textDecoration: 'none' }}
-          >
-            <ExternalLink size={16} />
-            Open Script in Obsidian
-          </a>
+          {saveSuccess && (
+            <span style={{ color: 'var(--success-color)', fontSize: '0.9rem', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+              <CheckCircle2 size={18} /> Saved to Supabase!
+            </span>
+          )}
         </div>
-
-        {/* Interactive Editing Checklist */}
-        {currentChecklist.length > 0 && (
-          <div style={{ marginTop: '1rem', paddingTop: '2rem', borderTop: '1px solid var(--border-color)' }}>
-            <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem', fontSize: '1.25rem' }}>
-              <CheckSquare size={20} color="var(--success-color)" /> {localVideo.status} Checklist
-            </h3>
-            <div className="checklist">
-              {currentChecklist.map(item => (
-                <label key={item.key} className={`checklist-item ${checklist[item.key] ? 'checked' : ''}`} style={{ cursor: 'pointer' }}>
-                  <input
-                    type="checkbox"
-                    checked={!!checklist[item.key]}
-                    onChange={() => toggleChecklist(item.key)}
-                  />
-                  <span className="checklist-label">{item.label}</span>
-                </label>
-              ))}
-            </div>
-          </div>
-        )}
 
       </div>
     </div>

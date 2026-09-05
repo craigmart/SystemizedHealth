@@ -181,6 +181,26 @@ def cmd_add(db: SupabaseClient, json_str: str):
         sys.exit(1)
 
 
+def cmd_log(db: SupabaseClient, code: str, entry: str):
+    """Append a timestamped production log entry to a video's notes in Supabase."""
+    video = db.get_video_by_code(code)
+    if not video:
+        print(f"❌  No video found with code '{code}'")
+        sys.exit(1)
+
+    now_str = datetime.now().strftime("%Y-%m-%d %H:%M")
+    new_line = f"- [{now_str}] {entry.strip()}"
+    existing = video.get("notes") or ""
+    updated = f"{new_line}\n{existing.strip()}" if existing.strip() else new_line
+
+    result = db.update_video_status(video["video_number"], video["status"], extra={"notes": updated})
+    if result:
+        print(f"\n  ✅  Appended log to {code}: {new_line}\n")
+    else:
+        print(f"❌  Failed to update notes for '{code}'")
+        sys.exit(1)
+
+
 def cmd_doc(db: SupabaseClient, output_path: str = None):
     """Generate a markdown report from Supabase → docs/Video_Pipeline_Status.md."""
     videos = db.get_all_videos()
@@ -341,7 +361,9 @@ Examples:
     parser.add_argument("--week",     action="store_true", help="Show next week's drop schedule")
     parser.add_argument("--status",   nargs=2, metavar=("CODE", "STATUS"),
                         help="Update video status: --status <code> <new_status>")
-    parser.add_argument("--add",      metavar="JSON",      help="Add/upsert a video from JSON string")
+    parser.add_argument("--log",      nargs=2, metavar=("CODE", "ENTRY"),
+                        help="Append a production log entry to video: --log <code> '<entry>'")
+    parser.add_argument("--add",      metavar="JSON",      help="Add/upsert a video or extra status data from JSON string")
     parser.add_argument("--doc",      action="store_true", help="Generate docs/Video_Pipeline_Status.md")
     parser.add_argument("--cache",    action="store_true", help="Write docs/video_pipeline_cache.json (for agent/offline reads)")
     parser.add_argument("--schedule", action="store_true", help="Generate Drop_Schedule.md")
@@ -349,7 +371,7 @@ Examples:
 
     args = parser.parse_args()
 
-    if not any([args.list, args.week, args.status, args.add, args.doc, args.cache, args.schedule]):
+    if not any([args.list, args.week, args.status, args.log, args.add, args.doc, args.cache, args.schedule]):
         parser.print_help()
         sys.exit(0)
 
@@ -361,10 +383,18 @@ Examples:
     if args.week:
         cmd_week(db)
 
-    if args.status:
-        cmd_status(db, code=args.status[0], new_status=args.status[1])
+    if args.log:
+        cmd_log(db, code=args.log[0], entry=args.log[1])
 
-    if args.add:
+    if args.status:
+        extra = None
+        if args.add:
+            try:
+                extra = json.loads(args.add)
+            except json.JSONDecodeError:
+                pass
+        cmd_status(db, code=args.status[0], new_status=args.status[1], extra=extra)
+    elif args.add:
         cmd_add(db, args.add)
 
     if args.doc:
