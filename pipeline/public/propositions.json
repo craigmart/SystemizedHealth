@@ -1,0 +1,52 @@
+{
+  "80.V1A-S1": [
+    "The mid-afternoon energy crash is driven by an insulin overshoot following a carbohydrate-heavy lunch, causing blood sugar levels to drop below baseline and temporarily starving the brain of glucose [[81.09]].",
+    "Reactive hypoglycemia forces the body to release emergency cortisol and adrenaline, creating a chronic stress cycle that leads to being wired and exhausted [[42.04]].",
+    "Eliminating morning carbohydrates in favor of protein and fat keeps insulin stable throughout the day while shifting carbohydrate intake to dinner allows the body to process them during sleep [[81.05]].",
+    "Compressing the daily eating window through intermittent fasting trains the body to burn fat for fuel rather than relying on constant glucose spikes [[81.05]]."
+  ],
+  "80.V1B2": [
+    "Treadmill running imposes pure vertical axial compression on the lumbar spine, whereas forward outdoor locomotion engages the angled annular fibers of the intervertebral disc aligned with natural heel-strike propulsion forces. [[81.05 Lifestyle Management]]",
+    "Kinesiophobia (fear of movement) perpetuates and amplifies chronic lower back pain; progressive mechanical loading and hydrostatic offloading (pool running) restore disc imbibition and facilitate neurological recovery without surgery. [[81.05 Lifestyle Management]]"
+  ],
+  "80.V1B2-S1": [
+    "Intervertebral discs are avascular tissue structures that rely entirely on compressive and tensile mechanical movement (imbibition) to circulate fluid, nutrients, and waste products. [[81.02.2]]",
+    "Sedentary spinal immobility starves intervertebral discs over time; regular axial and rotational movement is the biological prerequisite to halt chronic degenerative disc decay. [[81.05 Lifestyle Management]]"
+  ],
+  "80.V1A": [
+    "The thermic effect of food (TEF) requires metabolically demanding digestive work for whole foods (burning 20-35% of protein calories and 5-15% of complex carbohydrates), whereas pre-digested ultra-processed food eliminates digestive expenditure and triggers rapid insulin dumping. [[81.09]]",
+    "Synthetic emulsifiers, refined seed oils, and chemical food additives trigger low-grade intestinal mucosal inflammation, shifting the autonomic nervous system into chronic sympathetic overdrive. [[81.09]]",
+    "Ultra-processed food disrupts central leptin signaling, blunting physiological satiety and prompting the adrenal system to release cortisol and adrenaline to counter reactive glycemic instability. [[81.04]]",
+    "Synthetic preservatives degrade the intestinal epithelial barrier, allowing inflammatory particles to translocate into systemic circulation and manifesting clinically as fatigue, brain fog, and arthralgia. [[81.04]]",
+    "Food engineered to hit the industrial \"bliss point\" over-stimulates taste receptors and blunts natural palate sensitivity; a two-week transition to single-ingredient whole foods recalibrates sensory thresholds and restores baseline metabolic energy. [[81.05]]"
+  ],
+  "80.V1A-S3": [
+    "Severe dietary caloric restriction triggers an acute neuroendocrine rebound effect where compensatory cravings lead to behavioral abandonment and rapid fat regain. [[81.05]]",
+    "Sustainable body composition management replaces restrictive dieting with intentional food quality audits, prioritizing high-satiety, whole foods over ultra-processed items. [[81.05]]",
+    "Long-term metabolic transformation is achieved through compounding daily nutritional decisions sustained across months and years rather than cyclical fad diets. [[41.03]]"
+  ],
+  "80.V1B1-S1": [
+    "The central nervous system registers allostatic load cumulatively; forcing strenuous gym workouts while enduring severe psychological stress exacerbates systemic biological strain. [[81.05]]",
+    "While mechanical movement is mandatory for cellular and joint health, structured gym exercise is optional and can be fulfilled through low-friction daily choices like climbing stairs. [[81.02]]",
+    "Overcoming severe burnout requires adhering to biological sequencing: securing restorative rest for human growth hormone release before attempting progressive physical conditioning. [[81.09]]"
+  ],
+  "80.V0A1": [
+    "Healthy human function operates as a three-tier hierarchy (Foundational/FMR, Internal/TLC, External/POP) where higher-order cognitive processing and purposeful action cannot be sustained if the biological baseline is depleted. [[80.V0]]",
+    "Behavioral structure acts as an enabler of psychological freedom by establishing clear biological boundaries and eliminating daily decision fatigue. [[41.03]]",
+    "Daily movement provides mandatory sensory and proprioceptive stimulation to fire cerebral cortical neurons and clear mental fatigue, making physical activity a neurological requirement rather than optional fitness. [[82]]",
+    "Cellular growth and tissue repair are gated by restorative rest, with approximately 75% of natural human growth hormone released during deep sleep cycles. [[81.09]]",
+    "Externalizing thoughts, projects, and goals into a trusted physical or digital system offloads working memory and prevents cognitive exhaustion from unresolved open loops. [[64.05]]"
+  ],
+  "80.V1A-S2": [
+    "Drinking large volumes of plain water without adequate electrolytes actively flushes key minerals from the body, leading to cellular dehydration. [[81.09]]",
+    "Water requires an osmotic and electrical gradient driven by trace minerals (sodium, potassium, magnesium) to effectively cross cellular membranes into cells. [[81.09]]",
+    "Symptoms such as persistent dry mouth, frequent urination, and afternoon fatigue despite high fluid intake signal electrolyte depletion rather than a lack of water intake. [[81.04]]",
+    "Adding a pinch of high-quality sea salt to drinking water restores osmotic balance and allows kidneys and cells to properly retain and absorb fluid. [[81.05]]"
+  ],
+  "80.V1C1-S2": [
+    "Sleep is an active, metabolically demanding brain state during which declarative memory is transferred from temporary hippocampal storage to long-term cortical storage during slow-wave sleep. [[82]]",
+    "Essential physiological maintenance\u2014including glymphatic waste clearance, cellular repair, and growth hormone release\u2014occurs primarily during the first four hours of sleep. [[81.09]]",
+    "Restricting sleep truncates critical brain maintenance cycles, causing uncleared metabolic waste and impaired memory consolidation that compound negatively over time. [[81.05]]",
+    "Maximizing restorative slow-wave sleep requires establishing consistent bedtime schedules and low-stimulus pre-sleep habits. [[41.03]]"
+  ]
+}

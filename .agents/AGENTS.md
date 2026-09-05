@@ -5,21 +5,21 @@ Whenever writing, scripting, outlining, or generating metadata/descriptions for 
 - **Mandatory Link**: Always include the official short URL: `http://call.systemizedhealth.com/` (or `call.systemizedhealth.com`).
 - **Standard CTA Copy Format**:
   - *"Book your free 20-minute Systemized Discovery Call: call.systemizedhealth.com"*
-- **Target Endpoint**: Resolves to `https://tidycal.com/craigandersondc/systemized-discovery-call`.
+- **Target Endpoint**: Resolves via domain redirect (`call.systemizedhealth.com`).
 
 ---
 
 ## 2. Client Onboarding & CRM Maintenance (Session Startup Directive)
 - **Mandatory Session Startup Action**: At the beginning of every session / login, automatically perform the following:
   1. Inspect [`TODO.md`](file:///Users/craiganderson/Developer/SystemizedHealth/TODO.md) to check active open items and priorities.
-  2. Remind Dr. Anderson and run the client database & video pipeline refresh:
-     - `python3 scripts/tidycal_sync.py` (Pulls new TidyCal bookings)
+  2. Run the streamlined CRM & video pipeline refresh:
      - `python3 scripts/sync_agreements.py` (Pulls Google Form agreement responses)
      - `python3 scripts/client_db_manager.py --doc` (Refreshes [`docs/Client_Onboarding_Status.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/Client_Onboarding_Status.md))
-     - `python3 scripts/sync_published_videos.py` (Syncs published videos from vidIQ to Vault)
-     - `python3 scripts/sync_obsidian_tags.py` (Syncs authoritative App/database statuses down to Obsidian Vault tags)
      - `python3 scripts/video_pipeline.py --cache` (Refreshes [`docs/video_pipeline_cache.json`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/video_pipeline_cache.json))
-     - `python3 scripts/sync_jdex_titles.py` (Appends JDex descriptions to JDex files)
+     - `python3 scripts/sync_obsidian_tags.py` (Syncs authoritative App/database statuses down to Obsidian Vault tags)
+  3. **Auto-Scan Pending Transcripts & Messages**:
+     - Inspect `docs/video_pipeline_cache.json` for any video with an active `agent_message` or newly dropped `raw_transcript` in `#edit`.
+     - Immediately notify Dr. Anderson upon session startup and offer to process (score titles via vidIQ, archive spoken transcript in Obsidian, mine JDex propositions, and log changelog).
 - Master task list location: [`TODO.md`](file:///Users/craiganderson/Developer/SystemizedHealth/TODO.md).
 - Database location: [`database/clients.db`](file:///Users/craiganderson/Developer/SystemizedHealth/database/clients.db).
 - Living report location: [`docs/Client_Onboarding_Status.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/Client_Onboarding_Status.md).

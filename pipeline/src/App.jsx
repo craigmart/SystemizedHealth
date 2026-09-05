@@ -4,7 +4,7 @@ import {
   Calendar, CheckSquare, AlertCircle, RefreshCw, ChevronLeft, Save, Tag, 
   TrendingUp, Clock, FileVideo, Scissors, Film, X, ExternalLink, BarChart2, 
   LayoutDashboard, Eye, Users, Award, Flame, BookOpen, Check, ThumbsUp, 
-  MessageSquare, Plus, Trash2, ListTodo, FileText, CheckCircle2 
+  MessageSquare, Plus, Trash2, ListTodo, FileText, CheckCircle2, Lightbulb 
 } from 'lucide-react';
 import { addDays, isBefore, parseISO, differenceInDays } from 'date-fns';
 import ReactMarkdown from 'react-markdown';
@@ -575,7 +575,9 @@ function VideoDetail({ video, onUpdate, onBack }) {
 
   const [checklist, setChecklist] = useState(() => parseChecklist(video.edit_checklist));
 
-  // Fetch specific video path
+  const [filePropositions, setFilePropositions] = useState([]);
+
+  // Fetch specific video path & propositions
   useEffect(() => {
     fetch('/video_paths.json')
       .then(res => res.json())
@@ -585,7 +587,34 @@ function VideoDetail({ video, onUpdate, onBack }) {
         }
       })
       .catch(console.error);
+
+    fetch('/propositions.json')
+      .then(res => res.json())
+      .then(data => {
+        if (data && data[video.code]) {
+          setFilePropositions(data[video.code]);
+        } else {
+          setFilePropositions([]);
+        }
+      })
+      .catch(() => setFilePropositions([]));
   }, [video.code]);
+
+  const handleClearTranscript = async () => {
+    if (!window.confirm("Clear raw transcript text from App? (It is safely preserved in Obsidian).")) return;
+    setTranscript('');
+    const { error } = await supabase
+      .from('videos')
+      .update({ raw_transcript: '' })
+      .eq('video_number', localVideo.video_number);
+
+    if (error) {
+      alert("Error clearing transcript: " + error.message);
+    } else {
+      setLocalVideo(prev => ({ ...prev, raw_transcript: '' }));
+      onUpdate();
+    }
+  };
 
   // Sync state if prop changes
   useEffect(() => {
@@ -776,6 +805,55 @@ function VideoDetail({ video, onUpdate, onBack }) {
 
   const showCustomTasks = currentPhase === 'All' || currentPhase.toLowerCase() === 'custom';
 
+  // Core Clinical Propositions
+  const propositions = (checklist.propositions && Array.isArray(checklist.propositions) && checklist.propositions.length > 0)
+    ? checklist.propositions
+    : filePropositions;
+  const hasPropositions = propositions && propositions.length > 0;
+
+  const renderPropositionItem = (propText, index) => {
+    const jdexMatch = typeof propText === 'string' ? propText.match(/\[\[(.*?)\]\]/) : null;
+    const cleanText = typeof propText === 'string' ? propText.replace(/\[\[.*?\]\]/, '').trim() : String(propText);
+    const jdexTag = jdexMatch ? jdexMatch[1] : null;
+
+    return (
+      <div 
+        key={index}
+        style={{
+          padding: '0.75rem 0.9rem',
+          backgroundColor: 'var(--bg-color)',
+          border: '1px solid var(--border-color)',
+          borderRadius: 'var(--radius-md)',
+          marginBottom: '0.5rem',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '0.4rem'
+        }}
+      >
+        <div style={{ fontSize: '0.88rem', lineHeight: '1.5', color: 'var(--text-primary)' }}>
+          {cleanText}
+        </div>
+        {jdexTag && (
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+            <span 
+              style={{
+                fontSize: '0.72rem',
+                fontWeight: '600',
+                padding: '0.15rem 0.45rem',
+                borderRadius: '4px',
+                backgroundColor: '#8b5cf618',
+                color: '#8b5cf6',
+                border: '1px solid #8b5cf635'
+              }}
+            >
+              🗂️ {jdexTag}
+            </span>
+          </div>
+        )}
+      </div>
+    );
+  };
+
   return (
     <div className="card" style={{ maxWidth: '840px', margin: '0 auto', width: '100%' }}>
       
@@ -960,38 +1038,102 @@ function VideoDetail({ video, onUpdate, onBack }) {
           />
         </div>
 
-        {/* 3. Spoken Transcript / Draft Section */}
-        <div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
-            <h3 style={{ fontSize: '1.1rem', margin: 0 }}>
-              {localVideo.status === '#idea' || localVideo.status === '#write'
-                ? 'Raw Audio Brainstorm / Draft Transcript'
-                : 'Final Spoken Transcript (Descript)'}
-            </h3>
-          </div>
-          <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>
-            {localVideo.status === '#idea' || localVideo.status === '#write'
-              ? 'Paste audio dictation or early notes here.'
-              : 'Paste your exact spoken transcript from Descript. Antigravity reads this to score titles (vidIQ), extract waterfall shorts, and mine propositions.'}
-          </p>
-
-          {/* Rough Outline Reference Display (if exists) */}
-          {localVideo.rough_outline && (
-            <div style={{ backgroundColor: 'var(--bg-color)', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', marginBottom: '1rem' }}>
-              <h4 style={{ fontSize: '0.9rem', marginBottom: '0.5rem', color: 'var(--primary-color)' }}>Pre-Recording Outline Reference:</h4>
-              <div style={{ whiteSpace: 'pre-wrap', fontSize: '0.85rem', lineHeight: '1.5' }}>
-                {localVideo.rough_outline}
-              </div>
+        {/* 3. Core Clinical Propositions (Zettelkasten / JDex) & Spoken Transcript */}
+        {hasPropositions ? (
+          <div style={{ backgroundColor: 'var(--surface-color)', padding: '1.25rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem', flexWrap: 'wrap', gap: '0.5rem' }}>
+              <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', margin: 0, fontSize: '1.15rem' }}>
+                <Lightbulb size={20} color="#eab308" /> Core Clinical Propositions ({propositions.length})
+              </h3>
+              <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
+                Zettelkasten & JDex Mined
+              </span>
             </div>
-          )}
 
-          <textarea
-            value={transcript}
-            onChange={(e) => setTranscript(e.target.value)}
-            style={{ width: '100%', height: '180px', padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', fontFamily: 'inherit', resize: 'vertical' }}
-            placeholder="Paste transcript here..."
-          />
-        </div>
+            <div style={{ marginBottom: '1rem' }}>
+              {propositions.map((p, idx) => renderPropositionItem(p, idx))}
+            </div>
+
+            {/* Clean Script Archive Notice & Collapsed Raw Transcript */}
+            <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '0.75rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
+                <span style={{ fontSize: '0.85rem', color: 'var(--success-color)', display: 'flex', alignItems: 'center', gap: '0.35rem', fontWeight: '500' }}>
+                  <CheckCircle2 size={16} /> Final script archived in Obsidian
+                </span>
+                <a
+                  href={videoPath 
+                    ? `obsidian://open?vault=SystemizedHealth_Vault&file=${videoPath.split('/').map(encodeURIComponent).join('/')}` 
+                    : `obsidian://search?vault=SystemizedHealth_Vault&query=${encodeURIComponent(`"${localVideo.code}"`)}`}
+                  className="btn btn-outline"
+                  style={{ textDecoration: 'none', padding: '0.25rem 0.6rem', fontSize: '0.75rem' }}
+                >
+                  <ExternalLink size={12} /> Open Full Script in Obsidian
+                </a>
+              </div>
+
+              {/* Collapsed Raw Transcript (Keeps page clean while allowing view/edit/clear) */}
+              <details style={{ marginTop: '0.25rem' }}>
+                <summary style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', cursor: 'pointer', userSelect: 'none' }}>
+                  {transcript ? 'View / Edit Ingested Raw Transcript' : 'Add / Paste Ingested Transcript'}
+                </summary>
+                <div style={{ marginTop: '0.5rem' }}>
+                  <textarea
+                    value={transcript}
+                    onChange={(e) => setTranscript(e.target.value)}
+                    style={{ width: '100%', height: '120px', padding: '0.6rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', fontFamily: 'inherit', fontSize: '0.85rem', resize: 'vertical' }}
+                    placeholder="Raw transcript..."
+                  />
+                  {transcript && (
+                    <div style={{ marginTop: '0.4rem', display: 'flex', justifyContent: 'flex-end' }}>
+                      <button
+                        type="button"
+                        onClick={handleClearTranscript}
+                        className="btn btn-outline"
+                        style={{ fontSize: '0.75rem', padding: '0.2rem 0.5rem', color: 'var(--danger-color)', borderColor: 'var(--danger-color)' }}
+                      >
+                        <Trash2 size={12} /> Clear Raw Transcript from App
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </details>
+            </div>
+          </div>
+        ) : (
+          <div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
+              <h3 style={{ fontSize: '1.1rem', margin: 0 }}>
+                {localVideo.status === '#idea' || localVideo.status === '#write'
+                  ? 'Raw Audio Brainstorm / Draft Transcript'
+                  : 'Final Spoken Transcript (Descript)'}
+              </h3>
+            </div>
+            <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>
+              {localVideo.status === '#idea' || localVideo.status === '#write'
+                ? 'Paste audio dictation or early notes here.'
+                : 'Paste your exact spoken transcript from Descript. Antigravity reads this to score titles (vidIQ), archive the script to Obsidian, and pull out core clinical propositions.'}
+            </p>
+
+            {/* Pre-recording outline reference (collapsible if in edit) */}
+            {localVideo.rough_outline && (
+              <details style={{ marginBottom: '0.75rem' }} open={localVideo.status === '#idea' || localVideo.status === '#write'}>
+                <summary style={{ fontSize: '0.85rem', color: 'var(--primary-color)', cursor: 'pointer', fontWeight: '600', marginBottom: '0.4rem' }}>
+                  Pre-Recording Outline Reference
+                </summary>
+                <div style={{ backgroundColor: 'var(--bg-color)', padding: '0.85rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', whiteSpace: 'pre-wrap', fontSize: '0.85rem', lineHeight: '1.5' }}>
+                  {localVideo.rough_outline}
+                </div>
+              </details>
+            )}
+
+            <textarea
+              value={transcript}
+              onChange={(e) => setTranscript(e.target.value)}
+              style={{ width: '100%', height: '180px', padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', fontFamily: 'inherit', resize: 'vertical' }}
+              placeholder="Paste transcript here..."
+            />
+          </div>
+        )}
 
         {/* 4. Message to Agent (Antigravity) */}
         <div>

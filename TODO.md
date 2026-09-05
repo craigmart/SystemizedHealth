@@ -41,20 +41,18 @@
 ## 3. Client Onboarding & CRM Operations
 
 - [ ] **Session Startup Sync** (run at every session start):
-  - [`python3 scripts/tidycal_sync.py`](file:///Users/craiganderson/Developer/SystemizedHealth/scripts/tidycal_sync.py)
   - [`python3 scripts/sync_agreements.py`](file:///Users/craiganderson/Developer/SystemizedHealth/scripts/sync_agreements.py)
   - [`python3 scripts/client_db_manager.py --doc`](file:///Users/craiganderson/Developer/SystemizedHealth/scripts/client_db_manager.py)
-  - [`python3 scripts/sync_obsidian_tags.py`](file:///Users/craiganderson/Developer/SystemizedHealth/scripts/sync_obsidian_tags.py)
   - [`python3 scripts/video_pipeline.py --cache`](file:///Users/craiganderson/Developer/SystemizedHealth/scripts/video_pipeline.py)
-  - [`python3 scripts/sync_published_videos.py`](file:///Users/craiganderson/Developer/SystemizedHealth/scripts/sync_published_videos.py)
-  - [`python3 scripts/sync_jdex_titles.py`](file:///Users/craiganderson/Developer/SystemizedHealth/scripts/sync_jdex_titles.py)
+  - [`python3 scripts/sync_obsidian_tags.py`](file:///Users/craiganderson/Developer/SystemizedHealth/scripts/sync_obsidian_tags.py)
+  - *Agent auto-scans cache for pending `raw_transcript` or `agent_message`*
 - [ ] **Client Web App Deliverable**: Build and deploy individual client webapps for health tracking & coaching (prototyping with `HollyApp`; roll out to all coaching clients).
 
 ---
 
 ## 4. Marketing & Conversion Funnel Setup
 
-- [ ] **TidyCal Redirect**: Configure redirect to `https://call.systemizedhealth.com/success` post-booking.
+- [ ] **Scheduling System Migration**: Configure new scheduling platform and update `https://call.systemizedhealth.com` destination.
 - [ ] **Tracking Implementation**:
   - [ ] Embed Google Tag Manager on `call.systemizedhealth.com` & `/success`
   - [ ] Configure GA4 page view tag + `generate_lead` conversion event in GTM
