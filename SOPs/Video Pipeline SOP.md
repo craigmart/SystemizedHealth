@@ -194,8 +194,8 @@ After filming, when Dr. Anderson begins editing in Descript, he drops the **exac
 3. **Zettelkasten Proposition Mining**:
    - The Agent extracts 1–2 sharp, authoritative clinical propositions from the spoken words and indexes them to the appropriate JDex category in `Obsidian_Vault/JDex/` and Workflowy.
 
-4. **Waterfall Shorts Extraction**:
-   - The Agent analyzes the exact spoken transcript and isolates the **3 best 30–60 second segments** to cut as waterfall shorts (`[Code]-S1`, `[Code]-S2`, `[Code]-S3`), providing custom short-form hooks and timestamps for editing.
+4. **Waterfall Ideation & Sub-Topic Alignment**:
+   - Each video (long or short) is treated as a standalone production with its own recording and editing. The only "waterfall" is ideation—branching related sub-topic angles from the core pillar in Gemini Notebook. Shorts are not cut from the long video; each is recorded and edited on its own.
 
 5. **Pipeline & Database Synchronization**:
    - Updates Supabase and SQLite, refreshes `docs/video_pipeline_cache.json`, and appends a dated entry to the `## Changelog`.
@@ -205,13 +205,13 @@ After filming, when Dr. Anderson begins editing in Descript, he drops the **exac
 The web App's per-video production checklist dynamically adapts based on video format to keep your workflow streamlined:
 
 * **Long-Form Videos (`Long`)**:
-  1. *Planning*: Gemini Notebook research & analogies reviewed, 3x5 Index Card drafted.
-  2. *Filming*: Direct-to-camera filming recorded using 3x5 card anchor.
-  3. *Editing*: Descript spoken transcript dropped into App, **B-roll & visual cutaways added**, **Sound design & audio enhancement**, vidIQ title scored (90+), Obsidian script & propositions mined, 3 Waterfall Shorts extracted.
-  4. *Publishing & Archive*: YouTube Studio upload with `call.systemizedhealth.com` CTA, custom thumbnail uploaded, scheduled for drop date, physical 3x5 cards reviewed and filed.
+  1. *Planning*: Gemini Notebook research, 3x5 card drafted (4 beats).
+  2. *Filming*: Direct-to-camera recorded using 3x5 card anchor.
+  3. *Editing*: Descript transcript pasted, B-roll added, Sound & audio enhanced, vidIQ title scored (90+), Obsidian & JDex archived.
+  4. *Publishing & Archive*: YouTube Studio upload & CTA, custom thumbnail uploaded, scheduled for drop date, physical 3x5 main cards filed.
 
-* **Waterfall Shorts (`Short` / `-S[N]`)**:
-  * *Streamlined Descript Workflow*: **Fully edited in Descript** (trimming, captions, audio & pacing), Descript transcript dropped into App, vidIQ hook/title scored, Obsidian script & propositions mapped, YouTube Studio/Shorts upload with `call.systemizedhealth.com` CTA, and scheduled for drop date.
+* **Shorts (`Short` / `-S[N]`)**:
+  * *Streamlined Descript Workflow*: Edited in Descript (captions, audio), Descript transcript pasted, vidIQ title/hook scored (90+), Obsidian & JDex archived, YouTube Shorts upload & CTA, and scheduled for drop date.
 
 ---
 

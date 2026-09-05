@@ -11,27 +11,26 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
 export const LONG_VIDEO_CHECKLIST_ITEMS = [
-  { key: 'prep_notebook', phase: 'Planning', label: 'Gemini Notebook research & analogies reviewed' },
-  { key: 'prep_card', phase: 'Planning', label: '3x5 Index Card drafted (Hook, Glitch, Analogy, Protocol + CTA)' },
-  { key: 'film_recorded', phase: 'Filming', label: 'Direct-to-camera filming recorded (3x5 card anchor)' },
-  { key: 'edit_transcript', phase: 'Editing', label: 'Descript spoken transcript dropped into App' },
-  { key: 'edit_broll', phase: 'Editing', label: 'B-roll & visual cutaways added' },
-  { key: 'edit_sound', phase: 'Editing', label: 'Sound design & audio enhancement' },
-  { key: 'edit_vidiq', phase: 'Editing', label: 'vidIQ title scoring & optimization (target 90+ virality)' },
-  { key: 'edit_obsidian', phase: 'Editing', label: 'Obsidian reference script archived & JDex propositions mined' },
-  { key: 'edit_shorts', phase: 'Editing', label: '3 Waterfall Shorts cut & extracted (S1, S2, S3)' },
-  { key: 'pub_upload', phase: 'Publishing', label: 'YouTube Studio upload & CTA call.systemizedhealth.com' },
-  { key: 'pub_thumb', phase: 'Publishing', label: 'Custom thumbnail uploaded & verified' },
+  { key: 'prep_notebook', phase: 'Planning', label: 'Gemini Notebook research' },
+  { key: 'prep_card', phase: 'Planning', label: '3x5 card drafted (4 beats)' },
+  { key: 'film_recorded', phase: 'Filming', label: 'Direct-to-camera recorded' },
+  { key: 'edit_transcript', phase: 'Editing', label: 'Descript transcript pasted' },
+  { key: 'edit_broll', phase: 'Editing', label: 'B-roll added' },
+  { key: 'edit_sound', phase: 'Editing', label: 'Sound & audio enhanced' },
+  { key: 'edit_vidiq', phase: 'Editing', label: 'vidIQ title scored (90+)' },
+  { key: 'edit_obsidian', phase: 'Editing', label: 'Obsidian & JDex archived' },
+  { key: 'pub_upload', phase: 'Publishing', label: 'YouTube Studio upload & CTA' },
+  { key: 'pub_thumb', phase: 'Publishing', label: 'Custom thumbnail uploaded' },
   { key: 'pub_schedule', phase: 'Publishing', label: 'Scheduled for drop date' },
-  { key: 'pub_cards', phase: 'Archived', label: 'Physical 3x5 main cards reviewed and filed' },
+  { key: 'pub_cards', phase: 'Archived', label: 'Physical 3x5 main cards filed' },
 ];
 
 export const SHORT_VIDEO_CHECKLIST_ITEMS = [
-  { key: 'short_descript', phase: 'Editing', label: 'Fully edited in Descript (trimming, captions, audio & pacing)' },
-  { key: 'edit_transcript', phase: 'Editing', label: 'Descript spoken transcript dropped into App' },
-  { key: 'edit_vidiq', phase: 'Editing', label: 'vidIQ hook & title scoring (target 90+ virality)' },
-  { key: 'edit_obsidian', phase: 'Editing', label: 'Obsidian script archived & JDex propositions mined' },
-  { key: 'pub_upload', phase: 'Publishing', label: 'YouTube Studio / Shorts upload & CTA call.systemizedhealth.com' },
+  { key: 'short_descript', phase: 'Editing', label: 'Edited in Descript (captions, audio)' },
+  { key: 'edit_transcript', phase: 'Editing', label: 'Descript transcript pasted' },
+  { key: 'edit_vidiq', phase: 'Editing', label: 'vidIQ title/hook scored (90+)' },
+  { key: 'edit_obsidian', phase: 'Editing', label: 'Obsidian & JDex archived' },
+  { key: 'pub_upload', phase: 'Publishing', label: 'YouTube Shorts upload & CTA' },
   { key: 'pub_schedule', phase: 'Publishing', label: 'Scheduled for drop date' },
 ];
 
