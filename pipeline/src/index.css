@@ -145,11 +145,32 @@ p {
 .badge-cards { background-color: #ede9fe; color: #6d28d9; border: 1px solid #ddd6fe; }
 
 /* Dashboard Layout */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.metric-tile {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.metric-tile:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
 .dashboard-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
 .section-header {
@@ -360,11 +381,27 @@ p {
 /* Mobile & iPhone Responsiveness */
 @media (max-width: 768px) {
   .container {
-    padding: 0.75rem 0.5rem;
+    padding: 1rem 0.85rem;
   }
 
   .card {
-    padding: 1rem 0.75rem;
+    padding: 1.15rem 1rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .metrics-grid {
+    gap: 0.85rem;
+    margin-bottom: 1rem;
+  }
+
+  .dashboard-grid {
+    gap: 1.25rem;
+    margin-top: 1.25rem;
+  }
+
+  .video-item {
+    margin-bottom: 0.85rem;
+    padding: 0.85rem 1rem;
   }
 
   .checklist-section,
@@ -415,21 +452,44 @@ p {
 
 @media (max-width: 480px) {
   .container {
-    padding: 0.5rem 0.25rem;
+    padding: 0.85rem 0.75rem;
   }
 
   .card {
-    padding: 0.75rem 0.5rem;
+    padding: 1rem 0.85rem;
+    border-radius: var(--radius-lg);
+    margin-bottom: 0.85rem;
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .metric-tile {
+    padding: 0.75rem 0.85rem;
+    gap: 0.65rem;
+  }
+
+  .dashboard-grid {
+    gap: 1.25rem;
+    margin-top: 1rem;
+  }
+
+  .video-item {
+    padding: 0.85rem 0.85rem;
+    margin-bottom: 0.85rem;
     border-radius: var(--radius-md);
   }
 
   .checklist-section,
   .log-box {
-    padding: 0.75rem 0.5rem;
+    padding: 0.85rem 0.75rem;
   }
 
-  h1 { font-size: 1.35rem; }
-  h2 { font-size: 1.15rem; }
+  h1 { font-size: 1.4rem; }
+  h2 { font-size: 1.2rem; }
   h3 { font-size: 1.05rem; }
 }
 

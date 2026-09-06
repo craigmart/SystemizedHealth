@@ -235,8 +235,8 @@ function App() {
     return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
       {/* Metrics Bar */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '0.75rem' }}>
-        <div className="card" onClick={() => openModal('Upcoming Runway (Unfinished)', unfinishedFuture)} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.75rem 1rem', cursor: 'pointer' }}>
+      <div className="metrics-grid">
+        <div className="card metric-tile" onClick={() => openModal('Upcoming Runway (Unfinished)', unfinishedFuture)}>
           <div style={{ backgroundColor: daysAhead >= 21 ? 'var(--success-color)' : 'var(--danger-color)', color: '#fff', padding: '0.5rem', borderRadius: '50%', display: 'flex' }}>
             <TrendingUp size={20} />
           </div>
@@ -246,7 +246,7 @@ function App() {
           </div>
         </div>
 
-        <div className="card" onClick={() => openModal('Writing', writingVideos)} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.75rem 1rem', cursor: 'pointer' }}>
+        <div className="card metric-tile" onClick={() => openModal('Writing', writingVideos)}>
           <div style={{ backgroundColor: '#b45309', color: '#fff', padding: '0.5rem', borderRadius: '50%', display: 'flex' }}>
             <Scissors size={20} />
           </div>
@@ -256,7 +256,7 @@ function App() {
           </div>
         </div>
 
-        <div className="card" onClick={() => openModal('Filming', readyToFilmVideos)} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.75rem 1rem', cursor: 'pointer' }}>
+        <div className="card metric-tile" onClick={() => openModal('Filming', readyToFilmVideos)}>
           <div style={{ backgroundColor: 'var(--danger-color)', color: '#fff', padding: '0.5rem', borderRadius: '50%', display: 'flex' }}>
             <Film size={20} />
           </div>
@@ -266,7 +266,7 @@ function App() {
           </div>
         </div>
 
-        <div className="card" onClick={() => openModal('Editing', editingVideos)} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.75rem 1rem', cursor: 'pointer' }}>
+        <div className="card metric-tile" onClick={() => openModal('Editing', editingVideos)}>
           <div style={{ backgroundColor: '#7e22ce', color: '#fff', padding: '0.5rem', borderRadius: '50%', display: 'flex' }}>
             <Clock size={20} />
           </div>
@@ -276,7 +276,7 @@ function App() {
           </div>
         </div>
 
-        <div className="card" onClick={() => openModal('All Scheduled Videos', videos.filter(v => v.drop_date))} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.75rem 1rem', cursor: 'pointer' }}>
+        <div className="card metric-tile" onClick={() => openModal('All Scheduled Videos', videos.filter(v => v.drop_date))}>
           <div style={{ backgroundColor: 'var(--accent-color)', color: '#fff', padding: '0.5rem', borderRadius: '50%', display: 'flex' }}>
             <FileVideo size={20} />
           </div>
