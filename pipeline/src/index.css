@@ -381,12 +381,25 @@ p {
 /* Mobile & iPhone Responsiveness */
 @media (max-width: 768px) {
   .container {
-    padding: 1rem 0.85rem;
+    padding: 1rem 1.25rem;
+  }
+
+  .section-header {
+    padding: 0 0.5rem 1rem 0.5rem;
+  }
+
+  .section-header h1 {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
   }
 
   .card {
-    padding: 1.15rem 1rem;
+    padding: 1.15rem 1.25rem;
     margin-bottom: 0.85rem;
+  }
+
+  .metric-tile {
+    padding: 0.85rem 1.15rem;
   }
 
   .metrics-grid {
@@ -401,7 +414,7 @@ p {
 
   .video-item {
     margin-bottom: 0.85rem;
-    padding: 0.85rem 1rem;
+    padding: 0.85rem 1.15rem;
   }
 
   .checklist-section,
@@ -452,11 +465,26 @@ p {
 
 @media (max-width: 480px) {
   .container {
-    padding: 0.85rem 0.75rem;
+    padding: 0.85rem 1.25rem;
+  }
+
+  .section-header {
+    padding: 0 0.65rem 1rem 0.65rem;
+  }
+
+  .section-header h1 {
+    padding-left: 0.35rem;
+    padding-right: 0.35rem;
+    font-size: 1.4rem;
+  }
+
+  .section-header p {
+    padding-left: 0.35rem;
+    padding-right: 0.35rem;
   }
 
   .card {
-    padding: 1rem 0.85rem;
+    padding: 1rem 1.25rem;
     border-radius: var(--radius-lg);
     margin-bottom: 0.85rem;
   }
@@ -468,7 +496,7 @@ p {
   }
 
   .metric-tile {
-    padding: 0.75rem 0.85rem;
+    padding: 0.75rem 1.15rem;
     gap: 0.65rem;
   }
 
@@ -478,7 +506,7 @@ p {
   }
 
   .video-item {
-    padding: 0.85rem 0.85rem;
+    padding: 0.85rem 1.15rem;
     margin-bottom: 0.85rem;
     border-radius: var(--radius-md);
   }
@@ -488,7 +516,6 @@ p {
     padding: 0.85rem 0.75rem;
   }
 
-  h1 { font-size: 1.4rem; }
   h2 { font-size: 1.2rem; }
   h3 { font-size: 1.05rem; }
 }
