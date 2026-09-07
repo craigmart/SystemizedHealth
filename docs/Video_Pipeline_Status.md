@@ -1,6 +1,6 @@
 # Video Pipeline Status
 
-> **Source of truth:** Supabase `videos` table  |  Generated: 2026-09-05
+> **Source of truth:** Supabase `videos` table  |  Generated: 2026-09-07
 > To update status: `python3 scripts/video_pipeline.py --status <code> <status>`
 
 ---
@@ -18,7 +18,7 @@
 | **007** | `80.V0B-S3` | Short | Stop Trying to Fix Stress Backward (Fuel, Move, Rest First) | 2026-08-08 | ✅ #published | 2026-08-08 |
 | **008** | `80.V0A-S1` | Short | Coffee Won't Fix Your Afternoon Crash #bloodsugar #over50 | 2026-08-06 | ✅ #published | 2026-08-18 |
 | **009** | `80.V0A-S2` | Short | Why Chugging Water can Dehydrate you | 2026-08-08 | ✅ #published | 2026-08-20 |
-| **010** | `80.V0A-S3` | Short | Break a Sweat 3 Times a Week (Prevent Musculoskeletal Pain) | 2026-08-22 | ✅ #published | 2026-08-22 |
+| **010** | `80.V0A-S3` | Short | Break a Sweat 3 Times a Week (Prevent Musculoskeletal Pain) | 2026-08-22 | ✅ #published | 2026-09-07 |
 | **011** | `80.V1B1-S1` | Short | The Lazy Way to Get Fit (It Actually Works) #shorts #fitness #hack | 2026-08-11 | ✅ #published | 2026-08-11 |
 | **012** | `80.V1B1-S2` | Short | How do the Joints in your Body Stay Healthy? - Its not good bloodflow. | 2026-08-13 | ✅ #published | 2026-08-13 |
 | **013** | `80.V1B1-S3` | Short | Cortical Smudging: A reason for Sudden Back Pain #backpain #tips | 2026-08-15 | ✅ #published | 2026-08-15 |
@@ -29,10 +29,10 @@
 | **018** | `80.V1C1-S1` | Short | Weekend Catch-Up Myth | 2026-09-01 | ✅ #published | — |
 | **019** | `80.V1C1-S2` | Short | Brain Night Shift | 2026-09-03 | ✅ #published | — |
 | **020** | `80.V1C1-S3` | Short | Caffeine Illusion | 2026-09-05 | ✅ #published | — |
-| **021** | `80.V1B2` | Long | Can You Run With a Herniated Disc? (A Doctor's Experiment) | 2026-09-07 | ✂️ #edit | — |
+| **021** | `80.V1B2` | Long | Can You Run With a Herniated Disc? (A Doctor's Experiment) | 2026-09-07 | ✅ #published | — |
 | **022** | `80.V1B2-S1` | Short | How Do the Discs in Your Spine Stay Healthy? (It's NOT Bloodflow) | 2026-09-08 | ✅ #published | — |
-| **023** | `80.V1B2-S2` | Short | TBD (80.V1B2 Short 2) | 2026-09-10 | 📝 #write | — |
-| **024** | `80.V1B2-S3` | Short | TBD (80.V1B2 Short 3) | 2026-09-12 | 📝 #write | — |
+| **023** | `80.V2B1-S1` | Short | The Need for Discomfort to Be Comfortable | 2026-09-10 | 📝 #write | — |
+| **024** | `80.V1B2-S2` | Short | Running and Longterm Health of Your Disc | 2026-09-12 | 📝 #write | — |
 | **025** | `TBD-025` | Long | Placeholder | 2026-09-14 | 💡 #idea | — |
 | **026** | `TBD-026` | Short | Placeholder | 2026-09-15 | 💡 #idea | — |
 | **027** | `TBD-027` | Short | Placeholder | 2026-09-17 | 💡 #idea | — |
@@ -70,5 +70,4 @@
 
 - 💡 **#idea**: 8
 - 📝 **#write**: 2
-- ✂️ **#edit**: 1
-- ✅ **#published**: 43
+- ✅ **#published**: 44

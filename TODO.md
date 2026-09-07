@@ -28,6 +28,7 @@
 
 ### ✍️ In Writing (`#write`) & Ideation (`#idea`)
 - [ ] `80.V1B2`: *Is running good for low back pain* (Long — Level 1 Movement / Pillar B, branch 2)
+- [ ] `80.V1B2-S2`: *Running and Longterm Health of Your Disc* (Short) — Drop: 2026-09-12
 *(Weeks of Sep 7, Sep 14, Sep 21 — Active Stage 1 ideation & draft outlines in Gemini Notebook)*
 - [ ] **Stage 1 CNS Ideation & Draft Outlines (Gemini Notebook)**:
   - Active Brief: [`docs/CNS_Topic_Trajectory_Brief.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/CNS_Topic_Trajectory_Brief.md)
