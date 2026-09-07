@@ -17,9 +17,13 @@ Whenever writing, scripting, outlining, or generating metadata/descriptions for 
      - `python3 scripts/client_db_manager.py --doc` (Refreshes [`docs/Client_Onboarding_Status.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/Client_Onboarding_Status.md))
      - `python3 scripts/video_pipeline.py --cache` (Refreshes [`docs/video_pipeline_cache.json`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/video_pipeline_cache.json))
      - `python3 scripts/sync_obsidian_tags.py` (Syncs authoritative App/database statuses down to Obsidian Vault tags)
-  3. **Auto-Scan Pending Transcripts & Messages**:
-     - Inspect `docs/video_pipeline_cache.json` for any video with an active `agent_message` or newly dropped `raw_transcript` in `#edit`.
-     - Immediately notify Dr. Anderson upon session startup and offer to process (score titles via vidIQ, archive spoken transcript in Obsidian, mine JDex propositions, and log changelog).
+  3. **Auto-Scan Pending Transcripts, Messages & Zettelkasten Cards**:
+     - Inspect `docs/video_pipeline_cache.json` for:
+       a. Any video with an active `agent_message` or newly dropped `raw_transcript` in `#edit`.
+       b. Any video (including `#published`, excluding historical `HIST`) where clinical propositions still need to be reviewed and filed on physical 3x5 cards (`cards_created === false`).
+     - **Unprompted Notification**: Immediately notify Dr. Anderson upon session startup without requiring a prompt:
+       - Offer to process pending transcripts (score titles via vidIQ, archive spoken transcript in Obsidian, mine JDex propositions, and log changelog).
+       - Highlight active Work-in-Progress videos awaiting Zettelkasten proposition review and physical card filing.
 - Master task list location: [`TODO.md`](file:///Users/craiganderson/Developer/SystemizedHealth/TODO.md).
 - Database location: [`database/clients.db`](file:///Users/craiganderson/Developer/SystemizedHealth/database/clients.db).
 - Living report location: [`docs/Client_Onboarding_Status.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/Client_Onboarding_Status.md).
@@ -63,6 +67,9 @@ When Dr. Anderson begins editing (in Descript) and drops the **final exact spoke
    - Each video (long or short) is a standalone production with its own recording and editing. The "waterfall" concept refers strictly to ideation (branching related sub-topic angles from the core pillar in Gemini Notebook). Shorts are not sliced from the long video during editing.
 5. **Database & Cache Sync**:
    - Updates Supabase and SQLite, refreshes `docs/video_pipeline_cache.json`, and appends a dated entry to the `## Changelog`.
+6. **Zettelkasten Proposition Review & Physical Card Standard (Work in Progress)**:
+   - **Mandatory WIP Classification**: Any video (long or short, including `#published`) where clinical propositions have not yet been reviewed and filed onto physical 3x5 cards in Dr. Anderson's analog Zettelkasten box (`cards_created === false`, excluding historical `HIST`) is strictly classified as **active Work in Progress**.
+   - **Unprompted Maintenance**: The Agent must autonomously track these cards across all views (App dashboard and session startup summaries), surfacing the next action: `"Review propositions & add to Zettelkasten (3x5 cards)"` with Obsidian links until marked complete.
 
 ---
 

@@ -32,10 +32,11 @@ export const SHORT_VIDEO_CHECKLIST_ITEMS = [
   { key: 'edit_obsidian', phase: 'Editing', label: 'Obsidian & JDex archived' },
   { key: 'pub_upload', phase: 'Publishing', label: 'YouTube Shorts upload & CTA' },
   { key: 'pub_schedule', phase: 'Publishing', label: 'Scheduled for drop date' },
+  { key: 'pub_cards', phase: 'Archived', label: 'Physical 3x5 cards filed' },
 ];
 
 export const LONG_CHECKLIST_PHASES = ['All', 'Planning', 'Filming', 'Editing', 'Publishing', 'Archived'];
-export const SHORT_CHECKLIST_PHASES = ['All', 'Editing', 'Publishing'];
+export const SHORT_CHECKLIST_PHASES = ['All', 'Editing', 'Publishing', 'Archived'];
 
 const STATUS_OPTIONS = ['#idea', '#write', '#film', '#edit', '#uploaded', '#published'];
 
@@ -118,6 +119,35 @@ function App() {
     );
   }
 
+  const todayDate = new Date();
+  todayDate.setHours(0, 0, 0, 0);
+
+  const getDistanceToToday = (dateStr) => {
+    if (!dateStr || typeof dateStr !== 'string' || dateStr.trim() === '') return 999999;
+    const d = parseISO(dateStr);
+    if (isNaN(d.getTime())) return 999999;
+    d.setHours(0, 0, 0, 0);
+    const diffDays = differenceInDays(d, todayDate);
+    return diffDays >= 0 ? diffDays : Math.abs(diffDays) + 0.1;
+  };
+
+  const sortByClosestDropDate = (a, b) => {
+    const distA = getDistanceToToday(a.drop_date);
+    const distB = getDistanceToToday(b.drop_date);
+
+    if (distA !== distB) {
+      return distA - distB;
+    }
+
+    // Tie-breaker: status urgency (#edit > #film > #write > #idea > #published)
+    const statusOrder = { '#edit': 1, '#film': 2, '#write': 3, '#idea': 4, '#published': 5 };
+    const orderA = statusOrder[a.status] || 99;
+    const orderB = statusOrder[b.status] || 99;
+    if (orderA !== orderB) return orderA - orderB;
+
+    return (a.code || '').localeCompare(b.code || '');
+  };
+
   const sortByDropDate = (a, b) => {
     const hasDateA = !!a.drop_date && typeof a.drop_date === 'string' && a.drop_date.trim() !== '';
     const hasDateB = !!b.drop_date && typeof b.drop_date === 'string' && b.drop_date.trim() !== '';
@@ -134,7 +164,7 @@ function App() {
     if (isNaN(timeB)) return -1;
 
     if (timeA !== timeB) {
-      return timeA - timeB; // Closest drop date at the top
+      return timeA - timeB; // Chronological drop date
     }
 
     // Tie-breaker: status urgency (#edit > #film > #write > #idea)
@@ -189,7 +219,7 @@ function App() {
     // 2. Published videos needing physical cards
     if (video.status === '#published') {
       if (!video.cards_created && !video.code?.startsWith('HIST')) {
-        return { step: 'Action needed: File physical 3x5 main cards in archive box', type: 'cards', actionType: 'cards' };
+        return { step: 'Review propositions & add to Zettelkasten (3x5 cards)', type: 'cards', actionType: 'cards' };
       }
       return { step: 'Completed & published', type: 'done' };
     }
@@ -300,9 +330,6 @@ function App() {
   };
 
   // Metrics Calculation
-  const todayDate = new Date();
-  todayDate.setHours(0, 0, 0, 0);
-
   const unfinishedFuture = videos.filter(v => {
     if (!v.drop_date) return false;
     const dropDate = parseISO(v.drop_date);
@@ -381,28 +408,27 @@ function App() {
       }
     }
 
-    // 2. Build Work in Progress (Only active in-progress videos; strictly excludes published, uploaded, and unstarted placeholders)
+    // 2. Build Work in Progress:
+    // - Active production stages: #write, #film, #edit, and active #idea (excluding unstarted placeholders)
+    // - Published videos needing propositions reviewed & filed in Zettelkasten: #published with !cards_created (excluding HIST)
+    // - Sorted by drop date closest to today at the top
     const workInProgressItems = videos.filter(v => {
-      // Never include published or uploaded videos
-      if (v.status === '#published' || v.status === '#uploaded') return false;
+      if (v.code?.startsWith('HIST')) return false;
 
-      // Exclude unstarted placeholder slots with no work begun
+      // Published videos where cards still need to be reviewed/created belong in WIP
+      if (v.status === '#published') {
+        return !v.cards_created;
+      }
+
+      if (v.status === '#uploaded') return false;
+
+      // Exclude unstarted placeholder slots
       const isPlaceholder = v.title === 'Placeholder' || (v.code?.startsWith('TBD') && v.status === '#idea');
       if (isPlaceholder) return false;
 
-      // Must be active in progress: #write, #film, #edit (or an active topic in #idea)
+      // Must be active in production
       return v.status === '#write' || v.status === '#film' || v.status === '#edit' || (v.status === '#idea' && v.title && v.title !== 'Placeholder');
-    }).sort(sortByDropDate);
-
-    // Calculate total WIP progress for column graphic
-    let totalCompletedTasks = 0;
-    let totalWipTasks = 0;
-    workInProgressItems.forEach(item => {
-      const prog = getVideoProgress(item);
-      totalCompletedTasks += prog.completed;
-      totalWipTasks += prog.total;
-    });
-    const overallWipPercent = totalWipTasks > 0 ? Math.round((totalCompletedTasks / totalWipTasks) * 100) : 0;
+    }).sort(sortByClosestDropDate);
 
     return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
@@ -518,32 +544,9 @@ function App() {
 
         {/* Column 2: Work in Progress (Unified Column) */}
         <div className="card">
-          <div style={{ marginBottom: '1.15rem' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.45rem' }}>
-              <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', margin: 0 }}>
-                <ListTodo size={20} color="var(--accent-color)" /> Work in Progress ({workInProgressItems.length})
-              </h2>
-              <span style={{ fontSize: '0.85rem', fontWeight: '700', color: overallWipPercent >= 80 ? 'var(--success-color)' : 'var(--accent-color)' }}>
-                {overallWipPercent}% Done
-              </span>
-            </div>
-            {/* Column Percentage Done Graphic */}
-            <div style={{ background: 'var(--border-color)', borderRadius: '9999px', height: '8px', overflow: 'hidden' }}>
-              <div 
-                style={{ 
-                  width: `${overallWipPercent}%`, 
-                  background: 'linear-gradient(90deg, #0ea5e9, #10b981)', 
-                  height: '100%', 
-                  borderRadius: '9999px',
-                  transition: 'width 0.4s ease' 
-                }} 
-              />
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.72rem', color: 'var(--text-secondary)', marginTop: '0.3rem' }}>
-              <span>{totalCompletedTasks} of {totalWipTasks} steps completed</span>
-              <span>{workInProgressItems.length} active in pipeline</span>
-            </div>
-          </div>
+          <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
+            <ListTodo size={20} color="var(--accent-color)" /> Work in Progress ({workInProgressItems.length})
+          </h2>
 
           <div className="videos-list">
             {workInProgressItems.map(item => {
@@ -603,11 +606,32 @@ function App() {
                     </div>
                   </div>
 
-                  <div className="next-step-box">
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flex: 1 }}>
+                  <div className="next-step-box" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flex: 1, minWidth: '180px' }}>
                       <span style={{ fontWeight: '600', color: 'var(--text-secondary)' }}>Next:</span>
                       <span>{nextStep.step}</span>
                     </div>
+                    {nextStep.actionType === 'cards' && (
+                      <div style={{ display: 'flex', gap: '0.4rem', alignItems: 'center' }}>
+                        <a
+                          href={getObsidianUri(item.code)}
+                          className="btn btn-outline"
+                          style={{ fontSize: '0.72rem', padding: '0.2rem 0.5rem', height: 'auto', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.25rem' }}
+                          onClick={e => e.stopPropagation()}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <ExternalLink size={12} /> Read OB
+                        </a>
+                        <button
+                          className="btn btn-primary"
+                          style={{ fontSize: '0.72rem', padding: '0.2rem 0.5rem', height: 'auto', display: 'flex', alignItems: 'center', gap: '0.25rem' }}
+                          onClick={e => handleMarkCardsDone(e, item)}
+                        >
+                          <CheckSquare size={12} /> Cards Done
+                        </button>
+                      </div>
+                    )}
                   </div>
                 </div>
               );

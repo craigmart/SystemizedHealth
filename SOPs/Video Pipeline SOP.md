@@ -191,8 +191,10 @@ After filming, when Dr. Anderson begins editing in Descript, he drops the **exac
    - YAML frontmatter contains `#video`, `#edit`, `drop_date`, and full JDex topic links (e.g., `[[81.05 Lifestyle Management]]`).
    - Injects the exact transcript under `## Final Spoken Transcript`.
 
-3. **Zettelkasten Proposition Mining**:
+3. **Zettelkasten Proposition Mining & Card Filing (Work in Progress Standard)**:
    - The Agent extracts 1–2 sharp, authoritative clinical propositions from the spoken words and indexes them to the appropriate JDex category in `Obsidian_Vault/JDex/` and Workflowy.
+   - **Work in Progress (WIP) Rule**: Even after a video is `#published`, it is strictly considered **active Work in Progress** until Dr. Anderson reviews the propositions and files the physical 3x5 cards in his analog Zettelkasten archive box (`cards_created = true`).
+   - The web App and Agent session startup scans will automatically surface these videos under Work in Progress without requiring a prompt until marked complete.
 
 4. **Waterfall Ideation & Sub-Topic Alignment**:
    - Each video (long or short) is treated as a standalone production with its own recording and editing. The only "waterfall" is ideation—branching related sub-topic angles from the core pillar in Gemini Notebook. Shorts are not cut from the long video; each is recorded and edited on its own.
@@ -208,10 +210,10 @@ The web App's per-video production checklist dynamically adapts based on video f
   1. *Planning*: Gemini Notebook research, 3x5 card drafted (4 beats).
   2. *Filming*: Direct-to-camera recorded using 3x5 card anchor.
   3. *Editing*: Descript transcript pasted, B-roll added, Sound & audio enhanced, vidIQ title scored (90+), Obsidian & JDex archived.
-  4. *Publishing & Archive*: YouTube Studio upload & CTA, custom thumbnail uploaded, scheduled for drop date, physical 3x5 main cards filed.
+  4. *Publishing & Archive*: YouTube Studio upload & CTA, custom thumbnail uploaded, scheduled for drop date, physical 3x5 main cards filed (marks card creation complete to exit Work in Progress).
 
 * **Shorts (`Short` / `-S[N]`)**:
-  * *Streamlined Descript Workflow*: Edited in Descript (captions, audio), Descript transcript pasted, vidIQ title/hook scored (90+), Obsidian & JDex archived, YouTube Shorts upload & CTA, and scheduled for drop date.
+  * *Streamlined Descript Workflow*: Edited in Descript (captions, audio), Descript transcript pasted, vidIQ title/hook scored (90+), Obsidian & JDex archived, YouTube Shorts upload & CTA, scheduled for drop date, and physical 3x5 cards filed.
 
 ---
 
