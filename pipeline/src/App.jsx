@@ -219,62 +219,62 @@ function App() {
     // 2. Published videos needing physical cards
     if (video.status === '#published') {
       if (!video.cards_created && !video.code?.startsWith('HIST')) {
-        return { step: 'Review propositions & add to Zettelkasten (3x5 cards)', type: 'cards', actionType: 'cards' };
+        return { step: 'Review propositions & add to 3x5 cards', type: 'cards', actionType: 'cards' };
       }
       return { step: 'Completed & published', type: 'done' };
     }
 
     // 3. Uploaded videos
     if (video.status === '#uploaded') {
-      return { step: 'Action needed: Confirm YouTube Studio release on drop date', type: 'publish' };
+      return { step: 'Confirm YouTube Studio release', type: 'publish' };
     }
 
     // 4. Editing videos (#edit)
     if (video.status === '#edit') {
       if (!video.raw_transcript || !video.raw_transcript.trim()) {
-        return { step: 'Action needed: Paste Descript spoken transcript into App', type: 'action' };
+        return { step: 'Paste Descript transcript into App', type: 'action' };
       }
 
       const items = isShort ? SHORT_VIDEO_CHECKLIST_ITEMS : LONG_VIDEO_CHECKLIST_ITEMS;
       for (const item of items) {
         if (item.key === 'pub_cards') continue;
         if (!checklist[item.key]) {
-          return { step: `Checklist: ${item.label}`, type: 'checklist' };
+          return { step: item.label, type: 'checklist' };
         }
       }
 
       if (checklist.custom_tasks && Array.isArray(checklist.custom_tasks)) {
         const pendingCustom = checklist.custom_tasks.find(t => !t.done);
         if (pendingCustom) {
-          return { step: `Custom Task: ${pendingCustom.label}`, type: 'custom' };
+          return { step: pendingCustom.label, type: 'custom' };
         }
       }
 
-      return { step: 'Checklist complete: Advance status to #uploaded', type: 'action' };
+      return { step: 'Ready to upload (#uploaded)', type: 'action' };
     }
 
     // 5. Filming videos (#film)
     if (video.status === '#film') {
-      return { step: 'Action needed: Direct-to-camera filming', type: 'action' };
+      return { step: 'Film direct-to-camera', type: 'action' };
     }
 
     // 6. Writing videos (#write)
     if (video.status === '#write') {
       if (video.notes && (video.notes.toLowerCase().includes('card') || video.notes.toLowerCase().includes('3x5'))) {
-        return { step: 'Action needed: Finish 3x5 card & advance to #film', type: 'action' };
+        return { step: 'Finish 3x5 card & advance to #film', type: 'action' };
       }
-      return { step: 'Action needed: Draft 3x5 index card (4 Beats)', type: 'action' };
+      return { step: 'Draft 3x5 card (4 Beats)', type: 'action' };
     }
 
     // 7. Idea videos (#idea)
     if (video.status === '#idea') {
       if (video.title === 'Placeholder' || video.code?.startsWith('TBD')) {
-        return { step: 'Action needed: Select topic & research in Gemini Notebook', type: 'action' };
+        return { step: 'Topic research in Gemini Notebook', type: 'action' };
       }
-      return { step: 'Action needed: Outline 4 beats on 3x5 card', type: 'action' };
+      return { step: 'Outline 4 beats on 3x5 card', type: 'action' };
     }
 
-    return { step: 'Review next production step', type: 'info' };
+    return { step: 'Review next step', type: 'info' };
   };
 
   const getRelativeUrgency = (dropDateStr) => {
@@ -282,12 +282,12 @@ function App() {
     const dropDate = parseISO(dropDateStr);
     dropDate.setHours(0, 0, 0, 0);
     const diffDays = differenceInDays(dropDate, todayDate);
-    if (diffDays < 0) return { label: 'Past drop date', color: 'var(--danger-color)' };
-    if (diffDays === 0) return { label: 'Drops today', color: 'var(--danger-color)' };
-    if (diffDays === 1) return { label: 'Drops tomorrow', color: 'var(--danger-color)' };
-    if (diffDays <= 3) return { label: `Drops in ${diffDays} days`, color: '#b45309' };
-    if (diffDays <= 7) return { label: `Drops in ${diffDays} days`, color: 'var(--accent-color)' };
-    return { label: `Drops in ${diffDays} days`, color: 'var(--text-secondary)' };
+    if (diffDays < 0) return { label: 'Past due', color: 'var(--danger-color)' };
+    if (diffDays === 0) return { label: 'Today', color: 'var(--danger-color)' };
+    if (diffDays === 1) return { label: 'Tomorrow', color: 'var(--danger-color)' };
+    if (diffDays <= 3) return { label: `${diffDays}d away`, color: '#b45309' };
+    if (diffDays <= 7) return { label: `${diffDays}d away`, color: 'var(--accent-color)' };
+    return { label: `${diffDays}d away`, color: 'var(--text-secondary)' };
   };
 
   const getVideoProgress = (video) => {
@@ -516,14 +516,14 @@ function App() {
               return (
                 <div
                   key={`${item.code}-${item.drop_date}`}
-                  className="video-item"
-                  style={{ cursor: 'pointer', borderLeft: `4px solid ${getBorderColor(item.video)}` }}
+                  className={`video-item video-item-${item.status ? item.status.replace('#', '') : ''}`}
+                  style={{ cursor: 'pointer', borderLeft: `5px solid ${getBorderColor(item.video)}` }}
                   onClick={() => setCurrentVideo(item.video)}
                 >
                   <div className="video-header">
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
                       <strong>{item.code}</strong>
-                      {item.notes && <span title="Has Production Log / Notes" style={{ fontSize: '0.75rem' }}>📝</span>}
+                      {item.notes && <span title="Production Log" style={{ fontSize: '0.75rem' }}>📝</span>}
                     </div>
                     {getStatusBadge(item.status)}
                   </div>
@@ -558,38 +558,32 @@ function App() {
               return (
                 <div
                   key={`wip-${item.code}`}
-                  className="video-item"
-                  style={{ borderLeft: `4px solid ${borderLeftColor}`, cursor: 'pointer', transition: 'all 0.15s ease' }}
+                  className={`video-item video-item-${item.status ? item.status.replace('#', '') : ''}`}
+                  style={{ borderLeft: `5px solid ${borderLeftColor}`, cursor: 'pointer' }}
                   onClick={() => setCurrentVideo(item)}
                 >
                   <div className="video-header">
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flexWrap: 'wrap' }}>
                       <strong>{item.code}: {item.title}</strong>
-                      {item.notes && <span title="Has Production Log / Notes" style={{ fontSize: '0.75rem' }}>📝</span>}
+                      {item.notes && <span title="Production Log" style={{ fontSize: '0.75rem' }}>📝</span>}
                     </div>
                     {getStatusBadge(item.status)}
                   </div>
 
-                  <div className="video-meta" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '0.2rem' }}>
-                    <span>
-                      {item.drop_date ? `Drop: ${format(parseISO(item.drop_date), 'EEE, MMM d')}` : 'No Drop Date'}
+                  <div className="video-meta" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span style={{ fontWeight: '500' }}>
+                      {item.drop_date ? format(parseISO(item.drop_date), 'EEE, MMM d') : 'No Date'}
                     </span>
                     {urgency && (
-                      <span style={{ color: urgency.color, fontWeight: '600', fontSize: '0.75rem' }}>
+                      <span style={{ color: urgency.color, fontWeight: '700', fontSize: '0.72rem' }}>
                         {urgency.label}
                       </span>
                     )}
                   </div>
 
-                  {/* Individual Video Percentage Done Graphic */}
-                  <div style={{ marginTop: '0.35rem', marginBottom: '0.15rem' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.72rem', color: 'var(--text-secondary)', marginBottom: '0.2rem' }}>
-                      <span>Progress ({itemProgress.completed}/{itemProgress.total} steps)</span>
-                      <span style={{ fontWeight: '700', color: itemProgress.percent === 100 ? 'var(--success-color)' : itemProgress.percent >= 75 ? 'var(--accent-color)' : 'var(--text-primary)' }}>
-                        {itemProgress.percent}%
-                      </span>
-                    </div>
-                    <div style={{ background: 'var(--border-color)', borderRadius: '9999px', height: '5px', overflow: 'hidden' }}>
+                  {/* Individual Video Percentage Done Graphic - Minimal & Clean */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginTop: '0.15rem', marginBottom: '0.1rem' }}>
+                    <div style={{ flex: 1, background: 'rgba(0, 0, 0, 0.08)', borderRadius: '9999px', height: '6px', overflow: 'hidden' }}>
                       <div 
                         style={{ 
                           width: `${itemProgress.percent}%`, 
@@ -604,19 +598,25 @@ function App() {
                         }} 
                       />
                     </div>
+                    <span style={{ 
+                      fontSize: '0.75rem', 
+                      fontWeight: '700', 
+                      minWidth: '32px', 
+                      textAlign: 'right',
+                      color: itemProgress.percent === 100 ? 'var(--success-color)' : itemProgress.percent >= 75 ? 'var(--accent-color)' : 'var(--text-secondary)'
+                    }}>
+                      {itemProgress.percent}%
+                    </span>
                   </div>
 
-                  <div className="next-step-box" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flex: 1, minWidth: '180px' }}>
-                      <span style={{ fontWeight: '600', color: 'var(--text-secondary)' }}>Next:</span>
-                      <span>{nextStep.step}</span>
-                    </div>
+                  <div className="next-step-box">
+                    <span style={{ flex: 1, minWidth: '180px' }}>{nextStep.step}</span>
                     {nextStep.actionType === 'cards' && (
                       <div style={{ display: 'flex', gap: '0.4rem', alignItems: 'center' }}>
                         <a
                           href={getObsidianUri(item.code)}
                           className="btn btn-outline"
-                          style={{ fontSize: '0.72rem', padding: '0.2rem 0.5rem', height: 'auto', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.25rem' }}
+                          style={{ fontSize: '0.72rem', padding: '0.2rem 0.55rem', height: 'auto', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.25rem' }}
                           onClick={e => e.stopPropagation()}
                           target="_blank"
                           rel="noreferrer"
@@ -625,7 +625,7 @@ function App() {
                         </a>
                         <button
                           className="btn btn-primary"
-                          style={{ fontSize: '0.72rem', padding: '0.2rem 0.5rem', height: 'auto', display: 'flex', alignItems: 'center', gap: '0.25rem' }}
+                          style={{ fontSize: '0.72rem', padding: '0.2rem 0.55rem', height: 'auto', display: 'flex', alignItems: 'center', gap: '0.25rem' }}
                           onClick={e => handleMarkCardsDone(e, item)}
                         >
                           <CheckSquare size={12} /> Cards Done
