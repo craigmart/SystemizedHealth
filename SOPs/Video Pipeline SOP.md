@@ -213,7 +213,10 @@ The web App's per-video production checklist dynamically adapts based on video f
   4. *Publishing & Archive*: YouTube Studio upload & CTA, custom thumbnail uploaded, scheduled for drop date, physical 3x5 main cards filed (marks card creation complete to exit Work in Progress).
 
 * **Shorts (`Short` / `-S[N]`)**:
-  * *Streamlined Descript Workflow*: Edited in Descript (captions, audio), Descript transcript pasted, vidIQ title/hook scored (90+), Obsidian & JDex archived, YouTube Shorts upload & CTA, scheduled for drop date, and physical 3x5 cards filed.
+  1. *Writing*: Create 3x5 card, Write script outline (back of card).
+  2. *Filming*: Film short video.
+  3. *Editing*: Edited in Descript (captions, audio), Descript transcript pasted, vidIQ title/hook scored (90+), Obsidian & JDex archived.
+  4. *Publishing & Archive*: YouTube Shorts upload & CTA, scheduled for drop date, and physical 3x5 cards filed.
 
 ---
 

@@ -26,6 +26,9 @@ export const LONG_VIDEO_CHECKLIST_ITEMS = [
 ];
 
 export const SHORT_VIDEO_CHECKLIST_ITEMS = [
+  { key: 'short_card', phase: 'Writing', label: 'Create 3x5 card' },
+  { key: 'short_outline', phase: 'Writing', label: 'Write script outline (back of card)' },
+  { key: 'short_film', phase: 'Filming', label: 'Film short video' },
   { key: 'short_descript', phase: 'Editing', label: 'Edited in Descript (captions, audio)' },
   { key: 'edit_transcript', phase: 'Editing', label: 'Descript transcript pasted' },
   { key: 'edit_vidiq', phase: 'Editing', label: 'vidIQ title/hook scored (90+)' },
@@ -36,7 +39,7 @@ export const SHORT_VIDEO_CHECKLIST_ITEMS = [
 ];
 
 export const LONG_CHECKLIST_PHASES = ['All', 'Planning', 'Filming', 'Editing', 'Publishing', 'Archived'];
-export const SHORT_CHECKLIST_PHASES = ['All', 'Editing', 'Publishing', 'Archived'];
+export const SHORT_CHECKLIST_PHASES = ['All', 'Writing', 'Filming', 'Editing', 'Publishing', 'Archived'];
 
 const STATUS_OPTIONS = ['#idea', '#write', '#film', '#edit', '#uploaded', '#published'];
 
@@ -238,6 +241,7 @@ function App() {
       const items = isShort ? SHORT_VIDEO_CHECKLIST_ITEMS : LONG_VIDEO_CHECKLIST_ITEMS;
       for (const item of items) {
         if (item.key === 'pub_cards') continue;
+        if (item.phase === 'Planning' || item.phase === 'Writing' || item.phase === 'Filming') continue;
         if (!checklist[item.key]) {
           return { step: item.label, type: 'checklist' };
         }
@@ -255,11 +259,19 @@ function App() {
 
     // 5. Filming videos (#film)
     if (video.status === '#film') {
+      if (isShort && !checklist.short_film) {
+        return { step: 'Film short video', type: 'checklist' };
+      }
       return { step: 'Film direct-to-camera', type: 'action' };
     }
 
     // 6. Writing videos (#write)
     if (video.status === '#write') {
+      if (isShort) {
+        if (!checklist.short_card) return { step: 'Create 3x5 card', type: 'checklist' };
+        if (!checklist.short_outline) return { step: 'Write script outline (back of card)', type: 'checklist' };
+        return { step: 'Ready to film (#film)', type: 'action' };
+      }
       if (video.notes && (video.notes.toLowerCase().includes('card') || video.notes.toLowerCase().includes('3x5'))) {
         return { step: 'Finish 3x5 card & advance to #film', type: 'action' };
       }
@@ -314,9 +326,9 @@ function App() {
         completed++;
       } else if (video.status === '#uploaded' && item.key !== 'pub_cards') {
         completed++;
-      } else if (video.status === '#edit' && (item.phase === 'Planning' || item.phase === 'Filming')) {
+      } else if (video.status === '#edit' && (item.phase === 'Planning' || item.phase === 'Writing' || item.phase === 'Filming')) {
         completed++;
-      } else if (video.status === '#film' && item.phase === 'Planning') {
+      } else if (video.status === '#film' && (item.phase === 'Planning' || item.phase === 'Writing')) {
         completed++;
       }
     });
