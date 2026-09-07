@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-06T19:23:20.264414+00:00",
+  "generated": "2026-09-07T16:43:46.021188+00:00",
   "count": 54,
   "videos": [
     {
@@ -239,15 +239,15 @@
       "folder_path": null,
       "status": "#published",
       "drop_date": "2026-08-22",
-      "uploaded_date": "2026-08-22",
+      "uploaded_date": "2026-09-07",
       "youtube_id": "RLrlNEliSuM",
       "primary_keyword": null,
       "vidiq_title_score": 0,
       "notes": "6/6 Shots Filmed \u2014 Editing (#edit)",
       "created_at": "2026-09-01T12:59:24.602473+00:00",
-      "updated_at": "2026-09-05T20:55:31.707743+00:00",
+      "updated_at": "2026-09-07T16:43:45.721121+00:00",
       "raw_transcript": "",
-      "agent_message": "Recorded again at gym",
+      "agent_message": "",
       "edit_checklist": "{\"edit_audio\": true, \"edit_subtitles\": true, \"edit_clarity\": true, \"edit_trim\": true, \"edit_lut\": true, \"propositions\": [\"Engaging in vigorous physical exertion sufficient to break a sweat 2 to 3 times weekly provides measurable clinical protection against chronic cervical, lumbar, and peripheral musculoskeletal pain. [[81.05 Lifestyle Management]]\", \"The physiological threshold of sweating acts as an objective clinical bio-marker confirming elevated core temperature, peripheral vasodilation, and autonomic sympathetic-parasympathetic heart-rate modulation. [[81.04 Diagnosis]]\", \"Regular sweat-inducing exertion preserves articular cartilage thickness and synovial lubrication, preventing disuse degeneration throughout aging. [[81.02 Biomechanics]]\"]}",
       "rough_outline": null,
       "cards_created": false

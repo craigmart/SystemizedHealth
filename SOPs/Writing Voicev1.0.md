@@ -1,6 +1,6 @@
 # MY TEXT DNA BIBLE — Dr. Craig Anderson (Systemized Health Voice)
 
-This file defines Dr. Craig Anderson's authentic voice, spoken register, rhythm, and clinical framing. It is synthesized directly from 30+ years of clinical practice and actual recorded video transcripts (`80.V0A`, `80.V1B1`, `80.V0A1`). Reference this file alongside `SOPs/Writing Guidance.md` for all video outlines, scripts, and content.
+This file defines Dr. Craig Anderson's authentic voice, spoken register, rhythm, and clinical framing. It is synthesized directly from 30+ years of clinical practice and actual recorded video transcripts (`80.V0A`, `80.V1B1`, `80.V0A1`). Reference this file alongside `SOPs/Writing Guidancev1.0.md` for all video outlines, scripts, and content.
 
 > **Continuous Voice Calibration Standard**: This file is automatically updated after every new `-C` A-roll recording transcript is generated to continuously capture new verbal signatures, conversational idioms, and clinical metaphors as Dr. Anderson records videos.
 

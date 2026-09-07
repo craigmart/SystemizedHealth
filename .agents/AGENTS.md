@@ -80,3 +80,13 @@ When Dr. Anderson leaves an action or comment in the `agent_message` field and y
 
 **File Standardization (Post-Filming):**
 Once a video reaches the `#edit` stage (filming is complete), the file transitions to a study and reference tool. The `scripts/clean_video_script.py` script should be run to strip out titles, hook options, and vidIQ scores, leaving only the final transcript and JDex-linked propositions. The `## Changelog` must be preserved.
+
+---
+
+## 8. SOP Versioning Protocol for Shared Files
+Dr. Anderson utilizes the writing guidance and voice files across multiple external applications and workflows (e.g., Gemini Notebooks, external LLM sessions).
+- **Target Files**: [`SOPs/Writing Guidancev1.0.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/Writing%20Guidancev1.0.md) and [`SOPs/Writing Voicev1.0.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/Writing%20Voicev1.0.md).
+- **Mandatory Version Increment**: Whenever making any significant / big update to either file:
+  - Rename the file with an incremented version number (e.g., `v1.0` → `v1.1` or `v2.0` depending on major/minor scope).
+  - Update any internal cross-references across SOPs and documentation to point to the new filename.
+

@@ -47,8 +47,8 @@ Dr. Anderson uploads or copies the following core context files into his Google 
 
 1. **[`docs/CNS_Topic_Trajectory_Brief.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/CNS_Topic_Trajectory_Brief.md)** — The active briefing document containing target dates, structural requirements (3 Longs + 9 Waterfall Shorts), and targeted exploration prompts.
 2. **[`SOPs/Systemized OS Framework.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/Systemized%20OS%20Framework.md)** — The architectural hierarchy (Level 1 FMR, Level 2 TLC, Level 3 POP).
-3. **[`SOPs/Writing Voice.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/Writing%20Voice.md)** — Dr. Anderson's authentic text DNA and conversational pacing.
-4. **[`SOPs/Writing Guidance.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/Writing%20Guidance.md)** — Guardrails stripping out generic AI jargon.
+3. **[`SOPs/Writing Voicev1.0.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/Writing%20Voicev1.0.md)** — Dr. Anderson's authentic text DNA and conversational pacing.
+4. **[`SOPs/Writing Guidancev1.0.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/Writing%20Guidancev1.0.md)** — Guardrails stripping out generic AI jargon.
 
 *(Tip: If you keep a Google Doc in your Drive for the Trajectory Brief, you can simply paste the contents of `docs/CNS_Topic_Trajectory_Brief.md` into it, and NotebookLM can sync directly from that Doc).*
 
@@ -92,7 +92,7 @@ Upon receiving the intake or the final Descript transcript from Dr. Anderson, th
 
 1. **Title Optimization & vidIQ Scoring**:
    - Executes `python3 scripts/vidiq_sync.py --score-title "[Title]"` for all proposed long and short titles.
-   - Generates high-CTR title variations (target score: 90–100) adhering strictly to `SOPs/Writing Guidance.md`.
+   - Generates high-CTR title variations (target score: 90–100) adhering strictly to `SOPs/Writing Guidancev1.0.md`.
 2. **Obsidian Vault Final Archiving**:
    - Updates `Obsidian_Vault/Zettlekasten/[Code] Script - [Title].md` to preserve the final transcript under `## Final Spoken Transcript`.
 3. **Zettelkasten Proposition Mining**:

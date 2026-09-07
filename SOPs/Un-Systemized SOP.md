@@ -64,7 +64,7 @@ flowchart TD
 1. Input the raw audio draft into Gemini.
 2. Provide the standard directive:  
    *"Organize this transcript in my own words. Trim ramblings, cut boring parts, and format into a clean teleprompter script. Do not write creative content or change my voice—act strictly as my junior editor."*
-3. Verify the output against `SOPs/Writing Guidance.md` (no AI filler, no banned words).
+3. Verify the output against `SOPs/Writing Guidancev1.0.md` (no AI filler, no banned words).
 4. Save the final teleprompter script as `Un-Systemized/[Code]A - Script.txt`.
 
 ### Step 3: Teleprompter Recording
