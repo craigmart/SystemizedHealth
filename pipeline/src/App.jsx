@@ -119,9 +119,31 @@ function App() {
   }
 
   const sortByDropDate = (a, b) => {
-    if (!a.drop_date) return 1;
-    if (!b.drop_date) return -1;
-    return new Date(a.drop_date) - new Date(b.drop_date);
+    const hasDateA = !!a.drop_date && typeof a.drop_date === 'string' && a.drop_date.trim() !== '';
+    const hasDateB = !!b.drop_date && typeof b.drop_date === 'string' && b.drop_date.trim() !== '';
+
+    if (!hasDateA && !hasDateB) return 0;
+    if (!hasDateA) return 1;
+    if (!hasDateB) return -1;
+
+    const timeA = parseISO(a.drop_date).getTime();
+    const timeB = parseISO(b.drop_date).getTime();
+
+    if (isNaN(timeA) && isNaN(timeB)) return 0;
+    if (isNaN(timeA)) return 1;
+    if (isNaN(timeB)) return -1;
+
+    if (timeA !== timeB) {
+      return timeA - timeB; // Closest drop date at the top
+    }
+
+    // Tie-breaker: status urgency (#edit > #film > #write > #idea)
+    const statusOrder = { '#edit': 1, '#film': 2, '#write': 3, '#idea': 4 };
+    const orderA = statusOrder[a.status] || 99;
+    const orderB = statusOrder[b.status] || 99;
+    if (orderA !== orderB) return orderA - orderB;
+
+    return (a.code || '').localeCompare(b.code || '');
   };
 
   const getStatusBadge = (status) => {
@@ -359,20 +381,18 @@ function App() {
       }
     }
 
-    // 2. Build Work in Progress (All active unfinished videos + published videos needing cards)
-    const activeProduction = videos.filter(v => {
-      return v.status !== '#published';
+    // 2. Build Work in Progress (Only active in-progress videos; strictly excludes published, uploaded, and unstarted placeholders)
+    const workInProgressItems = videos.filter(v => {
+      // Never include published or uploaded videos
+      if (v.status === '#published' || v.status === '#uploaded') return false;
+
+      // Exclude unstarted placeholder slots with no work begun
+      const isPlaceholder = v.title === 'Placeholder' || (v.code?.startsWith('TBD') && v.status === '#idea');
+      if (isPlaceholder) return false;
+
+      // Must be active in progress: #write, #film, #edit (or an active topic in #idea)
+      return v.status === '#write' || v.status === '#film' || v.status === '#edit' || (v.status === '#idea' && v.title && v.title !== 'Placeholder');
     }).sort(sortByDropDate);
-
-    const publishedNeedingCards = videos.filter(v => {
-      return v.status === '#published' && !v.cards_created && !v.code?.startsWith('HIST');
-    }).sort((a, b) => {
-      if (!a.drop_date) return 1;
-      if (!b.drop_date) return -1;
-      return new Date(b.drop_date) - new Date(a.drop_date);
-    });
-
-    const workInProgressItems = [...activeProduction, ...publishedNeedingCards];
 
     // Calculate total WIP progress for column graphic
     let totalCompletedTasks = 0;
@@ -584,52 +604,10 @@ function App() {
                   </div>
 
                   <div className="next-step-box">
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flex: 1, minWidth: '180px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flex: 1 }}>
                       <span style={{ fontWeight: '600', color: 'var(--text-secondary)' }}>Next:</span>
                       <span>{nextStep.step}</span>
                     </div>
-
-                    {nextStep.actionType === 'cards' && (
-                      <div style={{ display: 'flex', gap: '0.4rem', alignItems: 'center', marginLeft: 'auto' }}>
-                        <a
-                          href={getObsidianUri(item.code)}
-                          onClick={e => e.stopPropagation()}
-                          className="btn btn-outline"
-                          style={{
-                            padding: '0.2rem 0.5rem',
-                            fontSize: '0.75rem',
-                            borderRadius: 'var(--radius-sm)',
-                            textDecoration: 'none',
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            gap: '0.3rem'
-                          }}
-                          title="Open script in Obsidian"
-                        >
-                          <ExternalLink size={12} /> Read OB
-                        </a>
-                        <button
-                          type="button"
-                          onClick={e => handleMarkCardsDone(e, item)}
-                          className="btn"
-                          style={{
-                            padding: '0.2rem 0.6rem',
-                            fontSize: '0.75rem',
-                            borderRadius: 'var(--radius-sm)',
-                            backgroundColor: '#8b5cf6',
-                            color: '#fff',
-                            border: 'none',
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            gap: '0.3rem',
-                            cursor: 'pointer'
-                          }}
-                          title="Log cards completed in database"
-                        >
-                          <Check size={12} /> Cards Done
-                        </button>
-                      </div>
-                    )}
                   </div>
                 </div>
               );
