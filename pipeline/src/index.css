@@ -143,6 +143,7 @@ p {
 .badge-uploaded { background-color: #e0f2fe; color: #0369a1; }
 .badge-published { background-color: #d1fae5; color: #047857; }
 .badge-cards { background-color: #ede9fe; color: #6d28d9; border: 1px solid #ddd6fe; }
+.badge-unscheduled, .badge-tbd { background-color: #fffbeb; color: #b45309; border: 1px dashed #f59e0b; }
 
 /* Dashboard Layout */
 .metrics-grid {
@@ -543,6 +544,38 @@ p {
   gap: 1rem;
   font-size: 0.75rem;
   color: var(--text-secondary);
+}
+
+.video-item.placeholder {
+  border: 1px dashed var(--border-color);
+  background: rgba(0, 0, 0, 0.015);
+  opacity: 0.9;
+}
+
+@media (prefers-color-scheme: dark) {
+  .video-item.placeholder {
+    background: rgba(255, 255, 255, 0.02);
+  }
+}
+
+.next-step-box {
+  margin-top: 0.35rem;
+  padding: 0.45rem 0.65rem;
+  background: rgba(0, 0, 0, 0.025);
+  border-left: 3px solid var(--accent-color);
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+@media (prefers-color-scheme: dark) {
+  .next-step-box {
+    background: rgba(255, 255, 255, 0.04);
+  }
 }
 
 /* Modal */

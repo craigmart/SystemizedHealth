@@ -6,7 +6,7 @@ import {
   LayoutDashboard, Eye, Users, Award, Flame, BookOpen, Check, ThumbsUp, 
   MessageSquare, Plus, Trash2, ListTodo, FileText, CheckCircle2, Lightbulb 
 } from 'lucide-react';
-import { addDays, isBefore, parseISO, differenceInDays } from 'date-fns';
+import { addDays, isBefore, parseISO, differenceInDays, format } from 'date-fns';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
@@ -42,7 +42,6 @@ const STATUS_OPTIONS = ['#idea', '#write', '#film', '#edit', '#uploaded', '#publ
 function App() {
   const [videos, setVideos] = useState([]);
   const [videoPaths, setVideoPaths] = useState({});
-  const [actionFilter, setActionFilter] = useState('all');
   const [loading, setLoading] = useState(true);
   const [currentVideo, setCurrentVideo] = useState(null);
   const [metricModal, setMetricModal] = useState(null);
@@ -125,29 +124,157 @@ function App() {
     return new Date(a.drop_date) - new Date(b.drop_date);
   };
 
-  const today = new Date();
-  const publishTarget = addDays(today, 21);
-  const draftTarget = addDays(today, 42);
-
-  const needsPublishing = videos.filter(v => {
-    if (!v.drop_date || v.status === '#published') return false;
-    const dropDate = parseISO(v.drop_date);
-    return isBefore(dropDate, publishTarget) || isBefore(dropDate, today);
-  }).sort(sortByDropDate);
-
-  const needsDrafting = videos.filter(v => {
-    if (!v.drop_date) return false;
-    const dropDate = parseISO(v.drop_date);
-    return (isBefore(dropDate, draftTarget) && (v.status === '#idea' || v.status === '#write'));
-  }).sort(sortByDropDate);
-
-  const needsCards = videos.filter(v => {
-    return v.status === '#published' && !v.cards_created && !v.code?.startsWith('HIST');
-  }).sort(sortByDropDate);
-
   const getStatusBadge = (status) => {
+    if (status === '#unscheduled') {
+      return <span className="badge badge-unscheduled">Open Slot</span>;
+    }
     const s = status ? status.replace('#', '') : 'idea';
     return <span className={`badge badge-${s}`}>{status}</span>;
+  };
+
+  const getBorderColor = (video) => {
+    if (!video) return 'var(--border-color)';
+    switch (video.status) {
+      case '#edit': return '#7e22ce';
+      case '#film': return 'var(--danger-color)';
+      case '#write': return '#b45309';
+      case '#idea': return '#64748b';
+      case '#uploaded': return 'var(--success-color)';
+      case '#published': return '#8b5cf6';
+      default: return 'var(--border-color)';
+    }
+  };
+
+  const parseChecklistData = (raw) => {
+    if (!raw) return {};
+    if (typeof raw === 'string') {
+      try { return JSON.parse(raw); } catch { return {}; }
+    }
+    return raw;
+  };
+
+  const getNextStepDue = (video) => {
+    if (!video) return { step: 'Review next step', type: 'info' };
+
+    // 1. Agent message
+    if (video.agent_message && video.agent_message.trim()) {
+      return { step: `Agent Note: "${video.agent_message.trim()}"`, type: 'agent' };
+    }
+
+    const isShort = video.format_type === 'Short' || video.code?.includes('-S');
+    const checklist = parseChecklistData(video.edit_checklist);
+
+    // 2. Published videos needing physical cards
+    if (video.status === '#published') {
+      if (!video.cards_created && !video.code?.startsWith('HIST')) {
+        return { step: 'Action needed: File physical 3x5 main cards in archive box', type: 'cards', actionType: 'cards' };
+      }
+      return { step: 'Completed & published', type: 'done' };
+    }
+
+    // 3. Uploaded videos
+    if (video.status === '#uploaded') {
+      return { step: 'Action needed: Confirm YouTube Studio release on drop date', type: 'publish' };
+    }
+
+    // 4. Editing videos (#edit)
+    if (video.status === '#edit') {
+      if (!video.raw_transcript || !video.raw_transcript.trim()) {
+        return { step: 'Action needed: Paste Descript spoken transcript into App', type: 'action' };
+      }
+
+      const items = isShort ? SHORT_VIDEO_CHECKLIST_ITEMS : LONG_VIDEO_CHECKLIST_ITEMS;
+      for (const item of items) {
+        if (item.key === 'pub_cards') continue;
+        if (!checklist[item.key]) {
+          return { step: `Checklist: ${item.label}`, type: 'checklist' };
+        }
+      }
+
+      if (checklist.custom_tasks && Array.isArray(checklist.custom_tasks)) {
+        const pendingCustom = checklist.custom_tasks.find(t => !t.done);
+        if (pendingCustom) {
+          return { step: `Custom Task: ${pendingCustom.label}`, type: 'custom' };
+        }
+      }
+
+      return { step: 'Checklist complete: Advance status to #uploaded', type: 'action' };
+    }
+
+    // 5. Filming videos (#film)
+    if (video.status === '#film') {
+      return { step: 'Action needed: Direct-to-camera filming', type: 'action' };
+    }
+
+    // 6. Writing videos (#write)
+    if (video.status === '#write') {
+      if (video.notes && (video.notes.toLowerCase().includes('card') || video.notes.toLowerCase().includes('3x5'))) {
+        return { step: 'Action needed: Finish 3x5 card & advance to #film', type: 'action' };
+      }
+      return { step: 'Action needed: Draft 3x5 index card (4 Beats)', type: 'action' };
+    }
+
+    // 7. Idea videos (#idea)
+    if (video.status === '#idea') {
+      if (video.title === 'Placeholder' || video.code?.startsWith('TBD')) {
+        return { step: 'Action needed: Select topic & research in Gemini Notebook', type: 'action' };
+      }
+      return { step: 'Action needed: Outline 4 beats on 3x5 card', type: 'action' };
+    }
+
+    return { step: 'Review next production step', type: 'info' };
+  };
+
+  const getRelativeUrgency = (dropDateStr) => {
+    if (!dropDateStr) return null;
+    const dropDate = parseISO(dropDateStr);
+    dropDate.setHours(0, 0, 0, 0);
+    const diffDays = differenceInDays(dropDate, todayDate);
+    if (diffDays < 0) return { label: 'Past drop date', color: 'var(--danger-color)' };
+    if (diffDays === 0) return { label: 'Drops today', color: 'var(--danger-color)' };
+    if (diffDays === 1) return { label: 'Drops tomorrow', color: 'var(--danger-color)' };
+    if (diffDays <= 3) return { label: `Drops in ${diffDays} days`, color: '#b45309' };
+    if (diffDays <= 7) return { label: `Drops in ${diffDays} days`, color: 'var(--accent-color)' };
+    return { label: `Drops in ${diffDays} days`, color: 'var(--text-secondary)' };
+  };
+
+  const getVideoProgress = (video) => {
+    if (!video) return { completed: 0, total: 0, percent: 0 };
+    
+    if (video.status === '#published' && video.cards_created) {
+      return { completed: 1, total: 1, percent: 100 };
+    }
+
+    const isShort = video.format_type === 'Short' || video.code?.includes('-S');
+    const baseItems = isShort ? SHORT_VIDEO_CHECKLIST_ITEMS : LONG_VIDEO_CHECKLIST_ITEMS;
+    const checklist = parseChecklistData(video.edit_checklist);
+    const customTasks = checklist.custom_tasks || [];
+
+    let completed = 0;
+    baseItems.forEach(item => {
+      if (item.key === 'pub_cards' && video.cards_created) {
+        completed++;
+      } else if (item.key === 'edit_transcript' && (checklist.edit_transcript || (video.raw_transcript && video.raw_transcript.trim()))) {
+        completed++;
+      } else if (checklist[item.key]) {
+        completed++;
+      } else if (video.status === '#published' && item.key !== 'pub_cards') {
+        completed++;
+      } else if (video.status === '#uploaded' && item.key !== 'pub_cards') {
+        completed++;
+      } else if (video.status === '#edit' && (item.phase === 'Planning' || item.phase === 'Filming')) {
+        completed++;
+      } else if (video.status === '#film' && item.phase === 'Planning') {
+        completed++;
+      }
+    });
+
+    const completedCustom = customTasks.filter(t => !!t.done).length;
+    const total = baseItems.length + customTasks.length;
+    const finalCompleted = completed + completedCustom;
+    const percent = total > 0 ? Math.round((finalCompleted / total) * 100) : 0;
+
+    return { completed: finalCompleted, total, percent };
   };
 
   // Metrics Calculation
@@ -185,52 +312,77 @@ function App() {
   };
 
   const renderDashboard = () => {
-    const cardActionItems = needsCards.map(v => ({
-      video: v,
-      type: 'cards',
-      code: v.code,
-      title: v.title,
-      drop_date: v.drop_date,
-      badgeText: 'Review for main cards',
-      badgeClass: 'badge-cards',
-      message: 'Read OB file & migrate ideas to 3x5 cards'
-    }));
+    // 1. Build 3-Week Pipeline (21 days out) with automatic placeholders for expected release days (Mon, Tue, Thu, Sat)
+    const pipelineItems = [];
+    const videosByDate = {};
+    videos.forEach(v => {
+      if (v.drop_date) {
+        if (!videosByDate[v.drop_date]) videosByDate[v.drop_date] = [];
+        videosByDate[v.drop_date].push(v);
+      }
+    });
 
-    const publishActionItems = needsPublishing.map(v => ({
-      video: v,
-      type: 'publish',
-      code: v.code,
-      title: v.title,
-      drop_date: v.drop_date,
-      badgeText: 'Due Soon',
-      badgeClass: 'badge-film',
-      message: `Due in < 21 days! (Drop: ${v.drop_date})`
-    }));
+    for (let i = 0; i <= 21; i++) {
+      const day = addDays(todayDate, i);
+      day.setHours(0, 0, 0, 0);
+      const isoDate = format(day, 'yyyy-MM-dd');
+      const dayOfWeek = day.getDay(); // 0: Sun, 1: Mon, 2: Tue, 3: Wed, 4: Thu, 5: Fri, 6: Sat
+      const isExpectedReleaseDay = dayOfWeek === 1 || dayOfWeek === 2 || dayOfWeek === 4 || dayOfWeek === 6;
+      const expectedFormat = dayOfWeek === 1 ? 'Long' : 'Short';
 
-    const draftActionItems = needsDrafting.map(v => ({
-      video: v,
-      type: 'draft',
-      code: v.code,
-      title: v.title,
-      drop_date: v.drop_date,
-      badgeText: 'Needs Draft',
-      badgeClass: 'badge-write',
-      message: `Needs Audio Draft (Drop: ${v.drop_date})`
-    }));
+      const scheduledVideos = videosByDate[isoDate] || [];
 
-    let filteredActionItems = [];
-    if (actionFilter === 'cards') {
-      filteredActionItems = cardActionItems;
-    } else if (actionFilter === 'drafts') {
-      filteredActionItems = draftActionItems;
-    } else if (actionFilter === 'publish') {
-      filteredActionItems = publishActionItems;
-    } else {
-      // 'all': Priority is publishing urgency, then main card reviews, then drafts
-      filteredActionItems = [...publishActionItems, ...cardActionItems, ...draftActionItems];
+      if (scheduledVideos.length > 0) {
+        scheduledVideos.forEach(v => {
+          pipelineItems.push({
+            isPlaceholder: false,
+            video: v,
+            code: v.code,
+            title: v.title,
+            status: v.status,
+            drop_date: v.drop_date,
+            dayFormatted: format(day, 'EEE, MMM d'),
+            notes: v.notes,
+            format_type: v.format_type
+          });
+        });
+      } else if (isExpectedReleaseDay) {
+        pipelineItems.push({
+          isPlaceholder: true,
+          code: 'OPEN SLOT',
+          title: `No video scheduled (Expected ${expectedFormat})`,
+          status: '#unscheduled',
+          drop_date: isoDate,
+          dayFormatted: format(day, 'EEE, MMM d'),
+          expectedFormat
+        });
+      }
     }
 
-    const displayActionItems = filteredActionItems.slice(0, 10);
+    // 2. Build Work in Progress (All active unfinished videos + published videos needing cards)
+    const activeProduction = videos.filter(v => {
+      return v.status !== '#published';
+    }).sort(sortByDropDate);
+
+    const publishedNeedingCards = videos.filter(v => {
+      return v.status === '#published' && !v.cards_created && !v.code?.startsWith('HIST');
+    }).sort((a, b) => {
+      if (!a.drop_date) return 1;
+      if (!b.drop_date) return -1;
+      return new Date(b.drop_date) - new Date(a.drop_date);
+    });
+
+    const workInProgressItems = [...activeProduction, ...publishedNeedingCards];
+
+    // Calculate total WIP progress for column graphic
+    let totalCompletedTasks = 0;
+    let totalWipTasks = 0;
+    workInProgressItems.forEach(item => {
+      const prog = getVideoProgress(item);
+      totalCompletedTasks += prog.completed;
+      totalWipTasks += prog.total;
+    });
+    const overallWipPercent = totalWipTasks > 0 ? Math.round((totalCompletedTasks / totalWipTasks) * 100) : 0;
 
     return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
@@ -288,131 +440,156 @@ function App() {
       </div>
 
       <div className="dashboard-grid">
+        {/* Column 1: Pipeline (Next 3 Weeks) */}
         <div className="card">
           <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
-            <Calendar size={20} color="var(--accent-color)" /> Pipeline
+            <Calendar size={20} color="var(--accent-color)" /> Pipeline (Next 3 Weeks)
           </h2>
           <div className="videos-list">
-            {videos
-              .filter(v => {
-                if (!v.drop_date) return false;
-                const d = parseISO(v.drop_date);
-                d.setHours(0, 0, 0, 0);
-                return d >= todayDate && d <= addDays(todayDate, 10);
-              })
-              .sort(sortByDropDate)
-              .map(v => (
-                <div key={v.code} className="video-item" style={{ cursor: 'pointer' }} onClick={() => setCurrentVideo(v)}>
+            {pipelineItems.map((item, idx) => {
+              if (item.isPlaceholder) {
+                return (
+                  <div
+                    key={`placeholder-${item.drop_date}-${idx}`}
+                    className="video-item placeholder"
+                  >
+                    <div className="video-header">
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                        <strong style={{ color: '#d97706', fontSize: '0.85rem' }}>⏳ {item.code}</strong>
+                      </div>
+                      {getStatusBadge(item.status)}
+                    </div>
+                    <div className="video-meta" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <span style={{ fontStyle: 'italic', color: 'var(--text-secondary)' }}>{item.title}</span>
+                      <span style={{ marginLeft: 'auto', fontWeight: 'bold' }}>{item.dayFormatted}</span>
+                    </div>
+                  </div>
+                );
+              }
+
+              return (
+                <div
+                  key={`${item.code}-${item.drop_date}`}
+                  className="video-item"
+                  style={{ cursor: 'pointer', borderLeft: `4px solid ${getBorderColor(item.video)}` }}
+                  onClick={() => setCurrentVideo(item.video)}
+                >
                   <div className="video-header">
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                      <strong>{v.code}</strong>
-                      {v.notes && <span title="Has Production Log / Notes" style={{ fontSize: '0.75rem' }}>📝</span>}
+                      <strong>{item.code}</strong>
+                      {item.notes && <span title="Has Production Log / Notes" style={{ fontSize: '0.75rem' }}>📝</span>}
                     </div>
-                    {getStatusBadge(v.status)}
+                    {getStatusBadge(item.status)}
                   </div>
-                  <div className="video-meta">
-                    <span>{v.title}</span>
-                    <span style={{ marginLeft: 'auto', fontWeight: 'bold' }}>{v.drop_date}</span>
+                  <div className="video-meta" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span style={{ fontWeight: '500' }}>{item.title}</span>
+                    <span style={{ marginLeft: 'auto', fontWeight: 'bold' }}>{item.dayFormatted}</span>
                   </div>
                 </div>
-              ))}
+              );
+            })}
+            {pipelineItems.length === 0 && (
+              <p style={{ padding: '1rem', textAlign: 'center', color: 'var(--text-secondary)' }}>
+                No drop dates found in the next 3 weeks.
+              </p>
+            )}
           </div>
         </div>
 
+        {/* Column 2: Work in Progress (Unified Column) */}
         <div className="card">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1rem' }}>
-            <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', margin: 0 }}>
-              <AlertCircle size={20} color="var(--danger-color)" /> Action Items (Next 10)
-            </h2>
-            <div style={{ display: 'flex', gap: '0.25rem', background: 'var(--bg-color)', padding: '0.2rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', fontSize: '0.75rem' }}>
-              <button
-                type="button"
-                className="btn"
-                style={{
-                  padding: '0.2rem 0.5rem',
-                  fontSize: '0.75rem',
-                  borderRadius: '4px',
-                  backgroundColor: actionFilter === 'all' ? 'var(--surface-color)' : 'transparent',
-                  color: actionFilter === 'all' ? 'var(--text-primary)' : 'var(--text-secondary)',
-                  fontWeight: actionFilter === 'all' ? '600' : 'normal',
-                  boxShadow: actionFilter === 'all' ? 'var(--shadow-sm)' : 'none'
-                }}
-                onClick={() => setActionFilter('all')}
-              >
-                All
-              </button>
-              <button
-                type="button"
-                className="btn"
-                style={{
-                  padding: '0.2rem 0.5rem',
-                  fontSize: '0.75rem',
-                  borderRadius: '4px',
-                  backgroundColor: actionFilter === 'cards' ? '#8b5cf6' : 'transparent',
-                  color: actionFilter === 'cards' ? '#fff' : 'var(--text-secondary)',
-                  fontWeight: actionFilter === 'cards' ? '600' : 'normal'
-                }}
-                onClick={() => setActionFilter('cards')}
-              >
-                🗂️ Cards ({needsCards.length})
-              </button>
-              <button
-                type="button"
-                className="btn"
-                style={{
-                  padding: '0.2rem 0.5rem',
-                  fontSize: '0.75rem',
-                  borderRadius: '4px',
-                  backgroundColor: actionFilter === 'drafts' ? '#b45309' : 'transparent',
-                  color: actionFilter === 'drafts' ? '#fff' : 'var(--text-secondary)',
-                  fontWeight: actionFilter === 'drafts' ? '600' : 'normal'
-                }}
-                onClick={() => setActionFilter('drafts')}
-              >
-                🎙️ Drafts ({needsDrafting.length})
-              </button>
-              <button
-                type="button"
-                className="btn"
-                style={{
-                  padding: '0.2rem 0.5rem',
-                  fontSize: '0.75rem',
-                  borderRadius: '4px',
-                  backgroundColor: actionFilter === 'publish' ? 'var(--danger-color)' : 'transparent',
-                  color: actionFilter === 'publish' ? '#fff' : 'var(--text-secondary)',
-                  fontWeight: actionFilter === 'publish' ? '600' : 'normal'
-                }}
-                onClick={() => setActionFilter('publish')}
-              >
-                ⚡ Publish ({needsPublishing.length})
-              </button>
+          <div style={{ marginBottom: '1.15rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.45rem' }}>
+              <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', margin: 0 }}>
+                <ListTodo size={20} color="var(--accent-color)" /> Work in Progress ({workInProgressItems.length})
+              </h2>
+              <span style={{ fontSize: '0.85rem', fontWeight: '700', color: overallWipPercent >= 80 ? 'var(--success-color)' : 'var(--accent-color)' }}>
+                {overallWipPercent}% Done
+              </span>
+            </div>
+            {/* Column Percentage Done Graphic */}
+            <div style={{ background: 'var(--border-color)', borderRadius: '9999px', height: '8px', overflow: 'hidden' }}>
+              <div 
+                style={{ 
+                  width: `${overallWipPercent}%`, 
+                  background: 'linear-gradient(90deg, #0ea5e9, #10b981)', 
+                  height: '100%', 
+                  borderRadius: '9999px',
+                  transition: 'width 0.4s ease' 
+                }} 
+              />
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.72rem', color: 'var(--text-secondary)', marginTop: '0.3rem' }}>
+              <span>{totalCompletedTasks} of {totalWipTasks} steps completed</span>
+              <span>{workInProgressItems.length} active in pipeline</span>
             </div>
           </div>
 
           <div className="videos-list">
-            {displayActionItems.map(item => {
-              const borderLeftColor = item.type === 'cards' 
-                ? '#8b5cf6' 
-                : item.type === 'publish' 
-                ? 'var(--danger-color)' 
-                : 'var(--warning-color)';
+            {workInProgressItems.map(item => {
+              const nextStep = getNextStepDue(item);
+              const urgency = getRelativeUrgency(item.drop_date);
+              const borderLeftColor = getBorderColor(item);
+              const itemProgress = getVideoProgress(item);
 
               return (
                 <div
-                  key={`${item.type}-${item.code}`}
+                  key={`wip-${item.code}`}
                   className="video-item"
                   style={{ borderLeft: `4px solid ${borderLeftColor}`, cursor: 'pointer', transition: 'all 0.15s ease' }}
-                  onClick={() => setCurrentVideo(item.video)}
+                  onClick={() => setCurrentVideo(item)}
                 >
                   <div className="video-header">
-                    <strong>{item.code}: {item.title}</strong>
-                    {item.type !== 'cards' && (
-                      <span className={`badge ${item.badgeClass}`}>{item.badgeText}</span>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flexWrap: 'wrap' }}>
+                      <strong>{item.code}: {item.title}</strong>
+                      {item.notes && <span title="Has Production Log / Notes" style={{ fontSize: '0.75rem' }}>📝</span>}
+                    </div>
+                    {getStatusBadge(item.status)}
+                  </div>
+
+                  <div className="video-meta" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '0.2rem' }}>
+                    <span>
+                      {item.drop_date ? `Drop: ${format(parseISO(item.drop_date), 'EEE, MMM d')}` : 'No Drop Date'}
+                    </span>
+                    {urgency && (
+                      <span style={{ color: urgency.color, fontWeight: '600', fontSize: '0.75rem' }}>
+                        {urgency.label}
+                      </span>
                     )}
                   </div>
-                  <div className="video-meta" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '0.35rem', flexWrap: 'wrap', gap: '0.5rem' }}>
-                    <span>{item.message}</span>
-                    {item.type === 'cards' && (
+
+                  {/* Individual Video Percentage Done Graphic */}
+                  <div style={{ marginTop: '0.35rem', marginBottom: '0.15rem' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.72rem', color: 'var(--text-secondary)', marginBottom: '0.2rem' }}>
+                      <span>Progress ({itemProgress.completed}/{itemProgress.total} steps)</span>
+                      <span style={{ fontWeight: '700', color: itemProgress.percent === 100 ? 'var(--success-color)' : itemProgress.percent >= 75 ? 'var(--accent-color)' : 'var(--text-primary)' }}>
+                        {itemProgress.percent}%
+                      </span>
+                    </div>
+                    <div style={{ background: 'var(--border-color)', borderRadius: '9999px', height: '5px', overflow: 'hidden' }}>
+                      <div 
+                        style={{ 
+                          width: `${itemProgress.percent}%`, 
+                          background: itemProgress.percent === 100 
+                            ? 'var(--success-color)' 
+                            : itemProgress.percent >= 50 
+                            ? 'linear-gradient(90deg, #0ea5e9, #10b981)' 
+                            : '#f59e0b', 
+                          height: '100%', 
+                          borderRadius: '9999px',
+                          transition: 'width 0.3s ease' 
+                        }} 
+                      />
+                    </div>
+                  </div>
+
+                  <div className="next-step-box">
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flex: 1, minWidth: '180px' }}>
+                      <span style={{ fontWeight: '600', color: 'var(--text-secondary)' }}>Next:</span>
+                      <span>{nextStep.step}</span>
+                    </div>
+
+                    {nextStep.actionType === 'cards' && (
                       <div style={{ display: 'flex', gap: '0.4rem', alignItems: 'center', marginLeft: 'auto' }}>
                         <a
                           href={getObsidianUri(item.code)}
@@ -433,7 +610,7 @@ function App() {
                         </a>
                         <button
                           type="button"
-                          onClick={e => handleMarkCardsDone(e, item.video)}
+                          onClick={e => handleMarkCardsDone(e, item)}
                           className="btn"
                           style={{
                             padding: '0.2rem 0.6rem',
@@ -457,9 +634,9 @@ function App() {
                 </div>
               );
             })}
-            {displayActionItems.length === 0 && (
+            {workInProgressItems.length === 0 && (
               <p style={{ padding: '1rem', textAlign: 'center', color: 'var(--text-secondary)' }}>
-                You are ahead of schedule! No action items pending. 🎉
+                No active work in progress. All videos are up to date! 🎉
               </p>
             )}
           </div>
