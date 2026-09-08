@@ -4,7 +4,7 @@ import {
   Calendar, CheckSquare, AlertCircle, RefreshCw, ChevronLeft, Save, Tag, 
   TrendingUp, Clock, FileVideo, Scissors, Film, X, ExternalLink, BarChart2, 
   LayoutDashboard, Eye, Users, Award, Flame, BookOpen, Check, ThumbsUp, 
-  MessageSquare, Plus, Trash2, ListTodo, FileText, CheckCircle2, Lightbulb 
+  MessageSquare, Plus, Trash2, ListTodo, FileText, CheckCircle2, Lightbulb, Link 
 } from 'lucide-react';
 import { addDays, isBefore, parseISO, differenceInDays, format } from 'date-fns';
 import ReactMarkdown from 'react-markdown';
@@ -51,6 +51,27 @@ function App() {
   const [metricModal, setMetricModal] = useState(null);
   const [activeTab, setActiveTab] = useState('pipeline');
 
+  const openVideo = (video, pushHistory = true) => {
+    if (!video) return;
+    setCurrentVideo(video);
+    if (pushHistory && video.code) {
+      const url = new URL(window.location.href);
+      url.searchParams.set('video', video.code);
+      window.history.pushState({ videoCode: video.code }, '', url.toString());
+    }
+  };
+
+  const closeVideo = (pushHistory = true) => {
+    setCurrentVideo(null);
+    if (pushHistory) {
+      const url = new URL(window.location.href);
+      url.searchParams.delete('video');
+      url.searchParams.delete('code');
+      url.searchParams.delete('v');
+      window.history.pushState({}, '', url.toString());
+    }
+  };
+
   const fetchVideos = async () => {
     setLoading(true);
     const { data, error } = await supabase
@@ -60,10 +81,24 @@ function App() {
 
     if (error) console.error("Error fetching videos:", error);
     else {
-      setVideos(data || []);
-      // If we are currently viewing a video, update its local object
-      if (currentVideo) {
-        const updated = data.find(v => v.id === currentVideo.id);
+      const list = data || [];
+      setVideos(list);
+
+      // Deep link support from URL params (e.g. ?video=80.V1B2-S2)
+      const params = new URLSearchParams(window.location.search);
+      const targetParam = params.get('video') || params.get('code') || params.get('v') || window.location.hash.replace(/^#/, '');
+
+      if (targetParam) {
+        const found = list.find(v => 
+          v.code?.toLowerCase() === targetParam.toLowerCase() ||
+          v.video_number === targetParam ||
+          v.id === targetParam
+        );
+        if (found) {
+          setCurrentVideo(found);
+        }
+      } else if (currentVideo) {
+        const updated = list.find(v => v.id === currentVideo.id);
         if (updated) setCurrentVideo(updated);
       }
     }
@@ -81,6 +116,29 @@ function App() {
       })
       .catch(console.error);
   }, []);
+
+  // Handle browser Back / Forward buttons for deep linked videos
+  useEffect(() => {
+    const handlePopState = () => {
+      const params = new URLSearchParams(window.location.search);
+      const targetParam = params.get('video') || params.get('code') || params.get('v');
+      if (targetParam && videos.length > 0) {
+        const found = videos.find(v => 
+          v.code?.toLowerCase() === targetParam.toLowerCase() ||
+          v.video_number === targetParam ||
+          v.id === targetParam
+        );
+        if (found) {
+          setCurrentVideo(found);
+          return;
+        }
+      }
+      setCurrentVideo(null);
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, [videos]);
 
   const getObsidianUri = (code) => {
     const p = videoPaths[code];
@@ -530,7 +588,7 @@ function App() {
                   key={`${item.code}-${item.drop_date}`}
                   className={`video-item video-item-${item.status ? item.status.replace('#', '') : ''}`}
                   style={{ cursor: 'pointer', borderLeft: `5px solid ${getBorderColor(item.video)}` }}
-                  onClick={() => setCurrentVideo(item.video)}
+                  onClick={() => openVideo(item.video)}
                 >
                   <div className="video-header">
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
@@ -572,7 +630,7 @@ function App() {
                   key={`wip-${item.code}`}
                   className={`video-item video-item-${item.status ? item.status.replace('#', '') : ''}`}
                   style={{ borderLeft: `5px solid ${borderLeftColor}`, cursor: 'pointer' }}
-                  onClick={() => setCurrentVideo(item)}
+                  onClick={() => openVideo(item)}
                 >
                   <div className="video-header">
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flexWrap: 'wrap' }}>
@@ -672,7 +730,7 @@ function App() {
             ) : (
               <div className="videos-list">
                 {metricModal.videos.map(v => (
-                  <div key={v.code} className="video-item" style={{ cursor: 'pointer' }} onClick={() => { setCurrentVideo(v); setMetricModal(null); }}>
+                  <div key={v.code} className="video-item" style={{ cursor: 'pointer' }} onClick={() => { openVideo(v); setMetricModal(null); }}>
                     <div className="video-header">
                       <strong>{v.code}: {v.title}</strong>
                       {getStatusBadge(v.status)}
@@ -724,7 +782,7 @@ function App() {
             )}
           </div>
         ) : (
-          <button className="btn btn-outline" onClick={() => setCurrentVideo(null)}>
+          <button className="btn btn-outline" onClick={() => closeVideo()}>
             <ChevronLeft size={16} />
             Back to Dashboard
           </button>
@@ -734,7 +792,7 @@ function App() {
       {loading && !currentVideo ? (
         <p>Loading pipeline data...</p>
       ) : currentVideo ? (
-        <VideoDetail video={currentVideo} onUpdate={fetchVideos} onBack={() => setCurrentVideo(null)} />
+        <VideoDetail video={currentVideo} onUpdate={fetchVideos} onBack={() => closeVideo()} />
       ) : activeTab === 'pipeline' ? (
         renderDashboard()
       ) : (
@@ -799,6 +857,28 @@ function VideoDetail({ video, onUpdate, onBack }) {
 
   const [filePropositions, setFilePropositions] = useState([]);
   const detectedUrls = extractUrls(notes);
+  const [copiedLink, setCopiedLink] = useState(false);
+
+  const handleCopyDeepLink = async () => {
+    const deepLink = `${window.location.origin}${window.location.pathname}?video=${encodeURIComponent(localVideo.code || video.code)}`;
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(deepLink);
+      } else {
+        const textArea = document.createElement('textarea');
+        textArea.value = deepLink;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+      }
+      setCopiedLink(true);
+      setTimeout(() => setCopiedLink(false), 2500);
+    } catch (err) {
+      console.error("Failed to copy deep link:", err);
+      prompt("Copy deep link for Workflowy:", deepLink);
+    }
+  };
 
   // Fetch specific video path & propositions
   useEffect(() => {
@@ -1425,17 +1505,40 @@ function VideoDetail({ video, onUpdate, onBack }) {
         </div>
 
         {/* 5. Action Buttons */}
-        <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', paddingTop: '0.5rem', borderTop: '1px solid var(--border-color)', flexWrap: 'wrap' }}>
-          <button className="btn btn-primary" onClick={handleSaveText} disabled={saving}>
-            <Save size={16} />
-            {saving ? 'Saving to Supabase...' : 'Save All Text Fields'}
-          </button>
+        <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', justifyContent: 'space-between', paddingTop: '0.75rem', borderTop: '1px solid var(--border-color)', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', flexWrap: 'wrap' }}>
+            <button className="btn btn-primary" onClick={handleSaveText} disabled={saving}>
+              <Save size={16} />
+              {saving ? 'Saving to Supabase...' : 'Save All Text Fields'}
+            </button>
 
-          {saveSuccess && (
-            <span style={{ color: 'var(--success-color)', fontSize: '0.9rem', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-              <CheckCircle2 size={18} /> Saved to Supabase!
-            </span>
-          )}
+            {saveSuccess && (
+              <span style={{ color: 'var(--success-color)', fontSize: '0.9rem', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                <CheckCircle2 size={18} /> Saved to Supabase!
+              </span>
+            )}
+          </div>
+
+          <button
+            type="button"
+            className="btn btn-outline"
+            onClick={handleCopyDeepLink}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.45rem',
+              fontSize: '0.85rem',
+              padding: '0.5rem 0.85rem',
+              borderColor: copiedLink ? 'var(--success-color)' : 'var(--border-color)',
+              color: copiedLink ? 'var(--success-color)' : 'var(--text-primary)',
+              transition: 'all 0.2s ease',
+              fontWeight: '500'
+            }}
+            title={`Copy deep link to ${localVideo.code || video.code} for Workflowy`}
+          >
+            {copiedLink ? <Check size={16} color="var(--success-color)" /> : <Link size={16} />}
+            <span>{copiedLink ? 'Copied Link!' : 'Copy Workflowy Link'}</span>
+          </button>
         </div>
 
       </div>
