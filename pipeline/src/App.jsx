@@ -764,9 +764,41 @@ function VideoDetail({ video, onUpdate, onBack }) {
     return raw;
   };
 
+  const extractUrls = (text) => {
+    if (!text || typeof text !== 'string') return [];
+    const urlRegex = /(https?:\/\/[^\s<]+[^<.,:;"')\]\s]|www\.[^\s<]+[^<.,:;"')\]\s])/gi;
+    const matches = text.match(urlRegex) || [];
+    const seen = new Set();
+    const result = [];
+    matches.forEach(m => {
+      const trimmed = m.trim();
+      const href = trimmed.startsWith('www.') ? `https://${trimmed}` : trimmed;
+      if (!seen.has(href)) {
+        seen.add(href);
+        let label = trimmed;
+        try {
+          const parsed = new URL(href);
+          const domain = parsed.hostname.replace(/^www\./, '');
+          const path = parsed.pathname === '/' ? '' : parsed.pathname;
+          label = domain + path;
+          if (label.length > 40) {
+            label = label.substring(0, 37) + '...';
+          }
+        } catch {
+          if (label.length > 40) {
+            label = label.substring(0, 37) + '...';
+          }
+        }
+        result.push({ raw: trimmed, href, label });
+      }
+    });
+    return result;
+  };
+
   const [checklist, setChecklist] = useState(() => parseChecklist(video.edit_checklist));
 
   const [filePropositions, setFilePropositions] = useState([]);
+  const detectedUrls = extractUrls(notes);
 
   // Fetch specific video path & propositions
   useEffect(() => {
@@ -1227,6 +1259,58 @@ function VideoDetail({ video, onUpdate, onBack }) {
             onChange={(e) => setNotes(e.target.value)}
             placeholder="No log entries yet. Use the quick entry box above or type production notes directly here..."
           />
+
+          {/* Detected Clickable Links from Production Log */}
+          {detectedUrls.length > 0 && (
+            <div className="log-links-container">
+              <span style={{ fontSize: '0.75rem', fontWeight: '600', color: 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                <ExternalLink size={13} color="var(--accent-color)" /> Links in Log ({detectedUrls.length}):
+              </span>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.45rem' }}>
+                {detectedUrls.map((link, idx) => (
+                  <a
+                    key={idx}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-outline"
+                    style={{
+                      fontSize: '0.78rem',
+                      padding: '0.25rem 0.65rem',
+                      height: 'auto',
+                      textDecoration: 'none',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.4rem',
+                      background: 'var(--surface-color)',
+                      borderColor: 'var(--accent-color)',
+                      color: 'var(--accent-color)',
+                      fontWeight: '500'
+                    }}
+                    title={`Open ${link.href}`}
+                  >
+                    <ExternalLink size={12} />
+                    <span>{link.label}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '0.5rem' }}>
+            <span style={{ fontSize: '0.75rem', color: 'var(--success-color)', fontWeight: '500' }}>
+              {saveSuccess ? '✓ Notes saved to Supabase' : ''}
+            </span>
+            <button 
+              type="button" 
+              className="btn btn-outline" 
+              style={{ fontSize: '0.75rem', padding: '0.25rem 0.65rem', height: 'auto', display: 'flex', alignItems: 'center', gap: '0.35rem' }}
+              onClick={handleSaveText}
+              disabled={saving}
+            >
+              <Save size={13} /> Save Notes
+            </button>
+          </div>
         </div>
 
         {/* 3. Core Clinical Propositions (Zettelkasten / JDex) & Spoken Transcript */}

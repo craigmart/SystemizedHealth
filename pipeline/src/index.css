@@ -351,6 +351,23 @@ p {
   border-color: var(--accent-color);
 }
 
+.log-links-container {
+  margin-top: 0.65rem;
+  padding: 0.65rem 0.85rem;
+  background: rgba(0, 0, 0, 0.025);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .log-links-container {
+    background: rgba(255, 255, 255, 0.035);
+  }
+}
+
 .custom-task-input {
   display: flex;
   gap: 0.5rem;
