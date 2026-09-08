@@ -1377,19 +1377,41 @@ function VideoDetail({ video, onUpdate, onBack }) {
             </div>
           )}
 
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '0.5rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '0.5rem', flexWrap: 'wrap', gap: '0.5rem' }}>
             <span style={{ fontSize: '0.75rem', color: 'var(--success-color)', fontWeight: '500' }}>
               {saveSuccess ? '✓ Notes saved to Supabase' : ''}
             </span>
-            <button 
-              type="button" 
-              className="btn btn-outline" 
-              style={{ fontSize: '0.75rem', padding: '0.25rem 0.65rem', height: 'auto', display: 'flex', alignItems: 'center', gap: '0.35rem' }}
-              onClick={handleSaveText}
-              disabled={saving}
-            >
-              <Save size={13} /> Save Notes
-            </button>
+            <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+              <button
+                type="button"
+                className="btn btn-outline"
+                onClick={handleCopyDeepLink}
+                style={{
+                  fontSize: '0.75rem',
+                  padding: '0.25rem 0.65rem',
+                  height: 'auto',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.35rem',
+                  borderColor: copiedLink ? 'var(--success-color)' : 'var(--border-color)',
+                  color: copiedLink ? 'var(--success-color)' : 'var(--text-primary)',
+                  transition: 'all 0.2s ease'
+                }}
+                title={`Copy deep link to ${localVideo.code || video.code} for Workflowy`}
+              >
+                {copiedLink ? <Check size={13} color="var(--success-color)" /> : <Link size={13} />}
+                <span>{copiedLink ? 'Copied URL!' : 'Copy URL'}</span>
+              </button>
+              <button 
+                type="button" 
+                className="btn btn-outline" 
+                style={{ fontSize: '0.75rem', padding: '0.25rem 0.65rem', height: 'auto', display: 'flex', alignItems: 'center', gap: '0.35rem' }}
+                onClick={handleSaveText}
+                disabled={saving}
+              >
+                <Save size={13} /> Save Notes
+              </button>
+            </div>
           </div>
         </div>
 
@@ -1505,40 +1527,17 @@ function VideoDetail({ video, onUpdate, onBack }) {
         </div>
 
         {/* 5. Action Buttons */}
-        <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', justifyContent: 'space-between', paddingTop: '0.75rem', borderTop: '1px solid var(--border-color)', flexWrap: 'wrap' }}>
-          <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', flexWrap: 'wrap' }}>
-            <button className="btn btn-primary" onClick={handleSaveText} disabled={saving}>
-              <Save size={16} />
-              {saving ? 'Saving to Supabase...' : 'Save All Text Fields'}
-            </button>
-
-            {saveSuccess && (
-              <span style={{ color: 'var(--success-color)', fontSize: '0.9rem', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                <CheckCircle2 size={18} /> Saved to Supabase!
-              </span>
-            )}
-          </div>
-
-          <button
-            type="button"
-            className="btn btn-outline"
-            onClick={handleCopyDeepLink}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.45rem',
-              fontSize: '0.85rem',
-              padding: '0.5rem 0.85rem',
-              borderColor: copiedLink ? 'var(--success-color)' : 'var(--border-color)',
-              color: copiedLink ? 'var(--success-color)' : 'var(--text-primary)',
-              transition: 'all 0.2s ease',
-              fontWeight: '500'
-            }}
-            title={`Copy deep link to ${localVideo.code || video.code} for Workflowy`}
-          >
-            {copiedLink ? <Check size={16} color="var(--success-color)" /> : <Link size={16} />}
-            <span>{copiedLink ? 'Copied Link!' : 'Copy Workflowy Link'}</span>
+        <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', paddingTop: '0.5rem', borderTop: '1px solid var(--border-color)', flexWrap: 'wrap' }}>
+          <button className="btn btn-primary" onClick={handleSaveText} disabled={saving}>
+            <Save size={16} />
+            {saving ? 'Saving to Supabase...' : 'Save All Text Fields'}
           </button>
+
+          {saveSuccess && (
+            <span style={{ color: 'var(--success-color)', fontSize: '0.9rem', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+              <CheckCircle2 size={18} /> Saved to Supabase!
+            </span>
+          )}
         </div>
 
       </div>
