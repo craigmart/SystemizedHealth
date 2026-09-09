@@ -1,12 +1,12 @@
 # 🗂️ Published Video Propositions & 3x5 Index Card Tracker
 
-*Updated 2026-09-05 with authoritative Workflowy Johnny Decimal (JDex) codes.*
+*Updated 2026-09-08 with authoritative Workflowy Johnny Decimal (JDex) codes.*
 
 ---
 
 ## 📊 Card Transcription Progress
 
-**Status**: 8 Completed / 18 Pending Physical 3x5 Cards
+**Status**: 11 Completed / 18 Pending Physical 3x5 Cards
 
 | Video # | Code | Title | Primary JDex | Cards Status |
 | :---: | :--- | :--- | :---: | :---: |
@@ -28,9 +28,12 @@
 | **016** | `80.V0A1-S3` | This is why you aren't getting healthier #hea | `43.11` | ⬜ **Pending** |
 | **017** | `80.V1C1` | Biological Debt of Sleep | `82.07` | ⬜ **Pending** |
 | **018** | `80.V1C1-S1` | Weekend Catch-Up Myth | `82.07` | ⬜ **Pending** |
-| **019** | `80.V1C1-S2` | Brain Night Shift | `82.07` | ⬜ **Pending** |
-| **020** | `80.V1C1-S3` | Caffeine Illusion | `82.04` | ⬜ **Pending** |
+| **019** | `80.V1C1-S2` | Brain Night Shift | `82.07` | ✅ Done |
+| **020** | `80.V1C1-S3` | Caffeine Illusion | `82.04` | ✅ Done |
+| **021** | `80.V1B2` | Can You Run With a Herniated Disc? (A Doctor' | `81.05` | ✅ Done |
 | **022** | `80.V1B2-S1` | How Do the Discs in Your Spine Stay Healthy?  | `81.05` | ✅ Done |
+| **023** | `80.V2B1-S1` | The Need for Discomfort to Be Comfortable | `81.05` | ⬜ **Pending** |
+| **024** | `80.V1B2-S2` | Running and Longterm Health of Your Disc | `81.05` | ⬜ **Pending** |
 | **033** | `80.V1A` | The real reason you're exhausted at 3pm | `81.09` | ⬜ **Pending** |
 | **034** | `80.V1A-S1` | The Mid-Afternoon Crash | `81.09` | ⬜ **Pending** |
 | **035** | `80.V1A-S2` | Cellular Hydration | `81.09` | ⬜ **Pending** |
@@ -119,19 +122,17 @@
 - Weekend sleep rebound fails to reverse the structural and metabolic deficits incurred from five consecutive nights of cumulative biological sleep restriction. [[81.09 Anatomy and Physiology]]
 - Maintaining a strict, invariant wake-up time seven days a week stabilizes circadian rhythmicity and promotes robust nighttime sleep architecture. [[81.05 Lifestyle Management]]
 
-### ⬜ [80.V1C1-S2] Brain Night Shift (Video #019)
-*Primary JDex Category*: `82.07` | *Obsidian Script*: `Zettlekasten/80.V1C1-S2 Script - Brain Night Shift.md`
+### ⬜ [80.V2B1-S1] The Need for Discomfort to Be Comfortable (Video #023)
+*Primary JDex Category*: `81.05` | *Obsidian Script*: `Zettlekasten/80.V2B1-S1 Script - The Need for Discomfort to Be Comfortable.md`
 
-- Slow-wave sleep serves as the mandatory biological window for transferring declarative memory traces from temporary hippocampal networks to long-term neocortical storage sites. [[82.02 Functional Systems]]
-- During the first four hours of sleep, astrocytic channels shrink to facilitate a 60% expansion of interstitial space, allowing the glymphatic system to purge neurotoxic metabolic debris. [[82.07 Regulatory Neuroscience]]
-- Truncating early nighttime sleep blocks the essential biological maintenance window, resulting in un-cleared cerebral metabolites and cognitive friction the following day. [[81.05 Lifestyle Management]]
+- Long-term physiological comfort and systemic resilience require acute, voluntary discomfort (exercise, dietary restraint, physical challenge) to prevent chronic physical decay and loss of baseline capacity. [[81.05 Lifestyle Management]]
+- Attempting to eliminate all physical discomfort induces negative adaptation; intentional contrast between exertion and rest is the prerequisite for true biological comfort. [[41.01 Discipline]]
 
-### ⬜ [80.V1C1-S3] Caffeine Illusion (Video #020)
-*Primary JDex Category*: `82.04` | *Obsidian Script*: `Zettlekasten/80.V1C1-S3 Script - Caffeine Illusion.md`
+### ⬜ [80.V1B2-S2] Running and Longterm Health of Your Disc (Video #024)
+*Primary JDex Category*: `81.05` | *Obsidian Script*: `Zettlekasten/80.V1B2-S2 Script - Running and Longterm Health of Your Disc.md`
 
-- Caffeine does not supply cellular or metabolic energy; it acts purely as a competitive antagonist that binds to adenosine receptors in the brain, temporarily masking the perception of biological fatigue. [[82.04 Cellular & Molecular Neuroscience]]
-- Adenosine continues to accumulate in the interstitial space during caffeine receptor blockade, producing a severe rebound exhaustion crash once the liver metabolizes the compound. [[81.09 Anatomy and Physiology]]
-- Consuming caffeine within 8 to 10 hours of bedtime disrupts deep slow-wave sleep architecture, impairing cellular recovery even if sleep latency remains subjectively unaffected. [[81.05 Lifestyle Management]]
+- Running applies cyclical axial compression and decompression to the spine, functioning as a hydraulic pump that drives fluid imbibition to nourish avascular intervertebral discs. [[81.02.2]]
+- Running does not damage spinal discs in healthy alignment; rather, dynamic multi-planar movement of the hips and pelvis forces proper biomechanical loading required for long-term spinal integrity. [[81.05 Lifestyle Management]]
 
 ### ⬜ [80.V1A] The real reason you're exhausted at 3pm (Video #033)
 *Primary JDex Category*: `81.09` | *Obsidian Script*: `Zettlekasten/80.V1A Script - The real reason you're exhausted at 3pm.md`

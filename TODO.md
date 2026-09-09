@@ -1,7 +1,7 @@
 
 # Systemized Health — Master TODO & Task List
 
-*Last Updated: 2026-08-17*
+*Last Updated: 2026-09-08*
 
 ---
 
@@ -14,28 +14,23 @@
 
 ## 2. Video Pipeline Production Queue
 
-### 🔴 In Editing (`#edit`) — 3 videos
-- [x] `80.V0A1`: *Systemized OS Framework* — Drop: 2026-08-24
-- [ ] `80.V0A-S3`: *Stop Treating Your Health Like an Emergency Room* — Drop: 2026-08-22
-- [x] `80.V0A1-S1`: *Why Relying on Willpower Guarantees Physical Burnout* — Drop: 2026-08-25
-- [ ] `80.V0A1-S2`: *The Level 1 FMR Baseline Every Body Needs to Master* — Drop: 2026-08-27
-- [ ] `80.V0A1-S3`: *The 3-Tier Health Pyramid That Fixes Chronic Fatigue* — Drop: 2026-08-29
-- [ ] `80.V1B2-S1`: *How Do the Discs in Your Spine Stay Healthy? (It's NOT Bloodflow)* — Drop: 2026-09-08
+### 🟢 Recently Published (`#published`)
+- [x] `80.V1B2`: *Can You Run With a Herniated Disc? (A Doctor's Experiment)* — Dropped: 2026-09-07
+- [x] `80.V1B2-S1`: *How Do the Discs in Your Spine Stay Healthy? (It's NOT Bloodflow)* — Dropped: 2026-09-08
+- [x] `80.V2B1-S1`: *The Need for Discomfort to Be Comfortable* — Dropped: 2026-09-10
+- [x] `80.V1B2-S2`: *Running and Longterm Health of Your Disc* — Dropped: 2026-09-12
 
+### 🗃️ Active Work-In-Progress (Physical 3x5 Index Cards Pending)
+- [ ] **Review propositions & add to Zettelkasten box (3x5 cards)**:
+  - Tracked in [`docs/Published_Video_Propositions.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/Published_Video_Propositions.md) (18 pending videos awaiting physical card filing, including newly published `80.V2B1-S1` and `80.V1B2-S2`).
 
-### 🎬 Ready to Film (`#film`) — 1 video
-- [ ] `80.V1A`: *The Biological Cost of Fake Fuel* — Drop: 2026-08-17
-
-### ✍️ In Writing (`#write`) & Ideation (`#idea`)
-- [ ] `80.V1B2`: *Is running good for low back pain* (Long — Level 1 Movement / Pillar B, branch 2)
-- [ ] `80.V1B2-S2`: *Running and Longterm Health of Your Disc* (Short) — Drop: 2026-09-12
-*(Weeks of Sep 7, Sep 14, Sep 21 — Active Stage 1 ideation & draft outlines in Gemini Notebook)*
+### ✍️ Next Production Queue: Ideation (`#idea`) & Stage 1 Outlines
+*(Weeks of Sep 14 & Sep 21 — Active Stage 1 ideation & draft outlines in Gemini Notebook)*
 - [ ] **Stage 1 CNS Ideation & Draft Outlines (Gemini Notebook)**:
   - Active Brief: [`docs/CNS_Topic_Trajectory_Brief.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/CNS_Topic_Trajectory_Brief.md)
   - Target Intake: [`docs/topic_intake.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/topic_intake.md)
-  - Week 1 (Drop: 2026-09-07 to 2026-09-12): `80.V1C2` + 3 Waterfall Shorts
-  - Week 2 (Drop: 2026-09-14 to 2026-09-19): `80.V1C3` + 3 Waterfall Shorts
-  - Week 3 (Drop: 2026-09-21 to 2026-09-26): `80.V1C4` + 3 Waterfall Shorts
+  - Week 2 (Drop: 2026-09-14 to 2026-09-19): `80.V1C3` (`TBD-025`) + 3 Waterfall Shorts (`TBD-026` to `TBD-028`)
+  - Week 3 (Drop: 2026-09-21 to 2026-09-26): `80.V1C4` (`TBD-029`) + 3 Waterfall Shorts (`TBD-030` to `TBD-032`)
 
 ---
 
