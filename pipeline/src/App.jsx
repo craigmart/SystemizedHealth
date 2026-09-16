@@ -930,7 +930,7 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
   };
 
   const [outline, setOutline] = useState(() => {
-    return video.rough_outline || '';
+    return video.rough_outline || getStarterOutline(video.format_type, video.code);
   });
 
   const parseChecklist = (raw) => {
@@ -1048,7 +1048,7 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
     setTranscript(video.raw_transcript || '');
     setNotes(video.notes || '');
     setChecklist(parseChecklist(video.edit_checklist));
-    setOutline(video.rough_outline || '');
+    setOutline(video.rough_outline || getStarterOutline(video.format_type, video.code));
   }, [video]);
 
   // Save working code and title (only if not published) and log to production log
