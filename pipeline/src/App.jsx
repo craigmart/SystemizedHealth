@@ -652,8 +652,8 @@ function App() {
         </div>
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginTop: '1.5rem' }}>
-        {/* Section 1: Work in Progress (Above Pipeline) */}
+      <div className="dashboard-grid">
+        {/* Column 1: Work in Progress */}
         <div className="card">
           <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
             <ListTodo size={20} color="var(--accent-color)" /> Work in Progress ({workInProgressItems.length})
