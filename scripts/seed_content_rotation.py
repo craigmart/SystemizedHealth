@@ -121,7 +121,7 @@ def build_rotation_records():
             "status": "#idea",
             "os_level": level,
             "jdex_code": jdex_code,
-            "notes": f"Pillar: {pillar} | Format: {fmt} | Rotation Schedule",
+            "notes": None,
             "cards_created": True, # Pre-production ideas don't block WIP cards
             "pillar": pillar,
             "rotation_format": fmt,

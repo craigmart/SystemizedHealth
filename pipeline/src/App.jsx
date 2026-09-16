@@ -482,6 +482,7 @@ function App() {
   const editingVideos = videos.filter(v => v.status === '#edit');
   const readyToFilmVideos = videos.filter(v => v.status === '#film');
   const writingVideos = videos.filter(v => v.status === '#write');
+  const publishedVideos = videos.filter(v => v.status === '#published');
 
   const openModal = (title, videoList) => {
     setMetricModal({ title, videos: videoList.sort(sortByDropDate) });
@@ -620,13 +621,13 @@ function App() {
           </div>
         </div>
 
-        <div className="card metric-tile" onClick={() => openModal('All Scheduled Videos', videos.filter(v => v.drop_date))}>
-          <div style={{ backgroundColor: 'var(--accent-color)', color: '#fff', padding: '0.5rem', borderRadius: '50%', display: 'flex' }}>
+        <div className="card metric-tile" onClick={() => openModal('Published Videos', publishedVideos)}>
+          <div style={{ backgroundColor: '#8b5cf6', color: '#fff', padding: '0.5rem', borderRadius: '50%', display: 'flex' }}>
             <FileVideo size={20} />
           </div>
           <div>
-            <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Total Videos</div>
-            <div style={{ fontSize: '1.25rem', fontWeight: 'bold', lineHeight: '1.2' }}>{videos.length}</div>
+            <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Published Videos</div>
+            <div style={{ fontSize: '1.25rem', fontWeight: 'bold', lineHeight: '1.2' }}>{publishedVideos.length}</div>
           </div>
         </div>
       </div>
@@ -890,10 +891,7 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
   };
 
   const [outline, setOutline] = useState(() => {
-    if (video.rough_outline && video.rough_outline.trim()) {
-      return video.rough_outline;
-    }
-    return getStarterOutline(video.format_type, video.code);
+    return video.rough_outline || '';
   });
 
   const parseChecklist = (raw) => {
@@ -1008,11 +1006,7 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
     setTranscript(video.raw_transcript || '');
     setNotes(video.notes || '');
     setChecklist(parseChecklist(video.edit_checklist));
-    if (video.rough_outline && video.rough_outline.trim()) {
-      setOutline(video.rough_outline);
-    } else {
-      setOutline(getStarterOutline(video.format_type, video.code));
-    }
+    setOutline(video.rough_outline || '');
   }, [video]);
 
   // Save all text fields (Notes, Transcript, Agent Message, Outline)
@@ -1433,9 +1427,9 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
                     setOutline(getStarterOutline(localVideo.format_type, localVideo.code));
                   }
                 }}
-                title="Reset outline to starter beats template"
+                title={outline.trim() ? "Reset outline to starter template" : "Insert starter beats template"}
               >
-                Reset Template
+                {outline.trim() ? 'Reset Template' : 'Insert Template'}
               </button>
               <button
                 type="button"
@@ -1475,18 +1469,11 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
 
         {/* 3. Video Production Log & Notes Section (Stored in Supabase notes) */}
         <div className="log-box">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem', flexWrap: 'wrap', gap: '0.5rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem', flexWrap: 'wrap', gap: '0.5rem' }}>
             <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', margin: 0, fontSize: '1.15rem' }}>
               <FileText size={20} color="var(--accent-color)" /> Video Production Log & Notes
             </h3>
-            <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
-              Synced in Supabase across devices
-            </span>
           </div>
-
-          <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '1rem' }}>
-            Drop ideas, links, and production notes. Antigravity references this log during research, drafting, and proposition processing.
-          </p>
 
           {/* Quick Add Log Entry */}
           <form onSubmit={handleAddLogEntry} className="log-quick-input">
