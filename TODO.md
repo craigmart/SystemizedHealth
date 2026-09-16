@@ -19,17 +19,19 @@
 - [x] `80.V1B2-S1`: *How Do the Discs in Your Spine Stay Healthy? (It's NOT Bloodflow)* — Dropped: 2026-09-08
 - [x] `80.V2B1-S1`: *The Need for Discomfort to Be Comfortable* — Dropped: 2026-09-10
 - [x] `80.V1B2-S2`: *Running and Longterm Health of Your Disc* — Dropped: 2026-09-12
+- [x] `80.V2C1`: *Staying Human in the Age of Artificial Intelligence* — Dropped: 2026-09-14
+- [x] `80.V2C1-S1`: *The One Mindset to Save Your Brain When Using AI* — Dropped: 2026-09-15
 
 ### 🗃️ Active Work-In-Progress (Physical 3x5 Index Cards Pending)
 - [ ] **Review propositions & add to Zettelkasten box (3x5 cards)**:
-  - Tracked in [`docs/Published_Video_Propositions.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/Published_Video_Propositions.md) (18 pending videos awaiting physical card filing, including newly published `80.V2B1-S1` and `80.V1B2-S2`).
+  - Tracked in [`docs/Published_Video_Propositions.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/Published_Video_Propositions.md) (20 pending videos awaiting physical card filing, including newly published `80.V2C1` and `80.V2C1-S1`).
 
 ### ✍️ Next Production Queue: Ideation (`#idea`) & Stage 1 Outlines
 *(Weeks of Sep 14 & Sep 21 — Active Stage 1 ideation & draft outlines in Gemini Notebook)*
 - [ ] **Stage 1 CNS Ideation & Draft Outlines (Gemini Notebook)**:
   - Active Brief: [`docs/CNS_Topic_Trajectory_Brief.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/CNS_Topic_Trajectory_Brief.md)
   - Target Intake: [`docs/topic_intake.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/topic_intake.md)
-  - Week 2 (Drop: 2026-09-14 to 2026-09-19): `80.V1C3` (`TBD-025`) + 3 Waterfall Shorts (`TBD-026` to `TBD-028`)
+  - Week 2 (Drop: 2026-09-14 to 2026-09-19): `80.V2C1` (Published), `80.V2C1-S1` (Published) + 2 Waterfall Shorts (`TBD-027`, `TBD-028`)
   - Week 3 (Drop: 2026-09-21 to 2026-09-26): `80.V1C4` (`TBD-029`) + 3 Waterfall Shorts (`TBD-030` to `TBD-032`)
 
 ---

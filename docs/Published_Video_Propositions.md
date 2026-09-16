@@ -6,10 +6,10 @@
 
 ## 📊 Card Transcription Progress
 
-**Status**: 11 Completed / 18 Pending Physical 3x5 Cards
+**Status**: 11 Completed / 20 Pending Physical 3x5 Cards
 
 | Video # | Code | Title | Primary JDex | Cards Status |
-| :---: | :--- | :--- | :---: | :---: |
+| :---: | :--- | :--- | :--- | :---: |
 | **001** | `80.V0B` | Knowledge Isn't Enough—Here's What Actually W | `80.10` | ✅ Done |
 | **002** | `80.V0A` | 20,000 Patients Taught Me This One Biological | `80.10` | ✅ Done |
 | **003** | `80.V1B1` | Exercise is Optional, Movement is not. | `81.02` | ⬜ **Pending** |
@@ -34,6 +34,8 @@
 | **022** | `80.V1B2-S1` | How Do the Discs in Your Spine Stay Healthy?  | `81.05` | ✅ Done |
 | **023** | `80.V2B1-S1` | The Need for Discomfort to Be Comfortable | `81.05` | ⬜ **Pending** |
 | **024** | `80.V1B2-S2` | Running and Longterm Health of Your Disc | `81.05` | ⬜ **Pending** |
+| **025** | `80.V2C1` | Staying Human in the Age of Artificial Intel | `82.07` | ⬜ **Pending** |
+| **026** | `80.V2C1-S1` | The One Mindset to Save Your Brain When Usin | `82.02` | ⬜ **Pending** |
 | **033** | `80.V1A` | The real reason you're exhausted at 3pm | `81.09` | ⬜ **Pending** |
 | **034** | `80.V1A-S1` | The Mid-Afternoon Crash | `81.09` | ⬜ **Pending** |
 | **035** | `80.V1A-S2` | Cellular Hydration | `81.09` | ⬜ **Pending** |
@@ -168,3 +170,18 @@
 
 - Chronic lower back pain is frequently driven by prolonged sedentary pelvic immobility; gentle pelvic tilting and multi-planar lumbar articulation restore joint mechanoreceptor input and inhibit pain transmission. [[81.02 Biomechanics]]
 - Cyclic non-weight-bearing spinal movement stimulates passive synovial fluid exchange across lumbar facet joints, breaking the cycle of muscular splinting and stiffness. [[81.05 Lifestyle Management]]
+
+### ⬜ [80.V2C1] Staying Human in the Age of Artificial Intelligence (Video #025)
+*Primary JDex Category*: `82.07` | *Obsidian Script*: `Zettlekasten/80.V2C1 Script - Staying Human in the Age of Artificial Intelligence.md`
+
+- In neurological motor control, the brain's primary descending role is active biological inhibition; when chronic stress or mental exhaustion impairs cortical output, the paraspinal and axial musculature reflexively tighten into hypertonic guarding. [[82.02 Functional Systems]]
+- Spiritual surrender and intentional stillness ("Be still and know that I am God" — Psalm 46:10) neurologically interrupt toxic cognitive loops and central sympathetic hypervigilance, down-regulating paraspinal tension and restoring autonomic balance. [[82.07 Regulatory Neuroscience]]
+- Human creativity derives inherent biological and relational value from struggle, time, and spirit ("the breath of life"), which cannot be replaced or manufactured by algorithmic AI shortcuts. [[12.01 Faith]]
+
+### ⬜ [80.V2C1-S1] The One Mindset to Save Your Brain When Using AI (Video #026)
+*Primary JDex Category*: `82.02` | *Obsidian Script*: `Zettlekasten/80.V2C1-S1 Script - The One Mindset to Save Your Brain When Using AI.md`
+
+- In cognitive ergonomics and neuroscience, employing artificial intelligence as *cognitive scaffolding* enhances baseline human productive bandwidth, whereas using AI for *cognitive substitution* outsources neurological engagement, accelerating mental atrophy and cognitive dullness. [[82.02 Functional Systems]]
+- Preserving neuroplasticity and critical thinking capacity requires adhering to the "Think First, AI Later" heuristic: human reasoning must formulate the baseline thesis and structure before external digital tools are consulted for editing or execution. [[81.05 Lifestyle Management]]
+
+

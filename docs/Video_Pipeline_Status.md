@@ -1,6 +1,6 @@
 # Video Pipeline Status
 
-> **Source of truth:** Supabase `videos` table  |  Generated: 2026-09-07
+> **Source of truth:** Supabase `videos` table  |  Generated: 2026-09-15
 > To update status: `python3 scripts/video_pipeline.py --status <code> <status>`
 
 ---
@@ -31,10 +31,10 @@
 | **020** | `80.V1C1-S3` | Short | Caffeine Illusion | 2026-09-05 | ✅ #published | — |
 | **021** | `80.V1B2` | Long | Can You Run With a Herniated Disc? (A Doctor's Experiment) | 2026-09-07 | ✅ #published | — |
 | **022** | `80.V1B2-S1` | Short | How Do the Discs in Your Spine Stay Healthy? (It's NOT Bloodflow) | 2026-09-08 | ✅ #published | — |
-| **023** | `80.V2B1-S1` | Short | The Need for Discomfort to Be Comfortable | 2026-09-10 | 📝 #write | — |
-| **024** | `80.V1B2-S2` | Short | Running and Longterm Health of Your Disc | 2026-09-12 | 📝 #write | — |
-| **025** | `TBD-025` | Long | Placeholder | 2026-09-14 | 💡 #idea | — |
-| **026** | `TBD-026` | Short | Placeholder | 2026-09-15 | 💡 #idea | — |
+| **023** | `80.V2B1-S1` | Short | The Need for Discomfort to Be Comfortable | 2026-09-10 | ✅ #published | 2026-09-08 |
+| **024** | `80.V1B2-S2` | Short | Running and Longterm Health of Your Disc | 2026-09-12 | ✅ #published | 2026-09-08 |
+| **025** | `80.V2C1` | Long | Staying Human in the Age of Artificial Intelligence | 2026-09-14 | ✅ #published | 2026-09-14 |
+| **026** | `80.V2C1-S1` | Short | The One Mindset to Save Your Brain When Using AI | 2026-09-15 | ✅ #published | 2026-09-15 |
 | **027** | `TBD-027` | Short | Placeholder | 2026-09-17 | 💡 #idea | — |
 | **028** | `TBD-028` | Short | Placeholder | 2026-09-19 | 💡 #idea | — |
 | **029** | `TBD-029` | Long | Placeholder | 2026-09-21 | 💡 #idea | — |
@@ -68,6 +68,5 @@
 
 ## 📊 Status Summary
 
-- 💡 **#idea**: 8
-- 📝 **#write**: 2
-- ✅ **#published**: 44
+- 💡 **#idea**: 6
+- ✅ **#published**: 48
