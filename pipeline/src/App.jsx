@@ -12,8 +12,8 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
 export const LONG_VIDEO_CHECKLIST_ITEMS = [
-  { key: 'prep_notebook', phase: 'Planning', label: 'Gemini Notebook research' },
-  { key: 'prep_card', phase: 'Planning', label: '3x5 card drafted (5 beats)' },
+  { key: 'prep_notebook', phase: 'Writing', label: 'Gemini Notebook research' },
+  { key: 'prep_card', phase: 'Writing', label: '3x5 card drafted (5 beats)' },
   { key: 'film_recorded', phase: 'Filming', label: 'Direct-to-camera recorded' },
   { key: 'edit_transcript', phase: 'Editing', label: 'Descript transcript pasted' },
   { key: 'edit_broll', phase: 'Editing', label: 'B-roll added' },
@@ -39,8 +39,28 @@ export const SHORT_VIDEO_CHECKLIST_ITEMS = [
   { key: 'pub_cards', phase: 'Archived', label: 'Physical 3x5 cards filed' },
 ];
 
-export const LONG_CHECKLIST_PHASES = ['All', 'Planning', 'Filming', 'Editing', 'Publishing', 'Archived'];
+export const LONG_CHECKLIST_PHASES = ['All', 'Writing', 'Filming', 'Editing', 'Publishing', 'Archived'];
 export const SHORT_CHECKLIST_PHASES = ['All', 'Writing', 'Filming', 'Editing', 'Publishing', 'Archived'];
+
+export const getChecklistPhaseForStatus = (status) => {
+  if (!status) return 'All';
+  const clean = status.toLowerCase().replace('#', '').trim();
+  switch (clean) {
+    case 'write':
+    case 'idea':
+      return 'Writing';
+    case 'film':
+      return 'Filming';
+    case 'edit':
+      return 'Editing';
+    case 'uploaded':
+      return 'Publishing';
+    case 'published':
+      return 'Archived';
+    default:
+      return 'All';
+  }
+};
 
 const STATUS_OPTIONS = ['#idea', '#write', '#film', '#edit', '#uploaded', '#published'];
 
@@ -912,7 +932,7 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
   const [notes, setNotes] = useState(video.notes || '');
   const [newLogEntry, setNewLogEntry] = useState('');
   const [newCustomTask, setNewCustomTask] = useState('');
-  const [checklistPhase, setChecklistPhase] = useState('All');
+  const [checklistPhase, setChecklistPhase] = useState(() => getChecklistPhaseForStatus(video.status));
   const [saving, setSaving] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
   const [videoPath, setVideoPath] = useState(null);
@@ -1049,6 +1069,7 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
     setNotes(video.notes || '');
     setChecklist(parseChecklist(video.edit_checklist));
     setOutline(video.rough_outline || getStarterOutline(video.format_type, video.code));
+    setChecklistPhase(getChecklistPhaseForStatus(video.status));
   }, [video]);
 
   // Save working code and title (only if not published) and log to production log
@@ -1239,6 +1260,7 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
     if (error) alert("Error changing status: " + error.message);
     else {
       setLocalVideo(prev => ({ ...prev, status: newStatus }));
+      setChecklistPhase(getChecklistPhaseForStatus(newStatus));
       onUpdate();
     }
   };
