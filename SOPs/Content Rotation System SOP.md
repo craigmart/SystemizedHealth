@@ -95,11 +95,12 @@ The content rotation schedule links directly with Dr. Anderson's analog-to-camer
 │    Review next video due in 3-week runway.             │
 │    Note Level (e.g. Level 3) & Pillar (e.g. Play).     │
 ├────────────────────────────────────────────────────────┤
-│ 2. RESEARCH & OUTLINE (Analog 3x5 Card)                │
+│ 2. RESEARCH & OUTLINE (App & Analog 3x5 Card)          │
 │    Research clinical studies in Gemini Notebook.       │
-│    Draft 4 beats on 3x5 index card:                    │
-│    Beat 1: Hook | Beat 2: Glitch                       │
-│    Beat 3: Analogy | Beat 4: Protocol & CTA            │
+│    Draft outline in App text box (synced to Supabase): │
+│    • Long (5 Beats): Hook, Mindset, Story, Teach, Act  │
+│    • Short (3 Beats): Hook, Teach, Action              │
+│    Distill anchor triggers onto physical 3x5 card.     │
 ├────────────────────────────────────────────────────────┤
 │ 3. DIRECT-TO-CAMERA FILMING                            │
 │    Record video using 3x5 card as an anchor.           │

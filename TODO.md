@@ -1,14 +1,18 @@
 
 # Systemized Health — Master TODO & Task List
 
-*Last Updated: 2026-09-08*
+*Last Updated: 2026-09-16*
 
 ---
 
 ## 1. Immediate Priorities
 
+- [x] **12-Month Endless Content Rotation & Pipeline Upgrade**:
+  - Seeded 214 deterministic rotation videos through Sep 2027 (zero placeholders).
+  - App pipeline view upgraded with 3-week runway, Level/Pillar tags, and 5-beat long / 3-beat short editable Outline box.
+  - Video Production Log maintained for scratchpad ideas and Agent reference.
 - [ ] **Reconcile uploaded videos & metadata** with drop calendar (confirm titles/tags match schedule)
-- [ ] **Big picture schedule review** — look at runway and upcoming drop dates
+- [ ] **Next upcoming production**: `80.V2A-S2` (*Level 2 (Inward) — Thinking (Short 2)*) scheduled for 2026-09-17 (`#idea`)
 
 ---
 

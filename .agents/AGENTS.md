@@ -40,16 +40,19 @@ Whenever writing, scripting, outlining, or generating metadata/descriptions for 
 
 ---
 
-## 4. Simplified Video Production Protocol (The 3x5 Card Standard)
+## 4. Simplified Video Production Protocol (Outline & 3x5 Card Standard)
 Videos are produced using Dr. Anderson's streamlined analog-to-camera workflow, eliminating rigid pre-scripting and teleprompter reading in favor of natural, authentic clinical delivery:
-1. **Gemini Notebook Research**: Dr. Anderson reviews research, clinical transcripts, and analogies in Gemini Notebook.
-2. **The 3x5 Index Card**: Dr. Anderson distills the topic onto a physical 3x5 card following the 4-Beat Formula:
-   - **Beat 1: The Hook** (Relatable myth, patient fear, or daily friction)
-   - **Beat 2: The Glitch** (The anatomical, neurological, or metabolic mechanism)
-   - **Beat 3: The Analogy** (Clinical teaching metaphor)
-   - **Beat 4: The Protocol & CTA** (Actionable test/drill + `call.systemizedhealth.com`)
-3. **Direct-to-Camera Filming**: Dr. Anderson records a loosely scripted, highly personal video directly to camera using the 3x5 card as an anchor.
-4. **Status Advance**: In the web App, Dr. Anderson sets the video status to `#edit`.
+1. **Gemini Notebook Research & Outline Drafting**:
+   - Dr. Anderson reviews research, clinical seminar transcripts, and analogies in Gemini Notebook.
+   - Dr. Anderson drafts the outline in the web App's dedicated **Video Script Outline** text box (pre-populated with starter beats and synced to Supabase `rough_outline`):
+     - **Long Videos (5 Beats)**: Hook, Mindset, Story, Teaching, Action.
+     - **Short Videos (3 Beats)**: Hook, Teach, Action.
+2. **The 3x5 Index Card**: Dr. Anderson distills the outline triggers onto a physical 3x5 index card as an anchor for camera recording.
+3. **Video Production Log (Agent Reference Mandate)**:
+   - Dr. Anderson drops ideas, research links, and notes into the web App's **Video Production Log** (`notes` field).
+   - The Agent **must** inspect and reference these production log entries whenever reviewing, researching, titling (vidIQ), or proposition-mining the video.
+4. **Direct-to-Camera Filming**: Dr. Anderson records a loosely scripted, highly personal video directly to camera using the 3x5 card as an anchor.
+5. **Status Advance**: In the web App, Dr. Anderson sets the video status to `#edit`.
 
 ---
 

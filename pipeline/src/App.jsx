@@ -5,7 +5,7 @@ import {
   TrendingUp, Clock, FileVideo, Scissors, Film, X, ExternalLink, BarChart2, 
   LayoutDashboard, Eye, Users, Award, Flame, BookOpen, Check, ThumbsUp, 
   MessageSquare, Plus, Trash2, ListTodo, FileText, CheckCircle2, Lightbulb, Link,
-  Sparkles
+  Sparkles, FileEdit
 } from 'lucide-react';
 import { addDays, isBefore, parseISO, differenceInDays, format } from 'date-fns';
 import ReactMarkdown from 'react-markdown';
@@ -13,7 +13,7 @@ import remarkGfm from 'remark-gfm';
 
 export const LONG_VIDEO_CHECKLIST_ITEMS = [
   { key: 'prep_notebook', phase: 'Planning', label: 'Gemini Notebook research' },
-  { key: 'prep_card', phase: 'Planning', label: '3x5 card drafted (4 beats)' },
+  { key: 'prep_card', phase: 'Planning', label: '3x5 card drafted (5 beats)' },
   { key: 'film_recorded', phase: 'Filming', label: 'Direct-to-camera recorded' },
   { key: 'edit_transcript', phase: 'Editing', label: 'Descript transcript pasted' },
   { key: 'edit_broll', phase: 'Editing', label: 'B-roll added' },
@@ -881,6 +881,21 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
   const [saveSuccess, setSaveSuccess] = useState(false);
   const [videoPath, setVideoPath] = useState(null);
 
+  const getStarterOutline = (formatType, code) => {
+    const isShortVid = formatType === 'Short' || code?.includes('-S');
+    if (isShortVid) {
+      return `1. Hook:\n\n2. Teach:\n\n3. Action:`;
+    }
+    return `1. Hook:\n\n2. Mindset:\n\n3. Story:\n\n4. Teaching:\n\n5. Action:`;
+  };
+
+  const [outline, setOutline] = useState(() => {
+    if (video.rough_outline && video.rough_outline.trim()) {
+      return video.rough_outline;
+    }
+    return getStarterOutline(video.format_type, video.code);
+  });
+
   const parseChecklist = (raw) => {
     if (!raw) return {};
     if (typeof raw === 'string') {
@@ -993,9 +1008,14 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
     setTranscript(video.raw_transcript || '');
     setNotes(video.notes || '');
     setChecklist(parseChecklist(video.edit_checklist));
+    if (video.rough_outline && video.rough_outline.trim()) {
+      setOutline(video.rough_outline);
+    } else {
+      setOutline(getStarterOutline(video.format_type, video.code));
+    }
   }, [video]);
 
-  // Save all text fields (Notes, Transcript, Agent Message)
+  // Save all text fields (Notes, Transcript, Agent Message, Outline)
   const handleSaveText = async () => {
     setSaving(true);
     const { error } = await supabase
@@ -1003,7 +1023,8 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
       .update({
         agent_message: agentMessage,
         raw_transcript: transcript,
-        notes: notes
+        notes: notes,
+        rough_outline: outline
       })
       .eq('video_number', localVideo.video_number);
 
@@ -1014,8 +1035,28 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
         ...prev,
         agent_message: agentMessage,
         raw_transcript: transcript,
-        notes: notes
+        notes: notes,
+        rough_outline: outline
       }));
+      setSaveSuccess(true);
+      setTimeout(() => setSaveSuccess(false), 2500);
+      onUpdate();
+    }
+    setSaving(false);
+  };
+
+  // Save outline only
+  const handleSaveOutline = async () => {
+    setSaving(true);
+    const { error } = await supabase
+      .from('videos')
+      .update({ rough_outline: outline })
+      .eq('video_number', localVideo.video_number);
+
+    if (error) {
+      alert("Error saving outline: " + error.message);
+    } else {
+      setLocalVideo(prev => ({ ...prev, rough_outline: outline }));
       setSaveSuccess(true);
       setTimeout(() => setSaveSuccess(false), 2500);
       onUpdate();
@@ -1253,20 +1294,6 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
           </div>
         </div>
 
-        {/* Content Rotation Guidance Banner (Pre-Transcript Phase) */}
-        {(!localVideo.raw_transcript || !localVideo.raw_transcript.trim()) && (
-          <div className="rotation-banner" style={{ marginBottom: '1.25rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.35rem', flexWrap: 'wrap' }}>
-              <Sparkles size={16} color="var(--accent-color)" />
-              <strong>Topic Rotation: {getRotationInfo ? getRotationInfo(localVideo)?.pillar : 'Core'} ({getRotationInfo ? getRotationInfo(localVideo)?.level : (localVideo.os_level || 'Systemized OS')})</strong>
-              <span className="badge badge-idea" style={{ marginLeft: 'auto' }}>Pre-Transcript Stage</span>
-            </div>
-            <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: '1.45' }}>
-              <strong>Next Action:</strong> Research clinical mechanisms & studies in <strong>Gemini Notebook</strong>, draft 4 beats on <strong>3x5 card</strong> (Hook, Glitch, Analogy, Protocol + CTA). Record direct-to-camera, then paste final spoken transcript below to trigger vidIQ title scoring & Zettelkasten proposition extraction.
-            </p>
-          </div>
-        )}
-
         <h2 style={{ fontSize: '1.5rem', marginBottom: '0.5rem', lineHeight: '1.3' }}>
           {localVideo.code}: {localVideo.title}
         </h2>
@@ -1390,7 +1417,63 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
           </form>
         </div>
 
-        {/* 2. Video Production Log & Notes Section (Stored in Supabase notes) */}
+        {/* 2. Video Script Outline Section (5 Beats Long / 3 Beats Short) */}
+        <div style={{ backgroundColor: 'var(--surface-color)', padding: '1.25rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem', flexWrap: 'wrap', gap: '0.5rem' }}>
+            <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', margin: 0, fontSize: '1.15rem' }}>
+              <FileEdit size={20} color="var(--primary-color)" /> {isShort ? 'Short Video Outline (3 Beats)' : 'Long Video Outline (5 Beats)'}
+            </h3>
+            <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+              <button
+                type="button"
+                className="btn btn-outline"
+                style={{ fontSize: '0.75rem', padding: '0.25rem 0.65rem' }}
+                onClick={() => {
+                  if (!outline.trim() || window.confirm("Reset outline to starter template? This will replace your current outline text.")) {
+                    setOutline(getStarterOutline(localVideo.format_type, localVideo.code));
+                  }
+                }}
+                title="Reset outline to starter beats template"
+              >
+                Reset Template
+              </button>
+              <button
+                type="button"
+                className="btn btn-outline"
+                style={{ fontSize: '0.75rem', padding: '0.25rem 0.65rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}
+                onClick={handleSaveOutline}
+                disabled={saving}
+              >
+                <Save size={13} /> Save Outline
+              </button>
+            </div>
+          </div>
+          <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.75rem', lineHeight: '1.45' }}>
+            {isShort
+              ? 'Draft your 3-beat short outline below (Hook → Teach → Action), or transfer to a 3x5 card to anchor direct-to-camera delivery.'
+              : 'Draft your 5-beat long outline below (Hook → Mindset → Story → Teaching → Action), or transfer to a 3x5 card to anchor direct-to-camera delivery.'}
+          </p>
+          <textarea
+            value={outline}
+            onChange={(e) => setOutline(e.target.value)}
+            style={{
+              width: '100%',
+              minHeight: '180px',
+              padding: '0.75rem',
+              borderRadius: 'var(--radius-md)',
+              border: '1px solid var(--border-color)',
+              backgroundColor: 'var(--card-bg)',
+              color: 'var(--text-primary)',
+              fontFamily: 'inherit',
+              fontSize: '0.9rem',
+              lineHeight: '1.5',
+              resize: 'vertical'
+            }}
+            placeholder={isShort ? "1. Hook:\n\n2. Teach:\n\n3. Action:" : "1. Hook:\n\n2. Mindset:\n\n3. Story:\n\n4. Teaching:\n\n5. Action:"}
+          />
+        </div>
+
+        {/* 3. Video Production Log & Notes Section (Stored in Supabase notes) */}
         <div className="log-box">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem', flexWrap: 'wrap', gap: '0.5rem' }}>
             <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', margin: 0, fontSize: '1.15rem' }}>
@@ -1402,7 +1485,7 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
           </div>
 
           <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '1rem' }}>
-            Add quick timestamped notes or log progress from your phone, iPad, or desktop.
+            Drop ideas, links, and production notes. Antigravity references this log during research, drafting, and proposition processing.
           </p>
 
           {/* Quick Add Log Entry */}
@@ -1577,18 +1660,6 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
                 ? 'Paste audio dictation or early notes here.'
                 : 'Paste your exact spoken transcript from Descript. Antigravity reads this to score titles (vidIQ), archive the script to Obsidian, and pull out core clinical propositions.'}
             </p>
-
-            {/* Pre-recording outline reference (collapsible if in edit) */}
-            {localVideo.rough_outline && (
-              <details style={{ marginBottom: '0.75rem' }} open={localVideo.status === '#idea' || localVideo.status === '#write'}>
-                <summary style={{ fontSize: '0.85rem', color: 'var(--primary-color)', cursor: 'pointer', fontWeight: '600', marginBottom: '0.4rem' }}>
-                  Pre-Recording Outline Reference
-                </summary>
-                <div style={{ backgroundColor: 'var(--bg-color)', padding: '0.85rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', whiteSpace: 'pre-wrap', fontSize: '0.85rem', lineHeight: '1.5' }}>
-                  {localVideo.rough_outline}
-                </div>
-              </details>
-            )}
 
             <textarea
               value={transcript}

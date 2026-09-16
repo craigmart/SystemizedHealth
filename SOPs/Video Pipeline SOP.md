@@ -168,26 +168,46 @@ python3 scripts/analytics_manager.py --eom 2026-07
 
 ---
 
-## 5. Simplified Production Workflow (The 3x5 Card Standard)
+## 5. Simplified Production Workflow (Outline & 3x5 Card Standard)
 
-Long-form and core videos are produced using Dr. Anderson's streamlined analog-to-camera workflow, eliminating rigid pre-scripting and teleprompter reading in favor of natural, authentic clinical delivery:
+Videos are produced using Dr. Anderson's streamlined analog-to-camera workflow, eliminating rigid pre-scripting and teleprompter reading in favor of natural, authentic clinical delivery:
 
+### 5.1 Outline Structures: Long Videos vs. Shorts
+
+#### Long Videos (5-Beat Formula):
 ```
 ┌────────────────────────────────────────────────────────┐
-│ [Code] Working Title                                   │
+│ [Code] Working Title (Long Video)                      │
 ├────────────────────────────────────────────────────────┤
 │ 1. THE HOOK: Relatable myth, patient fear, or friction │
-│ 2. THE GLITCH: The anatomical/neurological mechanism   │
-│ 3. THE ANALOGY: The clinical teaching metaphor         │
-│ 4. THE PROTOCOL: Actionable test/drill + CTA (call...) │
+│ 2. THE MINDSET: Perspective shift / reframing beliefs  │
+│ 3. THE STORY: Clinical case, patient journey, metaphor │
+│ 4. THE TEACHING: Anatomical/neurological mechanism     │
+│ 5. THE ACTION: Actionable drill + CTA (call.sys...)    │
 └────────────────────────────────────────────────────────┘
 ```
 
-### Production Steps:
+#### Short Videos (3-Beat Formula):
+```
+┌────────────────────────────────────────────────────────┐
+│ [Code] Working Title (Short Video)                     │
+├────────────────────────────────────────────────────────┤
+│ 1. THE HOOK: Immediate pattern interrupt / question    │
+│ 2. THE TEACH: Single clinical insight or demonstration │
+│ 3. THE ACTION: Actionable drill + CTA (call.sys...)    │
+└────────────────────────────────────────────────────────┘
+```
+
+### 5.2 Production Steps:
 1. **Gemini Notebook Research**: Dr. Anderson reviews research, clinical seminar transcripts, and analogies in Gemini Notebook.
-2. **The 3x5 Index Card**: Dr. Anderson distills the concept onto a physical 3x5 card following the 4-Beat Formula above.
-3. **Direct-to-Camera Filming**: Dr. Anderson records a loosely scripted, highly personal video directly to camera using the card as an anchor.
-4. **App Status Advance**: In the web App, Dr. Anderson sets the video status to `#edit`.
+2. **App Outline & 3x5 Index Card**:
+   - Dr. Anderson drafts the outline in the web App's dedicated **Video Script Outline** text box (pre-populated with the 5-beat long or 3-beat short starter template).
+   - Distills key triggers onto a physical 3x5 index card as an anchor for camera recording.
+3. **Video Production Log & Notes**:
+   - Dr. Anderson drops ideas, research links, and production notes into the **Video Production Log** in the web App.
+   - The AI Agent refers to this log when researching, titling (vidIQ), and mining propositions.
+4. **Direct-to-Camera Filming**: Dr. Anderson records a loosely scripted, highly personal video directly to camera using the 3x5 card as an anchor.
+5. **App Status Advance**: In the web App, Dr. Anderson sets the video status to `#edit`.
 
 ---
 
