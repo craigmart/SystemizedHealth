@@ -881,6 +881,9 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
   const [saving, setSaving] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
   const [videoPath, setVideoPath] = useState(null);
+  const [isEditingTitle, setIsEditingTitle] = useState(false);
+  const [titleInput, setTitleInput] = useState(video.title || '');
+  const [savingTitle, setSavingTitle] = useState(false);
 
   const getStarterOutline = (formatType, code) => {
     const isShortVid = formatType === 'Short' || code?.includes('-S');
@@ -1002,6 +1005,8 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
   // Sync state if prop changes
   useEffect(() => {
     setLocalVideo(video);
+    setTitleInput(video.title || '');
+    setIsEditingTitle(false);
     setAgentMessage(video.agent_message || '');
     setTranscript(video.raw_transcript || '');
     setNotes(video.notes || '');
@@ -1009,15 +1014,76 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
     setOutline(video.rough_outline || '');
   }, [video]);
 
-  // Save all text fields (Notes, Transcript, Agent Message, Outline)
-  const handleSaveText = async () => {
-    setSaving(true);
+  // Save working title (only if not published) and log to production log
+  const handleSaveTitle = async () => {
+    const trimmed = titleInput.trim();
+    if (!trimmed) {
+      alert("Title cannot be empty.");
+      return;
+    }
+    const oldTitle = localVideo.title || '';
+    if (trimmed === oldTitle) {
+      setIsEditingTitle(false);
+      return;
+    }
+
+    setSavingTitle(true);
+    const now = new Date();
+    const dateStr = now.toLocaleDateString('en-CA');
+    const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+    const logEntry = `- [${dateStr} ${timeStr}] Title updated: "${oldTitle}" → "${trimmed}"`;
+    const updatedNotes = notes && notes.trim() ? `${logEntry}\n${notes.trim()}` : logEntry;
+
     const { error } = await supabase
       .from('videos')
       .update({
+        title: trimmed,
+        notes: updatedNotes
+      })
+      .eq('video_number', localVideo.video_number);
+
+    if (error) {
+      alert("Error saving title: " + error.message);
+    } else {
+      setLocalVideo(prev => ({
+        ...prev,
+        title: trimmed,
+        notes: updatedNotes
+      }));
+      setNotes(updatedNotes);
+      setIsEditingTitle(false);
+      setSaveSuccess(true);
+      setTimeout(() => setSaveSuccess(false), 2500);
+      onUpdate();
+    }
+    setSavingTitle(false);
+  };
+
+  // Save all text fields (Notes, Transcript, Agent Message, Outline, Title if edited)
+  const handleSaveText = async () => {
+    setSaving(true);
+    let updatedTitle = localVideo.title;
+    let currentNotes = notes;
+    const trimmedTitle = titleInput.trim();
+
+    if (trimmedTitle && trimmedTitle !== localVideo.title && localVideo.status !== '#published') {
+      updatedTitle = trimmedTitle;
+      const now = new Date();
+      const dateStr = now.toLocaleDateString('en-CA');
+      const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+      const logEntry = `- [${dateStr} ${timeStr}] Title updated: "${localVideo.title}" → "${trimmedTitle}"`;
+      currentNotes = currentNotes && currentNotes.trim() ? `${logEntry}\n${currentNotes.trim()}` : logEntry;
+      setNotes(currentNotes);
+      setIsEditingTitle(false);
+    }
+
+    const { error } = await supabase
+      .from('videos')
+      .update({
+        title: updatedTitle,
         agent_message: agentMessage,
         raw_transcript: transcript,
-        notes: notes,
+        notes: currentNotes,
         rough_outline: outline
       })
       .eq('video_number', localVideo.video_number);
@@ -1027,9 +1093,10 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
     } else {
       setLocalVideo(prev => ({
         ...prev,
+        title: updatedTitle,
         agent_message: agentMessage,
         raw_transcript: transcript,
-        notes: notes,
+        notes: currentNotes,
         rough_outline: outline
       }));
       setSaveSuccess(true);
@@ -1288,9 +1355,103 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
           </div>
         </div>
 
-        <h2 style={{ fontSize: '1.5rem', marginBottom: '0.5rem', lineHeight: '1.3' }}>
-          {localVideo.code}: {localVideo.title}
-        </h2>
+        {isEditingTitle ? (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', marginBottom: '0.75rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
+              <span style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>{localVideo.code}:</span>
+              <input
+                type="text"
+                value={titleInput}
+                onChange={(e) => setTitleInput(e.target.value)}
+                style={{
+                  flex: 1,
+                  minWidth: '260px',
+                  fontSize: '1.15rem',
+                  fontWeight: '600',
+                  padding: '0.4rem 0.65rem',
+                  borderRadius: 'var(--radius-sm)',
+                  border: '1px solid var(--accent-color)',
+                  backgroundColor: 'var(--card-bg)',
+                  color: 'var(--text-primary)'
+                }}
+                placeholder="Enter working title..."
+                autoFocus
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') handleSaveTitle();
+                  if (e.key === 'Escape') {
+                    setTitleInput(localVideo.title || '');
+                    setIsEditingTitle(false);
+                  }
+                }}
+              />
+              <button
+                type="button"
+                className="btn btn-primary"
+                style={{ padding: '0.4rem 0.75rem', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}
+                onClick={handleSaveTitle}
+                disabled={savingTitle}
+              >
+                <Save size={13} /> {savingTitle ? 'Saving...' : 'Save Title'}
+              </button>
+              <button
+                type="button"
+                className="btn btn-outline"
+                style={{ padding: '0.4rem 0.65rem', fontSize: '0.8rem' }}
+                onClick={() => {
+                  setTitleInput(localVideo.title || '');
+                  setIsEditingTitle(false);
+                }}
+                disabled={savingTitle}
+              >
+                Cancel
+              </button>
+            </div>
+            <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
+              Tip: Press Enter to save. Changes are automatically logged to the Video Production Log.
+            </span>
+          </div>
+        ) : (
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.5rem', flexWrap: 'wrap' }}>
+            <h2 style={{ fontSize: '1.5rem', margin: 0, lineHeight: '1.3' }}>
+              {localVideo.code}: {localVideo.title}
+            </h2>
+            {localVideo.status !== '#published' ? (
+              <button
+                type="button"
+                className="btn btn-outline"
+                style={{
+                  padding: '0.2rem 0.5rem',
+                  fontSize: '0.75rem',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.3rem',
+                  color: 'var(--text-secondary)'
+                }}
+                onClick={() => {
+                  setTitleInput(localVideo.title || '');
+                  setIsEditingTitle(true);
+                }}
+                title="Edit working title (adds entry to Production Log)"
+              >
+                <FileEdit size={12} /> Edit Title
+              </button>
+            ) : (
+              <span
+                style={{
+                  fontSize: '0.72rem',
+                  color: 'var(--text-secondary)',
+                  backgroundColor: 'var(--surface-color)',
+                  padding: '0.15rem 0.45rem',
+                  borderRadius: 'var(--radius-sm)',
+                  border: '1px solid var(--border-color)'
+                }}
+                title="Published titles are automatically synced from YouTube Studio via vidIQ sync"
+              >
+                🔒 Synced via vidIQ
+              </span>
+            )}
+          </div>
+        )}
 
         <div style={{ display: 'flex', gap: '0.75rem 1.25rem', color: 'var(--text-secondary)', fontSize: '0.875rem', alignItems: 'center', flexWrap: 'wrap' }}>
           <span><strong>Format:</strong> {localVideo.format_type}</span>

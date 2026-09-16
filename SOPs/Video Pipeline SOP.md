@@ -209,6 +209,15 @@ Videos are produced using Dr. Anderson's streamlined analog-to-camera workflow, 
 4. **Direct-to-Camera Filming**: Dr. Anderson records a loosely scripted, highly personal video directly to camera using the 3x5 card as an anchor.
 5. **App Status Advance**: In the web App, Dr. Anderson sets the video status to `#edit`.
 
+### 5.3 Working Title Editing & Published Title Sync:
+1. **Un-Published Videos (`#idea`, `#write`, `#film`, `#edit`, `#uploaded`)**:
+   - Dr. Anderson can freely edit the working title directly in the web App on the video detail page.
+   - Saving a new title automatically appends a timestamped log entry to the Video Production Log (`notes`):
+     `- [YYYY-MM-DD HH:MM] Title updated: "Old Title" → "New Title"`.
+2. **Published Videos (`#published`)**:
+   - Once a video reaches `#published`, manual title editing is locked in the web App (`🔒 Synced via vidIQ`).
+   - The authoritative final title is pulled directly from YouTube Studio and synchronized down to Supabase, SQLite, and Obsidian via `python3 scripts/sync_published_videos.py` (vidIQ MCP channel sync).
+
 ---
 
 ## 6. Post-Recording Transcript Ingestion & Force Multiplier Protocol
