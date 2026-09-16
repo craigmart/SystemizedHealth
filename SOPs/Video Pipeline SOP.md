@@ -97,6 +97,23 @@ This document defines the authoritative operating standard for managing the Syst
 
 ---
 
+### 3.1 Content Rotation System & Zero-Placeholder Policy:
+
+The video pipeline operates on the 12-month endless content rotation model ([`docs/content_rotation.csv`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/content_rotation.csv) and [`SOPs/Content Rotation System SOP.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/Content%20Rotation%20System%20SOP.md)):
+
+1. **Zero Placeholders in the Pipeline**:
+   - The pipeline never contains `TBD-*`, generic `Placeholder` titles, or `OPEN SLOT` fallback items.
+   - Every scheduled drop date for the next 12 months is pre-populated in Supabase and the web App with its canonical Johnny Decimal code, scheduled drop date, format type, OS Level, and Pillar.
+2. **Pre-Transcript Level & Pillar Guidance**:
+   - If a video has not had a transcript pasted yet (pre-production in `#idea`, `#write`, `#film`), the web App prominently features its **Level and Pillar** (e.g. `Level 3 (Outward) — Play`).
+   - This informs Dr. Anderson's topic research in Gemini Notebook and 4-beat outline drafting on physical 3x5 index cards.
+3. **Macro 2-Week Sprint Rotation**:
+   - Rotates through: **Level 3 (Outward: POP) ➔ Level 1 (Foundational: FMR) ➔ Level 2 (Inward: TLC)**.
+   - Pauses on the 1st Monday of each month for a **Level 4 (Lab)** deep dive week.
+   - Independent pillar queues shift continuously across cycles so all 9 pillars get balanced annual coverage.
+
+---
+
 ## 4. Pipeline Status Progression
 
 Every video moves strictly through these tags in order:

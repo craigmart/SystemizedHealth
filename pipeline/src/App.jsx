@@ -4,7 +4,8 @@ import {
   Calendar, CheckSquare, AlertCircle, RefreshCw, ChevronLeft, Save, Tag, 
   TrendingUp, Clock, FileVideo, Scissors, Film, X, ExternalLink, BarChart2, 
   LayoutDashboard, Eye, Users, Award, Flame, BookOpen, Check, ThumbsUp, 
-  MessageSquare, Plus, Trash2, ListTodo, FileText, CheckCircle2, Lightbulb, Link 
+  MessageSquare, Plus, Trash2, ListTodo, FileText, CheckCircle2, Lightbulb, Link,
+  Sparkles
 } from 'lucide-react';
 import { addDays, isBefore, parseISO, differenceInDays, format } from 'date-fns';
 import ReactMarkdown from 'react-markdown';
@@ -46,10 +47,59 @@ const STATUS_OPTIONS = ['#idea', '#write', '#film', '#edit', '#uploaded', '#publ
 function App() {
   const [videos, setVideos] = useState([]);
   const [videoPaths, setVideoPaths] = useState({});
+  const [rotationCatalog, setRotationCatalog] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentVideo, setCurrentVideo] = useState(null);
   const [metricModal, setMetricModal] = useState(null);
   const [activeTab, setActiveTab] = useState('pipeline');
+
+  const getRotationInfo = (videoOrCode) => {
+    if (!videoOrCode) return null;
+    const code = typeof videoOrCode === 'string' ? videoOrCode : videoOrCode.code;
+    const dropDate = typeof videoOrCode === 'object' ? videoOrCode.drop_date : null;
+
+    if (rotationCatalog && rotationCatalog.length > 0) {
+      let match = rotationCatalog.find(r => r.code === code);
+      if (!match && dropDate) {
+        match = rotationCatalog.find(r => r.drop_date === dropDate);
+      }
+      if (match) {
+        return {
+          level: match.level,
+          pillar: match.pillar,
+          format_type: match.format_type || match.rotation_format
+        };
+      }
+    }
+
+    if (typeof videoOrCode === 'object') {
+      const os_level = videoOrCode.os_level;
+      const notes = videoOrCode.notes || '';
+      const pillarMatch = notes.match(/Pillar:\s*([^|]+)/);
+      if (os_level || pillarMatch) {
+        return {
+          level: os_level || 'Systemized OS',
+          pillar: pillarMatch ? pillarMatch[1].trim() : 'Core',
+          format_type: videoOrCode.format_type
+        };
+      }
+    }
+
+    if (code) {
+      if (code.includes('V1A')) return { level: 'Level 1 (Foundational)', pillar: 'Fuel' };
+      if (code.includes('V1B')) return { level: 'Level 1 (Foundational)', pillar: 'Move' };
+      if (code.includes('V1C')) return { level: 'Level 1 (Foundational)', pillar: 'Rest' };
+      if (code.includes('V2A')) return { level: 'Level 2 (Inward)', pillar: 'Thinking' };
+      if (code.includes('V2B')) return { level: 'Level 2 (Inward)', pillar: 'Learning' };
+      if (code.includes('V2C')) return { level: 'Level 2 (Inward)', pillar: 'Connect' };
+      if (code.includes('V3A')) return { level: 'Level 3 (Outward)', pillar: 'Play' };
+      if (code.includes('V3B')) return { level: 'Level 3 (Outward)', pillar: 'Organize' };
+      if (code.includes('V3C')) return { level: 'Level 3 (Outward)', pillar: 'Purpose' };
+      if (code.includes('V4'))  return { level: 'Level 4 (Lab)', pillar: 'User Discretion' };
+      if (code.includes('V0A') || code.includes('V0B')) return { level: 'Level 0 (Meta)', pillar: 'Worldview' };
+    }
+    return null;
+  };
 
   const openVideo = (video, pushHistory = true) => {
     if (!video) return;
@@ -113,6 +163,13 @@ function App() {
       .then(res => res.json())
       .then(data => {
         if (data) setVideoPaths(data);
+      })
+      .catch(console.error);
+
+    fetch('/content_rotation.json')
+      .then(res => res.json())
+      .then(data => {
+        if (data && Array.isArray(data)) setRotationCatalog(data);
       })
       .catch(console.error);
   }, []);
@@ -431,7 +488,7 @@ function App() {
   };
 
   const renderDashboard = () => {
-    // 1. Build 3-Week Pipeline (21 days out) with automatic placeholders for expected release days (Mon, Tue, Thu, Sat)
+    // 1. Build 3-Week Pipeline (21 days out) from live database + content rotation system
     const pipelineItems = [];
     const videosByDate = {};
     videos.forEach(v => {
@@ -453,6 +510,8 @@ function App() {
 
       if (scheduledVideos.length > 0) {
         scheduledVideos.forEach(v => {
+          const rotInfo = getRotationInfo(v);
+          const hasTranscript = !!(v.raw_transcript && v.raw_transcript.trim());
           pipelineItems.push({
             isPlaceholder: false,
             video: v,
@@ -462,25 +521,38 @@ function App() {
             drop_date: v.drop_date,
             dayFormatted: format(day, 'EEE, MMM d'),
             notes: v.notes,
-            format_type: v.format_type
+            format_type: v.format_type || expectedFormat,
+            level: rotInfo?.level || v.os_level || 'Systemized OS',
+            pillar: rotInfo?.pillar || 'Core',
+            hasTranscript
           });
         });
       } else if (isExpectedReleaseDay) {
-        pipelineItems.push({
-          isPlaceholder: true,
-          code: 'OPEN SLOT',
-          title: `No video scheduled (Expected ${expectedFormat})`,
-          status: '#unscheduled',
-          drop_date: isoDate,
-          dayFormatted: format(day, 'EEE, MMM d'),
-          expectedFormat
-        });
+        // Resolve directly from 12-month content rotation system (Zero Placeholders)
+        const rotItem = rotationCatalog.find(r => r.drop_date === isoDate);
+        if (rotItem) {
+          pipelineItems.push({
+            isPlaceholder: false,
+            video: rotItem,
+            code: rotItem.code,
+            title: rotItem.title,
+            status: rotItem.status || '#idea',
+            drop_date: rotItem.drop_date,
+            dayFormatted: format(day, 'EEE, MMM d'),
+            notes: rotItem.notes,
+            format_type: rotItem.format_type || expectedFormat,
+            level: rotItem.level || 'Systemized OS',
+            pillar: rotItem.pillar || 'Core',
+            hasTranscript: false
+          });
+        }
       }
     }
 
     // 2. Build Work in Progress:
-    // - Active production stages: #write, #film, #edit, and active #idea (excluding unstarted placeholders)
+    // - Active production stages: #write, #film, #edit
     // - Published videos needing propositions reviewed & filed in Zettelkasten: #published with !cards_created (excluding HIST)
+    // - Immediate active #idea sprint (due within next 7 days)
     // - Sorted by drop date closest to today at the top
     const workInProgressItems = videos.filter(v => {
       if (v.code?.startsWith('HIST')) return false;
@@ -492,12 +564,16 @@ function App() {
 
       if (v.status === '#uploaded') return false;
 
-      // Exclude unstarted placeholder slots
-      const isPlaceholder = v.title === 'Placeholder' || (v.code?.startsWith('TBD') && v.status === '#idea');
-      if (isPlaceholder) return false;
+      // Active production
+      if (v.status === '#write' || v.status === '#film' || v.status === '#edit') return true;
 
-      // Must be active in production
-      return v.status === '#write' || v.status === '#film' || v.status === '#edit' || (v.status === '#idea' && v.title && v.title !== 'Placeholder');
+      // Upcoming active #idea due within next 7 days
+      if (v.status === '#idea') {
+        const dist = getDistanceToToday(v.drop_date);
+        return dist >= 0 && dist <= 7;
+      }
+
+      return false;
     }).sort(sortByClosestDropDate);
 
     return (
@@ -563,42 +639,33 @@ function App() {
           </h2>
           <div className="videos-list">
             {pipelineItems.map((item, idx) => {
-              if (item.isPlaceholder) {
-                return (
-                  <div
-                    key={`placeholder-${item.drop_date}-${idx}`}
-                    className="video-item placeholder"
-                  >
-                    <div className="video-header">
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                        <strong style={{ color: '#d97706', fontSize: '0.85rem' }}>⏳ {item.code}</strong>
-                      </div>
-                      {getStatusBadge(item.status)}
-                    </div>
-                    <div className="video-meta" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <span style={{ fontStyle: 'italic', color: 'var(--text-secondary)' }}>{item.title}</span>
-                      <span style={{ marginLeft: 'auto', fontWeight: 'bold' }}>{item.dayFormatted}</span>
-                    </div>
-                  </div>
-                );
-              }
+              const rotInfo = getRotationInfo(item.video || item);
+              const level = item.level || rotInfo?.level;
+              const pillar = item.pillar || rotInfo?.pillar;
+              const hasTranscript = item.hasTranscript;
 
               return (
                 <div
-                  key={`${item.code}-${item.drop_date}`}
-                  className={`video-item video-item-${item.status ? item.status.replace('#', '') : ''}`}
-                  style={{ cursor: 'pointer', borderLeft: `5px solid ${getBorderColor(item.video)}` }}
-                  onClick={() => openVideo(item.video)}
+                  key={`${item.code}-${item.drop_date}-${idx}`}
+                  className={`video-item video-item-${item.status ? item.status.replace('#', '') : 'idea'}`}
+                  style={{ cursor: 'pointer', borderLeft: `5px solid ${getBorderColor(item.video || item)}` }}
+                  onClick={() => openVideo(item.video || item)}
                 >
                   <div className="video-header">
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flexWrap: 'wrap' }}>
                       <strong>{item.code}</strong>
+                      {level && <span className="badge-level" title="OS Level">{level}</span>}
+                      {pillar && <span className="badge-pillar" title="Pillar Focus">{pillar}</span>}
                       {item.notes && <span title="Production Log" style={{ fontSize: '0.75rem' }}>📝</span>}
                     </div>
                     {getStatusBadge(item.status)}
                   </div>
-                  <div className="video-meta" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ fontWeight: '500' }}>{item.title}</span>
+                  <div className="video-meta" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '0.25rem' }}>
+                    <span style={{ fontWeight: '500' }}>
+                      {!hasTranscript && pillar
+                        ? `${pillar} • ${level} (${item.format_type || 'Video'})`
+                        : item.title}
+                    </span>
                     <span style={{ marginLeft: 'auto', fontWeight: 'bold' }}>{item.dayFormatted}</span>
                   </div>
                 </div>
@@ -792,7 +859,7 @@ function App() {
       {loading && !currentVideo ? (
         <p>Loading pipeline data...</p>
       ) : currentVideo ? (
-        <VideoDetail video={currentVideo} onUpdate={fetchVideos} onBack={() => closeVideo()} />
+        <VideoDetail video={currentVideo} getRotationInfo={getRotationInfo} onUpdate={fetchVideos} onBack={() => closeVideo()} />
       ) : activeTab === 'pipeline' ? (
         renderDashboard()
       ) : (
@@ -802,7 +869,7 @@ function App() {
   );
 }
 
-function VideoDetail({ video, onUpdate, onBack }) {
+function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
   const [localVideo, setLocalVideo] = useState(video);
   const [agentMessage, setAgentMessage] = useState(video.agent_message || '');
   const [transcript, setTranscript] = useState(video.raw_transcript || '');
@@ -1186,6 +1253,20 @@ function VideoDetail({ video, onUpdate, onBack }) {
           </div>
         </div>
 
+        {/* Content Rotation Guidance Banner (Pre-Transcript Phase) */}
+        {(!localVideo.raw_transcript || !localVideo.raw_transcript.trim()) && (
+          <div className="rotation-banner" style={{ marginBottom: '1.25rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.35rem', flexWrap: 'wrap' }}>
+              <Sparkles size={16} color="var(--accent-color)" />
+              <strong>Topic Rotation: {getRotationInfo ? getRotationInfo(localVideo)?.pillar : 'Core'} ({getRotationInfo ? getRotationInfo(localVideo)?.level : (localVideo.os_level || 'Systemized OS')})</strong>
+              <span className="badge badge-idea" style={{ marginLeft: 'auto' }}>Pre-Transcript Stage</span>
+            </div>
+            <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: '1.45' }}>
+              <strong>Next Action:</strong> Research clinical mechanisms & studies in <strong>Gemini Notebook</strong>, draft 4 beats on <strong>3x5 card</strong> (Hook, Glitch, Analogy, Protocol + CTA). Record direct-to-camera, then paste final spoken transcript below to trigger vidIQ title scoring & Zettelkasten proposition extraction.
+            </p>
+          </div>
+        )}
+
         <h2 style={{ fontSize: '1.5rem', marginBottom: '0.5rem', lineHeight: '1.3' }}>
           {localVideo.code}: {localVideo.title}
         </h2>
@@ -1193,6 +1274,12 @@ function VideoDetail({ video, onUpdate, onBack }) {
         <div style={{ display: 'flex', gap: '0.75rem 1.25rem', color: 'var(--text-secondary)', fontSize: '0.875rem', alignItems: 'center', flexWrap: 'wrap' }}>
           <span><strong>Format:</strong> {localVideo.format_type}</span>
           <span><strong>Drop Date:</strong> {localVideo.drop_date || 'TBD'}</span>
+          {getRotationInfo && getRotationInfo(localVideo)?.level && (
+            <span><strong>Level:</strong> <span className="badge-level">{getRotationInfo(localVideo).level}</span></span>
+          )}
+          {getRotationInfo && getRotationInfo(localVideo)?.pillar && (
+            <span><strong>Pillar:</strong> <span className="badge-pillar">{getRotationInfo(localVideo).pillar}</span></span>
+          )}
           {localVideo.vidiq_title_score > 0 && (
             <span><strong>vidIQ Score:</strong> <span style={{ color: 'var(--success-color)', fontWeight: 'bold' }}>{localVideo.vidiq_title_score}</span>/100</span>
           )}

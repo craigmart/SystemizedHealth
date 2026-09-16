@@ -26,13 +26,32 @@
 - [x] **Review propositions & add to Zettelkasten box (3x5 cards)**:
   - All 31 published videos filed and completed in analog Zettelkasten archive box (100% complete 🎉). Tracked in [`docs/Published_Video_Propositions.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/Published_Video_Propositions.md).
 
-### ✍️ Next Production Queue: Ideation (`#idea`) & Stage 1 Outlines
-*(Weeks of Sep 14 & Sep 21 — Active Stage 1 ideation & draft outlines in Gemini Notebook)*
-- [ ] **Stage 1 CNS Ideation & Draft Outlines (Gemini Notebook)**:
-  - Active Brief: [`docs/CNS_Topic_Trajectory_Brief.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/CNS_Topic_Trajectory_Brief.md)
-  - Target Intake: [`docs/topic_intake.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/topic_intake.md)
-  - Week 2 (Drop: 2026-09-14 to 2026-09-19): `80.V2C1` (Published), `80.V2C1-S1` (Published) + 2 Waterfall Shorts (`TBD-027`, `TBD-028`)
-  - Week 3 (Drop: 2026-09-21 to 2026-09-26): `80.V1C4` (`TBD-029`) + 3 Waterfall Shorts (`TBD-030` to `TBD-032`)
+### ✍️ Next Production Queue: 12-Month Rotation Schedule (`#idea`)
+*(Active pipeline view: next 3 weeks runway from [`docs/content_rotation.csv`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/content_rotation.csv) & [`SOPs/Content Rotation System SOP.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/Content%20Rotation%20System%20SOP.md))*
+
+- **Week of Sep 14 (Level 2: Thinking & Connect)**:
+  - [x] `80.V2C1`: *Staying Human in the Age of Artificial Intelligence* — Dropped: 2026-09-14
+  - [x] `80.V2C1-S1`: *The One Mindset to Save Your Brain When Using AI* — Dropped: 2026-09-15
+  - [ ] `80.V2A-S2`: *Level 2 (Inward) — Thinking (Short 2)* — Scheduled: 2026-09-17 (`#idea`)
+  - [ ] `80.V2A-S3`: *Level 2 (Inward) — Thinking (Short 3)* — Scheduled: 2026-09-19 (`#idea`)
+
+- **Week of Sep 21 (Level 3: Play)**:
+  - [ ] `80.V3A1`: *Level 3 (Outward) — Play (Long)* — Scheduled: 2026-09-21 (`#idea`)
+  - [ ] `80.V3A1-S1`: *Level 3 (Outward) — Play (Short 1)* — Scheduled: 2026-09-22 (`#idea`)
+  - [ ] `80.V3A1-S2`: *Level 3 (Outward) — Play (Short 2)* — Scheduled: 2026-09-24 (`#idea`)
+  - [ ] `80.V3A1-S3`: *Level 3 (Outward) — Play (Short 3)* — Scheduled: 2026-09-26 (`#idea`)
+
+- **Week of Sep 28 (Level 3: Organize)**:
+  - [ ] `80.V3B1`: *Level 3 (Outward) — Organize (Long)* — Scheduled: 2026-09-28 (`#idea`)
+  - [ ] `80.V3B1-S1`: *Level 3 (Outward) — Organize (Short 1)* — Scheduled: 2026-09-29 (`#idea`)
+  - [ ] `80.V3B1-S2`: *Level 3 (Outward) — Organize (Short 2)* — Scheduled: 2026-10-01 (`#idea`)
+  - [ ] `80.V3B1-S3`: *Level 3 (Outward) — Organize (Short 3)* — Scheduled: 2026-10-03 (`#idea`)
+
+- **Week of Oct 05 (Level 4: Lab Deep Dive)**:
+  - [ ] `80.V4-01`: *Level 4 (Lab) — User Discretion (Long)* — Scheduled: 2026-10-05 (`#idea`)
+  - [ ] `80.V4-01-S1`: *Level 4 (Lab) — User Discretion (Short 1)* — Scheduled: 2026-10-06 (`#idea`)
+  - [ ] `80.V4-01-S2`: *Level 4 (Lab) — User Discretion (Short 2)* — Scheduled: 2026-10-08 (`#idea`)
+  - [ ] `80.V4-01-S3`: *Level 4 (Lab) — User Discretion (Short 3)* — Scheduled: 2026-10-10 (`#idea`)
 
 ---
 

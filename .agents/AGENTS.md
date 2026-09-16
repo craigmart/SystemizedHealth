@@ -97,3 +97,12 @@ Dr. Anderson utilizes the writing guidance and voice files across multiple exter
   - Rename the file with an incremented version number (e.g., `v1.0` → `v1.1` or `v2.0` depending on major/minor scope).
   - Update any internal cross-references across SOPs and documentation to point to the new filename.
 
+---
+
+## 9. Content Rotation & Zero-Placeholder Directive
+- **Authoritative Schedule**: The content pipeline strictly adheres to the 12-month endless content rotation model ([`docs/content_rotation.csv`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/content_rotation.csv) and [`SOPs/Content Rotation System SOP.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/Content%20Rotation%20System%20SOP.md)).
+- **Zero Placeholders**: The pipeline never contains `TBD-*`, generic `Placeholder` titles, or `OPEN SLOT` fallback cards. All future drops have deterministic canonical Johnny Decimal codes and scheduled dates in Supabase.
+- **Pre-Transcript Visibility**: For any upcoming video where Dr. Anderson has not yet dropped the spoken transcript (`raw_transcript` is empty), the App and pipeline views MUST surface the **Level and Pillar** (e.g. `Level 3 (Outward) — Play`), directing research in Gemini Notebook and 4-beat 3x5 index card drafting.
+- **3-Week Pipeline Runway**: The App pipeline view always shows the next 3 weeks (21 days) of scheduled drops with their respective Level, Pillar, and format.
+
+
