@@ -645,31 +645,48 @@ function App() {
               const urgency = getRelativeUrgency(item.drop_date);
               const borderLeftColor = getBorderColor(item);
               const itemProgress = getVideoProgress(item);
+              const rotInfo = getRotationInfo(item);
+              const pillar = item.pillar || rotInfo?.pillar;
+              const isLong = item.format_type === 'Long' || (!item.code?.includes('-S') && !item.format_type?.toLowerCase().includes('short'));
+              const displayTitle = (item.title && item.title.trim())
+                ? item.title.trim()
+                : (rotInfo?.level || item.os_level || 'Systemized OS');
 
               return (
                 <div
                   key={`wip-${item.code}`}
-                  className={`video-item video-item-${item.status ? item.status.replace('#', '') : ''}`}
-                  style={{ borderLeft: `5px solid ${borderLeftColor}`, cursor: 'pointer' }}
+                  className={`video-item ${isLong ? 'video-item-long' : 'video-item-short'} video-item-${item.status ? item.status.replace('#', '') : ''}`}
+                  style={{ borderLeft: `${isLong ? '7px' : '4px'} solid ${borderLeftColor}`, cursor: 'pointer' }}
                   onClick={() => openVideo(item)}
                 >
                   <div className="video-header">
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flexWrap: 'wrap' }}>
-                      <strong>{item.code}: {item.title || (getRotationInfo(item)?.level || item.os_level || 'Systemized OS')}</strong>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', flexWrap: 'wrap' }}>
+                      <strong className={isLong ? 'video-code' : ''}>{item.code}</strong>
+                      {isLong ? (
+                        <span className="badge-long-video">⭐ Long Form</span>
+                      ) : (
+                        <span style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', fontWeight: '600', textTransform: 'uppercase' }}>Short</span>
+                      )}
+                      {pillar && <span className="badge-pillar" title="Pillar Focus">{pillar}</span>}
                       {item.notes && <span title="Production Log" style={{ fontSize: '0.75rem' }}>📝</span>}
                     </div>
                     {getStatusBadge(item.status)}
                   </div>
 
-                  <div className="video-meta" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ fontWeight: '500' }}>
-                      {item.drop_date ? format(parseISO(item.drop_date), 'EEE, MMM d') : 'No Date'}
+                  <div className="video-meta" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: isLong ? '0.35rem' : '0.2rem', gap: '0.5rem' }}>
+                    <span className="video-title" style={{ fontWeight: isLong ? '700' : '500', fontSize: isLong ? '1.05rem' : '0.88rem' }}>
+                      {displayTitle}
                     </span>
-                    {urgency && (
-                      <span style={{ color: urgency.color, fontWeight: '700', fontSize: '0.72rem' }}>
-                        {urgency.label}
+                    <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '0.5rem', whiteSpace: 'nowrap' }}>
+                      <span style={{ fontWeight: isLong ? '800' : '600', color: isLong ? 'var(--accent-color)' : 'var(--text-secondary)', fontSize: isLong ? '0.92rem' : '0.82rem' }}>
+                        {item.drop_date ? format(parseISO(item.drop_date), 'EEE, MMM d') : 'No Date'}
                       </span>
-                    )}
+                      {urgency && (
+                        <span style={{ color: urgency.color, fontWeight: '700', fontSize: '0.72rem' }}>
+                          {urgency.label}
+                        </span>
+                      )}
+                    </div>
                   </div>
 
                   {/* Individual Video Percentage Done Graphic - Minimal & Clean */}
