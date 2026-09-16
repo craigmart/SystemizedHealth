@@ -643,7 +643,9 @@ function App() {
               const rotInfo = getRotationInfo(item.video || item);
               const level = item.level || rotInfo?.level;
               const pillar = item.pillar || rotInfo?.pillar;
-              const hasTranscript = item.hasTranscript;
+              const displayTitle = (item.title && item.title.trim())
+                ? item.title.trim()
+                : (level || 'Systemized OS');
 
               return (
                 <div
@@ -655,19 +657,16 @@ function App() {
                   <div className="video-header">
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flexWrap: 'wrap' }}>
                       <strong>{item.code}</strong>
-                      {level && <span className="badge-level" title="OS Level">{level}</span>}
                       {pillar && <span className="badge-pillar" title="Pillar Focus">{pillar}</span>}
                       {item.notes && <span title="Production Log" style={{ fontSize: '0.75rem' }}>📝</span>}
                     </div>
                     {getStatusBadge(item.status)}
                   </div>
-                  <div className="video-meta" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '0.25rem' }}>
+                  <div className="video-meta" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '0.25rem', gap: '0.5rem' }}>
                     <span style={{ fontWeight: '500' }}>
-                      {!hasTranscript && pillar
-                        ? `${pillar} • ${level} (${item.format_type || 'Video'})`
-                        : item.title}
+                      {displayTitle}
                     </span>
-                    <span style={{ marginLeft: 'auto', fontWeight: 'bold' }}>{item.dayFormatted}</span>
+                    <span style={{ marginLeft: 'auto', fontWeight: 'bold', whiteSpace: 'nowrap' }}>{item.dayFormatted}</span>
                   </div>
                 </div>
               );
