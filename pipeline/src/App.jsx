@@ -918,6 +918,7 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
   const [videoPath, setVideoPath] = useState(null);
   const [isEditingTitle, setIsEditingTitle] = useState(false);
   const [titleInput, setTitleInput] = useState(video.title || '');
+  const [codeInput, setCodeInput] = useState(video.code || '');
   const [savingTitle, setSavingTitle] = useState(false);
 
   const getStarterOutline = (formatType, code) => {
@@ -1040,6 +1041,7 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
   // Sync state if prop changes
   useEffect(() => {
     setLocalVideo(video);
+    setCodeInput(video.code || '');
     setTitleInput(video.title || '');
     setIsEditingTitle(false);
     setAgentMessage(video.agent_message || '');
@@ -1049,15 +1051,26 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
     setOutline(video.rough_outline || '');
   }, [video]);
 
-  // Save working title (only if not published) and log to production log
+  // Save working code and title (only if not published) and log to production log
   const handleSaveTitle = async () => {
-    const trimmed = titleInput.trim();
-    if (!trimmed) {
+    const trimmedTitle = titleInput.trim();
+    const trimmedCode = codeInput.trim();
+
+    if (!trimmedCode) {
+      alert("Video code cannot be empty.");
+      return;
+    }
+    if (!trimmedTitle) {
       alert("Title cannot be empty.");
       return;
     }
+
+    const oldCode = localVideo.code || '';
     const oldTitle = localVideo.title || '';
-    if (trimmed === oldTitle) {
+    const codeChanged = trimmedCode !== oldCode;
+    const titleChanged = trimmedTitle !== oldTitle;
+
+    if (!codeChanged && !titleChanged) {
       setIsEditingTitle(false);
       return;
     }
@@ -1066,24 +1079,35 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
     const now = new Date();
     const dateStr = now.toLocaleDateString('en-CA');
     const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
-    const logEntry = `- [${dateStr} ${timeStr}] Title updated: "${oldTitle}" → "${trimmed}"`;
+    
+    const changeLogs = [];
+    if (codeChanged) changeLogs.push(`Code updated: "${oldCode}" → "${trimmedCode}"`);
+    if (titleChanged) changeLogs.push(`Title updated: "${oldTitle}" → "${trimmedTitle}"`);
+    const logEntry = `- [${dateStr} ${timeStr}] ${changeLogs.join(' | ')}`;
     const updatedNotes = notes && notes.trim() ? `${logEntry}\n${notes.trim()}` : logEntry;
+
+    // Detect format type change if code changed (e.g. -S -> Short)
+    const isShortCode = trimmedCode.includes('-S');
+    const updatedFormat = isShortCode ? 'Short' : (localVideo.format_type || 'Long');
+
+    const updatePayload = {
+      code: trimmedCode,
+      title: trimmedTitle,
+      notes: updatedNotes,
+      format_type: updatedFormat
+    };
 
     const { error } = await supabase
       .from('videos')
-      .update({
-        title: trimmed,
-        notes: updatedNotes
-      })
+      .update(updatePayload)
       .eq('video_number', localVideo.video_number);
 
     if (error) {
-      alert("Error saving title: " + error.message);
+      alert("Error saving: " + error.message);
     } else {
       setLocalVideo(prev => ({
         ...prev,
-        title: trimmed,
-        notes: updatedNotes
+        ...updatePayload
       }));
       setNotes(updatedNotes);
       setIsEditingTitle(false);
@@ -1094,33 +1118,49 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
     setSavingTitle(false);
   };
 
-  // Save all text fields (Notes, Transcript, Agent Message, Outline, Title if edited)
+  // Save all text fields (Notes, Transcript, Agent Message, Outline, Title & Code if edited)
   const handleSaveText = async () => {
     setSaving(true);
+    let updatedCode = localVideo.code;
     let updatedTitle = localVideo.title;
     let currentNotes = notes;
     const trimmedTitle = titleInput.trim();
+    const trimmedCode = codeInput.trim();
 
-    if (trimmedTitle && trimmedTitle !== localVideo.title && localVideo.status !== '#published') {
-      updatedTitle = trimmedTitle;
+    const codeChanged = trimmedCode && trimmedCode !== localVideo.code && localVideo.status !== '#published';
+    const titleChanged = trimmedTitle && trimmedTitle !== localVideo.title && localVideo.status !== '#published';
+
+    if (codeChanged || titleChanged) {
+      if (codeChanged) updatedCode = trimmedCode;
+      if (titleChanged) updatedTitle = trimmedTitle;
       const now = new Date();
       const dateStr = now.toLocaleDateString('en-CA');
       const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
-      const logEntry = `- [${dateStr} ${timeStr}] Title updated: "${localVideo.title}" → "${trimmedTitle}"`;
+      const changeLogs = [];
+      if (codeChanged) changeLogs.push(`Code updated: "${localVideo.code}" → "${trimmedCode}"`);
+      if (titleChanged) changeLogs.push(`Title updated: "${localVideo.title}" → "${trimmedTitle}"`);
+      const logEntry = `- [${dateStr} ${timeStr}] ${changeLogs.join(' | ')}`;
       currentNotes = currentNotes && currentNotes.trim() ? `${logEntry}\n${currentNotes.trim()}` : logEntry;
       setNotes(currentNotes);
       setIsEditingTitle(false);
     }
 
+    const isShortCode = updatedCode.includes('-S');
+    const updatedFormat = isShortCode ? 'Short' : (localVideo.format_type || 'Long');
+
+    const updatePayload = {
+      code: updatedCode,
+      title: updatedTitle,
+      agent_message: agentMessage,
+      raw_transcript: transcript,
+      notes: currentNotes,
+      rough_outline: outline,
+      format_type: updatedFormat
+    };
+
     const { error } = await supabase
       .from('videos')
-      .update({
-        title: updatedTitle,
-        agent_message: agentMessage,
-        raw_transcript: transcript,
-        notes: currentNotes,
-        rough_outline: outline
-      })
+      .update(updatePayload)
       .eq('video_number', localVideo.video_number);
 
     if (error) {
@@ -1393,14 +1433,39 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
         {isEditingTitle ? (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', marginBottom: '0.75rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
-              <span style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>{localVideo.code}:</span>
+              <input
+                type="text"
+                value={codeInput}
+                onChange={(e) => setCodeInput(e.target.value)}
+                style={{
+                  width: '140px',
+                  fontSize: '1.1rem',
+                  fontWeight: '700',
+                  fontFamily: 'monospace',
+                  padding: '0.4rem 0.65rem',
+                  borderRadius: 'var(--radius-sm)',
+                  border: '1px solid var(--accent-color)',
+                  backgroundColor: 'var(--card-bg)',
+                  color: 'var(--text-primary)'
+                }}
+                placeholder="Code (e.g. 80.V2A-S2)"
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') handleSaveTitle();
+                  if (e.key === 'Escape') {
+                    setCodeInput(localVideo.code || '');
+                    setTitleInput(localVideo.title || '');
+                    setIsEditingTitle(false);
+                  }
+                }}
+              />
+              <span style={{ fontSize: '1.25rem', fontWeight: 'bold', color: 'var(--text-secondary)' }}>:</span>
               <input
                 type="text"
                 value={titleInput}
                 onChange={(e) => setTitleInput(e.target.value)}
                 style={{
                   flex: 1,
-                  minWidth: '260px',
+                  minWidth: '240px',
                   fontSize: '1.15rem',
                   fontWeight: '600',
                   padding: '0.4rem 0.65rem',
@@ -1414,6 +1479,7 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
                 onKeyDown={(e) => {
                   if (e.key === 'Enter') handleSaveTitle();
                   if (e.key === 'Escape') {
+                    setCodeInput(localVideo.code || '');
                     setTitleInput(localVideo.title || '');
                     setIsEditingTitle(false);
                   }
@@ -1426,13 +1492,14 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
                 onClick={handleSaveTitle}
                 disabled={savingTitle}
               >
-                <Save size={13} /> {savingTitle ? 'Saving...' : 'Save Title'}
+                <Save size={13} /> {savingTitle ? 'Saving...' : 'Save'}
               </button>
               <button
                 type="button"
                 className="btn btn-outline"
                 style={{ padding: '0.4rem 0.65rem', fontSize: '0.8rem' }}
                 onClick={() => {
+                  setCodeInput(localVideo.code || '');
                   setTitleInput(localVideo.title || '');
                   setIsEditingTitle(false);
                 }}
@@ -1442,7 +1509,7 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
               </button>
             </div>
             <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
-              Tip: Press Enter to save. Changes are automatically logged to the Video Production Log.
+              Tip: Edit the code and working title together. Press Enter to save. Changes are automatically logged to the Video Production Log.
             </span>
           </div>
         ) : (
@@ -1463,12 +1530,13 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
                   color: 'var(--text-secondary)'
                 }}
                 onClick={() => {
+                  setCodeInput(localVideo.code || '');
                   setTitleInput(localVideo.title || '');
                   setIsEditingTitle(true);
                 }}
-                title="Edit working title (adds entry to Production Log)"
+                title="Edit working code and title (adds entry to Production Log)"
               >
-                <FileEdit size={12} /> Edit Title
+                <FileEdit size={12} /> Edit Code & Title
               </button>
             ) : (
               <span
