@@ -663,6 +663,70 @@ p {
   color: var(--text-secondary);
 }
 
+/* Long Format Prominence (Monday Hero Drops) */
+.video-item-long {
+  padding: 1.05rem 1.25rem !important;
+  border-width: 2px !important;
+  border-left-width: 7px !important;
+  margin-bottom: 1.1rem !important;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06) !important;
+}
+
+.video-item-long .video-title {
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  color: var(--text-primary) !important;
+  line-height: 1.35;
+}
+
+.video-item-long .video-code {
+  font-size: 1rem !important;
+  font-weight: 800 !important;
+}
+
+.badge-long-video {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: #3b82f615;
+  color: #2563eb;
+  border: 1px solid #3b82f645;
+  letter-spacing: 0.02em;
+}
+
+@media (prefers-color-scheme: dark) {
+  .video-item-long {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+  }
+  .badge-long-video {
+    background: rgba(59, 130, 246, 0.2);
+    color: #60a5fa;
+    border-color: rgba(59, 130, 246, 0.5);
+  }
+}
+
+/* Short Format (Tue/Thu/Sat) - Compact and Slimmer, Fully Crisp */
+.video-item-short {
+  padding: 0.62rem 0.95rem !important;
+  border-left-width: 4px !important;
+  margin-bottom: 0.65rem !important;
+}
+
+.video-item-short .video-title {
+  font-size: 0.88rem !important;
+  font-weight: 500 !important;
+  line-height: 1.35;
+}
+
+.video-item-short .video-code {
+  font-size: 0.88rem !important;
+  font-weight: 600 !important;
+}
+
 .video-item.placeholder {
   border: 1px dashed var(--border-color);
   background: rgba(0, 0, 0, 0.015) !important;

@@ -632,54 +632,8 @@ function App() {
         </div>
       </div>
 
-      <div className="dashboard-grid">
-        {/* Column 1: Pipeline (Next 3 Weeks) */}
-        <div className="card">
-          <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
-            <Calendar size={20} color="var(--accent-color)" /> Pipeline (Next 3 Weeks)
-          </h2>
-          <div className="videos-list">
-            {pipelineItems.map((item, idx) => {
-              const rotInfo = getRotationInfo(item.video || item);
-              const level = item.level || rotInfo?.level;
-              const pillar = item.pillar || rotInfo?.pillar;
-              const displayTitle = (item.title && item.title.trim())
-                ? item.title.trim()
-                : (level || 'Systemized OS');
-
-              return (
-                <div
-                  key={`${item.code}-${item.drop_date}-${idx}`}
-                  className={`video-item video-item-${item.status ? item.status.replace('#', '') : 'idea'}`}
-                  style={{ cursor: 'pointer', borderLeft: `5px solid ${getBorderColor(item.video || item)}` }}
-                  onClick={() => openVideo(item.video || item)}
-                >
-                  <div className="video-header">
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flexWrap: 'wrap' }}>
-                      <strong>{item.code}</strong>
-                      {pillar && <span className="badge-pillar" title="Pillar Focus">{pillar}</span>}
-                      {item.notes && <span title="Production Log" style={{ fontSize: '0.75rem' }}>📝</span>}
-                    </div>
-                    {getStatusBadge(item.status)}
-                  </div>
-                  <div className="video-meta" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '0.25rem', gap: '0.5rem' }}>
-                    <span style={{ fontWeight: '500' }}>
-                      {displayTitle}
-                    </span>
-                    <span style={{ marginLeft: 'auto', fontWeight: 'bold', whiteSpace: 'nowrap' }}>{item.dayFormatted}</span>
-                  </div>
-                </div>
-              );
-            })}
-            {pipelineItems.length === 0 && (
-              <p style={{ padding: '1rem', textAlign: 'center', color: 'var(--text-secondary)' }}>
-                No drop dates found in the next 3 weeks.
-              </p>
-            )}
-          </div>
-        </div>
-
-        {/* Column 2: Work in Progress (Unified Column) */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginTop: '1.5rem' }}>
+        {/* Section 1: Work in Progress (Above Pipeline) */}
         <div className="card">
           <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
             <ListTodo size={20} color="var(--accent-color)" /> Work in Progress ({workInProgressItems.length})
@@ -701,7 +655,7 @@ function App() {
                 >
                   <div className="video-header">
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flexWrap: 'wrap' }}>
-                      <strong>{item.code}: {item.title}</strong>
+                      <strong>{item.code}: {item.title || (getRotationInfo(item)?.level || item.os_level || 'Systemized OS')}</strong>
                       {item.notes && <span title="Production Log" style={{ fontSize: '0.75rem' }}>📝</span>}
                     </div>
                     {getStatusBadge(item.status)}
@@ -776,6 +730,71 @@ function App() {
             {workInProgressItems.length === 0 && (
               <p style={{ padding: '1rem', textAlign: 'center', color: 'var(--text-secondary)' }}>
                 No active work in progress. All videos are up to date! 🎉
+              </p>
+            )}
+          </div>
+        </div>
+
+        {/* Section 2: Pipeline (Next 3 Weeks) (Below WIP) */}
+        <div className="card">
+          <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
+            <Calendar size={20} color="var(--accent-color)" /> Pipeline (Next 3 Weeks)
+          </h2>
+          <div className="videos-list">
+            {pipelineItems.map((item, idx) => {
+              const rotInfo = getRotationInfo(item.video || item);
+              const level = item.level || rotInfo?.level;
+              const pillar = item.pillar || rotInfo?.pillar;
+              const displayTitle = (item.title && item.title.trim())
+                ? item.title.trim()
+                : (level || 'Systemized OS');
+
+              const isMonday = item.dayFormatted?.startsWith('Mon') || (item.drop_date && parseISO(item.drop_date).getDay() === 1);
+              const isLong = item.format_type === 'Long' || isMonday;
+
+              return (
+                <div
+                  key={`${item.code}-${item.drop_date}-${idx}`}
+                  className={`video-item ${isLong ? 'video-item-long' : 'video-item-short'} video-item-${item.status ? item.status.replace('#', '') : 'idea'}`}
+                  style={{
+                    cursor: 'pointer',
+                    borderLeft: `${isLong ? '7px' : '4px'} solid ${getBorderColor(item.video || item)}`
+                  }}
+                  onClick={() => openVideo(item.video || item)}
+                >
+                  <div className="video-header">
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', flexWrap: 'wrap' }}>
+                      <strong className={isLong ? 'video-code' : ''}>{item.code}</strong>
+                      {isLong ? (
+                        <span className="badge-long-video">⭐ Monday Long</span>
+                      ) : (
+                        <span style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', fontWeight: '600', textTransform: 'uppercase' }}>Short</span>
+                      )}
+                      {pillar && <span className="badge-pillar" title="Pillar Focus">{pillar}</span>}
+                      {item.notes && <span title="Production Log" style={{ fontSize: '0.75rem' }}>📝</span>}
+                    </div>
+                    {getStatusBadge(item.status)}
+                  </div>
+                  <div className="video-meta" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: isLong ? '0.35rem' : '0.2rem', gap: '0.5rem' }}>
+                    <span className="video-title" style={{ fontWeight: isLong ? '700' : '500', fontSize: isLong ? '1.05rem' : '0.88rem' }}>
+                      {displayTitle}
+                    </span>
+                    <span style={{
+                      marginLeft: 'auto',
+                      fontWeight: isLong ? '800' : '600',
+                      color: isLong ? 'var(--accent-color)' : 'var(--text-secondary)',
+                      fontSize: isLong ? '0.92rem' : '0.82rem',
+                      whiteSpace: 'nowrap'
+                    }}>
+                      {item.dayFormatted}
+                    </span>
+                  </div>
+                </div>
+              );
+            })}
+            {pipelineItems.length === 0 && (
+              <p style={{ padding: '1rem', textAlign: 'center', color: 'var(--text-secondary)' }}>
+                No drop dates found in the next 3 weeks.
               </p>
             )}
           </div>
