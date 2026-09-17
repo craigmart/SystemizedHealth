@@ -18,12 +18,14 @@
   --radius-lg: 12px;
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --card-bg: var(--surface-color);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --bg-color: #0f172a;
     --surface-color: #1e293b;
+    --card-bg: #1e293b;
     --text-primary: #f8fafc;
     --text-secondary: #94a3b8;
     --border-color: #334155;
@@ -171,6 +173,46 @@ p {
   border: 1px solid rgba(3, 105, 161, 0.2);
   border-radius: var(--radius-md);
   padding: 0.9rem 1.1rem;
+}
+
+/* Status Dropdown Select */
+.status-select {
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  background-color: var(--surface-color);
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.status-select:hover, .status-select:focus {
+  border-color: var(--accent-color);
+}
+
+.status-select option {
+  background-color: var(--surface-color);
+  color: var(--text-primary);
+}
+
+@media (prefers-color-scheme: dark) {
+  .status-select {
+    background-color: #334155;
+    color: #f8fafc;
+    border-color: #64748b;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+  .status-select:hover, .status-select:focus {
+    border-color: var(--accent-hover);
+    background-color: #3e4f68;
+  }
+  .status-select option {
+    background-color: #1e293b;
+    color: #f8fafc;
+  }
 }
 
 /* Dashboard Layout */

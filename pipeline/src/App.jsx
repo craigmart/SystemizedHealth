@@ -996,6 +996,7 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
 
   const [filePropositions, setFilePropositions] = useState([]);
   const detectedUrls = extractUrls(notes);
+  const detectedOutlineUrls = extractUrls(outline);
   const [copiedLink, setCopiedLink] = useState(false);
 
   const handleCopyDeepLink = async () => {
@@ -1544,21 +1545,22 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
                 type="button"
                 className="btn btn-outline"
                 style={{
-                  padding: '0.2rem 0.5rem',
+                  padding: '0.25rem 0.45rem',
                   fontSize: '0.75rem',
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '0.3rem',
-                  color: 'var(--text-secondary)'
+                  justifyContent: 'center',
+                  color: 'var(--text-secondary)',
+                  borderRadius: 'var(--radius-sm)'
                 }}
                 onClick={() => {
                   setCodeInput(localVideo.code || '');
                   setTitleInput(localVideo.title || '');
                   setIsEditingTitle(true);
                 }}
-                title="Edit working code and title (adds entry to Production Log)"
+                title="Edit code and title"
               >
-                <FileEdit size={12} /> Edit Code & Title
+                <FileEdit size={14} />
               </button>
             ) : (
               <span
@@ -1596,7 +1598,7 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
             <select
               value={localVideo.status}
               onChange={handleStatusChange}
-              style={{ padding: '0.3rem 0.6rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', backgroundColor: 'var(--card-bg)', fontWeight: '500' }}
+              className="status-select"
             >
               {STATUS_OPTIONS.map(opt => (
                 <option key={opt} value={opt}>{opt}</option>
@@ -1697,11 +1699,11 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
           </form>
         </div>
 
-        {/* 2. Video Script Outline Section (5 Beats Long / 3 Beats Short) */}
+        {/* 2. Video Script Outline Section / Scratch Pad */}
         <div style={{ backgroundColor: 'var(--surface-color)', padding: '1.25rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem', flexWrap: 'wrap', gap: '0.5rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem', flexWrap: 'wrap', gap: '0.5rem' }}>
             <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', margin: 0, fontSize: '1.15rem' }}>
-              <FileEdit size={20} color="var(--primary-color)" /> {isShort ? 'Short Video Outline (3 Beats)' : 'Long Video Outline (5 Beats)'}
+              <FileEdit size={20} color="var(--primary-color)" /> {isShort ? 'Short Scratch Pad' : 'Long Scratch Pad'}
             </h3>
             <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
               <button
@@ -1728,11 +1730,6 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
               </button>
             </div>
           </div>
-          <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.75rem', lineHeight: '1.45' }}>
-            {isShort
-              ? 'Draft your 3-beat short outline below (Hook → Teach → Action), or transfer to a 3x5 card to anchor direct-to-camera delivery.'
-              : 'Draft your 5-beat long outline below (Hook → Mindset → Story → Teaching → Action), or transfer to a 3x5 card to anchor direct-to-camera delivery.'}
-          </p>
           <textarea
             value={outline}
             onChange={(e) => setOutline(e.target.value)}
@@ -1742,7 +1739,7 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
               padding: '0.75rem',
               borderRadius: 'var(--radius-md)',
               border: '1px solid var(--border-color)',
-              backgroundColor: 'var(--card-bg)',
+              backgroundColor: 'var(--surface-color)',
               color: 'var(--text-primary)',
               fontFamily: 'inherit',
               fontSize: '0.9rem',
@@ -1751,13 +1748,50 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
             }}
             placeholder={isShort ? "1. Hook:\n\n2. Teach:\n\n3. Action:" : "1. Hook:\n\n2. Mindset:\n\n3. Story:\n\n4. Teaching:\n\n5. Action:"}
           />
+
+          {/* Detected Clickable Links from Scratch Pad */}
+          {detectedOutlineUrls.length > 0 && (
+            <div className="log-links-container" style={{ marginTop: '0.65rem' }}>
+              <span style={{ fontSize: '0.75rem', fontWeight: '600', color: 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                <ExternalLink size={13} color="var(--accent-color)" /> Links in Scratch Pad ({detectedOutlineUrls.length}):
+              </span>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.45rem' }}>
+                {detectedOutlineUrls.map((link, idx) => (
+                  <a
+                    key={idx}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-outline"
+                    style={{
+                      fontSize: '0.78rem',
+                      padding: '0.25rem 0.65rem',
+                      height: 'auto',
+                      textDecoration: 'none',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.4rem',
+                      background: 'var(--surface-color)',
+                      borderColor: 'var(--accent-color)',
+                      color: 'var(--accent-color)',
+                      fontWeight: '500'
+                    }}
+                    title={`Open ${link.href}`}
+                  >
+                    <ExternalLink size={12} />
+                    <span>{link.label}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
 
-        {/* 3. Video Production Log & Notes Section (Stored in Supabase notes) */}
+        {/* 3. Log Section (Stored in Supabase notes) */}
         <div className="log-box">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem', flexWrap: 'wrap', gap: '0.5rem' }}>
             <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', margin: 0, fontSize: '1.15rem' }}>
-              <FileText size={20} color="var(--accent-color)" /> Video Production Log & Notes
+              <FileText size={20} color="var(--accent-color)" /> Log
             </h3>
           </div>
 
@@ -1922,37 +1956,24 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
         ) : (
           <div>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
-              <h3 style={{ fontSize: '1.1rem', margin: 0 }}>
-                {localVideo.status === '#idea' || localVideo.status === '#write'
-                  ? 'Raw Audio Brainstorm / Draft Transcript'
-                  : 'Final Spoken Transcript (Descript)'}
-              </h3>
+              <h3 style={{ fontSize: '1.1rem', margin: 0 }}>Final Transcript</h3>
             </div>
-            <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>
-              {localVideo.status === '#idea' || localVideo.status === '#write'
-                ? 'Paste audio dictation or early notes here.'
-                : 'Paste your exact spoken transcript from Descript. Antigravity reads this to score titles (vidIQ), archive the script to Obsidian, and pull out core clinical propositions.'}
-            </p>
-
             <textarea
               value={transcript}
               onChange={(e) => setTranscript(e.target.value)}
-              style={{ width: '100%', height: '180px', padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', fontFamily: 'inherit', resize: 'vertical' }}
+              style={{ width: '100%', height: '180px', padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', backgroundColor: 'var(--surface-color)', color: 'var(--text-primary)', fontFamily: 'inherit', resize: 'vertical' }}
               placeholder="Paste transcript here..."
             />
           </div>
         )}
 
-        {/* 4. Message to Agent (Antigravity) */}
+        {/* 4. Agent Note */}
         <div>
-          <h3 style={{ fontSize: '1rem', marginBottom: '0.5rem' }}>Message to Agent (Antigravity)</h3>
-          <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>
-            Direct instructions or tasks for Antigravity (stored in Supabase <code>agent_message</code>).
-          </p>
+          <h3 style={{ fontSize: '1rem', marginBottom: '0.5rem' }}>Agent Note</h3>
           <textarea
             value={agentMessage}
             onChange={(e) => setAgentMessage(e.target.value)}
-            style={{ width: '100%', height: '80px', padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', fontFamily: 'inherit', resize: 'vertical' }}
+            style={{ width: '100%', height: '80px', padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', backgroundColor: 'var(--surface-color)', color: 'var(--text-primary)', fontFamily: 'inherit', resize: 'vertical' }}
             placeholder="e.g., 'Score 5 titles in vidIQ and extract 3 waterfall shorts...'"
           />
         </div>
