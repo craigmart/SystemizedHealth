@@ -256,13 +256,13 @@ The web App's per-video production checklist dynamically adapts based on video f
   1. *Planning*: Gemini Notebook research, 3x5 card drafted (4 beats).
   2. *Filming*: Direct-to-camera recorded using 3x5 card anchor.
   3. *Editing*: Descript transcript pasted, B-roll added, Sound & audio enhanced, vidIQ title scored (90+), Obsidian & JDex archived.
-  4. *Publishing & Archive*: YouTube Studio upload & CTA, custom thumbnail uploaded, scheduled for drop date, physical 3x5 main cards filed (marks card creation complete to exit Work in Progress).
+  4. *Publishing & Archive*: YouTube Studio upload & CTA, custom thumbnail uploaded, scheduled for drop date, physical 3x5 main cards filed (marks card creation complete to exit Work in Progress), and save YouTube link to Gemini Notebook.
 
 * **Shorts (`Short` / `-S[N]`)**:
   1. *Writing*: Create 3x5 card, Write script outline (back of card).
   2. *Filming*: Film short video.
   3. *Editing*: Edited in Descript (captions, audio), Descript transcript pasted, vidIQ title/hook scored (90+), Obsidian & JDex archived.
-  4. *Publishing & Archive*: YouTube Shorts upload & CTA, scheduled for drop date, and physical 3x5 cards filed.
+  4. *Publishing & Archive*: YouTube Shorts upload & CTA, scheduled for drop date, physical 3x5 cards filed, and save YouTube link to Gemini Notebook.
 
 ---
 

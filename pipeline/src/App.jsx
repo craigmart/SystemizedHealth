@@ -24,6 +24,7 @@ export const LONG_VIDEO_CHECKLIST_ITEMS = [
   { key: 'pub_thumb', phase: 'Publishing', label: 'Custom thumbnail uploaded' },
   { key: 'pub_schedule', phase: 'Publishing', label: 'Scheduled for drop date' },
   { key: 'pub_cards', phase: 'Archived', label: 'Physical 3x5 main cards filed' },
+  { key: 'archive_gemini_notebook', phase: 'Archived', label: 'Save to Gemini Notebook' },
 ];
 
 export const SHORT_VIDEO_CHECKLIST_ITEMS = [
@@ -37,6 +38,7 @@ export const SHORT_VIDEO_CHECKLIST_ITEMS = [
   { key: 'pub_upload', phase: 'Publishing', label: 'YouTube Shorts upload & CTA' },
   { key: 'pub_schedule', phase: 'Publishing', label: 'Scheduled for drop date' },
   { key: 'pub_cards', phase: 'Archived', label: 'Physical 3x5 cards filed' },
+  { key: 'archive_gemini_notebook', phase: 'Archived', label: 'Save to Gemini Notebook' },
 ];
 
 export const LONG_CHECKLIST_PHASES = ['All', 'Writing', 'Filming', 'Editing', 'Publishing', 'Archived'];
@@ -355,10 +357,13 @@ function App() {
     const isShort = video.format_type === 'Short' || video.code?.includes('-S');
     const checklist = parseChecklistData(video.edit_checklist);
 
-    // 2. Published videos needing physical cards
+    // 2. Published videos needing physical cards or archive steps
     if (video.status === '#published') {
       if (!video.cards_created && !video.code?.startsWith('HIST')) {
         return { step: 'Review propositions & add to 3x5 cards', type: 'cards', actionType: 'cards' };
+      }
+      if (!checklist.archive_gemini_notebook && !video.code?.startsWith('HIST')) {
+        return { step: 'Save to Gemini Notebook', type: 'checklist' };
       }
       return { step: 'Completed & published', type: 'done' };
     }
@@ -376,7 +381,7 @@ function App() {
 
       const items = isShort ? SHORT_VIDEO_CHECKLIST_ITEMS : LONG_VIDEO_CHECKLIST_ITEMS;
       for (const item of items) {
-        if (item.key === 'pub_cards') continue;
+        if (item.phase === 'Archived') continue;
         if (item.phase === 'Planning' || item.phase === 'Writing' || item.phase === 'Filming') continue;
         if (!checklist[item.key]) {
           return { step: item.label, type: 'checklist' };
@@ -441,26 +446,30 @@ function App() {
   const getVideoProgress = (video) => {
     if (!video) return { completed: 0, total: 0, percent: 0 };
     
-    if (video.status === '#published' && video.cards_created) {
+    const checklist = parseChecklistData(video.edit_checklist);
+    const isHist = video.code?.startsWith('HIST');
+
+    if (video.status === '#published' && (video.cards_created || isHist) && (checklist.archive_gemini_notebook || isHist)) {
       return { completed: 1, total: 1, percent: 100 };
     }
 
     const isShort = video.format_type === 'Short' || video.code?.includes('-S');
     const baseItems = isShort ? SHORT_VIDEO_CHECKLIST_ITEMS : LONG_VIDEO_CHECKLIST_ITEMS;
-    const checklist = parseChecklistData(video.edit_checklist);
     const customTasks = checklist.custom_tasks || [];
 
     let completed = 0;
     baseItems.forEach(item => {
-      if (item.key === 'pub_cards' && video.cards_created) {
+      if (item.key === 'pub_cards' && (video.cards_created || isHist)) {
+        completed++;
+      } else if (item.key === 'archive_gemini_notebook' && (checklist.archive_gemini_notebook || isHist)) {
         completed++;
       } else if (item.key === 'edit_transcript' && (checklist.edit_transcript || (video.raw_transcript && video.raw_transcript.trim()))) {
         completed++;
       } else if (checklist[item.key]) {
         completed++;
-      } else if (video.status === '#published' && item.key !== 'pub_cards') {
+      } else if (video.status === '#published' && item.phase !== 'Archived') {
         completed++;
-      } else if (video.status === '#uploaded' && item.key !== 'pub_cards') {
+      } else if (video.status === '#uploaded' && item.phase !== 'Archived') {
         completed++;
       } else if (video.status === '#edit' && (item.phase === 'Planning' || item.phase === 'Writing' || item.phase === 'Filming')) {
         completed++;
