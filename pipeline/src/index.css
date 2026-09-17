@@ -234,6 +234,12 @@ p {
   width: 270px;
 }
 
+.search-input::-webkit-search-cancel-button,
+.search-input::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
 @media (prefers-color-scheme: dark) {
   .search-input {
     background-color: #334155;

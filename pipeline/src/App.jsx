@@ -983,14 +983,32 @@ function App() {
 
         <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', flexWrap: 'wrap' }}>
           {/* Search Box */}
-          <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              const input = e.currentTarget.querySelector('input');
+              if (input) input.blur();
+            }}
+            action=""
+            style={{ position: 'relative', display: 'flex', alignItems: 'center', margin: 0 }}
+          >
             <Search size={15} style={{ position: 'absolute', left: '0.75rem', color: 'var(--text-secondary)', pointerEvents: 'none' }} />
             <input
-              type="text"
+              type="search"
               className="search-input"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  e.currentTarget.blur();
+                }
+              }}
               placeholder="Search code or title..."
+              enterKeyHint="search"
+              autoComplete="off"
+              autoCorrect="off"
+              autoCapitalize="none"
+              spellCheck="false"
             />
             {searchQuery && (
               <button
@@ -1012,7 +1030,7 @@ function App() {
                 <X size={14} />
               </button>
             )}
-          </div>
+          </form>
 
           {!currentVideo ? (
             <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
