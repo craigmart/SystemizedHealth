@@ -963,39 +963,64 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
 
   const extractUrls = (text) => {
     if (!text || typeof text !== 'string') return [];
-    const urlRegex = /(https?:\/\/[^\s<]+[^<.,:;"')\]\s]|www\.[^\s<]+[^<.,:;"')\]\s])/gi;
-    const matches = text.match(urlRegex) || [];
     const seen = new Set();
     const result = [];
-    matches.forEach(m => {
-      const trimmed = m.trim();
-      const href = trimmed.startsWith('www.') ? `https://${trimmed}` : trimmed;
+
+    // 1. Check for markdown links: [Label](url)
+    const mdRegex = /\[([^\]]+)\]\(((?:https?:\/\/|obsidian:\/\/|www\.)[^\s)]+|[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}[^\s)]*)\)/gi;
+    let mdMatch;
+    while ((mdMatch = mdRegex.exec(text)) !== null) {
+      const customLabel = mdMatch[1].trim();
+      let rawHref = mdMatch[2].trim().replace(/[.,:;"')\]]+$/, '');
+      const href = rawHref.startsWith('http://') || rawHref.startsWith('https://') || rawHref.startsWith('obsidian://')
+        ? rawHref
+        : `https://${rawHref}`;
       if (!seen.has(href)) {
         seen.add(href);
-        let label = trimmed;
+        result.push({ raw: rawHref, href, label: customLabel || rawHref });
+      }
+    }
+
+    // 2. Check for standard URLs and common domain patterns
+    const urlRegex = /(?:https?:\/\/|obsidian:\/\/|www\.)[^\s<]+|(?:[a-zA-Z0-9-]+\.)+(?:com|org|net|edu|gov|io|co|health|app|dev|ai|gl|be|tv|me)(?:\/[^\s<]*)?/gi;
+    const matches = text.match(urlRegex) || [];
+    matches.forEach(m => {
+      let clean = m.trim().replace(/[.,:;"')\]]+$/, '');
+      const href = clean.startsWith('http://') || clean.startsWith('https://') || clean.startsWith('obsidian://')
+        ? clean
+        : `https://${clean}`;
+
+      if (!seen.has(href)) {
+        seen.add(href);
+        let label = clean;
         try {
-          const parsed = new URL(href);
-          const domain = parsed.hostname.replace(/^www\./, '');
-          const path = parsed.pathname === '/' ? '' : parsed.pathname;
-          label = domain + path;
-          if (label.length > 40) {
-            label = label.substring(0, 37) + '...';
+          if (clean.startsWith('obsidian://')) {
+            label = 'Obsidian Link';
+          } else {
+            const parsed = new URL(href);
+            const domain = parsed.hostname.replace(/^www\./, '');
+            const path = (parsed.pathname === '/' || !parsed.pathname) ? '' : parsed.pathname;
+            label = domain + path;
+            if (label.length > 40) {
+              label = label.substring(0, 37) + '...';
+            }
           }
         } catch {
           if (label.length > 40) {
             label = label.substring(0, 37) + '...';
           }
         }
-        result.push({ raw: trimmed, href, label });
+        result.push({ raw: clean, href, label });
       }
     });
+
     return result;
   };
 
   const [checklist, setChecklist] = useState(() => parseChecklist(video.edit_checklist));
 
   const [filePropositions, setFilePropositions] = useState([]);
-  const detectedUrls = extractUrls(notes);
+  const detectedUrls = extractUrls(newLogEntry ? `${newLogEntry}\n${notes}` : notes);
   const detectedOutlineUrls = extractUrls(outline);
   const [copiedLink, setCopiedLink] = useState(false);
 
