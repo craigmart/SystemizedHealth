@@ -215,6 +215,37 @@ p {
   }
 }
 
+/* Header Search Input */
+.search-input {
+  padding: 0.45rem 2rem 0.45rem 2.2rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background-color: var(--surface-color);
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  width: 230px;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.search-input:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px rgba(3, 105, 161, 0.15);
+  width: 270px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .search-input {
+    background-color: #334155;
+    color: #f8fafc;
+    border-color: #475569;
+  }
+  .search-input:focus {
+    border-color: var(--accent-hover);
+    box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.25);
+  }
+}
+
 /* Dashboard Layout */
 .metrics-grid {
   display: grid;

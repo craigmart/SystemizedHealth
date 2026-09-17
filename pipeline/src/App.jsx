@@ -5,7 +5,7 @@ import {
   TrendingUp, Clock, FileVideo, Scissors, Film, X, ExternalLink, BarChart2, 
   LayoutDashboard, Eye, Users, Award, Flame, BookOpen, Check, ThumbsUp, 
   MessageSquare, Plus, Trash2, ListTodo, FileText, CheckCircle2, Lightbulb, Link,
-  Sparkles, FileEdit
+  Sparkles, FileEdit, Search
 } from 'lucide-react';
 import { addDays, isBefore, parseISO, differenceInDays, format } from 'date-fns';
 import ReactMarkdown from 'react-markdown';
@@ -72,6 +72,7 @@ function App() {
   const [currentVideo, setCurrentVideo] = useState(null);
   const [metricModal, setMetricModal] = useState(null);
   const [activeTab, setActiveTab] = useState('pipeline');
+  const [searchQuery, setSearchQuery] = useState('');
 
   const getRotationInfo = (videoOrCode) => {
     if (!videoOrCode) return null;
@@ -872,6 +873,97 @@ function App() {
   );
 };
 
+  const trimmedSearch = searchQuery.trim().toLowerCase();
+  const searchResults = trimmedSearch
+    ? videos.filter(v => {
+        const code = (v.code || '').toLowerCase();
+        const title = (v.title || '').toLowerCase();
+        const num = (v.video_number || '').toLowerCase();
+        const pillar = (getRotationInfo(v)?.pillar || '').toLowerCase();
+        const level = (getRotationInfo(v)?.level || v.os_level || '').toLowerCase();
+        return code.includes(trimmedSearch) || title.includes(trimmedSearch) || num.includes(trimmedSearch) || pillar.includes(trimmedSearch) || level.includes(trimmedSearch);
+      })
+    : [];
+
+  const renderSearchResults = () => {
+    return (
+      <div className="card" style={{ marginTop: '1.5rem' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem', flexWrap: 'wrap', gap: '0.5rem' }}>
+          <div>
+            <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', margin: 0, fontSize: '1.35rem' }}>
+              <Search size={22} color="var(--accent-color)" /> Search Results ({searchResults.length})
+            </h2>
+            <p style={{ margin: '0.25rem 0 0 0', fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
+              Matching code or title for <strong style={{ color: 'var(--text-primary)' }}>"{searchQuery}"</strong>
+            </p>
+          </div>
+          <button
+            type="button"
+            className="btn btn-outline"
+            style={{ fontSize: '0.8rem', padding: '0.3rem 0.75rem', display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}
+            onClick={() => setSearchQuery('')}
+          >
+            <X size={14} /> Clear Search
+          </button>
+        </div>
+
+        {searchResults.length === 0 ? (
+          <div style={{ textAlign: 'center', padding: '3rem 1rem', color: 'var(--text-secondary)' }}>
+            <p style={{ fontSize: '1.05rem', marginBottom: '0.5rem', fontWeight: '500' }}>
+              No videos found matching <strong>"{searchQuery}"</strong>.
+            </p>
+            <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
+              Search by Johnny Decimal code (e.g. <code>80.V1A</code>), video number, or keywords in the title.
+            </p>
+          </div>
+        ) : (
+          <div className="videos-list">
+            {searchResults.map(v => {
+              const rotInfo = getRotationInfo(v);
+              const pillar = rotInfo?.pillar;
+              const isLong = v.format_type === 'Long' || (!v.code?.includes('-S') && !v.format_type?.toLowerCase().includes('short'));
+              const displayTitle = (v.title && v.title.trim()) ? v.title.trim() : (rotInfo?.level || v.os_level || 'Systemized OS');
+
+              return (
+                <div
+                  key={v.code}
+                  className={`video-item ${isLong ? 'video-item-long' : 'video-item-short'} video-item-${v.status ? v.status.replace('#', '') : 'idea'}`}
+                  style={{ cursor: 'pointer', borderLeft: `${isLong ? '7px' : '4px'} solid ${getBorderColor(v)}` }}
+                  onClick={() => {
+                    openVideo(v);
+                    setSearchQuery('');
+                  }}
+                >
+                  <div className="video-header">
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', flexWrap: 'wrap' }}>
+                      <strong className={isLong ? 'video-code' : ''}>{v.code}</strong>
+                      {isLong ? (
+                        <span className="badge-long-video">⭐ Long Form</span>
+                      ) : (
+                        <span style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', fontWeight: '600', textTransform: 'uppercase' }}>Short</span>
+                      )}
+                      {pillar && <span className="badge-pillar" title="Pillar Focus">{pillar}</span>}
+                      {v.notes && <span title="Production Log" style={{ fontSize: '0.75rem' }}>📝</span>}
+                    </div>
+                    {getStatusBadge(v.status)}
+                  </div>
+                  <div className="video-meta" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: isLong ? '0.35rem' : '0.2rem', gap: '0.5rem' }}>
+                    <span className="video-title" style={{ fontWeight: isLong ? '700' : '500', fontSize: isLong ? '1.05rem' : '0.88rem' }}>
+                      {displayTitle}
+                    </span>
+                    <span style={{ marginLeft: 'auto', fontWeight: isLong ? '800' : '600', color: isLong ? 'var(--accent-color)' : 'var(--text-secondary)', fontSize: isLong ? '0.92rem' : '0.82rem', whiteSpace: 'nowrap' }}>
+                      {v.drop_date ? format(parseISO(v.drop_date), 'EEE, MMM d, yyyy') : 'No Date'}
+                    </span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
+      </div>
+    );
+  };
+
   return (
     <div className="container">
       <header className="section-header">
@@ -879,41 +971,78 @@ function App() {
           <h1>Systemizd Pipeline</h1>
           <p>Systemized Health central dashboard</p>
         </div>
-        {!currentVideo ? (
-          <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
-            <div style={{ display: 'flex', background: 'var(--surface-color)', padding: '0.25rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
+
+        <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', flexWrap: 'wrap' }}>
+          {/* Search Box */}
+          <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+            <Search size={15} style={{ position: 'absolute', left: '0.75rem', color: 'var(--text-secondary)', pointerEvents: 'none' }} />
+            <input
+              type="text"
+              className="search-input"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search code or title..."
+            />
+            {searchQuery && (
               <button
-                className={`btn ${activeTab === 'pipeline' ? 'btn-primary' : 'btn-outline'}`}
-                style={{ border: 'none', borderRadius: '4px', boxShadow: 'none' }}
-                onClick={() => setActiveTab('pipeline')}
+                type="button"
+                onClick={() => setSearchQuery('')}
+                style={{
+                  position: 'absolute',
+                  right: '0.5rem',
+                  background: 'none',
+                  border: 'none',
+                  color: 'var(--text-secondary)',
+                  cursor: 'pointer',
+                  padding: '0.2rem',
+                  display: 'flex',
+                  alignItems: 'center'
+                }}
+                title="Clear search"
               >
-                <LayoutDashboard size={16} /> Pipeline
-              </button>
-              <button
-                className={`btn ${activeTab === 'analytics' ? 'btn-primary' : 'btn-outline'}`}
-                style={{ border: 'none', borderRadius: '4px', boxShadow: 'none' }}
-                onClick={() => setActiveTab('analytics')}
-              >
-                <BarChart2 size={16} /> Analytics
-              </button>
-            </div>
-            {activeTab === 'pipeline' && (
-              <button className="btn btn-outline" onClick={fetchVideos} disabled={loading}>
-                <RefreshCw size={16} className={loading ? "animate-spin" : ""} />
-                Refresh
+                <X size={14} />
               </button>
             )}
           </div>
-        ) : (
-          <button className="btn btn-outline" onClick={() => closeVideo()}>
-            <ChevronLeft size={16} />
-            Back to Dashboard
-          </button>
-        )}
+
+          {!currentVideo ? (
+            <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+              <div style={{ display: 'flex', background: 'var(--surface-color)', padding: '0.25rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
+                <button
+                  className={`btn ${activeTab === 'pipeline' ? 'btn-primary' : 'btn-outline'}`}
+                  style={{ border: 'none', borderRadius: '4px', boxShadow: 'none' }}
+                  onClick={() => { setActiveTab('pipeline'); setSearchQuery(''); }}
+                >
+                  <LayoutDashboard size={16} /> Pipeline
+                </button>
+                <button
+                  className={`btn ${activeTab === 'analytics' ? 'btn-primary' : 'btn-outline'}`}
+                  style={{ border: 'none', borderRadius: '4px', boxShadow: 'none' }}
+                  onClick={() => { setActiveTab('analytics'); setSearchQuery(''); }}
+                >
+                  <BarChart2 size={16} /> Analytics
+                </button>
+              </div>
+              {activeTab === 'pipeline' && (
+                <button className="btn btn-outline" onClick={fetchVideos} disabled={loading}>
+                  <RefreshCw size={16} className={loading ? "animate-spin" : ""} />
+                  Refresh
+                </button>
+              )}
+            </div>
+          ) : (
+            <button className="btn btn-outline" onClick={() => { closeVideo(); setSearchQuery(''); }}>
+              <ChevronLeft size={16} />
+              Back to Dashboard
+            </button>
+          )}
+        </div>
       </header>
 
       {loading && !currentVideo ? (
         <p>Loading pipeline data...</p>
+      ) : trimmedSearch ? (
+        renderSearchResults()
       ) : currentVideo ? (
         <VideoDetail video={currentVideo} getRotationInfo={getRotationInfo} onUpdate={fetchVideos} onBack={() => closeVideo()} />
       ) : activeTab === 'pipeline' ? (
