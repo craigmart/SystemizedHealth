@@ -147,6 +147,7 @@ def sync_published_videos():
             # Update File System
             file = find_markdown_file(code)
             if file:
+                content = file.read_text(encoding="utf-8")
                 safe_title = sanitize_filename(yt_title)
                 
                 new_file_name = f"{code} Script - {safe_title}.md"
