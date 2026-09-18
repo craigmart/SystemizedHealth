@@ -63,6 +63,40 @@ export const getChecklistPhaseForStatus = (status) => {
   }
 };
 
+export const getCompletedPhasesForStatus = (status) => {
+  if (!status) return [];
+  const clean = status.toLowerCase().replace('#', '').trim();
+  switch (clean) {
+    case 'film':
+      return ['Writing'];
+    case 'edit':
+      return ['Writing', 'Filming'];
+    case 'uploaded':
+      return ['Writing', 'Filming', 'Editing'];
+    case 'published':
+      return ['Writing', 'Filming', 'Editing', 'Publishing'];
+    case 'archived':
+    case 'archive':
+      return ['Writing', 'Filming', 'Editing', 'Publishing', 'Archived'];
+    default:
+      return [];
+  }
+};
+
+export const getAutoCompletedChecklist = (status, currentChecklist, isShort) => {
+  const baseItems = isShort ? SHORT_VIDEO_CHECKLIST_ITEMS : LONG_VIDEO_CHECKLIST_ITEMS;
+  const completedPhases = getCompletedPhasesForStatus(status);
+  const updated = { ...(currentChecklist || {}) };
+
+  baseItems.forEach(item => {
+    if (completedPhases.includes(item.phase)) {
+      updated[item.key] = true;
+    }
+  });
+
+  return updated;
+};
+
 const STATUS_OPTIONS = ['#idea', '#write', '#film', '#edit', '#uploaded', '#published'];
 
 function App() {
@@ -360,11 +394,17 @@ function App() {
 
     // 2. Published videos needing physical cards or archive steps
     if (video.status === '#published') {
-      if (!video.cards_created && !video.code?.startsWith('HIST')) {
+      if ((!checklist.pub_cards || !video.cards_created) && !video.code?.startsWith('HIST')) {
         return { step: 'Review propositions & add to 3x5 cards', type: 'cards', actionType: 'cards' };
       }
       if (!checklist.archive_gemini_notebook && !video.code?.startsWith('HIST')) {
         return { step: 'Save to Gemini Notebook', type: 'checklist' };
+      }
+      if (checklist.custom_tasks && Array.isArray(checklist.custom_tasks)) {
+        const pendingCustom = checklist.custom_tasks.find(t => !t.done);
+        if (pendingCustom) {
+          return { step: pendingCustom.label, type: 'custom' };
+        }
       }
       return { step: 'Completed & published', type: 'done' };
     }
@@ -450,31 +490,17 @@ function App() {
     const checklist = parseChecklistData(video.edit_checklist);
     const isHist = video.code?.startsWith('HIST');
 
-    if (video.status === '#published' && (video.cards_created || isHist) && (checklist.archive_gemini_notebook || isHist)) {
-      return { completed: 1, total: 1, percent: 100 };
-    }
-
     const isShort = video.format_type === 'Short' || video.code?.includes('-S');
     const baseItems = isShort ? SHORT_VIDEO_CHECKLIST_ITEMS : LONG_VIDEO_CHECKLIST_ITEMS;
     const customTasks = checklist.custom_tasks || [];
 
     let completed = 0;
     baseItems.forEach(item => {
-      if (item.key === 'pub_cards' && (video.cards_created || isHist)) {
+      if (item.key === 'pub_cards' && (checklist.pub_cards || video.cards_created || isHist)) {
         completed++;
       } else if (item.key === 'archive_gemini_notebook' && (checklist.archive_gemini_notebook || isHist)) {
         completed++;
-      } else if (item.key === 'edit_transcript' && (checklist.edit_transcript || (video.raw_transcript && video.raw_transcript.trim()))) {
-        completed++;
       } else if (checklist[item.key]) {
-        completed++;
-      } else if (video.status === '#published' && item.phase !== 'Archived') {
-        completed++;
-      } else if (video.status === '#uploaded' && item.phase !== 'Archived') {
-        completed++;
-      } else if (video.status === '#edit' && (item.phase === 'Planning' || item.phase === 'Writing' || item.phase === 'Filming')) {
-        completed++;
-      } else if (video.status === '#film' && (item.phase === 'Planning' || item.phase === 'Writing')) {
         completed++;
       }
     });
@@ -581,20 +607,43 @@ function App() {
       }
     }
 
+    // Helper to check if a video has any open checklist items
+    const hasOpenChecklistTasks = (video) => {
+      const isShort = video.format_type === 'Short' || video.code?.includes('-S');
+      const baseItems = isShort ? SHORT_VIDEO_CHECKLIST_ITEMS : LONG_VIDEO_CHECKLIST_ITEMS;
+      const chk = parseChecklistData(video.edit_checklist);
+
+      // Check standard base items
+      for (const item of baseItems) {
+        if (item.key === 'pub_cards') {
+          if (!chk.pub_cards || !video.cards_created) return true;
+        } else if (!chk[item.key]) {
+          return true;
+        }
+      }
+
+      // Check custom tasks
+      if (chk.custom_tasks && Array.isArray(chk.custom_tasks)) {
+        if (chk.custom_tasks.some(t => !t.done)) return true;
+      }
+
+      return false;
+    };
+
     // 2. Build Work in Progress:
     // - Active production stages: #write, #film, #edit
-    // - Published videos needing propositions reviewed & filed in Zettelkasten: #published with !cards_created (excluding HIST)
+    // - Published videos needing propositions reviewed & filed in Zettelkasten or any open post-publish tasks
     // - Immediate active #idea sprint (due within next 7 days)
     // - Sorted by drop date closest to today at the top
     const workInProgressItems = videos.filter(v => {
       if (v.code?.startsWith('HIST')) return false;
 
-      // Published videos where cards still need to be reviewed/created belong in WIP
+      // Published videos that still have ANY open checklist items belong in WIP
       if (v.status === '#published') {
-        return !v.cards_created;
+        return hasOpenChecklistTasks(v);
       }
 
-      if (v.status === '#uploaded') return false;
+      if (v.status === '#uploaded') return true;
 
       // Active production
       if (v.status === '#write' || v.status === '#film' || v.status === '#edit') return true;
@@ -1409,14 +1458,28 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
 
   const handleStatusChange = async (e) => {
     const newStatus = e.target.value;
+    const isShort = localVideo.format_type === 'Short' || localVideo.code?.includes('-S');
+    const updatedChecklist = getAutoCompletedChecklist(newStatus, checklist, isShort);
+
+    // Sync cards_created with pub_cards
+    const cardsCreated = updatedChecklist.pub_cards ?? localVideo.cards_created;
+
+    const updatePayload = { 
+      status: newStatus,
+      edit_checklist: updatedChecklist,
+      cards_created: cardsCreated
+    };
+
     const { error } = await supabase
       .from('videos')
-      .update({ status: newStatus })
+      .update(updatePayload)
       .eq('video_number', localVideo.video_number);
 
-    if (error) alert("Error changing status: " + error.message);
-    else {
-      setLocalVideo(prev => ({ ...prev, status: newStatus }));
+    if (error) {
+      alert("Error changing status: " + error.message);
+    } else {
+      setLocalVideo(prev => ({ ...prev, ...updatePayload }));
+      setChecklist(updatedChecklist);
       setChecklistPhase(getChecklistPhaseForStatus(newStatus));
       onUpdate();
     }

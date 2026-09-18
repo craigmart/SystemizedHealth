@@ -25,10 +25,13 @@
 - [x] `80.V1B2-S2`: *Running and Longterm Health of Your Disc* — Dropped: 2026-09-12
 - [x] `80.V2C1`: *Staying Human in the Age of Artificial Intelligence* — Dropped: 2026-09-14
 - [x] `80.V2C1-S1`: *The One Mindset to Save Your Brain When Using AI* — Dropped: 2026-09-15
+- [x] `80.V2A1-S2A`: *This is Your Default Setting* — Dropped: 2026-09-17
+- [x] `80.V2A1-S3A`: *Task Positive Network and Scrolling* — Dropped: 2026-09-19
 
 ### 🗃️ Zettelkasten Physical 3x5 Index Cards
-- [x] **Review propositions & add to Zettelkasten box (3x5 cards)**:
-  - All 31 published videos filed and completed in analog Zettelkasten archive box (100% complete 🎉). Tracked in [`docs/Published_Video_Propositions.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/Published_Video_Propositions.md).
+- [ ] **Active WIP Review**: `80.V2A1-S2A` (*This is Your Default Setting*) — Review propositions & add to Zettelkasten box (3x5 card pending).
+- [x] `80.V2A1-S3A` (*Task Positive Network and Scrolling*) — Card completed (`[2026-09-17 06:53] Card done`).
+- [x] **Historical Archive**: All 31 prior published videos filed and completed in analog Zettelkasten archive box. Tracked in [`docs/Published_Video_Propositions.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/Published_Video_Propositions.md).
 
 ### ✍️ Next Production Queue: 12-Month Rotation Schedule (`#idea`)
 *(Active pipeline view: next 3 weeks runway from [`docs/content_rotation.csv`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/content_rotation.csv) & [`SOPs/Content Rotation System SOP.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/Content%20Rotation%20System%20SOP.md))*
@@ -36,8 +39,8 @@
 - **Week of Sep 14 (Level 2: Thinking & Connect)**:
   - [x] `80.V2C1`: *Staying Human in the Age of Artificial Intelligence* — Dropped: 2026-09-14
   - [x] `80.V2C1-S1`: *The One Mindset to Save Your Brain When Using AI* — Dropped: 2026-09-15
-  - [ ] `80.V2A-S2`: *Level 2 (Inward) — Thinking (Short 2)* — Scheduled: 2026-09-17 (`#idea`)
-  - [ ] `80.V2A-S3`: *Level 2 (Inward) — Thinking (Short 3)* — Scheduled: 2026-09-19 (`#idea`)
+  - [x] `80.V2A1-S2A`: *This is Your Default Setting* — Dropped: 2026-09-17 (`#published`)
+  - [x] `80.V2A1-S3A`: *Task Positive Network and Scrolling* — Dropped: 2026-09-19 (`#published`)
 
 - **Week of Sep 21 (Level 3: Play)**:
   - [ ] `80.V3A1`: *Level 3 (Outward) — Play (Long)* — Scheduled: 2026-09-21 (`#idea`)
