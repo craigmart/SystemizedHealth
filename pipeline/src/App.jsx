@@ -2,9 +2,8 @@ import { useEffect, useState } from 'react';
 import { supabase } from './supabase';
 import { 
   Calendar, CheckSquare, AlertCircle, RefreshCw, ChevronLeft, Save, Tag, 
-  TrendingUp, Clock, FileVideo, Scissors, Film, X, ExternalLink, BarChart2, 
-  LayoutDashboard, Eye, Users, Award, Flame, BookOpen, Check, ThumbsUp, 
-  MessageSquare, Plus, Trash2, ListTodo, FileText, CheckCircle2, Lightbulb, Link,
+  TrendingUp, Clock, FileVideo, Scissors, Film, X, ExternalLink,
+  Check, MessageSquare, Plus, Trash2, ListTodo, FileText, CheckCircle2, Lightbulb, Link,
   Sparkles, FileEdit, Search
 } from 'lucide-react';
 import { addDays, isBefore, parseISO, differenceInDays, format } from 'date-fns';
@@ -73,7 +72,6 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [currentVideo, setCurrentVideo] = useState(null);
   const [metricModal, setMetricModal] = useState(null);
-  const [activeTab, setActiveTab] = useState('pipeline');
   const [searchQuery, setSearchQuery] = useState('');
 
   const getRotationInfo = (videoOrCode) => {
@@ -87,9 +85,10 @@ function App() {
         match = rotationCatalog.find(r => r.drop_date === dropDate);
       }
       if (match) {
+        const pillar = (match.pillar === 'User Discretion' || match.pillar === 'Lab' || (code && code.includes('V4'))) ? 'Lab' : match.pillar;
         return {
           level: match.level,
-          pillar: match.pillar,
+          pillar: pillar,
           format_type: match.format_type || match.rotation_format
         };
       }
@@ -100,9 +99,11 @@ function App() {
       const notes = videoOrCode.notes || '';
       const pillarMatch = notes.match(/Pillar:\s*([^|]+)/);
       if (os_level || pillarMatch) {
+        const rawPillar = pillarMatch ? pillarMatch[1].trim() : 'Core';
+        const pillar = (rawPillar === 'User Discretion' || rawPillar === 'Lab' || (code && code.includes('V4'))) ? 'Lab' : rawPillar;
         return {
           level: os_level || 'Systemized OS',
-          pillar: pillarMatch ? pillarMatch[1].trim() : 'Core',
+          pillar: pillar,
           format_type: videoOrCode.format_type
         };
       }
@@ -118,7 +119,7 @@ function App() {
       if (code.includes('V3A')) return { level: 'Level 3 (Outward)', pillar: 'Play' };
       if (code.includes('V3B')) return { level: 'Level 3 (Outward)', pillar: 'Organize' };
       if (code.includes('V3C')) return { level: 'Level 3 (Outward)', pillar: 'Purpose' };
-      if (code.includes('V4'))  return { level: 'Level 4 (Lab)', pillar: 'User Discretion' };
+      if (code.includes('V4'))  return { level: 'Level 4 (Lab)', pillar: 'Lab' };
       if (code.includes('V0A') || code.includes('V0B')) return { level: 'Level 0 (Meta)', pillar: 'Worldview' };
     }
     return null;
@@ -692,11 +693,9 @@ function App() {
                   <div className="video-header">
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', flexWrap: 'wrap' }}>
                       <strong className={isLong ? 'video-code' : ''}>{item.code}</strong>
-                      {isLong ? (
-                        <span className="badge-long-video">⭐ Long Form</span>
-                      ) : (
-                        <span style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', fontWeight: '600', textTransform: 'uppercase' }}>Short</span>
-                      )}
+                      <span style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', fontWeight: '600', textTransform: 'uppercase' }}>
+                        {isLong ? 'Long' : 'Short'}
+                      </span>
                       {pillar && <span className="badge-pillar" title="Pillar Focus">{pillar}</span>}
                       {item.notes && <span title="Production Log" style={{ fontSize: '0.75rem' }}>📝</span>}
                     </div>
@@ -812,11 +811,9 @@ function App() {
                   <div className="video-header">
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', flexWrap: 'wrap' }}>
                       <strong className={isLong ? 'video-code' : ''}>{item.code}</strong>
-                      {isLong ? (
-                        <span className="badge-long-video">⭐ Monday Long</span>
-                      ) : (
-                        <span style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', fontWeight: '600', textTransform: 'uppercase' }}>Short</span>
-                      )}
+                      <span style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', fontWeight: '600', textTransform: 'uppercase' }}>
+                        {isLong ? 'Long' : 'Short'}
+                      </span>
                       {pillar && <span className="badge-pillar" title="Pillar Focus">{pillar}</span>}
                       {item.notes && <span title="Production Log" style={{ fontSize: '0.75rem' }}>📝</span>}
                     </div>
@@ -946,11 +943,9 @@ function App() {
                   <div className="video-header">
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', flexWrap: 'wrap' }}>
                       <strong className={isLong ? 'video-code' : ''}>{v.code}</strong>
-                      {isLong ? (
-                        <span className="badge-long-video">⭐ Long Form</span>
-                      ) : (
-                        <span style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', fontWeight: '600', textTransform: 'uppercase' }}>Short</span>
-                      )}
+                      <span style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', fontWeight: '600', textTransform: 'uppercase' }}>
+                        {isLong ? 'Long' : 'Short'}
+                      </span>
                       {pillar && <span className="badge-pillar" title="Pillar Focus">{pillar}</span>}
                       {v.notes && <span title="Production Log" style={{ fontSize: '0.75rem' }}>📝</span>}
                     </div>
@@ -1034,28 +1029,10 @@ function App() {
 
           {!currentVideo ? (
             <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
-              <div style={{ display: 'flex', background: 'var(--surface-color)', padding: '0.25rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
-                <button
-                  className={`btn ${activeTab === 'pipeline' ? 'btn-primary' : 'btn-outline'}`}
-                  style={{ border: 'none', borderRadius: '4px', boxShadow: 'none' }}
-                  onClick={() => { setActiveTab('pipeline'); setSearchQuery(''); }}
-                >
-                  <LayoutDashboard size={16} /> Pipeline
-                </button>
-                <button
-                  className={`btn ${activeTab === 'analytics' ? 'btn-primary' : 'btn-outline'}`}
-                  style={{ border: 'none', borderRadius: '4px', boxShadow: 'none' }}
-                  onClick={() => { setActiveTab('analytics'); setSearchQuery(''); }}
-                >
-                  <BarChart2 size={16} /> Analytics
-                </button>
-              </div>
-              {activeTab === 'pipeline' && (
-                <button className="btn btn-outline" onClick={fetchVideos} disabled={loading}>
-                  <RefreshCw size={16} className={loading ? "animate-spin" : ""} />
-                  Refresh
-                </button>
-              )}
+              <button className="btn btn-outline" onClick={fetchVideos} disabled={loading}>
+                <RefreshCw size={16} className={loading ? "animate-spin" : ""} />
+                Refresh
+              </button>
             </div>
           ) : (
             <button className="btn btn-outline" onClick={() => { closeVideo(); setSearchQuery(''); }}>
@@ -1072,10 +1049,8 @@ function App() {
         renderSearchResults()
       ) : currentVideo ? (
         <VideoDetail video={currentVideo} getRotationInfo={getRotationInfo} onUpdate={fetchVideos} onBack={() => closeVideo()} />
-      ) : activeTab === 'pipeline' ? (
-        renderDashboard()
       ) : (
-        <AnalyticsSummary />
+        renderDashboard()
       )}
     </div>
   );
@@ -1627,8 +1602,9 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
                 : `obsidian://search?vault=SystemizedHealth_Vault&query=${encodeURIComponent(`"${localVideo.code}"`)}`}
               className="btn btn-outline"
               style={{ textDecoration: 'none', padding: '0.25rem 0.6rem', fontSize: '0.8rem' }}
+              title="Open in Obsidian"
             >
-              <ExternalLink size={14} /> Open in Obsidian
+              <ExternalLink size={14} /> OB
             </a>
             {getStatusBadge(localVideo.status)}
           </div>
@@ -2180,116 +2156,3 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
 
 export default App;
 
-const RankChangeBadge = ({ rankChange }) => {
-  if (rankChange === null || rankChange === undefined) return <span style={{ fontSize: '0.75rem', color: '#52525b' }}>-</span>;
-  if (rankChange > 0) return <span style={{ fontSize: '0.85rem', color: '#10b981', fontWeight: 'bold', display: 'flex', alignItems: 'center' }}>↑ {rankChange}</span>;
-  if (rankChange < 0) return <span style={{ fontSize: '0.85rem', color: '#ef4444', fontWeight: 'bold', display: 'flex', alignItems: 'center' }}>↓ {Math.abs(rankChange)}</span>;
-  return <span style={{ fontSize: '0.85rem', color: '#a1a1aa' }}>-</span>;
-};
-
-function AnalyticsSummary() {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetch('/analytics.json')
-      .then(res => res.json())
-      .then(json => {
-        setData(json);
-        setLoading(false);
-      })
-      .catch(err => {
-        console.error("Error fetching analytics json:", err);
-        setLoading(false);
-      });
-  }, []);
-
-  if (loading) return <p>Loading Analytics Dashboard...</p>;
-  if (!data) return <p>Failed to load Analytics Summary. Ensure scripts/generate_analytics_reports.py has run successfully.</p>;
-
-  const s_28d = data.stats_28d || {};
-
-  return (
-    <div className="analytics-dashboard" style={{ marginTop: '1.5rem' }}>
-      
-      {/* 28-Day Performance */}
-      <h2 style={{ fontSize: '1.25rem', marginBottom: '1rem', color: 'var(--text-primary)' }}>📅 28-Day Performance</h2>
-      <div className="analytics-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
-        <div className="metric-card" style={{ background: 'var(--surface-color)', border: '1px solid var(--border-color)', padding: '1.5rem', borderRadius: 'var(--radius-lg)', boxShadow: 'var(--shadow-sm)' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-            <Eye size={16} color="var(--accent-color)" />
-            <span className="metric-label" style={{ color: 'var(--text-secondary)', fontSize: '0.875rem', fontWeight: '600' }}>28-Day Views</span>
-          </div>
-          <span className="metric-value" style={{ fontSize: '2rem', color: 'var(--text-primary)', fontWeight: 'bold' }}>{(s_28d.views || 0).toLocaleString()}</span>
-        </div>
-        
-        <div className="metric-card" style={{ background: 'var(--surface-color)', border: '1px solid var(--border-color)', padding: '1.5rem', borderRadius: 'var(--radius-lg)', boxShadow: 'var(--shadow-sm)' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-            <ThumbsUp size={16} color="#ec4899" />
-            <span className="metric-label" style={{ color: 'var(--text-secondary)', fontSize: '0.875rem', fontWeight: '600' }}>28-Day Likes</span>
-          </div>
-          <span className="metric-value" style={{ fontSize: '2rem', color: 'var(--text-primary)', fontWeight: 'bold' }}>{(s_28d.likes || 0).toLocaleString()}</span>
-        </div>
-        
-        <div className="metric-card" style={{ background: 'var(--surface-color)', border: '1px solid var(--border-color)', padding: '1.5rem', borderRadius: 'var(--radius-lg)', boxShadow: 'var(--shadow-sm)' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-            <Users size={16} color="var(--success-color)" />
-            <span className="metric-label" style={{ color: 'var(--text-secondary)', fontSize: '0.875rem', fontWeight: '600' }}>28-Day Subs</span>
-          </div>
-          <span className="metric-value" style={{ fontSize: '2rem', color: 'var(--text-primary)', fontWeight: 'bold' }}>+{(s_28d.subs || 0).toLocaleString()}</span>
-        </div>
-      </div>
-
-      {/* Top 10 Lists */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem', marginTop: '2rem' }}>
-        
-        {/* Top 10 Shorts */}
-        <div className="top-10-container" style={{ background: 'var(--surface-color)', border: '1px solid var(--border-color)', padding: '1.5rem', borderRadius: 'var(--radius-lg)' }}>
-          <div className="top-10-header" style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <Flame size={24} color="#ff416c" />
-            <h2 style={{ fontSize: '1.25rem', color: 'var(--text-primary)', margin: 0 }}>Top 10 Shorts</h2>
-          </div>
-          <div className="top-10-list">
-            {(data.top_10_shorts || []).map((v, index) => (
-              <div key={index} className="top-10-item hover-scale" style={{ padding: '0.75rem', background: 'var(--bg-color)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-md)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '1rem', transition: 'transform 0.2s ease, box-shadow 0.2s ease' }}>
-                <span className="top-10-rank" style={{ fontSize: '1.25rem', fontWeight: 'bold', color: 'var(--accent-color)', width: '30px' }}>#{index + 1}</span>
-                <div style={{ flexGrow: 1, overflow: 'hidden' }}>
-                  <div style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', fontSize: '0.9rem', color: 'var(--text-primary)', fontWeight: '500' }}>{v.title}</div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>{(v.views || 0).toLocaleString()} views</div>
-                </div>
-                <RankChangeBadge rankChange={v.rank_change} />
-              </div>
-            ))}
-            {(data.top_10_shorts || []).length === 0 && <p style={{ color: 'var(--text-secondary)' }}>No shorts data available.</p>}
-          </div>
-        </div>
-
-        {/* Top 10 Longs */}
-        <div className="top-10-container" style={{ background: 'var(--surface-color)', border: '1px solid var(--border-color)', padding: '1.5rem', borderRadius: 'var(--radius-lg)' }}>
-          <div className="top-10-header" style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <TrendingUp size={24} color="#a855f7" />
-            <h2 style={{ fontSize: '1.25rem', color: 'var(--text-primary)', margin: 0 }}>Top 10 Longs</h2>
-          </div>
-          <div className="top-10-list">
-            {(data.top_10_longs || []).map((v, index) => (
-              <div key={index} className="top-10-item hover-scale" style={{ padding: '0.75rem', background: 'var(--bg-color)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-md)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '1rem', transition: 'transform 0.2s ease, box-shadow 0.2s ease' }}>
-                <span className="top-10-rank" style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#a855f7', width: '30px' }}>#{index + 1}</span>
-                <div style={{ flexGrow: 1, overflow: 'hidden' }}>
-                  <div style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', fontSize: '0.9rem', color: 'var(--text-primary)', fontWeight: '500' }}>{v.title}</div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>{(v.views || 0).toLocaleString()} views</div>
-                </div>
-                <RankChangeBadge rankChange={v.rank_change} />
-              </div>
-            ))}
-            {(data.top_10_longs || []).length === 0 && <p style={{ color: 'var(--text-secondary)' }}>No longs data available.</p>}
-          </div>
-        </div>
-
-      </div>
-
-      <p style={{ textAlign: 'center', fontSize: '0.75rem', color: 'var(--text-secondary)', marginTop: '2rem' }}>
-        Dashboard generated from live database. Last synced: {data.updated_at_str}
-      </p>
-    </div>
-  );
-}
