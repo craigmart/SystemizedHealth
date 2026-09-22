@@ -1,6 +1,6 @@
 # Video Pipeline Status
 
-> **Source of truth:** Supabase `videos` table  |  Generated: 2026-09-16
+> **Source of truth:** Supabase `videos` table  |  Generated: 2026-09-21
 > To update status: `python3 scripts/video_pipeline.py --status <code> <status>`
 
 ---
@@ -12,44 +12,44 @@
 | **001** | `80.V0B` | Long | Knowledge Isn't Enough—Here's What Actually Works | 2026-08-03 | ✅ #published | 2026-08-03 |
 | **002** | `80.V0A` | Long | 20,000 Patients Taught Me This One Biological Reality | 2026-08-03 | ✅ #published | 2026-08-03 |
 | **003** | `80.V1B1` | Long | Exercise is Optional, Movement is not. | 2026-08-10 | ✅ #published | 2026-08-10 |
-| **004** | `80.V0A1` | Long | Systemized OS Framework | 2026-08-24 | ✅ #published | 2026-08-25 |
+| **004** | `80.V0A1` | Long | Uncover the Clarity You Need to Take Control of Your Health - Systemized OS | 2026-08-24 | ✅ #published | 2026-08-25 |
 | **005** | `80.V0B-S1` | Short | Do Less to Get More | 2026-08-04 | ✅ #published | 2026-08-04 |
 | **006** | `80.V0B-S2` | Short | Aim Smaller, Win Bigger #goals #success | 2026-08-06 | ✅ #published | 2026-08-06 |
 | **007** | `80.V0B-S3` | Short | Stop Trying to Fix Stress Backward (Fuel, Move, Rest First) | 2026-08-08 | ✅ #published | 2026-08-08 |
 | **008** | `80.V0A-S1` | Short | Coffee Won't Fix Your Afternoon Crash #bloodsugar #over50 | 2026-08-06 | ✅ #published | 2026-08-18 |
 | **009** | `80.V0A-S2` | Short | Why Chugging Water can Dehydrate you | 2026-08-08 | ✅ #published | 2026-08-20 |
-| **010** | `80.V0A-S3` | Short | Break a Sweat 3 Times a Week (Prevent Musculoskeletal Pain) | 2026-08-22 | ✅ #published | 2026-09-07 |
+| **010** | `80.V0A-S3` | Short | Break a Sweat 3 Times a Week (Prevent Musculoskeletal Pain) | 2026-08-22 | ✅ #published | 2026-08-22 |
 | **011** | `80.V1B1-S1` | Short | The Lazy Way to Get Fit (It Actually Works) #shorts #fitness #hack | 2026-08-11 | ✅ #published | 2026-08-11 |
 | **012** | `80.V1B1-S2` | Short | How do the Joints in your Body Stay Healthy? - Its not good bloodflow. | 2026-08-13 | ✅ #published | 2026-08-13 |
 | **013** | `80.V1B1-S3` | Short | Cortical Smudging: A reason for Sudden Back Pain #backpain #tips | 2026-08-15 | ✅ #published | 2026-08-15 |
 | **014** | `80.V0A1-S1` | Short | Why you have zero willpower left #productivity #psychology | 2026-08-25 | ✅ #published | 2026-08-26 |
 | **015** | `80.V0A1-S2` | Short | Prove it before you buy it - don’t fall for health gadgets | 2026-08-27 | ✅ #published | 2026-08-27 |
 | **016** | `80.V0A1-S3` | Short | This is why you aren't getting healthier #health #fitness #motivation | 2026-08-29 | ✅ #published | 2026-08-29 |
-| **017** | `80.V1C1` | Long | Biological Debt of Sleep | 2026-08-31 | ✅ #published | — |
-| **018** | `80.V1C1-S1` | Short | Weekend Catch-Up Myth | 2026-09-01 | ✅ #published | — |
-| **019** | `80.V1C1-S2` | Short | Brain Night Shift | 2026-09-03 | ✅ #published | — |
+| **017** | `80.V1C1` | Long | What Actually Happens to Your Brain When You Don't Sleep | 2026-08-31 | ✅ #published | 2026-09-01 |
+| **018** | `80.V1C1-S1` | Short | The Weekend Catch-Up Sleep Myth Destroying Your Metabolism | 2026-09-01 | ✅ #published | 2026-09-02 |
+| **019** | `80.V1C1-S2` | Short | Why The First 4 Hours of Sleep Are Critical (Brain Night Shift) | 2026-09-03 | ✅ #published | 2026-09-04 |
 | **020** | `80.V1C1-S3` | Short | Caffeine Illusion | 2026-09-05 | ✅ #published | — |
-| **021** | `80.V1B2` | Long | Can You Run With a Herniated Disc? (A Doctor's Experiment) | 2026-09-07 | ✅ #published | — |
+| **021** | `80.V1B2` | Long | Can You Run With a Herniated Disc? (A Doctor's Experiment) | 2026-09-07 | ✅ #published | 2026-09-07 |
 | **022** | `80.V1B2-S1` | Short | How Do the Discs in Your Spine Stay Healthy? (It's NOT Bloodflow) | 2026-09-08 | ✅ #published | — |
-| **023** | `80.V2B1-S1` | Short | The Need for Discomfort to Be Comfortable | 2026-09-10 | ✅ #published | 2026-09-08 |
-| **024** | `80.V1B2-S2` | Short | Running and Longterm Health of Your Disc | 2026-09-12 | ✅ #published | 2026-09-08 |
+| **023** | `80.V2B1-S1` | Short | How discomfort makes you comfortable | 2026-09-10 | ✅ #published | 2026-09-10 |
+| **024** | `80.V1B2-S2` | Short | Running and Longterm Health of Your Disc | 2026-09-12 | ✅ #published | 2026-09-12 |
 | **025** | `80.V2C1` | Long | Staying Human in the Age of Artificial Intelligence | 2026-09-14 | ✅ #published | 2026-09-14 |
 | **026** | `80.V2C1-S1` | Short | The One Mindset to Save Your Brain When Using AI | 2026-09-15 | ✅ #published | 2026-09-15 |
-| **027** | `80.V2A-S2` | Short | Level 2 (Inward) — Thinking (Short 2) | 2026-09-17 | 💡 #idea | — |
-| **028** | `80.V2A-S3` | Short | Level 2 (Inward) — Thinking (Short 3) | 2026-09-19 | 💡 #idea | — |
-| **029** | `80.V3A1` | Long | Level 3 (Outward) — Play | 2026-09-21 | 💡 #idea | — |
-| **030** | `80.V3A1-S1` | Short | Level 3 (Outward) — Play (Short 1) | 2026-09-22 | 💡 #idea | — |
-| **031** | `80.V3A1-S2` | Short | Level 3 (Outward) — Play (Short 2) | 2026-09-24 | 💡 #idea | — |
-| **032** | `80.V3A1-S3` | Short | Level 3 (Outward) — Play (Short 3) | 2026-09-26 | 💡 #idea | — |
+| **027** | `80.V2A1-S2A` | Short | This is Your Default Setting | 2026-09-17 | ✅ #published | — |
+| **028** | `80.V2A1-S3A` | Short | Task Positive Network and Scrolling | 2026-09-19 | ✅ #published | — |
+| **029** | `80.V3A1` | Long | After 28 Years I can Predict Who's Brain will Stay Sharp into their 90's | 2026-09-23 | ✂️ #edit | — |
+| **030** | `80.V3A1-S1` | Short | Level 3 (Outward) — Play (Short 1) | 2026-09-24 | 💡 #idea | — |
+| **031** | `80.V3A1-S2` | Short | Level 3 (Outward) — Play (Short 2) | 2026-09-26 | 💡 #idea | — |
+| **032** | `80.V3A1-S3` | Short | Level 3 (Outward) — Play (Short 3) | 2026-09-28 | 💡 #idea | — |
 | **033** | `80.V1A` | Long | The real reason you're exhausted at 3pm | 2026-08-17 | ✅ #published | 2026-08-17 |
 | **034** | `80.V1A-S1` | Short | The Mid-Afternoon Crash | 2026-08-18 | ✅ #published | — |
 | **035** | `80.V1A-S2` | Short | Cellular Hydration | 2026-08-20 | ✅ #published | — |
 | **036** | `80.V1A-S3` | Short | Diets wont work, here's what does. | 2026-08-21 | ✅ #published | 2026-08-21 |
-| **037** | `80.V3B1` | Long | Level 3 (Outward) — Organize | 2026-09-28 | 💡 #idea | — |
-| **038** | `80.V3B1-S1` | Short | Level 3 (Outward) — Organize (Short 1) | 2026-09-29 | 💡 #idea | — |
-| **039** | `80.V3B1-S2` | Short | Level 3 (Outward) — Organize (Short 2) | 2026-10-01 | 💡 #idea | — |
-| **040** | `80.V3B1-S3` | Short | Level 3 (Outward) — Organize (Short 3) | 2026-10-03 | 💡 #idea | — |
-| **041** | `80.V4-01` | Long | Level 4 (Lab) — User Discretion | 2026-10-05 | 💡 #idea | — |
+| **037** | `80.V3B1` | Long | Level 3 (Outward) — Organize | 2026-09-30 | 💡 #idea | — |
+| **038** | `80.V3B1-S1` | Short | Level 3 (Outward) — Organize (Short 1) | 2026-10-01 | 💡 #idea | — |
+| **039** | `80.V3B1-S2` | Short | Level 3 (Outward) — Organize (Short 2) | 2026-10-03 | 💡 #idea | — |
+| **040** | `80.V3B1-S3` | Short | Level 3 (Outward) — Organize (Short 3) | 2026-10-04 | 💡 #idea | — |
+| **041** | `80.V4B` | Long | DMN Deep Dive 82.08.A | 2026-10-05 | 📝 #write | — |
 | **042** | `80.V4-01-S1` | Short | Level 4 (Lab) — User Discretion (Short 1) | 2026-10-06 | 💡 #idea | — |
 | **043** | `80.V4-01-S2` | Short | Level 4 (Lab) — User Discretion (Short 2) | 2026-10-08 | 💡 #idea | — |
 | **044** | `80.V4-01-S3` | Short | Level 4 (Lab) — User Discretion (Short 3) | 2026-10-10 | 💡 #idea | — |
@@ -69,7 +69,7 @@
 | **058** | `80.V4-02-S1` | Short | Level 4 (Lab) — User Discretion (Short 1) | 2026-11-03 | 💡 #idea | — |
 | **059** | `80.V4-02-S2` | Short | Level 4 (Lab) — User Discretion (Short 2) | 2026-11-05 | 💡 #idea | — |
 | **060** | `80.V4-02-S3` | Short | Level 4 (Lab) — User Discretion (Short 3) | 2026-11-07 | 💡 #idea | — |
-| **061** | `80.V2C2` | Long | Level 2 (Inward) — Connect | 2026-11-09 | 💡 #idea | — |
+| **061** | `80.V2C2` | Long | Prayer and DMN | 2026-11-09 | 📝 #write | — |
 | **062** | `80.V2C2-S1` | Short | Level 2 (Inward) — Connect (Short 1) | 2026-11-10 | 💡 #idea | — |
 | **063** | `80.V2C2-S2` | Short | Level 2 (Inward) — Connect (Short 2) | 2026-11-12 | 💡 #idea | — |
 | **064** | `80.V2C2-S3` | Short | Level 2 (Inward) — Connect (Short 3) | 2026-11-14 | 💡 #idea | — |
@@ -276,5 +276,7 @@
 
 ## 📊 Status Summary
 
-- 💡 **#idea**: 214
-- ✅ **#published**: 48
+- 💡 **#idea**: 209
+- 📝 **#write**: 2
+- ✂️ **#edit**: 1
+- ✅ **#published**: 50

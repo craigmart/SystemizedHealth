@@ -1,7 +1,7 @@
 
 # Systemized Health — Master TODO & Task List
 
-*Last Updated: 2026-09-16*
+*Last Updated: 2026-09-21*
 
 ---
 
@@ -43,16 +43,16 @@
   - [x] `80.V2A1-S3A`: *Task Positive Network and Scrolling* — Dropped: 2026-09-19 (`#published`)
 
 - **Week of Sep 21 (Level 3: Play)**:
-  - [ ] `80.V3A1`: *Level 3 (Outward) — Play (Long)* — Scheduled: 2026-09-21 (`#idea`)
-  - [ ] `80.V3A1-S1`: *Level 3 (Outward) — Play (Short 1)* — Scheduled: 2026-09-22 (`#idea`)
-  - [ ] `80.V3A1-S2`: *Level 3 (Outward) — Play (Short 2)* — Scheduled: 2026-09-24 (`#idea`)
-  - [ ] `80.V3A1-S3`: *Level 3 (Outward) — Play (Short 3)* — Scheduled: 2026-09-26 (`#idea`)
+  - [ ] `80.V3A1`: *After 28 Years I can Predict Who's Brain will Stay Sharp into their 90's* — Scheduled: 2026-09-23 (`#edit`)
+  - [ ] `80.V3A1-S1`: *Level 3 (Outward) — Play (Short 1)* — Scheduled: 2026-09-24 (`#idea`)
+  - [ ] `80.V3A1-S2`: *Level 3 (Outward) — Play (Short 2)* — Scheduled: 2026-09-26 (`#idea`)
+  - [ ] `80.V3A1-S3`: *Level 3 (Outward) — Play (Short 3)* — Scheduled: 2026-09-28 (`#idea`)
 
 - **Week of Sep 28 (Level 3: Organize)**:
-  - [ ] `80.V3B1`: *Level 3 (Outward) — Organize (Long)* — Scheduled: 2026-09-28 (`#idea`)
-  - [ ] `80.V3B1-S1`: *Level 3 (Outward) — Organize (Short 1)* — Scheduled: 2026-09-29 (`#idea`)
-  - [ ] `80.V3B1-S2`: *Level 3 (Outward) — Organize (Short 2)* — Scheduled: 2026-10-01 (`#idea`)
-  - [ ] `80.V3B1-S3`: *Level 3 (Outward) — Organize (Short 3)* — Scheduled: 2026-10-03 (`#idea`)
+  - [ ] `80.V3B1`: *Level 3 (Outward) — Organize (Long)* — Scheduled: 2026-09-30 (`#idea`)
+  - [ ] `80.V3B1-S1`: *Level 3 (Outward) — Organize (Short 1)* — Scheduled: 2026-10-01 (`#idea`)
+  - [ ] `80.V3B1-S2`: *Level 3 (Outward) — Organize (Short 2)* — Scheduled: 2026-10-03 (`#idea`)
+  - [ ] `80.V3B1-S3`: *Level 3 (Outward) — Organize (Short 3)* — Scheduled: 2026-10-04 (`#idea`)
 
 - **Week of Oct 05 (Level 4: Lab Deep Dive)**:
   - [ ] `80.V4-01`: *Level 4 (Lab) — User Discretion (Long)* — Scheduled: 2026-10-05 (`#idea`)
