@@ -1,7 +1,7 @@
 
 # Systemized Health — Master TODO & Task List
 
-*Last Updated: 2026-09-21*
+*Last Updated: 2026-09-24*
 
 ---
 
@@ -12,7 +12,7 @@
   - App pipeline view upgraded with 3-week runway, Level/Pillar tags, and 5-beat long / 3-beat short editable Outline box.
   - Video Production Log maintained for scratchpad ideas and Agent reference.
 - [ ] **Reconcile uploaded videos & metadata** with drop calendar (confirm titles/tags match schedule)
-- [ ] **Next upcoming production**: `80.V2A-S2` (*Level 2 (Inward) — Thinking (Short 2)*) scheduled for 2026-09-17 (`#idea`)
+- [ ] **Next upcoming production**: `80.V3A1-S1` (*Play is how you learn new things*) scheduled for 2026-09-25 (`#idea`)
 
 ---
 
@@ -27,11 +27,12 @@
 - [x] `80.V2C1-S1`: *The One Mindset to Save Your Brain When Using AI* — Dropped: 2026-09-15
 - [x] `80.V2A1-S2A`: *This is Your Default Setting* — Dropped: 2026-09-17
 - [x] `80.V2A1-S3A`: *Task Positive Network and Scrolling* — Dropped: 2026-09-19
+- [x] `80.V3A1`: *The 5 Stages of Brain Aging (And How to Stay Sharp Into Your 90s)* — Dropped: 2026-09-24
 
 ### 🗃️ Zettelkasten Physical 3x5 Index Cards
 - [ ] **Active WIP Review**: `80.V2A1-S2A` (*This is Your Default Setting*) — Review propositions & add to Zettelkasten box (3x5 card pending).
 - [x] `80.V2A1-S3A` (*Task Positive Network and Scrolling*) — Card completed (`[2026-09-17 06:53] Card done`).
-- [x] **Historical Archive**: All 31 prior published videos filed and completed in analog Zettelkasten archive box. Tracked in [`docs/Published_Video_Propositions.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/Published_Video_Propositions.md).
+- [x] **Historical Archive**: All 32 prior published videos filed and completed in analog Zettelkasten archive box. Tracked in [`docs/Published_Video_Propositions.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/Published_Video_Propositions.md).
 
 ### ✍️ Next Production Queue: 12-Month Rotation Schedule (`#idea`)
 *(Active pipeline view: next 3 weeks runway from [`docs/content_rotation.csv`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/content_rotation.csv) & [`SOPs/Content Rotation System SOP.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/Content%20Rotation%20System%20SOP.md))*
@@ -43,10 +44,9 @@
   - [x] `80.V2A1-S3A`: *Task Positive Network and Scrolling* — Dropped: 2026-09-19 (`#published`)
 
 - **Week of Sep 21 (Level 3: Play)**:
-  - [ ] `80.V3A1`: *After 28 Years I can Predict Who's Brain will Stay Sharp into their 90's* — Scheduled: 2026-09-23 (`#edit`)
-  - [ ] `80.V3A1-S1`: *Level 3 (Outward) — Play (Short 1)* — Scheduled: 2026-09-24 (`#idea`)
-  - [ ] `80.V3A1-S2`: *Level 3 (Outward) — Play (Short 2)* — Scheduled: 2026-09-26 (`#idea`)
-  - [ ] `80.V3A1-S3`: *Level 3 (Outward) — Play (Short 3)* — Scheduled: 2026-09-28 (`#idea`)
+  - [x] `80.V3A1`: *The 5 Stages of Brain Aging (And How to Stay Sharp Into Your 90s)* — Dropped: 2026-09-24 (`#published`)
+  - [ ] `80.V3A1-S1`: *Play is how you learn new things* — Scheduled: 2026-09-25 (`#idea`)
+  - [ ] `80.V3A1-S2`: *You can’t force play* — Scheduled: 2026-09-26 (`#idea`)
 
 - **Week of Sep 28 (Level 3: Organize)**:
   - [ ] `80.V3B1`: *Level 3 (Outward) — Organize (Long)* — Scheduled: 2026-09-30 (`#idea`)

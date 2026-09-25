@@ -6,7 +6,7 @@
 
 ## 📊 Card Transcription Progress
 
-**Status**: 31 Completed / 0 Pending Physical 3x5 Cards (100% Complete 🎉)
+**Status**: 32 Completed / 0 Pending Physical 3x5 Cards (100% Complete 🎉)
 
 | Video # | Code | Title | Primary JDex | Cards Status |
 | :---: | :--- | :--- | :--- | :---: |
@@ -36,6 +36,7 @@
 | **024** | `80.V1B2-S2` | Running and Longterm Health of Your Disc | `81.05` | ✅ Done |
 | **025** | `80.V2C1` | Staying Human in the Age of Artificial Intel | `82.07` | ✅ Done |
 | **026** | `80.V2C1-S1` | The One Mindset to Save Your Brain When Usin | `82.02` | ✅ Done |
+| **029** | `80.V3A1` | The 5 Stages of Brain Aging (And How to Stay | `82.02` | ✅ Done |
 | **033** | `80.V1A` | The real reason you're exhausted at 3pm | `81.09` | ✅ Done |
 | **034** | `80.V1A-S1` | The Mid-Afternoon Crash | `81.09` | ✅ Done |
 | **035** | `80.V1A-S2` | Cellular Hydration | `81.09` | ✅ Done |
@@ -183,5 +184,13 @@
 
 - In cognitive ergonomics and neuroscience, employing artificial intelligence as *cognitive scaffolding* enhances baseline human productive bandwidth, whereas using AI for *cognitive substitution* outsources neurological engagement, accelerating mental atrophy and cognitive dullness. [[82.02 Functional Systems]]
 - Preserving neuroplasticity and critical thinking capacity requires adhering to the "Think First, AI Later" heuristic: human reasoning must formulate the baseline thesis and structure before external digital tools are consulted for editing or execution. [[81.05 Lifestyle Management]]
+
+### ✅ [80.V3A1] The 5 Stages of Brain Aging (And How to Stay Sharp Into Your 90s) (Video #029)
+*Primary JDex Category*: `82.02` | *Obsidian Script*: `Zettlekasten/80.V3A1 Script - The 5 Stages of Brain Aging (And How to Stay Sharp Into Your 90s).md`
+
+- Human brain plasticity and functional architecture evolve across five distinct life epochs (childhood, adolescence, adulthood, early aging, late aging), each defined by specific developmental imperatives, synaptic pruning patterns, and neurochemical demands rather than an inevitable post-20s linear decline. [[82.02 Functional Systems]]
+- Sustained neuronal viability and synaptic firing mandate a biological triad of cerebral oxygenation (driven by cardiovascular respiration and sweat-inducing movement), stable glycemic regulation, and active novel cognitive stimulation; deficiency in any single element precipitates accelerated cortical atrophy during early aging. [[82.07 Regulatory Neuroscience]]
+- In late neuro-aging, establishing automated, invariant daily behavioral routines reduces prefrontal executive cognitive load, conserving finite metabolic and cognitive bandwidth for continued creative problem-solving, novel learning, and play. [[81.05 Lifestyle Management]]
+
 
 

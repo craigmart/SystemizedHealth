@@ -32,7 +32,7 @@
     "code": "80.V3A1",
     "format_type": "Long",
     "title": "Level 3 (Outward) \u2014 Play",
-    "drop_date": "2026-09-23",
+    "drop_date": "2026-09-24",
     "status": "#idea",
     "os_level": "Level 3 (Outward)",
     "jdex_code": "80.V3A",
@@ -46,7 +46,7 @@
     "code": "80.V3A1-S1",
     "format_type": "Short",
     "title": "Level 3 (Outward) \u2014 Play (Short 1)",
-    "drop_date": "2026-09-24",
+    "drop_date": "2026-09-25",
     "status": "#idea",
     "os_level": "Level 3 (Outward)",
     "jdex_code": "80.V3A",
@@ -68,20 +68,6 @@
     "cards_created": true,
     "pillar": "Play",
     "rotation_format": "Short 2"
-  },
-  {
-    "video_number": "032",
-    "code": "80.V3A1-S3",
-    "format_type": "Short",
-    "title": "Level 3 (Outward) \u2014 Play (Short 3)",
-    "drop_date": "2026-09-28",
-    "status": "#idea",
-    "os_level": "Level 3 (Outward)",
-    "jdex_code": "80.V3A",
-    "notes": null,
-    "cards_created": true,
-    "pillar": "Play",
-    "rotation_format": "Short 3"
   },
   {
     "video_number": "037",
