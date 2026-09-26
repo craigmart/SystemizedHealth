@@ -1,6 +1,6 @@
 # Video Pipeline Status
 
-> **Source of truth:** Supabase `videos` table  |  Generated: 2026-09-24
+> **Source of truth:** Supabase `videos` table  |  Generated: 2026-09-26
 > To update status: `python3 scripts/video_pipeline.py --status <code> <status>`
 
 ---
@@ -38,16 +38,16 @@
 | **027** | `80.V2A1-S2A` | Short | This is Your Default Setting | 2026-09-17 | ✅ #published | — |
 | **028** | `80.V2A1-S3A` | Short | Task Positive Network and Scrolling | 2026-09-19 | ✅ #published | — |
 | **029** | `80.V3A1` | Long | The 5 Stages of Brain Aging (And How to Stay Sharp Into Your 90s) | 2026-09-24 | ✅ #published | — |
-| **030** | `80.V3A1-S1` | Short | Play is how you learn new things | 2026-09-25 | 💡 #idea | — |
-| **031** | `80.V3A1-S2` | Short | You can’t force play | 2026-09-26 | 💡 #idea | — |
+| **030** | `80.V3A1-S1` | Short | Play is how you learn new things | 2026-09-25 | ✅ #published | — |
+| **031** | `80.V3A1-S2` | Short | When Was the Last Time You Just Played? | 2026-09-26 | ✅ #published | — |
 | **033** | `80.V1A` | Long | The real reason you're exhausted at 3pm | 2026-08-17 | ✅ #published | 2026-08-17 |
 | **034** | `80.V1A-S1` | Short | The Mid-Afternoon Crash | 2026-08-18 | ✅ #published | — |
 | **035** | `80.V1A-S2` | Short | Cellular Hydration | 2026-08-20 | ✅ #published | — |
 | **036** | `80.V1A-S3` | Short | Diets wont work, here's what does. | 2026-08-21 | ✅ #published | 2026-08-21 |
-| **037** | `80.V3B1` | Long | A guys Bullet Journal | 2026-09-30 | 💡 #idea | — |
-| **038** | `80.V3B1-S1` | Short | Get it out of your head - journal! | 2026-10-01 | 💡 #idea | — |
-| **039** | `80.V3B1-S2` | Short | The Power of a Waiting For list | 2026-10-03 | 💡 #idea | — |
-| **040** | `80.V3B1-S3` | Short | Your mind if for creativity not to do lists | 2026-10-04 | 💡 #idea | — |
+| **037** | `80.V3B1` | Long | A guys Bullet Journal | 2026-09-30 | 📝 #write | — |
+| **038** | `80.V3B1-S1` | Short | Get it out of your head - journal! | 2026-10-01 | 📝 #write | — |
+| **039** | `80.V3B1-S2` | Short | The Power of a Waiting For list | 2026-10-03 | 📝 #write | — |
+| **040** | `80.V3B1-S3` | Short | Your mind if for creativity not to do lists | 2026-10-04 | 📝 #write | — |
 | **041** | `80.V4B` | Long | Systemized OS Deep Dive | 2026-10-05 | 📝 #write | — |
 | **042** | `80.V4-01-S1` | Short | Level 4 (Lab) — User Discretion (Short 1) | 2026-10-06 | 💡 #idea | — |
 | **043** | `80.V4-01-S2` | Short | Level 4 (Lab) — User Discretion (Short 2) | 2026-10-08 | 💡 #idea | — |
@@ -275,6 +275,6 @@
 
 ## 📊 Status Summary
 
-- 💡 **#idea**: 208
-- 📝 **#write**: 2
-- ✅ **#published**: 51
+- 💡 **#idea**: 202
+- 📝 **#write**: 6
+- ✅ **#published**: 53

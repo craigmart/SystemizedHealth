@@ -16,6 +16,7 @@ Usage:
 
 import argparse
 import json
+import re
 import sys
 from collections import Counter
 from datetime import date, datetime, timedelta
@@ -297,6 +298,99 @@ def generate_drop_schedule(videos: list = None, db: SupabaseClient = None):
     print(f"  ✅  Drop Schedule written → {root_path}")
 
 
+def sync_obsidian_notes(videos: list):
+    """
+    Check if any on-the-fly or newly added videos from the field lack an Obsidian note.
+    Scaffolds Obsidian_Vault/Zettlekasten/[Code] Script - [Title].md so it is immediately
+    indexed into the Zettelkasten study archive, propositions tracker, and video paths.
+    """
+    vault_dir = Path(__file__).parent.parent / "Obsidian_Vault" / "Zettlekasten"
+    if not vault_dir.exists():
+        return
+
+    # Fast filename match without reading all iCloud files
+    existing_codes = set()
+    for f in vault_dir.iterdir():
+        if f.is_file() and f.name.endswith(".md"):
+            m = re.match(r"^(80\.[A-Z0-9\-]+|HIST\.[A-Z0-9\-]+)", f.name)
+            if m:
+                existing_codes.add(m.group(1))
+
+    today_str = date.today().isoformat()
+    scaffolded = 0
+
+    for v in videos:
+        code = v.get("code")
+        if not code or code in existing_codes:
+            continue
+
+        # Target videos that have been filmed, in edit, uploaded, published, or explicitly flagged as on-the-fly
+        status = v.get("status") or "#idea"
+        has_transcript = bool((v.get("raw_transcript") or "").strip())
+        is_onthefly = "on-the-fly" in (v.get("notes") or "").lower() or "added in field" in (v.get("notes") or "").lower()
+        is_active = status in ["#film", "#edit", "#uploaded", "#published"] or has_transcript or is_onthefly
+
+        if not is_active:
+            continue
+
+        raw_title = v.get("title") or "Untitled Video"
+        clean_title = re.sub(r'[/\\:*?"<>|]', "", raw_title).strip()
+        filename = f"{code} Script - {clean_title}.md"
+        file_path = vault_dir / filename
+
+        status = v.get("status") or "#edit"
+        fmt = v.get("format_type") or "Short"
+        drop_date = v.get("drop_date") or today_str
+        raw_transcript = (v.get("raw_transcript") or "").strip()
+        rough_outline = (v.get("rough_outline") or "").strip()
+        notes = (v.get("notes") or "").strip()
+
+        transcript_section = (
+            raw_transcript
+            if raw_transcript
+            else "*(Spoken transcript pending ingestion from Descript)*"
+        )
+        outline_section = (
+            rough_outline
+            if rough_outline
+            else (notes if notes else "*(Filmed on-the-fly in the field)*")
+        )
+
+        content = f"""---
+aliases:
+  - "{code}"
+tags:
+  - "#video"
+  - "{status}"
+format: "{fmt}"
+drop_date: "{drop_date}"
+---
+
+# {code} Script — {raw_title}
+
+## Final Spoken Transcript
+
+{transcript_section}
+
+## 3x5 Outline & Field Notes
+
+{outline_section}
+
+## Clinical Propositions (JDex)
+<!-- Propositions extracted during post-recording study review -->
+
+## Changelog
+- [{today_str}] Ingested from on-the-fly field production. Installed in Zettelkasten.
+"""
+        file_path.write_text(content, encoding="utf-8")
+        print(f"  ✨ Installed on-the-fly video into Obsidian → {filename}")
+        existing_codes.add(code)
+        scaffolded += 1
+
+    if scaffolded > 0:
+        print(f"  ✅ Installed {scaffolded} new on-the-fly video note(s) into Obsidian Vault.")
+
+
 def cmd_cache(db: SupabaseClient):
     """Write a JSON snapshot to docs/video_pipeline_cache.json for offline/agent reads."""
     import json as _json
@@ -318,6 +412,12 @@ def cmd_cache(db: SupabaseClient):
     out_path.write_text(_json.dumps(payload, indent=2, default=str))
     print(f"\n  ✅  Cache written → {out_path}  ({len(videos)} videos)")
 
+    # Install any missing on-the-fly video notes into Obsidian
+    try:
+        sync_obsidian_notes(videos)
+    except Exception as e:
+        print(f"  ⚠️  Obsidian notes sync warning: {e}")
+
     # Also auto-update iCalendar (.ics) feed and Drop Schedule
     try:
         from generate_ical import generate_ics
@@ -332,6 +432,7 @@ def cmd_cache(db: SupabaseClient):
         print(f"  ⚠️  Video paths generation warning: {e}")
 
     generate_drop_schedule(videos=videos)
+    cmd_doc(db)
     print()
 
 
@@ -351,6 +452,7 @@ Examples:
   python3 scripts/video_pipeline.py --status 80.V0A-S1 '#uploaded'
   python3 scripts/video_pipeline.py --status 80.V0A1 '#edit'
   python3 scripts/video_pipeline.py --add '{"video_number":"017","code":"80.V1B2","format_type":"Long","title":"New Video"}'
+  python3 scripts/video_pipeline.py --sync
   python3 scripts/video_pipeline.py --doc
   python3 scripts/video_pipeline.py --schedule
         """,
@@ -364,6 +466,7 @@ Examples:
     parser.add_argument("--log",      nargs=2, metavar=("CODE", "ENTRY"),
                         help="Append a production log entry to video: --log <code> '<entry>'")
     parser.add_argument("--add",      metavar="JSON",      help="Add/upsert a video or extra status data from JSON string")
+    parser.add_argument("--sync",     action="store_true", help="Sync database, cache, Obsidian notes, and documentation")
     parser.add_argument("--doc",      action="store_true", help="Generate docs/Video_Pipeline_Status.md")
     parser.add_argument("--cache",    action="store_true", help="Write docs/video_pipeline_cache.json (for agent/offline reads)")
     parser.add_argument("--schedule", action="store_true", help="Generate Drop_Schedule.md")
@@ -371,7 +474,7 @@ Examples:
 
     args = parser.parse_args()
 
-    if not any([args.list, args.week, args.status, args.log, args.add, args.doc, args.cache, args.schedule]):
+    if not any([args.list, args.week, args.status, args.log, args.add, args.sync, args.doc, args.cache, args.schedule]):
         parser.print_help()
         sys.exit(0)
 
@@ -400,7 +503,7 @@ Examples:
     if args.doc:
         cmd_doc(db, output_path=args.out)
 
-    if args.cache:
+    if args.cache or args.sync:
         cmd_cache(db)
 
     if args.schedule:

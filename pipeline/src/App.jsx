@@ -107,6 +107,7 @@ function App() {
   const [currentVideo, setCurrentVideo] = useState(null);
   const [metricModal, setMetricModal] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
+  const [showAddModal, setShowAddModal] = useState(false);
 
   const getRotationInfo = (videoOrCode) => {
     if (!videoOrCode) return null;
@@ -1078,6 +1079,10 @@ function App() {
 
           {!currentVideo ? (
             <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+              <button className="btn btn-primary" onClick={() => setShowAddModal(true)} style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                <Plus size={16} />
+                Add Video
+              </button>
               <button className="btn btn-outline" onClick={fetchVideos} disabled={loading}>
                 <RefreshCw size={16} className={loading ? "animate-spin" : ""} />
                 Refresh
@@ -1100,6 +1105,18 @@ function App() {
         <VideoDetail video={currentVideo} getRotationInfo={getRotationInfo} onUpdate={fetchVideos} onBack={() => closeVideo()} />
       ) : (
         renderDashboard()
+      )}
+
+      {showAddModal && (
+        <AddVideoModal
+          videos={videos}
+          onClose={() => setShowAddModal(false)}
+          onSuccess={(newVid) => {
+            setShowAddModal(false);
+            fetchVideos();
+            if (newVid) setCurrentVideo(newVid);
+          }}
+        />
       )}
     </div>
   );
@@ -2212,6 +2229,289 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
           )}
         </div>
 
+      </div>
+    </div>
+  );
+}
+
+const PILLAR_OPTIONS = [
+  { level: 'Level 1: Foundational', pillar: 'Move', codePrefix: '80.V1B', defaultJdex: '80.12' },
+  { level: 'Level 1: Foundational', pillar: 'Fuel', codePrefix: '80.V1A', defaultJdex: '80.11' },
+  { level: 'Level 1: Foundational', pillar: 'Rest', codePrefix: '80.V1C', defaultJdex: '80.13' },
+  { level: 'Level 2: Inward', pillar: 'Thinking', codePrefix: '80.V2A', defaultJdex: '80.21' },
+  { level: 'Level 2: Inward', pillar: 'Learning', codePrefix: '80.V2B', defaultJdex: '80.22' },
+  { level: 'Level 2: Inward', pillar: 'Connection', codePrefix: '80.V2C', defaultJdex: '80.23' },
+  { level: 'Level 3: Outward', pillar: 'Play', codePrefix: '80.V3A', defaultJdex: '80.31' },
+  { level: 'Level 3: Outward', pillar: 'Work', codePrefix: '80.V3B', defaultJdex: '80.32' },
+  { level: 'Level 3: Outward', pillar: 'Contribution', codePrefix: '80.V3C', defaultJdex: '80.33' },
+  { level: 'Baseline', pillar: 'Core Baseline', codePrefix: '80.V0A', defaultJdex: '80.10' },
+  { level: 'Level 4: Lab', pillar: 'Lab / Experiment', codePrefix: '80.V4', defaultJdex: '80.40' },
+];
+
+function AddVideoModal({ videos, onClose, onSuccess }) {
+  const [formatType, setFormatType] = useState('Short');
+  const [selectedPillarIndex, setSelectedPillarIndex] = useState(0);
+  const [title, setTitle] = useState('');
+  const [status, setStatus] = useState('#edit');
+  const [dropDate, setDropDate] = useState(() => format(new Date(), 'yyyy-MM-dd'));
+  const [code, setCode] = useState('');
+  const [transcript, setTranscript] = useState('');
+  const [notes, setNotes] = useState('');
+  const [submitting, setSubmitting] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
+
+  const selectedPillar = PILLAR_OPTIONS[selectedPillarIndex];
+
+  const calculateSuggestedCode = (fmt, pillar) => {
+    const prefix = pillar.codePrefix;
+    if (fmt === 'Short') {
+      let maxShort = 0;
+      videos.forEach(v => {
+        if (v.code && v.code.startsWith(prefix) && v.code.includes('-S')) {
+          const m = v.code.match(/-S(\d+)/i);
+          if (m) {
+            const num = parseInt(m[1], 10);
+            if (!isNaN(num) && num > maxShort) maxShort = num;
+          }
+        }
+      });
+      return `${prefix}-S${maxShort + 1}`;
+    } else {
+      let maxLong = 0;
+      videos.forEach(v => {
+        if (v.code && v.code.startsWith(prefix) && !v.code.includes('-S')) {
+          const numPart = v.code.replace(prefix, '');
+          const num = parseInt(numPart, 10);
+          if (!isNaN(num) && num > maxLong) maxLong = num;
+        }
+      });
+      return `${prefix}${maxLong + 1 || 1}`;
+    }
+  };
+
+  useEffect(() => {
+    setCode(calculateSuggestedCode(formatType, selectedPillar));
+  }, [formatType, selectedPillarIndex]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!title.trim()) {
+      setErrorMsg('Please enter a working title for this video.');
+      return;
+    }
+    if (!code.trim()) {
+      setErrorMsg('Please enter a video code.');
+      return;
+    }
+
+    setSubmitting(true);
+    setErrorMsg('');
+
+    try {
+      let maxVN = 0;
+      videos.forEach(v => {
+        const n = parseInt(v.video_number, 10);
+        if (!isNaN(n) && n > maxVN) maxVN = n;
+      });
+      const nextVideoNumber = String(maxVN + 1).padStart(3, '0');
+
+      const starterOutline = formatType === 'Short'
+        ? `1. Hook:\n\n2. Teach:\n\n3. Action:`
+        : `1. Hook:\n\n2. Mindset:\n\n3. Story:\n\n4. Teaching:\n\n5. Action:`;
+
+      const nowStamp = format(new Date(), 'yyyy-MM-dd HH:mm');
+      const logLine = notes.trim()
+        ? `-[${nowStamp}] Filmed on-the-fly in field (Pillar: ${selectedPillar.pillar}).\n${notes.trim()}`
+        : `-[${nowStamp}] Added on-the-fly in field (Pillar: ${selectedPillar.pillar}).`;
+
+      const newRecord = {
+        video_number: nextVideoNumber,
+        code: code.trim(),
+        format_type: formatType,
+        title: title.trim(),
+        status: status,
+        drop_date: dropDate.trim() || null,
+        os_level: selectedPillar.level,
+        jdex_code: selectedPillar.defaultJdex,
+        rough_outline: starterOutline,
+        raw_transcript: transcript.trim() || null,
+        notes: logLine,
+        cards_created: false,
+        edit_checklist: JSON.stringify(getAutoCompletedChecklist(status, {}, formatType === 'Short')),
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+      };
+
+      const { data, error } = await supabase
+        .from('videos')
+        .insert([newRecord])
+        .select()
+        .single();
+
+      if (error) {
+        throw new Error(error.message);
+      }
+
+      onSuccess(data);
+    } catch (err) {
+      console.error('Error inserting video:', err);
+      setErrorMsg(err.message || 'Failed to create video');
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  return (
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-content" onClick={(e) => e.stopPropagation()} style={{ maxWidth: '620px' }}>
+        <div className="modal-header">
+          <div>
+            <h2 style={{ fontSize: '1.25rem', marginBottom: '0.2rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <Plus size={20} color="var(--accent-color)" /> Add Video to Pipeline
+            </h2>
+            <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
+              Add an unplanned short or upcoming video to the pipeline
+            </p>
+          </div>
+          <button type="button" className="btn btn-outline" onClick={onClose} style={{ padding: '0.35rem' }}>
+            <X size={18} />
+          </button>
+        </div>
+
+        <form onSubmit={handleSubmit}>
+          {errorMsg && (
+            <div style={{ padding: '0.6rem 0.8rem', backgroundColor: 'rgba(239, 68, 68, 0.1)', border: '1px solid var(--danger-color)', borderRadius: 'var(--radius-md)', color: 'var(--danger-color)', fontSize: '0.85rem', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <AlertCircle size={16} />
+              {errorMsg}
+            </div>
+          )}
+
+          {/* Format Toggle */}
+          <div className="form-group">
+            <label className="form-label">Format</label>
+            <div className="format-toggle-group">
+              <button
+                type="button"
+                className={`format-toggle-btn ${formatType === 'Short' ? 'active' : ''}`}
+                onClick={() => setFormatType('Short')}
+              >
+                🎬 Short (3 Beats)
+              </button>
+              <button
+                type="button"
+                className={`format-toggle-btn ${formatType === 'Long' ? 'active' : ''}`}
+                onClick={() => setFormatType('Long')}
+              >
+                📹 Long (5 Beats)
+              </button>
+            </div>
+          </div>
+
+          {/* Working Title */}
+          <div className="form-group">
+            <label className="form-label">Working Title *</label>
+            <input
+              type="text"
+              className="form-input"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder="e.g. Overcoming Morning Joint Stiffness"
+              required
+            />
+          </div>
+
+          {/* Status Selection */}
+          <div className="form-group">
+            <label className="form-label">Stage / Status</label>
+            <div className="pill-select-group">
+              {[
+                { key: '#edit', label: '✂️ #edit (Filmed, in Descript)' },
+                { key: '#film', label: '🎬 #film (Filming ready)' },
+                { key: '#idea', label: '💡 #idea' },
+                { key: '#write', label: '📝 #write' },
+              ].map(s => (
+                <button
+                  type="button"
+                  key={s.key}
+                  className={`pill-option ${status === s.key ? 'active' : ''}`}
+                  onClick={() => setStatus(s.key)}
+                >
+                  {s.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Pillar / Level Focus */}
+          <div className="form-group">
+            <label className="form-label">Level & Pillar Focus</label>
+            <select
+              className="form-select"
+              value={selectedPillarIndex}
+              onChange={(e) => setSelectedPillarIndex(Number(e.target.value))}
+            >
+              {PILLAR_OPTIONS.map((p, idx) => (
+                <option key={idx} value={idx}>
+                  {p.level} — {p.pillar} ({p.codePrefix})
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Code & Drop Date */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
+            <div className="form-group">
+              <label className="form-label">Video Code</label>
+              <input
+                type="text"
+                className="form-input"
+                value={code}
+                onChange={(e) => setCode(e.target.value)}
+                placeholder="e.g. 80.V1B-S4"
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label className="form-label">Target Drop Date</label>
+              <input
+                type="date"
+                className="form-input"
+                value={dropDate}
+                onChange={(e) => setDropDate(e.target.value)}
+              />
+            </div>
+          </div>
+
+          {/* Transcript / Field Notes */}
+          <div className="form-group">
+            <label className="form-label">Descript Transcript / Field Notes</label>
+            <textarea
+              className="form-textarea"
+              value={transcript}
+              onChange={(e) => setTranscript(e.target.value)}
+              placeholder="Paste exact spoken transcript from Descript or write quick notes from filming..."
+              style={{ minHeight: '90px' }}
+            />
+          </div>
+
+          {/* Modal Actions */}
+          <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.75rem', marginTop: '1.25rem', paddingTop: '1rem', borderTop: '1px solid var(--border-color)' }}>
+            <button type="button" className="btn btn-outline" onClick={onClose} disabled={submitting}>
+              Cancel
+            </button>
+            <button type="submit" className="btn btn-primary" disabled={submitting}>
+              {submitting ? (
+                <>
+                  <RefreshCw size={15} className="animate-spin" /> Saving...
+                </>
+              ) : (
+                <>
+                  <Plus size={16} /> Add Video to Pipeline
+                </>
+              )}
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );
