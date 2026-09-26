@@ -348,7 +348,7 @@ def sync_obsidian_notes(videos: list):
         transcript_section = (
             raw_transcript
             if raw_transcript
-            else "*(Spoken transcript pending ingestion from Descript)*"
+            else "*(Spoken transcript pending ingestion)*"
         )
         outline_section = (
             rough_outline

@@ -14,7 +14,7 @@ export const LONG_VIDEO_CHECKLIST_ITEMS = [
   { key: 'prep_notebook', phase: 'Writing', label: 'Gemini Notebook research' },
   { key: 'prep_card', phase: 'Writing', label: '3x5 card drafted (5 beats)' },
   { key: 'film_recorded', phase: 'Filming', label: 'Direct-to-camera recorded' },
-  { key: 'edit_transcript', phase: 'Editing', label: 'Descript transcript pasted' },
+  { key: 'edit_transcript', phase: 'Editing', label: 'Spoken transcript pasted' },
   { key: 'edit_broll', phase: 'Editing', label: 'B-roll added' },
   { key: 'edit_sound', phase: 'Editing', label: 'Sound & audio enhanced' },
   { key: 'edit_vidiq', phase: 'Editing', label: 'vidIQ title scored (90+)' },
@@ -30,8 +30,8 @@ export const SHORT_VIDEO_CHECKLIST_ITEMS = [
   { key: 'short_card', phase: 'Writing', label: 'Create 3x5 card' },
   { key: 'short_outline', phase: 'Writing', label: 'Write script outline (back of card)' },
   { key: 'short_film', phase: 'Filming', label: 'Film short video' },
-  { key: 'short_descript', phase: 'Editing', label: 'Edited in Descript (captions, audio)' },
-  { key: 'edit_transcript', phase: 'Editing', label: 'Descript transcript pasted' },
+  { key: 'short_descript', phase: 'Editing', label: 'Video edited (captions, audio)' },
+  { key: 'edit_transcript', phase: 'Editing', label: 'Spoken transcript pasted' },
   { key: 'edit_vidiq', phase: 'Editing', label: 'vidIQ title/hook scored (90+)' },
   { key: 'edit_obsidian', phase: 'Editing', label: 'Obsidian & JDex archived' },
   { key: 'pub_upload', phase: 'Publishing', label: 'YouTube Shorts upload & CTA' },
@@ -418,7 +418,7 @@ function App() {
     // 4. Editing videos (#edit)
     if (video.status === '#edit') {
       if (!video.raw_transcript || !video.raw_transcript.trim()) {
-        return { step: 'Paste Descript transcript into App', type: 'action' };
+        return { step: 'Paste spoken transcript into App', type: 'action' };
       }
 
       const items = isShort ? SHORT_VIDEO_CHECKLIST_ITEMS : LONG_VIDEO_CHECKLIST_ITEMS;
@@ -1890,7 +1890,7 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
         <div className="checklist-section">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.5rem' }}>
             <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', margin: 0, fontSize: '1.15rem' }}>
-              <CheckSquare size={20} color="var(--success-color)" /> {isShort ? 'Shorts Checklist (Descript → Upload)' : 'Long Video Production Checklist'}
+              <CheckSquare size={20} color="var(--success-color)" /> {isShort ? 'Shorts Checklist (Edit → Upload)' : 'Long Video Production Checklist'}
             </h3>
             <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', fontWeight: '600' }}>
               {completedTasks} of {totalTasks} completed ({progressPercent}%)
@@ -2475,7 +2475,7 @@ function AddVideoModal({ videos, onClose, onSuccess }) {
             <label className="form-label">Stage / Status</label>
             <div className="pill-select-group">
               {[
-                { key: '#edit', label: '✂️ #edit (Filmed, in Descript)' },
+                { key: '#edit', label: '✂️ #edit (Filmed, in edit)' },
                 { key: '#film', label: '🎬 #film (Filming ready)' },
                 { key: '#idea', label: '💡 #idea' },
                 { key: '#write', label: '📝 #write' },
@@ -2534,12 +2534,12 @@ function AddVideoModal({ videos, onClose, onSuccess }) {
 
           {/* Transcript / Field Notes */}
           <div className="form-group">
-            <label className="form-label">Descript Transcript / Field Notes</label>
+            <label className="form-label">Spoken Transcript / Field Notes</label>
             <textarea
               className="form-textarea"
               value={transcript}
               onChange={(e) => setTranscript(e.target.value)}
-              placeholder="Paste exact spoken transcript from Descript or write quick notes from filming..."
+              placeholder="Paste exact spoken transcript or write quick notes from filming..."
               style={{ minHeight: '90px' }}
             />
           </div>
