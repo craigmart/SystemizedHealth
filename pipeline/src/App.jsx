@@ -1137,6 +1137,35 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
   const [titleInput, setTitleInput] = useState(video.title || '');
   const [codeInput, setCodeInput] = useState(video.code || '');
   const [savingTitle, setSavingTitle] = useState(false);
+  const [deleting, setDeleting] = useState(false);
+
+  const handleDeleteVideo = async () => {
+    const confirmMsg = `Are you sure you want to permanently delete ${localVideo.code} ("${localVideo.title}")?`;
+    if (!window.confirm(confirmMsg)) {
+      return;
+    }
+
+    setDeleting(true);
+    try {
+      const query = localVideo.id
+        ? supabase.from('videos').delete().eq('id', localVideo.id)
+        : supabase.from('videos').delete().eq('video_number', localVideo.video_number);
+
+      const { error } = await query;
+      if (error) {
+        alert(`Error deleting video: ${error.message}`);
+        setDeleting(false);
+        return;
+      }
+
+      if (onUpdate) await onUpdate();
+      if (onBack) onBack();
+    } catch (err) {
+      console.error('Delete error:', err);
+      alert(`Error deleting video: ${err.message || err}`);
+      setDeleting(false);
+    }
+  };
 
   const getStarterOutline = (formatType, code) => {
     const isShortVid = formatType === 'Short' || code?.includes('-S');
@@ -1686,6 +1715,16 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
             >
               <ExternalLink size={14} /> OB
             </a>
+            <button
+              type="button"
+              className="btn btn-outline"
+              onClick={handleDeleteVideo}
+              disabled={deleting}
+              style={{ padding: '0.25rem 0.6rem', fontSize: '0.8rem', color: 'var(--danger-color)', borderColor: 'rgba(239, 68, 68, 0.3)' }}
+              title="Delete Video"
+            >
+              <Trash2 size={14} />
+            </button>
             {getStatusBadge(localVideo.status)}
           </div>
         </div>
@@ -2220,6 +2259,17 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
           <button className="btn btn-primary" onClick={handleSaveText} disabled={saving}>
             <Save size={16} />
             {saving ? 'Saving to Supabase...' : 'Save All Text Fields'}
+          </button>
+
+          <button
+            type="button"
+            className="btn btn-outline"
+            onClick={handleDeleteVideo}
+            disabled={deleting}
+            style={{ color: 'var(--danger-color)', borderColor: 'rgba(239, 68, 68, 0.3)', marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '0.4rem' }}
+          >
+            <Trash2 size={16} />
+            {deleting ? 'Deleting...' : 'Delete Video'}
           </button>
 
           {saveSuccess && (
