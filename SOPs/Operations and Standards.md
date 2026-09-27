@@ -28,7 +28,7 @@ Systemized Health translates 30+ years of chiropractic expertise (over 230,000 p
 
 All content blueprints, local media assets, and external integrations adhere strictly to the centralized 80 Johnny Decimal framework. This architectural system expands dynamically around clinical concepts rather than rigid calendar timelines.
 
-- **80.05**: [External Resources & Systems Catalog](file:///Users/craiganderson/Library/Mobile%20Documents/com~apple~CloudDocs/SystemizedHealth/SOPs/External%20Resources.md)
+- **80.05**: [External Resources & Systems Catalog](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/External%20Resources.md)
 - **80.10**: Operations & Business Standards
 - **80.V**: Systemized Health Video Library (Zettelkasten Library Taxonomy)
   - **`80.V0` — Meta Topics**: Systemized OS architecture, 20,000 patients clinical reality, philosophy.
@@ -77,7 +77,7 @@ Content creation moves through two streamlined phases, eliminating teleprompter 
 - **App Logging**: Sets the video status to `#edit` in the web App.
 
 ### Phase II: Post-Recording Ingestion & Force Multiplier Suite (AI Technical Editor)
-When Dr. Anderson begins editing in Descript and drops the **final exact spoken transcript** into the web App's `raw_transcript` field:
+When Dr. Anderson begins editing (Descript, YouTube Creator, etc.) and drops the **final exact spoken transcript** into the web App's `raw_transcript` field:
 1. **vidIQ Title Optimization**: Generates and tests 4–5 title variations with live vidIQ CTR scores (targeting 90+).
 2. **Obsidian Vault Archiving**: Formats `Obsidian_Vault/Zettlekasten/[Code] Script - [Title].md` to preserve the final transcript as a permanent clinical study and reference document under `## Final Spoken Transcript`.
 3. **Zettelkasten Proposition Mining**: Extracts 1–2 sharp clinical propositions from the spoken text and maps them to their respective JDex files in `Obsidian_Vault/JDex/` and Workflowy.

@@ -1,7 +1,7 @@
 
 # Systemized Health — Master TODO & Task List
 
-*Last Updated: 2026-09-24*
+*Last Updated: 2026-09-27*
 
 ---
 
@@ -28,11 +28,10 @@
 - [x] `80.V2A1-S2A`: *This is Your Default Setting* — Dropped: 2026-09-17
 - [x] `80.V2A1-S3A`: *Task Positive Network and Scrolling* — Dropped: 2026-09-19
 - [x] `80.V3A1`: *The 5 Stages of Brain Aging (And How to Stay Sharp Into Your 90s)* — Dropped: 2026-09-24
+- [x] `80.V2A-S4`: *Buffers make you more productive* — Dropped: 2026-09-27
 
 ### 🗃️ Zettelkasten Physical 3x5 Index Cards
-- [ ] **Active WIP Review**: `80.V2A1-S2A` (*This is Your Default Setting*) — Review propositions & add to Zettelkasten box (3x5 card pending).
-- [x] `80.V2A1-S3A` (*Task Positive Network and Scrolling*) — Card completed (`[2026-09-17 06:53] Card done`).
-- [x] **Historical Archive**: All 32 prior published videos filed and completed in analog Zettelkasten archive box. Tracked in [`docs/Published_Video_Propositions.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/Published_Video_Propositions.md).
+- [x] **All Published 3x5 Cards Filed**: All 33 published videos filed and completed in analog Zettelkasten archive box (`cards_created === true`). Tracked in [`docs/Published_Video_Propositions.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/Published_Video_Propositions.md).
 
 ### ✍️ Next Production Queue: 12-Month Rotation Schedule (`#idea`)
 *(Active pipeline view: next 3 weeks runway from [`docs/content_rotation.csv`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/content_rotation.csv) & [`SOPs/Content Rotation System SOP.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/Content%20Rotation%20System%20SOP.md))*

@@ -1,6 +1,6 @@
 # Video Pipeline Status
 
-> **Source of truth:** Supabase `videos` table  |  Generated: 2026-09-26
+> **Source of truth:** Supabase `videos` table  |  Generated: 2026-09-27
 > To update status: `python3 scripts/video_pipeline.py --status <code> <status>`
 
 ---
@@ -44,7 +44,7 @@
 | **034** | `80.V1A-S1` | Short | The Mid-Afternoon Crash | 2026-08-18 | ✅ #published | — |
 | **035** | `80.V1A-S2` | Short | Cellular Hydration | 2026-08-20 | ✅ #published | — |
 | **036** | `80.V1A-S3` | Short | Diets wont work, here's what does. | 2026-08-21 | ✅ #published | 2026-08-21 |
-| **037** | `80.V3B1` | Long | A guys Bullet Journal | 2026-09-30 | 📝 #write | — |
+| **037** | `80.V3B1` | Long | A no-nonsense Bullet Journal | 2026-09-30 | 📝 #write | — |
 | **038** | `80.V3B1-S1` | Short | Get it out of your head - journal! | 2026-10-01 | 📝 #write | — |
 | **039** | `80.V3B1-S2` | Short | The Power of a Waiting For list | 2026-10-03 | 📝 #write | — |
 | **040** | `80.V3B1-S3` | Short | Your mind if for creativity not to do lists | 2026-10-04 | 📝 #write | — |
@@ -252,6 +252,7 @@
 | **242** | `80.V2B6-S1` | Short | Level 2 (Inward) — Learning (Short 1) | 2027-09-21 | 💡 #idea | — |
 | **243** | `80.V2B6-S2` | Short | Level 2 (Inward) — Learning (Short 2) | 2027-09-23 | 💡 #idea | — |
 | **244** | `80.V2B6-S3` | Short | Level 2 (Inward) — Learning (Short 3) | 2027-09-25 | 💡 #idea | — |
+| **245** | `80.V2A-S4` | Short | Buffers make you more productive | 2026-09-27 | ✅ #published | — |
 | **H001** | `HIST.L01` | Long | The Biological Requirement for Weekly Structure | 2026-01-01 | ✅ #published | 2026-01-01 |
 | **H002** | `HIST.L02` | Long | The Biological Reality of GLP-1: Fuel vs. Motivation | 2026-03-24 | ✅ #published | 2026-03-24 |
 | **H003** | `HIST.L03` | Long | The Nervous System Secret to Consistent Gains | 2026-01-22 | ✅ #published | 2026-01-22 |
@@ -277,4 +278,4 @@
 
 - 💡 **#idea**: 202
 - 📝 **#write**: 6
-- ✅ **#published**: 53
+- ✅ **#published**: 54

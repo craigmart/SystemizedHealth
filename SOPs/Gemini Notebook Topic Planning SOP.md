@@ -31,8 +31,8 @@ sequenceDiagram
     GN-->>User: Extracts unique clinical analogies & mechanisms
     User->>User: Writes 4-beat outline on physical 3x5 card & records to camera
 
-    Note over User,IDE: Phase 3 & 4: Descript Transcript Ingestion & Execution
-    User->>IDE: Pastes exact Descript transcript into App (sets status #edit)
+    Note over User,IDE: Phase 3 & 4: Spoken Transcript Ingestion & Execution
+    User->>IDE: Pastes exact spoken transcript into App (sets status #edit)
     IDE->>IDE: Scores titles via live vidIQ engine (target 90+)
     IDE->>IDE: Archives exact transcript in Obsidian Vault
     IDE->>IDE: Mines 1-2 clinical propositions to JDex & Workflowy

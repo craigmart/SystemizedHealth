@@ -45,13 +45,13 @@ This document tracks all external software platforms, web applications, database
 
 ### EXT-03: Workflowy Field Notes & Production Outlines
 - **Platform**: Workflowy
-- **Local Integration Script**: [`scripts/workflowy_sync.py`](file:///Users/craiganderson/SystemizedHealth/scripts/workflowy_sync.py) & [`scripts/push_teleprompter_scripts.py`](file:///Users/craiganderson/SystemizedHealth/scripts/push_teleprompter_scripts.py)
-- **Config Key**: `workflowy_api_key` in [`scripts/config.json`](file:///Users/craiganderson/SystemizedHealth/scripts/config.json)
+- **Local Integration Script**: [`scripts/workflowy_sync.py`](file:///Users/craiganderson/Developer/SystemizedHealth/scripts/workflowy_sync.py) & [`scripts/push_teleprompter_scripts.py`](file:///Users/craiganderson/Developer/SystemizedHealth/scripts/push_teleprompter_scripts.py)
+- **Config Key**: `workflowy_api_key` in [`scripts/config.json`](file:///Users/craiganderson/Developer/SystemizedHealth/scripts/config.json)
 - **Primary Purpose**: Mobile field notes for on-set filming, scene tracking, and Zettelkasten clinical proposition surfacing.
 - **5-Stage Pipeline Tag Standard**: Every video node in Workflowy moves through five standardized stage tags:
   - `#write`: Scripting & full writing process (audio transcription to teleprompter script).
   - `#film`: Script is finished & ready to film (staged in Workflowy under `Shots`).
-  - `#edit`: Recording is finished, ready to edit in LumaFusion and Descript.
+  - `#edit`: Recording is finished, ready to edit (Descript, YouTube Creator, LumaFusion).
   - `#upload` (or `#approve`): Finished editing, ready to upload & review metadata, thumbnail upload, etc. (Checkpoint for metadata checklist).
   - `#publish`: Ready to publish.
 - **Workflow Protocol**:

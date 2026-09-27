@@ -60,7 +60,7 @@ Videos are produced using Dr. Anderson's streamlined analog-to-camera workflow, 
 ---
 
 ## 5. Post-Recording Transcript Ingestion & Force Multiplier Protocol
-When Dr. Anderson begins editing (in Descript) and drops the **final exact spoken transcript** into the web App's `raw_transcript` field (or in chat/Obsidian):
+When Dr. Anderson begins editing (Descript, YouTube Creator, etc.) and drops the **final exact spoken transcript** into the web App's `raw_transcript` field (or in chat/Obsidian):
 1. **Title Optimization via vidIQ**:
    - The Agent analyzes the spoken transcript and scores 4–5 title variations using `scripts/vidiq_sync.py --score-title "[Title]"`, targeting virality scores of 90+ out of 100.
 2. **Obsidian Vault Archiving**:
