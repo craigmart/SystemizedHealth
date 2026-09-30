@@ -108,6 +108,43 @@ function App() {
   const [metricModal, setMetricModal] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [showAddModal, setShowAddModal] = useState(false);
+  const [editingWipDateCode, setEditingWipDateCode] = useState(null);
+  const [wipDateValue, setWipDateValue] = useState('');
+  const [savingWipDate, setSavingWipDate] = useState(false);
+
+  const handleQuickSaveDropDate = async (e, videoItem) => {
+    if (e && e.stopPropagation) e.stopPropagation();
+    const trimmed = wipDateValue ? wipDateValue.trim() : null;
+    if (trimmed === (videoItem.drop_date || null)) {
+      setEditingWipDateCode(null);
+      return;
+    }
+
+    setSavingWipDate(true);
+    const now = new Date();
+    const dateStr = now.toLocaleDateString('en-CA');
+    const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+    const logEntry = `- [${dateStr} ${timeStr}] Drop date updated: "${videoItem.drop_date || 'TBD'}" → "${trimmed || 'TBD'}"`;
+    const updatedNotes = videoItem.notes && videoItem.notes.trim() ? `${logEntry}\n${videoItem.notes.trim()}` : logEntry;
+
+    const updatePayload = {
+      drop_date: trimmed || null,
+      notes: updatedNotes
+    };
+
+    const query = videoItem.id
+      ? supabase.from('videos').update(updatePayload).eq('id', videoItem.id)
+      : supabase.from('videos').update(updatePayload).eq('video_number', videoItem.video_number);
+
+    const { error } = await query;
+    if (error) {
+      alert("Error saving drop date: " + error.message);
+    } else {
+      setEditingWipDateCode(null);
+      fetchVideos();
+    }
+    setSavingWipDate(false);
+  };
 
   const getRotationInfo = (videoOrCode) => {
     if (!videoOrCode) return null;
@@ -308,23 +345,6 @@ function App() {
     return diffDays >= 0 ? diffDays : Math.abs(diffDays) + 0.1;
   };
 
-  const sortByClosestDropDate = (a, b) => {
-    const distA = getDistanceToToday(a.drop_date);
-    const distB = getDistanceToToday(b.drop_date);
-
-    if (distA !== distB) {
-      return distA - distB;
-    }
-
-    // Tie-breaker: status urgency (#edit > #film > #write > #idea > #published)
-    const statusOrder = { '#edit': 1, '#film': 2, '#write': 3, '#idea': 4, '#published': 5 };
-    const orderA = statusOrder[a.status] || 99;
-    const orderB = statusOrder[b.status] || 99;
-    if (orderA !== orderB) return orderA - orderB;
-
-    return (a.code || '').localeCompare(b.code || '');
-  };
-
   const sortByDropDate = (a, b) => {
     const hasDateA = !!a.drop_date && typeof a.drop_date === 'string' && a.drop_date.trim() !== '';
     const hasDateB = !!b.drop_date && typeof b.drop_date === 'string' && b.drop_date.trim() !== '';
@@ -351,6 +371,28 @@ function App() {
     if (orderA !== orderB) return orderA - orderB;
 
     return (a.code || '').localeCompare(b.code || '');
+  };
+
+  const sortByDropDateDesc = (a, b) => {
+    const hasDateA = !!a.drop_date && typeof a.drop_date === 'string' && a.drop_date.trim() !== '';
+    const hasDateB = !!b.drop_date && typeof b.drop_date === 'string' && b.drop_date.trim() !== '';
+
+    if (!hasDateA && !hasDateB) return 0;
+    if (!hasDateA) return 1;
+    if (!hasDateB) return -1;
+
+    const timeA = parseISO(a.drop_date).getTime();
+    const timeB = parseISO(b.drop_date).getTime();
+
+    if (isNaN(timeA) && isNaN(timeB)) return 0;
+    if (isNaN(timeA)) return 1;
+    if (isNaN(timeB)) return -1;
+
+    if (timeA !== timeB) {
+      return timeB - timeA; // Descending: newest on top, oldest on bottom
+    }
+
+    return (b.video_number || b.code || '').localeCompare(a.video_number || a.code || '');
   };
 
   const getStatusBadge = (status) => {
@@ -543,7 +585,9 @@ function App() {
   const publishedVideos = videos.filter(v => v.status === '#published');
 
   const openModal = (title, videoList) => {
-    setMetricModal({ title, videos: videoList.sort(sortByDropDate) });
+    const listCopy = [...videoList];
+    const sorter = title === 'Published Videos' ? sortByDropDateDesc : sortByDropDate;
+    setMetricModal({ title, videos: listCopy.sort(sorter) });
   };
 
   const renderDashboard = () => {
@@ -656,7 +700,7 @@ function App() {
       }
 
       return false;
-    }).sort(sortByClosestDropDate);
+    }).sort(sortByDropDate);
 
     return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
@@ -756,14 +800,76 @@ function App() {
                     <span className="video-title" style={{ fontWeight: isLong ? '700' : '500', fontSize: isLong ? '1.05rem' : '0.88rem' }}>
                       {displayTitle}
                     </span>
-                    <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '0.5rem', whiteSpace: 'nowrap' }}>
-                      <span style={{ fontWeight: isLong ? '800' : '600', color: isLong ? 'var(--accent-color)' : 'var(--text-secondary)', fontSize: isLong ? '0.92rem' : '0.82rem' }}>
-                        {item.drop_date ? format(parseISO(item.drop_date), 'EEE, MMM d') : 'No Date'}
-                      </span>
-                      {urgency && (
-                        <span style={{ color: urgency.color, fontWeight: '700', fontSize: '0.72rem' }}>
-                          {urgency.label}
-                        </span>
+                    <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '0.4rem', whiteSpace: 'nowrap' }} onClick={e => e.stopPropagation()}>
+                      {editingWipDateCode === item.code ? (
+                        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}>
+                          <input
+                            type="date"
+                            className="input"
+                            style={{ padding: '0.15rem 0.35rem', fontSize: '0.78rem', height: '26px', width: 'auto' }}
+                            value={wipDateValue}
+                            onChange={e => setWipDateValue(e.target.value)}
+                            disabled={savingWipDate}
+                            autoFocus
+                            onKeyDown={e => {
+                              if (e.key === 'Enter') handleQuickSaveDropDate(e, item);
+                              if (e.key === 'Escape') setEditingWipDateCode(null);
+                            }}
+                          />
+                          <button
+                            type="button"
+                            className="btn btn-primary"
+                            style={{ padding: '0.15rem 0.4rem', fontSize: '0.72rem', height: '26px' }}
+                            onClick={e => handleQuickSaveDropDate(e, item)}
+                            disabled={savingWipDate}
+                            title="Save drop date"
+                          >
+                            <Check size={12} />
+                          </button>
+                          <button
+                            type="button"
+                            className="btn btn-outline"
+                            style={{ padding: '0.15rem 0.35rem', fontSize: '0.72rem', height: '26px' }}
+                            onClick={e => { e.stopPropagation(); setEditingWipDateCode(null); }}
+                            disabled={savingWipDate}
+                            title="Cancel"
+                          >
+                            <X size={12} />
+                          </button>
+                        </div>
+                      ) : (
+                        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
+                          <span style={{ fontWeight: isLong ? '800' : '600', color: isLong ? 'var(--accent-color)' : 'var(--text-secondary)', fontSize: isLong ? '0.92rem' : '0.82rem' }}>
+                            {item.drop_date ? format(parseISO(item.drop_date), 'EEE, MMM d') : 'No Date'}
+                          </span>
+                          <button
+                            type="button"
+                            className="btn btn-outline"
+                            style={{
+                              padding: '0.15rem 0.3rem',
+                              height: '22px',
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              color: 'var(--text-secondary)',
+                              borderRadius: 'var(--radius-sm)',
+                              opacity: 0.75
+                            }}
+                            onClick={e => {
+                              e.stopPropagation();
+                              setWipDateValue(item.drop_date || '');
+                              setEditingWipDateCode(item.code);
+                            }}
+                            title="Edit drop date"
+                          >
+                            <Calendar size={11} />
+                          </button>
+                          {urgency && (
+                            <span style={{ color: urgency.color, fontWeight: '700', fontSize: '0.72rem', marginLeft: '0.15rem' }}>
+                              {urgency.label}
+                            </span>
+                          )}
+                        </div>
                       )}
                     </div>
                   </div>
@@ -915,8 +1021,13 @@ function App() {
                       <strong>{v.code}: {v.title}</strong>
                       {getStatusBadge(v.status)}
                     </div>
-                    <div className="video-meta">
-                      <span>Drop: {v.drop_date || 'TBD'}</span>
+                    <div className="video-meta" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <span>Drop: {v.drop_date ? format(parseISO(v.drop_date), 'EEE, MMM d, yyyy') : 'TBD'}</span>
+                      {v.youtube_id && (
+                        <span style={{ fontSize: '0.75rem', color: 'var(--accent-color)', fontWeight: '600' }}>
+                          ▶ YouTube
+                        </span>
+                      )}
                     </div>
                   </div>
                 ))}
@@ -1137,6 +1248,9 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
   const [titleInput, setTitleInput] = useState(video.title || '');
   const [codeInput, setCodeInput] = useState(video.code || '');
   const [savingTitle, setSavingTitle] = useState(false);
+  const [isEditingDropDate, setIsEditingDropDate] = useState(false);
+  const [dropDateInput, setDropDateInput] = useState(video.drop_date || '');
+  const [savingDropDate, setSavingDropDate] = useState(false);
   const [deleting, setDeleting] = useState(false);
 
   const handleDeleteVideo = async () => {
@@ -1316,6 +1430,8 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
     setCodeInput(video.code || '');
     setTitleInput(video.title || '');
     setIsEditingTitle(false);
+    setDropDateInput(video.drop_date || '');
+    setIsEditingDropDate(false);
     setAgentMessage(video.agent_message || '');
     setTranscript(video.raw_transcript || '');
     setNotes(video.notes || '');
@@ -1323,6 +1439,51 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
     setOutline(video.rough_outline || getStarterOutline(video.format_type, video.code));
     setChecklistPhase(getChecklistPhaseForStatus(video.status));
   }, [video]);
+
+  // Save drop date and log to video production log
+  const handleSaveDropDate = async () => {
+    const trimmedDate = dropDateInput ? dropDateInput.trim() : null;
+    const oldDate = localVideo.drop_date || 'TBD';
+    const newDateStr = trimmedDate || 'TBD';
+
+    if (trimmedDate === (localVideo.drop_date || null)) {
+      setIsEditingDropDate(false);
+      return;
+    }
+
+    setSavingDropDate(true);
+    const now = new Date();
+    const dateStr = now.toLocaleDateString('en-CA');
+    const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+    const logEntry = `- [${dateStr} ${timeStr}] Drop date updated: "${oldDate}" → "${newDateStr}"`;
+    const updatedNotes = notes && notes.trim() ? `${logEntry}\n${notes.trim()}` : logEntry;
+
+    const updatePayload = {
+      drop_date: trimmedDate || null,
+      notes: updatedNotes
+    };
+
+    const query = localVideo.id
+      ? supabase.from('videos').update(updatePayload).eq('id', localVideo.id)
+      : supabase.from('videos').update(updatePayload).eq('video_number', localVideo.video_number);
+
+    const { error } = await query;
+
+    if (error) {
+      alert("Error saving drop date: " + error.message);
+    } else {
+      setLocalVideo(prev => ({
+        ...prev,
+        ...updatePayload
+      }));
+      setNotes(updatedNotes);
+      setIsEditingDropDate(false);
+      setSaveSuccess(true);
+      setTimeout(() => setSaveSuccess(false), 2500);
+      if (onUpdate) onUpdate();
+    }
+    setSavingDropDate(false);
+  };
 
   // Save working code and title (only if not published) and log to production log
   const handleSaveTitle = async () => {
@@ -1858,7 +2019,88 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
 
         <div style={{ display: 'flex', gap: '0.75rem 1.25rem', color: 'var(--text-secondary)', fontSize: '0.875rem', alignItems: 'center', flexWrap: 'wrap' }}>
           <span><strong>Format:</strong> {localVideo.format_type}</span>
-          <span><strong>Drop Date:</strong> {localVideo.drop_date || 'TBD'}</span>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
+            <strong>Drop Date:</strong>
+            {isEditingDropDate ? (
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
+                <input
+                  type="date"
+                  className="input"
+                  style={{
+                    padding: '0.2rem 0.45rem',
+                    fontSize: '0.85rem',
+                    width: 'auto',
+                    height: '28px',
+                    backgroundColor: 'var(--surface-color)',
+                    color: 'var(--text-primary)',
+                    borderRadius: 'var(--radius-sm)',
+                    border: '1px solid var(--border-color)'
+                  }}
+                  value={dropDateInput}
+                  onChange={(e) => setDropDateInput(e.target.value)}
+                  disabled={savingDropDate}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') handleSaveDropDate();
+                    if (e.key === 'Escape') {
+                      setDropDateInput(localVideo.drop_date || '');
+                      setIsEditingDropDate(false);
+                    }
+                  }}
+                  autoFocus
+                />
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  style={{ padding: '0.2rem 0.5rem', fontSize: '0.75rem', height: '28px', display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}
+                  onClick={handleSaveDropDate}
+                  disabled={savingDropDate}
+                  title="Save Drop Date"
+                >
+                  <Check size={13} /> {savingDropDate ? 'Saving...' : 'Save'}
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-outline"
+                  style={{ padding: '0.2rem 0.45rem', fontSize: '0.75rem', height: '28px' }}
+                  onClick={() => {
+                    setDropDateInput(localVideo.drop_date || '');
+                    setIsEditingDropDate(false);
+                  }}
+                  disabled={savingDropDate}
+                  title="Cancel"
+                >
+                  <X size={13} />
+                </button>
+              </div>
+            ) : (
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
+                <span style={{ fontWeight: localVideo.drop_date ? '600' : 'normal', color: localVideo.drop_date ? 'var(--text-primary)' : 'var(--text-secondary)' }}>
+                  {localVideo.drop_date || 'TBD'}
+                </span>
+                <button
+                  type="button"
+                  className="btn btn-outline"
+                  style={{
+                    padding: '0.2rem 0.4rem',
+                    fontSize: '0.75rem',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: 'var(--text-secondary)',
+                    borderRadius: 'var(--radius-sm)',
+                    height: '24px'
+                  }}
+                  onClick={() => {
+                    setDropDateInput(localVideo.drop_date || '');
+                    setIsEditingDropDate(true);
+                  }}
+                  title="Edit drop date"
+                >
+                  <FileEdit size={13} />
+                </button>
+              </div>
+            )}
+          </div>
           {getRotationInfo && getRotationInfo(localVideo)?.level && (
             <span><strong>Level:</strong> <span className="badge-level">{getRotationInfo(localVideo).level}</span></span>
           )}
