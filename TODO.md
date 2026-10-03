@@ -29,9 +29,15 @@
 - [x] `80.V2A1-S3A`: *Task Positive Network and Scrolling* — Dropped: 2026-09-19
 - [x] `80.V3A1`: *The 5 Stages of Brain Aging (And How to Stay Sharp Into Your 90s)* — Dropped: 2026-09-24
 - [x] `80.V2A-S4`: *Buffers make you more productive* — Dropped: 2026-09-27
+- [x] `80.V3A1-S3`: *Who’s brains are better connected, men or women?* — Dropped: 2026-09-29
+- [x] `80.V1A0-S1`: *Diet drugs and Ambition* — Dropped: 2026-09-30
+- [x] `80.V3B1`: *My Simple Bullet Journal Setup After 7 1/2 Years of use (No Art Needed)* — Dropped: 2026-10-03
 
 ### 🗃️ Zettelkasten Physical 3x5 Index Cards
-- [x] **All Published 3x5 Cards Filed**: All 33 published videos filed and completed in analog Zettelkasten archive box (`cards_created === true`). Tracked in [`docs/Published_Video_Propositions.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/Published_Video_Propositions.md).
+- **37 Completed / 3 Pending Physical 3x5 Cards** (Tracked in [`docs/Published_Video_Propositions.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/Published_Video_Propositions.md)):
+  - [ ] `80.V3B1`: *My Simple Bullet Journal Setup After 7 1/2 Years of use (No Art Needed)* (Propositions mined, awaiting 3x5 physical card filing)
+  - [ ] `80.V3A1-S3`: *Who’s brains are better connected, men or women?* (Propositions mined, awaiting 3x5 physical card filing)
+  - [ ] `80.V1A0-S1`: *Diet drugs and Ambition* (Awaiting spoken transcript ingestion to mine propositions)
 
 ### ✍️ Next Production Queue: 12-Month Rotation Schedule (`#idea`)
 *(Active pipeline view: next 3 weeks runway from [`docs/content_rotation.csv`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/content_rotation.csv) & [`SOPs/Content Rotation System SOP.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/Content%20Rotation%20System%20SOP.md))*

@@ -27,7 +27,7 @@ def generate_paths():
                         try:
                             with open(os.path.join(root, f), "r", encoding="utf-8") as s_file:
                                 content = s_file.read()
-                                p_match = re.search(r'## Propositions\s*\n(.*?)(?:\n##|\Z)', content, re.DOTALL)
+                                p_match = re.search(r'##\s*(?:Clinical\s+)?Propositions(?:\s*\(JDex\))?\s*\n(.*?)(?:\n##|\Z)', content, re.DOTALL)
                                 if p_match:
                                     lines = [l.strip()[2:].strip() for l in p_match.group(1).split('\n') if l.strip().startswith('- ')]
                                     valid_props = [l for l in lines if l and not l.startswith('*(Gemini') and not l.startswith('*(Error') and not l.startswith('LLM library')]
