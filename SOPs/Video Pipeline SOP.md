@@ -322,11 +322,13 @@ When adjusting video titles directly in YouTube Studio (e.g., A/B testing, chara
 At the start of every session, run:
 
 ```bash
-python3 scripts/tidycal_sync.py          # Pull new TidyCal bookings
-python3 scripts/sync_agreements.py       # Pull Google Form agreements
-python3 scripts/client_db_manager.py --doc  # Refresh Client_Onboarding_Status.md
-python3 scripts/sync_obsidian_tags.py       # Sync authoritative App/database statuses down to Obsidian Vault tags
-python3 scripts/video_pipeline.py --cache   # Refresh video_pipeline_cache.json
+python3 scripts/tidycal_sync.py              # Pull new TidyCal bookings
+python3 scripts/sync_agreements.py           # Pull Google Form agreements
+python3 scripts/client_db_manager.py --doc   # Refresh Client_Onboarding_Status.md
+python3 scripts/sync_obsidian_tags.py        # Sync authoritative App/database statuses down to Obsidian Vault tags
+python3 scripts/update_propositions_tracker.py # Refresh Published_Video_Propositions.md & public/propositions.json
+python3 scripts/generate_video_paths.py      # Refresh public/video_paths.json Obsidian link cache
+python3 scripts/video_pipeline.py --cache    # Refresh video_pipeline_cache.json
 ```
 
 ---
@@ -354,6 +356,22 @@ Markdown filenames in the Obsidian Vault **must never contain URL-reserved or he
 
 * **NO HASHTAGS (`#`) in filenames:** YouTube Shorts titles frequently include hashtags (e.g., `#bloodsugar #over50`, `#shorts #fitness`). In Obsidian URIs, `#` is the reserved anchor character for navigating to internal note headings (e.g., `file=note#Heading`). If a filename contains `#`, Obsidian parses everything before the `#` as the filename and everything after as a heading, causing immediate `"File does not exist"` lookup failures.
   * **Rule:** All hashtag suffixes MUST be stripped from filenames upon import (`re.sub(r'\s*#[a-zA-Z0-9_-]+', '', title)`).
+* **NO FORWARD SLASHES (`/`) in filenames:** Slashes in titles (e.g., `7 1/2 Years`) act as directory path separators in Unix/macOS filesystems and in Obsidian URIs, causing the operating system to search for nonexistent subfolders.
+  * **Rule:** Replace fractions or slashes with decimals or hyphens (e.g., `7 1/2 Years` → `7.5 Years`).
 * **NO EM DASHES (`—` or `–`):** Unicode em dashes (`\u2014`) trigger encoding and normalization discrepancies across macOS URL handlers. Always standardize on an ASCII space-hyphen-space (` - `).
 * **NO QUESTION MARKS (`?`):** Question marks collide with URL query string delimiters (`?vault=...`). Always replace or strip `?` from filenames.
 * **Automated Enforcement:** `scripts/sync_published_videos.py` implements this standard via `sanitize_filename()`. Any new or updated script title imported from vidIQ or YouTube Studio is automatically sanitized before creating or renaming files in the vault.
+
+### C. Clinical Proposition Section Headers
+When parsing clinical propositions from Obsidian script notes, the pipeline regex accepts either:
+- `## Clinical Propositions (JDex)`
+- `## Propositions`
+
+Propositions must be formatted as markdown bullet items with Johnny Decimal cross-links (e.g. `- [80.V3B1-P1] ... [[32.01]]`).
+
+---
+
+## 10. Web App Video Card Deletion Architecture
+In `pipeline/src/App.jsx`, deleting a video card removes the record from Supabase and adds its canonical code to `deletedCodes` in localStorage/state:
+- **Zero Ghost Cards**: The client-side rotation engine merges Supabase records with the static 12-month rotation calendar (`content_rotation.json`). The `deletedCodes` filter guarantees that deleted cards are not re-resurrected as fallback placeholder slots.
+- **Clean Navigation Transition**: Video deletion immediately navigates the user back to the pipeline grid before triggering state reload to prevent URL parameter desynchronization (`?video=...`).

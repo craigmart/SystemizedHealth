@@ -38,6 +38,7 @@ Level 3 (Outward: POP) ➔ Level 1 (Foundational: FMR) ➔ Level 2 (Inward: TLC)
 - This entire week is dedicated to a **Level 4 (Lab)** video and its 3 waterfall shorts.
 - Topic focus is at Dr. Anderson's clinical discretion (e.g. deep dive blood biomarker panels, DEXA analysis, continuous glucose monitoring, hormone panels).
 - When the Lab week concludes, the regular sprint sequence resumes exactly where it left off.
+- **Lab Week Deferral / Override Protocol**: If an active Framework Level sprint (e.g. Level 3B Organize) carries over or requires scheduling priority to maintain narrative momentum, Dr. Anderson may defer or skip the Level 4 Lab drop for that calendar month. When a Lab drop is skipped or deferred, the pipeline smoothly advances the active Level sprint without interrupting cadence.
 
 ### 3. Independent Pillar Queues
 Each regular Level tracks its own 3-pillar sequence (A, B, C) completely independently of the others:
@@ -138,3 +139,13 @@ The content rotation schedule links directly with Dr. Anderson's analog-to-camer
 - **Frontend Cached Catalog**: [`pipeline/public/content_rotation.json`](file:///Users/craiganderson/Developer/SystemizedHealth/pipeline/public/content_rotation.json)
 - **Drop Schedule**: [`Drop_Schedule.md`](file:///Users/craiganderson/Developer/SystemizedHealth/Drop_Schedule.md)
 - **Sync Script**: [`scripts/seed_content_rotation.py`](file:///Users/craiganderson/Developer/SystemizedHealth/scripts/seed_content_rotation.py)
+
+### Schedule Shift & Dual-Sync Requirement
+Whenever scheduled slots are shifted, deleted, or reordered:
+1. Update [`docs/content_rotation.csv`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/content_rotation.csv).
+2. Sync the frontend static fallback catalog in [`pipeline/public/content_rotation.json`](file:///Users/craiganderson/Developer/SystemizedHealth/pipeline/public/content_rotation.json) so fallback cards match.
+3. Refresh the pipeline cache and status documents:
+   ```bash
+   python3 scripts/video_pipeline.py --cache --doc
+   ```
+
