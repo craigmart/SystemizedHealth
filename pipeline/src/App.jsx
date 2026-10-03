@@ -103,6 +103,26 @@ function App() {
   const [videos, setVideos] = useState([]);
   const [videoPaths, setVideoPaths] = useState({});
   const [rotationCatalog, setRotationCatalog] = useState([]);
+  const [deletedCodes, setDeletedCodes] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem('sh_deleted_video_codes') || '[]');
+    } catch {
+      return [];
+    }
+  });
+
+  const handleVideoDeleted = (code) => {
+    if (!code) return;
+    setDeletedCodes(prev => {
+      const next = Array.from(new Set([...prev, code]));
+      try {
+        localStorage.setItem('sh_deleted_video_codes', JSON.stringify(next));
+      } catch (err) {
+        console.error("Failed to save deleted codes:", err);
+      }
+      return next;
+    });
+  };
   const [loading, setLoading] = useState(true);
   const [currentVideo, setCurrentVideo] = useState(null);
   const [metricModal, setMetricModal] = useState(null);
@@ -632,7 +652,7 @@ function App() {
         });
       } else if (isExpectedReleaseDay) {
         // Resolve directly from 12-month content rotation system (Zero Placeholders)
-        const rotItem = rotationCatalog.find(r => r.drop_date === isoDate);
+        const rotItem = rotationCatalog.find(r => r.drop_date === isoDate && !deletedCodes.includes(r.code));
         if (rotItem) {
           pipelineItems.push({
             isPlaceholder: false,
@@ -1213,7 +1233,7 @@ function App() {
       ) : trimmedSearch ? (
         renderSearchResults()
       ) : currentVideo ? (
-        <VideoDetail video={currentVideo} getRotationInfo={getRotationInfo} onUpdate={fetchVideos} onBack={() => closeVideo()} />
+        <VideoDetail video={currentVideo} getRotationInfo={getRotationInfo} onUpdate={fetchVideos} onDelete={handleVideoDeleted} onBack={() => closeVideo()} />
       ) : (
         renderDashboard()
       )}
@@ -1233,7 +1253,7 @@ function App() {
   );
 }
 
-function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
+function VideoDetail({ video, getRotationInfo, onUpdate, onDelete, onBack }) {
   const [localVideo, setLocalVideo] = useState(video);
   const [agentMessage, setAgentMessage] = useState(video.agent_message || '');
   const [transcript, setTranscript] = useState(video.raw_transcript || '');
@@ -1261,19 +1281,30 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onBack }) {
 
     setDeleting(true);
     try {
-      const query = localVideo.id
-        ? supabase.from('videos').delete().eq('id', localVideo.id)
-        : supabase.from('videos').delete().eq('video_number', localVideo.video_number);
+      if (supabase) {
+        let query = supabase.from('videos').delete();
+        if (localVideo.id) {
+          query = query.eq('id', localVideo.id);
+        } else if (localVideo.code) {
+          query = query.eq('code', localVideo.code);
+        } else if (localVideo.video_number) {
+          query = query.eq('video_number', localVideo.video_number);
+        }
 
-      const { error } = await query;
-      if (error) {
-        alert(`Error deleting video: ${error.message}`);
-        setDeleting(false);
-        return;
+        const { error } = await query;
+        if (error) {
+          alert(`Error deleting video: ${error.message}`);
+          setDeleting(false);
+          return;
+        }
       }
 
-      if (onUpdate) await onUpdate();
+      if (onDelete && localVideo.code) {
+        onDelete(localVideo.code);
+      }
+
       if (onBack) onBack();
+      if (onUpdate) await onUpdate();
     } catch (err) {
       console.error('Delete error:', err);
       alert(`Error deleting video: ${err.message || err}`);

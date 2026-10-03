@@ -44,20 +44,18 @@
 
 - **Week of Sep 21 (Level 3: Play)**:
   - [x] `80.V3A1`: *The 5 Stages of Brain Aging (And How to Stay Sharp Into Your 90s)* — Dropped: 2026-09-24 (`#published`)
-  - [ ] `80.V3A1-S1`: *Play is how you learn new things* — Scheduled: 2026-09-25 (`#idea`)
-  - [ ] `80.V3A1-S2`: *You can’t force play* — Scheduled: 2026-09-26 (`#idea`)
+  - [x] `80.V3A1-S1`: *Play is how you learn new things* — Dropped: 2026-09-25 (`#published`)
+  - [x] `80.V3A1-S2`: *When Was the Last Time You Just Played?* — Dropped: 2026-09-26 (`#published`)
+  - [x] `80.V1A0-S1`: *Diet drugs and Ambition* — Dropped: 2026-09-30 (`#published`)
 
-- **Week of Sep 28 (Level 3: Organize)**:
-  - [ ] `80.V3B1`: *Level 3 (Outward) — Organize (Long)* — Scheduled: 2026-09-30 (`#idea`)
-  - [ ] `80.V3B1-S1`: *Level 3 (Outward) — Organize (Short 1)* — Scheduled: 2026-10-01 (`#idea`)
-  - [ ] `80.V3B1-S2`: *Level 3 (Outward) — Organize (Short 2)* — Scheduled: 2026-10-03 (`#idea`)
-  - [ ] `80.V3B1-S3`: *Level 3 (Outward) — Organize (Short 3)* — Scheduled: 2026-10-04 (`#idea`)
+- **Week of Oct 05 (Level 3: Organize)**:
+  - [ ] `80.V3B1`: *A no-nonsense Bullet Journal* — Scheduled: 2026-10-05
+  - [ ] `80.V3B1-S1`: *Get it out of your head - journal!* — Scheduled: 2026-10-06 (`#edit`)
+  - [ ] `80.V3B1-S2`: *The Power of a Waiting For list* — Scheduled: 2026-10-08 (`#edit`)
+  - [ ] `80.V3B1-S3`: *Your mind if for creativity not to do lists* — Scheduled: 2026-10-10 (`#edit`)
 
-- **Week of Oct 05 (Level 4: Lab Deep Dive)**:
-  - [ ] `80.V4-01`: *Level 4 (Lab) — User Discretion (Long)* — Scheduled: 2026-10-05 (`#idea`)
-  - [ ] `80.V4-01-S1`: *Level 4 (Lab) — User Discretion (Short 1)* — Scheduled: 2026-10-06 (`#idea`)
-  - [ ] `80.V4-01-S2`: *Level 4 (Lab) — User Discretion (Short 2)* — Scheduled: 2026-10-08 (`#idea`)
-  - [ ] `80.V4-01-S3`: *Level 4 (Lab) — User Discretion (Short 3)* — Scheduled: 2026-10-10 (`#idea`)
+- **Week of Oct 12 (Level 1: Fuel)**:
+  - [ ] `80.V1A2`: *Level 1 (Foundational) — Fuel (Long)* — Scheduled: 2026-10-12 (`#idea`)
 
 ---
 

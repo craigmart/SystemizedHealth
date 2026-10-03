@@ -4,14 +4,10 @@ V2A,Short 3,09/19/2026,Level 2 (Inward),Thinking
 V3A,Long,09/24/2026,Level 3 (Outward),Play
 V3A,Short 1,09/25/2026,Level 3 (Outward),Play
 V3A,Short 2,09/26/2026,Level 3 (Outward),Play
-V3B,Long,09/30/2026,Level 3 (Outward),Organize
-V3B,Short 1,10/01/2026,Level 3 (Outward),Organize
-V3B,Short 2,10/03/2026,Level 3 (Outward),Organize
-V3B,Short 3,10/04/2026,Level 3 (Outward),Organize
-V4,Long,10/05/2026,Level 4 (Lab),Lab
-V4,Short 1,10/06/2026,Level 4 (Lab),Lab
-V4,Short 2,10/08/2026,Level 4 (Lab),Lab
-V4,Short 3,10/10/2026,Level 4 (Lab),Lab
+V3B,Long,10/05/2026,Level 3 (Outward),Organize
+V3B,Short 1,10/06/2026,Level 3 (Outward),Organize
+V3B,Short 2,10/08/2026,Level 3 (Outward),Organize
+V3B,Short 3,10/10/2026,Level 3 (Outward),Organize
 V1A,Long,10/12/2026,Level 1 (Foundational),Fuel
 V1A,Short 1,10/13/2026,Level 1 (Foundational),Fuel
 V1A,Short 2,10/15/2026,Level 1 (Foundational),Fuel
