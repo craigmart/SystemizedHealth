@@ -1,6 +1,6 @@
 # Video Pipeline Status
 
-> **Source of truth:** Supabase `videos` table  |  Generated: 2026-10-03
+> **Source of truth:** Supabase `videos` table  |  Generated: 2026-10-04
 > To update status: `python3 scripts/video_pipeline.py --status <code> <status>`
 
 ---
@@ -44,8 +44,8 @@
 | **034** | `80.V1A-S1` | Short | The Mid-Afternoon Crash | 2026-08-18 | ✅ #published | — |
 | **035** | `80.V1A-S2` | Short | Cellular Hydration | 2026-08-20 | ✅ #published | — |
 | **036** | `80.V1A-S3` | Short | Diets wont work, here's what does. | 2026-08-21 | ✅ #published | 2026-08-21 |
-| **038** | `80.V3B1-S1` | Short | Get it out of your head - journal! | 2026-10-06 | ✂️ #edit | — |
-| **039** | `80.V3B1-S2` | Short | The Power of a Waiting For list | 2026-10-08 | ✂️ #edit | — |
+| **038** | `80.V3B1-S1` | Short | Your Brain Is Full Do This Now | 2026-10-06 | ✅ #published | — |
+| **039** | `80.V3B1-S2` | Short | How 3 Simple Lists Free Up Mental Space | 2026-10-08 | ✅ #published | — |
 | **040** | `80.V3B1-S3` | Short | Your mind if for creativity not to do lists | 2026-10-10 | ✂️ #edit | — |
 | **045** | `80.V1A2` | Long | Level 1 (Foundational) — Fuel | 2026-10-12 | 💡 #idea | — |
 | **046** | `80.V1A2-S1` | Short | Level 1 (Foundational) — Fuel (Short 1) | 2026-10-13 | 💡 #idea | — |
@@ -250,7 +250,8 @@
 | **245** | `80.V2A-S4` | Short | Buffers make you more productive | 2026-09-28 | ✅ #published | 2026-09-30 |
 | **246** | `80.V3A1-S3` | Short | Who’s brains are better connected, men or women? | 2026-09-29 | ✅ #published | — |
 | **247** | `80.V1A0-S1` | Short | Diet drugs and Ambition | 2026-09-30 | ✅ #published | — |
-| **248** | `80.V3B1` | Long | My Simple Bullet Journal Setup After 7 1/2 Years of use (No Art Needed) | 2026-10-03 | ✅ #published | — |
+| **248** | `80.V3B1` | Long | 90 Months of bullet journaling | 2026-10-03 | ✅ #published | — |
+| **249** | `80.V1B3-A1` | Short | Run with Dr A #1 | 2026-10-04 | ✅ #published | — |
 | **H001** | `HIST.L01` | Long | The Biological Requirement for Weekly Structure | 2026-01-01 | ✅ #published | 2026-01-01 |
 | **H002** | `HIST.L02` | Long | The Biological Reality of GLP-1: Fuel vs. Motivation | 2026-03-24 | ✅ #published | 2026-03-24 |
 | **H003** | `HIST.L03` | Long | The Nervous System Secret to Consistent Gains | 2026-01-22 | ✅ #published | 2026-01-22 |
@@ -276,5 +277,5 @@
 
 - 💡 **#idea**: 199
 - 📝 **#write**: 1
-- ✂️ **#edit**: 3
-- ✅ **#published**: 57
+- ✂️ **#edit**: 1
+- ✅ **#published**: 60

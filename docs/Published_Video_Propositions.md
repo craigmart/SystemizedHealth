@@ -1,12 +1,12 @@
 # 🗂️ Published Video Propositions & 3x5 Index Card Tracker
 
-*Updated 2026-10-03 with authoritative Workflowy Johnny Decimal (JDex) codes.*
+*Updated 2026-10-04 with authoritative Workflowy Johnny Decimal (JDex) codes.*
 
 ---
 
 ## 📊 Card Transcription Progress
 
-**Status**: 37 Completed / 3 Pending Physical 3x5 Cards
+**Status**: 43 Completed / 0 Pending Physical 3x5 Cards
 
 | Video # | Code | Title | Primary JDex | Cards Status |
 | :---: | :--- | :--- | :---: | :---: |
@@ -45,30 +45,15 @@
 | **034** | `80.V1A-S1` | The Mid-Afternoon Crash | `81.09` | ✅ Done |
 | **035** | `80.V1A-S2` | Cellular Hydration | `81.09` | ✅ Done |
 | **036** | `80.V1A-S3` | Diets wont work, here's what does. | `81.05` | ✅ Done |
+| **038** | `80.V3B1-S1` | Your Brain Is Full Do This Now | `80.V3B` | ✅ Done |
+| **039** | `80.V3B1-S2` | How 3 Simple Lists Free Up Mental Space | `80.V3B` | ✅ Done |
 | **245** | `80.V2A-S4` | Buffers make you more productive | `80.21` | ✅ Done |
-| **246** | `80.V3A1-S3` | Who’s brains are better connected, men or wom | `80.21` | ⬜ **Pending** |
-| **247** | `80.V1A0-S1` | Diet drugs and Ambition | `80.12` | ⬜ **Pending** |
-| **248** | `80.V3B1` | My Simple Bullet Journal Setup After 7 1/2 Ye | `80.V3B` | ⬜ **Pending** |
+| **246** | `80.V3A1-S3` | Who’s brains are better connected, men or wom | `80.21` | ✅ Done |
+| **247** | `80.V1A0-S1` | Diet drugs and Ambition | `80.12` | ✅ Done |
+| **248** | `80.V3B1` | 90 Months of bullet journaling | `80.32` | ✅ Done |
+| **249** | `80.V1B3-A1` | Run with Dr A #1 | `80.12` | ✅ Done |
 | **TBD** | `80.V0A-S3-B` | The Easiest Way to Eliminate Back Pain #short | `81.02` | ✅ Done |
 
 ---
 
 ## 🗃️ Pending 3x5 Cards by Video (Refined Clinical Propositions)
-
-### ⬜ [80.V3A1-S3] Who’s brains are better connected, men or women? (Video #246)
-*Primary JDex Category*: `80.21` | *Obsidian Script*: `Zettlekasten/80.V3A1-S3 Script - Who’s brains are better connected, men or women.md`
-
-- Neural network connectivity exhibits distinct sex-differentiated developmental trajectories, with whole-brain global efficiency and interhemispheric connectivity peaking markedly in females around age 30-31. [[82.08 Large-Scale Brain Networks]]
-- While infant neural connection density is broadly balanced between sexes, adult female neuroarchitecture preserves elevated associative network density into the fourth decade, providing structural scaffolding for heightened cognitive integration and complex executive processing. [[82.02 Functional Systems]]
-
-### ⬜ [80.V1A0-S1] Diet drugs and Ambition (Video #247)
-*Primary JDex Category*: `80.12` | *Obsidian Script*: `Zettlekasten/80.V1A0-S1 Script - Diet drugs and Ambition.md`
-
-*(No propositions mined)*
-
-### ⬜ [80.V3B1] My Simple Bullet Journal Setup After 7 1/2 Years of use (No Art Needed) (Video #248)
-*Primary JDex Category*: `80.V3B` | *Obsidian Script*: `Zettlekasten/80.V3B1 Script - My Simple Bullet Journal Setup After 7.5 Years of Use.md`
-
-- Daily analog rapid logging ("brain sweeps") offloads working memory from the prefrontal cortex, reducing cognitive burden and preventing default mode network rumination on unfinished loops. [[64.05 Ideation and Brainsweeps]]
-- Segregating deferred commitments into distinct "Future" and "Waiting For" review panels eliminates the Zeigarnik effect (subconscious cognitive drag of uncompleted tasks), preserving cognitive capacity for creative focus. [[64.04 Productivity, Study of]]
-- Periodic retrospective review of multi-year analog journals reinforces identity stability and metacognitive perspective, grounding emotional resilience across long-term life challenges. [[42.01 Resilience]]

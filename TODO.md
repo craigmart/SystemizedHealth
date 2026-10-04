@@ -32,20 +32,20 @@
 - [x] `80.V3A1-S3`: *Who’s brains are better connected, men or women?* — Dropped: 2026-09-29
 - [x] `80.V1A0-S1`: *Diet drugs and Ambition* — Dropped: 2026-09-30
 - [x] `80.V3B1`: *My Simple Bullet Journal Setup After 7 1/2 Years of use (No Art Needed)* — Dropped: 2026-10-03
+- [x] `80.V1B3-A1`: *Run with Dr A #1* — Dropped: 2026-10-04
+- [x] `80.V3B1-S1`: *Your Brain Is Full Do This Now* — Dropped: 2026-10-06
+- [x] `80.V3B1-S2`: *How 3 Simple Lists Free Up Mental Space* — Dropped: 2026-10-08
 
 ### 🗃️ Zettelkasten Physical 3x5 Index Cards
-- **37 Completed / 3 Pending Physical 3x5 Cards** (Tracked in [`docs/Published_Video_Propositions.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/Published_Video_Propositions.md)):
-  - [ ] `80.V3B1`: *My Simple Bullet Journal Setup After 7 1/2 Years of use (No Art Needed)* (Propositions mined, awaiting 3x5 physical card filing)
-  - [ ] `80.V3A1-S3`: *Who’s brains are better connected, men or women?* (Propositions mined, awaiting 3x5 physical card filing)
-  - [ ] `80.V1A0-S1`: *Diet drugs and Ambition* (Awaiting spoken transcript ingestion to mine propositions)
+- **43 Completed / 0 Pending Physical 3x5 Cards** (Tracked in [`docs/Published_Video_Propositions.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/Published_Video_Propositions.md)): All clinical propositions are filed!
 
 ### ✍️ Next Production Queue: 12-Month Rotation Schedule (`#idea`)
 *(Active pipeline view: next 3 weeks runway from [`docs/content_rotation.csv`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/content_rotation.csv) & [`SOPs/Content Rotation System SOP.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/Content%20Rotation%20System%20SOP.md))*
 
 - **Week of Oct 05 (Level 3: Organize)**:
   - [x] `80.V3B1`: *My Simple Bullet Journal Setup After 7 1/2 Years of use (No Art Needed)* — Dropped: 2026-10-03 (`#published`)
-  - [ ] `80.V3B1-S1`: *Get it out of your head - journal!* — Scheduled: 2026-10-06 (`#edit`)
-  - [ ] `80.V3B1-S2`: *The Power of a Waiting For list* — Scheduled: 2026-10-08 (`#edit`)
+  - [x] `80.V3B1-S1`: *Your Brain Is Full Do This Now* — Dropped: 2026-10-06 (`#published`)
+  - [x] `80.V3B1-S2`: *How 3 Simple Lists Free Up Mental Space* — Dropped: 2026-10-08 (`#published`)
   - [ ] `80.V3B1-S3`: *Your mind if for creativity not to do lists* — Scheduled: 2026-10-10 (`#edit`)
 
 - **Week of Oct 12 (Level 1: Fuel & Energy)**:
