@@ -1188,9 +1188,21 @@ function App() {
   return (
     <div className="container">
       <header className="section-header">
-        <div>
-          <h1>Systemized Pipeline</h1>
-          <p>Systemized Health central dashboard</p>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+          {currentVideo && (
+            <button 
+              className="btn btn-outline" 
+              onClick={() => { closeVideo(); setSearchQuery(''); }}
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', fontWeight: '600' }}
+            >
+              <ChevronLeft size={16} />
+              Back to Dashboard
+            </button>
+          )}
+          <div>
+            <h1>Systemized Pipeline</h1>
+            <p>Systemized Health central dashboard</p>
+          </div>
         </div>
 
         <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', flexWrap: 'wrap' }}>
@@ -1244,7 +1256,7 @@ function App() {
             )}
           </form>
 
-          {!currentVideo ? (
+          {!currentVideo && (
             <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
               <button className="btn btn-primary" onClick={() => setShowAddModal(true)} style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
                 <Plus size={16} />
@@ -1255,11 +1267,6 @@ function App() {
                 Refresh
               </button>
             </div>
-          ) : (
-            <button className="btn btn-outline" onClick={() => { closeVideo(); setSearchQuery(''); }}>
-              <ChevronLeft size={16} />
-              Back to Dashboard
-            </button>
           )}
         </div>
       </header>
@@ -1922,16 +1929,7 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onDelete, onBack }) {
       
       {/* Detail Header */}
       <div style={{ marginBottom: '1.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '1.25rem' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem', flexWrap: 'wrap', gap: '0.5rem' }}>
-          {onBack && (
-            <button 
-              className="btn btn-outline" 
-              onClick={onBack}
-              style={{ padding: '0.25rem 0.6rem', fontSize: '0.8rem' }}
-            >
-              <ChevronLeft size={14} /> Back to Pipeline
-            </button>
-          )}
+        <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', marginBottom: '0.75rem', flexWrap: 'wrap', gap: '0.5rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginLeft: 'auto' }}>
             <a
               href={videoPath 
