@@ -282,17 +282,10 @@ p {
   align-items: start;
 }
 
-/* Wide mode (landscape and min-width: 900px): two columns */
-@media (min-width: 900px) and (orientation: landscape) {
+/* Two columns on iPad (both portrait and landscape) and desktop (768px and up) */
+@media (min-width: 768px) {
   .dashboard-grid {
     grid-template-columns: 1fr 1fr;
-  }
-}
-
-/* Portrait / tall mode (iPad, tablets, and phones): stack as full-width rows */
-@media (orientation: portrait) {
-  .dashboard-grid {
-    grid-template-columns: 1fr;
   }
 }
 
@@ -519,7 +512,7 @@ p {
 }
 
 /* Mobile & iPhone Responsiveness */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .container {
     padding: 1rem 1.25rem;
   }
