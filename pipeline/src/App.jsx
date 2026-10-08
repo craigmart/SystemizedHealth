@@ -147,7 +147,7 @@ function App() {
       }
       closeVideo();
       setSearchQuery('');
-      await fetchVideos();
+      await fetchVideos({ keepCurrent: false, checkUrl: false });
     } catch (err) {
       console.error("Error saving video on back:", err);
       closeVideo();
@@ -247,6 +247,9 @@ function App() {
     if (pushHistory && video.code) {
       const url = new URL(window.location.href);
       url.searchParams.set('video', video.code);
+      url.searchParams.delete('code');
+      url.searchParams.delete('v');
+      url.hash = '';
       window.history.pushState({ videoCode: video.code }, '', url.toString());
     }
   };
@@ -258,11 +261,14 @@ function App() {
       url.searchParams.delete('video');
       url.searchParams.delete('code');
       url.searchParams.delete('v');
-      window.history.pushState({}, '', url.toString());
+      url.hash = '';
+      const cleanUrl = url.pathname + (url.search ? url.search : '');
+      window.history.pushState({}, '', cleanUrl);
     }
   };
 
-  const fetchVideos = async () => {
+  const fetchVideos = async (options = {}) => {
+    const { keepCurrent = true, checkUrl = true } = options;
     setLoading(true);
     const { data, error } = await supabase
       .from('videos')
@@ -275,21 +281,29 @@ function App() {
       setVideos(list);
 
       // Deep link support from URL params (e.g. ?video=80.V1B2-S2)
-      const params = new URLSearchParams(window.location.search);
-      const targetParam = params.get('video') || params.get('code') || params.get('v') || window.location.hash.replace(/^#/, '');
+      if (checkUrl) {
+        const params = new URLSearchParams(window.location.search);
+        const targetParam = params.get('video') || params.get('code') || params.get('v');
 
-      if (targetParam) {
-        const found = list.find(v => 
-          v.code?.toLowerCase() === targetParam.toLowerCase() ||
-          v.video_number === targetParam ||
-          v.id === targetParam
-        );
-        if (found) {
-          setCurrentVideo(found);
+        if (targetParam) {
+          const found = list.find(v => 
+            v.code?.toLowerCase() === targetParam.toLowerCase() ||
+            v.video_number === targetParam ||
+            v.id === targetParam
+          );
+          if (found) {
+            setCurrentVideo(found);
+            setLoading(false);
+            return;
+          }
         }
-      } else if (currentVideo) {
-        const updated = list.find(v => v.id === currentVideo.id);
+      }
+
+      if (keepCurrent && currentVideo) {
+        const updated = list.find(v => v.id === currentVideo.id || v.code === currentVideo.code);
         if (updated) setCurrentVideo(updated);
+      } else if (!keepCurrent) {
+        setCurrentVideo(null);
       }
     }
     setLoading(false);
@@ -1232,7 +1246,7 @@ function App() {
                 }}
               >
                 <ChevronLeft size={15} className={isExiting ? "animate-spin" : ""} />
-                {isExiting ? 'Saving...' : 'Back'}
+                {isExiting ? 'Saving...' : 'Dashboard'}
               </button>
             </div>
           )}
@@ -1295,10 +1309,32 @@ function App() {
                 <Plus size={16} />
                 Add Video
               </button>
-              <button className="btn btn-outline" onClick={fetchVideos} disabled={loading}>
+              <button className="btn btn-outline" onClick={() => fetchVideos()} disabled={loading}>
                 <RefreshCw size={16} className={loading ? "animate-spin" : ""} />
                 Refresh
               </button>
+              <a
+                href="https://studio.youtube.com/channel/UCSnF1YqGqmNosGdX5JqY1gQ"
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-outline"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', textDecoration: 'none' }}
+                title="Open YouTube Studio"
+              >
+                <ExternalLink size={14} />
+                Studio
+              </a>
+              <a
+                href="https://www.youtube.com/@CraigAndersonDC"
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-outline"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', textDecoration: 'none' }}
+                title="Open YouTube Channel"
+              >
+                <ExternalLink size={14} />
+                Channel
+              </a>
             </div>
           )}
         </div>
