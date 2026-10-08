@@ -603,6 +603,15 @@ function App() {
   const readyToFilmVideos = videos.filter(v => v.status === '#film');
   const writingVideos = videos.filter(v => v.status === '#write');
   const publishedVideos = videos.filter(v => v.status === '#published');
+  const futureVideos = videos.filter(v => {
+    if (v.status === '#published') return false;
+    if (v.code?.startsWith('HIST')) return false;
+    if (!v.drop_date) return false;
+    const dropDate = parseISO(v.drop_date);
+    if (isNaN(dropDate.getTime())) return false;
+    dropDate.setHours(0, 0, 0, 0);
+    return dropDate > todayDate;
+  });
 
   const openModal = (title, videoList) => {
     const listCopy = [...videoList];
@@ -784,6 +793,16 @@ function App() {
           <div>
             <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Published Videos</div>
             <div style={{ fontSize: '1.25rem', fontWeight: 'bold', lineHeight: '1.2' }}>{publishedVideos.length}</div>
+          </div>
+        </div>
+
+        <div className="card metric-tile" onClick={() => openModal('Future Videos', futureVideos)}>
+          <div style={{ backgroundColor: 'var(--accent-color)', color: '#fff', padding: '0.5rem', borderRadius: '50%', display: 'flex' }}>
+            <Calendar size={20} />
+          </div>
+          <div>
+            <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Future Videos</div>
+            <div style={{ fontSize: '1.25rem', fontWeight: 'bold', lineHeight: '1.2' }}>{futureVideos.length}</div>
           </div>
         </div>
       </div>
@@ -1046,22 +1065,28 @@ function App() {
               <p>No videos found for this metric.</p>
             ) : (
               <div className="videos-list">
-                {metricModal.videos.map(v => (
-                  <div key={v.code} className="video-item" style={{ cursor: 'pointer' }} onClick={() => { openVideo(v); setMetricModal(null); }}>
-                    <div className="video-header">
-                      <strong>{v.code}: {v.title}</strong>
-                      {getStatusBadge(v.status)}
+                {metricModal.videos.map(v => {
+                  const rotInfo = getRotationInfo(v);
+                  const displayTitle = (v.title && v.title.trim())
+                    ? v.title.trim()
+                    : (rotInfo?.level || v.os_level || 'Untitled');
+                  return (
+                    <div key={v.code} className="video-item" style={{ cursor: 'pointer' }} onClick={() => { openVideo(v); setMetricModal(null); }}>
+                      <div className="video-header">
+                        <strong>{v.code}: {displayTitle}</strong>
+                        {getStatusBadge(v.status)}
+                      </div>
+                      <div className="video-meta" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <span>Drop: {v.drop_date ? format(parseISO(v.drop_date), 'EEE, MMM d, yyyy') : 'TBD'}</span>
+                        {v.youtube_id && (
+                          <span style={{ fontSize: '0.75rem', color: 'var(--accent-color)', fontWeight: '600' }}>
+                            ▶ YouTube
+                          </span>
+                        )}
+                      </div>
                     </div>
-                    <div className="video-meta" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <span>Drop: {v.drop_date ? format(parseISO(v.drop_date), 'EEE, MMM d, yyyy') : 'TBD'}</span>
-                      {v.youtube_id && (
-                        <span style={{ fontSize: '0.75rem', color: 'var(--accent-color)', fontWeight: '600' }}>
-                          ▶ YouTube
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             )}
           </div>
