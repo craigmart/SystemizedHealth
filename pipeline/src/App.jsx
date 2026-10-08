@@ -1252,7 +1252,7 @@ function App() {
           )}
         </div>
 
-        <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', flexWrap: 'wrap' }}>
+        <div className="header-controls">
           {/* Search Box */}
           <form
             onSubmit={(e) => {
@@ -1261,9 +1261,9 @@ function App() {
               if (input) input.blur();
             }}
             action=""
-            style={{ position: 'relative', display: 'flex', alignItems: 'center', margin: 0 }}
+            className="header-search-form"
           >
-            <Search size={15} style={{ position: 'absolute', left: '0.75rem', color: 'var(--text-secondary)', pointerEvents: 'none' }} />
+            <Search size={15} className="header-search-icon" />
             <input
               type="search"
               className="search-input"
@@ -1285,17 +1285,7 @@ function App() {
               <button
                 type="button"
                 onClick={() => setSearchQuery('')}
-                style={{
-                  position: 'absolute',
-                  right: '0.5rem',
-                  background: 'none',
-                  border: 'none',
-                  color: 'var(--text-secondary)',
-                  cursor: 'pointer',
-                  padding: '0.2rem',
-                  display: 'flex',
-                  alignItems: 'center'
-                }}
+                className="header-search-clear"
                 title="Clear search"
               >
                 <X size={14} />
@@ -1304,36 +1294,34 @@ function App() {
           </form>
 
           {!currentVideo && (
-            <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
-              <button className="btn btn-primary" onClick={() => setShowAddModal(true)} style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+            <div className="header-actions">
+              <button className="btn btn-primary" onClick={() => setShowAddModal(true)}>
                 <Plus size={16} />
-                Add Video
+                <span>Add Video</span>
               </button>
               <button className="btn btn-outline" onClick={() => fetchVideos()} disabled={loading}>
                 <RefreshCw size={16} className={loading ? "animate-spin" : ""} />
-                Refresh
+                <span>Refresh</span>
               </button>
               <a
                 href="https://studio.youtube.com/channel/UCSnF1YqGqmNosGdX5JqY1gQ"
                 target="_blank"
                 rel="noreferrer"
                 className="btn btn-outline"
-                style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', textDecoration: 'none' }}
                 title="Open YouTube Studio"
               >
                 <ExternalLink size={14} />
-                Studio
+                <span>Studio</span>
               </a>
               <a
                 href="https://www.youtube.com/@CraigAndersonDC"
                 target="_blank"
                 rel="noreferrer"
                 className="btn btn-outline"
-                style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', textDecoration: 'none' }}
                 title="Open YouTube Channel"
               >
                 <ExternalLink size={14} />
-                Channel
+                <span>Channel</span>
               </a>
             </div>
           )}
