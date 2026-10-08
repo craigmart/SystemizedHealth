@@ -55,18 +55,22 @@
   padding: 0;
 }
 
-body {
+html, body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-primary);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 .container {
   max-width: 1320px;
+  width: 100%;
   margin: 0 auto;
   padding: 2rem;
+  box-sizing: border-box;
 }
 
 /* Typography */
@@ -215,7 +219,40 @@ p {
   }
 }
 
-/* Header Search Input */
+/* Header Search & Actions */
+.header-controls {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.header-search-form {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.header-search-icon {
+  position: absolute;
+  left: 0.75rem;
+  color: var(--text-secondary);
+  pointer-events: none;
+}
+
+.header-search-clear {
+  position: absolute;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.2rem;
+  display: flex;
+  align-items: center;
+}
+
 .search-input {
   padding: 0.45rem 2rem 0.45rem 2.2rem;
   border-radius: var(--radius-md);
@@ -238,6 +275,21 @@ p {
 .search-input::-webkit-search-decoration {
   -webkit-appearance: none;
   appearance: none;
+}
+
+.header-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.header-actions .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -514,16 +566,57 @@ p {
 /* Mobile & iPhone Responsiveness */
 @media (max-width: 767px) {
   .container {
-    padding: 1rem 1.25rem;
+    padding: 0.85rem 1rem;
   }
 
   .section-header {
-    padding: 0 0.5rem 1rem 0.5rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.85rem;
+    padding: 0 0.25rem 1rem 0.25rem;
   }
 
   .section-header h1 {
     padding-left: 0.25rem;
     padding-right: 0.25rem;
+    font-size: 1.6rem;
+  }
+
+  .header-controls {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.65rem;
+  }
+
+  .header-search-form {
+    width: 100%;
+  }
+
+  .header-search-form .search-input {
+    width: 100% !important;
+    font-size: 0.9rem;
+    padding-top: 0.55rem;
+    padding-bottom: 0.55rem;
+    box-sizing: border-box;
+  }
+
+  .header-search-form .search-input:focus {
+    width: 100% !important;
+  }
+
+  .header-actions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .header-actions .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.55rem 0.5rem;
+    font-size: 0.82rem;
   }
 
   .card {
@@ -596,24 +689,41 @@ p {
   }
 }
 
+@media (min-width: 520px) and (max-width: 767px) {
+  .header-actions {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 @media (max-width: 480px) {
   .container {
-    padding: 0.85rem 1.25rem;
+    padding: 0.75rem 0.85rem;
   }
 
   .section-header {
-    padding: 0 0.65rem 1rem 0.65rem;
+    padding: 0 0 0.85rem 0;
   }
 
   .section-header h1 {
-    padding-left: 0.35rem;
-    padding-right: 0.35rem;
-    font-size: 1.4rem;
+    padding-left: 0.15rem;
+    padding-right: 0.15rem;
+    font-size: 1.35rem;
   }
 
   .section-header p {
-    padding-left: 0.35rem;
-    padding-right: 0.35rem;
+    padding-left: 0.15rem;
+    padding-right: 0.15rem;
+    font-size: 0.82rem;
+  }
+
+  .header-actions {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.45rem;
+  }
+
+  .header-actions .btn {
+    padding: 0.5rem 0.35rem;
+    font-size: 0.8rem;
   }
 
   .card {
