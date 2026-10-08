@@ -704,7 +704,18 @@ function App() {
       if (v.code?.startsWith('HIST')) return false;
 
       // Published videos that still have ANY open checklist items belong in WIP
+      // Don't show until the day after publication
       if (v.status === '#published') {
+        const publishDateStr = v.drop_date || v.uploaded_date;
+        if (publishDateStr) {
+          const publishDate = parseISO(publishDateStr);
+          if (!isNaN(publishDate.getTime())) {
+            publishDate.setHours(0, 0, 0, 0);
+            if (todayDate <= publishDate) {
+              return false;
+            }
+          }
+        }
         return hasOpenChecklistTasks(v);
       }
 
@@ -1153,7 +1164,7 @@ function App() {
     <div className="container">
       <header className="section-header">
         <div>
-          <h1>Systemizd Pipeline</h1>
+          <h1>Systemized Pipeline</h1>
           <p>Systemized Health central dashboard</p>
         </div>
 
