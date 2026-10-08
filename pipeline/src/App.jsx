@@ -156,6 +156,31 @@ function App() {
     }
   };
 
+  const handleOpenStudio = (e) => {
+    if (e && e.preventDefault) e.preventDefault();
+    const isAppleMobile = /iPhone|iPad|iPod/.test(navigator.userAgent) || 
+      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+    if (isAppleMobile) {
+      window.location.href = 'https://studio.youtube.com/channel/UCSnF1YqGqmNosGdX5JqY1gQ';
+    } else {
+      window.open('https://studio.youtube.com/channel/UCSnF1YqGqmNosGdX5JqY1gQ', '_blank', 'noopener,noreferrer');
+    }
+  };
+
+  const handleOpenChannel = (e) => {
+    if (e && e.preventDefault) e.preventDefault();
+    const isAppleMobile = /iPhone|iPad|iPod/.test(navigator.userAgent) || 
+      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+    if (isAppleMobile) {
+      // Direct deep-link to native YouTube app on iOS/iPadOS
+      window.location.href = 'youtube://www.youtube.com/@CraigAndersonDC';
+    } else {
+      window.open('https://www.youtube.com/@CraigAndersonDC', '_blank', 'noopener,noreferrer');
+    }
+  };
+
   const handleQuickSaveDropDate = async (e, videoItem) => {
     if (e && e.stopPropagation) e.stopPropagation();
     const trimmed = wipDateValue ? wipDateValue.trim() : null;
@@ -1303,26 +1328,24 @@ function App() {
                 <RefreshCw size={16} className={loading ? "animate-spin" : ""} />
                 <span>Refresh</span>
               </button>
-              <a
-                href="https://studio.youtube.com/channel/UCSnF1YqGqmNosGdX5JqY1gQ"
-                target="_blank"
-                rel="noreferrer"
+              <button
+                type="button"
+                onClick={handleOpenStudio}
                 className="btn btn-outline"
                 title="Open YouTube Studio"
               >
                 <ExternalLink size={14} />
                 <span>Studio</span>
-              </a>
-              <a
-                href="https://www.youtube.com/@CraigAndersonDC"
-                target="_blank"
-                rel="noreferrer"
+              </button>
+              <button
+                type="button"
+                onClick={handleOpenChannel}
                 className="btn btn-outline"
                 title="Open YouTube Channel"
               >
                 <ExternalLink size={14} />
                 <span>Channel</span>
-              </a>
+              </button>
             </div>
           )}
         </div>
