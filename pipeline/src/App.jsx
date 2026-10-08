@@ -1521,6 +1521,27 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
     return video.rough_outline || getStarterOutline(video.format_type, video.code);
   });
 
+  const scratchPadRef = useRef(null);
+
+  const adjustScratchPadHeight = () => {
+    if (scratchPadRef.current) {
+      scratchPadRef.current.style.height = 'auto';
+      scratchPadRef.current.style.height = `${Math.max(180, scratchPadRef.current.scrollHeight)}px`;
+    }
+  };
+
+  useEffect(() => {
+    adjustScratchPadHeight();
+    const timer = setTimeout(adjustScratchPadHeight, 50);
+    return () => clearTimeout(timer);
+  }, [outline, video]);
+
+  useEffect(() => {
+    const handleResize = () => adjustScratchPadHeight();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const parseChecklist = (raw) => {
     if (!raw) return {};
     if (typeof raw === 'string') {
@@ -2468,8 +2489,13 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
             </div>
           </div>
           <textarea
+            ref={scratchPadRef}
             value={outline}
-            onChange={(e) => setOutline(e.target.value)}
+            onChange={(e) => {
+              setOutline(e.target.value);
+              e.target.style.height = 'auto';
+              e.target.style.height = `${Math.max(180, e.target.scrollHeight)}px`;
+            }}
             style={{
               width: '100%',
               minHeight: '180px',
@@ -2481,7 +2507,9 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
               fontFamily: 'inherit',
               fontSize: '0.9rem',
               lineHeight: '1.5',
-              resize: 'vertical'
+              overflow: 'hidden',
+              resize: 'none',
+              boxSizing: 'border-box'
             }}
             placeholder={isShort ? "1. Hook:\n\n2. Teach:\n\n3. Action:" : "1. Hook:\n\n2. Mindset:\n\n3. Story:\n\n4. Teaching:\n\n5. Action:"}
           />
