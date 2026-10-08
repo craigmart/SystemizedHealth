@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { supabase } from './supabase';
 import { 
   Calendar, CheckSquare, AlertCircle, RefreshCw, ChevronLeft, Save, Tag, 
@@ -131,6 +131,30 @@ function App() {
   const [editingWipDateCode, setEditingWipDateCode] = useState(null);
   const [wipDateValue, setWipDateValue] = useState('');
   const [savingWipDate, setSavingWipDate] = useState(false);
+  const [isExiting, setIsExiting] = useState(false);
+  const videoDetailRef = useRef(null);
+
+  const handleBack = async () => {
+    if (isExiting) return;
+    setIsExiting(true);
+    try {
+      if (videoDetailRef.current && videoDetailRef.current.saveAllChanges) {
+        const ok = await videoDetailRef.current.saveAllChanges();
+        if (!ok) {
+          setIsExiting(false);
+          return;
+        }
+      }
+      closeVideo();
+      setSearchQuery('');
+      await fetchVideos();
+    } catch (err) {
+      console.error("Error saving video on back:", err);
+      closeVideo();
+    } finally {
+      setIsExiting(false);
+    }
+  };
 
   const handleQuickSaveDropDate = async (e, videoItem) => {
     if (e && e.stopPropagation) e.stopPropagation();
@@ -1188,21 +1212,30 @@ function App() {
   return (
     <div className="container">
       <header className="section-header">
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+        <div>
+          <h1>Systemized Pipeline</h1>
+          <p>Systemized Health central dashboard</p>
           {currentVideo && (
-            <button 
-              className="btn btn-outline" 
-              onClick={() => { closeVideo(); setSearchQuery(''); }}
-              style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', fontWeight: '600' }}
-            >
-              <ChevronLeft size={16} />
-              Back to Dashboard
-            </button>
+            <div style={{ marginTop: '0.65rem' }}>
+              <button 
+                type="button" 
+                className="btn btn-outline" 
+                onClick={handleBack}
+                disabled={isExiting}
+                style={{ 
+                  display: 'inline-flex', 
+                  alignItems: 'center', 
+                  gap: '0.35rem', 
+                  fontWeight: '600',
+                  padding: '0.35rem 0.75rem',
+                  fontSize: '0.82rem'
+                }}
+              >
+                <ChevronLeft size={15} className={isExiting ? "animate-spin" : ""} />
+                {isExiting ? 'Saving...' : 'Back'}
+              </button>
+            </div>
           )}
-          <div>
-            <h1>Systemized Pipeline</h1>
-            <p>Systemized Health central dashboard</p>
-          </div>
         </div>
 
         <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', flexWrap: 'wrap' }}>
@@ -1276,7 +1309,14 @@ function App() {
       ) : trimmedSearch ? (
         renderSearchResults()
       ) : currentVideo ? (
-        <VideoDetail video={currentVideo} getRotationInfo={getRotationInfo} onUpdate={fetchVideos} onDelete={handleVideoDeleted} onBack={() => closeVideo()} />
+        <VideoDetail 
+          video={currentVideo} 
+          saveRef={videoDetailRef}
+          getRotationInfo={getRotationInfo} 
+          onUpdate={fetchVideos} 
+          onDelete={handleVideoDeleted} 
+          onBack={handleBack} 
+        />
       ) : (
         renderDashboard()
       )}
@@ -1296,7 +1336,7 @@ function App() {
   );
 }
 
-function VideoDetail({ video, getRotationInfo, onUpdate, onDelete, onBack }) {
+function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBack }) {
   const [localVideo, setLocalVideo] = useState(video);
   const [agentMessage, setAgentMessage] = useState(video.agent_message || '');
   const [transcript, setTranscript] = useState(video.raw_transcript || '');
@@ -1315,6 +1355,96 @@ function VideoDetail({ video, getRotationInfo, onUpdate, onDelete, onBack }) {
   const [dropDateInput, setDropDateInput] = useState(video.drop_date || '');
   const [savingDropDate, setSavingDropDate] = useState(false);
   const [deleting, setDeleting] = useState(false);
+
+  const saveAllChanges = async () => {
+    const trimmedTitle = titleInput.trim();
+    const trimmedCode = codeInput.trim();
+    const codeChanged = trimmedCode && trimmedCode !== localVideo.code && localVideo.status !== '#published';
+    const titleChanged = trimmedTitle && trimmedTitle !== localVideo.title && localVideo.status !== '#published';
+    const trimmedDropDate = dropDateInput ? dropDateInput.trim() : null;
+    const dropDateChanged = trimmedDropDate !== (localVideo.drop_date || null);
+    const agentMsgChanged = agentMessage !== (localVideo.agent_message || '');
+    const transcriptChanged = transcript !== (localVideo.raw_transcript || '');
+    const outlineChanged = outline !== (localVideo.rough_outline || '');
+    const notesChanged = notes !== (localVideo.notes || '');
+    const hasNewLog = !!newLogEntry.trim();
+
+    const isDirty = codeChanged || titleChanged || dropDateChanged || agentMsgChanged || 
+                    transcriptChanged || outlineChanged || notesChanged || hasNewLog;
+
+    if (!isDirty) {
+      return true;
+    }
+
+    const now = new Date();
+    const dateStr = now.toLocaleDateString('en-CA');
+    const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+    const changeLogs = [];
+
+    let updatedCode = localVideo.code;
+    let updatedTitle = localVideo.title;
+
+    if (codeChanged) {
+      updatedCode = trimmedCode;
+      changeLogs.push(`Code updated: "${localVideo.code}" → "${trimmedCode}"`);
+    }
+    if (titleChanged) {
+      updatedTitle = trimmedTitle;
+      changeLogs.push(`Title updated: "${localVideo.title}" → "${trimmedTitle}"`);
+    }
+    if (dropDateChanged) {
+      const oldD = localVideo.drop_date || 'TBD';
+      const newD = trimmedDropDate || 'TBD';
+      changeLogs.push(`Drop date updated: "${oldD}" → "${newD}"`);
+    }
+
+    let finalNotes = notes || '';
+    if (hasNewLog) {
+      const formattedLog = `- [${dateStr} ${timeStr}] ${newLogEntry.trim()}`;
+      finalNotes = finalNotes.trim() ? `${formattedLog}\n${finalNotes.trim()}` : formattedLog;
+    }
+    if (changeLogs.length > 0) {
+      const logEntry = `- [${dateStr} ${timeStr}] ${changeLogs.join(' | ')}`;
+      finalNotes = finalNotes.trim() ? `${logEntry}\n${finalNotes.trim()}` : logEntry;
+    }
+
+    const isShortCode = updatedCode.includes('-S');
+    const updatedFormat = isShortCode ? 'Short' : (localVideo.format_type || 'Long');
+
+    const updatePayload = {
+      code: updatedCode,
+      title: updatedTitle,
+      drop_date: trimmedDropDate || null,
+      agent_message: agentMessage,
+      raw_transcript: transcript,
+      notes: finalNotes,
+      rough_outline: outline,
+      format_type: updatedFormat
+    };
+
+    if (supabase) {
+      const query = localVideo.id
+        ? supabase.from('videos').update(updatePayload).eq('id', localVideo.id)
+        : supabase.from('videos').update(updatePayload).eq('video_number', localVideo.video_number);
+
+      const { error } = await query;
+      if (error) {
+        console.error("Error auto-saving video on back:", error);
+        alert("Error saving changes before exiting: " + error.message);
+        return false;
+      }
+    }
+
+    return true;
+  };
+
+  useEffect(() => {
+    if (saveRef) {
+      saveRef.current = {
+        saveAllChanges
+      };
+    }
+  });
 
   const handleDeleteVideo = async () => {
     const confirmMsg = `Are you sure you want to permanently delete ${localVideo.code} ("${localVideo.title}")?`;
