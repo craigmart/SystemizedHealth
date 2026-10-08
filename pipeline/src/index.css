@@ -282,9 +282,17 @@ p {
   align-items: start;
 }
 
-@media (min-width: 900px) {
+/* Wide mode (landscape and min-width: 900px): two columns */
+@media (min-width: 900px) and (orientation: landscape) {
   .dashboard-grid {
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Portrait / tall mode (iPad, tablets, and phones): stack as full-width rows */
+@media (orientation: portrait) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
   }
 }
 
