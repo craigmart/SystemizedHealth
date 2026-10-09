@@ -1844,6 +1844,51 @@ b. CTA: `;
   ].filter(Boolean).join('\n');
 
   const allDetectedUrls = extractUrls(allVideoTexts);
+  const outlineUrls = useMemo(() => extractUrls(outline), [outline]);
+  const logUrls = useMemo(() => extractUrls([notes, newLogEntry].filter(Boolean).join('\n')), [notes, newLogEntry]);
+  const transcriptUrls = useMemo(() => extractUrls(transcript), [transcript]);
+  const agentNoteUrls = useMemo(() => extractUrls(agentMessage), [agentMessage]);
+
+  const renderBoxLinks = (urls) => {
+    if (!urls || urls.length === 0) return null;
+    return (
+      <div 
+        style={{ 
+          display: 'flex', 
+          alignItems: 'center', 
+          flexWrap: 'wrap', 
+          gap: '0.65rem', 
+          marginTop: '0.4rem', 
+          marginBottom: '0.35rem',
+          padding: '0.15rem 0'
+        }}
+      >
+        {urls.map((link, idx) => (
+          <span key={idx} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.65rem' }}>
+            {idx > 0 && <span style={{ color: 'var(--border-color)', userSelect: 'none' }}>•</span>}
+            <a
+              href={link.href}
+              onClick={(e) => handleLinkClick(e, link)}
+              style={{
+                color: 'var(--accent-color)',
+                fontSize: '0.82rem',
+                fontWeight: '500',
+                textDecoration: 'underline',
+                textUnderlineOffset: '2px',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.25rem'
+              }}
+              title={link.videoCode ? `Open Video ${link.videoCode}` : link.href}
+            >
+              <ExternalLink size={12} />
+              <span>{link.domainLabel}</span>
+            </a>
+          </span>
+        ))}
+      </div>
+    );
+  };
   const [copiedLink, setCopiedLink] = useState(false);
 
   const handleCopyDeepLink = async () => {
@@ -3086,6 +3131,7 @@ b. CTA: `;
               : "1. Title: \n\n2. Thumbnail: \n\n3. Hook\na. Confirm Click: \nb. Common Belief: \nc. Reframe: \n\n4. Teach:\n#1: \n#2: \n#3: \n\n5. Action\na. Why Next Step: \nb. CTA: "
             }
           />
+          {renderBoxLinks(outlineUrls)}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '0.5rem', flexWrap: 'wrap', gap: '0.5rem' }}>
             <span style={{ fontSize: '0.75rem', color: 'var(--success-color)', fontWeight: '500' }}>
               {saveOutlineSuccess ? '✓ Scratch pad saved to Supabase' : ''}
@@ -3133,6 +3179,7 @@ b. CTA: `;
             onChange={(e) => setNotes(e.target.value)}
             placeholder="No log entries yet. Use the quick entry box above or type production notes directly here..."
           />
+          {renderBoxLinks(logUrls)}
 
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '0.5rem', flexWrap: 'wrap', gap: '0.5rem' }}>
             <span style={{ fontSize: '0.75rem', color: 'var(--success-color)', fontWeight: '500' }}>
@@ -3197,6 +3244,7 @@ b. CTA: `;
                     style={{ width: '100%', height: '120px', padding: '0.6rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', fontFamily: 'inherit', fontSize: '0.85rem', resize: 'vertical' }}
                     placeholder="Raw transcript..."
                   />
+                  {renderBoxLinks(transcriptUrls)}
                   {transcript && (
                     <div style={{ marginTop: '0.4rem', display: 'flex', justifyContent: 'flex-end' }}>
                       <button
@@ -3224,6 +3272,7 @@ b. CTA: `;
               style={{ width: '100%', height: '180px', padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', backgroundColor: 'var(--surface-color)', color: 'var(--text-primary)', fontFamily: 'inherit', resize: 'vertical' }}
               placeholder="Paste transcript here..."
             />
+            {renderBoxLinks(transcriptUrls)}
           </div>
         )}
 
@@ -3236,6 +3285,7 @@ b. CTA: `;
             style={{ width: '100%', height: '80px', padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', backgroundColor: 'var(--surface-color)', color: 'var(--text-primary)', fontFamily: 'inherit', resize: 'vertical' }}
             placeholder="e.g., 'Score 5 titles in vidIQ and extract 3 waterfall shorts...'"
           />
+          {renderBoxLinks(agentNoteUrls)}
         </div>
 
         {/* 5. Action Buttons */}
