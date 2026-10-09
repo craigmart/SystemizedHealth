@@ -132,7 +132,31 @@ function App() {
   const [wipDateValue, setWipDateValue] = useState('');
   const [savingWipDate, setSavingWipDate] = useState(false);
   const [isExiting, setIsExiting] = useState(false);
+  const [videoHistory, setVideoHistory] = useState([]);
   const videoDetailRef = useRef(null);
+
+  const handleBackToPrevVideo = async () => {
+    if (isExiting) return;
+    if (videoHistory.length === 0) return;
+    setIsExiting(true);
+    try {
+      if (videoDetailRef.current && videoDetailRef.current.saveAllChanges) {
+        const ok = await videoDetailRef.current.saveAllChanges();
+        if (!ok) {
+          setIsExiting(false);
+          return;
+        }
+      }
+      const prevVideo = videoHistory[videoHistory.length - 1];
+      setVideoHistory(prev => prev.slice(0, -1));
+      openVideo(prevVideo, true, false);
+      await fetchVideos({ keepCurrent: true, checkUrl: false });
+    } catch (err) {
+      console.error("Error navigating back to previous video:", err);
+    } finally {
+      setIsExiting(false);
+    }
+  };
 
   const handleBack = async () => {
     if (isExiting) return;
@@ -145,6 +169,7 @@ function App() {
           return;
         }
       }
+      setVideoHistory([]);
       closeVideo();
       setSearchQuery('');
       await fetchVideos({ keepCurrent: false, checkUrl: false });
@@ -259,8 +284,13 @@ function App() {
     return null;
   };
 
-  const openVideo = (video, pushHistory = true) => {
+  const openVideo = (video, pushHistory = true, trackHistory = true) => {
     if (!video) return;
+    if (trackHistory && currentVideo && currentVideo.code !== video.code) {
+      setVideoHistory(prev => [...prev, currentVideo]);
+    } else if (!currentVideo) {
+      setVideoHistory([]);
+    }
     setCurrentVideo(video);
     if (pushHistory && video.code) {
       const url = new URL(window.location.href);
@@ -1247,27 +1277,6 @@ function App() {
         <div>
           <h1>Systemized Pipeline</h1>
           <p>Systemized Health central dashboard</p>
-          {currentVideo && (
-            <div style={{ marginTop: '0.65rem' }}>
-              <button 
-                type="button" 
-                className="btn btn-outline" 
-                onClick={handleBack}
-                disabled={isExiting}
-                style={{ 
-                  display: 'inline-flex', 
-                  alignItems: 'center', 
-                  gap: '0.35rem', 
-                  fontWeight: '600',
-                  padding: '0.35rem 0.75rem',
-                  fontSize: '0.82rem'
-                }}
-              >
-                <ChevronLeft size={15} className={isExiting ? "animate-spin" : ""} />
-                {isExiting ? 'Saving...' : 'Dashboard'}
-              </button>
-            </div>
-          )}
         </div>
 
         <div className="header-controls">
@@ -1356,6 +1365,11 @@ function App() {
           onUpdate={fetchVideos} 
           onDelete={handleVideoDeleted} 
           onBack={handleBack} 
+          onOpenVideo={openVideo}
+          videos={videos}
+          previousVideo={videoHistory.length > 0 ? videoHistory[videoHistory.length - 1] : null}
+          onBackToPrevVideo={handleBackToPrevVideo}
+          isExiting={isExiting}
         />
       ) : (
         renderDashboard()
@@ -1376,7 +1390,7 @@ function App() {
   );
 }
 
-function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBack }) {
+function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBack, onOpenVideo, videos, previousVideo, onBackToPrevVideo, isExiting }) {
   const [localVideo, setLocalVideo] = useState(video);
   const [agentMessage, setAgentMessage] = useState(video.agent_message || '');
   const [transcript, setTranscript] = useState(video.raw_transcript || '');
@@ -1597,24 +1611,98 @@ b. CTA: `;
     return raw;
   };
 
+  const getMajorDomain = (urlStr) => {
+    if (!urlStr || typeof urlStr !== 'string') return '';
+    if (urlStr.startsWith('obsidian://')) return 'Obsidian';
+
+    try {
+      const parsed = new URL(urlStr.startsWith('http://') || urlStr.startsWith('https://') ? urlStr : `https://${urlStr}`);
+
+      // 1. Check for internal pipeline video deep-links: e.g. https://shpipeline.netlify.app/?video=80.V1A2
+      const videoParam = parsed.searchParams.get('video');
+      if (videoParam) {
+        // Strip Johnny Decimal category prefix like '80.' (e.g. '80.V1A2' -> 'V1A2')
+        const shortCode = decodeURIComponent(videoParam).trim().replace(/^\d+\./, '');
+        if (shortCode) {
+          return shortCode;
+        }
+      }
+
+      const host = parsed.hostname.replace(/^www\./i, '');
+      const lower = host.toLowerCase();
+
+      // 2. Gemini Notebook / NotebookLM
+      if (lower.includes('notebooklm.google') || lower.includes('gemini.google.com')) {
+        return 'Gemini Notebook';
+      }
+
+      // Brand overrides matching user conventions
+      if (lower === 'workflowy.com' || lower.endsWith('.workflowy.com')) return 'Workflowy.com';
+      if (lower === 'shpipeline.netlify.app' || lower === 'systemizedhealth.netlify.app') return 'Pipeline';
+      if (lower === 'netlify.app' || lower.endsWith('.netlify.app')) return 'netlify.app';
+      if (lower.includes('youtube.com') || lower.includes('youtu.be')) return 'YouTube.com';
+      if (lower.includes('descript.com')) return 'Descript.com';
+      if (lower.includes('github.com')) return 'GitHub.com';
+      if (lower.includes('notion.so')) return 'Notion.so';
+      if (lower.includes('google.com')) return 'Google.com';
+      if (lower.includes('dropbox.com')) return 'Dropbox.com';
+      if (lower.includes('vidiq.com')) return 'vidIQ.com';
+
+      // General domain extraction (taking SLD + TLD, e.g. sub.domain.com -> Domain.com)
+      const parts = host.split('.');
+      if (parts.length >= 2) {
+        const twoPartTLDs = ['co.uk', 'com.au', 'co.nz', 'co.za', 'com.br'];
+        const lastTwo = parts.slice(-2).join('.').toLowerCase();
+        if (twoPartTLDs.includes(lastTwo) && parts.length >= 3) {
+          const sld = parts[parts.length - 3];
+          const capSld = sld.charAt(0).toUpperCase() + sld.slice(1);
+          return `${capSld}.${lastTwo}`;
+        }
+        const tld = parts[parts.length - 1];
+        const sld = parts[parts.length - 2];
+        const capSld = sld.charAt(0).toUpperCase() + sld.slice(1);
+        return `${capSld}.${tld}`;
+      }
+      return host;
+    } catch {
+      return urlStr;
+    }
+  };
+
   const extractUrls = (text) => {
     if (!text || typeof text !== 'string') return [];
     const seen = new Set();
     const result = [];
 
+    const processLink = (rawUrl, href) => {
+      if (!seen.has(href)) {
+        seen.add(href);
+        const domain = getMajorDomain(href);
+
+        let videoCode = null;
+        let rawVideoCode = null;
+        try {
+          const parsed = new URL(href.startsWith('http://') || href.startsWith('https://') ? href : `https://${href}`);
+          const vp = parsed.searchParams.get('video');
+          if (vp) {
+            rawVideoCode = decodeURIComponent(vp).trim();
+            videoCode = rawVideoCode.replace(/^\d+\./, '');
+          }
+        } catch {}
+
+        result.push({ raw: rawUrl, href, domain, videoCode, rawVideoCode });
+      }
+    };
+
     // 1. Check for markdown links: [Label](url)
     const mdRegex = /\[([^\]]+)\]\(((?:https?:\/\/|obsidian:\/\/|www\.)[^\s)]+|[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}[^\s)]*)\)/gi;
     let mdMatch;
     while ((mdMatch = mdRegex.exec(text)) !== null) {
-      const customLabel = mdMatch[1].trim();
       let rawHref = mdMatch[2].trim().replace(/[.,:;"')\]]+$/, '');
       const href = rawHref.startsWith('http://') || rawHref.startsWith('https://') || rawHref.startsWith('obsidian://')
         ? rawHref
         : `https://${rawHref}`;
-      if (!seen.has(href)) {
-        seen.add(href);
-        result.push({ raw: rawHref, href, label: customLabel || rawHref });
-      }
+      processLink(rawHref, href);
     }
 
     // 2. Check for standard URLs and common domain patterns
@@ -1625,39 +1713,50 @@ b. CTA: `;
       const href = clean.startsWith('http://') || clean.startsWith('https://') || clean.startsWith('obsidian://')
         ? clean
         : `https://${clean}`;
-
-      if (!seen.has(href)) {
-        seen.add(href);
-        let label = clean;
-        try {
-          if (clean.startsWith('obsidian://')) {
-            label = 'Obsidian Link';
-          } else {
-            const parsed = new URL(href);
-            const domain = parsed.hostname.replace(/^www\./, '');
-            const path = (parsed.pathname === '/' || !parsed.pathname) ? '' : parsed.pathname;
-            label = domain + path;
-            if (label.length > 40) {
-              label = label.substring(0, 37) + '...';
-            }
-          }
-        } catch {
-          if (label.length > 40) {
-            label = label.substring(0, 37) + '...';
-          }
-        }
-        result.push({ raw: clean, href, label });
-      }
+      processLink(clean, href);
     });
 
-    return result;
+    // Handle domain labels, numbering duplicates if multiple links point to the same domain (unless it's an internal video code)
+    const domainCounts = {};
+    result.forEach(item => {
+      domainCounts[item.domain] = (domainCounts[item.domain] || 0) + 1;
+    });
+
+    const domainCurrentIdx = {};
+    return result.map(item => {
+      if (domainCounts[item.domain] > 1 && !item.videoCode) {
+        domainCurrentIdx[item.domain] = (domainCurrentIdx[item.domain] || 0) + 1;
+        return {
+          ...item,
+          domainLabel: `${item.domain} (${domainCurrentIdx[item.domain]})`
+        };
+      }
+      return {
+        ...item,
+        domainLabel: item.domain
+      };
+    });
   };
 
   const [checklist, setChecklist] = useState(() => parseChecklist(video.edit_checklist));
 
   const [filePropositions, setFilePropositions] = useState([]);
-  const detectedUrls = extractUrls(newLogEntry ? `${newLogEntry}\n${notes}` : notes);
-  const detectedOutlineUrls = extractUrls(outline);
+  
+  // Aggregate text from all text fields on this video page
+  const allVideoTexts = [
+    outline,
+    notes,
+    newLogEntry,
+    agentMessage,
+    transcript,
+    localVideo.title,
+    localVideo.notes,
+    localVideo.rough_outline,
+    localVideo.raw_transcript,
+    ...(checklist?.custom_tasks?.map(t => t.text) || [])
+  ].filter(Boolean).join('\n');
+
+  const allDetectedUrls = extractUrls(allVideoTexts);
   const [copiedLink, setCopiedLink] = useState(false);
 
   const handleCopyDeepLink = async () => {
@@ -2151,7 +2250,97 @@ b. CTA: `;
       
       {/* Detail Header */}
       <div style={{ marginBottom: '1.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '1.25rem' }}>
-        <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', marginBottom: '0.75rem', flexWrap: 'wrap', gap: '0.5rem' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem', flexWrap: 'wrap', gap: '0.5rem' }}>
+          {/* Top Navigation & URL Buttons */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', flexWrap: 'wrap' }}>
+            {/* Back to Dashboard Button */}
+            <button
+              type="button"
+              className="btn btn-outline"
+              onClick={onBack}
+              disabled={isExiting}
+              style={{
+                padding: '0.25rem 0.65rem',
+                fontSize: '0.8rem',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.35rem',
+                fontWeight: '600',
+                borderRadius: 'var(--radius-sm)'
+              }}
+              title="Back to Dashboard"
+            >
+              <ChevronLeft size={14} className={isExiting ? "animate-spin" : ""} />
+              <span>{isExiting ? 'Saving...' : 'Dashboard'}</span>
+            </button>
+
+            {/* Back to Previous Video Page (if navigated from another video) */}
+            {previousVideo && (
+              <button
+                type="button"
+                className="btn btn-outline"
+                onClick={onBackToPrevVideo}
+                disabled={isExiting}
+                style={{
+                  padding: '0.25rem 0.65rem',
+                  fontSize: '0.8rem',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.35rem',
+                  color: 'var(--accent-color)',
+                  borderColor: 'var(--accent-color)',
+                  fontWeight: '600',
+                  borderRadius: 'var(--radius-sm)'
+                }}
+                title={`Back to video ${previousVideo.code ? previousVideo.code.replace(/^\d+\./, '') : 'page'}`}
+              >
+                <ChevronLeft size={14} />
+                <span>{previousVideo.code ? previousVideo.code.replace(/^\d+\./, '') : 'Back'}</span>
+              </button>
+            )}
+
+            {/* Detected External & Internal URL Buttons */}
+            {allDetectedUrls.map((link, idx) => (
+              <a
+                key={idx}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => {
+                  if (link.videoCode && onOpenVideo && videos) {
+                    const target = videos.find(v => 
+                      v.code === link.rawVideoCode || 
+                      v.code === link.videoCode || 
+                      v.code === `80.${link.videoCode}` || 
+                      v.code?.endsWith(link.videoCode)
+                    );
+                    if (target) {
+                      e.preventDefault();
+                      onOpenVideo(target);
+                    }
+                  }
+                }}
+                className="btn btn-outline"
+                style={{
+                  padding: '0.25rem 0.65rem',
+                  fontSize: '0.8rem',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.35rem',
+                  color: 'var(--accent-color)',
+                  borderColor: 'var(--accent-color)',
+                  fontWeight: '600',
+                  textDecoration: 'none',
+                  borderRadius: 'var(--radius-sm)'
+                }}
+                title={link.videoCode ? `Open Video ${link.videoCode}` : link.href}
+              >
+                <ExternalLink size={13} />
+                <span>{link.domainLabel}</span>
+              </a>
+            ))}
+          </div>
+
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginLeft: 'auto' }}>
             <a
               href={videoPath 
@@ -2564,42 +2753,6 @@ b. CTA: `;
             }
           />
 
-          {/* Detected Clickable Links from Scratch Pad */}
-          {detectedOutlineUrls.length > 0 && (
-            <div className="log-links-container" style={{ marginTop: '0.65rem' }}>
-              <span style={{ fontSize: '0.75rem', fontWeight: '600', color: 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                <ExternalLink size={13} color="var(--accent-color)" /> Links in Scratch Pad ({detectedOutlineUrls.length}):
-              </span>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.45rem' }}>
-                {detectedOutlineUrls.map((link, idx) => (
-                  <a
-                    key={idx}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-outline"
-                    style={{
-                      fontSize: '0.78rem',
-                      padding: '0.25rem 0.65rem',
-                      height: 'auto',
-                      textDecoration: 'none',
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '0.4rem',
-                      background: 'var(--surface-color)',
-                      borderColor: 'var(--accent-color)',
-                      color: 'var(--accent-color)',
-                      fontWeight: '500'
-                    }}
-                    title={`Open ${link.href}`}
-                  >
-                    <ExternalLink size={12} />
-                    <span>{link.label}</span>
-                  </a>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
 
         {/* 3. Log Section (Stored in Supabase notes) */}
@@ -2631,43 +2784,6 @@ b. CTA: `;
             onChange={(e) => setNotes(e.target.value)}
             placeholder="No log entries yet. Use the quick entry box above or type production notes directly here..."
           />
-
-          {/* Detected Clickable Links from Production Log */}
-          {detectedUrls.length > 0 && (
-            <div className="log-links-container">
-              <span style={{ fontSize: '0.75rem', fontWeight: '600', color: 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                <ExternalLink size={13} color="var(--accent-color)" /> Links in Log ({detectedUrls.length}):
-              </span>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.45rem' }}>
-                {detectedUrls.map((link, idx) => (
-                  <a
-                    key={idx}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-outline"
-                    style={{
-                      fontSize: '0.78rem',
-                      padding: '0.25rem 0.65rem',
-                      height: 'auto',
-                      textDecoration: 'none',
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '0.4rem',
-                      background: 'var(--surface-color)',
-                      borderColor: 'var(--accent-color)',
-                      color: 'var(--accent-color)',
-                      fontWeight: '500'
-                    }}
-                    title={`Open ${link.href}`}
-                  >
-                    <ExternalLink size={12} />
-                    <span>{link.label}</span>
-                  </a>
-                ))}
-              </div>
-            </div>
-          )}
 
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '0.5rem', flexWrap: 'wrap', gap: '0.5rem' }}>
             <span style={{ fontSize: '0.75rem', color: 'var(--success-color)', fontWeight: '500' }}>
