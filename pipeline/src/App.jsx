@@ -201,7 +201,13 @@ function App() {
       (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
     if (isAppleMobile) {
-      window.location.href = 'https://studio.youtube.com/channel/UCSnF1YqGqmNosGdX5JqY1gQ';
+      // Direct deep-link to native YouTube Studio app on iOS/iPadOS
+      window.location.href = 'ytstudio://';
+      setTimeout(() => {
+        if (!document.hidden) {
+          window.location.href = 'https://studio.youtube.com/channel/UCSnF1YqGqmNosGdX5JqY1gQ';
+        }
+      }, 1500);
     } else {
       window.open('https://studio.youtube.com/channel/UCSnF1YqGqmNosGdX5JqY1gQ', '_blank', 'noopener,noreferrer');
     }
