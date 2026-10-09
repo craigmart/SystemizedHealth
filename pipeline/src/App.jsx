@@ -195,29 +195,13 @@ function App() {
     }
   };
 
-  const handleOpenStudio = (e) => {
-    if (e && e.preventDefault) e.preventDefault();
-    const isAppleMobile = /iPhone|iPad|iPod/.test(navigator.userAgent) || 
-      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-
-    if (isAppleMobile) {
-      // Direct deep-link to native YouTube Studio app on iOS/iPadOS
-      window.location.href = 'ytstudio://';
-      setTimeout(() => {
-        if (!document.hidden) {
-          window.location.href = 'https://studio.youtube.com/channel/UCSnF1YqGqmNosGdX5JqY1gQ';
-        }
-      }, 1500);
-    } else {
-      window.open('https://studio.youtube.com/channel/UCSnF1YqGqmNosGdX5JqY1gQ', '_blank', 'noopener,noreferrer');
-    }
-  };
+  const isAppleMobile = typeof navigator !== 'undefined' && (
+    /iPhone|iPad|iPod/.test(navigator.userAgent) || 
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+  );
 
   const handleOpenChannel = (e) => {
     if (e && e.preventDefault) e.preventDefault();
-    const isAppleMobile = /iPhone|iPad|iPod/.test(navigator.userAgent) || 
-      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-
     if (isAppleMobile) {
       // Direct deep-link to native YouTube app on iOS/iPadOS
       window.location.href = 'youtube://www.youtube.com/@CraigAndersonDC';
@@ -228,9 +212,6 @@ function App() {
 
   const handleOpenVidIQ = (e) => {
     if (e && e.preventDefault) e.preventDefault();
-    const isAppleMobile = /iPhone|iPad|iPod/.test(navigator.userAgent) || 
-      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-
     if (isAppleMobile) {
       window.location.href = 'https://app.vidiq.com/feed';
     } else {
@@ -1397,15 +1378,16 @@ function App() {
               >
                 <RefreshCw size={16} className={loading ? "animate-spin" : ""} />
               </button>
-              <button
-                type="button"
-                onClick={handleOpenStudio}
+              <a
+                href="https://studio.youtube.com/channel/UCSnF1YqGqmNosGdX5JqY1gQ"
                 className="btn btn-outline"
                 title="Open YouTube Studio"
+                target={isAppleMobile ? undefined : "_blank"}
+                rel={isAppleMobile ? undefined : "noopener noreferrer"}
               >
                 <ExternalLink size={14} />
                 <span>Studio</span>
-              </button>
+              </a>
               <button
                 type="button"
                 onClick={handleOpenChannel}
