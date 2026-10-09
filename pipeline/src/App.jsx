@@ -292,6 +292,9 @@ function App() {
       setVideoHistory([]);
     }
     setCurrentVideo(video);
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
     if (pushHistory && video.code) {
       const url = new URL(window.location.href);
       url.searchParams.set('video', video.code);
@@ -358,6 +361,20 @@ function App() {
   };
 
   useEffect(() => {
+    if (typeof window !== 'undefined' && 'scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+  }, []);
+
+  useEffect(() => {
+    if (currentVideo) {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    }
+  }, [currentVideo?.code, currentVideo?.id]);
+
+  useEffect(() => {
     if (supabase) {
       fetchVideos();
     }
@@ -389,6 +406,9 @@ function App() {
         );
         if (found) {
           setCurrentVideo(found);
+          window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+          document.documentElement.scrollTop = 0;
+          document.body.scrollTop = 0;
           return;
         }
       }
@@ -1410,6 +1430,18 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
   const [savingDropDate, setSavingDropDate] = useState(false);
   const [deleting, setDeleting] = useState(false);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    const t = setTimeout(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    }, 25);
+    return () => clearTimeout(t);
+  }, [video?.code, video?.id]);
+
   const saveAllChanges = async () => {
     const trimmedTitle = titleInput.trim();
     const trimmedCode = codeInput.trim();
@@ -1615,6 +1647,18 @@ b. CTA: `;
     if (!urlStr || typeof urlStr !== 'string') return '';
     if (urlStr.startsWith('obsidian://')) return 'Obsidian';
 
+    const lowerRaw = urlStr.toLowerCase();
+    // Prioritize Gemini Notebook / NotebookLM across all URL structures
+    if (
+      lowerRaw.includes('notebooklm') ||
+      lowerRaw.includes('gemini.google') ||
+      lowerRaw.includes('notebook.google') ||
+      lowerRaw.includes('g.co/notebook') ||
+      lowerRaw.includes('g.co/gemini')
+    ) {
+      return 'Gemini Notebook';
+    }
+
     try {
       const parsed = new URL(urlStr.startsWith('http://') || urlStr.startsWith('https://') ? urlStr : `https://${urlStr}`);
 
@@ -1631,8 +1675,14 @@ b. CTA: `;
       const host = parsed.hostname.replace(/^www\./i, '');
       const lower = host.toLowerCase();
 
-      // 2. Gemini Notebook / NotebookLM
-      if (lower.includes('notebooklm.google') || lower.includes('gemini.google.com')) {
+      // 2. Gemini Notebook / NotebookLM (check hostname and path)
+      if (
+        lower.includes('notebooklm') ||
+        lower.includes('gemini.google') ||
+        lower.includes('notebook.google') ||
+        parsed.pathname.toLowerCase().includes('notebooklm') ||
+        parsed.pathname.toLowerCase().includes('gemini')
+      ) {
         return 'Gemini Notebook';
       }
 
@@ -2561,95 +2611,101 @@ b. CTA: `;
         </div>
       </div>
 
-      {/* URL Buttons Row — under the line just below the title */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', flexWrap: 'wrap', marginBottom: '1.25rem' }}>
-        {/* Copy Deep Link URL Button */}
+      {/* URL Links Row — small, minimal text-only links */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', flexWrap: 'wrap', marginBottom: '1.25rem', fontSize: '0.82rem' }}>
+        {/* Copy Deep Link URL Text Action */}
         <button
           type="button"
-          className="btn btn-outline"
           onClick={handleCopyDeepLink}
           style={{
-            padding: '0.25rem 0.65rem',
-            fontSize: '0.8rem',
+            background: 'none',
+            border: 'none',
+            padding: 0,
+            cursor: 'pointer',
+            fontSize: '0.82rem',
+            fontWeight: '500',
+            color: copiedLink ? 'var(--success-color)' : 'var(--text-secondary)',
             display: 'inline-flex',
             alignItems: 'center',
-            gap: '0.35rem',
-            fontWeight: '600',
-            borderRadius: 'var(--radius-sm)',
-            borderColor: copiedLink ? 'var(--success-color)' : undefined,
-            color: copiedLink ? 'var(--success-color)' : undefined,
-            transition: 'all 0.2s ease'
+            gap: '0.25rem',
+            transition: 'color 0.15s ease'
           }}
           title={`Copy deep link to ${localVideo.code || video.code} for Workflowy`}
         >
-          {copiedLink ? <Check size={13} color="var(--success-color)" /> : <Link size={13} />}
-          <span>{copiedLink ? 'Copied URL!' : 'Copy URL'}</span>
+          {copiedLink ? <Check size={12} color="var(--success-color)" /> : <Link size={12} />}
+          <span style={{ textDecoration: 'underline', textUnderlineOffset: '2px' }}>
+            {copiedLink ? 'Copied URL!' : 'Copy URL'}
+          </span>
         </button>
 
         {/* Link back to previous video page (if navigated internally) */}
         {previousVideo && (
-          <button
-            type="button"
-            className="btn btn-outline"
-            onClick={onBackToPrevVideo}
-            disabled={isExiting}
-            style={{
-              padding: '0.25rem 0.65rem',
-              fontSize: '0.8rem',
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.35rem',
-              color: 'var(--accent-color)',
-              borderColor: 'var(--accent-color)',
-              fontWeight: '600',
-              borderRadius: 'var(--radius-sm)'
-            }}
-            title={`Back to video ${previousVideo.code ? previousVideo.code.replace(/^\d+\./, '') : 'page'}`}
-          >
-            <ChevronLeft size={14} />
-            <span>{previousVideo.code ? previousVideo.code.replace(/^\d+\./, '') : 'Back'}</span>
-          </button>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.65rem' }}>
+            <span style={{ color: 'var(--border-color)', userSelect: 'none' }}>•</span>
+            <button
+              type="button"
+              onClick={onBackToPrevVideo}
+              disabled={isExiting}
+              style={{
+                background: 'none',
+                border: 'none',
+                padding: 0,
+                cursor: 'pointer',
+                fontSize: '0.82rem',
+                fontWeight: '600',
+                color: 'var(--accent-color)',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.25rem'
+              }}
+              title={`Back to video ${previousVideo.code ? previousVideo.code.replace(/^\d+\./, '') : 'page'}`}
+            >
+              <ChevronLeft size={13} />
+              <span style={{ textDecoration: 'underline', textUnderlineOffset: '2px' }}>
+                {previousVideo.code ? previousVideo.code.replace(/^\d+\./, '') : 'Back'}
+              </span>
+            </button>
+          </span>
         )}
 
-        {/* Detected External & Internal URL Buttons */}
+        {/* Detected External & Internal URLs as clean text links */}
         {allDetectedUrls.map((link, idx) => (
-          <a
-            key={idx}
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => {
-              if (link.videoCode && onOpenVideo && videos) {
-                const target = videos.find(v => 
-                  v.code === link.rawVideoCode || 
-                  v.code === link.videoCode || 
-                  v.code === `80.${link.videoCode}` || 
-                  v.code?.endsWith(link.videoCode)
-                );
-                if (target) {
-                  e.preventDefault();
-                  onOpenVideo(target);
+          <span key={idx} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.65rem' }}>
+            <span style={{ color: 'var(--border-color)', userSelect: 'none' }}>•</span>
+            <a
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => {
+                if (link.videoCode && onOpenVideo && videos) {
+                  const target = videos.find(v => 
+                    v.code === link.rawVideoCode || 
+                    v.code === link.videoCode || 
+                    v.code === `80.${link.videoCode}` || 
+                    v.code?.endsWith(link.videoCode)
+                  );
+                  if (target) {
+                    e.preventDefault();
+                    onOpenVideo(target);
+                  }
                 }
-              }
-            }}
-            className="btn btn-outline"
-            style={{
-              padding: '0.25rem 0.65rem',
-              fontSize: '0.8rem',
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.35rem',
-              color: 'var(--accent-color)',
-              borderColor: 'var(--accent-color)',
-              fontWeight: '600',
-              textDecoration: 'none',
-              borderRadius: 'var(--radius-sm)'
-            }}
-            title={link.videoCode ? `Open Video ${link.videoCode}` : link.href}
-          >
-            <ExternalLink size={13} />
-            <span>{link.domainLabel}</span>
-          </a>
+              }}
+              style={{
+                color: 'var(--accent-color)',
+                fontSize: '0.82rem',
+                fontWeight: '500',
+                textDecoration: 'underline',
+                textUnderlineOffset: '2px',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.25rem'
+              }}
+              title={link.videoCode ? `Open Video ${link.videoCode}` : link.href}
+            >
+              <ExternalLink size={12} />
+              <span>{link.domainLabel}</span>
+            </a>
+          </span>
         ))}
       </div>
 
