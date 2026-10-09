@@ -1830,6 +1830,36 @@ b. CTA: `;
     }
   };
 
+  const handleLinkClick = (e, link) => {
+    if (e && e.preventDefault) e.preventDefault();
+
+    // 1. Internal pipeline video link
+    if (link.videoCode && onOpenVideo && videos) {
+      const target = videos.find(v => 
+        v.code === link.rawVideoCode || 
+        v.code === link.videoCode || 
+        v.code === `80.${link.videoCode}` || 
+        v.code?.endsWith(link.videoCode)
+      );
+      if (target) {
+        onOpenVideo(target);
+        return;
+      }
+    }
+
+    // 2. Obsidian custom URI
+    if (link.href && link.href.startsWith('obsidian://')) {
+      window.location.href = link.href;
+      return;
+    }
+
+    // 3. External web URLs (Gemini Notebook, Workflowy, etc.)
+    // Explicit window.open in iOS standalone PWAs forces iOS to open Safari,
+    // which keeps the Systemized app running in the background and activates the native
+    // iOS '◀ Systemized' status bar back breadcrumb in Safari.
+    window.open(link.href, '_blank', 'noopener,noreferrer');
+  };
+
   // Fetch specific video path & propositions
   useEffect(() => {
     fetch('/video_paths.json')
@@ -2676,20 +2706,7 @@ b. CTA: `;
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={(e) => {
-                if (link.videoCode && onOpenVideo && videos) {
-                  const target = videos.find(v => 
-                    v.code === link.rawVideoCode || 
-                    v.code === link.videoCode || 
-                    v.code === `80.${link.videoCode}` || 
-                    v.code?.endsWith(link.videoCode)
-                  );
-                  if (target) {
-                    e.preventDefault();
-                    onOpenVideo(target);
-                  }
-                }
-              }}
+              onClick={(e) => handleLinkClick(e, link)}
               style={{
                 color: 'var(--accent-color)',
                 fontSize: '0.82rem',
