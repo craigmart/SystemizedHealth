@@ -2299,6 +2299,29 @@ b. CTA: `;
               </button>
             )}
 
+            {/* Copy Deep Link URL Button */}
+            <button
+              type="button"
+              className="btn btn-outline"
+              onClick={handleCopyDeepLink}
+              style={{
+                padding: '0.25rem 0.65rem',
+                fontSize: '0.8rem',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.35rem',
+                fontWeight: '600',
+                borderRadius: 'var(--radius-sm)',
+                borderColor: copiedLink ? 'var(--success-color)' : undefined,
+                color: copiedLink ? 'var(--success-color)' : undefined,
+                transition: 'all 0.2s ease'
+              }}
+              title={`Copy deep link to ${localVideo.code || video.code} for Workflowy`}
+            >
+              {copiedLink ? <Check size={13} color="var(--success-color)" /> : <Link size={13} />}
+              <span>{copiedLink ? 'Copied URL!' : 'Copy URL'}</span>
+            </button>
+
             {/* Detected External & Internal URL Buttons */}
             {allDetectedUrls.map((link, idx) => (
               <a
@@ -2790,26 +2813,6 @@ b. CTA: `;
               {saveSuccess ? '✓ Notes saved to Supabase' : ''}
             </span>
             <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
-              <button
-                type="button"
-                className="btn btn-outline"
-                onClick={handleCopyDeepLink}
-                style={{
-                  fontSize: '0.75rem',
-                  padding: '0.25rem 0.65rem',
-                  height: 'auto',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.35rem',
-                  borderColor: copiedLink ? 'var(--success-color)' : 'var(--border-color)',
-                  color: copiedLink ? 'var(--success-color)' : 'var(--text-primary)',
-                  transition: 'all 0.2s ease'
-                }}
-                title={`Copy deep link to ${localVideo.code || video.code} for Workflowy`}
-              >
-                {copiedLink ? <Check size={13} color="var(--success-color)" /> : <Link size={13} />}
-                <span>{copiedLink ? 'Copied URL!' : 'Copy URL'}</span>
-              </button>
               <button 
                 type="button" 
                 className="btn btn-outline" 
