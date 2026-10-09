@@ -1526,17 +1526,40 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
   };
 
   const getStarterOutline = (formatType, code) => {
-    return `1. Hook
+    const isShortVid = formatType === 'Short' || code?.includes('-S');
+    if (isShortVid) {
+      return `1. Title: 
+
+2. Thumbnail: 
+
+3. Hook
 a. Confirm Click: 
 b. Common Belief: 
 c. Reframe: 
 
-2. Teach:
+4. Teach:
+#1: 
+
+5. Action
+a. Why Next Step: 
+b. CTA: `;
+    }
+
+    return `1. Title: 
+
+2. Thumbnail: 
+
+3. Hook
+a. Confirm Click: 
+b. Common Belief: 
+c. Reframe: 
+
+4. Teach:
 #1: 
 #2: 
 #3: 
 
-3. Action
+5. Action
 a. Why Next Step: 
 b. CTA: `;
   };
@@ -2535,7 +2558,10 @@ b. CTA: `;
               resize: 'none',
               boxSizing: 'border-box'
             }}
-            placeholder={"1. Hook\na. Confirm Click: \nb. Common Belief: \nc. Reframe: \n\n2. Teach:\n#1: \n#2: \n#3: \n\n3. Action\na. Why Next Step: \nb. CTA: "}
+            placeholder={isShort
+              ? "1. Title: \n\n2. Thumbnail: \n\n3. Hook\na. Confirm Click: \nb. Common Belief: \nc. Reframe: \n\n4. Teach:\n#1: \n\n5. Action\na. Why Next Step: \nb. CTA: "
+              : "1. Title: \n\n2. Thumbnail: \n\n3. Hook\na. Confirm Click: \nb. Common Belief: \nc. Reframe: \n\n4. Teach:\n#1: \n#2: \n#3: \n\n5. Action\na. Why Next Step: \nb. CTA: "
+            }
           />
 
           {/* Detected Clickable Links from Scratch Pad */}
@@ -2878,17 +2904,38 @@ function AddVideoModal({ videos, onClose, onSuccess }) {
       });
       const nextVideoNumber = String(maxVN + 1).padStart(3, '0');
 
-      const starterOutline = `1. Hook
+      const isShortVid = formatType === 'Short' || code.includes('-S');
+      const starterOutline = isShortVid
+        ? `1. Title: 
+
+2. Thumbnail: 
+
+3. Hook
 a. Confirm Click: 
 b. Common Belief: 
 c. Reframe: 
 
-2. Teach:
+4. Teach:
+#1: 
+
+5. Action
+a. Why Next Step: 
+b. CTA: `
+        : `1. Title: 
+
+2. Thumbnail: 
+
+3. Hook
+a. Confirm Click: 
+b. Common Belief: 
+c. Reframe: 
+
+4. Teach:
 #1: 
 #2: 
 #3: 
 
-3. Action
+5. Action
 a. Why Next Step: 
 b. CTA: `;
 

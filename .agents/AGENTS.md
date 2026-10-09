@@ -45,10 +45,9 @@ Videos are produced using Dr. Anderson's streamlined analog-to-camera workflow, 
 1. **Gemini Notebook Research & Outline Drafting**:
    - Dr. Anderson reviews research, clinical seminar transcripts, and analogies in Gemini Notebook.
    - Dr. Anderson drafts the outline in the web App's dedicated **Video Script Outline** text box (pre-populated with starter beats and synced to Supabase `rough_outline`):
-     - **3-Part Beats (Shorts & Long Videos)**:
-       1. Hook (Confirm Click, Common Belief, Reframe)
-       2. Teach (#1, #2, #3)
-       3. Action (Why Next Step, CTA)
+     - **Pre-loaded Template**:
+       - **Shorts**: 1. Title, 2. Thumbnail, 3. Hook (Confirm Click, Common Belief, Reframe), 4. Teach (#1), 5. Action (Why Next Step, CTA)
+       - **Long Videos**: 1. Title, 2. Thumbnail, 3. Hook (Confirm Click, Common Belief, Reframe), 4. Teach (#1, #2, #3), 5. Action (Why Next Step, CTA)
 2. **The 3x5 Index Card**: Dr. Anderson distills the outline triggers onto a physical 3x5 index card as an anchor for camera recording.
 3. **Video Production Log (Agent Reference Mandate)**:
    - Dr. Anderson drops ideas, research links, and notes into the web App's **Video Production Log** (`notes` field).
