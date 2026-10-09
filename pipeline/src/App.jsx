@@ -4,7 +4,7 @@ import {
   Calendar, CheckSquare, AlertCircle, RefreshCw, ChevronLeft, Save, Tag, 
   TrendingUp, Clock, FileVideo, Scissors, Film, X, ExternalLink,
   Check, MessageSquare, Plus, Trash2, ListTodo, FileText, CheckCircle2, Lightbulb, Link,
-  Sparkles, FileEdit, Search
+  Sparkles, FileEdit, Search, Share2
 } from 'lucide-react';
 import { addDays, isBefore, parseISO, differenceInDays, format } from 'date-fns';
 import ReactMarkdown from 'react-markdown';
@@ -1440,6 +1440,7 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
   const [saving, setSaving] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
   const [saveOutlineSuccess, setSaveOutlineSuccess] = useState(false);
+  const [copiedYouTube, setCopiedYouTube] = useState(false);
   const [videoPath, setVideoPath] = useState(null);
   const [isEditingTitle, setIsEditingTitle] = useState(false);
   const [titleInput, setTitleInput] = useState(video.title || '');
@@ -2335,6 +2336,64 @@ b. CTA: `;
     : filePropositions;
   const hasPropositions = propositions && propositions.length > 0;
 
+  // Public YouTube Share URL
+  const publicYouTubeUrl = useMemo(() => {
+    // 1. Direct database youtube_id
+    const yId = localVideo.youtube_id || video.youtube_id;
+    if (yId && typeof yId === 'string' && yId.trim()) {
+      const cleanId = yId.trim();
+      return isShort
+        ? `https://www.youtube.com/shorts/${cleanId}`
+        : `https://youtu.be/${cleanId}`;
+    }
+
+    // 2. Extracted from detected URLs in notes/outline
+    const ytLink = allDetectedUrls.find(l => l.href && (l.href.includes('youtube.com') || l.href.includes('youtu.be')));
+    if (ytLink) {
+      try {
+        const parsed = new URL(ytLink.href);
+        if (parsed.hostname.includes('youtu.be')) {
+          const id = parsed.pathname.replace(/^\//, '');
+          if (id) {
+            return isShort ? `https://www.youtube.com/shorts/${id}` : `https://youtu.be/${id}`;
+          }
+        }
+        if (parsed.pathname.includes('/shorts/')) {
+          const id = parsed.pathname.split('/shorts/')[1]?.split('/')[0]?.split('?')[0];
+          if (id) return `https://www.youtube.com/shorts/${id}`;
+        }
+        const vParam = parsed.searchParams.get('v');
+        if (vParam) {
+          return isShort ? `https://www.youtube.com/shorts/${vParam}` : `https://youtu.be/${vParam}`;
+        }
+      } catch {}
+      return ytLink.href;
+    }
+
+    return null;
+  }, [localVideo.youtube_id, video.youtube_id, isShort, allDetectedUrls]);
+
+  const handleCopyYouTubeUrl = async () => {
+    if (!publicYouTubeUrl) return;
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(publicYouTubeUrl);
+      } else {
+        const textArea = document.createElement('textarea');
+        textArea.value = publicYouTubeUrl;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+      }
+      setCopiedYouTube(true);
+      setTimeout(() => setCopiedYouTube(false), 2500);
+    } catch (err) {
+      console.error("Failed to copy YouTube URL:", err);
+      prompt("Copy public YouTube URL:", publicYouTubeUrl);
+    }
+  };
+
   const renderPropositionItem = (propText, index) => {
     const jdexMatch = typeof propText === 'string' ? propText.match(/\[\[(.*?)\]\]/) : null;
     const cleanText = typeof propText === 'string' ? propText.replace(/\[\[.*?\]\]/, '').trim() : String(propText);
@@ -2444,6 +2503,25 @@ b. CTA: `;
             >
               <ExternalLink size={14} /> OB
             </a>
+            {publicYouTubeUrl && (
+              <button
+                type="button"
+                className="btn btn-outline"
+                onClick={handleCopyYouTubeUrl}
+                style={{
+                  padding: '0.25rem 0.6rem',
+                  fontSize: '0.8rem',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.35rem',
+                  color: copiedYouTube ? 'var(--success-color)' : 'inherit'
+                }}
+                title={`Copy public YouTube video URL for sharing: ${publicYouTubeUrl}`}
+              >
+                {copiedYouTube ? <Check size={14} color="var(--success-color)" /> : <Share2 size={14} />}
+                <span>{copiedYouTube ? 'Copied!' : 'Share YT'}</span>
+              </button>
+            )}
             <button
               type="button"
               className="btn btn-outline"
@@ -2720,6 +2798,36 @@ b. CTA: `;
             {copiedLink ? 'Copied URL!' : 'Copy URL'}
           </span>
         </button>
+
+        {/* Copy Public YouTube URL for Sharing */}
+        {publicYouTubeUrl && (
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.65rem' }}>
+            <span style={{ color: 'var(--border-color)', userSelect: 'none' }}>•</span>
+            <button
+              type="button"
+              onClick={handleCopyYouTubeUrl}
+              style={{
+                background: 'none',
+                border: 'none',
+                padding: 0,
+                cursor: 'pointer',
+                fontSize: '0.82rem',
+                fontWeight: '500',
+                color: copiedYouTube ? 'var(--success-color)' : 'var(--text-secondary)',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.25rem',
+                transition: 'color 0.15s ease'
+              }}
+              title={`Copy public YouTube video URL for sharing: ${publicYouTubeUrl}`}
+            >
+              {copiedYouTube ? <Check size={12} color="var(--success-color)" /> : <Share2 size={12} />}
+              <span style={{ textDecoration: 'underline', textUnderlineOffset: '2px' }}>
+                {copiedYouTube ? 'Copied YouTube!' : 'Copy YouTube URL'}
+              </span>
+            </button>
+          </span>
+        )}
 
         {/* Link back to previous video page (if navigated internally) */}
         {previousVideo && (
