@@ -2535,7 +2535,7 @@ b. CTA: `;
               resize: 'none',
               boxSizing: 'border-box'
             }}
-            placeholder={isShort ? "1. Hook:\n\n2. Teach:\n\n3. Action:" : "1. Hook:\n\n2. Mindset:\n\n3. Story:\n\n4. Teaching:\n\n5. Action:"}
+            placeholder={"1. Hook\na. Confirm Click: \nb. Common Belief: \nc. Reframe: \n\n2. Teach:\n#1: \n#2: \n#3: \n\n3. Action\na. Why Next Step: \nb. CTA: "}
           />
 
           {/* Detected Clickable Links from Scratch Pad */}
@@ -2878,9 +2878,19 @@ function AddVideoModal({ videos, onClose, onSuccess }) {
       });
       const nextVideoNumber = String(maxVN + 1).padStart(3, '0');
 
-      const starterOutline = formatType === 'Short'
-        ? `1. Hook:\n\n2. Teach:\n\n3. Action:`
-        : `1. Hook:\n\n2. Mindset:\n\n3. Story:\n\n4. Teaching:\n\n5. Action:`;
+      const starterOutline = `1. Hook
+a. Confirm Click: 
+b. Common Belief: 
+c. Reframe: 
+
+2. Teach:
+#1: 
+#2: 
+#3: 
+
+3. Action
+a. Why Next Step: 
+b. CTA: `;
 
       const nowStamp = format(new Date(), 'yyyy-MM-dd HH:mm');
       const logLine = notes.trim()
