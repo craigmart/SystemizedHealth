@@ -158,14 +158,7 @@ function App() {
 
   const handleOpenStudio = (e) => {
     if (e && e.preventDefault) e.preventDefault();
-    const isAppleMobile = /iPhone|iPad|iPod/.test(navigator.userAgent) || 
-      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-
-    if (isAppleMobile) {
-      window.location.href = 'https://studio.youtube.com/channel/UCSnF1YqGqmNosGdX5JqY1gQ';
-    } else {
-      window.open('https://studio.youtube.com/channel/UCSnF1YqGqmNosGdX5JqY1gQ', '_blank', 'noopener,noreferrer');
-    }
+    window.open('https://studio.youtube.com/channel/UCSnF1YqGqmNosGdX5JqY1gQ', '_blank', 'noopener,noreferrer');
   };
 
   const handleOpenChannel = (e) => {
