@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useMemo } from 'react';
 import { supabase } from './supabase';
 import { 
   Calendar, CheckSquare, AlertCircle, RefreshCw, ChevronLeft, Save, Tag, 
@@ -150,12 +150,26 @@ function App() {
       const prevVideo = videoHistory[videoHistory.length - 1];
       setVideoHistory(prev => prev.slice(0, -1));
       openVideo(prevVideo, true, false);
-      await fetchVideos({ keepCurrent: true, checkUrl: false });
+      await fetchVideos({ keepCurrent: true, checkUrl: false, targetVideo: prevVideo });
     } catch (err) {
       console.error("Error navigating back to previous video:", err);
     } finally {
       setIsExiting(false);
     }
+  };
+
+  const handleNavigateToVideo = async (targetVideo) => {
+    if (!targetVideo) return;
+    if (isExiting) return;
+    try {
+      if (videoDetailRef.current && videoDetailRef.current.saveAllChanges) {
+        await videoDetailRef.current.saveAllChanges();
+      }
+    } catch (err) {
+      console.error("Error saving video before navigation:", err);
+    }
+    openVideo(targetVideo, true, true);
+    await fetchVideos({ keepCurrent: true, checkUrl: false, targetVideo });
   };
 
   const handleBack = async () => {
@@ -319,7 +333,7 @@ function App() {
   };
 
   const fetchVideos = async (options = {}) => {
-    const { keepCurrent = true, checkUrl = true } = options;
+    const { keepCurrent = true, checkUrl = true, targetVideo = undefined } = options;
     setLoading(true);
     const { data, error } = await supabase
       .from('videos')
@@ -339,6 +353,7 @@ function App() {
         if (targetParam) {
           const found = list.find(v => 
             v.code?.toLowerCase() === targetParam.toLowerCase() ||
+            v.code?.replace(/^\d+\./, '').toLowerCase() === targetParam.toLowerCase() ||
             v.video_number === targetParam ||
             v.id === targetParam
           );
@@ -350,9 +365,11 @@ function App() {
         }
       }
 
-      if (keepCurrent && currentVideo) {
-        const updated = list.find(v => v.id === currentVideo.id || v.code === currentVideo.code);
+      const activeVideo = targetVideo !== undefined ? targetVideo : currentVideo;
+      if (keepCurrent && activeVideo) {
+        const updated = list.find(v => v.id === activeVideo.id || v.code === activeVideo.code);
         if (updated) setCurrentVideo(updated);
+        else if (targetVideo) setCurrentVideo(targetVideo);
       } else if (!keepCurrent) {
         setCurrentVideo(null);
       }
@@ -401,6 +418,7 @@ function App() {
       if (targetParam && videos.length > 0) {
         const found = videos.find(v => 
           v.code?.toLowerCase() === targetParam.toLowerCase() ||
+          v.code?.replace(/^\d+\./, '').toLowerCase() === targetParam.toLowerCase() ||
           v.video_number === targetParam ||
           v.id === targetParam
         );
@@ -1259,7 +1277,7 @@ function App() {
                   className={`video-item ${isLong ? 'video-item-long' : 'video-item-short'} video-item-${v.status ? v.status.replace('#', '') : 'idea'}`}
                   style={{ cursor: 'pointer', borderLeft: `${isLong ? '7px' : '4px'} solid ${getBorderColor(v)}` }}
                   onClick={() => {
-                    openVideo(v);
+                    handleNavigateToVideo(v);
                     setSearchQuery('');
                   }}
                 >
@@ -1379,13 +1397,14 @@ function App() {
         renderSearchResults()
       ) : currentVideo ? (
         <VideoDetail 
+          key={currentVideo.id || currentVideo.code}
           video={currentVideo} 
           saveRef={videoDetailRef}
           getRotationInfo={getRotationInfo} 
           onUpdate={fetchVideos} 
           onDelete={handleVideoDeleted} 
           onBack={handleBack} 
-          onOpenVideo={openVideo}
+          onOpenVideo={handleNavigateToVideo}
           videos={videos}
           previousVideo={videoHistory.length > 0 ? videoHistory[videoHistory.length - 1] : null}
           onBackToPrevVideo={handleBackToPrevVideo}
@@ -1830,18 +1849,29 @@ b. CTA: `;
     }
   };
 
-  const handleLinkClick = (e, link) => {
+  const handleLinkClick = async (e, link) => {
     // 1. Internal pipeline video link
     if (link.videoCode && onOpenVideo && videos) {
-      const target = videos.find(v => 
-        v.code === link.rawVideoCode || 
-        v.code === link.videoCode || 
-        v.code === `80.${link.videoCode}` || 
-        v.code?.endsWith(link.videoCode)
-      );
+      if (e && e.preventDefault) e.preventDefault();
+      
+      const cleanTarget = (link.videoCode || '').toLowerCase();
+      const rawTarget = (link.rawVideoCode || '').toLowerCase();
+
+      const target = videos.find(v => {
+        if (!v.code) return false;
+        const vClean = v.code.replace(/^\d+\./, '').toLowerCase();
+        const vRaw = v.code.toLowerCase();
+        return (
+          vRaw === rawTarget ||
+          vRaw === cleanTarget ||
+          vClean === cleanTarget ||
+          vClean === rawTarget ||
+          vRaw === `80.${cleanTarget}`
+        );
+      });
+
       if (target) {
-        if (e && e.preventDefault) e.preventDefault();
-        onOpenVideo(target);
+        await onOpenVideo(target);
         return;
       }
     }
@@ -1854,22 +1884,50 @@ b. CTA: `;
     }
   };
 
+  // Backlinks: Any other videos in the pipeline referencing this video
+  const backlinks = useMemo(() => {
+    if (!videos || !localVideo?.code) return [];
+    const thisRawCode = localVideo.code.toLowerCase();
+    const thisClean = thisRawCode.replace(/^\d+\./, '');
+
+    return videos.filter(v => {
+      if (v.id === localVideo.id || v.code === localVideo.code) return false;
+      const textToSearch = [v.notes, v.rough_outline].filter(Boolean).join(' ').toLowerCase();
+      if (!textToSearch) return false;
+      
+      return (
+        textToSearch.includes(`video=${thisRawCode}`) ||
+        textToSearch.includes(`video=80.${thisClean}`) ||
+        textToSearch.includes(`video=${thisClean}`)
+      );
+    });
+  }, [videos, localVideo?.id, localVideo?.code]);
+
   // Fetch specific video path & propositions
   useEffect(() => {
+    setVideoPath(null);
     fetch('/video_paths.json')
       .then(res => res.json())
-      .then(data => {
-        if (data && data[video.code]) {
-          setVideoPath(data[video.code]);
-        }
+      .then(paths => {
+        if (!paths) return;
+        const cleanCode = (video.code || '').replace(/^80\./, '');
+        const foundKey = Object.keys(paths).find(k => k === video.code || k === cleanCode);
+        if (foundKey) setVideoPath(paths[foundKey]);
+        else setVideoPath(null);
       })
-      .catch(console.error);
+      .catch(err => {
+        console.error("Could not load video paths:", err);
+        setVideoPath(null);
+      });
 
     fetch('/propositions.json')
       .then(res => res.json())
       .then(data => {
-        if (data && data[video.code]) {
-          setFilePropositions(data[video.code]);
+        if (!data) return;
+        const cleanCode = (video.code || '').replace(/^80\./, '');
+        const key = data[video.code] ? video.code : cleanCode;
+        if (data[key]) {
+          setFilePropositions(data[key]);
         } else {
           setFilePropositions([]);
         }
@@ -2691,6 +2749,41 @@ b. CTA: `;
             </button>
           </span>
         )}
+
+        {/* Bidirectional Backlinks: other videos that link to this video */}
+        {backlinks
+          .filter(bv => !previousVideo || (bv.id !== previousVideo.id && bv.code !== previousVideo.code))
+          .map(bv => {
+            const shortCode = (bv.code || '').replace(/^\d+\./, '');
+            return (
+              <span key={bv.id || bv.code} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.65rem' }}>
+                <span style={{ color: 'var(--border-color)', userSelect: 'none' }}>•</span>
+                <button
+                  type="button"
+                  onClick={() => onOpenVideo(bv)}
+                  disabled={isExiting}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    padding: 0,
+                    cursor: 'pointer',
+                    fontSize: '0.82rem',
+                    fontWeight: '600',
+                    color: 'var(--accent-color)',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.25rem'
+                  }}
+                  title={`Backlink from ${shortCode}: ${bv.title || ''}`}
+                >
+                  <Link size={12} />
+                  <span style={{ textDecoration: 'underline', textUnderlineOffset: '2px' }}>
+                    {shortCode}
+                  </span>
+                </button>
+              </span>
+            );
+          })}
 
         {/* Detected External & Internal URLs as clean text links */}
         {allDetectedUrls.map((link, idx) => (
