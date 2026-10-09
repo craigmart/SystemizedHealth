@@ -83,6 +83,11 @@ export const getCompletedPhasesForStatus = (status) => {
   }
 };
 
+export const isAppleMobile = typeof navigator !== 'undefined' && (
+  /iPhone|iPad|iPod/.test(navigator.userAgent) || 
+  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+);
+
 export const getAutoCompletedChecklist = (status, currentChecklist, isShort) => {
   const baseItems = isShort ? SHORT_VIDEO_CHECKLIST_ITEMS : LONG_VIDEO_CHECKLIST_ITEMS;
   const completedPhases = getCompletedPhasesForStatus(status);
@@ -195,10 +200,6 @@ function App() {
     }
   };
 
-  const isAppleMobile = typeof navigator !== 'undefined' && (
-    /iPhone|iPad|iPod/.test(navigator.userAgent) || 
-    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
-  );
 
   const handleOpenChannel = (e) => {
     if (e && e.preventDefault) e.preventDefault();
@@ -1869,6 +1870,17 @@ b. CTA: `;
   const transcriptUrls = useMemo(() => extractUrls(transcript), [transcript]);
   const agentNoteUrls = useMemo(() => extractUrls(agentMessage), [agentMessage]);
 
+  const getResolvedHref = (link) => {
+    if (!link || !link.href) return '';
+    let href = link.href;
+    // Normalize notebook.google.com to notebooklm.google.com so iOS Universal Links
+    // accurately match the native Gemini Notebook app's registered domain
+    if (link.domain === 'Gemini Notebook' || href.includes('notebook.google.com')) {
+      href = href.replace('://notebook.google.com', '://notebooklm.google.com');
+    }
+    return href;
+  };
+
   const renderBoxLinks = (urls) => {
     if (!urls || urls.length === 0) return null;
     return (
@@ -1887,8 +1899,10 @@ b. CTA: `;
           <span key={idx} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.65rem' }}>
             {idx > 0 && <span style={{ color: 'var(--border-color)', userSelect: 'none' }}>•</span>}
             <a
-              href={link.href}
+              href={getResolvedHref(link)}
               onClick={(e) => handleLinkClick(e, link)}
+              target={link.videoCode ? undefined : (isAppleMobile ? undefined : "_blank")}
+              rel={link.videoCode ? undefined : (isAppleMobile ? undefined : "noopener noreferrer")}
               style={{
                 color: 'var(--accent-color)',
                 fontSize: '0.82rem',
@@ -2980,8 +2994,10 @@ b. CTA: `;
           <span key={idx} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.65rem' }}>
             <span style={{ color: 'var(--border-color)', userSelect: 'none' }}>•</span>
             <a
-              href={link.href}
+              href={getResolvedHref(link)}
               onClick={(e) => handleLinkClick(e, link)}
+              target={link.videoCode ? undefined : (isAppleMobile ? undefined : "_blank")}
+              rel={link.videoCode ? undefined : (isAppleMobile ? undefined : "noopener noreferrer")}
               style={{
                 color: 'var(--accent-color)',
                 fontSize: '0.82rem',
