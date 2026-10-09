@@ -292,6 +292,13 @@ p {
   white-space: nowrap;
 }
 
+.btn-icon-only {
+  padding: 0.45rem 0.65rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media (prefers-color-scheme: dark) {
   .search-input {
     background-color: #334155;
@@ -607,16 +614,28 @@ p {
 
   .header-actions {
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-wrap: wrap;
     gap: 0.5rem;
   }
 
   .header-actions .btn {
-    width: 100%;
+    flex: 1 1 0;
+    min-width: 70px;
     justify-content: center;
     padding: 0.55rem 0.5rem;
     font-size: 0.82rem;
+  }
+
+  .header-actions .btn:first-child {
+    flex: 1 1 auto;
+    min-width: 120px;
+  }
+
+  .header-actions .btn-icon-only {
+    flex: 0 0 auto !important;
+    min-width: unset !important;
+    padding: 0.55rem 0.75rem !important;
   }
 
   .card {

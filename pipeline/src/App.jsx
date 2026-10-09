@@ -197,7 +197,14 @@ function App() {
 
   const handleOpenStudio = (e) => {
     if (e && e.preventDefault) e.preventDefault();
-    window.open('https://studio.youtube.com/channel/UCSnF1YqGqmNosGdX5JqY1gQ', '_blank', 'noopener,noreferrer');
+    const isAppleMobile = /iPhone|iPad|iPod/.test(navigator.userAgent) || 
+      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+    if (isAppleMobile) {
+      window.location.href = 'https://studio.youtube.com/channel/UCSnF1YqGqmNosGdX5JqY1gQ';
+    } else {
+      window.open('https://studio.youtube.com/channel/UCSnF1YqGqmNosGdX5JqY1gQ', '_blank', 'noopener,noreferrer');
+    }
   };
 
   const handleOpenChannel = (e) => {
@@ -210,6 +217,18 @@ function App() {
       window.location.href = 'youtube://www.youtube.com/@CraigAndersonDC';
     } else {
       window.open('https://www.youtube.com/@CraigAndersonDC', '_blank', 'noopener,noreferrer');
+    }
+  };
+
+  const handleOpenVidIQ = (e) => {
+    if (e && e.preventDefault) e.preventDefault();
+    const isAppleMobile = /iPhone|iPad|iPod/.test(navigator.userAgent) || 
+      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+    if (isAppleMobile) {
+      window.location.href = 'https://app.vidiq.com/feed';
+    } else {
+      window.open('https://app.vidiq.com/feed', '_blank', 'noopener,noreferrer');
     }
   };
 
@@ -1364,9 +1383,13 @@ function App() {
                 <Plus size={16} />
                 <span>Add Video</span>
               </button>
-              <button className="btn btn-outline" onClick={() => fetchVideos()} disabled={loading}>
+              <button
+                className="btn btn-outline btn-icon-only"
+                onClick={() => fetchVideos()}
+                disabled={loading}
+                title="Refresh pipeline data"
+              >
                 <RefreshCw size={16} className={loading ? "animate-spin" : ""} />
-                <span>Refresh</span>
               </button>
               <button
                 type="button"
@@ -1385,6 +1408,15 @@ function App() {
               >
                 <ExternalLink size={14} />
                 <span>Channel</span>
+              </button>
+              <button
+                type="button"
+                onClick={handleOpenVidIQ}
+                className="btn btn-outline"
+                title="Open vidIQ Feed"
+              >
+                <ExternalLink size={14} />
+                <span>Vid IQ</span>
               </button>
             </div>
           </div>
