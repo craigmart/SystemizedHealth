@@ -1439,6 +1439,7 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
   const [checklistPhase, setChecklistPhase] = useState(() => getChecklistPhaseForStatus(video.status));
   const [saving, setSaving] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
+  const [saveOutlineSuccess, setSaveOutlineSuccess] = useState(false);
   const [videoPath, setVideoPath] = useState(null);
   const [isEditingTitle, setIsEditingTitle] = useState(false);
   const [titleInput, setTitleInput] = useState(video.title || '');
@@ -2154,8 +2155,8 @@ b. CTA: `;
       alert("Error saving outline: " + error.message);
     } else {
       setLocalVideo(prev => ({ ...prev, rough_outline: outline }));
-      setSaveSuccess(true);
-      setTimeout(() => setSaveSuccess(false), 2500);
+      setSaveOutlineSuccess(true);
+      setTimeout(() => setSaveOutlineSuccess(false), 2500);
       onUpdate();
     }
     setSaving(false);
@@ -2961,7 +2962,22 @@ b. CTA: `;
               : "1. Title: \n\n2. Thumbnail: \n\n3. Hook\na. Confirm Click: \nb. Common Belief: \nc. Reframe: \n\n4. Teach:\n#1: \n#2: \n#3: \n\n5. Action\na. Why Next Step: \nb. CTA: "
             }
           />
-
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '0.5rem', flexWrap: 'wrap', gap: '0.5rem' }}>
+            <span style={{ fontSize: '0.75rem', color: 'var(--success-color)', fontWeight: '500' }}>
+              {saveOutlineSuccess ? '✓ Scratch pad saved to Supabase' : ''}
+            </span>
+            <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', marginLeft: 'auto' }}>
+              <button 
+                type="button" 
+                className="btn btn-outline" 
+                style={{ fontSize: '0.75rem', padding: '0.25rem 0.65rem', height: 'auto', display: 'flex', alignItems: 'center', gap: '0.35rem' }}
+                onClick={handleSaveOutline}
+                disabled={saving}
+              >
+                <Save size={13} /> Save
+              </button>
+            </div>
+          </div>
         </div>
 
         {/* 3. Log Section (Stored in Supabase notes) */}
