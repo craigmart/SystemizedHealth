@@ -1273,54 +1273,54 @@ function App() {
 
   return (
     <div className="container">
-      <header className="section-header">
-        <div>
-          <h1>Systemized Pipeline</h1>
-          <p>Systemized Health central dashboard</p>
-        </div>
+      {!currentVideo && (
+        <header className="section-header">
+          <div>
+            <h1>Systemized Pipeline</h1>
+            <p>Systemized Health central dashboard</p>
+          </div>
 
-        <div className="header-controls">
-          {/* Search Box */}
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              const input = e.currentTarget.querySelector('input');
-              if (input) input.blur();
-            }}
-            action=""
-            className="header-search-form"
-          >
-            <Search size={15} className="header-search-icon" />
-            <input
-              type="search"
-              className="search-input"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter') {
-                  e.currentTarget.blur();
-                }
+          <div className="header-controls">
+            {/* Search Box */}
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                const input = e.currentTarget.querySelector('input');
+                if (input) input.blur();
               }}
-              placeholder="Search code or title..."
-              enterKeyHint="search"
-              autoComplete="off"
-              autoCorrect="off"
-              autoCapitalize="none"
-              spellCheck="false"
-            />
-            {searchQuery && (
-              <button
-                type="button"
-                onClick={() => setSearchQuery('')}
-                className="header-search-clear"
-                title="Clear search"
-              >
-                <X size={14} />
-              </button>
-            )}
-          </form>
+              action=""
+              className="header-search-form"
+            >
+              <Search size={15} className="header-search-icon" />
+              <input
+                type="search"
+                className="search-input"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    e.currentTarget.blur();
+                  }
+                }}
+                placeholder="Search code or title..."
+                enterKeyHint="search"
+                autoComplete="off"
+                autoCorrect="off"
+                autoCapitalize="none"
+                spellCheck="false"
+              />
+              {searchQuery && (
+                <button
+                  type="button"
+                  onClick={() => setSearchQuery('')}
+                  className="header-search-clear"
+                  title="Clear search"
+                >
+                  <X size={14} />
+                </button>
+              )}
+            </form>
 
-          {!currentVideo && (
             <div className="header-actions">
               <button className="btn btn-primary" onClick={() => setShowAddModal(true)}>
                 <Plus size={16} />
@@ -1349,9 +1349,9 @@ function App() {
                 <span>Channel</span>
               </button>
             </div>
-          )}
-        </div>
-      </header>
+          </div>
+        </header>
+      )}
 
       {loading && !currentVideo ? (
         <p>Loading pipeline data...</p>
@@ -2251,7 +2251,7 @@ b. CTA: `;
       {/* Detail Header */}
       <div style={{ marginBottom: '1.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '1.25rem' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem', flexWrap: 'wrap', gap: '0.5rem' }}>
-          {/* Top Navigation & URL Buttons */}
+          {/* Top Back Navigation */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', flexWrap: 'wrap' }}>
             {/* Back to Dashboard Button */}
             <button
@@ -2298,70 +2298,6 @@ b. CTA: `;
                 <span>{previousVideo.code ? previousVideo.code.replace(/^\d+\./, '') : 'Back'}</span>
               </button>
             )}
-
-            {/* Copy Deep Link URL Button */}
-            <button
-              type="button"
-              className="btn btn-outline"
-              onClick={handleCopyDeepLink}
-              style={{
-                padding: '0.25rem 0.65rem',
-                fontSize: '0.8rem',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.35rem',
-                fontWeight: '600',
-                borderRadius: 'var(--radius-sm)',
-                borderColor: copiedLink ? 'var(--success-color)' : undefined,
-                color: copiedLink ? 'var(--success-color)' : undefined,
-                transition: 'all 0.2s ease'
-              }}
-              title={`Copy deep link to ${localVideo.code || video.code} for Workflowy`}
-            >
-              {copiedLink ? <Check size={13} color="var(--success-color)" /> : <Link size={13} />}
-              <span>{copiedLink ? 'Copied URL!' : 'Copy URL'}</span>
-            </button>
-
-            {/* Detected External & Internal URL Buttons */}
-            {allDetectedUrls.map((link, idx) => (
-              <a
-                key={idx}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => {
-                  if (link.videoCode && onOpenVideo && videos) {
-                    const target = videos.find(v => 
-                      v.code === link.rawVideoCode || 
-                      v.code === link.videoCode || 
-                      v.code === `80.${link.videoCode}` || 
-                      v.code?.endsWith(link.videoCode)
-                    );
-                    if (target) {
-                      e.preventDefault();
-                      onOpenVideo(target);
-                    }
-                  }
-                }}
-                className="btn btn-outline"
-                style={{
-                  padding: '0.25rem 0.65rem',
-                  fontSize: '0.8rem',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.35rem',
-                  color: 'var(--accent-color)',
-                  borderColor: 'var(--accent-color)',
-                  fontWeight: '600',
-                  textDecoration: 'none',
-                  borderRadius: 'var(--radius-sm)'
-                }}
-                title={link.videoCode ? `Open Video ${link.videoCode}` : link.href}
-              >
-                <ExternalLink size={13} />
-                <span>{link.domainLabel}</span>
-              </a>
-            ))}
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginLeft: 'auto' }}>
@@ -2623,6 +2559,98 @@ b. CTA: `;
             </select>
           </div>
         </div>
+      </div>
+
+      {/* URL Buttons Row — under the line just below the title */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', flexWrap: 'wrap', marginBottom: '1.25rem' }}>
+        {/* Copy Deep Link URL Button */}
+        <button
+          type="button"
+          className="btn btn-outline"
+          onClick={handleCopyDeepLink}
+          style={{
+            padding: '0.25rem 0.65rem',
+            fontSize: '0.8rem',
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '0.35rem',
+            fontWeight: '600',
+            borderRadius: 'var(--radius-sm)',
+            borderColor: copiedLink ? 'var(--success-color)' : undefined,
+            color: copiedLink ? 'var(--success-color)' : undefined,
+            transition: 'all 0.2s ease'
+          }}
+          title={`Copy deep link to ${localVideo.code || video.code} for Workflowy`}
+        >
+          {copiedLink ? <Check size={13} color="var(--success-color)" /> : <Link size={13} />}
+          <span>{copiedLink ? 'Copied URL!' : 'Copy URL'}</span>
+        </button>
+
+        {/* Link back to previous video page (if navigated internally) */}
+        {previousVideo && (
+          <button
+            type="button"
+            className="btn btn-outline"
+            onClick={onBackToPrevVideo}
+            disabled={isExiting}
+            style={{
+              padding: '0.25rem 0.65rem',
+              fontSize: '0.8rem',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.35rem',
+              color: 'var(--accent-color)',
+              borderColor: 'var(--accent-color)',
+              fontWeight: '600',
+              borderRadius: 'var(--radius-sm)'
+            }}
+            title={`Back to video ${previousVideo.code ? previousVideo.code.replace(/^\d+\./, '') : 'page'}`}
+          >
+            <ChevronLeft size={14} />
+            <span>{previousVideo.code ? previousVideo.code.replace(/^\d+\./, '') : 'Back'}</span>
+          </button>
+        )}
+
+        {/* Detected External & Internal URL Buttons */}
+        {allDetectedUrls.map((link, idx) => (
+          <a
+            key={idx}
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => {
+              if (link.videoCode && onOpenVideo && videos) {
+                const target = videos.find(v => 
+                  v.code === link.rawVideoCode || 
+                  v.code === link.videoCode || 
+                  v.code === `80.${link.videoCode}` || 
+                  v.code?.endsWith(link.videoCode)
+                );
+                if (target) {
+                  e.preventDefault();
+                  onOpenVideo(target);
+                }
+              }
+            }}
+            className="btn btn-outline"
+            style={{
+              padding: '0.25rem 0.65rem',
+              fontSize: '0.8rem',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.35rem',
+              color: 'var(--accent-color)',
+              borderColor: 'var(--accent-color)',
+              fontWeight: '600',
+              textDecoration: 'none',
+              borderRadius: 'var(--radius-sm)'
+            }}
+            title={link.videoCode ? `Open Video ${link.videoCode}` : link.href}
+          >
+            <ExternalLink size={13} />
+            <span>{link.domainLabel}</span>
+          </a>
+        ))}
       </div>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem' }}>
