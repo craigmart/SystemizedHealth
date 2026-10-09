@@ -1526,11 +1526,19 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
   };
 
   const getStarterOutline = (formatType, code) => {
-    const isShortVid = formatType === 'Short' || code?.includes('-S');
-    if (isShortVid) {
-      return `1. Hook:\n\n2. Teach:\n\n3. Action:`;
-    }
-    return `1. Hook:\n\n2. Mindset:\n\n3. Story:\n\n4. Teaching:\n\n5. Action:`;
+    return `1. Hook
+a. Confirm Click: 
+b. Common Belief: 
+c. Reframe: 
+
+2. Teach:
+#1: 
+#2: 
+#3: 
+
+3. Action
+a. Why Next Step: 
+b. CTA: `;
   };
 
   const [outline, setOutline] = useState(() => {
