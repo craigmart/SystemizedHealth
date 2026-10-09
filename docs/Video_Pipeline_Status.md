@@ -1,6 +1,6 @@
 # Video Pipeline Status
 
-> **Source of truth:** Supabase `videos` table  |  Generated: 2026-10-04
+> **Source of truth:** Supabase `videos` table  |  Generated: 2026-10-09
 > To update status: `python3 scripts/video_pipeline.py --status <code> <status>`
 
 ---
@@ -44,10 +44,10 @@
 | **034** | `80.V1A-S1` | Short | The Mid-Afternoon Crash | 2026-08-18 | ✅ #published | — |
 | **035** | `80.V1A-S2` | Short | Cellular Hydration | 2026-08-20 | ✅ #published | — |
 | **036** | `80.V1A-S3` | Short | Diets wont work, here's what does. | 2026-08-21 | ✅ #published | 2026-08-21 |
-| **038** | `80.V3B1-S1` | Short | Your Brain Is Full Do This Now | 2026-10-06 | ✅ #published | — |
+| **038** | `80.V3B1-S1` | Short | Your Brain Is Full Do This Now | 2026-10-07 | ✅ #published | — |
 | **039** | `80.V3B1-S2` | Short | How 3 Simple Lists Free Up Mental Space | 2026-10-08 | ✅ #published | — |
-| **040** | `80.V3B1-S3` | Short | Your mind if for creativity not to do lists | 2026-10-10 | ✂️ #edit | — |
-| **045** | `80.V1A2` | Long | Level 1 (Foundational) — Fuel | 2026-10-12 | 💡 #idea | — |
+| **040** | `80.V3B1-S3` | Short | The 30 Second Fix For Creative Block | 2026-10-10 | ✅ #published | — |
+| **045** | `80.V1A2` | Long | Advanced Intermittent Fasting | 2026-10-12 | 📝 #write | — |
 | **046** | `80.V1A2-S1` | Short | Level 1 (Foundational) — Fuel (Short 1) | 2026-10-13 | 💡 #idea | — |
 | **047** | `80.V1A2-S2` | Short | Level 1 (Foundational) — Fuel (Short 2) | 2026-10-15 | 💡 #idea | — |
 | **048** | `80.V1A2-S3` | Short | Level 1 (Foundational) — Fuel (Short 3) | 2026-10-17 | 💡 #idea | — |
@@ -252,6 +252,7 @@
 | **247** | `80.V1A0-S1` | Short | Diet drugs and Ambition | 2026-09-30 | ✅ #published | — |
 | **248** | `80.V3B1` | Long | 90 Months of bullet journaling | 2026-10-03 | ✅ #published | — |
 | **249** | `80.V1B3-A1` | Short | Run with Dr A #1 | 2026-10-04 | ✅ #published | — |
+| **250** | `80.V3B1-S4` | Short | Control Your Day | 2026-10-06 | ✅ #published | — |
 | **H001** | `HIST.L01` | Long | The Biological Requirement for Weekly Structure | 2026-01-01 | ✅ #published | 2026-01-01 |
 | **H002** | `HIST.L02` | Long | The Biological Reality of GLP-1: Fuel vs. Motivation | 2026-03-24 | ✅ #published | 2026-03-24 |
 | **H003** | `HIST.L03` | Long | The Nervous System Secret to Consistent Gains | 2026-01-22 | ✅ #published | 2026-01-22 |
@@ -275,7 +276,6 @@
 
 ## 📊 Status Summary
 
-- 💡 **#idea**: 199
-- 📝 **#write**: 1
-- ✂️ **#edit**: 1
-- ✅ **#published**: 60
+- 💡 **#idea**: 198
+- 📝 **#write**: 2
+- ✅ **#published**: 62
