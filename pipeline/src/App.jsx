@@ -1669,15 +1669,24 @@ b. CTA: `;
     if (urlStr.startsWith('obsidian://')) return 'Obsidian';
 
     const lowerRaw = urlStr.toLowerCase();
-    // Prioritize Gemini Notebook / NotebookLM across all URL structures
+
+    // 1. NotebookLM / Gemini Notebook (must explicitly be a notebook URL)
     if (
       lowerRaw.includes('notebooklm') ||
-      lowerRaw.includes('gemini.google') ||
       lowerRaw.includes('notebook.google') ||
       lowerRaw.includes('g.co/notebook') ||
-      lowerRaw.includes('g.co/gemini')
+      lowerRaw.includes('/notebook/') ||
+      lowerRaw.includes('/notebook')
     ) {
       return 'Gemini Notebook';
+    }
+
+    // 2. Gemini Chat (e.g. gemini.google.com/share/..., gemini.google.com/app/..., g.co/gemini)
+    if (
+      lowerRaw.includes('gemini.google') ||
+      lowerRaw.includes('g.co/gemini')
+    ) {
+      return 'Gemini Chat';
     }
 
     try {
@@ -1695,16 +1704,23 @@ b. CTA: `;
 
       const host = parsed.hostname.replace(/^www\./i, '');
       const lower = host.toLowerCase();
+      const pathLower = parsed.pathname.toLowerCase();
 
-      // 2. Gemini Notebook / NotebookLM (check hostname and path)
+      // Check for Notebook vs Chat on parsed URL structure
       if (
         lower.includes('notebooklm') ||
-        lower.includes('gemini.google') ||
         lower.includes('notebook.google') ||
-        parsed.pathname.toLowerCase().includes('notebooklm') ||
-        parsed.pathname.toLowerCase().includes('gemini')
+        pathLower.includes('notebook')
       ) {
         return 'Gemini Notebook';
+      }
+
+      if (
+        lower.includes('gemini.google') ||
+        pathLower.includes('gemini') ||
+        lower === 'gemini.com'
+      ) {
+        return 'Gemini Chat';
       }
 
       // Brand overrides matching user conventions
