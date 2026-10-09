@@ -258,10 +258,15 @@
 | **H003** | `HIST.L03` | Long | The Nervous System Secret to Consistent Gains | 2026-01-22 | ✅ #published | 2026-01-22 |
 | **H004** | `HIST.L04` | Long | The Biological Cost of an Unstructured Week | 2026-01-14 | ✅ #published | 2026-01-14 |
 | **H005** | `HIST.L05` | Long | Decision Fatigue Is Destroying Your Productivity | 2026-01-06 | ✅ #published | 2026-01-06 |
-| **HS001** | `HIST.S01` | Short | The Biological Prerequisite for Fasting | 2026-04-03 | ✅ #published | 2026-04-03 |
-| **HS002** | `HIST.S02` | Short | Start Running from ZERO | 2026-02-07 | ✅ #published | 2026-02-07 |
-| **HS003** | `HIST.S03` | Short | The Neurological Function of Clarity | 2026-01-15 | ✅ #published | 2026-01-15 |
-| **HS004** | `HIST.S04` | Short | The Biological Failure of Motivation | 2026-01-08 | ✅ #published | 2026-01-08 |
+| **H006** | `HIST.L06` | Long | The Metabolic Glitch Behind Morning Hunger | 2026-03-12 | ✅ #published | 2026-03-12 |
+| **H007** | `HIST.L07` | Long | Why Supplements Cannot Fix a Broken Baseline | 2026-03-21 | ✅ #published | 2026-03-21 |
+| **HS001** | `HIST.S01` | Short | The Biological Calibration for Morning Hunger | 2026-03-21 | ✅ #published | 2026-03-21 |
+| **HS002** | `HIST.S02` | Short | The Biological Mechanics of Habit Attachment | 2026-01-13 | ✅ #published | 2026-01-13 |
+| **HS003** | `HIST.S03` | Short | Your steps have been tracked your whole life | 2026-03-30 | ✅ #published | 2026-03-30 |
+| **HS004** | `HIST.S04` | Short | The Biological Prerequisite for Fasting | 2026-04-03 | ✅ #published | 2026-04-03 |
+| **HS005** | `HIST.S05` | Short | Start Running from ZERO | 2026-02-07 | ✅ #published | 2026-02-07 |
+| **HS006** | `HIST.S06` | Short | The Neurological Function of Clarity | 2026-01-15 | ✅ #published | 2026-01-15 |
+| **HS007** | `HIST.S07` | Short | The Biological Failure of Motivation | 2026-01-08 | ✅ #published | 2026-01-08 |
 | **HS008** | `HIST.S08` | Short | The Neurological Reality of Willpower | 2026-01-07 | ✅ #published | 2026-01-07 |
 | **HS009** | `HIST.S09` | Short | The Biological Minimum for Daily Steps | 2026-03-23 | ✅ #published | 2026-03-23 |
 | **HS010** | `HIST.S10` | Short | The Neurological Failure of Random Workouts | 2026-01-20 | ✅ #published | 2026-01-20 |
@@ -278,4 +283,4 @@
 
 - 💡 **#idea**: 198
 - 📝 **#write**: 2
-- ✅ **#published**: 62
+- ✅ **#published**: 67

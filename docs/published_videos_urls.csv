@@ -1,56 +1,48 @@
 video_number,code,format_type,title,drop_date,youtube_id,youtube_url,short_url
 H001,HIST.L01,Long,The Biological Requirement for Weekly Structure,2026-01-01,7PBxkzu3l-Q,https://www.youtube.com/watch?v=7PBxkzu3l-Q,https://youtu.be/7PBxkzu3l-Q
-H005,HIST.L05,Long,Decision Fatigue Is Destroying Your Productivity,2026-01-06,gUQJlS9WgtY,https://www.youtube.com/watch?v=gUQJlS9WgtY,https://youtu.be/gUQJlS9WgtY
-HS008,HIST.S08,Short,The Neurological Reality of Willpower,2026-01-07,iH7R_MXE92s,https://www.youtube.com/shorts/iH7R_MXE92s,https://youtu.be/iH7R_MXE92s
-HS004,HIST.S04,Short,The Biological Failure of Motivation,2026-01-08,YT_6EukW9M4,https://www.youtube.com/shorts/YT_6EukW9M4,https://youtu.be/YT_6EukW9M4
-HS015,HIST.S15,Short,The Clinical Architecture of Anchor Habits,2026-01-09,_Mzizq3SDW8,https://www.youtube.com/shorts/_Mzizq3SDW8,https://youtu.be/_Mzizq3SDW8
-HS013,HIST.S13,Short,The Biological Necessity of Weekly Structure,2026-01-13,Y8yEZnk6uSw,https://www.youtube.com/shorts/Y8yEZnk6uSw,https://youtu.be/Y8yEZnk6uSw
-H004,HIST.L04,Long,The Biological Cost of an Unstructured Week,2026-01-14,MGzcr5xWJ98,https://www.youtube.com/watch?v=MGzcr5xWJ98,https://youtu.be/MGzcr5xWJ98
-HS003,HIST.S03,Short,The Neurological Function of Clarity,2026-01-15,h957-iWfypA,https://www.youtube.com/shorts/h957-iWfypA,https://youtu.be/h957-iWfypA
-HS014,HIST.S14,Short,The Neurological Cost of Decision Fatigue,2026-01-16,AtMN9oEjR2s,https://www.youtube.com/shorts/AtMN9oEjR2s,https://youtu.be/AtMN9oEjR2s
-HS010,HIST.S10,Short,The Neurological Failure of Random Workouts,2026-01-20,oS-1-se9-Vw,https://www.youtube.com/shorts/oS-1-se9-Vw,https://youtu.be/oS-1-se9-Vw
-HS012,HIST.S12,Short,The Biological Mandate for Recovery,2026-01-21,qSDkAcapvT0,https://www.youtube.com/shorts/qSDkAcapvT0,https://youtu.be/qSDkAcapvT0
-H003,HIST.L03,Long,The Nervous System Secret to Consistent Gains,2026-01-22,cGXl54siR8c,https://www.youtube.com/watch?v=cGXl54siR8c,https://youtu.be/cGXl54siR8c
-HS002,HIST.S02,Short,Start Running from ZERO,2026-02-07,8FKzFafJ6lY,https://www.youtube.com/shorts/8FKzFafJ6lY,https://youtu.be/8FKzFafJ6lY
-HS009,HIST.S09,Short,The Biological Minimum for Daily Steps,2026-03-23,-ps4rpApMl8,https://www.youtube.com/shorts/-ps4rpApMl8,https://youtu.be/-ps4rpApMl8
 H002,HIST.L02,Long,The Biological Reality of GLP-1: Fuel vs. Motivation,2026-03-24,bvmmlepNU_I,https://www.youtube.com/watch?v=bvmmlepNU_I,https://youtu.be/bvmmlepNU_I
+H003,HIST.L03,Long,The Nervous System Secret to Consistent Gains,2026-01-22,cGXl54siR8c,https://www.youtube.com/watch?v=cGXl54siR8c,https://youtu.be/cGXl54siR8c
+H004,HIST.L04,Long,The Biological Cost of an Unstructured Week,2026-01-14,MGzcr5xWJ98,https://www.youtube.com/watch?v=MGzcr5xWJ98,https://youtu.be/MGzcr5xWJ98
+H005,HIST.L05,Long,Decision Fatigue Is Destroying Your Productivity,2026-01-06,gUQJlS9WgtY,https://www.youtube.com/watch?v=gUQJlS9WgtY,https://youtu.be/gUQJlS9WgtY
+H006,HIST.L06,Long,The Metabolic Glitch Behind Morning Hunger,2026-03-12,8_hrdHBkXHw,https://www.youtube.com/watch?v=8_hrdHBkXHw,https://youtu.be/8_hrdHBkXHw
+H007,HIST.L07,Long,Why Supplements Cannot Fix a Broken Baseline,2026-03-21,k_9aspbRXJE,https://www.youtube.com/watch?v=k_9aspbRXJE,https://youtu.be/k_9aspbRXJE
+HS001,HIST.S01,Short,The Biological Calibration for Morning Hunger,2026-03-21,zHiBt3dbte4,https://www.youtube.com/shorts/zHiBt3dbte4,https://youtu.be/zHiBt3dbte4
+HS002,HIST.S02,Short,The Biological Mechanics of Habit Attachment,2026-01-13,n2A3Wi2g2uM,https://www.youtube.com/shorts/n2A3Wi2g2uM,https://youtu.be/n2A3Wi2g2uM
+HS003,HIST.S03,Short,Your steps have been tracked your whole life,2026-03-30,F16bN5jbV8w,https://www.youtube.com/shorts/F16bN5jbV8w,https://youtu.be/F16bN5jbV8w
+HS004,HIST.S04,Short,The Biological Prerequisite for Fasting,2026-04-03,SzoLkKy67X8,https://www.youtube.com/shorts/SzoLkKy67X8,https://youtu.be/SzoLkKy67X8
+HS005,HIST.S05,Short,Start Running from ZERO,2026-02-07,8FKzFafJ6lY,https://www.youtube.com/shorts/8FKzFafJ6lY,https://youtu.be/8FKzFafJ6lY
+HS006,HIST.S06,Short,The Neurological Function of Clarity,2026-01-15,h957-iWfypA,https://www.youtube.com/shorts/h957-iWfypA,https://youtu.be/h957-iWfypA
+HS007,HIST.S07,Short,The Biological Failure of Motivation,2026-01-08,YT_6EukW9M4,https://www.youtube.com/shorts/YT_6EukW9M4,https://youtu.be/YT_6EukW9M4
+HS008,HIST.S08,Short,The Neurological Reality of Willpower,2026-01-07,iH7R_MXE92s,https://www.youtube.com/shorts/iH7R_MXE92s,https://youtu.be/iH7R_MXE92s
+HS009,HIST.S09,Short,The Biological Minimum for Daily Steps,2026-03-23,-ps4rpApMl8,https://www.youtube.com/shorts/-ps4rpApMl8,https://youtu.be/-ps4rpApMl8
+HS010,HIST.S10,Short,The Neurological Failure of Random Workouts,2026-01-20,oS-1-se9-Vw,https://www.youtube.com/shorts/oS-1-se9-Vw,https://youtu.be/oS-1-se9-Vw
 HS011,HIST.S11,Short,The Neurological Cost of GLP-1,2026-03-26,-jvtwj_tTpE,https://www.youtube.com/shorts/-jvtwj_tTpE,https://youtu.be/-jvtwj_tTpE
-HS001,HIST.S01,Short,The Biological Prerequisite for Fasting,2026-04-03,SzoLkKy67X8,https://www.youtube.com/shorts/SzoLkKy67X8,https://youtu.be/SzoLkKy67X8
+HS012,HIST.S12,Short,The Biological Mandate for Recovery,2026-01-21,qSDkAcapvT0,https://www.youtube.com/shorts/qSDkAcapvT0,https://youtu.be/qSDkAcapvT0
+HS013,HIST.S13,Short,The Biological Necessity of Weekly Structure,2026-01-13,Y8yEZnk6uSw,https://www.youtube.com/shorts/Y8yEZnk6uSw,https://youtu.be/Y8yEZnk6uSw
+HS014,HIST.S14,Short,The Neurological Cost of Decision Fatigue,2026-01-16,AtMN9oEjR2s,https://www.youtube.com/shorts/AtMN9oEjR2s,https://youtu.be/AtMN9oEjR2s
+HS015,HIST.S15,Short,The Clinical Architecture of Anchor Habits,2026-01-09,_Mzizq3SDW8,https://www.youtube.com/shorts/_Mzizq3SDW8,https://youtu.be/_Mzizq3SDW8
 001,80.V0B,Long,Knowledge Isn't Enough—Here's What Actually Works,2026-08-03,EQyStOr47KI,https://www.youtube.com/watch?v=EQyStOr47KI,https://youtu.be/EQyStOr47KI
 002,80.V0A,Long,"20,000 Patients Taught Me This One Biological Reality",2026-08-03,Menybk7p3TI,https://www.youtube.com/watch?v=Menybk7p3TI,https://youtu.be/Menybk7p3TI
+003,80.V1B1,Long,"Exercise is Optional, Movement is not.",2026-08-10,xrsp_Isr5MI,https://www.youtube.com/watch?v=xrsp_Isr5MI,https://youtu.be/xrsp_Isr5MI
+004,80.V0A1,Long,Uncover the Clarity You Need to Take Control of Your Health - Systemized OS,2026-08-24,9W6Qoo4F5rg,https://www.youtube.com/watch?v=9W6Qoo4F5rg,https://youtu.be/9W6Qoo4F5rg
 005,80.V0B-S1,Short,Do Less to Get More,2026-08-04,RnrGj1l3tDc,https://www.youtube.com/shorts/RnrGj1l3tDc,https://youtu.be/RnrGj1l3tDc
 006,80.V0B-S2,Short,"Aim Smaller, Win Bigger #goals #success",2026-08-06,ppTBTpV3lIQ,https://www.youtube.com/shorts/ppTBTpV3lIQ,https://youtu.be/ppTBTpV3lIQ
-008,80.V0A-S1,Short,Coffee Won't Fix Your Afternoon Crash #bloodsugar #over50,2026-08-06,OY3FzRBfb9Q,https://www.youtube.com/shorts/OY3FzRBfb9Q,https://youtu.be/OY3FzRBfb9Q
 007,80.V0B-S3,Short,"Stop Trying to Fix Stress Backward (Fuel, Move, Rest First)",2026-08-08,PEtbNdFOK_k,https://www.youtube.com/shorts/PEtbNdFOK_k,https://youtu.be/PEtbNdFOK_k
+008,80.V0A-S1,Short,Coffee Won't Fix Your Afternoon Crash #bloodsugar #over50,2026-08-06,OY3FzRBfb9Q,https://www.youtube.com/shorts/OY3FzRBfb9Q,https://youtu.be/OY3FzRBfb9Q
 009,80.V0A-S2,Short,Why Chugging Water can Dehydrate you,2026-08-08,92xeHonXr1I,https://www.youtube.com/shorts/92xeHonXr1I,https://youtu.be/92xeHonXr1I
-003,80.V1B1,Long,"Exercise is Optional, Movement is not.",2026-08-10,xrsp_Isr5MI,https://www.youtube.com/watch?v=xrsp_Isr5MI,https://youtu.be/xrsp_Isr5MI
+010,80.V0A-S3,Short,Break a Sweat 3 Times a Week (Prevent Musculoskeletal Pain),2026-08-22,RLrlNEliSuM,https://www.youtube.com/shorts/RLrlNEliSuM,https://youtu.be/RLrlNEliSuM
 011,80.V1B1-S1,Short,The Lazy Way to Get Fit (It Actually Works) #shorts #fitness #hack,2026-08-11,qY1ocZD4MGc,https://www.youtube.com/shorts/qY1ocZD4MGc,https://youtu.be/qY1ocZD4MGc
 012,80.V1B1-S2,Short,How do the Joints in your Body Stay Healthy? - Its not good bloodflow.,2026-08-13,XBxNL3uIl6g,https://www.youtube.com/shorts/XBxNL3uIl6g,https://youtu.be/XBxNL3uIl6g
 013,80.V1B1-S3,Short,Cortical Smudging: A reason for Sudden Back Pain #backpain #tips,2026-08-15,TozdC4FHrT0,https://www.youtube.com/shorts/TozdC4FHrT0,https://youtu.be/TozdC4FHrT0
-033,80.V1A,Long,The real reason you're exhausted at 3pm,2026-08-17,vKklzz0wb_A,https://www.youtube.com/watch?v=vKklzz0wb_A,https://youtu.be/vKklzz0wb_A
-034,80.V1A-S1,Short,The Mid-Afternoon Crash,2026-08-18,,,
-035,80.V1A-S2,Short,Cellular Hydration,2026-08-20,,,
-036,80.V1A-S3,Short,"Diets wont work, here's what does.",2026-08-21,SlCkV8AJDqU,https://www.youtube.com/shorts/SlCkV8AJDqU,https://youtu.be/SlCkV8AJDqU
-010,80.V0A-S3,Short,Break a Sweat 3 Times a Week (Prevent Musculoskeletal Pain),2026-08-22,RLrlNEliSuM,https://www.youtube.com/shorts/RLrlNEliSuM,https://youtu.be/RLrlNEliSuM
-TBD,80.V0A-S3-B,Short,The Easiest Way to Eliminate Back Pain #shorts #painrelief #fitness,2026-08-23,VCijrLsGBV0,https://www.youtube.com/shorts/VCijrLsGBV0,https://youtu.be/VCijrLsGBV0
-004,80.V0A1,Long,Uncover the Clarity You Need to Take Control of Your Health - Systemized OS,2026-08-24,9W6Qoo4F5rg,https://www.youtube.com/watch?v=9W6Qoo4F5rg,https://youtu.be/9W6Qoo4F5rg
 014,80.V0A1-S1,Short,Why you have zero willpower left #productivity #psychology,2026-08-25,7ZjvZs53eoc,https://www.youtube.com/shorts/7ZjvZs53eoc,https://youtu.be/7ZjvZs53eoc
 015,80.V0A1-S2,Short,Prove it before you buy it - don’t fall for health gadgets,2026-08-27,4qu_5G-HAFQ,https://www.youtube.com/shorts/4qu_5G-HAFQ,https://youtu.be/4qu_5G-HAFQ
 016,80.V0A1-S3,Short,This is why you aren't getting healthier #health #fitness #motivation,2026-08-29,bH0I0wRoJa4,https://www.youtube.com/shorts/bH0I0wRoJa4,https://youtu.be/bH0I0wRoJa4
 017,80.V1C1,Long,What Actually Happens to Your Brain When You Don't Sleep,2026-08-31,hfQWbjZpoH0,https://www.youtube.com/watch?v=hfQWbjZpoH0,https://youtu.be/hfQWbjZpoH0
 018,80.V1C1-S1,Short,The Weekend Catch-Up Sleep Myth Destroying Your Metabolism,2026-09-01,JPGSz4GIuGs,https://www.youtube.com/shorts/JPGSz4GIuGs,https://youtu.be/JPGSz4GIuGs
 019,80.V1C1-S2,Short,Why The First 4 Hours of Sleep Are Critical (Brain Night Shift),2026-09-03,CpK5WGJdPWM,https://www.youtube.com/shorts/CpK5WGJdPWM,https://youtu.be/CpK5WGJdPWM
-020,80.V1C1-S3,Short,Caffeine Illusion,2026-09-05,,,
-021,80.V1B2,Long,Can You Run With a Herniated Disc? (A Doctor's Experiment),2026-09-07,-mMo8Jot2PQ,https://www.youtube.com/watch?v=-mMo8Jot2PQ,https://youtu.be/-mMo8Jot2PQ
-022,80.V1B2-S1,Short,How Do the Discs in Your Spine Stay Healthy? (It's NOT Bloodflow),2026-09-08,,,
+021,80.V1B2,Long,Can You Run with a Hernaited Disc causing Low Back Pain? A Chiropractor's Test,2026-09-07,-mMo8Jot2PQ,https://www.youtube.com/watch?v=-mMo8Jot2PQ,https://youtu.be/-mMo8Jot2PQ
 023,80.V2B1-S1,Short,How discomfort makes you comfortable,2026-09-10,LMbQTypMTlg,https://www.youtube.com/shorts/LMbQTypMTlg,https://youtu.be/LMbQTypMTlg
-024,80.V1B2-S2,Short,Running and Longterm Health of Your Disc,2026-09-12,LKSjxZ0QnhM,https://www.youtube.com/shorts/LKSjxZ0QnhM,https://youtu.be/LKSjxZ0QnhM
-025,80.V2C1,Long,Staying Human in the Age of Artificial Intelligence,2026-09-14,,,
-026,80.V2C1-S1,Short,The One Mindset to Save Your Brain When Using AI,2026-09-15,,,
-027,80.V2A1-S2A,Short,This is Your Default Setting,2026-09-17,,,
-028,80.V2A1-S3A,Short,Task Positive Network and Scrolling,2026-09-19,,,
-029,80.V3A1,Long,The 5 Stages of Brain Aging (And How to Stay Sharp Into Your 90s),2026-09-24,,,
-030,80.V3A1-S1,Short,Play is how you learn new things,2026-09-25,,,
-031,80.V3A1-S2,Short,When Was the Last Time You Just Played?,2026-09-26,,,
-245,80.V2A-S4,Short,Buffers make you more productive,2026-09-28,,,
-246,80.V3A1-S3,Short,"Who’s brains are better connected, men or women?",2026-09-29,,,
+024,80.V1B2-S2,Short,"A Chiropractor Answers, Is Running Bad for the Back?",2026-09-12,LKSjxZ0QnhM,https://www.youtube.com/shorts/LKSjxZ0QnhM,https://youtu.be/LKSjxZ0QnhM
+033,80.V1A,Long,The real reason you're exhausted at 3pm,2026-08-17,vKklzz0wb_A,https://www.youtube.com/watch?v=vKklzz0wb_A,https://youtu.be/vKklzz0wb_A
+036,80.V1A-S3,Short,"Diets wont work, here's what does.",2026-08-21,SlCkV8AJDqU,https://www.youtube.com/shorts/SlCkV8AJDqU,https://youtu.be/SlCkV8AJDqU
+TBD,80.V0A-S3-B,Short,The Easiest Way to Eliminate Back Pain #shorts #painrelief #fitness,2026-08-23,VCijrLsGBV0,https://www.youtube.com/shorts/VCijrLsGBV0,https://youtu.be/VCijrLsGBV0
