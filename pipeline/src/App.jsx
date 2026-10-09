@@ -1379,7 +1379,7 @@ function App() {
                 <RefreshCw size={16} className={loading ? "animate-spin" : ""} />
               </button>
               <a
-                href="https://studio.youtube.com/channel/UCSnF1YqGqmNosGdX5JqY1gQ"
+                href={isAppleMobile ? "https://studio.youtube.com" : "https://studio.youtube.com/channel/UCSnF1YqGqmNosGdX5JqY1gQ"}
                 className="btn btn-outline"
                 title="Open YouTube Studio"
                 target={isAppleMobile ? undefined : "_blank"}
