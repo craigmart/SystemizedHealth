@@ -91,20 +91,20 @@ export const isAppleMobile = typeof navigator !== 'undefined' && (
 export const getStarterOutline = (formatType, code) => {
   const isShortVid = formatType === 'Short' || code?.includes('-S');
   if (isShortVid) {
-    return `- Title
-- Hook
-- Point
-- CTA`;
+    return `- Title: 
+- Hook: 
+- Point: 
+- CTA: `;
   }
 
-  return `- Title
-- Thumbnail
-- Hook
-- Point #1
-- Point #2
-- Point #3
-- Close
-- CTA`;
+  return `- Title: 
+- Thumbnail: 
+- Hook: 
+- Point #1: 
+- Point #2: 
+- Point #3: 
+- Close: 
+- CTA: `;
 };
 
 export const getAutoCompletedChecklist = (status, currentChecklist, isShort) => {
