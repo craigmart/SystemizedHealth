@@ -1644,15 +1644,22 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
   const adjustScratchPadHeight = () => {
     if (scratchPadRef.current) {
       scratchPadRef.current.style.height = 'auto';
-      scratchPadRef.current.style.height = `${Math.max(180, scratchPadRef.current.scrollHeight)}px`;
+      const newHeight = Math.max(180, scratchPadRef.current.scrollHeight);
+      scratchPadRef.current.style.height = `${newHeight}px`;
     }
   };
 
   useEffect(() => {
-    adjustScratchPadHeight();
-    const timer = setTimeout(adjustScratchPadHeight, 50);
-    return () => clearTimeout(timer);
-  }, [outline, video]);
+    if (scratchPadMode === 'edit') {
+      adjustScratchPadHeight();
+      const timer = setTimeout(adjustScratchPadHeight, 30);
+      const timer2 = setTimeout(adjustScratchPadHeight, 150);
+      return () => {
+        clearTimeout(timer);
+        clearTimeout(timer2);
+      };
+    }
+  }, [outline, video, scratchPadMode]);
 
   useEffect(() => {
     const handleResize = () => adjustScratchPadHeight();
@@ -3185,27 +3192,38 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
 
           {scratchPadMode === 'edit' ? (
             <textarea
-              ref={scratchPadRef}
+              ref={(el) => {
+                scratchPadRef.current = el;
+                if (el) {
+                  el.style.height = 'auto';
+                  el.style.height = `${Math.max(180, el.scrollHeight)}px`;
+                }
+              }}
               value={outline}
               onChange={(e) => {
                 setOutline(e.target.value);
                 e.target.style.height = 'auto';
                 e.target.style.height = `${Math.max(180, e.target.scrollHeight)}px`;
               }}
+              onInput={(e) => {
+                e.target.style.height = 'auto';
+                e.target.style.height = `${Math.max(180, e.target.scrollHeight)}px`;
+              }}
               style={{
                 width: '100%',
                 minHeight: '180px',
-                padding: '0.75rem',
+                padding: '0.85rem 1rem',
                 borderRadius: 'var(--radius-md)',
                 border: '1px solid var(--border-color)',
                 backgroundColor: 'var(--surface-color)',
                 color: 'var(--text-primary)',
                 fontFamily: 'inherit',
-                fontSize: '0.9rem',
-                lineHeight: '1.5',
+                fontSize: '0.92rem',
+                lineHeight: '1.6',
                 overflow: 'hidden',
                 resize: 'none',
-                boxSizing: 'border-box'
+                boxSizing: 'border-box',
+                fieldSizing: 'content'
               }}
               placeholder={getStarterOutline(localVideo.format_type, localVideo.code)}
             />
