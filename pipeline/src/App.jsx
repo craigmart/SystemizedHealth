@@ -4,11 +4,12 @@ import {
   Calendar, CheckSquare, AlertCircle, RefreshCw, ChevronLeft, Save, Tag, 
   TrendingUp, Clock, FileVideo, Scissors, Film, X, ExternalLink,
   Check, MessageSquare, Plus, Trash2, ListTodo, FileText, CheckCircle2, Lightbulb, Link,
-  Sparkles, FileEdit, Search, Share2
+  Sparkles, FileEdit, Search, Share2, Eye, Edit3
 } from 'lucide-react';
 import { addDays, isBefore, parseISO, differenceInDays, format } from 'date-fns';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import remarkBreaks from 'remark-breaks';
 
 export const LONG_VIDEO_CHECKLIST_ITEMS = [
   { key: 'prep_notebook', phase: 'Writing', label: 'Gemini Notebook research' },
@@ -1480,6 +1481,7 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
   const [saving, setSaving] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
   const [saveOutlineSuccess, setSaveOutlineSuccess] = useState(false);
+  const [scratchPadMode, setScratchPadMode] = useState('edit');
   const [copiedYouTube, setCopiedYouTube] = useState(false);
   const [videoPath, setVideoPath] = useState(null);
   const [isEditingTitle, setIsEditingTitle] = useState(false);
@@ -3092,9 +3094,68 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
         {/* 2. Video Script Outline Section / Scratch Pad */}
         <div style={{ backgroundColor: 'var(--surface-color)', padding: '1.25rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem', flexWrap: 'wrap', gap: '0.5rem' }}>
-            <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', margin: 0, fontSize: '1.15rem' }}>
-              <FileEdit size={20} color="var(--primary-color)" /> {isShort ? 'Short Scratch Pad' : 'Long Scratch Pad'}
-            </h3>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
+              <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', margin: 0, fontSize: '1.15rem' }}>
+                <FileEdit size={20} color="var(--primary-color)" /> Scratch Pad
+              </h3>
+              {/* Markdown Mode Toggle */}
+              <div style={{
+                display: 'inline-flex',
+                backgroundColor: 'var(--bg-color)',
+                borderRadius: 'var(--radius-md)',
+                padding: '2px',
+                border: '1px solid var(--border-color)',
+                gap: '2px'
+              }}>
+                <button
+                  type="button"
+                  onClick={() => setScratchPadMode('edit')}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.35rem',
+                    padding: '0.2rem 0.55rem',
+                    fontSize: '0.75rem',
+                    fontWeight: '500',
+                    border: 'none',
+                    borderRadius: 'calc(var(--radius-md) - 2px)',
+                    cursor: 'pointer',
+                    backgroundColor: scratchPadMode === 'edit' ? 'var(--surface-color)' : 'transparent',
+                    color: scratchPadMode === 'edit' ? 'var(--primary-color)' : 'var(--text-secondary)',
+                    boxShadow: scratchPadMode === 'edit' ? 'var(--shadow-sm)' : 'none',
+                    transition: 'all 0.15s ease'
+                  }}
+                  title="Edit raw markdown"
+                >
+                  <Edit3 size={12} />
+                  <span>Edit</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setScratchPadMode('preview')}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.35rem',
+                    padding: '0.2rem 0.55rem',
+                    fontSize: '0.75rem',
+                    fontWeight: '500',
+                    border: 'none',
+                    borderRadius: 'calc(var(--radius-md) - 2px)',
+                    cursor: 'pointer',
+                    backgroundColor: scratchPadMode === 'preview' ? 'var(--surface-color)' : 'transparent',
+                    color: scratchPadMode === 'preview' ? 'var(--primary-color)' : 'var(--text-secondary)',
+                    boxShadow: scratchPadMode === 'preview' ? 'var(--shadow-sm)' : 'none',
+                    transition: 'all 0.15s ease'
+                  }}
+                  title="Render formatted markdown"
+                >
+                  <Eye size={12} />
+                  <span>Preview</span>
+                </button>
+              </div>
+            </div>
+
             <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
               <button
                 type="button"
@@ -3103,6 +3164,7 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
                 onClick={() => {
                   if (!outline.trim() || window.confirm("Reset outline to starter template? This will replace your current outline text.")) {
                     setOutline(getStarterOutline(localVideo.format_type, localVideo.code));
+                    setScratchPadMode('edit');
                   }
                 }}
                 title={outline.trim() ? "Reset outline to starter template" : "Insert starter beats template"}
@@ -3120,31 +3182,146 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
               </button>
             </div>
           </div>
-          <textarea
-            ref={scratchPadRef}
-            value={outline}
-            onChange={(e) => {
-              setOutline(e.target.value);
-              e.target.style.height = 'auto';
-              e.target.style.height = `${Math.max(180, e.target.scrollHeight)}px`;
-            }}
-            style={{
-              width: '100%',
-              minHeight: '180px',
-              padding: '0.75rem',
-              borderRadius: 'var(--radius-md)',
-              border: '1px solid var(--border-color)',
-              backgroundColor: 'var(--surface-color)',
-              color: 'var(--text-primary)',
-              fontFamily: 'inherit',
-              fontSize: '0.9rem',
-              lineHeight: '1.5',
-              overflow: 'hidden',
-              resize: 'none',
-              boxSizing: 'border-box'
-            }}
-            placeholder={getStarterOutline(localVideo.format_type, localVideo.code)}
-          />
+
+          {scratchPadMode === 'edit' ? (
+            <textarea
+              ref={scratchPadRef}
+              value={outline}
+              onChange={(e) => {
+                setOutline(e.target.value);
+                e.target.style.height = 'auto';
+                e.target.style.height = `${Math.max(180, e.target.scrollHeight)}px`;
+              }}
+              style={{
+                width: '100%',
+                minHeight: '180px',
+                padding: '0.75rem',
+                borderRadius: 'var(--radius-md)',
+                border: '1px solid var(--border-color)',
+                backgroundColor: 'var(--surface-color)',
+                color: 'var(--text-primary)',
+                fontFamily: 'inherit',
+                fontSize: '0.9rem',
+                lineHeight: '1.5',
+                overflow: 'hidden',
+                resize: 'none',
+                boxSizing: 'border-box'
+              }}
+              placeholder={getStarterOutline(localVideo.format_type, localVideo.code)}
+            />
+          ) : (
+            <div
+              className="scratchpad-markdown-preview markdown-content"
+              style={{
+                width: '100%',
+                minHeight: '180px',
+                padding: '0.85rem 1rem',
+                borderRadius: 'var(--radius-md)',
+                border: '1px solid var(--border-color)',
+                backgroundColor: 'var(--bg-color)',
+                color: 'var(--text-primary)',
+                fontSize: '0.92rem',
+                lineHeight: '1.6',
+                boxSizing: 'border-box',
+                overflowX: 'auto'
+              }}
+            >
+              {outline.trim() ? (
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm, remarkBreaks]}
+                  components={{
+                    a: ({ node, href, children, ...props }) => (
+                      <a
+                        href={href}
+                        target={isAppleMobile ? undefined : "_blank"}
+                        rel={isAppleMobile ? undefined : "noopener noreferrer"}
+                        onClick={(e) => {
+                          if (href && href.startsWith('obsidian://')) {
+                            e.preventDefault();
+                            window.location.href = href;
+                          }
+                        }}
+                        style={{
+                          color: 'var(--accent-color)',
+                          textDecoration: 'underline',
+                          fontWeight: '500'
+                        }}
+                        {...props}
+                      >
+                        {children}
+                      </a>
+                    ),
+                    p: ({ node, children, ...props }) => (
+                      <p style={{ margin: '0.35rem 0', color: 'var(--text-primary)' }} {...props}>
+                        {children}
+                      </p>
+                    ),
+                    ul: ({ node, children, ...props }) => (
+                      <ul style={{ margin: '0.4rem 0', paddingLeft: '1.4rem', color: 'var(--text-primary)' }} {...props}>
+                        {children}
+                      </ul>
+                    ),
+                    ol: ({ node, children, ...props }) => (
+                      <ol style={{ margin: '0.4rem 0', paddingLeft: '1.4rem', color: 'var(--text-primary)' }} {...props}>
+                        {children}
+                      </ol>
+                    ),
+                    li: ({ node, children, ...props }) => (
+                      <li style={{ margin: '0.2rem 0', color: 'var(--text-primary)' }} {...props}>
+                        {children}
+                      </li>
+                    ),
+                    h1: ({ node, children, ...props }) => (
+                      <h1 style={{ fontSize: '1.35rem', margin: '0.8rem 0 0.4rem', color: 'var(--text-primary)', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.3rem' }} {...props}>
+                        {children}
+                      </h1>
+                    ),
+                    h2: ({ node, children, ...props }) => (
+                      <h2 style={{ fontSize: '1.2rem', margin: '0.7rem 0 0.35rem', color: 'var(--text-primary)' }} {...props}>
+                        {children}
+                      </h2>
+                    ),
+                    h3: ({ node, children, ...props }) => (
+                      <h3 style={{ fontSize: '1.05rem', margin: '0.6rem 0 0.3rem', color: 'var(--text-primary)' }} {...props}>
+                        {children}
+                      </h3>
+                    ),
+                    blockquote: ({ node, children, ...props }) => (
+                      <blockquote style={{
+                        borderLeft: '3px solid var(--accent-color)',
+                        margin: '0.6rem 0',
+                        padding: '0.4rem 0.8rem',
+                        backgroundColor: 'var(--surface-color)',
+                        borderRadius: '0 var(--radius-sm) var(--radius-sm) 0',
+                        color: 'var(--text-secondary)'
+                      }} {...props}>
+                        {children}
+                      </blockquote>
+                    ),
+                    code: ({ node, inline, children, ...props }) => (
+                      <code style={{
+                        backgroundColor: 'var(--surface-color)',
+                        padding: '0.15rem 0.35rem',
+                        borderRadius: 'var(--radius-sm)',
+                        fontSize: '0.85em',
+                        fontFamily: 'monospace',
+                        border: '1px solid var(--border-color)'
+                      }} {...props}>
+                        {children}
+                      </code>
+                    )
+                  }}
+                >
+                  {outline}
+                </ReactMarkdown>
+              ) : (
+                <div style={{ color: 'var(--text-secondary)', fontStyle: 'italic', padding: '1rem 0' }}>
+                  No scratch pad content yet. Click <strong>Edit</strong> or <strong>Insert Template</strong> to get started.
+                </div>
+              )}
+            </div>
+          )}
+
           {renderBoxLinks(outlineUrls)}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '0.5rem', flexWrap: 'wrap', gap: '0.5rem' }}>
             <span style={{ fontSize: '0.75rem', color: 'var(--success-color)', fontWeight: '500' }}>
