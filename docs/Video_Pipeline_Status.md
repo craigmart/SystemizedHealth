@@ -1,6 +1,6 @@
 # Video Pipeline Status
 
-> **Source of truth:** Supabase `videos` table  |  Generated: 2026-10-09
+> **Source of truth:** Supabase `videos` table  |  Generated: 2026-10-12
 > To update status: `python3 scripts/video_pipeline.py --status <code> <status>`
 
 ---
@@ -47,7 +47,7 @@
 | **038** | `80.V3B1-S1` | Short | Your Brain Is Full Do This Now | 2026-10-07 | ✅ #published | — |
 | **039** | `80.V3B1-S2` | Short | How 3 Simple Lists Free Up Mental Space | 2026-10-08 | ✅ #published | — |
 | **040** | `80.V3B1-S3` | Short | The 30 Second Fix For Creative Block | 2026-10-10 | ✅ #published | — |
-| **045** | `80.V1A2` | Long | Advanced Intermittent Fasting | 2026-10-12 | 📝 #write | — |
+| **045** | `80.V1A2` | Long | Dynamic Intermittent Fasting | 2026-10-12 | 📝 #write | — |
 | **046** | `80.V1A2-S1` | Short | Level 1 (Foundational) — Fuel (Short 1) | 2026-10-13 | 💡 #idea | — |
 | **047** | `80.V1A2-S2` | Short | Level 1 (Foundational) — Fuel (Short 2) | 2026-10-15 | 💡 #idea | — |
 | **048** | `80.V1A2-S3` | Short | Level 1 (Foundational) — Fuel (Short 3) | 2026-10-17 | 💡 #idea | — |

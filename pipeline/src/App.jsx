@@ -88,6 +88,25 @@ export const isAppleMobile = typeof navigator !== 'undefined' && (
   (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
 );
 
+export const getStarterOutline = (formatType, code) => {
+  const isShortVid = formatType === 'Short' || code?.includes('-S');
+  if (isShortVid) {
+    return `- Title
+- Hook
+- Point
+- CTA`;
+  }
+
+  return `- Title
+- Thumbnail
+- Hook
+- Point #1
+- Point #2
+- Point #3
+- Close
+- CTA`;
+};
+
 export const getAutoCompletedChecklist = (status, currentChecklist, isShort) => {
   const baseItems = isShort ? SHORT_VIDEO_CHECKLIST_ITEMS : LONG_VIDEO_CHECKLIST_ITEMS;
   const completedPhases = getCompletedPhasesForStatus(status);
@@ -1613,44 +1632,6 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
     }
   };
 
-  const getStarterOutline = (formatType, code) => {
-    const isShortVid = formatType === 'Short' || code?.includes('-S');
-    if (isShortVid) {
-      return `1. Title: 
-
-2. Thumbnail: 
-
-3. Hook
-a. Confirm Click: 
-b. Common Belief: 
-c. Reframe: 
-
-4. Teach:
-#1: 
-
-5. Action
-a. Why Next Step: 
-b. CTA: `;
-    }
-
-    return `1. Title: 
-
-2. Thumbnail: 
-
-3. Hook
-a. Confirm Click: 
-b. Common Belief: 
-c. Reframe: 
-
-4. Teach:
-#1: 
-#2: 
-#3: 
-
-5. Action
-a. Why Next Step: 
-b. CTA: `;
-  };
 
   const [outline, setOutline] = useState(() => {
     return video.rough_outline || getStarterOutline(video.format_type, video.code);
@@ -3162,10 +3143,7 @@ b. CTA: `;
               resize: 'none',
               boxSizing: 'border-box'
             }}
-            placeholder={isShort
-              ? "1. Title: \n\n2. Thumbnail: \n\n3. Hook\na. Confirm Click: \nb. Common Belief: \nc. Reframe: \n\n4. Teach:\n#1: \n\n5. Action\na. Why Next Step: \nb. CTA: "
-              : "1. Title: \n\n2. Thumbnail: \n\n3. Hook\na. Confirm Click: \nb. Common Belief: \nc. Reframe: \n\n4. Teach:\n#1: \n#2: \n#3: \n\n5. Action\na. Why Next Step: \nb. CTA: "
-            }
+            placeholder={getStarterOutline(localVideo.format_type, localVideo.code)}
           />
           {renderBoxLinks(outlineUrls)}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '0.5rem', flexWrap: 'wrap', gap: '0.5rem' }}>
@@ -3435,40 +3413,7 @@ function AddVideoModal({ videos, onClose, onSuccess }) {
       });
       const nextVideoNumber = String(maxVN + 1).padStart(3, '0');
 
-      const isShortVid = formatType === 'Short' || code.includes('-S');
-      const starterOutline = isShortVid
-        ? `1. Title: 
-
-2. Thumbnail: 
-
-3. Hook
-a. Confirm Click: 
-b. Common Belief: 
-c. Reframe: 
-
-4. Teach:
-#1: 
-
-5. Action
-a. Why Next Step: 
-b. CTA: `
-        : `1. Title: 
-
-2. Thumbnail: 
-
-3. Hook
-a. Confirm Click: 
-b. Common Belief: 
-c. Reframe: 
-
-4. Teach:
-#1: 
-#2: 
-#3: 
-
-5. Action
-a. Why Next Step: 
-b. CTA: `;
+      const starterOutline = getStarterOutline(formatType, code);
 
       const nowStamp = format(new Date(), 'yyyy-MM-dd HH:mm');
       const logLine = notes.trim()
