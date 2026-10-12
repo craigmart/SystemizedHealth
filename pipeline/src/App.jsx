@@ -1481,7 +1481,7 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
   const [saving, setSaving] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
   const [saveOutlineSuccess, setSaveOutlineSuccess] = useState(false);
-  const [scratchPadMode, setScratchPadMode] = useState('edit');
+  const [scratchPadMode, setScratchPadMode] = useState('preview');
   const [copiedYouTube, setCopiedYouTube] = useState(false);
   const [videoPath, setVideoPath] = useState(null);
   const [isEditingTitle, setIsEditingTitle] = useState(false);
