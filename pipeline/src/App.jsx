@@ -97,14 +97,14 @@ export const getStarterOutline = (formatType, code) => {
 - CTA: `;
   }
 
-  return `- Title: 
-- Thumbnail: 
-- Hook: 
-- Point #1: 
-- Point #2: 
-- Point #3: 
-- Close: 
-- CTA: `;
+  return `1A - Title: 
+1A - Thumbnail: 
+1B - Hook: 
+1C1 - Point #1: 
+1C2 - Point #2: 
+1C3 - Point #3: 
+1D - Close: 
+1E - CTA: `;
 };
 
 export const getAutoCompletedChecklist = (status, currentChecklist, isShort) => {

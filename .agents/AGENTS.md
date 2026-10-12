@@ -47,7 +47,7 @@ Videos are produced using Dr. Anderson's streamlined analog-to-camera workflow, 
    - Dr. Anderson drafts the outline in the web App's dedicated **Video Script Outline** text box (pre-populated with starter beats and synced to Supabase `rough_outline`):
      - **Pre-loaded Template**:
        - **Shorts**: - Title: , - Hook: , - Point: , - CTA: 
-       - **Long Videos**: - Title: , - Thumbnail: , - Hook: , - Point #1: , - Point #2: , - Point #3: , - Close: , - CTA: 
+       - **Long Videos**: 1A - Title: , 1A - Thumbnail: , 1B - Hook: , 1C1 - Point #1: , 1C2 - Point #2: , 1C3 - Point #3: , 1D - Close: , 1E - CTA: 
 2. **The 3x5 Index Card**: Dr. Anderson distills the outline triggers onto a physical 3x5 index card as an anchor for camera recording.
 3. **Video Production Log (Agent Reference Mandate)**:
    - Dr. Anderson drops ideas, research links, and notes into the web App's **Video Production Log** (`notes` field).
