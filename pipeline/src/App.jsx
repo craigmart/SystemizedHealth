@@ -598,6 +598,11 @@ function App() {
   const getNextStepDue = (video) => {
     if (!video) return { step: 'Review next step', type: 'info' };
 
+    // 0. Check if code modification is needed (reassigned during sprint)
+    if (video.code?.includes('-TBD') || video.code?.startsWith('TBD') || video.agent_message?.includes('Needs code modification')) {
+      return { step: '⚠️ Modify / reassign video code', type: 'warning', actionType: 'code' };
+    }
+
     // 1. Agent message
     if (video.agent_message && video.agent_message.trim()) {
       return { step: `Agent Note: "${video.agent_message.trim()}"`, type: 'agent' };
@@ -993,6 +998,22 @@ function App() {
                       </span>
                       {pillar && <span className="badge-pillar" title="Pillar Focus">{pillar}</span>}
                       {item.notes && <span title="Production Log" style={{ fontSize: '0.75rem' }}>📝</span>}
+                      {(item.code?.includes('-TBD') || item.code?.startsWith('TBD') || item.agent_message?.includes('Needs code modification')) && (
+                        <span
+                          style={{
+                            fontSize: '0.68rem',
+                            fontWeight: '700',
+                            padding: '0.1rem 0.4rem',
+                            borderRadius: '4px',
+                            backgroundColor: 'rgba(245, 158, 11, 0.15)',
+                            color: '#d97706',
+                            border: '1px solid rgba(245, 158, 11, 0.4)'
+                          }}
+                          title="Code needs to be modified (reassigned during sprint)"
+                        >
+                          ⚠️ Needs Code
+                        </span>
+                      )}
                     </div>
                     {getStatusBadge(item.status)}
                   </div>
@@ -1173,6 +1194,22 @@ function App() {
                       </span>
                       {pillar && <span className="badge-pillar" title="Pillar Focus">{pillar}</span>}
                       {item.notes && <span title="Production Log" style={{ fontSize: '0.75rem' }}>📝</span>}
+                      {(item.code?.includes('-TBD') || item.code?.startsWith('TBD') || item.agent_message?.includes('Needs code modification')) && (
+                        <span
+                          style={{
+                            fontSize: '0.68rem',
+                            fontWeight: '700',
+                            padding: '0.1rem 0.4rem',
+                            borderRadius: '4px',
+                            backgroundColor: 'rgba(245, 158, 11, 0.15)',
+                            color: '#d97706',
+                            border: '1px solid rgba(245, 158, 11, 0.4)'
+                          }}
+                          title="Code needs to be modified (reassigned during sprint)"
+                        >
+                          ⚠️ Needs Code
+                        </span>
+                      )}
                     </div>
                     {getStatusBadge(item.status)}
                   </div>
@@ -1224,7 +1261,25 @@ function App() {
                   return (
                     <div key={v.code} className="video-item" style={{ cursor: 'pointer' }} onClick={() => { openVideo(v); setMetricModal(null); }}>
                       <div className="video-header">
-                        <strong>{v.code}: {displayTitle}</strong>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', flexWrap: 'wrap' }}>
+                          <strong>{v.code}: {displayTitle}</strong>
+                          {(v.code?.includes('-TBD') || v.code?.startsWith('TBD') || v.agent_message?.includes('Needs code modification')) && (
+                            <span
+                              style={{
+                                fontSize: '0.68rem',
+                                fontWeight: '700',
+                                padding: '0.1rem 0.4rem',
+                                borderRadius: '4px',
+                                backgroundColor: 'rgba(245, 158, 11, 0.15)',
+                                color: '#d97706',
+                                border: '1px solid rgba(245, 158, 11, 0.4)'
+                              }}
+                              title="Code needs to be modified (reassigned during sprint)"
+                            >
+                              ⚠️ Needs Code
+                            </span>
+                          )}
+                        </div>
                         {getStatusBadge(v.status)}
                       </div>
                       <div className="video-meta" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -1505,6 +1560,92 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
     return () => clearTimeout(t);
   }, [video?.code, video?.id]);
 
+  const resolveCodeConflict = async (newCode) => {
+    if (!newCode) return { success: false, error: 'Video code cannot be empty.' };
+
+    const cleanNew = newCode.trim();
+    const currentCode = (localVideo.code || '').trim();
+    if (cleanNew.toLowerCase() === currentCode.toLowerCase()) {
+      return { success: true };
+    }
+
+    const normNew = cleanNew.toLowerCase().replace(/^80\./, '');
+
+    // Check if any other video currently uses this code (exact or normalized)
+    const conflictingVideo = (videos || []).find(v => {
+      if (v.id === localVideo.id || v.video_number === localVideo.video_number) return false;
+      const vCode = (v.code || '').trim().toLowerCase();
+      const normV = vCode.replace(/^80\./, '');
+      return vCode === cleanNew.toLowerCase() || normV === normNew;
+    });
+
+    if (!conflictingVideo) {
+      return { success: true };
+    }
+
+    // Check if conflictingVideo is past / active production video
+    const isPastOrActiveStatus = ['#published', '#uploaded', '#edit', '#film'].includes(conflictingVideo.status);
+    const todayStr = format(new Date(), 'yyyy-MM-dd');
+    const localDropDate = localVideo.drop_date || todayStr;
+    const conflictDropDate = conflictingVideo.drop_date;
+
+    const isFutureConflict = !isPastOrActiveStatus && (
+      (conflictDropDate && conflictDropDate > localDropDate) ||
+      (conflictDropDate && conflictDropDate > todayStr)
+    );
+
+    if (!isFutureConflict) {
+      const msg = `Cannot use code "${cleanNew}": It is already assigned to active/published video #${conflictingVideo.video_number} ("${conflictingVideo.title}" — Drop: ${conflictingVideo.drop_date || 'No date'}, Status: ${conflictingVideo.status}). Past and active codes must remain unique.`;
+      alert(msg);
+      return { success: false, error: msg };
+    }
+
+    // It is a future code! Codes in the future do not block today's video.
+    // Reassign the future video's code to free up the code in Supabase and flag it as needing modification.
+    try {
+      let reassignedCode = `${conflictingVideo.code}-TBD`;
+      if ((videos || []).some(v => (v.code || '').toLowerCase() === reassignedCode.toLowerCase())) {
+        reassignedCode = `${conflictingVideo.code}-TBD-${conflictingVideo.video_number}`;
+      }
+
+      const now = new Date();
+      const dateStr = now.toLocaleDateString('en-CA');
+      const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+      const futureLog = `- [${dateStr} ${timeStr}] Code "${conflictingVideo.code}" claimed by sprint video #${localVideo.video_number} ("${localVideo.title}"). Future code marked as needing modification.`;
+      const updatedFutureNotes = conflictingVideo.notes && conflictingVideo.notes.trim()
+        ? `${futureLog}\n${conflictingVideo.notes.trim()}`
+        : futureLog;
+
+      if (supabase) {
+        const { error: fErr } = await supabase
+          .from('videos')
+          .update({
+            code: reassignedCode,
+            notes: updatedFutureNotes,
+            agent_message: `⚠️ Needs code modification: code "${conflictingVideo.code}" claimed by #${localVideo.video_number}`
+          })
+          .eq('video_number', conflictingVideo.video_number);
+
+        if (fErr) {
+          alert(`Error reassigning future video #${conflictingVideo.video_number}: ${fErr.message}`);
+          return { success: false, error: fErr.message };
+        }
+      }
+
+      return {
+        success: true,
+        reassigned: {
+          videoNumber: conflictingVideo.video_number,
+          oldCode: conflictingVideo.code,
+          newCode: reassignedCode
+        }
+      };
+    } catch (err) {
+      alert(`Unexpected error reassigning future code: ${err.message}`);
+      return { success: false, error: err.message };
+    }
+  };
+
   const saveAllChanges = async () => {
     const trimmedTitle = titleInput.trim();
     const trimmedCode = codeInput.trim();
@@ -1534,8 +1675,16 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
     let updatedTitle = localVideo.title;
 
     if (codeChanged) {
+      const conflictRes = await resolveCodeConflict(trimmedCode);
+      if (!conflictRes.success) {
+        return false;
+      }
       updatedCode = trimmedCode;
-      changeLogs.push(`Code updated: "${localVideo.code}" → "${trimmedCode}"`);
+      let logMsg = `Code updated: "${localVideo.code}" → "${trimmedCode}"`;
+      if (conflictRes.reassigned) {
+        logMsg += ` (future #${conflictRes.reassigned.videoNumber} marked as ${conflictRes.reassigned.newCode})`;
+      }
+      changeLogs.push(logMsg);
     }
     if (titleChanged) {
       updatedTitle = trimmedTitle;
@@ -1560,11 +1709,16 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
     const isShortCode = updatedCode.includes('-S');
     const updatedFormat = isShortCode ? 'Short' : (localVideo.format_type || 'Long');
 
+    let updatedAgentMsg = agentMessage;
+    if (codeChanged && updatedAgentMsg?.includes('Needs code modification')) {
+      updatedAgentMsg = '';
+    }
+
     const updatePayload = {
       code: updatedCode,
       title: updatedTitle,
       drop_date: trimmedDropDate || null,
-      agent_message: agentMessage,
+      agent_message: updatedAgentMsg,
       raw_transcript: transcript,
       notes: finalNotes,
       rough_outline: outline,
@@ -2124,12 +2278,28 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
     }
 
     setSavingTitle(true);
+    let conflictReassigned = null;
+    if (codeChanged) {
+      const conflictRes = await resolveCodeConflict(trimmedCode);
+      if (!conflictRes.success) {
+        setSavingTitle(false);
+        return;
+      }
+      conflictReassigned = conflictRes.reassigned;
+    }
+
     const now = new Date();
     const dateStr = now.toLocaleDateString('en-CA');
     const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
     
     const changeLogs = [];
-    if (codeChanged) changeLogs.push(`Code updated: "${oldCode}" → "${trimmedCode}"`);
+    if (codeChanged) {
+      let logMsg = `Code updated: "${oldCode}" → "${trimmedCode}"`;
+      if (conflictReassigned) {
+        logMsg += ` (future #${conflictReassigned.videoNumber} marked as ${conflictReassigned.newCode})`;
+      }
+      changeLogs.push(logMsg);
+    }
     if (titleChanged) changeLogs.push(`Title updated: "${oldTitle}" → "${trimmedTitle}"`);
     const logEntry = `- [${dateStr} ${timeStr}] ${changeLogs.join(' | ')}`;
     const updatedNotes = notes && notes.trim() ? `${logEntry}\n${notes.trim()}` : logEntry;
@@ -2138,10 +2308,17 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
     const isShortCode = trimmedCode.includes('-S');
     const updatedFormat = isShortCode ? 'Short' : (localVideo.format_type || 'Long');
 
+    let updatedAgentMsg = agentMessage;
+    if (codeChanged && updatedAgentMsg?.includes('Needs code modification')) {
+      updatedAgentMsg = '';
+      setAgentMessage('');
+    }
+
     const updatePayload = {
       code: trimmedCode,
       title: trimmedTitle,
       notes: updatedNotes,
+      agent_message: updatedAgentMsg,
       format_type: updatedFormat
     };
 
@@ -2178,6 +2355,16 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
     const codeChanged = trimmedCode && trimmedCode !== localVideo.code && localVideo.status !== '#published';
     const titleChanged = trimmedTitle && trimmedTitle !== localVideo.title && localVideo.status !== '#published';
 
+    let conflictReassigned = null;
+    if (codeChanged) {
+      const conflictRes = await resolveCodeConflict(trimmedCode);
+      if (!conflictRes.success) {
+        setSaving(false);
+        return;
+      }
+      conflictReassigned = conflictRes.reassigned;
+    }
+
     if (codeChanged || titleChanged) {
       if (codeChanged) updatedCode = trimmedCode;
       if (titleChanged) updatedTitle = trimmedTitle;
@@ -2185,7 +2372,13 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
       const dateStr = now.toLocaleDateString('en-CA');
       const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
       const changeLogs = [];
-      if (codeChanged) changeLogs.push(`Code updated: "${localVideo.code}" → "${trimmedCode}"`);
+      if (codeChanged) {
+        let logMsg = `Code updated: "${localVideo.code}" → "${trimmedCode}"`;
+        if (conflictReassigned) {
+          logMsg += ` (future #${conflictReassigned.videoNumber} marked as ${conflictReassigned.newCode})`;
+        }
+        changeLogs.push(logMsg);
+      }
       if (titleChanged) changeLogs.push(`Title updated: "${localVideo.title}" → "${trimmedTitle}"`);
       const logEntry = `- [${dateStr} ${timeStr}] ${changeLogs.join(' | ')}`;
       currentNotes = currentNotes && currentNotes.trim() ? `${logEntry}\n${currentNotes.trim()}` : logEntry;
@@ -2196,10 +2389,16 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
     const isShortCode = updatedCode.includes('-S');
     const updatedFormat = isShortCode ? 'Short' : (localVideo.format_type || 'Long');
 
+    let updatedAgentMsg = agentMessage;
+    if (codeChanged && updatedAgentMsg?.includes('Needs code modification')) {
+      updatedAgentMsg = '';
+      setAgentMessage('');
+    }
+
     const updatePayload = {
       code: updatedCode,
       title: updatedTitle,
-      agent_message: agentMessage,
+      agent_message: updatedAgentMsg,
       raw_transcript: transcript,
       notes: currentNotes,
       rough_outline: outline,
@@ -2216,11 +2415,13 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
     } else {
       setLocalVideo(prev => ({
         ...prev,
+        code: updatedCode,
         title: updatedTitle,
-        agent_message: agentMessage,
+        agent_message: updatedAgentMsg,
         raw_transcript: transcript,
         notes: currentNotes,
-        rough_outline: outline
+        rough_outline: outline,
+        format_type: updatedFormat
       }));
       setSaveSuccess(true);
       setTimeout(() => setSaveSuccess(false), 2500);
@@ -2620,6 +2821,26 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
             {getStatusBadge(localVideo.status)}
           </div>
         </div>
+
+        {(localVideo.code?.includes('-TBD') || localVideo.code?.startsWith('TBD') || localVideo.agent_message?.includes('Needs code modification')) && (
+          <div style={{
+            padding: '0.6rem 0.85rem',
+            backgroundColor: 'rgba(245, 158, 11, 0.12)',
+            border: '1px solid rgba(245, 158, 11, 0.35)',
+            borderRadius: 'var(--radius-sm)',
+            color: '#d97706',
+            fontSize: '0.85rem',
+            marginBottom: '0.75rem',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.6rem'
+          }}>
+            <span style={{ fontSize: '1.1rem' }}>⚠️</span>
+            <div>
+              <strong>Code Modification Needed</strong>: This future video's original code was reassigned during a sprint. Click Edit below to assign a canonical Johnny Decimal code.
+            </div>
+          </div>
+        )}
 
         {isEditingTitle ? (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', marginBottom: '0.75rem' }}>
@@ -3601,6 +3822,62 @@ function AddVideoModal({ videos, onClose, onSuccess }) {
     setErrorMsg('');
 
     try {
+      const cleanCode = code.trim();
+      // Check for code conflict
+      const conflictingVideo = (videos || []).find(v => {
+        const vCode = (v.code || '').trim().toLowerCase();
+        const normV = vCode.replace(/^80\./, '');
+        const normNew = cleanCode.toLowerCase().replace(/^80\./, '');
+        return vCode === cleanCode.toLowerCase() || normV === normNew;
+      });
+
+      if (conflictingVideo) {
+        const isPastOrActiveStatus = ['#published', '#uploaded', '#edit', '#film'].includes(conflictingVideo.status);
+        const todayStr = format(new Date(), 'yyyy-MM-dd');
+        const targetDropDate = dropDate.trim() || todayStr;
+        const conflictDropDate = conflictingVideo.drop_date;
+
+        const isFutureConflict = !isPastOrActiveStatus && (
+          (conflictDropDate && conflictDropDate > targetDropDate) ||
+          (conflictDropDate && conflictDropDate > todayStr)
+        );
+
+        if (!isFutureConflict) {
+          setErrorMsg(`Cannot use code "${cleanCode}": Already assigned to active/published video #${conflictingVideo.video_number} ("${conflictingVideo.title}" — Status: ${conflictingVideo.status}). Past and active codes must remain unique.`);
+          setSubmitting(false);
+          return;
+        }
+
+        // Reassign future video so code is freed in Supabase
+        let reassignedCode = `${conflictingVideo.code}-TBD`;
+        if ((videos || []).some(v => (v.code || '').toLowerCase() === reassignedCode.toLowerCase())) {
+          reassignedCode = `${conflictingVideo.code}-TBD-${conflictingVideo.video_number}`;
+        }
+
+        const nowStamp = format(new Date(), 'yyyy-MM-dd HH:mm');
+        const futureLog = `- [${nowStamp}] Code "${conflictingVideo.code}" claimed by new sprint video ("${title.trim()}"). Future code marked as needing modification.`;
+        const updatedFutureNotes = conflictingVideo.notes && conflictingVideo.notes.trim()
+          ? `${futureLog}\n${conflictingVideo.notes.trim()}`
+          : futureLog;
+
+        if (supabase) {
+          const { error: fErr } = await supabase
+            .from('videos')
+            .update({
+              code: reassignedCode,
+              notes: updatedFutureNotes,
+              agent_message: `⚠️ Needs code modification: code "${conflictingVideo.code}" claimed by new sprint video`
+            })
+            .eq('video_number', conflictingVideo.video_number);
+
+          if (fErr) {
+            setErrorMsg(`Failed to reassign future code on #${conflictingVideo.video_number}: ${fErr.message}`);
+            setSubmitting(false);
+            return;
+          }
+        }
+      }
+
       let maxVN = 0;
       videos.forEach(v => {
         const n = parseInt(v.video_number, 10);
