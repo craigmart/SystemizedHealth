@@ -122,6 +122,36 @@ export const getAutoCompletedChecklist = (status, currentChecklist, isShort) => 
   return updated;
 };
 
+export const checkIsDuplicateCode = (video, allVideos) => {
+  if (!video || !video.code) return false;
+  const c = video.code.trim();
+  if (c.includes('-TBD') || c.startsWith('TBD')) return true;
+
+  const todayStr = format(new Date(), 'yyyy-MM-dd');
+  const myDate = video.drop_date || todayStr;
+  const myStatus = video.status || '#idea';
+  const isActive = ['#write', '#film', '#edit', '#uploaded', '#published'].includes(myStatus);
+
+  return (allVideos || []).some(other => {
+    if (other.id ? other.id === video.id : other.video_number === video.video_number) return false;
+    if ((other.code || '').trim().toLowerCase() !== c.toLowerCase()) return false;
+
+    const otherDate = other.drop_date || todayStr;
+    const otherActive = ['#write', '#film', '#edit', '#uploaded', '#published'].includes(other.status);
+
+    // If other has an earlier drop date, I am the future duplicate
+    if (myDate > otherDate) return true;
+
+    // If other is actively in production/published and I am not, I am the duplicate
+    if (otherActive && !isActive) return true;
+
+    // If identical date and status, mark the higher video_number (newer entry) as duplicate
+    if (myDate === otherDate && (video.video_number || 0) > (other.video_number || 0)) return true;
+
+    return false;
+  });
+};
+
 const STATUS_OPTIONS = ['#idea', '#write', '#film', '#edit', '#uploaded', '#published'];
 
 function App() {
@@ -576,6 +606,7 @@ function App() {
 
   const getBorderColor = (video) => {
     if (!video) return 'var(--border-color)';
+    if (checkIsDuplicateCode(video, videos)) return '#f97316';
     switch (video.status) {
       case '#edit': return '#7e22ce';
       case '#film': return 'var(--danger-color)';
@@ -597,11 +628,6 @@ function App() {
 
   const getNextStepDue = (video) => {
     if (!video) return { step: 'Review next step', type: 'info' };
-
-    // 0. Check if code modification is needed (reassigned during sprint)
-    if (video.code?.includes('-TBD') || video.code?.startsWith('TBD') || video.agent_message?.includes('Needs code modification')) {
-      return { step: '⚠️ Modify / reassign video code', type: 'warning', actionType: 'code' };
-    }
 
     // 1. Agent message
     if (video.agent_message && video.agent_message.trim()) {
@@ -983,37 +1009,34 @@ function App() {
                 ? item.title.trim()
                 : (rotInfo?.level || item.os_level || 'Systemized OS');
 
+              const isDuplicate = checkIsDuplicateCode(item, videos);
+
               return (
                 <div
                   key={`wip-${item.code}`}
                   className={`video-item ${isLong ? 'video-item-long' : 'video-item-short'} video-item-${item.status ? item.status.replace('#', '') : ''}`}
-                  style={{ borderLeft: `${isLong ? '7px' : '4px'} solid ${borderLeftColor}`, cursor: 'pointer' }}
+                  style={{ borderLeft: `${isLong ? '7px' : '4px'} solid ${isDuplicate ? '#f97316' : borderLeftColor}`, cursor: 'pointer' }}
                   onClick={() => openVideo(item)}
                 >
                   <div className="video-header">
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', flexWrap: 'wrap' }}>
-                      <strong className={isLong ? 'video-code' : ''}>{item.code}</strong>
+                      <strong
+                        className={isLong ? 'video-code' : ''}
+                        style={isDuplicate ? {
+                          color: '#ea580c',
+                          backgroundColor: 'rgba(249, 115, 22, 0.12)',
+                          border: '1px solid #f97316',
+                          padding: '0.1rem 0.4rem',
+                          borderRadius: '4px'
+                        } : {}}
+                      >
+                        {item.code}
+                      </strong>
                       <span style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', fontWeight: '600', textTransform: 'uppercase' }}>
                         {isLong ? 'Long' : 'Short'}
                       </span>
                       {pillar && <span className="badge-pillar" title="Pillar Focus">{pillar}</span>}
                       {item.notes && <span title="Production Log" style={{ fontSize: '0.75rem' }}>📝</span>}
-                      {(item.code?.includes('-TBD') || item.code?.startsWith('TBD') || item.agent_message?.includes('Needs code modification')) && (
-                        <span
-                          style={{
-                            fontSize: '0.68rem',
-                            fontWeight: '700',
-                            padding: '0.1rem 0.4rem',
-                            borderRadius: '4px',
-                            backgroundColor: 'rgba(245, 158, 11, 0.15)',
-                            color: '#d97706',
-                            border: '1px solid rgba(245, 158, 11, 0.4)'
-                          }}
-                          title="Code needs to be modified (reassigned during sprint)"
-                        >
-                          ⚠️ Needs Code
-                        </span>
-                      )}
                     </div>
                     {getStatusBadge(item.status)}
                   </div>
@@ -1175,6 +1198,7 @@ function App() {
 
               const isMonday = item.dayFormatted?.startsWith('Mon') || (item.drop_date && parseISO(item.drop_date).getDay() === 1);
               const isLong = item.format_type === 'Long' || isMonday;
+              const isDuplicate = checkIsDuplicateCode(item.video || item, videos);
 
               return (
                 <div
@@ -1182,34 +1206,29 @@ function App() {
                   className={`video-item ${isLong ? 'video-item-long' : 'video-item-short'} video-item-${item.status ? item.status.replace('#', '') : 'idea'}`}
                   style={{
                     cursor: 'pointer',
-                    borderLeft: `${isLong ? '7px' : '4px'} solid ${getBorderColor(item.video || item)}`
+                    borderLeft: `${isLong ? '7px' : '4px'} solid ${isDuplicate ? '#f97316' : getBorderColor(item.video || item)}`
                   }}
                   onClick={() => openVideo(item.video || item)}
                 >
                   <div className="video-header">
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', flexWrap: 'wrap' }}>
-                      <strong className={isLong ? 'video-code' : ''}>{item.code}</strong>
+                      <strong
+                        className={isLong ? 'video-code' : ''}
+                        style={isDuplicate ? {
+                          color: '#ea580c',
+                          backgroundColor: 'rgba(249, 115, 22, 0.12)',
+                          border: '1px solid #f97316',
+                          padding: '0.1rem 0.4rem',
+                          borderRadius: '4px'
+                        } : {}}
+                      >
+                        {item.code}
+                      </strong>
                       <span style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', fontWeight: '600', textTransform: 'uppercase' }}>
                         {isLong ? 'Long' : 'Short'}
                       </span>
                       {pillar && <span className="badge-pillar" title="Pillar Focus">{pillar}</span>}
                       {item.notes && <span title="Production Log" style={{ fontSize: '0.75rem' }}>📝</span>}
-                      {(item.code?.includes('-TBD') || item.code?.startsWith('TBD') || item.agent_message?.includes('Needs code modification')) && (
-                        <span
-                          style={{
-                            fontSize: '0.68rem',
-                            fontWeight: '700',
-                            padding: '0.1rem 0.4rem',
-                            borderRadius: '4px',
-                            backgroundColor: 'rgba(245, 158, 11, 0.15)',
-                            color: '#d97706',
-                            border: '1px solid rgba(245, 158, 11, 0.4)'
-                          }}
-                          title="Code needs to be modified (reassigned during sprint)"
-                        >
-                          ⚠️ Needs Code
-                        </span>
-                      )}
                     </div>
                     {getStatusBadge(item.status)}
                   </div>
@@ -1255,30 +1274,28 @@ function App() {
               <div className="videos-list">
                 {metricModal.videos.map(v => {
                   const rotInfo = getRotationInfo(v);
+                  const isDuplicate = checkIsDuplicateCode(v, videos);
                   const displayTitle = (v.title && v.title.trim())
                     ? v.title.trim()
                     : (rotInfo?.level || v.os_level || 'Untitled');
                   return (
-                    <div key={v.code} className="video-item" style={{ cursor: 'pointer' }} onClick={() => { openVideo(v); setMetricModal(null); }}>
+                    <div
+                      key={v.code}
+                      className="video-item"
+                      style={{ borderLeft: isDuplicate ? '4px solid #f97316' : undefined, cursor: 'pointer' }}
+                      onClick={() => { openVideo(v); setMetricModal(null); }}
+                    >
                       <div className="video-header">
                         <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', flexWrap: 'wrap' }}>
-                          <strong>{v.code}: {displayTitle}</strong>
-                          {(v.code?.includes('-TBD') || v.code?.startsWith('TBD') || v.agent_message?.includes('Needs code modification')) && (
-                            <span
-                              style={{
-                                fontSize: '0.68rem',
-                                fontWeight: '700',
-                                padding: '0.1rem 0.4rem',
-                                borderRadius: '4px',
-                                backgroundColor: 'rgba(245, 158, 11, 0.15)',
-                                color: '#d97706',
-                                border: '1px solid rgba(245, 158, 11, 0.4)'
-                              }}
-                              title="Code needs to be modified (reassigned during sprint)"
-                            >
-                              ⚠️ Needs Code
-                            </span>
-                          )}
+                          <strong style={isDuplicate ? {
+                            color: '#ea580c',
+                            backgroundColor: 'rgba(249, 115, 22, 0.12)',
+                            border: '1px solid #f97316',
+                            padding: '0.05rem 0.35rem',
+                            borderRadius: '4px'
+                          } : {}}>
+                            {v.code}: {displayTitle}
+                          </strong>
                         </div>
                         {getStatusBadge(v.status)}
                       </div>
@@ -1352,12 +1369,13 @@ function App() {
               const pillar = rotInfo?.pillar;
               const isLong = v.format_type === 'Long' || (!v.code?.includes('-S') && !v.format_type?.toLowerCase().includes('short'));
               const displayTitle = (v.title && v.title.trim()) ? v.title.trim() : (rotInfo?.level || v.os_level || 'Systemized OS');
+              const isDuplicate = checkIsDuplicateCode(v, videos);
 
               return (
                 <div
                   key={v.code}
                   className={`video-item ${isLong ? 'video-item-long' : 'video-item-short'} video-item-${v.status ? v.status.replace('#', '') : 'idea'}`}
-                  style={{ cursor: 'pointer', borderLeft: `${isLong ? '7px' : '4px'} solid ${getBorderColor(v)}` }}
+                  style={{ cursor: 'pointer', borderLeft: `${isLong ? '7px' : '4px'} solid ${isDuplicate ? '#f97316' : getBorderColor(v)}` }}
                   onClick={() => {
                     handleNavigateToVideo(v);
                     setSearchQuery('');
@@ -1365,7 +1383,18 @@ function App() {
                 >
                   <div className="video-header">
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', flexWrap: 'wrap' }}>
-                      <strong className={isLong ? 'video-code' : ''}>{v.code}</strong>
+                      <strong
+                        className={isLong ? 'video-code' : ''}
+                        style={isDuplicate ? {
+                          color: '#ea580c',
+                          backgroundColor: 'rgba(249, 115, 22, 0.12)',
+                          border: '1px solid #f97316',
+                          padding: '0.1rem 0.4rem',
+                          borderRadius: '4px'
+                        } : {}}
+                      >
+                        {v.code}
+                      </strong>
                       <span style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', fontWeight: '600', textTransform: 'uppercase' }}>
                         {isLong ? 'Long' : 'Short'}
                       </span>
@@ -1560,6 +1589,8 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
     return () => clearTimeout(t);
   }, [video?.code, video?.id]);
 
+  const isDuplicate = checkIsDuplicateCode(localVideo, videos);
+
   const resolveCodeConflict = async (newCode) => {
     if (!newCode) return { success: false, error: 'Video code cannot be empty.' };
 
@@ -1601,7 +1632,7 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
     }
 
     // It is a future code! Codes in the future do not block today's video.
-    // Reassign the future video's code to free up the code in Supabase and flag it as needing modification.
+    // Reassign the future video's code to free up the code in Supabase.
     try {
       let reassignedCode = `${conflictingVideo.code}-TBD`;
       if ((videos || []).some(v => (v.code || '').toLowerCase() === reassignedCode.toLowerCase())) {
@@ -1611,7 +1642,7 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
       const now = new Date();
       const dateStr = now.toLocaleDateString('en-CA');
       const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
-      const futureLog = `- [${dateStr} ${timeStr}] Code "${conflictingVideo.code}" claimed by sprint video #${localVideo.video_number} ("${localVideo.title}"). Future code marked as needing modification.`;
+      const futureLog = `- [${dateStr} ${timeStr}] Code "${conflictingVideo.code}" claimed by sprint video #${localVideo.video_number}.`;
       const updatedFutureNotes = conflictingVideo.notes && conflictingVideo.notes.trim()
         ? `${futureLog}\n${conflictingVideo.notes.trim()}`
         : futureLog;
@@ -1621,13 +1652,12 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
           .from('videos')
           .update({
             code: reassignedCode,
-            notes: updatedFutureNotes,
-            agent_message: `⚠️ Needs code modification: code "${conflictingVideo.code}" claimed by #${localVideo.video_number}`
+            notes: updatedFutureNotes
           })
           .eq('video_number', conflictingVideo.video_number);
 
         if (fErr) {
-          alert(`Error reassigning future video #${conflictingVideo.video_number}: ${fErr.message}`);
+          alert(`Error updating future video #${conflictingVideo.video_number}: ${fErr.message}`);
           return { success: false, error: fErr.message };
         }
       }
@@ -2479,6 +2509,9 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
   };
 
   const handleStatusChange = async (e) => {
+    if (isDuplicate) {
+      return;
+    }
     const newStatus = e.target.value;
     const isShort = localVideo.format_type === 'Short' || localVideo.code?.includes('-S');
     const updatedChecklist = getAutoCompletedChecklist(newStatus, checklist, isShort);
@@ -2822,26 +2855,6 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
           </div>
         </div>
 
-        {(localVideo.code?.includes('-TBD') || localVideo.code?.startsWith('TBD') || localVideo.agent_message?.includes('Needs code modification')) && (
-          <div style={{
-            padding: '0.6rem 0.85rem',
-            backgroundColor: 'rgba(245, 158, 11, 0.12)',
-            border: '1px solid rgba(245, 158, 11, 0.35)',
-            borderRadius: 'var(--radius-sm)',
-            color: '#d97706',
-            fontSize: '0.85rem',
-            marginBottom: '0.75rem',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.6rem'
-          }}>
-            <span style={{ fontSize: '1.1rem' }}>⚠️</span>
-            <div>
-              <strong>Code Modification Needed</strong>: This future video's original code was reassigned during a sprint. Click Edit below to assign a canonical Johnny Decimal code.
-            </div>
-          </div>
-        )}
-
         {isEditingTitle ? (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', marginBottom: '0.75rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
@@ -2927,7 +2940,20 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
         ) : (
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.5rem', flexWrap: 'wrap' }}>
             <h2 style={{ fontSize: '1.5rem', margin: 0, lineHeight: '1.3' }}>
-              {localVideo.code}: {localVideo.title}
+              {isDuplicate ? (
+                <span style={{
+                  color: '#ea580c',
+                  backgroundColor: 'rgba(249, 115, 22, 0.12)',
+                  border: '1.5px solid #f97316',
+                  padding: '0.15rem 0.5rem',
+                  borderRadius: 'var(--radius-sm)',
+                  marginRight: '0.5rem',
+                  fontFamily: 'monospace'
+                }}>
+                  {localVideo.code}
+                </span>
+              ) : `${localVideo.code}: `}
+              {localVideo.title}
             </h2>
             {localVideo.status !== '#published' ? (
               <button
@@ -3064,11 +3090,20 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
           )}
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginLeft: 'auto' }}>
-            <Tag size={16} />
+            <Tag size={16} color={isDuplicate ? '#f97316' : 'currentColor'} />
             <select
               value={localVideo.status}
               onChange={handleStatusChange}
               className="status-select"
+              disabled={isDuplicate}
+              style={isDuplicate ? {
+                opacity: 0.65,
+                cursor: 'not-allowed',
+                borderColor: '#f97316',
+                color: '#ea580c',
+                backgroundColor: 'rgba(249, 115, 22, 0.08)'
+              } : {}}
+              title={isDuplicate ? "Cannot change tag while code is a duplicate. Update code first." : "Change status tag"}
             >
               {STATUS_OPTIONS.map(opt => (
                 <option key={opt} value={opt}>{opt}</option>
@@ -3865,13 +3900,12 @@ function AddVideoModal({ videos, onClose, onSuccess }) {
             .from('videos')
             .update({
               code: reassignedCode,
-              notes: updatedFutureNotes,
-              agent_message: `⚠️ Needs code modification: code "${conflictingVideo.code}" claimed by new sprint video`
+              notes: updatedFutureNotes
             })
             .eq('video_number', conflictingVideo.video_number);
 
           if (fErr) {
-            setErrorMsg(`Failed to reassign future code on #${conflictingVideo.video_number}: ${fErr.message}`);
+            setErrorMsg(`Failed to update future code on #${conflictingVideo.video_number}: ${fErr.message}`);
             setSubmitting(false);
             return;
           }
