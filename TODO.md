@@ -1,7 +1,7 @@
 
 # Systemized Health — Master TODO & Task List
 
-*Last Updated: 2026-09-27*
+*Last Updated: 2026-10-14*
 
 ---
 
@@ -12,7 +12,7 @@
   - App pipeline view upgraded with 3-week runway, Level/Pillar tags, and 5-beat long / 3-beat short editable Outline box.
   - Video Production Log maintained for scratchpad ideas and Agent reference.
 - [ ] **Reconcile uploaded videos & metadata** with drop calendar (confirm titles/tags match schedule)
-- [ ] **Next upcoming production**: `80.V3A1-S1` (*Play is how you learn new things*) scheduled for 2026-09-25 (`#idea`)
+- [ ] **Next upcoming production**: `80.V1A2-S2` (*Level 1 (Foundational) — Fuel (Short 2)*) scheduled for 2026-10-15 (`#edit`)
 
 ---
 
@@ -33,32 +33,36 @@
 - [x] `80.V1A0-S1`: *Diet drugs and Ambition* — Dropped: 2026-09-30
 - [x] `80.V3B1`: *My Simple Bullet Journal Setup After 7 1/2 Years of use (No Art Needed)* — Dropped: 2026-10-03
 - [x] `80.V1B3-A1`: *Run with Dr A #1* — Dropped: 2026-10-04
-- [x] `80.V3B1-S1`: *Your Brain Is Full Do This Now* — Dropped: 2026-10-06
+- [x] `80.V3B1-S4`: *Control Your Day* — Dropped: 2026-10-06
+- [x] `80.V3B1-S1`: *Your Brain Is Full Do This Now* — Dropped: 2026-10-07
 - [x] `80.V3B1-S2`: *How 3 Simple Lists Free Up Mental Space* — Dropped: 2026-10-08
+- [x] `80.V3B1-S3`: *The 30 Second Fix For Creative Block* — Dropped: 2026-10-10
+- [x] `80.V1A2`: *Energy Management for Life: The Simple Way to Intermittent Fast* — Dropped: 2026-10-12
+- [x] `80.V1A2-S1`: *Intermittent Fasting Works Better When You Feast Sometimes* — Dropped: 2026-10-13
 
 ### 🗃️ Zettelkasten Physical 3x5 Index Cards
-- **43 Completed / 0 Pending Physical 3x5 Cards** (Tracked in [`docs/Published_Video_Propositions.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/Published_Video_Propositions.md)): All clinical propositions are filed!
+- **47 Completed / 0 Pending Physical 3x5 Cards** (Tracked in [`docs/Published_Video_Propositions.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/Published_Video_Propositions.md)): All clinical propositions are filed!
 
-### ✍️ Next Production Queue: 12-Month Rotation Schedule (`#idea`)
+### ✍️ Next Production Queue: 12-Month Rotation Schedule (`#idea` / `#edit`)
 *(Active pipeline view: next 3 weeks runway from [`docs/content_rotation.csv`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/content_rotation.csv) & [`SOPs/Content Rotation System SOP.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/Content%20Rotation%20System%20SOP.md))*
 
-- **Week of Oct 05 (Level 3: Organize)**:
-  - [x] `80.V3B1`: *My Simple Bullet Journal Setup After 7 1/2 Years of use (No Art Needed)* — Dropped: 2026-10-03 (`#published`)
-  - [x] `80.V3B1-S1`: *Your Brain Is Full Do This Now* — Dropped: 2026-10-06 (`#published`)
-  - [x] `80.V3B1-S2`: *How 3 Simple Lists Free Up Mental Space* — Dropped: 2026-10-08 (`#published`)
-  - [ ] `80.V3B1-S3`: *Your mind if for creativity not to do lists* — Scheduled: 2026-10-10 (`#edit`)
-
 - **Week of Oct 12 (Level 1: Fuel & Energy)**:
-  - [ ] `80.V1A1`: *Level 1 (Foundational) — Fuel (Long)* — Scheduled: 2026-10-12 (`#idea`)
-  - [ ] `80.V1A1-S1`: *Level 1 (Foundational) — Fuel (Short 1)* — Scheduled: 2026-10-13 (`#idea`)
-  - [ ] `80.V1A1-S2`: *Level 1 (Foundational) — Fuel (Short 2)* — Scheduled: 2026-10-15 (`#idea`)
-  - [ ] `80.V1A1-S3`: *Level 1 (Foundational) — Fuel (Short 3)* — Scheduled: 2026-10-17 (`#idea`)
+  - [x] `80.V1A2`: *Energy Management for Life: The Simple Way to Intermittent Fast* — Dropped: 2026-10-12 (`#published`)
+  - [x] `80.V1A2-S1`: *Intermittent Fasting Works Better When You Feast Sometimes* — Dropped: 2026-10-13 (`#published`)
+  - [ ] `80.V1A2-S2`: *Level 1 (Foundational) — Fuel (Short 2)* — Scheduled: 2026-10-15 (`#edit`)
+  - [ ] `80.V1A2-S3`: *Level 1 (Foundational) — Fuel (Short 3)* — Scheduled: 2026-10-17 (`#edit`)
 
 - **Week of Oct 19 (Level 1: Move & Activity)**:
   - [ ] `80.V1B1`: *Level 1 (Foundational) — Move (Long)* — Scheduled: 2026-10-19 (`#idea`)
   - [ ] `80.V1B1-S1`: *Level 1 (Foundational) — Move (Short 1)* — Scheduled: 2026-10-20 (`#idea`)
   - [ ] `80.V1B1-S2`: *Level 1 (Foundational) — Move (Short 2)* — Scheduled: 2026-10-22 (`#idea`)
   - [ ] `80.V1B1-S3`: *Level 1 (Foundational) — Move (Short 3)* — Scheduled: 2026-10-24 (`#idea`)
+
+- **Week of Oct 26 (Level 1: Rest & Recovery)**:
+  - [ ] `80.V1C1`: *Level 1 (Foundational) — Rest (Long)* — Scheduled: 2026-10-26 (`#idea`)
+  - [ ] `80.V1C1-S1`: *Level 1 (Foundational) — Rest (Short 1)* — Scheduled: 2026-10-27 (`#idea`)
+  - [ ] `80.V1C1-S2`: *Level 1 (Foundational) — Rest (Short 2)* — Scheduled: 2026-10-29 (`#idea`)
+  - [ ] `80.V1C1-S3`: *Level 1 (Foundational) — Rest (Short 3)* — Scheduled: 2026-10-31 (`#idea`)
 
 ---
 

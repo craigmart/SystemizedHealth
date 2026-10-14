@@ -1,6 +1,6 @@
 # Video Pipeline Status
 
-> **Source of truth:** Supabase `videos` table  |  Generated: 2026-10-12
+> **Source of truth:** Supabase `videos` table  |  Generated: 2026-10-14
 > To update status: `python3 scripts/video_pipeline.py --status <code> <status>`
 
 ---
@@ -47,11 +47,11 @@
 | **038** | `80.V3B1-S1` | Short | Your Brain Is Full Do This Now | 2026-10-07 | ✅ #published | — |
 | **039** | `80.V3B1-S2` | Short | How 3 Simple Lists Free Up Mental Space | 2026-10-08 | ✅ #published | — |
 | **040** | `80.V3B1-S3` | Short | The 30 Second Fix For Creative Block | 2026-10-10 | ✅ #published | — |
-| **045** | `80.V1A2` | Long | Dynamic Intermittent Fasting | 2026-10-12 | 📝 #write | — |
-| **046** | `80.V1A2-S1` | Short | Level 1 (Foundational) — Fuel (Short 1) | 2026-10-13 | 💡 #idea | — |
-| **047** | `80.V1A2-S2` | Short | Level 1 (Foundational) — Fuel (Short 2) | 2026-10-15 | 💡 #idea | — |
-| **048** | `80.V1A2-S3` | Short | Level 1 (Foundational) — Fuel (Short 3) | 2026-10-17 | 💡 #idea | — |
-| **049** | `80.V1B3` | Long | Level 1 (Foundational) — Move | 2026-10-19 | 💡 #idea | — |
+| **045** | `80.V1A2` | Long | Energy Management for Life: The Simple Way to Intermittent Fast | 2026-10-12 | ✅ #published | — |
+| **046** | `80.V1A2-S1` | Short | Intermittent Fasting Works Better When You Feast Sometimes | 2026-10-13 | ✅ #published | — |
+| **047** | `80.V1A2-S2` | Short | Level 1 (Foundational) — Fuel (Short 2) | 2026-10-15 | ✂️ #edit | — |
+| **048** | `80.V1A2-S3` | Short | Level 1 (Foundational) — Fuel (Short 3) | 2026-10-17 | ✂️ #edit | — |
+| **049** | `80.V2A11` | Long | Why Your Brain Feels Full at 3 PM and How to Empty It | 2026-10-19 | 💡 #idea | — |
 | **050** | `80.V1B3-S1` | Short | Level 1 (Foundational) — Move (Short 1) | 2026-10-20 | 💡 #idea | — |
 | **051** | `80.V1B3-S2` | Short | Level 1 (Foundational) — Move (Short 2) | 2026-10-22 | 💡 #idea | — |
 | **052** | `80.V1B3-S3` | Short | Level 1 (Foundational) — Move (Short 3) | 2026-10-24 | 💡 #idea | — |
@@ -281,6 +281,7 @@
 
 ## 📊 Status Summary
 
-- 💡 **#idea**: 198
-- 📝 **#write**: 2
-- ✅ **#published**: 67
+- 💡 **#idea**: 195
+- 📝 **#write**: 1
+- ✂️ **#edit**: 2
+- ✅ **#published**: 69

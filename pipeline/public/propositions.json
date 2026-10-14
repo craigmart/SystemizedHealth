@@ -72,8 +72,30 @@
     "Persistent dry mouth, frequent urination, and afternoon fatigue despite high fluid intake signal cellular electrolyte depletion rather than simple water deficiency. [[81.04 Diagnosis]]",
     "Adding a pinch of mineral-rich unrefined sea salt to daily water intake restores osmotic equilibrium, enabling renal fluid retention and optimal intracellular hydration. [[81.05 Lifestyle Management]]"
   ],
+  "80.V3B1-S1": [
+    "Offloading immediate cognitive tasks onto external media prevents cumulative working memory load from compounding into autonomic stress and decision fatigue. [[64.05 Ideation and Brainsweeps]]"
+  ],
+  "80.V1B3-A1": [
+    "Returning to cardiovascular conditioning post-50 requires structured run-walk intervals to respect physiological tissue recovery thresholds and build sustainable habit consistency. [[81.05.5 Steps]] [[41.03 Habit Creation]]"
+  ],
+  "80.V3B1-S4": [
+    "Rapid morning journaling offloads nocturnal cognitive drift, transitioning autonomic arousal from reactive overwhelm to proactive intentional focus. [[64.05 Ideation and Brainsweeps]]"
+  ],
   "80.V2C1-S1": [
     "In cognitive ergonomics and neuroscience, employing artificial intelligence as *cognitive scaffolding* enhances baseline human productive bandwidth, whereas using AI for *cognitive substitution* outsources neurological engagement, accelerating mental atrophy and cognitive dullness. [[82.02 Functional Systems]]",
     "Preserving neuroplasticity and critical thinking capacity requires adhering to the \"Think First, AI Later\" heuristic: human reasoning must formulate the baseline thesis and structure before external digital tools are consulted for editing or execution. [[81.05 Lifestyle Management]]"
+  ],
+  "80.V1A2-S1": [
+    "Intermittent 2-week normocaloric refeeding during prolonged caloric restriction defends resting metabolic rate and muscle mass, resulting in significantly greater sustained fat loss than continuous energy restriction (MATADOR principle). [[81.05.1 Weight Management]] [[15.03 Fasting]]"
+  ],
+  "80.V3B1-S2": [
+    "Partitioning commitments into actionable (\"Now\"), deferred (\"Future\"), and dependent (\"Waiting For\") lists eliminates open-loop cognitive drag, freeing working memory for creative synthesis. [[64.04 Productivity, Study of]]"
+  ],
+  "80.V1A2": [
+    "Morning waking hunger serves as a direct physiological gauge of cellular fuel switching; delaying the first caloric intake calibrates mitochondrial fat-oxidation pathways without metabolic shock. [[81.05.1 Weight Management]] [[15.03 Fasting]]",
+    "Analog tracking of subjective psychological mood alongside eating windows creates an early-warning feedback loop to adjust carbohydrate refeeds before neuroglycopenic fatigue or mood disturbances manifest. [[81.05 Lifestyle Management]]"
+  ],
+  "80.V3B1-S3": [
+    "Creative ideation requires disengagement of working memory buffers; retaining pending future obligations directly suppresses prefrontal divergence and creative flow. [[64.05 Ideation and Brainsweeps]]"
   ]
 }

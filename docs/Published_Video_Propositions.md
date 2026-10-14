@@ -1,12 +1,12 @@
 # 🗂️ Published Video Propositions & 3x5 Index Card Tracker
 
-*Updated 2026-10-04 with authoritative Workflowy Johnny Decimal (JDex) codes.*
+*Updated 2026-10-14 with authoritative Workflowy Johnny Decimal (JDex) codes.*
 
 ---
 
 ## 📊 Card Transcription Progress
 
-**Status**: 43 Completed / 0 Pending Physical 3x5 Cards
+**Status**: 47 Completed / 0 Pending Physical 3x5 Cards
 
 | Video # | Code | Title | Primary JDex | Cards Status |
 | :---: | :--- | :--- | :---: | :---: |
@@ -47,11 +47,15 @@
 | **036** | `80.V1A-S3` | Diets wont work, here's what does. | `81.05` | ✅ Done |
 | **038** | `80.V3B1-S1` | Your Brain Is Full Do This Now | `80.V3B` | ✅ Done |
 | **039** | `80.V3B1-S2` | How 3 Simple Lists Free Up Mental Space | `80.V3B` | ✅ Done |
+| **040** | `80.V3B1-S3` | The 30 Second Fix For Creative Block | `80.V3B` | ✅ Done |
+| **045** | `80.V1A2` | Energy Management for Life: The Simple Way to | `80.V1A` | ✅ Done |
+| **046** | `80.V1A2-S1` | Intermittent Fasting Works Better When You Fe | `80.V1A` | ✅ Done |
 | **245** | `80.V2A-S4` | Buffers make you more productive | `80.21` | ✅ Done |
 | **246** | `80.V3A1-S3` | Who’s brains are better connected, men or wom | `80.21` | ✅ Done |
 | **247** | `80.V1A0-S1` | Diet drugs and Ambition | `80.12` | ✅ Done |
 | **248** | `80.V3B1` | 90 Months of bullet journaling | `80.32` | ✅ Done |
 | **249** | `80.V1B3-A1` | Run with Dr A #1 | `80.12` | ✅ Done |
+| **250** | `80.V3B1-S4` | Control Your Day | `80.32` | ✅ Done |
 | **TBD** | `80.V0A-S3-B` | The Easiest Way to Eliminate Back Pain #short | `81.02` | ✅ Done |
 
 ---
