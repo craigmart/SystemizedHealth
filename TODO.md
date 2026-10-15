@@ -38,9 +38,9 @@
   - [ ] `80.V2A2`: *What Daily Journaling Actually Does to Your Brain* (Level 2 — Thinking) — `#idea`
   - [ ] `80.V2B2`: *Level 2 (Inward) — Learning* (Level 2 — Learning) — `#idea`
   - [ ] `80.V4-02`: *Level 4 (Lab) — User Discretion* (Level 4 — Lab) — `#idea`
-- **Cycle 2 (Level 2: Connect | Level 3: Purpose & Play)**:
-  - [ ] `80.V2C2`: *Prayer and DMN* (Level 2 — Connect) — `#write` *(in WIP)*
-  - [ ] `80.V3C1`: *Level 3 (Outward) — Purpose* (Level 3 — Purpose) — `#idea`
+- **Cycle 2 (Level 2: Connect with Creator | Level 3: Connect & Play)**:
+  - [ ] `80.V2C2`: *Prayer and DMN* (Level 2 — Connect with Creator) — `#write` *(in WIP)*
+  - [ ] `80.V3C1`: *Level 3 (Outward) — Connect* (Level 3 — Connect) — `#idea`
   - [ ] `80.V3A2`: *Level 3 (Outward) — Play* (Level 3 — Play) — `#idea`
 - **Cycle 3 (Level 1: Rest, Fuel & Move | Level 3: Organize | Level 4: Lab)**:
   - [ ] `80.V1C2`: *Level 1 (Foundational) — Rest* (Level 1 — Rest) — `#idea`

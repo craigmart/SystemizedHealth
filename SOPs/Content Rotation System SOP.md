@@ -53,10 +53,10 @@ Each regular Level tracks its own 3-pillar sequence (A, B, C) completely indepen
   - `A`: Think & Process
   - `B`: Learn & Challenge
   - `C`: Connect with Creator and Creation
-- **Level 3 (Outward — POP)**:
+- **Level 3 (Outward — POC)**:
   - `A`: Play
   - `B`: Organize & Goal Setting
-  - `C`: Purpose & Planning
+  - `C`: Connect
 
 ### 4. The Endless Shift
 - Because a Level sprint is **2 weeks long**, only **2 of the 3 pillars** are consumed per cycle.

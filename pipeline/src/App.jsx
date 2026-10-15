@@ -345,10 +345,10 @@ function App() {
       if (code.includes('V1C')) return { level: 'Level 1 (Foundational)', pillar: 'Rest' };
       if (code.includes('V2A')) return { level: 'Level 2 (Inward)', pillar: 'Thinking' };
       if (code.includes('V2B')) return { level: 'Level 2 (Inward)', pillar: 'Learning' };
-      if (code.includes('V2C')) return { level: 'Level 2 (Inward)', pillar: 'Connect' };
+      if (code.includes('V2C')) return { level: 'Level 2 (Inward)', pillar: 'Connect with Creator' };
       if (code.includes('V3A')) return { level: 'Level 3 (Outward)', pillar: 'Play' };
       if (code.includes('V3B')) return { level: 'Level 3 (Outward)', pillar: 'Organize' };
-      if (code.includes('V3C')) return { level: 'Level 3 (Outward)', pillar: 'Purpose' };
+      if (code.includes('V3C')) return { level: 'Level 3 (Outward)', pillar: 'Connect' };
       if (code.includes('V4'))  return { level: 'Level 4 (Lab)', pillar: 'Lab' };
       if (code.includes('V0A') || code.includes('V0B')) return { level: 'Level 0 (Meta)', pillar: 'Worldview' };
     }
@@ -3827,15 +3827,15 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
 }
 
 const PILLAR_OPTIONS = [
-  { level: 'Level 1: Foundational', pillar: 'Move', codePrefix: '80.V1B', defaultJdex: '80.12' },
   { level: 'Level 1: Foundational', pillar: 'Fuel', codePrefix: '80.V1A', defaultJdex: '80.11' },
+  { level: 'Level 1: Foundational', pillar: 'Move', codePrefix: '80.V1B', defaultJdex: '80.12' },
   { level: 'Level 1: Foundational', pillar: 'Rest', codePrefix: '80.V1C', defaultJdex: '80.13' },
   { level: 'Level 2: Inward', pillar: 'Thinking', codePrefix: '80.V2A', defaultJdex: '80.21' },
   { level: 'Level 2: Inward', pillar: 'Learning', codePrefix: '80.V2B', defaultJdex: '80.22' },
-  { level: 'Level 2: Inward', pillar: 'Connection', codePrefix: '80.V2C', defaultJdex: '80.23' },
+  { level: 'Level 2: Inward', pillar: 'Connect with Creator/Spiritual', codePrefix: '80.V2C', defaultJdex: '80.23' },
   { level: 'Level 3: Outward', pillar: 'Play', codePrefix: '80.V3A', defaultJdex: '80.31' },
-  { level: 'Level 3: Outward', pillar: 'Work', codePrefix: '80.V3B', defaultJdex: '80.32' },
-  { level: 'Level 3: Outward', pillar: 'Contribution', codePrefix: '80.V3C', defaultJdex: '80.33' },
+  { level: 'Level 3: Outward', pillar: 'Organize', codePrefix: '80.V3B', defaultJdex: '80.32' },
+  { level: 'Level 3: Outward', pillar: 'Connect', codePrefix: '80.V3C', defaultJdex: '80.33' },
   { level: 'Baseline', pillar: 'Core Baseline', codePrefix: '80.V0A', defaultJdex: '80.10' },
   { level: 'Level 4: Lab', pillar: 'Lab / Experiment', codePrefix: '80.V4', defaultJdex: '80.40' },
 ];

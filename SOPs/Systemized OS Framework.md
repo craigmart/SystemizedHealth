@@ -21,8 +21,8 @@ The Systemized OS is built on a strict biological hierarchy. Content must always
 ```mermaid
 graph BT
     L1["Level 1: Foundational (FMR)<br/>Fuel • Move • Rest"]
-    L2["Level 2: Internal (TLC)<br/>Think • Learn • Connect"]
-    L3["Level 3: External (POP)<br/>Play • Organize • Purpose"]
+    L2["Level 2: Internal (TLC)<br/>Think • Learn • Connect with Creator"]
+    L3["Level 3: External (POC)<br/>Play • Organize • Connect"]
 
     L1 --> L2
     L2 --> L3
@@ -33,8 +33,8 @@ graph BT
 | Level | Tier Name | Acronym | Pillars | Core Purpose |
 | :--- | :--- | :--- | :--- | :--- |
 | **Level 1** | **Foundational** | **FMR** | Fuel • Move • Rest | Secures physical requirements for life; stops biological bleeding |
-| **Level 2** | **Internal** | **TLC** | Think • Learn • Connect | Mental capacity & emotional calibration (requires physical stability) |
-| **Level 3** | **External** | **POP** | Play • Organize • Purpose | Outer world engagement & environment (requires L1 stability & L2 clarity) |
+| **Level 2** | **Internal** | **TLC** | Think • Learn • Connect with Creator | Mental capacity & spiritual calibration (requires physical stability) |
+| **Level 3** | **External** | **POC** | Play • Organize • Connect | Outer world engagement & connection (requires L1 stability & L2 clarity) |
 
 ---
 
@@ -45,16 +45,16 @@ graph BT
 * **Rest and Recover**: Sleep architecture, nervous system down-regulation, recovery.
 
 ### Level 2: Internal (TLC)
-*Stands for Think, Learn, Connect.* This level develops mental capacity and emotional calibration. It is only addressed after physical stability is established.
+*Stands for Think, Learn, Connect.* This level develops mental capacity and spiritual calibration. It is only addressed after physical stability is established.
 * **Think and Process**: Cognitive clarity, emotional processing, stress calibration.
 * **Learn and Challenge**: Intellectual growth, skill acquisition, cognitive stimulation.
-* **Connect with Creator and Creation**: Spiritual resonance, relational health, social connection, and environmental alignment.
+* **Connect with Creator and Creation**: Spiritual resonance, prayer, worldview, and divine alignment.
 
-### Level 3: External (POP)
-*Stands for Play, Organize, Purpose.* This level covers engagement with the outer world and environmental interaction. It requires the stability of Level 1 and the processing clarity of Level 2.
+### Level 3: External (POC)
+*Stands for Play, Organize, Connect.* This level covers engagement with the outer world and environmental interaction. It requires the stability of Level 1 and the processing clarity of Level 2.
 * **Play**: Joy, experimentation, creative expression.
 * **Organize and Goal Setting**: Systems creation, workflow management, strategic goal execution, habit architecture.
-* **Purpose and Planning**: Long-term vision, life alignment, actionable planning.
+* **Connect**: Relational health, community, fellowship, and social alignment.
 
 ### Level 4: Lab Deep Dives
 Advanced clinical diagnostics, biomarker breakdowns, blood panels, and specialized functional medicine lab testing.
