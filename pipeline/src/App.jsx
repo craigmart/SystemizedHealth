@@ -758,110 +758,91 @@ function App() {
     return { completed: finalCompleted, total, percent };
   };
 
-  // Metrics Calculation
-  const unfinishedFuture = videos.filter(v => {
-    if (!v.drop_date) return false;
-    const dropDate = parseISO(v.drop_date);
-    dropDate.setHours(0, 0, 0, 0);
-    const isFinished = v.status === '#uploaded' || v.status === '#published';
-    return !isFinished && dropDate >= todayDate;
-  });
+  // Metrics Calculation: Days from last Long video posted
+  const publishedVideos = videos.filter(v => v.status === '#published');
+  const publishedLongs = publishedVideos.filter(v => {
+    return v.format_type === 'Long' || (!v.code?.includes('-S') && !v.format_type?.toLowerCase().includes('short'));
+  }).sort(sortByDropDateDesc);
 
-  let daysAhead = 0;
-  if (unfinishedFuture.length > 0) {
-    const dates = unfinishedFuture.map(v => parseISO(v.drop_date).setHours(0, 0, 0, 0));
-    const earliestUnfinished = new Date(Math.min(...dates));
-    daysAhead = Math.max(0, Math.floor((earliestUnfinished - todayDate) / (1000 * 60 * 60 * 24)) - 1);
-  } else {
-    const scheduledVideos = videos.filter(v => v.drop_date && (v.status === '#uploaded' || v.status === '#published'));
-    if (scheduledVideos.length > 0) {
-      const dates = scheduledVideos.map(v => parseISO(v.drop_date).setHours(0, 0, 0, 0));
-      const latestDate = new Date(Math.max(...dates));
-      daysAhead = Math.max(0, Math.floor((latestDate - todayDate) / (1000 * 60 * 60 * 24)));
+  let daysSinceLastLong = null;
+  let lastLongVideo = null;
+  if (publishedLongs.length > 0) {
+    lastLongVideo = publishedLongs[0];
+    const postDateStr = lastLongVideo.drop_date || lastLongVideo.uploaded_date;
+    if (postDateStr) {
+      const postDate = parseISO(postDateStr);
+      if (!isNaN(postDate.getTime())) {
+        postDate.setHours(0, 0, 0, 0);
+        daysSinceLastLong = Math.max(0, Math.floor((todayDate - postDate) / (1000 * 60 * 60 * 24)));
+      }
     }
   }
 
   const editingVideos = videos.filter(v => v.status === '#edit');
   const readyToFilmVideos = videos.filter(v => v.status === '#film');
   const writingVideos = videos.filter(v => v.status === '#write');
-  const publishedVideos = videos.filter(v => v.status === '#published');
   const futureVideos = videos.filter(v => {
     if (v.status === '#published') return false;
     if (v.code?.startsWith('HIST')) return false;
-    if (!v.drop_date) return false;
-    const dropDate = parseISO(v.drop_date);
-    if (isNaN(dropDate.getTime())) return false;
-    dropDate.setHours(0, 0, 0, 0);
-    return dropDate > todayDate;
+    return v.status === '#idea';
   });
 
   const openModal = (title, videoList) => {
     const listCopy = [...videoList];
-    const sorter = title === 'Published Videos' ? sortByDropDateDesc : sortByDropDate;
+    const sorter = title === 'Published Videos' || title === 'Published Long Videos' ? sortByDropDateDesc : sortByDropDate;
     setMetricModal({ title, videos: listCopy.sort(sorter) });
   };
 
   const renderDashboard = () => {
-    // 1. Build 3-Week Pipeline (21 days out) from live database + content rotation system
-    const pipelineItems = [];
-    const videosByDate = {};
-    videos.forEach(v => {
-      if (v.drop_date) {
-        if (!videosByDate[v.drop_date]) videosByDate[v.drop_date] = [];
-        videosByDate[v.drop_date].push(v);
+    // 1. Build Pipeline: Upcoming Long videos (Topic Rotation Cycle)
+    const activeOrUpcomingLongs = videos.filter(v => {
+      if (v.status === '#published') return false;
+      if (v.code?.startsWith('HIST')) return false;
+      const isLong = v.format_type === 'Long' || (!v.code?.includes('-S') && !v.format_type?.toLowerCase().includes('short'));
+      return isLong;
+    });
+
+    // Also include rotationCatalog for any missing upcoming slots
+    const catalogLongs = (rotationCatalog || []).filter(r => r.format_type === 'Long' || r.rotation_format === 'Long');
+    const existingCodes = new Set(activeOrUpcomingLongs.map(v => v.code));
+
+    const allPipelineVideos = [...activeOrUpcomingLongs];
+    catalogLongs.forEach(cat => {
+      if (!existingCodes.has(cat.code) && !deletedCodes.includes(cat.code)) {
+        allPipelineVideos.push(cat);
       }
     });
 
-    for (let i = 0; i <= 21; i++) {
-      const day = addDays(todayDate, i);
-      day.setHours(0, 0, 0, 0);
-      const isoDate = format(day, 'yyyy-MM-dd');
-      const dayOfWeek = day.getDay(); // 0: Sun, 1: Mon, 2: Tue, 3: Wed, 4: Thu, 5: Fri, 6: Sat
-      const isExpectedReleaseDay = dayOfWeek === 1 || dayOfWeek === 2 || dayOfWeek === 4 || dayOfWeek === 6;
-      const expectedFormat = dayOfWeek === 1 ? 'Long' : 'Short';
-
-      const scheduledVideos = videosByDate[isoDate] || [];
-
-      if (scheduledVideos.length > 0) {
-        scheduledVideos.forEach(v => {
-          const rotInfo = getRotationInfo(v);
-          const hasTranscript = !!(v.raw_transcript && v.raw_transcript.trim());
-          pipelineItems.push({
-            isPlaceholder: false,
-            video: v,
-            code: v.code,
-            title: v.title,
-            status: v.status,
-            drop_date: v.drop_date,
-            dayFormatted: format(day, 'EEE, MMM d'),
-            notes: v.notes,
-            format_type: v.format_type || expectedFormat,
-            level: rotInfo?.level || v.os_level || 'Systemized OS',
-            pillar: rotInfo?.pillar || 'Core',
-            hasTranscript
-          });
-        });
-      } else if (isExpectedReleaseDay) {
-        // Resolve directly from 12-month content rotation system (Zero Placeholders)
-        const rotItem = rotationCatalog.find(r => r.drop_date === isoDate && !deletedCodes.includes(r.code));
-        if (rotItem) {
-          pipelineItems.push({
-            isPlaceholder: false,
-            video: rotItem,
-            code: rotItem.code,
-            title: rotItem.title,
-            status: rotItem.status || '#idea',
-            drop_date: rotItem.drop_date,
-            dayFormatted: format(day, 'EEE, MMM d'),
-            notes: rotItem.notes,
-            format_type: rotItem.format_type || expectedFormat,
-            level: rotItem.level || 'Systemized OS',
-            pillar: rotItem.pillar || 'Core',
-            hasTranscript: false
-          });
-        }
+    // Order pipeline items:
+    // If both have anticipated drop dates, sort by drop date.
+    // If only one has drop date, dated video comes first.
+    // Otherwise maintain rotation order by video_number or code.
+    allPipelineVideos.sort((a, b) => {
+      if (a.drop_date && b.drop_date) {
+        return parseISO(a.drop_date).getTime() - parseISO(b.drop_date).getTime();
       }
-    }
+      if (a.drop_date && !b.drop_date) return -1;
+      if (!a.drop_date && b.drop_date) return 1;
+      return (parseInt(a.video_number, 10) || 0) - (parseInt(b.video_number, 10) || 0);
+    });
+
+    const pipelineItems = allPipelineVideos.map(v => {
+      const rotInfo = getRotationInfo(v);
+      const hasTranscript = !!(v.raw_transcript && v.raw_transcript.trim());
+      return {
+        isPlaceholder: false,
+        video: v,
+        code: v.code,
+        title: v.title,
+        status: v.status || '#idea',
+        drop_date: v.drop_date || null,
+        notes: v.notes,
+        format_type: 'Long',
+        level: rotInfo?.level || v.os_level || 'Systemized OS',
+        pillar: rotInfo?.pillar || 'Core',
+        hasTranscript
+      };
+    });
 
     // Helper to check if a video has any open checklist items
     const hasOpenChecklistTasks = (video) => {
@@ -928,13 +909,15 @@ function App() {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
       {/* Metrics Bar */}
       <div className="metrics-grid">
-        <div className="card metric-tile" onClick={() => openModal('Upcoming Runway (Unfinished)', unfinishedFuture)}>
-          <div style={{ backgroundColor: daysAhead >= 21 ? 'var(--success-color)' : 'var(--danger-color)', color: '#fff', padding: '0.5rem', borderRadius: '50%', display: 'flex' }}>
-            <TrendingUp size={20} />
+        <div className="card metric-tile" onClick={() => openModal('Published Long Videos', publishedLongs)} title={lastLongVideo ? `Last Long: ${lastLongVideo.title}` : undefined}>
+          <div style={{ backgroundColor: 'var(--accent-color)', color: '#fff', padding: '0.5rem', borderRadius: '50%', display: 'flex' }}>
+            <Clock size={20} />
           </div>
           <div>
-            <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Days Ahead</div>
-            <div style={{ fontSize: '1.25rem', fontWeight: 'bold', lineHeight: '1.2' }}>{daysAhead}</div>
+            <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Last Video</div>
+            <div style={{ fontSize: '1.25rem', fontWeight: 'bold', lineHeight: '1.2' }}>
+              {daysSinceLastLong !== null ? `${daysSinceLastLong}d ago` : '—'}
+            </div>
           </div>
         </div>
 
@@ -1182,10 +1165,10 @@ function App() {
           </div>
         </div>
 
-        {/* Section 2: Pipeline (Next 3 Weeks) (Below WIP) */}
+        {/* Section 2: Pipeline (Upcoming Topic Rotation) */}
         <div className="card">
           <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
-            <Calendar size={20} color="var(--accent-color)" /> Pipeline (Next 3 Weeks)
+            <Calendar size={20} color="var(--accent-color)" /> Pipeline
           </h2>
           <div className="videos-list">
             {pipelineItems.map((item, idx) => {
@@ -1196,24 +1179,22 @@ function App() {
                 ? item.title.trim()
                 : (level || 'Systemized OS');
 
-              const isMonday = item.dayFormatted?.startsWith('Mon') || (item.drop_date && parseISO(item.drop_date).getDay() === 1);
-              const isLong = item.format_type === 'Long' || isMonday;
               const isDuplicate = checkIsDuplicateCode(item.video || item, videos);
 
               return (
                 <div
-                  key={`${item.code}-${item.drop_date}-${idx}`}
-                  className={`video-item ${isLong ? 'video-item-long' : 'video-item-short'} video-item-${item.status ? item.status.replace('#', '') : 'idea'}`}
+                  key={`pipeline-${item.code}-${idx}`}
+                  className={`video-item video-item-long video-item-${item.status ? item.status.replace('#', '') : 'idea'}`}
                   style={{
                     cursor: 'pointer',
-                    borderLeft: `${isLong ? '7px' : '4px'} solid ${isDuplicate ? '#f97316' : getBorderColor(item.video || item)}`
+                    borderLeft: `7px solid ${isDuplicate ? '#f97316' : getBorderColor(item.video || item)}`
                   }}
                   onClick={() => openVideo(item.video || item)}
                 >
                   <div className="video-header">
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', flexWrap: 'wrap' }}>
                       <strong
-                        className={isLong ? 'video-code' : ''}
+                        className="video-code"
                         style={isDuplicate ? {
                           color: '#ea580c',
                           backgroundColor: 'rgba(249, 115, 22, 0.12)',
@@ -1225,33 +1206,95 @@ function App() {
                         {item.code}
                       </strong>
                       <span style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', fontWeight: '600', textTransform: 'uppercase' }}>
-                        {isLong ? 'Long' : 'Short'}
+                        Long
                       </span>
                       {pillar && <span className="badge-pillar" title="Pillar Focus">{pillar}</span>}
                       {item.notes && <span title="Production Log" style={{ fontSize: '0.75rem' }}>📝</span>}
                     </div>
                     {getStatusBadge(item.status)}
                   </div>
-                  <div className="video-meta" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: isLong ? '0.35rem' : '0.2rem', gap: '0.5rem' }}>
-                    <span className="video-title" style={{ fontWeight: isLong ? '700' : '500', fontSize: isLong ? '1.05rem' : '0.88rem' }}>
+                  <div className="video-meta" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '0.35rem', gap: '0.5rem' }}>
+                    <span className="video-title" style={{ fontWeight: '700', fontSize: '1.05rem' }}>
                       {displayTitle}
                     </span>
-                    <span style={{
-                      marginLeft: 'auto',
-                      fontWeight: isLong ? '800' : '600',
-                      color: isLong ? 'var(--accent-color)' : 'var(--text-secondary)',
-                      fontSize: isLong ? '0.92rem' : '0.82rem',
-                      whiteSpace: 'nowrap'
-                    }}>
-                      {item.dayFormatted}
-                    </span>
+                    <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '0.4rem', whiteSpace: 'nowrap' }} onClick={e => e.stopPropagation()}>
+                      {editingWipDateCode === item.code ? (
+                        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}>
+                          <input
+                            type="date"
+                            className="input"
+                            style={{ padding: '0.15rem 0.35rem', fontSize: '0.78rem', height: '26px', width: 'auto' }}
+                            value={wipDateValue}
+                            onChange={e => setWipDateValue(e.target.value)}
+                            disabled={savingWipDate}
+                            autoFocus
+                            onKeyDown={e => {
+                              if (e.key === 'Enter') handleQuickSaveDropDate(e, item.video || item);
+                              if (e.key === 'Escape') setEditingWipDateCode(null);
+                            }}
+                          />
+                          <button
+                            type="button"
+                            className="btn btn-primary"
+                            style={{ padding: '0.15rem 0.4rem', fontSize: '0.72rem', height: '26px' }}
+                            onClick={e => handleQuickSaveDropDate(e, item.video || item)}
+                            disabled={savingWipDate}
+                            title="Save drop date"
+                          >
+                            <Check size={12} />
+                          </button>
+                          <button
+                            type="button"
+                            className="btn btn-outline"
+                            style={{ padding: '0.15rem 0.35rem', fontSize: '0.72rem', height: '26px' }}
+                            onClick={e => { e.stopPropagation(); setEditingWipDateCode(null); }}
+                            disabled={savingWipDate}
+                            title="Cancel"
+                          >
+                            <X size={12} />
+                          </button>
+                        </div>
+                      ) : (
+                        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
+                          <span style={{
+                            fontWeight: item.drop_date ? '800' : '500',
+                            color: item.drop_date ? 'var(--accent-color)' : 'var(--text-secondary)',
+                            fontSize: item.drop_date ? '0.92rem' : '0.82rem'
+                          }}>
+                            {item.drop_date ? format(parseISO(item.drop_date), 'EEE, MMM d') : 'No Date'}
+                          </span>
+                          <button
+                            type="button"
+                            className="btn btn-outline"
+                            style={{
+                              padding: '0.15rem 0.3rem',
+                              height: '22px',
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              color: 'var(--text-secondary)',
+                              borderRadius: 'var(--radius-sm)',
+                              fontSize: '0.72rem'
+                            }}
+                            onClick={e => {
+                              e.stopPropagation();
+                              setEditingWipDateCode(item.code);
+                              setWipDateValue(item.drop_date || '');
+                            }}
+                            title={item.drop_date ? "Edit anticipated drop date" : "Set anticipated drop date"}
+                          >
+                            <Edit3 size={11} />
+                          </button>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
               );
             })}
             {pipelineItems.length === 0 && (
               <p style={{ padding: '1rem', textAlign: 'center', color: 'var(--text-secondary)' }}>
-                No drop dates found in the next 3 weeks.
+                No upcoming videos in the pipeline.
               </p>
             )}
           </div>

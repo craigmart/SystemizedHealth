@@ -106,10 +106,14 @@ Dr. Anderson utilizes the writing guidance and voice files across multiple exter
 
 ---
 
-## 9. Content Rotation & Zero-Placeholder Directive
-- **Authoritative Schedule**: The content pipeline strictly adheres to the 12-month endless content rotation model ([`docs/content_rotation.csv`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/content_rotation.csv) and [`SOPs/Content Rotation System SOP.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/Content%20Rotation%20System%20SOP.md)).
-- **Zero Placeholders**: The pipeline never contains `TBD-*`, generic `Placeholder` titles, or `OPEN SLOT` fallback cards. All future drops have deterministic canonical Johnny Decimal codes and scheduled dates in Supabase.
-- **Pre-Transcript Visibility**: For any upcoming video where Dr. Anderson has not yet dropped the spoken transcript (`raw_transcript` is empty), the App and pipeline views MUST surface the **Level and Pillar** (e.g. `Level 3 (Outward) — Play`), directing research in Gemini Notebook and 4-beat 3x5 index card drafting.
-- **3-Week Pipeline Runway**: The App pipeline view always shows the next 3 weeks (21 days) of scheduled drops with their respective Level, Pillar, and format.
+## 9. Content Rotation & Quality-Focused Pipeline Directive
+- **Core Production Model (Quality over Quantity)**: Dr. Anderson focuses on delivering 1–3 high-quality, well-produced videos per month. Multiple videos can be in production simultaneously across `#write`, `#film`, and `#edit` without artificial date pressure.
+- **Zero Due Date Pressure**: Videos do not have forced calendar due dates. Future videos have `drop_date = null` (TBD) until Dr. Anderson explicitly anticipates a drop date and assigns it in the date slot.
+- **Full 3-Month Topic Rotation Cycle**: The pipeline maintains a ~3-month rotation cycle (~9–12 Long videos) going through the three levels three times each (covering all 9 core framework pillars plus monthly labs).
+- **Format Standard**: Pipeline topics consist of standalone Long videos. Shorts are ideated and added on the fly as desired using the "Add Video to Pipeline" action.
+- **App Views**:
+  - **Work in Progress**: Surfaces active production stages (`#write`, `#film`, `#edit`), `#uploaded`, published videos with pending cards/tasks, and any `#idea` with an anticipated date within 7 days.
+  - **Pipeline**: Displays upcoming Long topics in rotation sequence with Level and Pillar badges, showing anticipated dates when set or flexible "No Date" slots with inline date pickers.
+  - **Metrics Bar**: Features the `"Last Video"` tile displaying elapsed days since the most recently published Long video.
 
 

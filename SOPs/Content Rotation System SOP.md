@@ -1,25 +1,28 @@
 # 80.07 — Content Rotation System SOP
 
-This document outlines the endless 12-month rotation schedule for Systemized Health content pillars, including monthly Lab deep-dives, video format guidelines, the mathematical rotation model, and production workflow standards.
+This document outlines the topic rotation framework for Systemized Health content pillars, including video format standards, the mathematical rotation model across levels, and quality-first production guidelines.
 
 ---
 
 ## 1. Overview & Core Philosophy
 
-The Systemized Health content calendar operates on a continuous, programmatic loop designed to eliminate creative friction and decision fatigue. Production topics are not decided arbitrarily week-to-week; instead, they follow an automated rotation through the **Systemized OS** framework levels and pillars.
-
-Dr. Anderson works directly from the web App. The App surfaces the **next 3 weeks ahead in the pipeline** with zero placeholders. Each upcoming video card displays its specific **Level** and **Pillar** (e.g. `Level 3 (Outward) — Play`), serving as the direct prompt to outline on 3x5 cards and conduct research in Gemini Notebook.
+The Systemized Health content calendar operates on a continuous, programmatic loop designed to eliminate creative friction and decision fatigue, with a primary focus on **quality over quantity**:
+- **Target Rhythm**: 1–3 high-quality, deeply produced videos per month.
+- **Zero Due Date Pressure**: Production is freed from calendar deadlines. Videos in the pipeline have no pre-assigned due dates; Dr. Anderson inputs an anticipated drop date into the date slot only when ready.
+- **Simultaneous Production**: Multiple videos can be in production at the same time across `#write`, `#film`, and `#edit` in Work in Progress.
+- **Topic Pipeline**: The App maintains a ~3-month rotation cycle (~9–12 Long videos) taking Dr. Anderson through the three levels three times each (covering all 9 core framework pillars plus monthly labs).
+- **Standalone Long Focus**: The scheduled pipeline consists of comprehensive Long videos. Shorts are ideated and added on the fly as desired via the "Add Video to Pipeline" feature.
 
 ---
 
 ## 2. Video Format Guidelines
 
-To maintain consistency across drops and respect the biological learning curve of the audience:
+To maintain clinical depth and exceptional production quality:
 
-| Format | Target Length | Drop Rhythm | Role & Purpose |
+| Format | Target Length | Production Model | Role & Purpose |
 | :--- | :--- | :--- | :--- |
-| **Long Videos** | 15 – 20 minutes | **Every Monday** | Comprehensive clinical breakdown, mechanism/glitch explanation, clinical analogy, and actionable protocol. |
-| **Shorts** | 40 – 60 seconds | **Tue, Thu, Sat** | 3 waterfall shorts derived from the Monday pillar topic. Each short tackles a standalone single hook, friction point, or micro-protocol. |
+| **Long Videos** | 15 – 25 minutes | **1–3 drops / month** (Pipeline sequence) | Comprehensive clinical breakdown, mechanism/glitch explanation, clinical analogy, and actionable protocol. |
+| **Shorts** | 40 – 60 seconds | **On-the-Fly / Added as Desired** | Standalone hook, friction point, or micro-protocol recorded directly to camera when inspired. |
 
 ---
 
