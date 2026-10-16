@@ -813,16 +813,27 @@ function App() {
       }
     });
 
+    // Map each code to its position in rotationCatalog to preserve sprint order
+    const rotationIndexMap = {};
+    (rotationCatalog || []).forEach((r, idx) => {
+      if (r.code) rotationIndexMap[r.code] = idx;
+    });
+
     // Order pipeline items:
     // If both have anticipated drop dates, sort by drop date.
     // If only one has drop date, dated video comes first.
-    // Otherwise maintain rotation order by video_number or code.
+    // Otherwise maintain rotation catalog sequence (e.g. 6-Week Monetization Sprint).
     allPipelineVideos.sort((a, b) => {
       if (a.drop_date && b.drop_date) {
         return parseISO(a.drop_date).getTime() - parseISO(b.drop_date).getTime();
       }
       if (a.drop_date && !b.drop_date) return -1;
       if (!a.drop_date && b.drop_date) return 1;
+
+      const idxA = rotationIndexMap[a.code] !== undefined ? rotationIndexMap[a.code] : 999;
+      const idxB = rotationIndexMap[b.code] !== undefined ? rotationIndexMap[b.code] : 999;
+      if (idxA !== idxB) return idxA - idxB;
+
       return (parseInt(a.video_number, 10) || 0) - (parseInt(b.video_number, 10) || 0);
     });
 

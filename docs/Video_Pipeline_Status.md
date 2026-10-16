@@ -49,16 +49,16 @@
 | **040** | `80.V3B1-S3` | Short | The 30 Second Fix For Creative Block | 2026-10-10 | ✅ #published | — |
 | **045** | `80.V1A2` | Long | Energy Management for Life: The Simple Way to Intermittent Fast | 2026-10-12 | ✅ #published | — |
 | **046** | `80.V1A2-S1` | Short | Intermittent Fasting Works Better When You Feast Sometimes | 2026-10-13 | ✅ #published | — |
-| **049** | `80.V2A2` | Long | What Daily Journaling Actually Does to Your Brain | — | 📝 #write | — |
-| **053** | `80.V2B2` | Long | Level 2 (Inward) — Learning | — | 💡 #idea | — |
+| **049** | `80.V2A2` | Long | What Daily Journaling Actually Does to Your Brain (The Neuroscience) | — | 📝 #write | — |
+| **053** | `80.V2B2` | Long | Why Digital Health Apps Keep Failing You (And Why Paper Fixes It) | — | 💡 #idea | — |
 | **057** | `80.V4-02` | Long | Level 4 (Lab) — User Discretion | — | 💡 #idea | — |
 | **061** | `80.V2C2` | Long | Prayer and DMN | — | 📝 #write | — |
-| **065** | `80.V3C1` | Long | Level 3 (Outward) — Connect | — | 💡 #idea | — |
+| **065** | `80.V3C1` | Long | 90 Months of Daily Health Logging: The 5 Biggest Glitches I Uncovered | — | 💡 #idea | — |
 | **069** | `80.V3A2` | Long | Level 3 (Outward) — Play | — | 💡 #idea | — |
-| **073** | `80.V1C2` | Long | Level 1 (Foundational) — Rest | — | 💡 #idea | — |
+| **073** | `80.V1C2` | Long | The 3 Health Numbers I Write Down Every Morning | — | 💡 #idea | — |
 | **077** | `80.V4-03` | Long | Level 4 (Lab) — User Discretion | — | 💡 #idea | — |
 | **081** | `80.V1A3` | Long | Level 1 (Foundational) — Fuel | — | 💡 #idea | — |
-| **097** | `80.V3B2` | Long | Level 3 (Outward) — Organize | — | 💡 #idea | — |
+| **097** | `80.V3B2` | Long | How a Doctor Tracks His Health in a Bullet Journal (No Art, No Apps) | — | 💡 #idea | — |
 | **105** | `80.V1B4` | Long | Level 1 (Foundational) — Move | — | 💡 #idea | — |
 | **245** | `80.V2A-S4` | Short | Buffers make you more productive | 2026-09-28 | ✅ #published | 2026-09-30 |
 | **246** | `80.V3A1-S3` | Short | Who’s brains are better connected, men or women? | 2026-09-29 | ✅ #published | — |
@@ -66,7 +66,7 @@
 | **248** | `80.V3B1` | Long | 90 Months of bullet journaling | 2026-10-03 | ✅ #published | — |
 | **249** | `80.V1B3-A1` | Short | Run with Dr A #1 | 2026-10-04 | ✅ #published | — |
 | **250** | `80.V3B1-S4` | Short | Control Your Day | 2026-10-06 | ✅ #published | — |
-| **251** | `80.V1A2-A` | Long | The Science behind my intermittent fasting journal plan | 2026-10-20 | 📝 #write | — |
+| **251** | `80.V1A2-A` | Long | The Fasting & Energy Log: The Simple 2-Page Spread for Metabolic Health | 2026-10-20 | 📝 #write | — |
 | **H001** | `HIST.L01` | Long | The Biological Requirement for Weekly Structure | 2026-01-01 | ✅ #published | 2026-01-01 |
 | **H002** | `HIST.L02` | Long | The Biological Reality of GLP-1: Fuel vs. Motivation | 2026-03-24 | ✅ #published | 2026-03-24 |
 | **H003** | `HIST.L03` | Long | The Nervous System Secret to Consistent Gains | 2026-01-22 | ✅ #published | 2026-01-22 |
