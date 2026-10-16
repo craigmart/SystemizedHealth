@@ -91,36 +91,41 @@ For any active pillar (or Lab) during a given week, content drops according to t
 
 ## 5. End-to-End Production Workflow
 
-The content rotation schedule links directly with Dr. Anderson's analog-to-camera production standard:
+The content rotation schedule links directly with Dr. Anderson's analog-to-camera production standard and the 16-beat checklist ([`SOPs/checklist261016.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/checklist261016.md) & [`SOPs/checklistdefinitions261016.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/checklistdefinitions261016.md)):
 
 ```
 ┌────────────────────────────────────────────────────────┐
-│ 1. PIPELINE INSPECTION (Web App)                       │
-│    Review next video due in 3-week runway.             │
-│    Note Level (e.g. Level 3) & Pillar (e.g. Play).     │
+│ 1. PIPELINE INSPECTION & PACKAGING (#idea)             │
+│    Review next video in 3-month rotation runway.       │
+│    Validate revealed preference viewer demand.         │
+│    Lock working title (vidIQ 90+) & draft thumbnail.   │
+│    Select Connected Video upfront for seamless CTA.    │
 ├────────────────────────────────────────────────────────┤
-│ 2. RESEARCH & OUTLINE (App & Analog 3x5 Card)          │
+│ 2. RESEARCH & OUTLINE (#write)                         │
 │    Research clinical studies in Gemini Notebook.       │
+│    Define non-negotiable Acceptance Criteria.          │
 │    Draft outline in App text box (synced to Supabase): │
-│    • Long (5 Beats): Hook, Mindset, Story, Teach, Act  │
+│    • Long (5 Beats): 4 Ps Hook, Body, Connected CTA    │
 │    • Short (3 Beats): Hook, Teach, Action              │
 │    Distill anchor triggers onto physical 3x5 card.     │
 ├────────────────────────────────────────────────────────┤
-│ 3. DIRECT-TO-CAMERA FILMING                            │
+│ 3. DIRECT-TO-CAMERA FILMING (#film)                    │
 │    Record video using 3x5 card as an anchor.           │
 │    Set video status to #edit in App.                   │
 ├────────────────────────────────────────────────────────┤
-│ 4. TRANSCRIPT INGESTION (Force Multiplier Suite)       │
+│ 4. TRANSCRIPT INGESTION & EDITING (#edit)              │
 │    Paste final spoken transcript into raw_transcript.  │
 │    Agent automatically triggers:                       │
 │    • vidIQ title scoring (90+ viral rating)            │
 │    • Obsidian Vault script archiving                   │
 │    • Zettelkasten proposition mining & JDex mapping    │
-│    • Status progression to #uploaded / #published      │
+│    Pace B-roll & enhance audio to broadcast levels.    │
 ├────────────────────────────────────────────────────────┤
-│ 5. ZETTELKASTEN 3x5 CARD FILING                        │
-│    Review extracted propositions in App / Obsidian.    │
+│ 5. UPLOAD & POST-PUBLISH AUDITS (#uploaded/#published) │
+│    Upload to Studio; set End Screen & Pinned Comment.  │
 │    File physical 3x5 proposition cards in analog box.  │
+│    Save finalized package back to Gemini Notebook.     │
+│    Conduct 48-hr satisfaction audit (retention, ratio).│
 │    Mark cards complete to exit Work in Progress.       │
 └────────────────────────────────────────────────────────┘
 ```

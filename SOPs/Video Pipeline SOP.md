@@ -179,11 +179,17 @@ Videos are produced using Dr. Anderson's streamlined analog-to-camera workflow, 
 ┌────────────────────────────────────────────────────────┐
 │ [Code] Working Title (Long Video)                      │
 ├────────────────────────────────────────────────────────┤
-│ 1. THE HOOK: Relatable myth, patient fear, or friction │
-│ 2. THE MINDSET: Perspective shift / reframing beliefs  │
-│ 3. THE STORY: Clinical case, patient journey, metaphor │
-│ 4. THE TEACHING: Anatomical/neurological mechanism     │
-│ 5. THE ACTION: Actionable drill + CTA (call.sys...)    │
+│ 1. THE 4 Ps HOOK:                                      │
+│    • Promise: Immediate click confirmation             │
+│    • Proof: Clinical authority / reason to listen      │
+│    • Plan: 30-second roadmap of the video              │
+│    • Persona: Exactly who this video is for            │
+│ 2–4. THE BODY (Acceptance Criteria):                   │
+│    • Deliver decomposed criteria components directly   │
+│    • Natural Mid-roll mention of Connected Video       │
+│ 5. CONNECTED VIDEO CTA:                                │
+│    • Pitch designated connected video for next session │
+│    • Mandatory short link: call.systemizedhealth.com   │
 └────────────────────────────────────────────────────────┘
 ```
 
@@ -202,6 +208,8 @@ Videos are produced using Dr. Anderson's streamlined analog-to-camera workflow, 
 1. **Gemini Notebook Research**: Dr. Anderson reviews research, clinical seminar transcripts, and analogies in Gemini Notebook.
 2. **App Outline & 3x5 Index Card**:
    - Dr. Anderson drafts the outline in the web App's dedicated **Video Script Outline** text box (pre-populated with the 5-beat long or 3-beat short starter template).
+   - Establishes non-negotiable **Acceptance Criteria**: *"What must be true by the end of this video for the title to be 100% fulfilled?"*
+   - Selects the **Connected Video** upfront to build seamless watch sessions.
    - Distills key triggers onto a physical 3x5 index card as an anchor for camera recording.
 3. **Video Production Log & Notes**:
    - Dr. Anderson drops ideas, research links, and production notes into the **Video Production Log** in the web App.
@@ -248,21 +256,32 @@ After filming, when Dr. Anderson begins editing (Descript, YouTube Creator, etc.
 5. **Pipeline & Database Synchronization**:
    - Updates Supabase and SQLite, refreshes `docs/video_pipeline_cache.json`, and appends a dated entry to the `## Changelog`.
 
-### 6.1 Video Checklists: Long Videos vs. Shorts
+### 6.1 Authoritative Production Checklist (6 Phases • 16 Core Beats)
 
-The web App's per-video production checklist dynamically adapts based on video format to keep your workflow streamlined:
+The web App and video pages enforce Dr. Anderson's standardized 16-beat checklist ([`SOPs/checklist261016.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/checklist261016.md) & [`SOPs/checklistdefinitions261016.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/checklistdefinitions261016.md)). The checklist buttons directly mirror the status tag dropdown options:
 
-* **Long-Form Videos (`Long`)**:
-  1. *Planning*: Gemini Notebook research, 3x5 card drafted (4 beats).
-  2. *Filming*: Direct-to-camera recorded using 3x5 card anchor.
-  3. *Editing*: Spoken transcript pasted, B-roll added, Sound & audio enhanced, vidIQ title scored (90+), Obsidian & JDex archived.
-  4. *Publishing & Archive*: YouTube Studio upload & CTA, custom thumbnail uploaded, scheduled for drop date, physical 3x5 main cards filed (marks card creation complete to exit Work in Progress), and save YouTube link to Gemini Notebook.
+| Phase Tag | Task Item | Operational Standard |
+| :--- | :--- | :--- |
+| **`#idea`** | **Topic Demand validated** | Validate viewer revealed preference (view baseline/ceiling); check search/browse demand; choose goal-oriented Playlist. |
+| | **Title Selected** | Lock working title before writing, targeting 90+ vidIQ viral score without episode numbers. |
+| | **Thumbnail Drafted** | Rough out 1-second glance graphic opening curiosity gap that leads eyes into title. |
+| | **Connected video chosen** | Select older channel video as the natural next step for mid-roll mention & End Screen. |
+| **`#write`** | **Gemini Notebook research** | Synthesize clinical notes, analogies, and lecture transcripts into core conceptual anchor. |
+| | **Acceptance criteria** | Define non-negotiable proof: *"What must be true by end of video for title to be 100% fulfilled?"* |
+| | **3×5 card drafted (5 beats)** | Distill triggers onto physical card: 4 Ps Hook, Acceptance Criteria body, connected video, CTA. |
+| **`#film`** | **Direct-to-camera recorded** | Loosely scripted, conversational, direct-to-camera delivery using 3×5 card as anchor. |
+| **`#edit`** | **Spoken transcript pasted** | Drop exact final transcript into App for JDex mining, vidIQ scoring, and Obsidian archiving. |
+| | **B-roll & pacing matched** | Trim dead space; calibrate visual polish and B-roll to preserve doctor-patient trust. |
+| | **Sound & audio enhanced** | Dialogue cleanup, de-reverb, noise floor removal, and broadcast limiting. |
+| **`#uploaded`** | **Custom thumbnail uploaded** | Verify contrast and readability on mobile feeds / dark mode (max 3 words). |
+| | **Studio upload & End Screen** | Upload to YouTube Studio, assign Playlist, and link End Screen directly to Connected Video. |
+| | **Pinned comment link** | Post & pin top comment with curiosity hook linking to the pre-chosen Connected Video. |
+| | **Scheduled for drop date** | Set authoritative drop date and time slot in YouTube Studio. |
+| **`#published`** | **3×5 main cards filed** | Write 1–2 clinical propositions on physical 3×5 cards and file into analog Zettelkasten box. |
+| | **Save to Gemini Notebook** | Archive completed transcript, titles, and notes back into Gemini Notebook for future rotation. |
+| | **48-hr satisfaction audit** | Audit comment sentiment, like ratio, sub conversion, and retention curve dips in Studio (does not block WIP until 48h post-drop). |
 
-* **Shorts (`Short` / `-S[N]`)**:
-  1. *Writing*: Create 3x5 card, Write script outline (back of card).
-  2. *Filming*: Film short video.
-  3. *Editing*: Video edited (captions, audio), Spoken transcript pasted, vidIQ title/hook scored (90+), Obsidian & JDex archived.
-  4. *Publishing & Archive*: YouTube Shorts upload & CTA, scheduled for drop date, physical 3x5 cards filed, and save YouTube link to Gemini Notebook.
+> For full psychological rationale, script breakdown formulas, and detailed step definitions, see the [Workflow Reference Guide](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/checklistdefinitions261016.md) (or click *"View Checklist Definitions"* in the web App).
 
 ---
 

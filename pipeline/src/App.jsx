@@ -41,8 +41,7 @@ export const CHECKLIST_ITEMS = [
   // PUBLISHED (#published)
   { key: 'pub_cards', phase: '#published', label: '3×5 main cards filed' },
   { key: 'archive_gemini_notebook', phase: '#published', label: 'Save to Gemini Notebook' },
-  { key: 'archive_audit_48h', phase: '#published', label: '48-hr satisfaction audit' },
-  { key: 'archive_catalog_audit', phase: '#published', label: 'Catalog audit' }
+  { key: 'archive_audit_48h', phase: '#published', label: '48-hr satisfaction audit' }
 ];
 
 export const LONG_VIDEO_CHECKLIST_ITEMS = CHECKLIST_ITEMS;
@@ -672,10 +671,17 @@ function App() {
         return { step: 'Save to Gemini Notebook', type: 'checklist' };
       }
       if (!checklist.archive_audit_48h && !video.code?.startsWith('HIST')) {
-        return { step: '48-hr satisfaction audit', type: 'checklist' };
-      }
-      if (!checklist.archive_catalog_audit && !video.code?.startsWith('HIST')) {
-        return { step: 'Catalog audit', type: 'checklist' };
+        const publishDateStr = video.drop_date || video.uploaded_date;
+        let hoursPassed = 999;
+        if (publishDateStr) {
+          const publishDate = parseISO(publishDateStr);
+          if (!isNaN(publishDate.getTime())) {
+            hoursPassed = (Date.now() - publishDate.getTime()) / (1000 * 60 * 60);
+          }
+        }
+        if (hoursPassed >= 48) {
+          return { step: '48-hr satisfaction audit', type: 'checklist' };
+        }
       }
       if (checklist.custom_tasks && Array.isArray(checklist.custom_tasks)) {
         const pendingCustom = checklist.custom_tasks.find(t => !t.done);
@@ -889,6 +895,20 @@ function App() {
       for (const item of baseItems) {
         if (item.key === 'pub_cards') {
           if (!chk.pub_cards || !video.cards_created) return true;
+        } else if (item.key === 'archive_audit_48h') {
+          if (!chk.archive_audit_48h) {
+            const publishDateStr = video.drop_date || video.uploaded_date;
+            if (publishDateStr) {
+              const publishDate = parseISO(publishDateStr);
+              if (!isNaN(publishDate.getTime())) {
+                const hoursPassed = (Date.now() - publishDate.getTime()) / (1000 * 60 * 60);
+                if (hoursPassed < 48) {
+                  continue; // Don't show in WIP until 48 hours have elapsed
+                }
+              }
+            }
+            return true;
+          }
         } else if (!chk[item.key]) {
           return true;
         }
@@ -3565,7 +3585,7 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
             </button>
 
             <span style={{ color: 'var(--text-secondary)', fontSize: '0.75rem', fontWeight: '500' }}>
-              6 Phases • 16 Core Beats
+              6 Phases • 15 Core Beats
             </span>
           </div>
         </div>

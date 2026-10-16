@@ -57,6 +57,9 @@ Videos are produced using Dr. Anderson's streamlined analog-to-camera workflow, 
 6. **Working Title Editing & Published Title Sync**:
    - For un-published videos, Dr. Anderson can freely edit the working title directly in the web App. Saving an updated title automatically appends a timestamped log entry to the Video Production Log (`notes`).
    - Once published (`#published`), titles are locked from manual editing in the App; their authoritative final titles are pulled from YouTube Studio via `scripts/sync_published_videos.py` (vidIQ MCP sync).
+7. **Production Checklist & Workflow Guide**:
+   - All videos follow the standardized 6-phase, 16-beat checklist ([`SOPs/checklist261016.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/checklist261016.md) and [`SOPs/checklistdefinitions261016.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/checklistdefinitions261016.md)).
+   - Checklist filter tabs in the web App mirror the status dropdown options 1:1 (`#idea`, `#write`, `#film`, `#edit`, `#uploaded`, `#published`).
 
 ---
 

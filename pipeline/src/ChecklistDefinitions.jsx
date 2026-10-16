@@ -235,15 +235,6 @@ export const WORKFLOW_DEFINITIONS = [
           'Analyze positive comment-to-view ratio, like-to-view ratio, and sub conversion.',
           'Inspect the YouTube Studio retention curve for sudden drop-offs and trim offending segments if necessary.'
         ]
-      },
-      {
-        key: 'archive_catalog_audit',
-        label: 'Catalog audit',
-        summary: 'Keep channel catalog pristine and algorithm-friendly.',
-        details: [
-          'If this video supersedes an outdated zero-view video on the same topic, consider unlisting the obsolete one.',
-          'Ensure older connected videos have matching modern thumbnail styling so new viewers recognize your current visual branding.'
-        ]
       }
     ]
   }

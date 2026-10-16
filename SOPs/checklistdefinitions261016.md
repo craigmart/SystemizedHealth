@@ -32,4 +32,3 @@
 - **3×5 main cards filed:** File the physical index cards into your card box.
 - **Save to Gemini Notebook:** Archive the completed video transcript and final notes back into Gemini Notebook.
 - **48-hr satisfaction audit:** Evaluate viewer satisfaction via the positive comment-to-view ratio (qualitative praise), like-to-view ratio, and sub-to-view ratio. Inspect the retention curve for sharp drop-offs and trim out offending segments in YouTube Studio if needed.
-- **Catalog audit:** Keep your channel clean for the algorithm. If this new video replaces an outdated, zero-view video on the same topic, consider unlisting the obsolete one (keeping at least 50%+ of your channel public). If an older connected video has an outdated thumbnail style, refresh it so new viewers recognize your current visual branding.

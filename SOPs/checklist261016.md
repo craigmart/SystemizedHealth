@@ -29,4 +29,3 @@
 - [ ] 3×5 main cards filed
 - [ ] Save to Gemini Notebook
 - [ ] 48-hr satisfaction audit
-- [ ] Catalog audit

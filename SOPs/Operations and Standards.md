@@ -67,22 +67,25 @@ Every video—regardless of whether it is a long-form video or a short-form vide
 Content creation moves through two streamlined phases, eliminating teleprompter reading in favor of authentic clinical delivery and high-leverage post-recording automation:
 
 ### Phase I: The 3x5 Card & Direct-to-Camera Filming (Dr. Anderson)
-- **Gemini Notebook Research**: Dr. Anderson mines his clinical lecture archives and transcripts for core analogies and neurological mechanisms.
-- **The 3x5 Card Formulation**: Distills the concept onto a physical 3x5 index card using the 4-Beat Formula:
-  1. *Hook*: Relatable patient friction or myth.
-  2. *Glitch*: The anatomical or neurological mechanism.
-  3. *Analogy*: The clinical teaching metaphor.
-  4. *Protocol & CTA*: Actionable drill/test + `call.systemizedhealth.com`.
+- **Gemini Notebook Research & Packaging**: Dr. Anderson validates topic demand, mines clinical lecture archives for core mechanisms, drafts working title (vidIQ 90+ target), concepts the thumbnail, and designates the connected next video upfront.
+- **Acceptance Criteria**: Establishes non-negotiable proof: *"What must be true by the end of this video for the title to be 100% fulfilled?"*
+- **The 3x5 Card Formulation**: Distills the concept onto a physical 3x5 index card using the 5-Beat Formula:
+  1. *The 4 Ps Hook*: Promise (confirm click), Proof (clinical authority), Plan (roadmap), Persona (who it's for).
+  2–4. *The Body (Acceptance Criteria)*: Deliver on decomposed criteria directly + natural mid-roll mention of Connected Video.
+  5. *Connected Video CTA*: Dedicated pitch for the connected video + `call.systemizedhealth.com`.
 - **Direct-to-Camera Filming**: Dr. Anderson records a personal, unhurried video directly to camera using the card as a mental anchor.
 - **App Logging**: Sets the video status to `#edit` in the web App.
 
 ### Phase II: Post-Recording Ingestion & Force Multiplier Suite (AI Technical Editor)
 When Dr. Anderson begins editing (Descript, YouTube Creator, etc.) and drops the **final exact spoken transcript** into the web App's `raw_transcript` field:
-1. **vidIQ Title Optimization**: Generates and tests 4–5 title variations with live vidIQ CTR scores (targeting 90+).
+1. **vidIQ Title Optimization**: Generates and scores 4–5 title variations with live vidIQ CTR scores (targeting 90+).
 2. **Obsidian Vault Archiving**: Formats `Obsidian_Vault/Zettlekasten/[Code] Script - [Title].md` to preserve the final transcript as a permanent clinical study and reference document under `## Final Spoken Transcript`.
 3. **Zettelkasten Proposition Mining**: Extracts 1–2 sharp clinical propositions from the spoken text and maps them to their respective JDex files in `Obsidian_Vault/JDex/` and Workflowy.
-4. **Waterfall Shorts Extraction**: Identifies the 3 best 30–60 second segments (`-S1`, `-S2`, `-S3`) to cut as waterfall shorts, complete with short-form hooks and editing timestamps.
-5. **Database Sync & Changelog**: Updates Supabase/SQLite, refreshes the local cache, and appends a dated log entry to the script file.
+4. **Waterfall Ideation (Standalone Productions)**: Sub-angles for standalone shorts are ideated in Gemini Notebook and recorded as independent, direct-to-camera productions (shorts are never cut from the long video during editing).
+5. **Publishing & Post-Drop Audits**: Custom thumbnail uploaded, End Screen & pinned comment linked to designated Connected Video, physical 3x5 main cards filed in analog box (`cards_created = true`), and 48-hr satisfaction audit conducted (does not block Work in Progress until 48 hours post-drop).
+6. **Database Sync & Changelog**: Updates Supabase/SQLite, refreshes the local cache, and appends a dated log entry to the script file.
+
+> Reference Standards: See [`SOPs/checklist261016.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/checklist261016.md) and [`SOPs/checklistdefinitions261016.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/checklistdefinitions261016.md) for complete checklist definitions and psychological rationale.
 
 ---
 
