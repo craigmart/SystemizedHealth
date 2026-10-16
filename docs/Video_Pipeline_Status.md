@@ -1,6 +1,6 @@
 # Video Pipeline Status
 
-> **Source of truth:** Supabase `videos` table  |  Generated: 2026-10-15
+> **Source of truth:** Supabase `videos` table  |  Generated: 2026-10-16
 > To update status: `python3 scripts/video_pipeline.py --status <code> <status>`
 
 ---
@@ -36,20 +36,20 @@
 | **025** | `80.V2C1` | Long | Why AI Can't Replace the Human Part of You | 2026-09-14 | ✅ #published | 2026-09-14 |
 | **026** | `80.V2C1-S1` | Short | The One Mindset to Save Your Brain When Using AI | 2026-09-15 | ✅ #published | 2026-09-15 |
 | **027** | `80.V2A1-S2A` | Short | This is Your Default Setting | 2026-09-17 | ✅ #published | — |
-| **028** | `80.V2A1-S3A` | Short | Task Positive Network and Scrolling | 2026-09-19 | ✅ #published | — |
-| **029** | `80.V3A1` | Long | The 5 Stages of Brain Aging (And How to Stay Sharp Into Your 90s) | 2026-09-24 | ✅ #published | — |
-| **030** | `80.V3A1-S1` | Short | Play is how you learn new things | 2026-09-25 | ✅ #published | — |
-| **031** | `80.V3A1-S2` | Short | When Was the Last Time You Just Played? | 2026-09-26 | ✅ #published | — |
+| **028** | `80.V2A1-S3A` | Short | Why you feel anxious when you're bored | 2026-09-19 | ✅ #published | 2026-09-19 |
+| **029** | `80.V3A1` | Long | The 5 Stages of Brain Aging (And How to Stay Sharp Into Your 90s) | 2026-09-24 | ✅ #published | 2026-09-25 |
+| **030** | `80.V3A1-S1` | Short | You got to play as an adult | 2026-09-25 | ✅ #published | 2026-09-25 |
+| **031** | `80.V3A1-S2` | Short | When Was the Last Time You Just Played? | 2026-09-26 | ✅ #published | 2026-09-26 |
 | **033** | `80.V1A` | Long | The real reason you're exhausted at 3pm | 2026-08-17 | ✅ #published | 2026-08-17 |
 | **034** | `80.V1A-S1` | Short | The Mid-Afternoon Crash | 2026-08-18 | ✅ #published | — |
 | **035** | `80.V1A-S2` | Short | Cellular Hydration | 2026-08-20 | ✅ #published | — |
 | **036** | `80.V1A-S3` | Short | Diets wont work, here's what does. | 2026-08-21 | ✅ #published | 2026-08-21 |
-| **038** | `80.V3B1-S1` | Short | Your Brain Is Full Do This Now | 2026-10-07 | ✅ #published | — |
-| **039** | `80.V3B1-S2` | Short | How 3 Simple Lists Free Up Mental Space | 2026-10-08 | ✅ #published | — |
-| **040** | `80.V3B1-S3` | Short | The 30 Second Fix For Creative Block | 2026-10-10 | ✅ #published | — |
-| **045** | `80.V1A2` | Long | Energy Management for Life: The Simple Way to Intermittent Fast | 2026-10-12 | ✅ #published | — |
-| **046** | `80.V1A2-S1` | Short | Intermittent Fasting Works Better When You Feast Sometimes | 2026-10-13 | ✅ #published | — |
-| **049** | `80.V2A2` | Long | What Daily Journaling Actually Does to Your Brain (The Neuroscience) | — | 📝 #write | — |
+| **038** | `80.V3B1-S1` | Short | Your Brain Is Full Do This Now | 2026-10-07 | ✅ #published | 2026-10-07 |
+| **039** | `80.V3B1-S2` | Short | How 3 Simple Lists Free Up Mental Space | 2026-10-08 | ✅ #published | 2026-10-08 |
+| **040** | `80.V3B1-S3` | Short | The 30 Second Fix For Creative Block | 2026-10-10 | ✅ #published | 2026-10-10 |
+| **045** | `80.V1A2` | Long | After 29 Years With Patients my Intermittent Fasting Plan for Steady Energy | 2026-10-12 | ✅ #published | 2026-10-13 |
+| **046** | `80.V1A2-S1` | Short | Intermittent Fasting Works Better When You Feast Sometimes | 2026-10-13 | ✅ #published | 2026-10-13 |
+| **049** | `80.V2A2` | Long | A doctor reviews what Daily Journaling Actually Does to Your Brain (The Neuroscience) | 2026-10-21 | 📝 #write | — |
 | **053** | `80.V2B2` | Long | Why Digital Health Apps Keep Failing You (And Why Paper Fixes It) | — | 💡 #idea | — |
 | **057** | `80.V4-02` | Long | Level 4 (Lab) — User Discretion | — | 💡 #idea | — |
 | **061** | `80.V2C2` | Long | Prayer and DMN | — | 📝 #write | — |
@@ -60,13 +60,13 @@
 | **081** | `80.V1A3` | Long | Level 1 (Foundational) — Fuel | — | 💡 #idea | — |
 | **097** | `80.V3B2` | Long | How a Doctor Tracks His Health in a Bullet Journal (No Art, No Apps) | — | 💡 #idea | — |
 | **105** | `80.V1B4` | Long | Level 1 (Foundational) — Move | — | 💡 #idea | — |
-| **245** | `80.V2A-S4` | Short | Buffers make you more productive | 2026-09-28 | ✅ #published | 2026-09-30 |
-| **246** | `80.V3A1-S3` | Short | Who’s brains are better connected, men or women? | 2026-09-29 | ✅ #published | — |
-| **247** | `80.V1A0-S1` | Short | Diet drugs and Ambition | 2026-09-30 | ✅ #published | — |
-| **248** | `80.V3B1` | Long | 90 Months of bullet journaling | 2026-10-03 | ✅ #published | — |
-| **249** | `80.V1B3-A1` | Short | Run with Dr A #1 | 2026-10-04 | ✅ #published | — |
-| **250** | `80.V3B1-S4` | Short | Control Your Day | 2026-10-06 | ✅ #published | — |
-| **251** | `80.V1A2-A` | Long | The Fasting & Energy Log: The Simple 2-Page Spread for Metabolic Health | 2026-10-20 | 📝 #write | — |
+| **245** | `80.V2A-S4` | Short | Buffers make you more productive | 2026-09-28 | ✅ #published | 2026-09-28 |
+| **246** | `80.V3A1-S3` | Short | Who’s brains are better connected, men or women? | 2026-09-29 | ✅ #published | 2026-09-30 |
+| **247** | `80.V1A0-S1` | Short | What WeightLoss Drugs do to your Drive for Success | 2026-09-30 | ✅ #published | 2026-10-03 |
+| **248** | `80.V3B1` | Long | My Simple Bullet Journal Setup After 7 1/2 Years of use (No Art Needed) | 2026-10-03 | ✅ #published | 2026-10-03 |
+| **249** | `80.V1B3-A1` | Short | Start Running with me at 55 years old from zero. | 2026-10-04 | ✅ #published | 2026-10-04 |
+| **250** | `80.V3B1-S4` | Short | Overwhelmed in the Morning Write This Down | 2026-10-06 | ✅ #published | 2026-10-06 |
+| **251** | `80.V1A2-A` | Long | The Fasting & Energy Log: The Science | 2026-10-29 | 📝 #write | — |
 | **H001** | `HIST.L01` | Long | The Biological Requirement for Weekly Structure | 2026-01-01 | ✅ #published | 2026-01-01 |
 | **H002** | `HIST.L02` | Long | The Biological Reality of GLP-1: Fuel vs. Motivation | 2026-03-24 | ✅ #published | 2026-03-24 |
 | **H003** | `HIST.L03` | Long | The Nervous System Secret to Consistent Gains | 2026-01-22 | ✅ #published | 2026-01-22 |

@@ -4,52 +4,61 @@ import {
   Calendar, CheckSquare, AlertCircle, RefreshCw, ChevronLeft, Save, Tag, 
   TrendingUp, Clock, FileVideo, Scissors, Film, X, ExternalLink,
   Check, MessageSquare, Plus, Trash2, ListTodo, FileText, CheckCircle2, Lightbulb, Link,
-  Sparkles, FileEdit, Search, Share2, Eye, Edit3
+  Sparkles, FileEdit, Search, Share2, Eye, Edit3, Play, BookOpen
 } from 'lucide-react';
 import { addDays, isBefore, parseISO, differenceInDays, format } from 'date-fns';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import remarkBreaks from 'remark-breaks';
+import ChecklistDefinitions from './ChecklistDefinitions';
 
-export const LONG_VIDEO_CHECKLIST_ITEMS = [
+export const CHECKLIST_ITEMS = [
+  // IDEA (#idea)
+  { key: 'idea_demand', phase: 'Idea', label: 'Topic Demand validated' },
+  { key: 'idea_title', phase: 'Idea', label: 'Title Selected' },
+  { key: 'idea_thumb', phase: 'Idea', label: 'Thumbnail Drafted' },
+  { key: 'idea_connected', phase: 'Idea', label: 'Connected video chosen' },
+
+  // WRITING (#write)
   { key: 'prep_notebook', phase: 'Writing', label: 'Gemini Notebook research' },
-  { key: 'prep_card', phase: 'Writing', label: '3x5 card drafted (5 beats)' },
+  { key: 'prep_acceptance', phase: 'Writing', label: 'Acceptance criteria' },
+  { key: 'prep_card', phase: 'Writing', label: '3×5 card drafted (5 beats)' },
+
+  // FILMING (#film)
   { key: 'film_recorded', phase: 'Filming', label: 'Direct-to-camera recorded' },
+
+  // EDITING (#edit)
   { key: 'edit_transcript', phase: 'Editing', label: 'Spoken transcript pasted' },
-  { key: 'edit_broll', phase: 'Editing', label: 'B-roll added' },
+  { key: 'edit_broll', phase: 'Editing', label: 'B-roll & pacing matched' },
   { key: 'edit_sound', phase: 'Editing', label: 'Sound & audio enhanced' },
-  { key: 'edit_vidiq', phase: 'Editing', label: 'vidIQ title scored (90+)' },
-  { key: 'edit_obsidian', phase: 'Editing', label: 'Obsidian & JDex archived' },
-  { key: 'pub_upload', phase: 'Publishing', label: 'YouTube Studio upload & CTA' },
+
+  // PUBLISHING (#uploaded / #published)
   { key: 'pub_thumb', phase: 'Publishing', label: 'Custom thumbnail uploaded' },
+  { key: 'pub_upload', phase: 'Publishing', label: 'Studio upload & End Screen' },
+  { key: 'pub_pinned', phase: 'Publishing', label: 'Pinned comment link' },
   { key: 'pub_schedule', phase: 'Publishing', label: 'Scheduled for drop date' },
-  { key: 'pub_cards', phase: 'Archived', label: 'Physical 3x5 main cards filed' },
+
+  // ARCHIVED (#published)
+  { key: 'pub_cards', phase: 'Archived', label: '3×5 main cards filed' },
   { key: 'archive_gemini_notebook', phase: 'Archived', label: 'Save to Gemini Notebook' },
+  { key: 'archive_audit_48h', phase: 'Archived', label: '48-hr satisfaction audit' },
+  { key: 'archive_catalog_audit', phase: 'Archived', label: 'Catalog audit' }
 ];
 
-export const SHORT_VIDEO_CHECKLIST_ITEMS = [
-  { key: 'short_card', phase: 'Writing', label: 'Create 3x5 card' },
-  { key: 'short_outline', phase: 'Writing', label: 'Write script outline (back of card)' },
-  { key: 'short_film', phase: 'Filming', label: 'Film short video' },
-  { key: 'short_descript', phase: 'Editing', label: 'Video edited (captions, audio)' },
-  { key: 'edit_transcript', phase: 'Editing', label: 'Spoken transcript pasted' },
-  { key: 'edit_vidiq', phase: 'Editing', label: 'vidIQ title/hook scored (90+)' },
-  { key: 'edit_obsidian', phase: 'Editing', label: 'Obsidian & JDex archived' },
-  { key: 'pub_upload', phase: 'Publishing', label: 'YouTube Shorts upload & CTA' },
-  { key: 'pub_schedule', phase: 'Publishing', label: 'Scheduled for drop date' },
-  { key: 'pub_cards', phase: 'Archived', label: 'Physical 3x5 cards filed' },
-  { key: 'archive_gemini_notebook', phase: 'Archived', label: 'Save to Gemini Notebook' },
-];
+export const LONG_VIDEO_CHECKLIST_ITEMS = CHECKLIST_ITEMS;
+export const SHORT_VIDEO_CHECKLIST_ITEMS = CHECKLIST_ITEMS;
 
-export const LONG_CHECKLIST_PHASES = ['All', 'Writing', 'Filming', 'Editing', 'Publishing', 'Archived'];
-export const SHORT_CHECKLIST_PHASES = ['All', 'Writing', 'Filming', 'Editing', 'Publishing', 'Archived'];
+export const CHECKLIST_PHASES = ['All', 'Idea', 'Writing', 'Filming', 'Editing', 'Publishing', 'Archived'];
+export const LONG_CHECKLIST_PHASES = CHECKLIST_PHASES;
+export const SHORT_CHECKLIST_PHASES = CHECKLIST_PHASES;
 
 export const getChecklistPhaseForStatus = (status) => {
   if (!status) return 'All';
   const clean = status.toLowerCase().replace('#', '').trim();
   switch (clean) {
-    case 'write':
     case 'idea':
+      return 'Idea';
+    case 'write':
       return 'Writing';
     case 'film':
       return 'Filming';
@@ -58,6 +67,7 @@ export const getChecklistPhaseForStatus = (status) => {
     case 'uploaded':
       return 'Publishing';
     case 'published':
+    case 'archived':
       return 'Archived';
     default:
       return 'All';
@@ -68,17 +78,19 @@ export const getCompletedPhasesForStatus = (status) => {
   if (!status) return [];
   const clean = status.toLowerCase().replace('#', '').trim();
   switch (clean) {
+    case 'write':
+      return ['Idea'];
     case 'film':
-      return ['Writing'];
+      return ['Idea', 'Writing'];
     case 'edit':
-      return ['Writing', 'Filming'];
+      return ['Idea', 'Writing', 'Filming'];
     case 'uploaded':
-      return ['Writing', 'Filming', 'Editing'];
+      return ['Idea', 'Writing', 'Filming', 'Editing'];
     case 'published':
-      return ['Writing', 'Filming', 'Editing', 'Publishing'];
+      return ['Idea', 'Writing', 'Filming', 'Editing', 'Publishing'];
     case 'archived':
     case 'archive':
-      return ['Writing', 'Filming', 'Editing', 'Publishing', 'Archived'];
+      return ['Idea', 'Writing', 'Filming', 'Editing', 'Publishing', 'Archived'];
     default:
       return [];
   }
@@ -106,6 +118,19 @@ export const getStarterOutline = (formatType, code) => {
 1C3 - Point #3: 
 1D - Close: 
 1E - CTA: `;
+};
+
+export const getYouTubeUrl = (video) => {
+  if (!video) return null;
+  const yId = video.youtube_id;
+  const isShort = video.format_type === 'Short' || video.code?.includes('-S') || video.format_type?.toLowerCase().includes('short');
+  if (yId && typeof yId === 'string' && yId.trim()) {
+    const cleanId = yId.trim();
+    return isShort
+      ? `https://www.youtube.com/shorts/${cleanId}`
+      : `https://youtu.be/${cleanId}`;
+  }
+  return null;
 };
 
 export const getAutoCompletedChecklist = (status, currentChecklist, isShort) => {
@@ -183,6 +208,7 @@ function App() {
   const [metricModal, setMetricModal] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [showAddModal, setShowAddModal] = useState(false);
+  const [showDefinitionsPage, setShowDefinitionsPage] = useState(false);
   const [editingWipDateCode, setEditingWipDateCode] = useState(null);
   const [wipDateValue, setWipDateValue] = useState('');
   const [savingWipDate, setSavingWipDate] = useState(false);
@@ -645,6 +671,12 @@ function App() {
       if (!checklist.archive_gemini_notebook && !video.code?.startsWith('HIST')) {
         return { step: 'Save to Gemini Notebook', type: 'checklist' };
       }
+      if (!checklist.archive_audit_48h && !video.code?.startsWith('HIST')) {
+        return { step: '48-hr satisfaction audit', type: 'checklist' };
+      }
+      if (!checklist.archive_catalog_audit && !video.code?.startsWith('HIST')) {
+        return { step: 'Catalog audit', type: 'checklist' };
+      }
       if (checklist.custom_tasks && Array.isArray(checklist.custom_tasks)) {
         const pendingCustom = checklist.custom_tasks.find(t => !t.done);
         if (pendingCustom) {
@@ -654,8 +686,12 @@ function App() {
       return { step: 'Completed & published', type: 'done' };
     }
 
-    // 3. Uploaded videos
+    // 3. Uploaded videos (#uploaded)
     if (video.status === '#uploaded') {
+      if (!checklist.pub_thumb) return { step: 'Custom thumbnail uploaded', type: 'checklist' };
+      if (!checklist.pub_upload) return { step: 'Studio upload & End Screen', type: 'checklist' };
+      if (!checklist.pub_pinned) return { step: 'Pinned comment link', type: 'checklist' };
+      if (!checklist.pub_schedule) return { step: 'Scheduled for drop date', type: 'checklist' };
       return { step: 'Confirm YouTube Studio release', type: 'publish' };
     }
 
@@ -664,15 +700,9 @@ function App() {
       if (!video.raw_transcript || !video.raw_transcript.trim()) {
         return { step: 'Paste spoken transcript into App', type: 'action' };
       }
-
-      const items = isShort ? SHORT_VIDEO_CHECKLIST_ITEMS : LONG_VIDEO_CHECKLIST_ITEMS;
-      for (const item of items) {
-        if (item.phase === 'Archived') continue;
-        if (item.phase === 'Planning' || item.phase === 'Writing' || item.phase === 'Filming') continue;
-        if (!checklist[item.key]) {
-          return { step: item.label, type: 'checklist' };
-        }
-      }
+      if (!checklist.edit_transcript) return { step: 'Spoken transcript pasted', type: 'checklist' };
+      if (!checklist.edit_broll) return { step: 'B-roll & pacing matched', type: 'checklist' };
+      if (!checklist.edit_sound) return { step: 'Sound & audio enhanced', type: 'checklist' };
 
       if (checklist.custom_tasks && Array.isArray(checklist.custom_tasks)) {
         const pendingCustom = checklist.custom_tasks.find(t => !t.done);
@@ -686,31 +716,25 @@ function App() {
 
     // 5. Filming videos (#film)
     if (video.status === '#film') {
-      if (isShort && !checklist.short_film) {
-        return { step: 'Film short video', type: 'checklist' };
-      }
-      return { step: 'Film direct-to-camera', type: 'action' };
+      if (!checklist.film_recorded) return { step: 'Direct-to-camera recorded', type: 'checklist' };
+      return { step: 'Ready to edit (#edit)', type: 'action' };
     }
 
     // 6. Writing videos (#write)
     if (video.status === '#write') {
-      if (isShort) {
-        if (!checklist.short_card) return { step: 'Create 3x5 card', type: 'checklist' };
-        if (!checklist.short_outline) return { step: 'Write script outline (back of card)', type: 'checklist' };
-        return { step: 'Ready to film (#film)', type: 'action' };
-      }
-      if (video.notes && (video.notes.toLowerCase().includes('card') || video.notes.toLowerCase().includes('3x5'))) {
-        return { step: 'Finish 3x5 card & advance to #film', type: 'action' };
-      }
-      return { step: 'Draft 3x5 card (4 Beats)', type: 'action' };
+      if (!checklist.prep_notebook) return { step: 'Gemini Notebook research', type: 'checklist' };
+      if (!checklist.prep_acceptance) return { step: 'Acceptance criteria', type: 'checklist' };
+      if (!checklist.prep_card) return { step: '3×5 card drafted (5 beats)', type: 'checklist' };
+      return { step: 'Ready to film (#film)', type: 'action' };
     }
 
     // 7. Idea videos (#idea)
     if (video.status === '#idea') {
-      if (video.title === 'Placeholder' || video.code?.startsWith('TBD')) {
-        return { step: 'Topic research in Gemini Notebook', type: 'action' };
-      }
-      return { step: 'Outline 4 beats on 3x5 card', type: 'action' };
+      if (!checklist.idea_demand) return { step: 'Topic Demand validated', type: 'checklist' };
+      if (!checklist.idea_title) return { step: 'Title Selected', type: 'checklist' };
+      if (!checklist.idea_thumb) return { step: 'Thumbnail Drafted', type: 'checklist' };
+      if (!checklist.idea_connected) return { step: 'Connected video chosen', type: 'checklist' };
+      return { step: 'Ready to write (#write)', type: 'action' };
     }
 
     return { step: 'Review next step', type: 'info' };
@@ -1355,10 +1379,29 @@ function App() {
                       </div>
                       <div className="video-meta" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                         <span>Drop: {v.drop_date ? format(parseISO(v.drop_date), 'EEE, MMM d, yyyy') : 'TBD'}</span>
-                        {v.youtube_id && (
-                          <span style={{ fontSize: '0.75rem', color: 'var(--accent-color)', fontWeight: '600' }}>
-                            ▶ YouTube
-                          </span>
+                        {getYouTubeUrl(v) && (
+                          <a
+                            href={getYouTubeUrl(v)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            style={{
+                              fontSize: '0.78rem',
+                              color: '#ef4444',
+                              fontWeight: '600',
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              gap: '0.25rem',
+                              textDecoration: 'none',
+                              padding: '0.15rem 0.5rem',
+                              borderRadius: '4px',
+                              backgroundColor: 'rgba(239, 68, 68, 0.08)',
+                              border: '1px solid rgba(239, 68, 68, 0.25)'
+                            }}
+                            title="Watch video on YouTube"
+                          >
+                            <ExternalLink size={12} /> Watch
+                          </a>
                         )}
                       </div>
                     </div>
@@ -1461,9 +1504,35 @@ function App() {
                     <span className="video-title" style={{ fontWeight: isLong ? '700' : '500', fontSize: isLong ? '1.05rem' : '0.88rem' }}>
                       {displayTitle}
                     </span>
-                    <span style={{ marginLeft: 'auto', fontWeight: isLong ? '800' : '600', color: isLong ? 'var(--accent-color)' : 'var(--text-secondary)', fontSize: isLong ? '0.92rem' : '0.82rem', whiteSpace: 'nowrap' }}>
-                      {v.drop_date ? format(parseISO(v.drop_date), 'EEE, MMM d, yyyy') : 'No Date'}
-                    </span>
+                    <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '0.5rem', whiteSpace: 'nowrap' }}>
+                      {getYouTubeUrl(v) && (
+                        <a
+                          href={getYouTubeUrl(v)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          style={{
+                            fontSize: '0.75rem',
+                            color: '#ef4444',
+                            fontWeight: '600',
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '0.2rem',
+                            textDecoration: 'none',
+                            padding: '0.1rem 0.45rem',
+                            borderRadius: '4px',
+                            backgroundColor: 'rgba(239, 68, 68, 0.08)',
+                            border: '1px solid rgba(239, 68, 68, 0.25)'
+                          }}
+                          title="Watch video on YouTube"
+                        >
+                          <ExternalLink size={11} /> Watch
+                        </a>
+                      )}
+                      <span style={{ fontWeight: isLong ? '800' : '600', color: isLong ? 'var(--accent-color)' : 'var(--text-secondary)', fontSize: isLong ? '0.92rem' : '0.82rem' }}>
+                        {v.drop_date ? format(parseISO(v.drop_date), 'EEE, MMM d, yyyy') : 'No Date'}
+                      </span>
+                    </div>
                   </div>
                 </div>
               );
@@ -1476,7 +1545,7 @@ function App() {
 
   return (
     <div className="container">
-      {!currentVideo && (
+      {!currentVideo && !showDefinitionsPage && (
         <header className="section-header">
           <div>
             <h1>Systemized Pipeline</h1>
@@ -1537,6 +1606,15 @@ function App() {
               >
                 <RefreshCw size={16} className={loading ? "animate-spin" : ""} />
               </button>
+              <button
+                type="button"
+                onClick={() => setShowDefinitionsPage(true)}
+                className="btn btn-outline"
+                title="Open Workflow Reference Guide & Checklist Definitions"
+              >
+                <BookOpen size={14} />
+                <span>Guide</span>
+              </button>
               <a
                 href={isAppleMobile ? "https://studio.youtube.com" : "https://studio.youtube.com/channel/UCSnF1YqGqmNosGdX5JqY1gQ"}
                 className="btn btn-outline"
@@ -1570,8 +1648,10 @@ function App() {
         </header>
       )}
 
-      {loading && !currentVideo ? (
+      {loading && !currentVideo && !showDefinitionsPage ? (
         <p>Loading pipeline data...</p>
+      ) : showDefinitionsPage ? (
+        <ChecklistDefinitions onBack={() => setShowDefinitionsPage(false)} />
       ) : trimmedSearch ? (
         renderSearchResults()
       ) : currentVideo ? (
@@ -1588,6 +1668,7 @@ function App() {
           previousVideo={videoHistory.length > 0 ? videoHistory[videoHistory.length - 1] : null}
           onBackToPrevVideo={handleBackToPrevVideo}
           isExiting={isExiting}
+          onOpenDefinitions={() => setShowDefinitionsPage(true)}
         />
       ) : (
         renderDashboard()
@@ -1608,7 +1689,7 @@ function App() {
   );
 }
 
-function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBack, onOpenVideo, videos, previousVideo, onBackToPrevVideo, isExiting }) {
+function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBack, onOpenVideo, videos, previousVideo, onBackToPrevVideo, isExiting, onOpenDefinitions }) {
   const [localVideo, setLocalVideo] = useState(video);
   const [agentMessage, setAgentMessage] = useState(video.agent_message || '');
   const [transcript, setTranscript] = useState(video.raw_transcript || '');
@@ -2877,6 +2958,29 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
               <ExternalLink size={14} /> OB
             </a>
             {publicYouTubeUrl && (
+              <a
+                href={publicYouTubeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-outline"
+                style={{
+                  padding: '0.25rem 0.6rem',
+                  fontSize: '0.8rem',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.35rem',
+                  color: '#ef4444',
+                  borderColor: 'rgba(239, 68, 68, 0.35)',
+                  textDecoration: 'none',
+                  fontWeight: '600'
+                }}
+                title="Watch on YouTube (opens in new tab)"
+              >
+                <ExternalLink size={14} />
+                <span>Watch YT</span>
+              </a>
+            )}
+            {publicYouTubeUrl && (
               <button
                 type="button"
                 className="btn btn-outline"
@@ -3194,9 +3298,28 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
           </span>
         </button>
 
-        {/* Copy Public YouTube URL for Sharing */}
+        {/* Watch on YouTube Link & Copy Share URL */}
         {publicYouTubeUrl && (
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.65rem' }}>
+            <span style={{ color: 'var(--border-color)', userSelect: 'none' }}>•</span>
+            <a
+              href={publicYouTubeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: '#ef4444',
+                fontWeight: '600',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.25rem',
+                textDecoration: 'underline',
+                textUnderlineOffset: '2px'
+              }}
+              title="Watch video on YouTube"
+            >
+              <ExternalLink size={12} />
+              <span>Watch on YouTube</span>
+            </a>
             <span style={{ color: 'var(--border-color)', userSelect: 'none' }}>•</span>
             <button
               type="button"
@@ -3319,6 +3442,99 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem' }}>
 
+        {/* Live on YouTube Banner Card */}
+        {publicYouTubeUrl && (
+          <div style={{
+            backgroundColor: 'rgba(239, 68, 68, 0.06)',
+            border: '1px solid rgba(239, 68, 68, 0.25)',
+            borderRadius: 'var(--radius-md)',
+            padding: '1rem 1.25rem',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: '1rem'
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
+              <div style={{
+                backgroundColor: '#ef4444',
+                color: '#fff',
+                width: '38px',
+                height: '38px',
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0
+              }}>
+                <Play size={18} fill="#fff" />
+              </div>
+              <div>
+                <div style={{ fontSize: '0.78rem', color: 'var(--text-secondary)', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                  {localVideo.status === '#published' ? 'Live on YouTube' : 'YouTube Link'}
+                </div>
+                <a
+                  href={publicYouTubeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    color: '#ef4444',
+                    fontWeight: '700',
+                    fontSize: '1rem',
+                    textDecoration: 'none',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.35rem'
+                  }}
+                  title="Open video on YouTube"
+                >
+                  <span>{publicYouTubeUrl}</span>
+                  <ExternalLink size={14} />
+                </a>
+              </div>
+            </div>
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+              <a
+                href={publicYouTubeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary"
+                style={{
+                  backgroundColor: '#ef4444',
+                  borderColor: '#ef4444',
+                  color: '#fff',
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.4rem',
+                  padding: '0.45rem 0.9rem',
+                  fontWeight: '600'
+                }}
+              >
+                <ExternalLink size={15} />
+                <span>Watch on YouTube</span>
+              </a>
+              <button
+                type="button"
+                className="btn btn-outline"
+                onClick={handleCopyYouTubeUrl}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.35rem',
+                  padding: '0.45rem 0.75rem',
+                  color: copiedYouTube ? 'var(--success-color)' : 'var(--text-primary)'
+                }}
+                title="Copy share link"
+              >
+                {copiedYouTube ? <Check size={14} color="var(--success-color)" /> : <Share2 size={14} />}
+                <span>{copiedYouTube ? 'Copied Link!' : 'Copy Link'}</span>
+              </button>
+            </div>
+          </div>
+        )}
+
         {/* 1. Production Checklist Section (Per-Video in Supabase) */}
         <div className="checklist-section">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.5rem' }}>
@@ -3406,6 +3622,45 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
               <Plus size={14} /> Add Task
             </button>
           </form>
+
+          {/* Footer: Link to Workflow Reference Guide / Checklist Definitions */}
+          <div style={{
+            marginTop: '1.1rem',
+            paddingTop: '0.85rem',
+            borderTop: '1px solid var(--border-color)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: '0.5rem',
+            fontSize: '0.82rem'
+          }}>
+            <button
+              type="button"
+              onClick={onOpenDefinitions}
+              style={{
+                background: 'none',
+                border: 'none',
+                padding: 0,
+                cursor: 'pointer',
+                color: 'var(--accent-color)',
+                fontWeight: '600',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.35rem',
+                textDecoration: 'underline',
+                textUnderlineOffset: '2px'
+              }}
+              title="Open step-by-step checklist definitions & workflow reference guide"
+            >
+              <BookOpen size={14} />
+              <span>View Checklist Definitions & Workflow Reference Guide</span>
+            </button>
+
+            <span style={{ color: 'var(--text-secondary)', fontSize: '0.75rem', fontWeight: '500' }}>
+              6 Phases • 16 Core Beats
+            </span>
+          </div>
         </div>
 
         {/* 2. Video Script Outline Section / Scratch Pad */}

@@ -42,37 +42,73 @@ def sanitize_filename(name):
     clean = clean.replace(' - - ', ' - ').strip(' -.')
     return clean
 
+def fetch_youtube_rss_videos():
+    import urllib.request
+    import ssl
+    import xml.etree.ElementTree as ET
+    
+    url = f"https://www.youtube.com/feeds/videos.xml?channel_id={CHANNEL_ID}"
+    ctx = ssl._create_unverified_context()
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    try:
+        with urllib.request.urlopen(req, context=ctx) as resp:
+            xml_data = resp.read()
+        root = ET.fromstring(xml_data)
+        ns = {"atom": "http://www.w3.org/2005/Atom", "yt": "http://www.youtube.com/xml/schemas/2015"}
+        entries = root.findall("atom:entry", ns)
+        rss_videos = []
+        for e in entries:
+            title = e.find("atom:title", ns).text
+            yt_id = e.find("yt:videoId", ns).text
+            published = e.find("atom:published", ns).text
+            is_short = "#short" in title.lower()
+            rss_videos.append({
+                "videoId": yt_id,
+                "title": title,
+                "publishedAt": published,
+                "format_type": "Short" if is_short else "Long",
+                "viewCount": 0
+            })
+        print(f"📡 Fetched {len(rss_videos)} live videos from YouTube RSS feed.")
+        return rss_videos
+    except Exception as ex:
+        print(f"⚠️ Failed to fetch YouTube RSS feed: {ex}")
+        return []
+
 def fetch_live_videos():
     cfg = load_config()
     api_key = cfg.get("vidiq_api_key")
-    if not api_key:
-        print("❌ Error: vidiq_api_key missing.")
-        return []
-
-    print("Fetching live videos from YouTube/vidIQ...")
-    
     videos = []
-    # Fetch Long
-    res_long_recent = call_mcp_tool("vidiq_channel_videos", {"channelId": CHANNEL_ID, "videoFormat": "long", "popular": False}, api_key)
-    res_long_pop = call_mcp_tool("vidiq_channel_videos", {"channelId": CHANNEL_ID, "videoFormat": "long", "popular": True}, api_key)
-    
-    # Fetch Short
-    res_short_recent = call_mcp_tool("vidiq_channel_videos", {"channelId": CHANNEL_ID, "videoFormat": "short", "popular": False}, api_key)
-    res_short_pop = call_mcp_tool("vidiq_channel_videos", {"channelId": CHANNEL_ID, "videoFormat": "short", "popular": True}, api_key)
 
-    def process_res(res, format_type):
-        if not res: return
-        for v in res.get("videos", []):
-            v["format_type"] = format_type
-            videos.append(v)
-            
-    process_res(res_long_recent, "Long")
-    process_res(res_long_pop, "Long")
-    process_res(res_short_recent, "Short")
-    process_res(res_short_pop, "Short")
-    
+    if api_key:
+        print("Fetching live videos from YouTube/vidIQ...")
+        # Fetch Long
+        res_long_recent = call_mcp_tool("vidiq_channel_videos", {"channelId": CHANNEL_ID, "videoFormat": "long", "popular": False}, api_key)
+        res_long_pop = call_mcp_tool("vidiq_channel_videos", {"channelId": CHANNEL_ID, "videoFormat": "long", "popular": True}, api_key)
+        
+        # Fetch Short
+        res_short_recent = call_mcp_tool("vidiq_channel_videos", {"channelId": CHANNEL_ID, "videoFormat": "short", "popular": False}, api_key)
+        res_short_pop = call_mcp_tool("vidiq_channel_videos", {"channelId": CHANNEL_ID, "videoFormat": "short", "popular": True}, api_key)
+
+        def process_res(res, format_type):
+            if not res: return
+            for v in res.get("videos", []):
+                v["format_type"] = format_type
+                videos.append(v)
+                
+        process_res(res_long_recent, "Long")
+        process_res(res_long_pop, "Long")
+        process_res(res_short_recent, "Short")
+        process_res(res_short_pop, "Short")
+    else:
+        print("⚠️ No vidiq_api_key configured.")
+        
     # Deduplicate by videoId
     unique_videos = {v["videoId"]: v for v in videos}
+    if not unique_videos:
+        print("ℹ️ vidIQ returned 0 videos (or unauthorized); falling back to direct YouTube RSS feed...")
+        return fetch_youtube_rss_videos()
+
     return list(unique_videos.values())
 
 def find_markdown_file(code):
@@ -133,14 +169,10 @@ def sync_published_videos():
             """, (yt_title, yt_id, pub_date, match["id"]))
             
             if sb:
-                # Update Supabase using the code
-                sb.upsert_video({
-                    "video_number": v_num,
-                    "code": code,
-                    "format_type": format_type,
+                # Update Supabase using update_video_status
+                sb.update_video_status(v_num, "#published", extra={
                     "title": yt_title,
                     "youtube_id": yt_id,
-                    "status": "#published",
                     "uploaded_date": pub_date
                 })
 
