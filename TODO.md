@@ -11,7 +11,7 @@
   - Transitioned from high-volume schedule to quality focus: targeting 1–3 high-impact, well-produced videos per month.
   - Eliminated all artificial due date pressure: future videos have no mandatory drop dates (`drop_date = null` until Dr. Anderson explicitly anticipates a drop date).
   - Pruned pre-seeded future shorts and distant 2027 slots down to a clean ~3-month cycle (11 Long video topics going through the three levels three times each).
-  - App updated with **"Last Video"** metric tile (tracking days since last published Long video) and flexible Pipeline view with inline date editing.
+  - App updated with **"Days Since Last Video"** metric tile (tracking days since last published Long video) and flexible Pipeline view with inline date editing.
   - Retained full "+ Add Video to Pipeline" functionality to add shorts and ad-hoc productions on the fly.
 - [ ] **6-Week Monetization Sprint (Bullet Journaling + Health Tracking)**:
   - Capitalizing on high-performing video `80.V3B1` (90 Months of Bullet Journaling) to cross the 4,000 watch hour milestone.

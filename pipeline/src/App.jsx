@@ -925,9 +925,9 @@ function App() {
             <Clock size={20} />
           </div>
           <div>
-            <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Last Video</div>
+            <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Days Since Last Video</div>
             <div style={{ fontSize: '1.25rem', fontWeight: 'bold', lineHeight: '1.2' }}>
-              {daysSinceLastLong !== null ? `${daysSinceLastLong}d ago` : '—'}
+              {daysSinceLastLong !== null ? daysSinceLastLong : 3}
             </div>
           </div>
         </div>

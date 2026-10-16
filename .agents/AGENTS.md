@@ -114,6 +114,6 @@ Dr. Anderson utilizes the writing guidance and voice files across multiple exter
 - **App Views**:
   - **Work in Progress**: Surfaces active production stages (`#write`, `#film`, `#edit`), `#uploaded`, published videos with pending cards/tasks, and any `#idea` with an anticipated date within 7 days.
   - **Pipeline**: Displays upcoming Long topics in rotation sequence with Level and Pillar badges, showing anticipated dates when set or flexible "No Date" slots with inline date pickers.
-  - **Metrics Bar**: Features the `"Last Video"` tile displaying elapsed days since the most recently published Long video.
+  - **Metrics Bar**: Features the `"Days Since Last Video"` tile displaying elapsed days since the most recently published Long video.
 
 
