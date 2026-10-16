@@ -14,41 +14,41 @@ import ChecklistDefinitions from './ChecklistDefinitions';
 
 export const CHECKLIST_ITEMS = [
   // IDEA (#idea)
-  { key: 'idea_demand', phase: 'Idea', label: 'Topic Demand validated' },
-  { key: 'idea_title', phase: 'Idea', label: 'Title Selected' },
-  { key: 'idea_thumb', phase: 'Idea', label: 'Thumbnail Drafted' },
-  { key: 'idea_connected', phase: 'Idea', label: 'Connected video chosen' },
+  { key: 'idea_demand', phase: '#idea', label: 'Topic Demand validated' },
+  { key: 'idea_title', phase: '#idea', label: 'Title Selected' },
+  { key: 'idea_thumb', phase: '#idea', label: 'Thumbnail Drafted' },
+  { key: 'idea_connected', phase: '#idea', label: 'Connected video chosen' },
 
   // WRITING (#write)
-  { key: 'prep_notebook', phase: 'Writing', label: 'Gemini Notebook research' },
-  { key: 'prep_acceptance', phase: 'Writing', label: 'Acceptance criteria' },
-  { key: 'prep_card', phase: 'Writing', label: '3×5 card drafted (5 beats)' },
+  { key: 'prep_notebook', phase: '#write', label: 'Gemini Notebook research' },
+  { key: 'prep_acceptance', phase: '#write', label: 'Acceptance criteria' },
+  { key: 'prep_card', phase: '#write', label: '3×5 card drafted (5 beats)' },
 
   // FILMING (#film)
-  { key: 'film_recorded', phase: 'Filming', label: 'Direct-to-camera recorded' },
+  { key: 'film_recorded', phase: '#film', label: 'Direct-to-camera recorded' },
 
   // EDITING (#edit)
-  { key: 'edit_transcript', phase: 'Editing', label: 'Spoken transcript pasted' },
-  { key: 'edit_broll', phase: 'Editing', label: 'B-roll & pacing matched' },
-  { key: 'edit_sound', phase: 'Editing', label: 'Sound & audio enhanced' },
+  { key: 'edit_transcript', phase: '#edit', label: 'Spoken transcript pasted' },
+  { key: 'edit_broll', phase: '#edit', label: 'B-roll & pacing matched' },
+  { key: 'edit_sound', phase: '#edit', label: 'Sound & audio enhanced' },
 
-  // PUBLISHING (#uploaded / #published)
-  { key: 'pub_thumb', phase: 'Publishing', label: 'Custom thumbnail uploaded' },
-  { key: 'pub_upload', phase: 'Publishing', label: 'Studio upload & End Screen' },
-  { key: 'pub_pinned', phase: 'Publishing', label: 'Pinned comment link' },
-  { key: 'pub_schedule', phase: 'Publishing', label: 'Scheduled for drop date' },
+  // UPLOADED (#uploaded)
+  { key: 'pub_thumb', phase: '#uploaded', label: 'Custom thumbnail uploaded' },
+  { key: 'pub_upload', phase: '#uploaded', label: 'Studio upload & End Screen' },
+  { key: 'pub_pinned', phase: '#uploaded', label: 'Pinned comment link' },
+  { key: 'pub_schedule', phase: '#uploaded', label: 'Scheduled for drop date' },
 
-  // ARCHIVED (#published)
-  { key: 'pub_cards', phase: 'Archived', label: '3×5 main cards filed' },
-  { key: 'archive_gemini_notebook', phase: 'Archived', label: 'Save to Gemini Notebook' },
-  { key: 'archive_audit_48h', phase: 'Archived', label: '48-hr satisfaction audit' },
-  { key: 'archive_catalog_audit', phase: 'Archived', label: 'Catalog audit' }
+  // PUBLISHED (#published)
+  { key: 'pub_cards', phase: '#published', label: '3×5 main cards filed' },
+  { key: 'archive_gemini_notebook', phase: '#published', label: 'Save to Gemini Notebook' },
+  { key: 'archive_audit_48h', phase: '#published', label: '48-hr satisfaction audit' },
+  { key: 'archive_catalog_audit', phase: '#published', label: 'Catalog audit' }
 ];
 
 export const LONG_VIDEO_CHECKLIST_ITEMS = CHECKLIST_ITEMS;
 export const SHORT_VIDEO_CHECKLIST_ITEMS = CHECKLIST_ITEMS;
 
-export const CHECKLIST_PHASES = ['All', 'Idea', 'Writing', 'Filming', 'Editing', 'Publishing', 'Archived'];
+export const CHECKLIST_PHASES = ['All', '#idea', '#write', '#film', '#edit', '#uploaded', '#published'];
 export const LONG_CHECKLIST_PHASES = CHECKLIST_PHASES;
 export const SHORT_CHECKLIST_PHASES = CHECKLIST_PHASES;
 
@@ -57,18 +57,18 @@ export const getChecklistPhaseForStatus = (status) => {
   const clean = status.toLowerCase().replace('#', '').trim();
   switch (clean) {
     case 'idea':
-      return 'Idea';
+      return '#idea';
     case 'write':
-      return 'Writing';
+      return '#write';
     case 'film':
-      return 'Filming';
+      return '#film';
     case 'edit':
-      return 'Editing';
+      return '#edit';
     case 'uploaded':
-      return 'Publishing';
+      return '#uploaded';
     case 'published':
     case 'archived':
-      return 'Archived';
+      return '#published';
     default:
       return 'All';
   }
@@ -79,18 +79,18 @@ export const getCompletedPhasesForStatus = (status) => {
   const clean = status.toLowerCase().replace('#', '').trim();
   switch (clean) {
     case 'write':
-      return ['Idea'];
+      return ['#idea'];
     case 'film':
-      return ['Idea', 'Writing'];
+      return ['#idea', '#write'];
     case 'edit':
-      return ['Idea', 'Writing', 'Filming'];
+      return ['#idea', '#write', '#film'];
     case 'uploaded':
-      return ['Idea', 'Writing', 'Filming', 'Editing'];
+      return ['#idea', '#write', '#film', '#edit'];
     case 'published':
-      return ['Idea', 'Writing', 'Filming', 'Editing', 'Publishing'];
+      return ['#idea', '#write', '#film', '#edit', '#uploaded'];
     case 'archived':
     case 'archive':
-      return ['Idea', 'Writing', 'Filming', 'Editing', 'Publishing', 'Archived'];
+      return ['#idea', '#write', '#film', '#edit', '#uploaded', '#published'];
     default:
       return [];
   }
@@ -3441,99 +3441,6 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
       </div>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem' }}>
-
-        {/* Live on YouTube Banner Card */}
-        {publicYouTubeUrl && (
-          <div style={{
-            backgroundColor: 'rgba(239, 68, 68, 0.06)',
-            border: '1px solid rgba(239, 68, 68, 0.25)',
-            borderRadius: 'var(--radius-md)',
-            padding: '1rem 1.25rem',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            flexWrap: 'wrap',
-            gap: '1rem'
-          }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
-              <div style={{
-                backgroundColor: '#ef4444',
-                color: '#fff',
-                width: '38px',
-                height: '38px',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                flexShrink: 0
-              }}>
-                <Play size={18} fill="#fff" />
-              </div>
-              <div>
-                <div style={{ fontSize: '0.78rem', color: 'var(--text-secondary)', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                  {localVideo.status === '#published' ? 'Live on YouTube' : 'YouTube Link'}
-                </div>
-                <a
-                  href={publicYouTubeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    color: '#ef4444',
-                    fontWeight: '700',
-                    fontSize: '1rem',
-                    textDecoration: 'none',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '0.35rem'
-                  }}
-                  title="Open video on YouTube"
-                >
-                  <span>{publicYouTubeUrl}</span>
-                  <ExternalLink size={14} />
-                </a>
-              </div>
-            </div>
-
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-              <a
-                href={publicYouTubeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-primary"
-                style={{
-                  backgroundColor: '#ef4444',
-                  borderColor: '#ef4444',
-                  color: '#fff',
-                  textDecoration: 'none',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.4rem',
-                  padding: '0.45rem 0.9rem',
-                  fontWeight: '600'
-                }}
-              >
-                <ExternalLink size={15} />
-                <span>Watch on YouTube</span>
-              </a>
-              <button
-                type="button"
-                className="btn btn-outline"
-                onClick={handleCopyYouTubeUrl}
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.35rem',
-                  padding: '0.45rem 0.75rem',
-                  color: copiedYouTube ? 'var(--success-color)' : 'var(--text-primary)'
-                }}
-                title="Copy share link"
-              >
-                {copiedYouTube ? <Check size={14} color="var(--success-color)" /> : <Share2 size={14} />}
-                <span>{copiedYouTube ? 'Copied Link!' : 'Copy Link'}</span>
-              </button>
-            </div>
-          </div>
-        )}
 
         {/* 1. Production Checklist Section (Per-Video in Supabase) */}
         <div className="checklist-section">

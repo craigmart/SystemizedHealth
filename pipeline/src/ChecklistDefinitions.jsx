@@ -8,7 +8,7 @@ import {
 
 export const WORKFLOW_DEFINITIONS = [
   {
-    phase: 'Idea',
+    phase: '#idea',
     badge: '#idea',
     color: '#64748b',
     bg: 'rgba(100, 116, 139, 0.1)',
@@ -57,7 +57,7 @@ export const WORKFLOW_DEFINITIONS = [
     ]
   },
   {
-    phase: 'Writing',
+    phase: '#write',
     badge: '#write',
     color: '#b45309',
     bg: 'rgba(180, 83, 9, 0.1)',
@@ -98,7 +98,7 @@ export const WORKFLOW_DEFINITIONS = [
     ]
   },
   {
-    phase: 'Filming',
+    phase: '#film',
     badge: '#film',
     color: '#ef4444',
     bg: 'rgba(239, 68, 68, 0.1)',
@@ -119,7 +119,7 @@ export const WORKFLOW_DEFINITIONS = [
     ]
   },
   {
-    phase: 'Editing',
+    phase: '#edit',
     badge: '#edit',
     color: '#7e22ce',
     bg: 'rgba(126, 34, 206, 0.1)',
@@ -156,12 +156,12 @@ export const WORKFLOW_DEFINITIONS = [
     ]
   },
   {
-    phase: 'Publishing',
+    phase: '#uploaded',
     badge: '#uploaded',
     color: '#0284c7',
     bg: 'rgba(2, 132, 199, 0.1)',
     icon: UploadCloud,
-    title: '5. PUBLISHING (#uploaded / #published)',
+    title: '5. UPLOADED (#uploaded)',
     subtitle: 'Packaging, Studio Setup, End Screen & Pinned Link',
     items: [
       {
@@ -202,12 +202,12 @@ export const WORKFLOW_DEFINITIONS = [
     ]
   },
   {
-    phase: 'Archived',
+    phase: '#published',
     badge: '#published',
     color: '#10b981',
     bg: 'rgba(16, 185, 129, 0.1)',
     icon: Archive,
-    title: '6. ARCHIVED (#published)',
+    title: '6. PUBLISHED (#published)',
     subtitle: 'Analog Zettelkasten Filing, Notebook Archive & Channel Audits',
     items: [
       {
@@ -330,7 +330,7 @@ export default function ChecklistDefinitions({ onBack }) {
           <span style={{ fontSize: '0.78rem', color: 'var(--text-secondary)', fontWeight: '600', marginRight: '0.25rem' }}>
             Jump to Phase:
           </span>
-          {['All', 'Idea', 'Writing', 'Filming', 'Editing', 'Publishing', 'Archived'].map(phase => (
+          {['All', '#idea', '#write', '#film', '#edit', '#uploaded', '#published'].map(phase => (
             <button
               key={phase}
               type="button"
