@@ -835,10 +835,10 @@ function App() {
     return { completed: finalCompleted, total, percent };
   };
 
-  // Metrics Calculation: Days from last Long video posted
-  const publishedVideos = videos.filter(v => v.status === '#published');
+  // Metrics Calculation: Days from last Long video posted & Published Videos count (Systemized Health only)
+  const publishedVideos = videos.filter(v => v.status === '#published' && isSystemizedVideo(v));
   const publishedLongs = publishedVideos.filter(v => {
-    return v.format_type === 'Long' || (!v.code?.includes('-S') && !v.format_type?.toLowerCase().includes('short'));
+    return (v.format_type === 'Long' || (!v.code?.includes('-S') && !v.format_type?.toLowerCase().includes('short'))) && isSystemizedVideo(v);
   }).sort(sortByDropDateDesc);
 
   let daysSinceLastLong = null;
@@ -867,10 +867,11 @@ function App() {
   };
 
   const renderDashboard = () => {
-    // 1. Build Pipeline: Upcoming Long videos (Topic Rotation Cycle)
+    // 1. Build Pipeline: Upcoming Long videos (Topic Rotation Cycle - Systemized Health only)
     const activeOrUpcomingLongs = videos.filter(v => {
       if (v.status === '#published') return false;
       if (v.code?.startsWith('HIST')) return false;
+      if (!isSystemizedVideo(v)) return false;
       const isLong = v.format_type === 'Long' || (!v.code?.includes('-S') && !v.format_type?.toLowerCase().includes('short'));
       return isLong;
     });
@@ -1049,7 +1050,7 @@ function App() {
           </div>
         </div>
 
-        <div className="card metric-tile" onClick={() => openModal('Published Videos', publishedVideos)}>
+        <div className="card metric-tile" onClick={() => openModal('Published Videos', publishedVideos)} title="Published Systemized Health videos">
           <div className="metric-tile-icon" style={{ backgroundColor: '#8b5cf6', color: '#fff' }}>
             <FileVideo size={16} />
           </div>
