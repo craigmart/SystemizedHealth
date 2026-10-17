@@ -29,6 +29,7 @@ STANDARD_KEYS = [
     "edit_sound",
     "pub_thumb",
     "pub_upload",
+    "pub_endscreen",
     "pub_pinned",
     "pub_schedule",
     "pub_cards",

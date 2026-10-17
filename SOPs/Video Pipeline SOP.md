@@ -274,7 +274,8 @@ The web App and video pages enforce Dr. Anderson's standardized 16-beat checklis
 | | **B-roll & pacing matched** | Trim dead space; calibrate visual polish and B-roll to preserve doctor-patient trust. |
 | | **Sound & audio enhanced** | Dialogue cleanup, de-reverb, noise floor removal, and broadcast limiting. |
 | **`#uploaded`** | **Custom thumbnail uploaded** | Verify contrast and readability on mobile feeds / dark mode (max 3 words). |
-| | **Studio upload & End Screen** | Upload to YouTube Studio, assign Playlist, and link End Screen directly to Connected Video. |
+| | **Upload to Studio** | Upload to YouTube Studio and assign to designated Playlist. |
+| | **End Screen and Cards** | Configure YouTube End Screen elements and interactive Cards linking to connected video. |
 | | **Pinned comment link** | Post & pin top comment with curiosity hook linking to the pre-chosen Connected Video. |
 | | **Scheduled for drop date** | Set authoritative drop date and time slot in YouTube Studio. |
 | **`#published`** | **3×5 main cards filed** | Write 1–2 clinical propositions on physical 3×5 cards and file into analog Zettelkasten box. |

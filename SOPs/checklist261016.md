@@ -21,7 +21,8 @@
 
 **PUBLISHING (`#uploaded` / `#published`)**
 - [ ] Custom thumbnail uploaded
-- [ ] Studio upload & End Screen
+- [ ] Upload to Studio
+- [ ] End Screen and Cards
 - [ ] Pinned comment link
 - [ ] Scheduled for drop date
 

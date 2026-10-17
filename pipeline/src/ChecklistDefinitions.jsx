@@ -175,11 +175,20 @@ export const WORKFLOW_DEFINITIONS = [
       },
       {
         key: 'pub_upload',
-        label: 'Studio upload & End Screen',
-        summary: 'Upload to YouTube Studio, assign to Playlist, and link End Screen.',
+        label: 'Upload to Studio',
+        summary: 'Upload the video file to YouTube Studio and assign to designated Playlist.',
         details: [
-          'Assign video to its designated goal-oriented Playlist.',
-          'Configure YouTube End Screen element to link directly to your pre-chosen connected video.'
+          'Upload master video file to YouTube Studio.',
+          'Assign video to its designated goal-oriented Playlist.'
+        ]
+      },
+      {
+        key: 'pub_endscreen',
+        label: 'End Screen and Cards',
+        summary: 'Configure YouTube End Screen element and interactive Cards.',
+        details: [
+          'Configure YouTube End Screen element to link directly to your pre-chosen connected video.',
+          'Set up interactive info Cards pointing viewers to relevant supporting videos or resources.'
         ]
       },
       {

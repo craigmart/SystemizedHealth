@@ -24,7 +24,8 @@
 
 ## 5. PUBLISHING (`#uploaded` / `#published`)
 - **Custom thumbnail uploaded:** Finalize and upload the thumbnail graphic, verifying its 1-glance readability against competing videos.
-- **Studio upload & End Screen:** Upload the video file, assign it to its designated Playlist, and link your End Screen directly to the older connected video.
+- **Upload to Studio:** Upload the video file and assign it to its designated Playlist.
+- **End Screen and Cards:** Configure YouTube End Screen elements linking directly to the older connected video, and insert interactive Cards.
 - **Pinned comment link:** Post and pin a comment with a brief curiosity hook and a direct link to the connected video (since YouTube's UI prioritizes pinned comments over descriptions on mobile and desktop).
 - **Scheduled for drop date:** Lock in the publication date and time.
 

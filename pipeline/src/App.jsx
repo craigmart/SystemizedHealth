@@ -34,7 +34,8 @@ export const CHECKLIST_ITEMS = [
 
   // UPLOADED (#uploaded)
   { key: 'pub_thumb', phase: '#uploaded', label: 'Custom thumbnail uploaded' },
-  { key: 'pub_upload', phase: '#uploaded', label: 'Studio upload & End Screen' },
+  { key: 'pub_upload', phase: '#uploaded', label: 'Upload to Studio' },
+  { key: 'pub_endscreen', phase: '#uploaded', label: 'End Screen and Cards' },
   { key: 'pub_pinned', phase: '#uploaded', label: 'Pinned comment link' },
   { key: 'pub_schedule', phase: '#uploaded', label: 'Scheduled for drop date' },
 
@@ -740,7 +741,8 @@ function App() {
     // 3. Uploaded videos (#uploaded)
     if (video.status === '#uploaded') {
       if (!checklist.pub_thumb) return { step: 'Custom thumbnail uploaded', type: 'checklist' };
-      if (!checklist.pub_upload) return { step: 'Studio upload & End Screen', type: 'checklist' };
+      if (!checklist.pub_upload) return { step: 'Upload to Studio', type: 'checklist' };
+      if (!checklist.pub_endscreen) return { step: 'End Screen and Cards', type: 'checklist' };
       if (!checklist.pub_pinned) return { step: 'Pinned comment link', type: 'checklist' };
       if (!checklist.pub_schedule) return { step: 'Scheduled for drop date', type: 'checklist' };
       return { step: 'Confirm YouTube Studio release', type: 'publish' };
