@@ -227,6 +227,12 @@ p {
   flex-wrap: wrap;
 }
 
+.header-search-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
 .header-search-form {
   position: relative;
   display: flex;
@@ -596,7 +602,15 @@ p {
     gap: 0.65rem;
   }
 
+  .header-search-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
   .header-search-form {
+    flex: 1;
     width: 100%;
   }
 

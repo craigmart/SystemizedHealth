@@ -132,6 +132,42 @@ export const getYouTubeUrl = (video) => {
   return null;
 };
 
+export const parseChecklistData = (raw) => {
+  if (!raw) return {};
+  if (typeof raw === 'string') {
+    try { return JSON.parse(raw); } catch { return {}; }
+  }
+  return raw;
+};
+
+export const isSystemizedVideo = (v) => {
+  if (!v) return true;
+  const chk = parseChecklistData(v.edit_checklist);
+  if (chk && typeof chk === 'object') {
+    if (chk.is_systemized === false) return false;
+    if (chk.is_systemized === true) return true;
+  }
+  if (v.is_systemized === false) return false;
+  if (v.is_systemized === true) return true;
+  const level = (v.os_level || '').toLowerCase();
+  if (level.includes('non-systemized') || level.includes('other project') || level.includes('external')) return false;
+  const notes = (v.notes || '').toLowerCase();
+  if (notes.includes('#nonsystemized') || notes.includes('project: non-systemized') || notes.includes('project: other')) return false;
+  return true;
+};
+
+export const getVideoProjectName = (v) => {
+  if (!v) return 'Systemized Health';
+  if (isSystemizedVideo(v)) return 'Systemized Health';
+  const chk = parseChecklistData(v.edit_checklist);
+  if (chk && chk.project_name) return chk.project_name;
+  if (v.os_level && v.os_level.startsWith('Non-Systemized:')) {
+    const p = v.os_level.replace('Non-Systemized:', '').trim();
+    if (p) return p;
+  }
+  return 'Other Project';
+};
+
 export const getAutoCompletedChecklist = (status, currentChecklist, isShort) => {
   const baseItems = isShort ? SHORT_VIDEO_CHECKLIST_ITEMS : LONG_VIDEO_CHECKLIST_ITEMS;
   const completedPhases = getCompletedPhasesForStatus(status);
@@ -206,6 +242,14 @@ function App() {
   const [currentVideo, setCurrentVideo] = useState(null);
   const [metricModal, setMetricModal] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
+  const [systemizedOnly, setSystemizedOnly] = useState(() => {
+    try {
+      const saved = localStorage.getItem('sh_search_systemized_only');
+      return saved !== null ? saved === 'true' : true;
+    } catch {
+      return true;
+    }
+  });
   const [showAddModal, setShowAddModal] = useState(false);
   const [showDefinitionsPage, setShowDefinitionsPage] = useState(false);
   const [editingWipDateCode, setEditingWipDateCode] = useState(null);
@@ -1045,7 +1089,7 @@ function App() {
               const isLong = item.format_type === 'Long' || (!item.code?.includes('-S') && !item.format_type?.toLowerCase().includes('short'));
               const displayTitle = (item.title && item.title.trim())
                 ? item.title.trim()
-                : (rotInfo?.level || item.os_level || 'Systemized OS');
+                : (isSystemizedVideo(item) ? (rotInfo?.level || item.os_level || 'Systemized OS') : getVideoProjectName(item));
 
               const isDuplicate = checkIsDuplicateCode(item, videos);
 
@@ -1073,7 +1117,24 @@ function App() {
                       <span style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', fontWeight: '600', textTransform: 'uppercase' }}>
                         {isLong ? 'Long' : 'Short'}
                       </span>
-                      {pillar && <span className="badge-pillar" title="Pillar Focus">{pillar}</span>}
+                      {isSystemizedVideo(item) ? (
+                        pillar && <span className="badge-pillar" title="Pillar Focus">{pillar}</span>
+                      ) : (
+                        <span
+                          style={{
+                            fontSize: '0.7rem',
+                            padding: '0.1rem 0.45rem',
+                            borderRadius: '4px',
+                            backgroundColor: 'rgba(234, 88, 12, 0.12)',
+                            color: '#ea580c',
+                            border: '1px solid rgba(234, 88, 12, 0.3)',
+                            fontWeight: '600'
+                          }}
+                          title="Project"
+                        >
+                          📁 {getVideoProjectName(item)}
+                        </span>
+                      )}
                       {item.notes && <span title="Production Log" style={{ fontSize: '0.75rem' }}>📝</span>}
                     </div>
                     {getStatusBadge(item.status)}
@@ -1439,12 +1500,16 @@ function App() {
   const trimmedSearch = searchQuery.trim().toLowerCase();
   const searchResults = trimmedSearch
     ? videos.filter(v => {
+        if (systemizedOnly && !isSystemizedVideo(v)) {
+          return false;
+        }
         const code = (v.code || '').toLowerCase();
         const title = (v.title || '').toLowerCase();
         const num = (v.video_number || '').toLowerCase();
         const pillar = (getRotationInfo(v)?.pillar || '').toLowerCase();
         const level = (getRotationInfo(v)?.level || v.os_level || '').toLowerCase();
-        return code.includes(trimmedSearch) || title.includes(trimmedSearch) || num.includes(trimmedSearch) || pillar.includes(trimmedSearch) || level.includes(trimmedSearch);
+        const proj = getVideoProjectName(v).toLowerCase();
+        return code.includes(trimmedSearch) || title.includes(trimmedSearch) || num.includes(trimmedSearch) || pillar.includes(trimmedSearch) || level.includes(trimmedSearch) || proj.includes(trimmedSearch);
       })
     : [];
 
@@ -1455,27 +1520,80 @@ function App() {
           <div>
             <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', margin: 0, fontSize: '1.35rem' }}>
               <Search size={22} color="var(--accent-color)" /> Search Results ({searchResults.length})
+              <span
+                style={{
+                  fontSize: '0.75rem',
+                  fontWeight: '600',
+                  padding: '0.2rem 0.55rem',
+                  borderRadius: '12px',
+                  backgroundColor: systemizedOnly ? 'rgba(59, 130, 246, 0.15)' : 'rgba(100, 116, 139, 0.15)',
+                  color: systemizedOnly ? 'var(--accent-color)' : 'var(--text-secondary)',
+                  border: `1px solid ${systemizedOnly ? 'rgba(59, 130, 246, 0.3)' : 'var(--border-color)'}`
+                }}
+              >
+                {systemizedOnly ? '🩺 Systemized Only' : '🌐 All Projects'}
+              </span>
             </h2>
             <p style={{ margin: '0.25rem 0 0 0', fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
               Matching code or title for <strong style={{ color: 'var(--text-primary)' }}>"{searchQuery}"</strong>
             </p>
           </div>
-          <button
-            type="button"
-            className="btn btn-outline"
-            style={{ fontSize: '0.8rem', padding: '0.3rem 0.75rem', display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}
-            onClick={() => setSearchQuery('')}
-          >
-            <X size={14} /> Clear Search
-          </button>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <button
+              type="button"
+              className={`btn btn-sm ${systemizedOnly ? 'btn-primary' : 'btn-outline'}`}
+              style={{ fontSize: '0.8rem', padding: '0.3rem 0.65rem' }}
+              onClick={() => {
+                const next = !systemizedOnly;
+                setSystemizedOnly(next);
+                try {
+                  localStorage.setItem('sh_search_systemized_only', String(next));
+                } catch (e) {
+                  console.error(e);
+                }
+              }}
+            >
+              {systemizedOnly ? 'Show All Projects' : 'Limit to Systemized Only'}
+            </button>
+            <button
+              type="button"
+              className="btn btn-outline"
+              style={{ fontSize: '0.8rem', padding: '0.3rem 0.75rem', display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}
+              onClick={() => setSearchQuery('')}
+            >
+              <X size={14} /> Clear Search
+            </button>
+          </div>
         </div>
 
         {searchResults.length === 0 ? (
           <div style={{ textAlign: 'center', padding: '3rem 1rem', color: 'var(--text-secondary)' }}>
             <p style={{ fontSize: '1.05rem', marginBottom: '0.5rem', fontWeight: '500' }}>
-              No videos found matching <strong>"{searchQuery}"</strong>.
+              No videos found matching <strong>"{searchQuery}"</strong>{systemizedOnly ? ' in Systemized Health' : ''}.
             </p>
-            <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
+            {systemizedOnly && (
+              <p style={{ fontSize: '0.85rem', marginTop: '0.4rem' }}>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSystemizedOnly(false);
+                    try { localStorage.setItem('sh_search_systemized_only', 'false'); } catch (e) {}
+                  }}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    color: 'var(--accent-color)',
+                    cursor: 'pointer',
+                    textDecoration: 'underline',
+                    padding: 0,
+                    fontSize: '0.85rem'
+                  }}
+                >
+                  Switch to "All Projects" to search other videos
+                </button>
+              </p>
+            )}
+            <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginTop: '0.5rem' }}>
               Search by Johnny Decimal code (e.g. <code>80.V1A</code>), video number, or keywords in the title.
             </p>
           </div>
@@ -1485,7 +1603,7 @@ function App() {
               const rotInfo = getRotationInfo(v);
               const pillar = rotInfo?.pillar;
               const isLong = v.format_type === 'Long' || (!v.code?.includes('-S') && !v.format_type?.toLowerCase().includes('short'));
-              const displayTitle = (v.title && v.title.trim()) ? v.title.trim() : (rotInfo?.level || v.os_level || 'Systemized OS');
+              const displayTitle = (v.title && v.title.trim()) ? v.title.trim() : (isSystemizedVideo(v) ? (rotInfo?.level || v.os_level || 'Systemized OS') : getVideoProjectName(v));
               const isDuplicate = checkIsDuplicateCode(v, videos);
 
               return (
@@ -1515,7 +1633,24 @@ function App() {
                       <span style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', fontWeight: '600', textTransform: 'uppercase' }}>
                         {isLong ? 'Long' : 'Short'}
                       </span>
-                      {pillar && <span className="badge-pillar" title="Pillar Focus">{pillar}</span>}
+                      {isSystemizedVideo(v) ? (
+                        pillar && <span className="badge-pillar" title="Pillar Focus">{pillar}</span>
+                      ) : (
+                        <span
+                          style={{
+                            fontSize: '0.7rem',
+                            padding: '0.1rem 0.45rem',
+                            borderRadius: '4px',
+                            backgroundColor: 'rgba(234, 88, 12, 0.12)',
+                            color: '#ea580c',
+                            border: '1px solid rgba(234, 88, 12, 0.3)',
+                            fontWeight: '600'
+                          }}
+                          title="Project"
+                        >
+                          📁 {getVideoProjectName(v)}
+                        </span>
+                      )}
                       {v.notes && <span title="Production Log" style={{ fontSize: '0.75rem' }}>📝</span>}
                     </div>
                     {getStatusBadge(v.status)}
@@ -1573,45 +1708,75 @@ function App() {
           </div>
 
           <div className="header-controls">
-            {/* Search Box */}
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                const input = e.currentTarget.querySelector('input');
-                if (input) input.blur();
-              }}
-              action=""
-              className="header-search-form"
-            >
-              <Search size={15} className="header-search-icon" />
-              <input
-                type="search"
-                className="search-input"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter') {
-                    e.currentTarget.blur();
+            {/* Search Box & Project Filter Toggle */}
+            <div className="header-search-wrapper">
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const input = e.currentTarget.querySelector('input');
+                  if (input) input.blur();
+                }}
+                action=""
+                className="header-search-form"
+              >
+                <Search size={15} className="header-search-icon" />
+                <input
+                  type="search"
+                  className="search-input"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      e.currentTarget.blur();
+                    }
+                  }}
+                  placeholder={systemizedOnly ? "Search Systemized..." : "Search all projects..."}
+                  enterKeyHint="search"
+                  autoComplete="off"
+                  autoCorrect="off"
+                  autoCapitalize="none"
+                  spellCheck="false"
+                />
+                {searchQuery && (
+                  <button
+                    type="button"
+                    onClick={() => setSearchQuery('')}
+                    className="header-search-clear"
+                    title="Clear search"
+                  >
+                    <X size={14} />
+                  </button>
+                )}
+              </form>
+
+              <button
+                type="button"
+                onClick={() => {
+                  const next = !systemizedOnly;
+                  setSystemizedOnly(next);
+                  try {
+                    localStorage.setItem('sh_search_systemized_only', String(next));
+                  } catch (e) {
+                    console.error(e);
                   }
                 }}
-                placeholder="Search code or title..."
-                enterKeyHint="search"
-                autoComplete="off"
-                autoCorrect="off"
-                autoCapitalize="none"
-                spellCheck="false"
-              />
-              {searchQuery && (
-                <button
-                  type="button"
-                  onClick={() => setSearchQuery('')}
-                  className="header-search-clear"
-                  title="Clear search"
-                >
-                  <X size={14} />
-                </button>
-              )}
-            </form>
+                className={`btn ${systemizedOnly ? 'btn-primary' : 'btn-outline'}`}
+                style={{
+                  height: '34px',
+                  padding: '0 0.65rem',
+                  fontSize: '0.78rem',
+                  fontWeight: '600',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.35rem',
+                  whiteSpace: 'nowrap',
+                  borderRadius: 'var(--radius-md)',
+                }}
+                title={systemizedOnly ? "Search filter: Systemized Only. Click to include All Projects." : "Search filter: All Projects. Click to limit to Systemized Only."}
+              >
+                {systemizedOnly ? '🩺 Systemized Only' : '🌐 All Projects'}
+              </button>
+            </div>
 
             <div className="header-actions">
               <button className="btn btn-primary" onClick={() => setShowAddModal(true)}>
@@ -2716,6 +2881,51 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
     else onUpdate();
   };
 
+  const handleToggleProject = async () => {
+    const currentlySystemized = isSystemizedVideo(localVideo);
+    const nextSystemized = !currentlySystemized;
+
+    let nextProjectName = 'Systemized Health';
+    if (!nextSystemized) {
+      const input = window.prompt("Enter Project Name for this non-systemized video:", "Other Project");
+      if (input === null) return;
+      nextProjectName = input.trim() || 'Other Project';
+    } else {
+      const confirmSys = window.confirm("Mark this video as a Systemized Health project?");
+      if (!confirmSys) return;
+    }
+
+    const nextChecklist = { ...checklist };
+    nextChecklist.is_systemized = nextSystemized;
+    if (!nextSystemized) {
+      nextChecklist.project_name = nextProjectName;
+    } else {
+      delete nextChecklist.project_name;
+    }
+
+    const nextOsLevel = nextSystemized
+      ? (localVideo.os_level && !localVideo.os_level.toLowerCase().includes('non-systemized') ? localVideo.os_level : 'Level 1: Hardware OS')
+      : `Non-Systemized: ${nextProjectName}`;
+
+    const updatePayload = {
+      edit_checklist: nextChecklist,
+      os_level: nextOsLevel
+    };
+
+    const { error } = await supabase
+      .from('videos')
+      .update(updatePayload)
+      .eq('video_number', localVideo.video_number);
+
+    if (error) {
+      alert("Error updating project tag: " + error.message);
+    } else {
+      setLocalVideo(prev => ({ ...prev, ...updatePayload }));
+      setChecklist(nextChecklist);
+      onUpdate();
+    }
+  };
+
   // Toggle custom task
   const toggleCustomTask = async (taskId) => {
     const updatedCustom = (checklist.custom_tasks || []).map(t => 
@@ -3257,10 +3467,35 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
               </div>
             )}
           </div>
-          {getRotationInfo && getRotationInfo(localVideo)?.level && (
+          <span>
+            <strong>Project:</strong>{' '}
+            <button
+              type="button"
+              onClick={handleToggleProject}
+              title="Click to toggle between Systemized Health and Non-Systemized project"
+              style={{
+                cursor: 'pointer',
+                border: '1px solid',
+                borderRadius: '4px',
+                padding: '0.15rem 0.5rem',
+                fontSize: '0.78rem',
+                fontWeight: '600',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.3rem',
+                backgroundColor: isSystemizedVideo(localVideo) ? 'rgba(59, 130, 246, 0.1)' : 'rgba(234, 88, 12, 0.12)',
+                borderColor: isSystemizedVideo(localVideo) ? 'rgba(59, 130, 246, 0.3)' : 'rgba(234, 88, 12, 0.4)',
+                color: isSystemizedVideo(localVideo) ? 'var(--accent-color)' : '#ea580c',
+              }}
+            >
+              {isSystemizedVideo(localVideo) ? '🩺 Systemized Health' : `📁 ${getVideoProjectName(localVideo)}`}
+              <span style={{ fontSize: '0.65rem', opacity: 0.7 }}>⇄</span>
+            </button>
+          </span>
+          {isSystemizedVideo(localVideo) && getRotationInfo && getRotationInfo(localVideo)?.level && (
             <span><strong>Level:</strong> <span className="badge-level">{getRotationInfo(localVideo).level}</span></span>
           )}
-          {getRotationInfo && getRotationInfo(localVideo)?.pillar && (
+          {isSystemizedVideo(localVideo) && getRotationInfo && getRotationInfo(localVideo)?.pillar && (
             <span><strong>Pillar:</strong> <span className="badge-pillar">{getRotationInfo(localVideo).pillar}</span></span>
           )}
           {localVideo.vidiq_title_score > 0 && (
@@ -4034,6 +4269,8 @@ const PILLAR_OPTIONS = [
 ];
 
 function AddVideoModal({ videos, onClose, onSuccess }) {
+  const [isSystemized, setIsSystemized] = useState(true);
+  const [customProject, setCustomProject] = useState('');
   const [formatType, setFormatType] = useState('Short');
   const [selectedPillarIndex, setSelectedPillarIndex] = useState(0);
   const [title, setTitle] = useState('');
@@ -4047,7 +4284,38 @@ function AddVideoModal({ videos, onClose, onSuccess }) {
 
   const selectedPillar = PILLAR_OPTIONS[selectedPillarIndex];
 
-  const calculateSuggestedCode = (fmt, pillar) => {
+  const calculateSuggestedCode = (fmt, pillar, isSys, projName) => {
+    if (!isSys) {
+      let prefix = 'EXT';
+      if (projName && projName.trim()) {
+        const clean = projName.trim().slice(0, 4).toUpperCase().replace(/[^A-Z0-9]/g, '');
+        if (clean.length >= 2) prefix = clean;
+      }
+      if (fmt === 'Short') {
+        let maxShort = 0;
+        videos.forEach(v => {
+          if (v.code && v.code.toUpperCase().startsWith(prefix) && v.code.includes('-S')) {
+            const m = v.code.match(/-S(\d+)/i);
+            if (m) {
+              const num = parseInt(m[1], 10);
+              if (!isNaN(num) && num > maxShort) maxShort = num;
+            }
+          }
+        });
+        return `${prefix}-S${maxShort + 1}`;
+      } else {
+        let maxLong = 0;
+        videos.forEach(v => {
+          if (v.code && v.code.toUpperCase().startsWith(prefix) && !v.code.includes('-S')) {
+            const numPart = v.code.replace(new RegExp(`^${prefix}[-_]?`, 'i'), '');
+            const num = parseInt(numPart, 10);
+            if (!isNaN(num) && num > maxLong) maxLong = num;
+          }
+        });
+        return `${prefix}-${maxLong + 1 || 1}`;
+      }
+    }
+
     const prefix = pillar.codePrefix;
     if (fmt === 'Short') {
       let maxShort = 0;
@@ -4075,8 +4343,8 @@ function AddVideoModal({ videos, onClose, onSuccess }) {
   };
 
   useEffect(() => {
-    setCode(calculateSuggestedCode(formatType, selectedPillar));
-  }, [formatType, selectedPillarIndex]);
+    setCode(calculateSuggestedCode(formatType, selectedPillar, isSystemized, customProject));
+  }, [formatType, selectedPillarIndex, isSystemized, customProject]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -4157,10 +4425,19 @@ function AddVideoModal({ videos, onClose, onSuccess }) {
 
       const starterOutline = getStarterOutline(formatType, code);
 
+      const checklistObj = getAutoCompletedChecklist(status, {}, formatType === 'Short');
+      checklistObj.is_systemized = isSystemized;
+      if (!isSystemized) {
+        checklistObj.project_name = customProject.trim() || 'Other Project';
+      } else {
+        checklistObj.project_name = 'Systemized Health';
+      }
+
       const nowStamp = format(new Date(), 'yyyy-MM-dd HH:mm');
+      const projectLabel = isSystemized ? `Pillar: ${selectedPillar.pillar}` : `Project: ${customProject.trim() || 'Non-Systemized'}`;
       const logLine = notes.trim()
-        ? `-[${nowStamp}] Filmed on-the-fly in field (Pillar: ${selectedPillar.pillar}).\n${notes.trim()}`
-        : `-[${nowStamp}] Added on-the-fly in field (Pillar: ${selectedPillar.pillar}).`;
+        ? `-[${nowStamp}] Filmed on-the-fly in field (${projectLabel}).\n${notes.trim()}`
+        : `-[${nowStamp}] Added on-the-fly in field (${projectLabel}).`;
 
       const newRecord = {
         video_number: nextVideoNumber,
@@ -4169,13 +4446,13 @@ function AddVideoModal({ videos, onClose, onSuccess }) {
         title: title.trim(),
         status: status,
         drop_date: dropDate.trim() || null,
-        os_level: selectedPillar.level,
-        jdex_code: selectedPillar.defaultJdex,
+        os_level: isSystemized ? selectedPillar.level : (customProject.trim() ? `Non-Systemized: ${customProject.trim()}` : 'Non-Systemized'),
+        jdex_code: isSystemized ? selectedPillar.defaultJdex : null,
         rough_outline: starterOutline,
         raw_transcript: transcript.trim() || null,
         notes: logLine,
         cards_created: false,
-        edit_checklist: JSON.stringify(getAutoCompletedChecklist(status, {}, formatType === 'Short')),
+        edit_checklist: JSON.stringify(checklistObj),
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),
       };
@@ -4245,6 +4522,51 @@ function AddVideoModal({ videos, onClose, onSuccess }) {
             </div>
           </div>
 
+          {/* Project Tag: Systemized vs Non-Systemized */}
+          <div className="form-group">
+            <label className="form-label" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <span>Project Tag</span>
+              <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
+                {isSystemized ? 'Included in Systemized Search' : 'Excluded when "Systemized Only" is toggled'}
+              </span>
+            </label>
+            <div className="format-toggle-group">
+              <button
+                type="button"
+                className={`format-toggle-btn ${isSystemized ? 'active' : ''}`}
+                onClick={() => setIsSystemized(true)}
+              >
+                🩺 Systemized Health
+              </button>
+              <button
+                type="button"
+                className={`format-toggle-btn ${!isSystemized ? 'active' : ''}`}
+                onClick={() => setIsSystemized(false)}
+              >
+                📁 Non-Systemized (Other Project)
+              </button>
+            </div>
+          </div>
+
+          {/* If Non-Systemized: Optional Custom Project Name */}
+          {!isSystemized && (
+            <div className="form-group" style={{ padding: '0.75rem', backgroundColor: 'rgba(234, 88, 12, 0.06)', border: '1px solid rgba(234, 88, 12, 0.25)', borderRadius: 'var(--radius-md)' }}>
+              <label className="form-label" style={{ color: '#ea580c', fontWeight: '600' }}>
+                Project Name / Channel (Optional)
+              </label>
+              <input
+                type="text"
+                className="form-input"
+                value={customProject}
+                onChange={(e) => setCustomProject(e.target.value)}
+                placeholder="e.g. Personal Vlog, Client Work, Fitness"
+              />
+              <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginTop: '0.25rem', display: 'block' }}>
+                Custom project name used for badges and search filters.
+              </span>
+            </div>
+          )}
+
           {/* Working Title */}
           <div className="form-group">
             <label className="form-label">Working Title *</label>
@@ -4253,7 +4575,7 @@ function AddVideoModal({ videos, onClose, onSuccess }) {
               className="form-input"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              placeholder="e.g. Overcoming Morning Joint Stiffness"
+              placeholder={isSystemized ? "e.g. Overcoming Morning Joint Stiffness" : "e.g. Project Episode / Title"}
               required
             />
           </div>
@@ -4280,21 +4602,23 @@ function AddVideoModal({ videos, onClose, onSuccess }) {
             </div>
           </div>
 
-          {/* Pillar / Level Focus */}
-          <div className="form-group">
-            <label className="form-label">Level & Pillar Focus</label>
-            <select
-              className="form-select"
-              value={selectedPillarIndex}
-              onChange={(e) => setSelectedPillarIndex(Number(e.target.value))}
-            >
-              {PILLAR_OPTIONS.map((p, idx) => (
-                <option key={idx} value={idx}>
-                  {p.level} — {p.pillar} ({p.codePrefix})
-                </option>
-              ))}
-            </select>
-          </div>
+          {/* Pillar / Level Focus (only if Systemized) */}
+          {isSystemized && (
+            <div className="form-group">
+              <label className="form-label">Level & Pillar Focus</label>
+              <select
+                className="form-select"
+                value={selectedPillarIndex}
+                onChange={(e) => setSelectedPillarIndex(Number(e.target.value))}
+              >
+                {PILLAR_OPTIONS.map((p, idx) => (
+                  <option key={idx} value={idx}>
+                    {p.level} — {p.pillar} ({p.codePrefix})
+                  </option>
+                ))}
+              </select>
+            </div>
+          )}
 
           {/* Code & Drop Date */}
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
@@ -4305,7 +4629,7 @@ function AddVideoModal({ videos, onClose, onSuccess }) {
                 className="form-input"
                 value={code}
                 onChange={(e) => setCode(e.target.value)}
-                placeholder="e.g. 80.V1B-S4"
+                placeholder={isSystemized ? "e.g. 80.V1B-S4" : "e.g. EXT-S1"}
                 required
               />
             </div>
