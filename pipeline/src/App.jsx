@@ -4,7 +4,7 @@ import {
   Calendar, CheckSquare, AlertCircle, RefreshCw, ChevronLeft, Save, Tag, 
   TrendingUp, Clock, FileVideo, Scissors, Film, X, ExternalLink,
   Check, MessageSquare, Plus, Trash2, ListTodo, FileText, CheckCircle2, Lightbulb, Link,
-  Sparkles, FileEdit, Search, Share2, Eye, Edit3, Play, BookOpen
+  Sparkles, FileEdit, Search, Share2, Eye, Edit3, Play, BookOpen, Folder
 } from 'lucide-react';
 import { addDays, isBefore, parseISO, differenceInDays, format } from 'date-fns';
 import ReactMarkdown from 'react-markdown';
@@ -855,11 +855,7 @@ function App() {
   const editingVideos = videos.filter(v => v.status === '#edit');
   const readyToFilmVideos = videos.filter(v => v.status === '#film');
   const writingVideos = videos.filter(v => v.status === '#write');
-  const futureVideos = videos.filter(v => {
-    if (v.status === '#published') return false;
-    if (v.code?.startsWith('HIST')) return false;
-    return v.status === '#idea';
-  });
+  const otherVideos = videos.filter(v => !isSystemizedVideo(v));
 
   const openModal = (title, videoList) => {
     const listCopy = [...videoList];
@@ -1009,64 +1005,64 @@ function App() {
       {/* Metrics Bar */}
       <div className="metrics-grid">
         <div className="card metric-tile" onClick={() => openModal('Published Long Videos', publishedLongs)} title={lastLongVideo ? `Last Long: ${lastLongVideo.title}` : undefined}>
-          <div style={{ backgroundColor: 'var(--accent-color)', color: '#fff', padding: '0.5rem', borderRadius: '50%', display: 'flex' }}>
-            <Clock size={20} />
+          <div className="metric-tile-icon" style={{ backgroundColor: 'var(--accent-color)', color: '#fff' }}>
+            <Clock size={16} />
           </div>
-          <div>
-            <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Days Since Last Video</div>
-            <div style={{ fontSize: '1.25rem', fontWeight: 'bold', lineHeight: '1.2' }}>
+          <div className="metric-tile-content">
+            <div className="metric-tile-label">Days Since Last Video</div>
+            <div className="metric-tile-value">
               {daysSinceLastLong !== null ? daysSinceLastLong : 3}
             </div>
           </div>
         </div>
 
         <div className="card metric-tile" onClick={() => openModal('Writing', writingVideos)}>
-          <div style={{ backgroundColor: '#b45309', color: '#fff', padding: '0.5rem', borderRadius: '50%', display: 'flex' }}>
-            <Scissors size={20} />
+          <div className="metric-tile-icon" style={{ backgroundColor: '#b45309', color: '#fff' }}>
+            <Scissors size={16} />
           </div>
-          <div>
-            <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Writing</div>
-            <div style={{ fontSize: '1.25rem', fontWeight: 'bold', lineHeight: '1.2' }}>{writingVideos.length}</div>
+          <div className="metric-tile-content">
+            <div className="metric-tile-label">Writing</div>
+            <div className="metric-tile-value">{writingVideos.length}</div>
           </div>
         </div>
 
         <div className="card metric-tile" onClick={() => openModal('Filming', readyToFilmVideos)}>
-          <div style={{ backgroundColor: 'var(--danger-color)', color: '#fff', padding: '0.5rem', borderRadius: '50%', display: 'flex' }}>
-            <Film size={20} />
+          <div className="metric-tile-icon" style={{ backgroundColor: 'var(--danger-color)', color: '#fff' }}>
+            <Film size={16} />
           </div>
-          <div>
-            <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Filming</div>
-            <div style={{ fontSize: '1.25rem', fontWeight: 'bold', lineHeight: '1.2' }}>{readyToFilmVideos.length}</div>
+          <div className="metric-tile-content">
+            <div className="metric-tile-label">Filming</div>
+            <div className="metric-tile-value">{readyToFilmVideos.length}</div>
           </div>
         </div>
 
         <div className="card metric-tile" onClick={() => openModal('Editing', editingVideos)}>
-          <div style={{ backgroundColor: '#7e22ce', color: '#fff', padding: '0.5rem', borderRadius: '50%', display: 'flex' }}>
-            <Clock size={20} />
+          <div className="metric-tile-icon" style={{ backgroundColor: '#7e22ce', color: '#fff' }}>
+            <Clock size={16} />
           </div>
-          <div>
-            <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Editing</div>
-            <div style={{ fontSize: '1.25rem', fontWeight: 'bold', lineHeight: '1.2' }}>{editingVideos.length}</div>
+          <div className="metric-tile-content">
+            <div className="metric-tile-label">Editing</div>
+            <div className="metric-tile-value">{editingVideos.length}</div>
           </div>
         </div>
 
         <div className="card metric-tile" onClick={() => openModal('Published Videos', publishedVideos)}>
-          <div style={{ backgroundColor: '#8b5cf6', color: '#fff', padding: '0.5rem', borderRadius: '50%', display: 'flex' }}>
-            <FileVideo size={20} />
+          <div className="metric-tile-icon" style={{ backgroundColor: '#8b5cf6', color: '#fff' }}>
+            <FileVideo size={16} />
           </div>
-          <div>
-            <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Published Videos</div>
-            <div style={{ fontSize: '1.25rem', fontWeight: 'bold', lineHeight: '1.2' }}>{publishedVideos.length}</div>
+          <div className="metric-tile-content">
+            <div className="metric-tile-label">Published Videos</div>
+            <div className="metric-tile-value">{publishedVideos.length}</div>
           </div>
         </div>
 
-        <div className="card metric-tile" onClick={() => openModal('Future Videos', futureVideos)}>
-          <div style={{ backgroundColor: 'var(--accent-color)', color: '#fff', padding: '0.5rem', borderRadius: '50%', display: 'flex' }}>
-            <Calendar size={20} />
+        <div className="card metric-tile" onClick={() => openModal('Other Videos', otherVideos)} title="All non-systemized videos">
+          <div className="metric-tile-icon" style={{ backgroundColor: '#ea580c', color: '#fff' }}>
+            <Folder size={16} />
           </div>
-          <div>
-            <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Future Videos</div>
-            <div style={{ fontSize: '1.25rem', fontWeight: 'bold', lineHeight: '1.2' }}>{futureVideos.length}</div>
+          <div className="metric-tile-content">
+            <div className="metric-tile-label">Other Videos</div>
+            <div className="metric-tile-value">{otherVideos.length}</div>
           </div>
         </div>
       </div>
@@ -1434,14 +1430,18 @@ function App() {
                 {metricModal.videos.map(v => {
                   const rotInfo = getRotationInfo(v);
                   const isDuplicate = checkIsDuplicateCode(v, videos);
+                  const isOther = !isSystemizedVideo(v);
+                  const projectName = getVideoProjectName(v);
                   const displayTitle = (v.title && v.title.trim())
                     ? v.title.trim()
-                    : (rotInfo?.level || v.os_level || 'Untitled');
+                    : (isOther ? projectName : (rotInfo?.level || v.os_level || 'Untitled'));
+                  const borderLeftColor = isDuplicate ? '#f97316' : (isOther ? '#ea580c' : getBorderColor(v));
+
                   return (
                     <div
                       key={v.code}
                       className="video-item"
-                      style={{ borderLeft: isDuplicate ? '4px solid #f97316' : undefined, cursor: 'pointer' }}
+                      style={{ borderLeft: `4px solid ${borderLeftColor}`, cursor: 'pointer' }}
                       onClick={() => { openVideo(v); setMetricModal(null); }}
                     >
                       <div className="video-header">
@@ -1453,37 +1453,64 @@ function App() {
                             padding: '0.05rem 0.35rem',
                             borderRadius: '4px'
                           } : {}}>
-                            {v.code}: {displayTitle}
+                            {v.code}
                           </strong>
+                          {isOther ? (
+                            <span
+                              style={{
+                                fontSize: '0.7rem',
+                                padding: '0.1rem 0.45rem',
+                                borderRadius: '4px',
+                                backgroundColor: 'rgba(234, 88, 12, 0.12)',
+                                color: '#ea580c',
+                                border: '1px solid rgba(234, 88, 12, 0.3)',
+                                fontWeight: '600'
+                              }}
+                              title="Project"
+                            >
+                              📁 {projectName}
+                            </span>
+                          ) : (
+                            <span style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', fontWeight: '600', textTransform: 'uppercase' }}>
+                              {(v.format_type === 'Long' || (!v.code?.includes('-S') && !v.format_type?.toLowerCase().includes('short'))) ? 'Long' : 'Short'}
+                            </span>
+                          )}
                         </div>
                         {getStatusBadge(v.status)}
                       </div>
-                      <div className="video-meta" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <span>Drop: {v.drop_date ? format(parseISO(v.drop_date), 'EEE, MMM d, yyyy') : 'TBD'}</span>
-                        {getYouTubeUrl(v) && (
-                          <a
-                            href={getYouTubeUrl(v)}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={(e) => e.stopPropagation()}
-                            style={{
-                              fontSize: '0.78rem',
-                              color: '#ef4444',
-                              fontWeight: '600',
-                              display: 'inline-flex',
-                              alignItems: 'center',
-                              gap: '0.25rem',
-                              textDecoration: 'none',
-                              padding: '0.15rem 0.5rem',
-                              borderRadius: '4px',
-                              backgroundColor: 'rgba(239, 68, 68, 0.08)',
-                              border: '1px solid rgba(239, 68, 68, 0.25)'
-                            }}
-                            title="Watch video on YouTube"
-                          >
-                            <ExternalLink size={12} /> Watch
-                          </a>
-                        )}
+                      <div className="video-meta" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '0.25rem' }}>
+                        <span className="video-title" style={{ fontWeight: '600', fontSize: '0.92rem' }}>
+                          {displayTitle}
+                        </span>
+                        <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '0.4rem', whiteSpace: 'nowrap' }}>
+                          {getYouTubeUrl(v) && (
+                            <a
+                              href={getYouTubeUrl(v)}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => e.stopPropagation()}
+                              style={{
+                                fontSize: '0.78rem',
+                                color: '#ef4444',
+                                fontWeight: '600',
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '0.25rem',
+                                textDecoration: 'none',
+                                padding: '0.15rem 0.5rem',
+                                borderRadius: '4px',
+                                backgroundColor: 'rgba(239, 68, 68, 0.08)',
+                                border: '1px solid rgba(239, 68, 68, 0.25)'
+                              }}
+                              title="Watch video on YouTube"
+                            >
+                              <ExternalLink size={12} /> Watch
+                            </a>
+                          )}
+                          <span style={{ fontSize: '0.82rem', color: 'var(--text-secondary)' }}>
+                            {v.drop_date ? format(parseISO(v.drop_date), 'EEE, MMM d, yyyy') : 'No Date'}
+                          </span>
+                        </div>
                       </div>
                     </div>
                   );
@@ -1719,7 +1746,7 @@ function App() {
                 action=""
                 className="header-search-form"
               >
-                <Search size={15} className="header-search-icon" />
+                <Search size={14} className="header-search-icon" />
                 <input
                   type="search"
                   className="search-input"
@@ -1744,7 +1771,7 @@ function App() {
                     className="header-search-clear"
                     title="Clear search"
                   >
-                    <X size={14} />
+                    <X size={13} />
                   </button>
                 )}
               </form>
@@ -1760,18 +1787,7 @@ function App() {
                     console.error(e);
                   }
                 }}
-                className={`btn ${systemizedOnly ? 'btn-primary' : 'btn-outline'}`}
-                style={{
-                  height: '34px',
-                  padding: '0 0.65rem',
-                  fontSize: '0.78rem',
-                  fontWeight: '600',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.35rem',
-                  whiteSpace: 'nowrap',
-                  borderRadius: 'var(--radius-md)',
-                }}
+                className={`btn btn-toggle-filter ${systemizedOnly ? 'btn-primary' : 'btn-outline'}`}
                 title={systemizedOnly ? "Search filter: Systemized Only. Click to include All Projects." : "Search filter: All Projects. Click to limit to Systemized Only."}
               >
                 {systemizedOnly ? '🩺 Systemized Only' : '🌐 All Projects'}
@@ -1780,7 +1796,7 @@ function App() {
 
             <div className="header-actions">
               <button className="btn btn-primary" onClick={() => setShowAddModal(true)}>
-                <Plus size={16} />
+                <Plus size={14} />
                 <span>Add Video</span>
               </button>
               <button
@@ -1789,7 +1805,7 @@ function App() {
                 disabled={loading}
                 title="Refresh pipeline data"
               >
-                <RefreshCw size={16} className={loading ? "animate-spin" : ""} />
+                <RefreshCw size={14} className={loading ? "animate-spin" : ""} />
               </button>
               <button
                 type="button"
