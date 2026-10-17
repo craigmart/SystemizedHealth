@@ -4,7 +4,7 @@ import {
   Calendar, CheckSquare, AlertCircle, RefreshCw, ChevronLeft, Save, Tag, 
   TrendingUp, Clock, FileVideo, Scissors, Film, X, ExternalLink,
   Check, MessageSquare, Plus, Trash2, ListTodo, FileText, CheckCircle2, Lightbulb, Link,
-  Sparkles, FileEdit, Search, Share2, Eye, Edit3, Play, BookOpen, Folder
+  Sparkles, FileEdit, Search, Share2, Eye, Edit3, Play, BookOpen, Folder, Activity
 } from 'lucide-react';
 import { addDays, isBefore, parseISO, differenceInDays, format } from 'date-fns';
 import ReactMarkdown from 'react-markdown';
@@ -251,6 +251,7 @@ function App() {
     }
   });
   const [showAddModal, setShowAddModal] = useState(false);
+  const [showActivityModal, setShowActivityModal] = useState(false);
   const [showDefinitionsPage, setShowDefinitionsPage] = useState(false);
   const [editingWipDateCode, setEditingWipDateCode] = useState(null);
   const [wipDateValue, setWipDateValue] = useState('');
@@ -1844,6 +1845,15 @@ function App() {
                 <ExternalLink size={14} />
                 <span>Vid IQ</span>
               </button>
+              <button
+                type="button"
+                onClick={() => setShowActivityModal(true)}
+                className="btn btn-outline"
+                title="View recent video activities & actions"
+              >
+                <Activity size={14} />
+                <span>Activity</span>
+              </button>
             </div>
           </div>
         </header>
@@ -1883,6 +1893,18 @@ function App() {
             setShowAddModal(false);
             fetchVideos();
             if (newVid) setCurrentVideo(newVid);
+          }}
+        />
+      )}
+
+      {showActivityModal && (
+        <ActivityModal
+          videos={videos}
+          getStatusBadge={getStatusBadge}
+          onClose={() => setShowActivityModal(false)}
+          onSelectVideo={(vid) => {
+            setShowActivityModal(false);
+            openVideo(vid);
           }}
         />
       )}
@@ -2849,16 +2871,25 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
       return;
     }
     const newStatus = e.target.value;
+    if (newStatus === localVideo.status) return;
+
     const isShort = localVideo.format_type === 'Short' || localVideo.code?.includes('-S');
     const updatedChecklist = getAutoCompletedChecklist(newStatus, checklist, isShort);
 
     // Sync cards_created with pub_cards
     const cardsCreated = updatedChecklist.pub_cards ?? localVideo.cards_created;
 
+    const now = new Date();
+    const dateStr = now.toLocaleDateString('en-CA');
+    const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+    const logEntry = `- [${dateStr} ${timeStr}] Status updated: "${localVideo.status || '#idea'}" → "${newStatus}"`;
+    const updatedNotes = notes && notes.trim() ? `${logEntry}\n${notes.trim()}` : logEntry;
+
     const updatePayload = { 
       status: newStatus,
       edit_checklist: updatedChecklist,
-      cards_created: cardsCreated
+      cards_created: cardsCreated,
+      notes: updatedNotes
     };
 
     const { error } = await supabase
@@ -2870,6 +2901,7 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
       alert("Error changing status: " + error.message);
     } else {
       setLocalVideo(prev => ({ ...prev, ...updatePayload }));
+      setNotes(updatedNotes);
       setChecklist(updatedChecklist);
       setChecklistPhase(getChecklistPhaseForStatus(newStatus));
       onUpdate();
@@ -4690,6 +4722,278 @@ function AddVideoModal({ videos, onClose, onSuccess }) {
             </button>
           </div>
         </form>
+      </div>
+    </div>
+  );
+}
+
+function ActivityModal({ videos, getStatusBadge, onClose, onSelectVideo }) {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [activeFilter, setActiveFilter] = useState('all'); // 'all', 'today', 'week', 'title_date', 'status'
+
+  const allActivities = useMemo(() => {
+    if (!videos || !Array.isArray(videos)) return [];
+    const datePattern = /\[(\d{4}-\d{2}-\d{2}(?:\s+\d{2}:\d{2}(?::\d{2})?)?)\]/;
+    const results = [];
+
+    videos.forEach(v => {
+      const notes = v.notes || '';
+      const lines = notes.split('\n');
+      lines.forEach(line => {
+        const trimmed = line.trim();
+        if (!trimmed) return;
+        const match = trimmed.match(datePattern);
+        if (match) {
+          const dateStr = match[1];
+          const actionText = trimmed.replace(/^[-*\s]*\[\d{4}-\d{2}-\d{2}(?:\s+\d{2}:\d{2}(?::\d{2})?)?\]\s*/, '').trim();
+          if (actionText) {
+            results.push({
+              timestamp: dateStr,
+              datePart: dateStr.split(' ')[0],
+              videoCode: v.code,
+              videoTitle: v.title,
+              videoStatus: v.status,
+              videoFormat: v.format_type || (v.code?.includes('-S') ? 'Short' : 'Long'),
+              isSystemized: isSystemizedVideo(v),
+              projectName: getVideoProjectName(v),
+              action: actionText,
+              raw: trimmed,
+              video: v
+            });
+          }
+        }
+      });
+    });
+
+    results.sort((a, b) => b.timestamp.localeCompare(a.timestamp));
+    return results;
+  }, [videos]);
+
+  const filteredActivities = useMemo(() => {
+    let list = allActivities;
+
+    if (activeFilter === 'today') {
+      const todayStr = format(new Date(), 'yyyy-MM-dd');
+      list = list.filter(a => a.datePart === todayStr);
+    } else if (activeFilter === 'week') {
+      const now = new Date();
+      list = list.filter(a => {
+        try {
+          const d = parseISO(a.datePart);
+          return Math.abs(differenceInDays(now, d)) <= 7;
+        } catch {
+          return false;
+        }
+      });
+    } else if (activeFilter === 'title_date') {
+      list = list.filter(a => /title updated|drop date updated|code updated/i.test(a.action));
+    } else if (activeFilter === 'status') {
+      list = list.filter(a => /status updated|scheduled|archived|published/i.test(a.action));
+    }
+
+    const q = (searchQuery || '').trim().toLowerCase();
+    if (q) {
+      list = list.filter(a => 
+        (a.action && a.action.toLowerCase().includes(q)) ||
+        (a.videoCode && a.videoCode.toLowerCase().includes(q)) ||
+        (a.videoTitle && a.videoTitle.toLowerCase().includes(q)) ||
+        (a.projectName && a.projectName.toLowerCase().includes(q)) ||
+        (a.timestamp && a.timestamp.includes(q))
+      );
+    }
+
+    return list;
+  }, [allActivities, activeFilter, searchQuery]);
+
+  const formatActivityDate = (ts) => {
+    if (!ts) return '';
+    try {
+      const parts = ts.split(' ');
+      const datePart = parts[0];
+      const timePart = parts[1];
+      const d = parseISO(datePart);
+      if (isNaN(d.getTime())) return ts;
+
+      const todayStr = format(new Date(), 'yyyy-MM-dd');
+      const yesterdayStr = format(addDays(new Date(), -1), 'yyyy-MM-dd');
+
+      let prefix = format(d, 'MMM d, yyyy');
+      if (datePart === todayStr) prefix = 'Today';
+      else if (datePart === yesterdayStr) prefix = 'Yesterday';
+
+      return timePart ? `${prefix} at ${timePart}` : prefix;
+    } catch {
+      return ts;
+    }
+  };
+
+  const renderActionText = (text) => {
+    const urlRegex = /(https?:\/\/[^\s]+)/g;
+    const parts = text.split(urlRegex);
+    return parts.map((part, i) => {
+      if (urlRegex.test(part)) {
+        return (
+          <a
+            key={i}
+            href={part}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={e => e.stopPropagation()}
+            style={{ color: 'var(--accent-color)', textDecoration: 'underline', wordBreak: 'break-all' }}
+          >
+            {part} <ExternalLink size={11} style={{ display: 'inline', verticalAlign: 'middle' }} />
+          </a>
+        );
+      }
+      return part;
+    });
+  };
+
+  return (
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-content activity-modal-content" onClick={e => e.stopPropagation()}>
+        <div className="activity-modal-header">
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+            <div style={{ backgroundColor: 'rgba(14, 165, 233, 0.12)', color: 'var(--accent-color)', padding: '0.4rem', borderRadius: '8px', display: 'flex' }}>
+              <Activity size={18} />
+            </div>
+            <div>
+              <h2 style={{ margin: 0, fontSize: '1.2rem', lineHeight: '1.2' }}>Recent Activity & Actions</h2>
+              <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginTop: '0.15rem' }}>
+                All logged production actions, changes, and notes across videos
+              </div>
+            </div>
+          </div>
+          <button className="btn btn-outline btn-icon-only" onClick={onClose} title="Close">
+            <X size={16} />
+          </button>
+        </div>
+
+        {/* Search & Filter Bar */}
+        <div className="activity-search-bar">
+          <div style={{ position: 'relative', flex: 1, minWidth: '200px' }}>
+            <Search size={14} style={{ position: 'absolute', left: '0.65rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-secondary)', pointerEvents: 'none' }} />
+            <input
+              type="text"
+              className="activity-search-input"
+              placeholder="Search actions, titles, codes..."
+              value={searchQuery}
+              onChange={e => setSearchQuery(e.target.value)}
+              autoFocus
+            />
+            {searchQuery && (
+              <button
+                type="button"
+                onClick={() => setSearchQuery('')}
+                style={{ position: 'absolute', right: '0.5rem', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer', padding: '0.2rem' }}
+                title="Clear search"
+              >
+                <X size={12} />
+              </button>
+            )}
+          </div>
+
+          <div className="activity-filters">
+            <button
+              type="button"
+              className={`activity-filter-pill ${activeFilter === 'all' ? 'active' : ''}`}
+              onClick={() => setActiveFilter('all')}
+            >
+              All ({allActivities.length})
+            </button>
+            <button
+              type="button"
+              className={`activity-filter-pill ${activeFilter === 'today' ? 'active' : ''}`}
+              onClick={() => setActiveFilter('today')}
+            >
+              Today
+            </button>
+            <button
+              type="button"
+              className={`activity-filter-pill ${activeFilter === 'week' ? 'active' : ''}`}
+              onClick={() => setActiveFilter('week')}
+            >
+              Past 7 Days
+            </button>
+            <button
+              type="button"
+              className={`activity-filter-pill ${activeFilter === 'title_date' ? 'active' : ''}`}
+              onClick={() => setActiveFilter('title_date')}
+            >
+              Titles & Dates
+            </button>
+            <button
+              type="button"
+              className={`activity-filter-pill ${activeFilter === 'status' ? 'active' : ''}`}
+              onClick={() => setActiveFilter('status')}
+            >
+              Status Updates
+            </button>
+          </div>
+        </div>
+
+        {/* Activities List */}
+        {filteredActivities.length === 0 ? (
+          <div style={{ padding: '2.5rem 1rem', textAlign: 'center', color: 'var(--text-secondary)', fontSize: '0.88rem' }}>
+            No recent actions match your filter criteria.
+          </div>
+        ) : (
+          <div className="activity-list">
+            {filteredActivities.map((act, idx) => {
+              const isOther = !act.isSystemized;
+              return (
+                <div
+                  key={`${act.videoCode}-${act.timestamp}-${idx}`}
+                  className="activity-card"
+                  onClick={() => onSelectVideo(act.video)}
+                  title="Click to view this video"
+                >
+                  <div className="activity-meta-row">
+                    <div className="activity-badges">
+                      <strong style={{
+                        fontSize: '0.82rem',
+                        fontWeight: '700',
+                        color: isOther ? '#ea580c' : 'var(--accent-color)'
+                      }}>
+                        {act.videoCode}
+                      </strong>
+                      {isOther ? (
+                        <span style={{
+                          fontSize: '0.68rem',
+                          padding: '0.08rem 0.4rem',
+                          borderRadius: '4px',
+                          backgroundColor: 'rgba(234, 88, 12, 0.12)',
+                          color: '#ea580c',
+                          border: '1px solid rgba(234, 88, 12, 0.3)',
+                          fontWeight: '600'
+                        }}>
+                          📁 {act.projectName}
+                        </span>
+                      ) : (
+                        <span style={{ fontSize: '0.68rem', color: 'var(--text-secondary)', fontWeight: '600', textTransform: 'uppercase' }}>
+                          {act.videoFormat}
+                        </span>
+                      )}
+                      {getStatusBadge ? getStatusBadge(act.videoStatus) : null}
+                    </div>
+
+                    <span className="activity-timestamp">
+                      <Clock size={11} /> {formatActivityDate(act.timestamp)}
+                    </span>
+                  </div>
+
+                  <div className="activity-title">
+                    {act.videoTitle || (isOther ? act.projectName : 'Untitled')}
+                  </div>
+
+                  <div className="activity-action">
+                    {renderActionText(act.action)}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
       </div>
     </div>
   );
