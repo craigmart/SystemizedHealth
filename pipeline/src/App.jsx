@@ -4728,7 +4728,6 @@ function AddVideoModal({ videos, onClose, onSuccess }) {
 }
 
 function ActivityModal({ videos, getStatusBadge, onClose, onSelectVideo }) {
-  const [searchQuery, setSearchQuery] = useState('');
   const [activeFilter, setActiveFilter] = useState('all'); // 'all', 'today', 'week', 'title_date', 'status'
 
   const allActivities = useMemo(() => {
@@ -4791,19 +4790,8 @@ function ActivityModal({ videos, getStatusBadge, onClose, onSelectVideo }) {
       list = list.filter(a => /status updated|scheduled|archived|published/i.test(a.action));
     }
 
-    const q = (searchQuery || '').trim().toLowerCase();
-    if (q) {
-      list = list.filter(a => 
-        (a.action && a.action.toLowerCase().includes(q)) ||
-        (a.videoCode && a.videoCode.toLowerCase().includes(q)) ||
-        (a.videoTitle && a.videoTitle.toLowerCase().includes(q)) ||
-        (a.projectName && a.projectName.toLowerCase().includes(q)) ||
-        (a.timestamp && a.timestamp.includes(q))
-      );
-    }
-
     return list;
-  }, [allActivities, activeFilter, searchQuery]);
+  }, [allActivities, activeFilter]);
 
   const formatActivityDate = (ts) => {
     if (!ts) return '';
@@ -4869,67 +4857,43 @@ function ActivityModal({ videos, getStatusBadge, onClose, onSelectVideo }) {
           </button>
         </div>
 
-        {/* Search & Filter Bar */}
-        <div className="activity-search-bar">
-          <div style={{ position: 'relative', flex: 1, minWidth: '200px' }}>
-            <Search size={14} style={{ position: 'absolute', left: '0.65rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-secondary)', pointerEvents: 'none' }} />
-            <input
-              type="text"
-              className="activity-search-input"
-              placeholder="Search actions, titles, codes..."
-              value={searchQuery}
-              onChange={e => setSearchQuery(e.target.value)}
-              autoFocus
-            />
-            {searchQuery && (
-              <button
-                type="button"
-                onClick={() => setSearchQuery('')}
-                style={{ position: 'absolute', right: '0.5rem', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer', padding: '0.2rem' }}
-                title="Clear search"
-              >
-                <X size={12} />
-              </button>
-            )}
-          </div>
-
-          <div className="activity-filters">
-            <button
-              type="button"
-              className={`activity-filter-pill ${activeFilter === 'all' ? 'active' : ''}`}
-              onClick={() => setActiveFilter('all')}
-            >
-              All ({allActivities.length})
-            </button>
-            <button
-              type="button"
-              className={`activity-filter-pill ${activeFilter === 'today' ? 'active' : ''}`}
-              onClick={() => setActiveFilter('today')}
-            >
-              Today
-            </button>
-            <button
-              type="button"
-              className={`activity-filter-pill ${activeFilter === 'week' ? 'active' : ''}`}
-              onClick={() => setActiveFilter('week')}
-            >
-              Past 7 Days
-            </button>
-            <button
-              type="button"
-              className={`activity-filter-pill ${activeFilter === 'title_date' ? 'active' : ''}`}
-              onClick={() => setActiveFilter('title_date')}
-            >
-              Titles & Dates
-            </button>
-            <button
-              type="button"
-              className={`activity-filter-pill ${activeFilter === 'status' ? 'active' : ''}`}
-              onClick={() => setActiveFilter('status')}
-            >
-              Status Updates
-            </button>
-          </div>
+        {/* Filter Bar */}
+        <div className="activity-filters-bar">
+          <button
+            type="button"
+            className={`activity-filter-pill ${activeFilter === 'all' ? 'active' : ''}`}
+            onClick={() => setActiveFilter('all')}
+          >
+            All ({allActivities.length})
+          </button>
+          <button
+            type="button"
+            className={`activity-filter-pill ${activeFilter === 'today' ? 'active' : ''}`}
+            onClick={() => setActiveFilter('today')}
+          >
+            Today
+          </button>
+          <button
+            type="button"
+            className={`activity-filter-pill ${activeFilter === 'week' ? 'active' : ''}`}
+            onClick={() => setActiveFilter('week')}
+          >
+            Past 7 Days
+          </button>
+          <button
+            type="button"
+            className={`activity-filter-pill ${activeFilter === 'title_date' ? 'active' : ''}`}
+            onClick={() => setActiveFilter('title_date')}
+          >
+            Titles & Dates
+          </button>
+          <button
+            type="button"
+            className={`activity-filter-pill ${activeFilter === 'status' ? 'active' : ''}`}
+            onClick={() => setActiveFilter('status')}
+          >
+            Status Updates
+          </button>
         </div>
 
         {/* Activities List */}
