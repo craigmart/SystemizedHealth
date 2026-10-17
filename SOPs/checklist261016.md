@@ -15,7 +15,6 @@
 - [ ] Direct-to-camera recorded
 
 **EDITING (`#edit`)**
-- [ ] Spoken transcript pasted
 - [ ] B-roll & pacing matched
 - [ ] Sound & audio enhanced
 

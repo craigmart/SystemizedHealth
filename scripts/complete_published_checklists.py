@@ -24,7 +24,6 @@ STANDARD_KEYS = [
     "prep_acceptance",
     "prep_card",
     "film_recorded",
-    "edit_transcript",
     "edit_broll",
     "edit_sound",
     "pub_thumb",

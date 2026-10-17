@@ -14,44 +14,45 @@ export const WORKFLOW_DEFINITIONS = [
     bg: 'rgba(100, 116, 139, 0.1)',
     icon: Lightbulb,
     title: '1. IDEA (#idea)',
-    subtitle: 'Demand Validation, Packaging & Connected Strategy',
+    subtitle: 'Demand Psychology, Choice Packaging & Conversion Strategy',
     items: [
       {
         key: 'idea_demand',
         label: 'Topic Demand validated',
-        summary: 'Confirm viewers actually watch this topic (Revealed Preference) vs. what they say they need.',
+        summary: 'Confirm behavioral evidence that viewers actually watch this topic on YouTube today (Revealed Preference).',
         details: [
-          'Verify view floor (median channel baseline) and ceiling (top niche outliers).',
-          'Confirm search & browsing demand is actively alive today.',
+          'Key Question: "Do they actually care about this topic right now, and what outcome do they already value?"',
+          'Verify organic view floor (median baseline) and ceiling (top outliers) across several recent comparable videos (ensure views aren\'t inflated by paid ads).',
+          'Clinical Repositioning: If direct demand isn\'t there, position your clinical mechanism (X) as the unique key to the outcome they already want (Y) (e.g., "If you don\'t understand [Mechanism X], you don\'t understand [Outcome Y]").',
           'Define where this video fits into a goal-oriented YouTube Playlist on your channel.'
         ]
       },
       {
         key: 'idea_title',
         label: 'Title Selected',
-        summary: 'Lock in the working title before writing (targeting 90+ vidIQ viral score).',
+        summary: 'Lock in the working title before writing by transferring proven choice psychology (targeting 90+ vidIQ score).',
         details: [
-          'Borrow proven framing patterns across YouTube and understand their psychological pull.',
-          'Ensure the title makes a clear, truthful promise the video will 100% fulfill.',
-          'Omit episode numbers or chronological tags so new viewers are never deterred.'
+          'Key Question: "Compared to the 10 other videos sitting right next to mine, why would the right viewer choose mine over everyone else\'s?"',
+          'Borrow proven framing patterns and transfer the underlying psychological pull (speed, ease, certainty, transformation, unfair advantage) that fits your viewer\'s brain—not just the words.',
+          'Ensure the title makes a clear, truthful promise the video will 100% fulfill, omitting episode numbers or chronological tags.'
         ]
       },
       {
         key: 'idea_thumb',
         label: 'Thumbnail Drafted',
-        summary: 'Concept or rough out the thumbnail visual alongside the title.',
+        summary: 'Concept or rough out the thumbnail visual alongside the title to win the 1-second glance.',
         details: [
-          'Must be immediately understood in a single 1-second glance on mobile feeds.',
-          'Opens a curiosity gap that leads the viewer\'s eyes straight to the title to complete the thought.'
+          'Key Question: "Before they even read the title, does this visually communicate the problem, the desired transformation, and my clinical authority?"',
+          'Must be immediately understood on mobile feeds and open a curiosity gap that leads the viewer\'s eyes straight to the title to complete the thought.'
         ]
       },
       {
         key: 'idea_connected',
         label: 'Connected video chosen',
-        summary: 'Decide upfront where you are directing the viewer after this video.',
+        summary: 'Decide upfront where you are directing the viewer after this video as a natural continuation of value.',
         details: [
-          'Select a specific older video on your channel that serves as the natural next step.',
-          'Enables a natural mid-roll mention in your script and a targeted pitch at the end for extended watch time.'
+          'Key Question: "Once this video solves their initial problem, what is the next constraint or question they will immediately have?"',
+          'Select a specific video on your channel that serves as the most useful next step, enabling a natural mid-roll nod and a high-value pitch at the end.'
         ]
       }
     ]
@@ -77,10 +78,10 @@ export const WORKFLOW_DEFINITIONS = [
       {
         key: 'prep_acceptance',
         label: 'Acceptance criteria',
-        summary: 'Treat your title like a software program specification.',
+        summary: 'Treat your title like a software specification and map the shortest sequence that fulfills it.',
         details: [
-          'Core Question: "What must be true by the end of this video for the title to be 100% fulfilled?"',
-          'Break the answer down into the smallest truthful components.',
+          'Key Question: "What must be true by the end of this video for the title to be 100% fulfilled, and how does this particular viewer want to consume this idea?"',
+          'Break the answer down into the smallest truthful components—prioritizing proof, clarity, and direct steps over flashy retention tricks.',
           'These components form the non-negotiable backbone of your outline so execution never betrays viewer trust.'
         ]
       },
@@ -89,10 +90,10 @@ export const WORKFLOW_DEFINITIONS = [
         label: '3×5 card drafted (5 beats)',
         summary: 'Distill your outline triggers onto a physical 3×5 index card as your filming anchor.',
         details: [
-          'Beat 1 (The 4 Ps Hook): Promise (confirm click), Proof (why listen), Plan (roadmap), Persona (who it\'s for).',
-          'Beats 2–4 (The Body): Deliver on your decomposed Acceptance Criteria as cleanly and directly as possible.',
-          'Mid-roll Nod: Naturally weave in a mention of your connected video during the body.',
-          'Beat 5 (Connected Video CTA): Pitch the connected video to guide viewers into a continuous watch session.'
+          'Beat 1 (The 4 Ps Hook — Confirm the Click): Promise ("Am I getting what I actually clicked for?"), Persona ("Is this video specifically for me?"), Proof ("Can this person actually deliver it?"), Plan ("Is the rest of this video worth my time?").',
+          'Beats 2–4 (The Body): Deliver on your decomposed Acceptance Criteria in the shortest, clearest sequence possible.',
+          'Mid-roll Nod: Naturally weave in a mention of your connected video where it solves a real constraint inside the topic.',
+          'Beat 5 (Connected Video CTA): Frame the connected video as a pure gift of continued value, never an interruption or payment owed. Key Question: "Would I recommend this next step in the exact same way if I had zero affiliation to it?"'
         ]
       }
     ]
@@ -111,9 +112,9 @@ export const WORKFLOW_DEFINITIONS = [
         label: 'Direct-to-camera recorded',
         summary: 'Film loosely scripted, highly personal, authentic delivery using your 3×5 card.',
         details: [
+          'Key Question: "Do my delivery energy, framing, and setting feel like the exact same video promised by the title and thumbnail?"',
           'Target length: 15–20 minutes for Longs, 40–60 seconds for Shorts.',
-          'Match delivery energy, framing, and visual setup to the exact promise set by your title and thumbnail.',
-          'Speak conversationally to one specific person—no teleprompter reading.'
+          'Speak conversationally and comfortably to one specific person—no robotic teleprompter reading.'
         ]
       }
     ]
@@ -125,29 +126,21 @@ export const WORKFLOW_DEFINITIONS = [
     bg: 'rgba(126, 34, 206, 0.1)',
     icon: Scissors,
     title: '4. EDITING (#edit)',
-    subtitle: 'Transcript Ingestion, Visual Pacing & Audio Mastering',
+    subtitle: 'Visual Alignment & Audio Mastering',
     items: [
-      {
-        key: 'edit_transcript',
-        label: 'Spoken transcript pasted',
-        summary: 'Drop the final exact spoken transcript into the App / Descript.',
-        details: [
-          'Enables text-based video assembly, JDex proposition mining, and Obsidian Vault study archiving.'
-        ]
-      },
       {
         key: 'edit_broll',
         label: 'B-roll & pacing matched',
-        summary: 'Cut dead space and layer supportive visuals and B-roll.',
+        summary: 'Cut dead space and layer supportive visuals and B-roll that match how your viewer wants to learn.',
         details: [
-          'Calibrate visual polish to the packaging promise.',
-          'If the title promises a raw, honest breakdown, avoid over-editing with heavy graphics that break doctor-patient trust.'
+          'Key Question: "Do the title, thumbnail, hook, delivery, and editing all feel like the exact same video?"',
+          'Calibrate visual polish to the packaging promise; if the title promises a raw, honest clinical breakdown, avoid over-editing with flashy graphics that break doctor-patient trust.'
         ]
       },
       {
         key: 'edit_sound',
         label: 'Sound & audio enhanced',
-        summary: 'Professional dialogue mastering for effortless listening.',
+        summary: 'Professional dialogue mastering for effortless, comfortable listening.',
         details: [
           'Remove room reverb, noise floor, and harsh transients.',
           'Level and limit dialogue track to broadcast standards.'
@@ -169,14 +162,14 @@ export const WORKFLOW_DEFINITIONS = [
         label: 'Custom thumbnail uploaded',
         summary: 'Upload the high-contrast thumbnail graphic.',
         details: [
-          'Verify readability on mobile feeds and dark mode UI.',
+          'Key Question: "Sitting directly beside the top competing videos on mobile and dark mode, does my package give the clearest, most compelling reason to click?"',
           'Check that text is minimal (3 words max) and reinforces the curiosity gap.'
         ]
       },
       {
         key: 'pub_upload',
         label: 'Upload to Studio',
-        summary: 'Upload the video file to YouTube Studio and assign to designated Playlist.',
+        summary: 'Upload the master video file to YouTube Studio and assign to designated Playlist.',
         details: [
           'Upload master video file to YouTube Studio.',
           'Assign video to its designated goal-oriented Playlist.'
@@ -187,8 +180,7 @@ export const WORKFLOW_DEFINITIONS = [
         label: 'End Screen and Cards',
         summary: 'Configure YouTube End Screen element and interactive Cards.',
         details: [
-          'Configure YouTube End Screen element to link directly to your pre-chosen connected video.',
-          'Set up interactive info Cards pointing viewers to relevant supporting videos or resources.'
+          'Link the End Screen element and mid-roll Card directly to your pre-chosen connected video.'
         ]
       },
       {
@@ -196,8 +188,8 @@ export const WORKFLOW_DEFINITIONS = [
         label: 'Pinned comment link',
         summary: 'Post and pin the primary next-action comment.',
         details: [
-          'Write a brief curiosity hook with direct link to your connected video.',
-          'YouTube UI strongly prioritizes pinned comments over video descriptions across mobile and desktop.'
+          'Key Question: "How does this link genuinely help the viewer implement what they just learned beyond what I could physically provide in the video?"',
+          'Write a brief value-giving hook with a direct link to your connected video or resource (prioritized over descriptions on mobile and desktop).'
         ]
       },
       {
@@ -217,15 +209,14 @@ export const WORKFLOW_DEFINITIONS = [
     bg: 'rgba(16, 185, 129, 0.1)',
     icon: Archive,
     title: '6. PUBLISHED (#published)',
-    subtitle: 'Analog Zettelkasten Filing, Notebook Archive & Channel Audits',
+    subtitle: 'Analog Zettelkasten Filing, Notebook Archive & Bottleneck Audits',
     items: [
       {
         key: 'pub_cards',
         label: '3×5 main cards filed',
         summary: 'Write clinical propositions on physical 3×5 index cards and file in analog box.',
         details: [
-          'Extract 1–2 sharp clinical propositions mapped to Johnny Decimal (JDex) categories.',
-          'File into physical box to grow your permanent second brain.'
+          'Extract 1–2 sharp, atomic clinical propositions and file into your physical Zettelkasten box to grow your permanent second brain.'
         ]
       },
       {
@@ -239,10 +230,14 @@ export const WORKFLOW_DEFINITIONS = [
       {
         key: 'archive_audit_48h',
         label: '48-hr satisfaction audit',
-        summary: 'Evaluate initial audience response 48 hours post-drop.',
+        summary: 'Evaluate initial audience response 48 hours post-drop by diagnosing the 4 viewer decisions.',
         details: [
-          'Analyze positive comment-to-view ratio, like-to-view ratio, and sub conversion.',
-          'Inspect the YouTube Studio retention curve for sudden drop-offs and trim offending segments if necessary.'
+          'Key Question: "Which of the 4 decisions did the viewer NOT make?"',
+          '1. Demand Bottleneck (Low Impressions/Views): Did the right viewer not care about the idea in the first place?',
+          '2. Choice Bottleneck (Low CTR): Did they care about the topic, but chose another video over mine?',
+          '3. Consumption Bottleneck (Early Drop-off / Low Satisfaction): Did the hook fail to confirm the click, or did the delivery/pacing break the expectation?',
+          '4. Conversion Bottleneck (Low End-Screen / Pinned Link Clicks): Did the CTA trigger "persuasion knowledge" (feeling sold to) instead of feeling like the most useful next step?',
+          'Analyze comment/like ratios and inspect the retention curve to trim any offending drop-off segments.'
         ]
       }
     ]

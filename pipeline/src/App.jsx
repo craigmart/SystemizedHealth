@@ -28,7 +28,6 @@ export const CHECKLIST_ITEMS = [
   { key: 'film_recorded', phase: '#film', label: 'Direct-to-camera recorded' },
 
   // EDITING (#edit)
-  { key: 'edit_transcript', phase: '#edit', label: 'Spoken transcript pasted' },
   { key: 'edit_broll', phase: '#edit', label: 'B-roll & pacing matched' },
   { key: 'edit_sound', phase: '#edit', label: 'Sound & audio enhanced' },
 
@@ -753,7 +752,6 @@ function App() {
       if (!video.raw_transcript || !video.raw_transcript.trim()) {
         return { step: 'Paste spoken transcript into App', type: 'action' };
       }
-      if (!checklist.edit_transcript) return { step: 'Spoken transcript pasted', type: 'checklist' };
       if (!checklist.edit_broll) return { step: 'B-roll & pacing matched', type: 'checklist' };
       if (!checklist.edit_sound) return { step: 'Sound & audio enhanced', type: 'checklist' };
 

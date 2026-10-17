@@ -49,7 +49,7 @@
 | **040** | `80.V3B1-S3` | Short | The 30 Second Fix For Creative Block | 2026-10-10 | ✅ #published | 2026-10-10 |
 | **045** | `80.V1A2` | Long | After 29 Years With Patients my Intermittent Fasting Plan for Steady Energy | 2026-10-12 | ✅ #published | 2026-10-13 |
 | **046** | `80.V1A2-S1` | Short | Intermittent Fasting Works Better When You Feast Sometimes | 2026-10-13 | ✅ #published | 2026-10-13 |
-| **049** | `80.V2A2` | Long | A doctor reviews what Daily Journaling Actually Does to Your Brain (The Neuroscience) | 2026-10-21 | 📝 #write | — |
+| **049** | `80.V2A2` | Long | You will use a paper journal after watching this | 2026-10-21 | 📝 #write | — |
 | **053** | `80.V2B2` | Long | Why Digital Health Apps Keep Failing You (And Why Paper Fixes It) | — | 💡 #idea | — |
 | **057** | `80.V4-02` | Long | Level 4 (Lab) — User Discretion | — | 💡 #idea | — |
 | **061** | `80.V2C2` | Long | Prayer and DMN | — | 📝 #write | — |
@@ -67,7 +67,7 @@
 | **249** | `80.V1B3-A1` | Short | Start Running with me at 55 years old from zero. | 2026-10-04 | ✅ #published | 2026-10-04 |
 | **250** | `80.V3B1-S4` | Short | Overwhelmed in the Morning Write This Down | 2026-10-06 | ✅ #published | 2026-10-06 |
 | **251** | `80.V1A2-A` | Long | Fact checking Dr Anderson’s IF Plan | 2026-10-29 | 📝 #write | — |
-| **252** | `32.20.A2` | Long | Trump Rally 10-26-26 | 2026-10-17 | ✂️ #edit | — |
+| **252** | `32.20.A2` | Long | Trump Rally 10-26-26 | 2026-10-17 | ✅ #published | — |
 | **253** | `79.07.2` | Short | Chiropractic Adjustment of Dog, Lucky the Dachshund | 2026-10-20 | ✂️ #edit | — |
 | **H001** | `HIST.L01` | Long | The Biological Requirement for Weekly Structure | 2026-01-01 | ✅ #published | 2026-01-01 |
 | **H002** | `HIST.L02` | Long | The Biological Reality of GLP-1: Fuel vs. Motivation | 2026-03-24 | ✅ #published | 2026-03-24 |
@@ -99,5 +99,5 @@
 
 - 💡 **#idea**: 9
 - 📝 **#write**: 3
-- ✂️ **#edit**: 2
-- ✅ **#published**: 69
+- ✂️ **#edit**: 1
+- ✅ **#published**: 70

@@ -270,8 +270,7 @@ The web App and video pages enforce Dr. Anderson's standardized 16-beat checklis
 | | **Acceptance criteria** | Define non-negotiable proof: *"What must be true by end of video for title to be 100% fulfilled?"* |
 | | **3×5 card drafted (5 beats)** | Distill triggers onto physical card: 4 Ps Hook, Acceptance Criteria body, connected video, CTA. |
 | **`#film`** | **Direct-to-camera recorded** | Loosely scripted, conversational, direct-to-camera delivery using 3×5 card as anchor. |
-| **`#edit`** | **Spoken transcript pasted** | Drop exact final transcript into App for JDex mining, vidIQ scoring, and Obsidian archiving. |
-| | **B-roll & pacing matched** | Trim dead space; calibrate visual polish and B-roll to preserve doctor-patient trust. |
+| **`#edit`** | **B-roll & pacing matched** | Trim dead space; calibrate visual polish and B-roll to preserve doctor-patient trust. |
 | | **Sound & audio enhanced** | Dialogue cleanup, de-reverb, noise floor removal, and broadcast limiting. |
 | **`#uploaded`** | **Custom thumbnail uploaded** | Verify contrast and readability on mobile feeds / dark mode (max 3 words). |
 | | **Upload to Studio** | Upload to YouTube Studio and assign to designated Playlist. |
