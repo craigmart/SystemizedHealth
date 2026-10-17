@@ -1,6 +1,6 @@
 # Video Pipeline Status
 
-> **Source of truth:** Supabase `videos` table  |  Generated: 2026-10-16
+> **Source of truth:** Supabase `videos` table  |  Generated: 2026-10-17
 > To update status: `python3 scripts/video_pipeline.py --status <code> <status>`
 
 ---
@@ -12,7 +12,7 @@
 | **001** | `80.V0B` | Long | Knowledge Isn't Enough—Here's What Actually Works | 2026-08-03 | ✅ #published | 2026-08-03 |
 | **002** | `80.V0A` | Long | 20,000 Patients Taught Me This One Biological Reality | 2026-08-03 | ✅ #published | 2026-08-03 |
 | **003** | `80.V1B1` | Long | Exercise is Optional, Movement is not. | 2026-08-10 | ✅ #published | 2026-08-10 |
-| **004** | `80.V0A1` | Long | Uncover the Clarity You Need to Take Control of Your Health - Systemized OS | 2026-08-24 | ✅ #published | 2026-08-25 |
+| **004** | `80.V0A1` | Long | Why You Feel Lost With Your Health (And How to Fix It) | 2026-08-24 | ✅ #published | 2026-08-25 |
 | **005** | `80.V0B-S1` | Short | Do Less to Get More | 2026-08-04 | ✅ #published | 2026-08-04 |
 | **006** | `80.V0B-S2` | Short | Aim Smaller, Win Bigger #goals #success | 2026-08-06 | ✅ #published | 2026-08-06 |
 | **007** | `80.V0B-S3` | Short | Stop Trying to Fix Stress Backward (Fuel, Move, Rest First) | 2026-08-08 | ✅ #published | 2026-08-08 |
@@ -66,7 +66,9 @@
 | **248** | `80.V3B1` | Long | My Simple Bullet Journal Setup After 7 1/2 Years of use (No Art Needed) | 2026-10-03 | ✅ #published | 2026-10-03 |
 | **249** | `80.V1B3-A1` | Short | Start Running with me at 55 years old from zero. | 2026-10-04 | ✅ #published | 2026-10-04 |
 | **250** | `80.V3B1-S4` | Short | Overwhelmed in the Morning Write This Down | 2026-10-06 | ✅ #published | 2026-10-06 |
-| **251** | `80.V1A2-A` | Long | The Fasting & Energy Log: The Science | 2026-10-29 | 📝 #write | — |
+| **251** | `80.V1A2-A` | Long | Fact checking Dr Anderson’s IF Plan | 2026-10-29 | 📝 #write | — |
+| **252** | `32.20.A2` | Long | Trump Rally 10-26-26 | 2026-10-17 | ✂️ #edit | — |
+| **253** | `79.07.2` | Short | Chiropractic Adjustment of Dog, Lucky the Dachshund | 2026-10-20 | ✂️ #edit | — |
 | **H001** | `HIST.L01` | Long | The Biological Requirement for Weekly Structure | 2026-01-01 | ✅ #published | 2026-01-01 |
 | **H002** | `HIST.L02` | Long | The Biological Reality of GLP-1: Fuel vs. Motivation | 2026-03-24 | ✅ #published | 2026-03-24 |
 | **H003** | `HIST.L03` | Long | The Nervous System Secret to Consistent Gains | 2026-01-22 | ✅ #published | 2026-01-22 |
@@ -97,4 +99,5 @@
 
 - 💡 **#idea**: 9
 - 📝 **#write**: 3
+- ✂️ **#edit**: 2
 - ✅ **#published**: 69
