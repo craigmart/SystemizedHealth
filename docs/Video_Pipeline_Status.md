@@ -1,6 +1,6 @@
 # Video Pipeline Status
 
-> **Source of truth:** Supabase `videos` table  |  Generated: 2026-10-17
+> **Source of truth:** Supabase `videos` table  |  Generated: 2026-10-18
 > To update status: `python3 scripts/video_pipeline.py --status <code> <status>`
 
 ---
@@ -68,7 +68,7 @@
 | **250** | `80.V3B1-S4` | Short | Overwhelmed in the Morning Write This Down | 2026-10-06 | ✅ #published | 2026-10-06 |
 | **251** | `80.V1A2-A` | Long | Fact checking Dr Anderson’s IF Plan | 2026-10-29 | 📝 #write | — |
 | **252** | `32.20.A2` | Long | Trump Rally 10-26-26 | 2026-10-17 | ✅ #published | — |
-| **253** | `79.07.2` | Short | Chiropractic Adjustment of Dog, Lucky the Dachshund | 2026-10-20 | ✂️ #edit | — |
+| **253** | `79.07.2` | Short | How I Adjust Dachshunds - Dr Anderson, Animal Chiropractor | 2026-10-20 | 💡 #idea | — |
 | **H001** | `HIST.L01` | Long | The Biological Requirement for Weekly Structure | 2026-01-01 | ✅ #published | 2026-01-01 |
 | **H002** | `HIST.L02` | Long | The Biological Reality of GLP-1: Fuel vs. Motivation | 2026-03-24 | ✅ #published | 2026-03-24 |
 | **H003** | `HIST.L03` | Long | The Nervous System Secret to Consistent Gains | 2026-01-22 | ✅ #published | 2026-01-22 |
@@ -97,7 +97,6 @@
 
 ## 📊 Status Summary
 
-- 💡 **#idea**: 9
+- 💡 **#idea**: 10
 - 📝 **#write**: 3
-- ✂️ **#edit**: 1
 - ✅ **#published**: 70

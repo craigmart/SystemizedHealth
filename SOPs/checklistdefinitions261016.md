@@ -19,10 +19,16 @@
   - Select a specific video on your channel that serves as the most useful next step, enabling a natural mid-roll nod and a high-value pitch at the end.
 
 ## 2. WRITING (`#write`)
-*Notebook Research, Acceptance Criteria & 3×5 Card Outlining (3 Tasks)*
+*Notebook Research, Brainstorming, Storyboard & 3×5 Card Outlining (5 Tasks)*
 - **Gemini Notebook research:** Synthesize research, seminar transcripts, analogies, and clinical notes inside Gemini Notebook.
   - Review patient case studies, clinical propositions, and analogies.
   - Refine the core conceptual anchor before touching paper.
+- **Brainstorm Content:** Braindump raw ideas into Gemini Chat to capture, organize, and structure the concept.
+  - Dump all thoughts, clinical angles, and analogies into Gemini Chat.
+  - Let Gemini capture everything and help organize the storyboard flow.
+- **Create Storyboard:** Build the visual storyboard in Gemini Notebook with image triggers.
+  - Assemble the organized storyboard sequence inside Gemini Notebook.
+  - Create or attach visual trigger images to anchor and prompt direct-to-camera recording.
 - **Acceptance criteria:** Treat your title like a software specification and map the shortest sequence that fulfills it.
   - *Key Question:* "What must be true by the end of this video for the title to be 100% fulfilled, and how does this particular viewer want to consume this idea?"
   - Break the answer down into the smallest truthful components—prioritizing proof, clarity, and direct steps over flashy retention tricks.

@@ -21,6 +21,8 @@ STANDARD_KEYS = [
     "idea_thumb",
     "idea_connected",
     "prep_notebook",
+    "prep_brainstorm",
+    "prep_storyboard",
     "prep_acceptance",
     "prep_card",
     "film_recorded",

@@ -8,6 +8,8 @@
 
 **WRITING (`#write`)**
 - [ ] Gemini Notebook research
+- [ ] Brainstorm Content
+- [ ] Create Storyboard
 - [ ] Acceptance criteria
 - [ ] 3×5 card drafted (5 beats)
 

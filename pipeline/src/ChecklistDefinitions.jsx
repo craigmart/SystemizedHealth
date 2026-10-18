@@ -64,7 +64,7 @@ export const WORKFLOW_DEFINITIONS = [
     bg: 'rgba(180, 83, 9, 0.1)',
     icon: Edit3,
     title: '2. WRITING (#write)',
-    subtitle: 'Notebook Research, Acceptance Criteria & 3×5 Card Outlining',
+    subtitle: 'Notebook Research, Brainstorming, Storyboard & 3×5 Card Outlining',
     items: [
       {
         key: 'prep_notebook',
@@ -73,6 +73,24 @@ export const WORKFLOW_DEFINITIONS = [
         details: [
           'Review patient case studies, clinical propositions, and analogies.',
           'Refine the core conceptual anchor before touching paper.'
+        ]
+      },
+      {
+        key: 'prep_brainstorm',
+        label: 'Brainstorm Content',
+        summary: 'Braindump raw ideas into Gemini Chat to capture, organize, and structure the concept.',
+        details: [
+          'Dump raw thoughts, angles, analogies, and clinical insights into Gemini Chat.',
+          'Let Gemini organize the ideas and structure the initial storyboard flow.'
+        ]
+      },
+      {
+        key: 'prep_storyboard',
+        label: 'Create Storyboard',
+        summary: 'Build the visual storyboard in Gemini Notebook with image triggers for filming.',
+        details: [
+          'Assemble the storyboard sequence inside Gemini Notebook.',
+          'Generate and attach visual trigger images to anchor direct-to-camera recording.'
         ]
       },
       {

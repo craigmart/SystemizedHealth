@@ -256,9 +256,9 @@ After filming, when Dr. Anderson begins editing (Descript, YouTube Creator, etc.
 5. **Pipeline & Database Synchronization**:
    - Updates Supabase and SQLite, refreshes `docs/video_pipeline_cache.json`, and appends a dated entry to the `## Changelog`.
 
-### 6.1 Authoritative Production Checklist (6 Phases • 16 Core Beats)
+### 6.1 Authoritative Production Checklist (6 Phases • 20 Core Beats)
 
-The web App and video pages enforce Dr. Anderson's standardized 16-beat checklist ([`SOPs/checklist261016.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/checklist261016.md) & [`SOPs/checklistdefinitions261016.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/checklistdefinitions261016.md)). The checklist buttons directly mirror the status tag dropdown options:
+The web App and video pages enforce Dr. Anderson's standardized 20-beat checklist ([`SOPs/checklist261016.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/checklist261016.md) & [`SOPs/checklistdefinitions261016.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/checklistdefinitions261016.md)). The checklist buttons directly mirror the status tag dropdown options:
 
 | Phase Tag | Task Item | Operational Standard |
 | :--- | :--- | :--- |
@@ -267,6 +267,8 @@ The web App and video pages enforce Dr. Anderson's standardized 16-beat checklis
 | | **Thumbnail Drafted** | Rough out 1-second glance graphic opening curiosity gap that leads eyes into title. |
 | | **Connected video chosen** | Select older channel video as the natural next step for mid-roll mention & End Screen. |
 | **`#write`** | **Gemini Notebook research** | Synthesize clinical notes, analogies, and lecture transcripts into core conceptual anchor. |
+| | **Brainstorm Content** | Braindump raw ideas into Gemini Chat to capture, organize, and structure the concept. |
+| | **Create Storyboard** | Build the visual storyboard in Gemini Notebook with image triggers for filming. |
 | | **Acceptance criteria** | Define non-negotiable proof: *"What must be true by end of video for title to be 100% fulfilled?"* |
 | | **3×5 card drafted (5 beats)** | Distill triggers onto physical card: 4 Ps Hook, Acceptance Criteria body, connected video, CTA. |
 | **`#film`** | **Direct-to-camera recorded** | Loosely scripted, conversational, direct-to-camera delivery using 3×5 card as anchor. |

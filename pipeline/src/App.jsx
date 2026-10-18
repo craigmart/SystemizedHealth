@@ -21,6 +21,8 @@ export const CHECKLIST_ITEMS = [
 
   // WRITING (#write)
   { key: 'prep_notebook', phase: '#write', label: 'Gemini Notebook research' },
+  { key: 'prep_brainstorm', phase: '#write', label: 'Brainstorm Content' },
+  { key: 'prep_storyboard', phase: '#write', label: 'Create Storyboard' },
   { key: 'prep_acceptance', phase: '#write', label: 'Acceptance criteria' },
   { key: 'prep_card', phase: '#write', label: '3×5 card drafted (5 beats)' },
 
@@ -774,6 +776,8 @@ function App() {
     // 6. Writing videos (#write)
     if (video.status === '#write') {
       if (!checklist.prep_notebook) return { step: 'Gemini Notebook research', type: 'checklist' };
+      if (!checklist.prep_brainstorm) return { step: 'Brainstorm Content', type: 'checklist' };
+      if (!checklist.prep_storyboard) return { step: 'Create Storyboard', type: 'checklist' };
       if (!checklist.prep_acceptance) return { step: 'Acceptance criteria', type: 'checklist' };
       if (!checklist.prep_card) return { step: '3×5 card drafted (5 beats)', type: 'checklist' };
       return { step: 'Ready to film (#film)', type: 'action' };
