@@ -30,6 +30,8 @@ export const CHECKLIST_ITEMS = [
   { key: 'film_recorded', phase: '#film', label: 'Direct-to-camera recorded' },
 
   // EDITING (#edit)
+  { key: 'edit_rough_cuts', phase: '#edit', label: 'Rough Cuts' },
+  { key: 'edit_gemini_verbosity', phase: '#edit', label: 'Gemini Verbosity Check' },
   { key: 'edit_broll', phase: '#edit', label: 'B-roll & pacing matched' },
   { key: 'edit_sound', phase: '#edit', label: 'Sound & audio enhanced' },
 
@@ -915,6 +917,8 @@ function App() {
 
     // 4. Editing videos (#edit)
     if (video.status === '#edit') {
+      if (!checklist.edit_rough_cuts) return { step: 'Rough Cuts', type: 'checklist' };
+      if (!checklist.edit_gemini_verbosity) return { step: 'Gemini Verbosity Check', type: 'checklist' };
       if (!video.raw_transcript || !video.raw_transcript.trim()) {
         return { step: 'Paste spoken transcript into App', type: 'action' };
       }

@@ -69,7 +69,7 @@
 | **251** | `80.V1A2-A` | Long | Fact checking Dr Anderson’s IF Plan | 2026-11-02 | ✂️ #edit | — |
 | **252** | `32.20.A2` | Long | Trump Rally 10-26-26 | 2026-10-17 | ✅ #published | — |
 | **253** | `79.07.2` | Short | How I Adjust Dachshunds - Dr Anderson, Animal Chiropractor | 2026-10-27 | ✂️ #edit | — |
-| **254** | `80.V3B3` | Long | 7 Years of Bullet Journals Flip-Through Tour | 2026-10-22 | ✂️ #edit | — |
+| **254** | `80.V3B3` | Long | 7 Years of Bullet Journals Flip-Through Tour | 2026-10-25 | ✂️ #edit | — |
 | **H001** | `HIST.L01` | Long | The Biological Requirement for Weekly Structure | 2026-01-01 | ✅ #published | 2026-01-01 |
 | **H002** | `HIST.L02` | Long | The Biological Reality of GLP-1: Fuel vs. Motivation | 2026-03-24 | ✅ #published | 2026-03-24 |
 | **H003** | `HIST.L03` | Long | The Nervous System Secret to Consistent Gains | 2026-01-22 | ✅ #published | 2026-01-22 |

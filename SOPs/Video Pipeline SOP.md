@@ -262,9 +262,9 @@ After filming, when Dr. Anderson begins editing (Descript, YouTube Creator, etc.
    - When the reminder date arrives (`reminder_date <= today`), the video surfaces at the **very top** of the Work in Progress list with an amber border, `🔔 Reminder Due` badge, and reminder notes.
    - A single click on the green `✓ Done` button directly on the card completes the reminder and immediately removes the video from Work in Progress, automatically appending a timestamped entry to the Video Production Log (`notes`).
 
-### 6.1 Authoritative Production Checklist (6 Phases • 20 Core Beats)
+### 6.1 Authoritative Production Checklist (6 Phases • 22 Core Beats)
 
-The web App and video pages enforce Dr. Anderson's standardized 20-beat checklist ([`SOPs/checklist261016.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/checklist261016.md) & [`SOPs/checklistdefinitions261016.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/checklistdefinitions261016.md)). The checklist buttons directly mirror the status tag dropdown options:
+The web App and video pages enforce Dr. Anderson's standardized 22-beat checklist ([`SOPs/checklist261016.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/checklist261016.md) & [`SOPs/checklistdefinitions261016.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/checklistdefinitions261016.md)). The checklist buttons directly mirror the status tag dropdown options:
 
 | Phase Tag | Task Item | Operational Standard |
 | :--- | :--- | :--- |
@@ -278,7 +278,9 @@ The web App and video pages enforce Dr. Anderson's standardized 20-beat checklis
 | | **Acceptance criteria** | Define non-negotiable proof: *"What must be true by end of video for title to be 100% fulfilled?"* |
 | | **3×5 card drafted (5 beats)** | Distill triggers onto physical card: 4 Ps Hook, Acceptance Criteria body, connected video, CTA. |
 | **`#film`** | **Direct-to-camera recorded** | Loosely scripted, conversational, direct-to-camera delivery using 3×5 card as anchor. |
-| **`#edit`** | **B-roll & pacing matched** | Trim dead space; calibrate visual polish and B-roll to preserve doctor-patient trust. |
+| **`#edit`** | **Rough Cuts** | Assemble raw takes; cut dead air, false starts, and long pauses to establish baseline timeline flow. |
+| | **Gemini Verbosity Check** | Review transcript with Gemini to catch redundant tangents, wordiness, and verbal fluff. |
+| | **B-roll & pacing matched** | Trim dead space; calibrate visual polish and B-roll to preserve doctor-patient trust. |
 | | **Sound & audio enhanced** | Dialogue cleanup, de-reverb, noise floor removal, and broadcast limiting. |
 | **`#uploaded`** | **Custom thumbnail uploaded** | Verify contrast and readability on mobile feeds / dark mode (max 3 words). |
 | | **Upload to Studio** | Upload to YouTube Studio and assign to designated Playlist. |

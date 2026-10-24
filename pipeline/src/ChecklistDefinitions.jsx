@@ -144,8 +144,26 @@ export const WORKFLOW_DEFINITIONS = [
     bg: 'rgba(126, 34, 206, 0.1)',
     icon: Scissors,
     title: '4. EDITING (#edit)',
-    subtitle: 'Visual Alignment & Audio Mastering',
+    subtitle: 'Rough Cuts, Verbosity Review, Visual Polish & Audio Mastering',
     items: [
+      {
+        key: 'edit_rough_cuts',
+        label: 'Rough Cuts',
+        summary: 'Assemble recorded takes, trim false starts and dead space to create the foundational timeline flow.',
+        details: [
+          'Assemble raw direct-to-camera takes in chronological sequence.',
+          'Cut out false starts, long pauses, and dead air before adding supportive visual layers.'
+        ]
+      },
+      {
+        key: 'edit_gemini_verbosity',
+        label: 'Gemini Verbosity Check',
+        summary: 'Review transcript through Gemini to catch redundant tangents, tighten wording, and eliminate fluff.',
+        details: [
+          'Paste spoken transcript into Gemini Chat to analyze pacing and conciseness.',
+          'Identify repetitive explanations or rambling sections to trim before finalizing audio and B-roll.'
+        ]
+      },
       {
         key: 'edit_broll',
         label: 'B-roll & pacing matched',

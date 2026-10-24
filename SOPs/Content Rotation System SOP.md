@@ -91,7 +91,7 @@ For any active pillar (or Lab) during a given week, content drops according to t
 
 ## 5. End-to-End Production Workflow
 
-The content rotation schedule links directly with Dr. Anderson's analog-to-camera production standard and the 20-beat checklist ([`SOPs/checklist261016.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/checklist261016.md) & [`SOPs/checklistdefinitions261016.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/checklistdefinitions261016.md)):
+The content rotation schedule links directly with Dr. Anderson's analog-to-camera production standard and the 22-beat checklist ([`SOPs/checklist261016.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/checklist261016.md) & [`SOPs/checklistdefinitions261016.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/checklistdefinitions261016.md)):
 
 ```
 ┌────────────────────────────────────────────────────────┐
@@ -116,6 +116,7 @@ The content rotation schedule links directly with Dr. Anderson's analog-to-camer
 │    Set video status to #edit in App.                   │
 ├────────────────────────────────────────────────────────┤
 │ 4. TRANSCRIPT INGESTION & EDITING (#edit)              │
+│    Complete rough cuts; run Gemini verbosity check.    │
 │    Paste final spoken transcript into raw_transcript.  │
 │    Agent automatically triggers:                       │
 │    • vidIQ title scoring (90+ viral rating)            │

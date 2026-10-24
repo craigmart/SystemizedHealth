@@ -26,6 +26,8 @@ STANDARD_KEYS = [
     "prep_acceptance",
     "prep_card",
     "film_recorded",
+    "edit_rough_cuts",
+    "edit_gemini_verbosity",
     "edit_broll",
     "edit_sound",
     "pub_thumb",

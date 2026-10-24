@@ -52,7 +52,13 @@
   - Speak conversationally and comfortably to one specific person—no robotic teleprompter reading.
 
 ## 4. EDITING (`#edit`)
-*Visual Alignment & Audio Mastering (2 Tasks)*
+*Rough Cut Assembly, Verbosity Check, Visual Alignment & Audio Mastering (4 Tasks)*
+- **Rough Cuts:** Assemble raw direct-to-camera footage, trim false starts, and cut dead air to build the baseline cut.
+  - Assemble takes in chronological sequence.
+  - Cut out false starts, long pauses, and resets before layering visuals or audio effects.
+- **Gemini Verbosity Check:** Review the spoken transcript through Gemini to catch redundant tangents, tighten wording, and eliminate verbal fluff.
+  - Paste the spoken transcript into Gemini Chat to analyze pacing and clarity.
+  - Eliminate wordiness and rambling sections to maintain high viewer momentum.
 - **B-roll & pacing matched:** Cut dead space and layer supportive visuals and B-roll that match how your viewer wants to learn.
   - *Key Question:* "Do the title, thumbnail, hook, delivery, and editing all feel like the exact same video?"
   - Calibrate visual polish to the packaging promise; if the title promises a raw, honest clinical breakdown, avoid over-editing with flashy graphics that break doctor-patient trust.

@@ -17,6 +17,8 @@
 - [ ] Direct-to-camera recorded
 
 **EDITING (`#edit`)**
+- [ ] Rough Cuts
+- [ ] Gemini Verbosity Check
 - [ ] B-roll & pacing matched
 - [ ] Sound & audio enhanced
 
