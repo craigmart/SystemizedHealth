@@ -912,6 +912,10 @@ function App() {
       if (!checklist.pub_endscreen) return { step: 'End Screen and Cards', type: 'checklist' };
       if (!checklist.pub_pinned) return { step: 'Pinned comment link', type: 'checklist' };
       if (!checklist.pub_schedule) return { step: 'Scheduled for drop date', type: 'checklist' };
+      if (checklist.custom_tasks && Array.isArray(checklist.custom_tasks)) {
+        const pendingCustom = checklist.custom_tasks.find(t => !t.done);
+        if (pendingCustom) return { step: pendingCustom.label, type: 'custom' };
+      }
       return { step: 'Confirm YouTube Studio release', type: 'publish' };
     }
 
@@ -938,6 +942,10 @@ function App() {
     // 5. Filming videos (#film)
     if (video.status === '#film') {
       if (!checklist.film_recorded) return { step: 'Direct-to-camera recorded', type: 'checklist' };
+      if (checklist.custom_tasks && Array.isArray(checklist.custom_tasks)) {
+        const pendingCustom = checklist.custom_tasks.find(t => !t.done);
+        if (pendingCustom) return { step: pendingCustom.label, type: 'custom' };
+      }
       return { step: 'Ready to edit (#edit)', type: 'action' };
     }
 
@@ -948,6 +956,10 @@ function App() {
       if (!checklist.prep_storyboard) return { step: 'Create Storyboard', type: 'checklist' };
       if (!checklist.prep_acceptance) return { step: 'Acceptance criteria', type: 'checklist' };
       if (!checklist.prep_card) return { step: '3×5 card drafted (5 beats)', type: 'checklist' };
+      if (checklist.custom_tasks && Array.isArray(checklist.custom_tasks)) {
+        const pendingCustom = checklist.custom_tasks.find(t => !t.done);
+        if (pendingCustom) return { step: pendingCustom.label, type: 'custom' };
+      }
       return { step: 'Ready to film (#film)', type: 'action' };
     }
 
@@ -957,6 +969,10 @@ function App() {
       if (!checklist.idea_title) return { step: 'Title Selected', type: 'checklist' };
       if (!checklist.idea_thumb) return { step: 'Thumbnail Drafted', type: 'checklist' };
       if (!checklist.idea_connected) return { step: 'Connected video chosen', type: 'checklist' };
+      if (checklist.custom_tasks && Array.isArray(checklist.custom_tasks)) {
+        const pendingCustom = checklist.custom_tasks.find(t => !t.done);
+        if (pendingCustom) return { step: pendingCustom.label, type: 'custom' };
+      }
       return { step: 'Ready to write (#write)', type: 'action' };
     }
 
@@ -1146,6 +1162,12 @@ function App() {
       const rem = getReminderInfo(v);
       const isDueReminder = rem && !rem.completed && (rem.date <= todayStr || showUpcomingReminders);
       if (isDueReminder) return true;
+
+      // 0.1 Open custom tasks: always surface in WIP regardless of status or history!
+      const chk = parseChecklistData(v.edit_checklist);
+      if (chk.custom_tasks && Array.isArray(chk.custom_tasks) && chk.custom_tasks.some(t => !t.done)) {
+        return true;
+      }
 
       if (v.code?.startsWith('HIST')) return false;
 
@@ -2689,7 +2711,7 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
     localVideo.notes,
     localVideo.rough_outline,
     localVideo.raw_transcript,
-    ...(checklist?.custom_tasks?.map(t => t.text) || [])
+    ...(checklist?.custom_tasks?.map(t => t.label || t.text) || [])
   ].filter(Boolean).join('\n');
 
   const allDetectedUrls = extractUrls(allVideoTexts);
@@ -3277,6 +3299,7 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
     );
     const newChecklist = { ...checklist, custom_tasks: updatedCustom };
     setChecklist(newChecklist);
+    setLocalVideo(prev => ({ ...prev, edit_checklist: newChecklist }));
 
     const { error } = await supabase
       .from('videos')
@@ -3300,6 +3323,7 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
     const updatedCustom = [...(checklist.custom_tasks || []), newTask];
     const newChecklist = { ...checklist, custom_tasks: updatedCustom };
     setChecklist(newChecklist);
+    setLocalVideo(prev => ({ ...prev, edit_checklist: newChecklist }));
     setNewCustomTask('');
 
     const { error } = await supabase
@@ -3316,6 +3340,7 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
     const updatedCustom = (checklist.custom_tasks || []).filter(t => t.id !== taskId);
     const newChecklist = { ...checklist, custom_tasks: updatedCustom };
     setChecklist(newChecklist);
+    setLocalVideo(prev => ({ ...prev, edit_checklist: newChecklist }));
 
     const { error } = await supabase
       .from('videos')
@@ -3356,7 +3381,8 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
     ? baseChecklistItems
     : baseChecklistItems.filter(item => item.phase.toLowerCase() === currentPhase.toLowerCase());
 
-  const showCustomTasks = currentPhase === 'All' || currentPhase.toLowerCase() === 'custom';
+  // Always display custom tasks regardless of active filter tab or video status
+  const showCustomTasks = true;
 
   // Core Clinical Propositions
   const propositions = (checklist.propositions && Array.isArray(checklist.propositions) && checklist.propositions.length > 0)
@@ -4165,26 +4191,46 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
               </label>
             ))}
 
-            {/* Custom Tasks for this video */}
-            {showCustomTasks && customTasks.map(task => (
-              <div key={task.id} className={`checklist-item ${task.done ? 'checked' : ''}`}>
-                <input
-                  type="checkbox"
-                  checked={!!task.done}
-                  onChange={() => toggleCustomTask(task.id)}
-                />
-                <span className="phase-tag" style={{ background: '#8b5cf620', color: '#8b5cf6', borderColor: '#8b5cf640' }}>CUSTOM</span>
-                <span className="checklist-label">{task.label}</span>
-                <button
-                  type="button"
-                  onClick={() => handleDeleteCustomTask(task.id)}
-                  style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-secondary)', padding: '0.2rem' }}
-                  title="Delete custom task"
-                >
-                  <Trash2 size={14} />
-                </button>
-              </div>
-            ))}
+            {/* Custom Tasks for this video - Always displayed regardless of status or phase filter */}
+            {customTasks.length > 0 && (
+              <>
+                {currentPhase !== 'All' && currentPhase.toLowerCase() !== 'custom' && filteredStandardItems.length > 0 && (
+                  <div style={{
+                    fontSize: '0.72rem',
+                    fontWeight: '700',
+                    color: 'var(--text-secondary)',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.05em',
+                    marginTop: '0.75rem',
+                    marginBottom: '0.25rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.35rem'
+                  }}>
+                    <span>Custom Tasks ({customTasks.length})</span>
+                  </div>
+                )}
+                {customTasks.map(task => (
+                  <div key={task.id} className={`checklist-item ${task.done ? 'checked' : ''}`}>
+                    <input
+                      type="checkbox"
+                      checked={!!task.done}
+                      onChange={() => toggleCustomTask(task.id)}
+                    />
+                    <span className="phase-tag" style={{ background: '#8b5cf620', color: '#8b5cf6', borderColor: '#8b5cf640' }}>CUSTOM</span>
+                    <span className="checklist-label">{task.label}</span>
+                    <button
+                      type="button"
+                      onClick={() => handleDeleteCustomTask(task.id)}
+                      style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-secondary)', padding: '0.2rem' }}
+                      title="Delete custom task"
+                    >
+                      <Trash2 size={14} />
+                    </button>
+                  </div>
+                ))}
+              </>
+            )}
           </div>
 
           {/* Add Custom Task Form */}
