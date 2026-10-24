@@ -1,6 +1,6 @@
 # 🗂️ Johnny Decimal (JDex) Master Taxonomy
 
-*Synchronized from Workflowy: 2026-09-14 23:23*
+*Synchronized from Workflowy: 2026-10-24 09:55*
 *Authoritative Source*: [Workflowy JDex](https://workflowy.com/s/jdex/nItQHGQVgRMmOIYe)
 
 ---
@@ -240,6 +240,8 @@
 
 
 #### 15.06 - Sabbath & Rest
+##### 15.06.1A1A Margin
+
 
 #### 15.07 - Communion - Lord Supper
 ##### 15.07.1 - My Communion Comments
@@ -290,6 +292,8 @@
 #### 22.02 - Bennett
 ##### 22.02.1 Calls to Bennett
 
+##### 22.02.2 Car Stuff
+
 
 #### 22.03 - Ellie
 
@@ -313,6 +317,8 @@
 
 #### 23.02.2 - Rays Art
 
+#### 23.05 - David
+
 
 ### 24 - Family Events
 #### 24.01 - Christmas 2025
@@ -326,14 +332,14 @@
 #### 25.01 - Clear Creek Men’s Breakfast
 
 #### 25.02 - Clear Creek Church of Christ
-##### 25.02.A - People
 
 
-
-### 27 - Friends
+### 27 - Friends and Coworkers
 #### 27.01 - Anna Weaver
 
 #### 27.02 - Thompson Wedding
+
+#### 27.03 - VA Coworkers
 
 
 ### 28 - Geneaology
@@ -412,6 +418,8 @@
 #### 32.20 - Family Videos (Craig & Holly TY Channel)
 ##### 32.20.A - July 4th 250 Flag Installation
 
+##### 32.20.B - Trump Rally, Dalton GA 10/16/26
+
 
 #### 32.30 - Films (CraigLab TY channel)
 
@@ -425,6 +433,10 @@
 
 #### 34.03 - Chattanooga
 ##### 34.03.1 - Market Street Bridge
+
+
+#### 34.04 - Phoenix
+##### 34.04.1 - Nov 2026
 
 
 
@@ -464,6 +476,8 @@
 #### 42.05 - Personal Communication
 
 #### 42.06 - Ego depletion
+
+#### 42.07 - Happiness
 
 
 ### 41 - Habits & Routines
@@ -657,6 +671,8 @@
 
 #### 62.01.6 - Haircuts
 
+#### 62.01.0 - Trackers
+
 
 ### 63 - Home Organization
 #### 63.01 - Storage System
@@ -706,18 +722,20 @@
 
 ##### 65.03.2 - Tacoma
 
+##### 65.03.3 - New CRV
+
 
 
 ### 66 - Health Professionals
 #### 66.01 - Primary Care
-##### 66.02 - Dermatology
 
-##### 66.03 - Audiology
+#### 66.02 - Dermatology
 
-##### 66.04 - Podiatry
+#### 66.03 - Audiology
 
-##### 66.05 - CPAP
+#### 66.04 - Podiatry
 
+#### 66.05 - CPAP
 
 
 ### 71 - Projects
@@ -738,6 +756,8 @@
 #### 71.06 - TVH Research Coordinator
 
 #### 71.07 -OPCCCT - Analytics
+
+#### 71.08 - Parking monitoring (Karen)
 
 
 ### 67 - Estate Planning
@@ -817,6 +837,8 @@
 
 #### 74.23 Performance
 ##### ..1 Consults
+
+##### 74.23.2 Self assessment
 
 
 #### 74.24 Pointe Centre Data Analysis
@@ -914,6 +936,8 @@
 #### 79.01 - Animal Billing and Accounting
 
 #### 79.02 - Animal Marketing
+##### 79.02.1 Facebook Ads
+
 
 #### 79.03 - Animal Routes, Clients and Visit Notes
 ##### 79.03.1 - Columbia, TN Route
@@ -971,11 +995,15 @@
 
 #### 78.01.2 vASP Cohort 3 FY26
 
+#### 78.01.3 vASP Cohort 1 FY27
+
 
 ### 80 - Systemized Health Business
 #### 80.10 - Business Operations
+##### Monetization Sprint
 
-#### 80.26 - 2026 Content Archive
+
+#### 80.26 - Archive
 
 #### 80.80 - B-Roll Library
 
@@ -991,7 +1019,11 @@
 ##### 80.V4 - Lab Deep Dives
 
 
-#### 80.20 - Content Ideas and Incubator
+#### 80.20 - Writing
+##### 80.20.1 - Video Structure
+
+##### 80.20.2 - Ideas
+
 
 
 ### 71 - VA Projects
@@ -1034,6 +1066,8 @@
 
 ##### 84.02.4 - Logical Regression
 
+##### 84.02.2A - inverse probability weighting
+
 
 
 ### 85 - Social Science
@@ -1055,6 +1089,8 @@
 ##### 85.03.5 Identity & Core Belief
 
 ##### 85.03.6 Gender
+
+##### 85.03.7 Play
 
 
 #### 85.05 - Economics
@@ -1216,6 +1252,8 @@
 
 ##### 81.05.6 - Planks
 
+##### 81.05.7 - Intermittent Fasting
+
 
 #### 81.07 - Clinical Research Methods
 
@@ -1249,156 +1287,24 @@
 
 
 ### 82 – Neurology
-#### 82.01 – Structural Neuroanatomy
-##### 82.01.A – Central Nervous System (CNS)
+#### 82.01 – Neuroanatomy & Pathways
+##### (All structural locations, CNS/PNS, brainstem, tracts, and loops)
 
-##### 82.01.B – Peripheral Nervous System (PNS)
 
-##### 82.01.C – Meninges & CSF
+#### 82.02 – Cellular, Molecular & Plasticity
+##### (Neurons, glia, neurotransmitters, receptors, ion channels, and neuroplasticity)
 
-##### 82.01.D – Ventricular System
 
-##### 82.01.E – Neurovasculature
+#### 82.03 – Systems Physiology & Regulation
+##### (Motor, sensory, autonomic, homeostasis, stress, circadian rhythms, and brain networks)
 
 
-#### 82.02 – Functional Systems
-##### 82.02.A – Motor Systems
+#### 82.04 – Cognitive & Behavioral
+##### (Memory, emotion, attention, executive function, perception, and motivation)
 
-##### 82.02.B – Sensory Systems
 
-##### 82.02.C – Autonomic Systems
-
-##### 82.02.D – Limbic Systems
-
-##### 82.02.E – Cognitive Systems
-
-##### 82.02.F – Arousal Systems
-
-##### 82.02.G – Homeostatic Systems
-
-
-#### 82.03 – Circuits & Pathways
-##### 82.03.A – Ascending Tracts
-
-##### 82.03.B – Descending Tracts
-
-##### 82.03.C – Cortico-Subcortical Loops
-
-##### 82.03.D – Thalamo-Cortical Loops
-
-##### 82.03.E – Cerebello-Thalamo-Cortical Loops
-
-##### 82.03.F – Basal Ganglia Loops
-
-##### 82.03.G – Brainstem Pathways
-
-
-#### 82.04 – Cellular & Molecular Neuroscience
-##### 82.04.A – Neurons
-
-##### 82.04.B – Glia
-
-##### 82.04.C – Synapses
-
-##### 82.04.D – Neurotransmitters
-
-##### 82.04.E – Receptors
-
-##### 82.04.F – Ion Channels
-
-##### 82.04.G – Second Messenger Systems
-
-##### 82.04.H – Neuroplasticity Mechanisms
-
-
-#### 82.05 – Developmental Neuroscience
-##### 82.05.A – Neural Tube
-
-##### 82.05.B – Neural Crest
-
-##### 82.05.C – Patterning Gradients
-
-##### 82.05.D – Cortical Migration
-
-##### 82.05.E – Axon Guidance
-
-##### 82.05.F – Synaptogenesis
-
-##### 82.05.G – Critical Periods
-
-
-#### 82.06 – Systems Physiology
-##### 82.06.A – Neurovascular Coupling
-
-##### 82.06.B – Glymphatic System
-
-##### 82.06.C – Metabolic Regulation
-
-##### 82.06.D – Neuroimmune Signaling
-
-##### 82.06.E – Inflammatory Regulation
-
-
-#### 82.07 – Regulatory Neuroscience
-##### 82.07.A – Stress Regulation
-
-##### 82.07.B – Allostasis
-
-##### 82.07.C – Homeostatic Control
-
-##### 82.07.D – Circadian Regulation
-
-##### 82.07.E – State vs Trait Regulation
-
-
-#### 82.08 – Large-Scale Brain Networks
-##### 82.08.A – Default Mode Network
-
-##### 82.08.B – Salience Network
-
-##### 82.08.C – Executive Control Network
-
-##### 82.08.D – Ascending Arousal System
-
-##### 82.08.E – Thalamocortical Binding Systems
-
-
-#### 82.09 – Clinical Neuroscience
-##### 82.09.A – Lesion Localization
-
-##### 82.09.B – Syndromes
-
-##### 82.09.C – Degenerative Disease
-
-##### 82.09.D – Demyelinating Disease
-
-##### 82.09.E – Neurodevelopmental Disorders
-
-##### 82.09.F – Trauma
-
-##### 82.09.G – Pain Disorders
-
-##### 82.09.H - Neuro Imaging
-
-##### 82.09.J - Neuro Treatment Planning
-
-
-#### 82.10 – Cognitive & Behavioral Neuroscience
-##### 82.10.A – Memory
-
-##### 82.10.B – Attention
-
-##### 82.10.C – Emotion
-
-##### 82.10.D – Language
-
-##### 82.10.E – Executive Function
-
-##### 82.10.F – Motivation
-
-##### 82.10.G – Consciousness
-
-##### 82.10.H – Perception
+#### 82.05 – Clinical & Pathology
+##### (Lesions, diseases, trauma, pain disorders, neuroimaging, and treatment planning)
 
 
 

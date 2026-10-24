@@ -1,6 +1,6 @@
 # Video Pipeline Status
 
-> **Source of truth:** Supabase `videos` table  |  Generated: 2026-10-18
+> **Source of truth:** Supabase `videos` table  |  Generated: 2026-10-24
 > To update status: `python3 scripts/video_pipeline.py --status <code> <status>`
 
 ---
@@ -10,7 +10,7 @@
 | # | Code | Format | Title | Drop Date | Status | Uploaded |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **001** | `80.V0B` | Long | Knowledge Isn't Enough—Here's What Actually Works | 2026-08-03 | ✅ #published | 2026-08-03 |
-| **002** | `80.V0A` | Long | 20,000 Patients Taught Me This One Biological Reality | 2026-08-03 | ✅ #published | 2026-08-03 |
+| **002** | `80.V0A` | Long | I Treated 20,000 Patients: This Is The Only Way to Rebuild Health | 2026-08-03 | ✅ #published | 2026-08-03 |
 | **003** | `80.V1B1` | Long | Exercise is Optional, Movement is not. | 2026-08-10 | ✅ #published | 2026-08-10 |
 | **004** | `80.V0A1` | Long | Why You Feel Lost With Your Health (And How to Fix It) | 2026-08-24 | ✅ #published | 2026-08-25 |
 | **005** | `80.V0B-S1` | Short | Do Less to Get More | 2026-08-04 | ✅ #published | 2026-08-04 |
@@ -29,13 +29,13 @@
 | **018** | `80.V1C1-S1` | Short | The Weekend Catch-Up Sleep Myth Destroying Your Metabolism | 2026-09-01 | ✅ #published | 2026-09-02 |
 | **019** | `80.V1C1-S2` | Short | Why The First 4 Hours of Sleep Are Critical (Brain Night Shift) | 2026-09-03 | ✅ #published | 2026-09-04 |
 | **020** | `80.V1C1-S3` | Short | Caffeine Illusion | 2026-09-05 | ✅ #published | — |
-| **021** | `80.V1B2` | Long | Can You Run With a Herniated Disc? (A Doctor's Experiment) | 2026-09-07 | ✅ #published | 2026-09-07 |
-| **022** | `80.V1B2-S1` | Short | How Do the Discs in Your Spine Stay Healthy? (It's NOT Bloodflow) | 2026-09-08 | ✅ #published | — |
+| **021** | `80.V1B2` | Long | How I Got Back to Running with a Hernaited Disc. A Chiropractor's Story | 2026-09-07 | ✅ #published | 2026-09-07 |
+| **022** | `80.V1B2-S1` | Short | How Do the Discs in Your Spine Stay Healthy? (It's NOT Bloodflow) | 2026-09-08 | ✅ #published | 2026-09-09 |
 | **023** | `80.V2B1-S1` | Short | How discomfort makes you comfortable | 2026-09-10 | ✅ #published | 2026-09-10 |
-| **024** | `80.V1B2-S2` | Short | Running and Longterm Health of Your Disc | 2026-09-12 | ✅ #published | 2026-09-12 |
-| **025** | `80.V2C1` | Long | Why AI Can't Replace the Human Part of You | 2026-09-14 | ✅ #published | 2026-09-14 |
+| **024** | `80.V1B2-S2` | Short | A Chiropractor Answers, Is Running Bad for the Back? | 2026-09-12 | ✅ #published | 2026-09-12 |
+| **025** | `80.V2C1` | Long | Why AI Can't Replace the Human Part of You | 2026-09-14 | ✅ #published | 2026-09-15 |
 | **026** | `80.V2C1-S1` | Short | The One Mindset to Save Your Brain When Using AI | 2026-09-15 | ✅ #published | 2026-09-15 |
-| **027** | `80.V2A1-S2A` | Short | This is Your Default Setting | 2026-09-17 | ✅ #published | — |
+| **027** | `80.V2A1-S2A` | Short | The Science of Spacing Out: How Daydreaming Reduces Anxiety | 2026-09-17 | ✅ #published | 2026-09-17 |
 | **028** | `80.V2A1-S3A` | Short | Why you feel anxious when you're bored | 2026-09-19 | ✅ #published | 2026-09-19 |
 | **029** | `80.V3A1` | Long | The 5 Stages of Brain Aging (And How to Stay Sharp Into Your 90s) | 2026-09-24 | ✅ #published | 2026-09-25 |
 | **030** | `80.V3A1-S1` | Short | You got to play as an adult | 2026-09-25 | ✅ #published | 2026-09-25 |
@@ -47,9 +47,9 @@
 | **038** | `80.V3B1-S1` | Short | Your Brain Is Full Do This Now | 2026-10-07 | ✅ #published | 2026-10-07 |
 | **039** | `80.V3B1-S2` | Short | How 3 Simple Lists Free Up Mental Space | 2026-10-08 | ✅ #published | 2026-10-08 |
 | **040** | `80.V3B1-S3` | Short | The 30 Second Fix For Creative Block | 2026-10-10 | ✅ #published | 2026-10-10 |
-| **045** | `80.V1A2` | Long | After 29 Years With Patients my Intermittent Fasting Plan for Steady Energy | 2026-10-12 | ✅ #published | 2026-10-13 |
+| **045** | `80.V1A2` | Long | My Intermittent Fasting Plan the Does All the Thinking for You | 2026-10-12 | ✅ #published | 2026-10-13 |
 | **046** | `80.V1A2-S1` | Short | Intermittent Fasting Works Better When You Feast Sometimes | 2026-10-13 | ✅ #published | 2026-10-13 |
-| **049** | `80.V2A2` | Long | You will use a paper journal after watching this | 2026-10-21 | 📝 #write | — |
+| **049** | `80.V2A2` | Long | You will want to use a paper journal after watching this | 2026-11-03 | 💡 #idea | — |
 | **053** | `80.V2B2` | Long | Why Digital Health Apps Keep Failing You (And Why Paper Fixes It) | — | 💡 #idea | — |
 | **057** | `80.V4-02` | Long | Level 4 (Lab) — User Discretion | — | 💡 #idea | — |
 | **061** | `80.V2C2` | Long | Prayer and DMN | — | 📝 #write | — |
@@ -61,14 +61,15 @@
 | **097** | `80.V3B2` | Long | How a Doctor Tracks His Health in a Bullet Journal (No Art, No Apps) | — | 💡 #idea | — |
 | **105** | `80.V1B4` | Long | Level 1 (Foundational) — Move | — | 💡 #idea | — |
 | **245** | `80.V2A-S4` | Short | Buffers make you more productive | 2026-09-28 | ✅ #published | 2026-09-28 |
-| **246** | `80.V3A1-S3` | Short | Who’s brains are better connected, men or women? | 2026-09-29 | ✅ #published | 2026-09-30 |
+| **246** | `80.V3A1-S3` | Short | Who’s brain is better connected, men or women? | 2026-09-29 | ✅ #published | 2026-09-30 |
 | **247** | `80.V1A0-S1` | Short | What WeightLoss Drugs do to your Drive for Success | 2026-09-30 | ✅ #published | 2026-10-03 |
 | **248** | `80.V3B1` | Long | My Simple Bullet Journal Setup After 7 1/2 Years of use (No Art Needed) | 2026-10-03 | ✅ #published | 2026-10-03 |
 | **249** | `80.V1B3-A1` | Short | Start Running with me at 55 years old from zero. | 2026-10-04 | ✅ #published | 2026-10-04 |
 | **250** | `80.V3B1-S4` | Short | Overwhelmed in the Morning Write This Down | 2026-10-06 | ✅ #published | 2026-10-06 |
-| **251** | `80.V1A2-A` | Long | Fact checking Dr Anderson’s IF Plan | 2026-10-29 | 📝 #write | — |
+| **251** | `80.V1A2-A` | Long | Fact checking Dr Anderson’s IF Plan | 2026-11-02 | ✂️ #edit | — |
 | **252** | `32.20.A2` | Long | Trump Rally 10-26-26 | 2026-10-17 | ✅ #published | — |
-| **253** | `79.07.2` | Short | How I Adjust Dachshunds - Dr Anderson, Animal Chiropractor | 2026-10-20 | 💡 #idea | — |
+| **253** | `79.07.2` | Short | How I Adjust Dachshunds - Dr Anderson, Animal Chiropractor | 2026-10-27 | ✂️ #edit | — |
+| **254** | `80.V3B3` | Long | 7 Years of Bullet Journals Flip-Through Tour | 2026-10-22 | ✂️ #edit | — |
 | **H001** | `HIST.L01` | Long | The Biological Requirement for Weekly Structure | 2026-01-01 | ✅ #published | 2026-01-01 |
 | **H002** | `HIST.L02` | Long | The Biological Reality of GLP-1: Fuel vs. Motivation | 2026-03-24 | ✅ #published | 2026-03-24 |
 | **H003** | `HIST.L03` | Long | The Nervous System Secret to Consistent Gains | 2026-01-22 | ✅ #published | 2026-01-22 |
@@ -98,5 +99,6 @@
 ## 📊 Status Summary
 
 - 💡 **#idea**: 10
-- 📝 **#write**: 3
+- 📝 **#write**: 1
+- ✂️ **#edit**: 3
 - ✅ **#published**: 70

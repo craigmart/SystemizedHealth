@@ -141,16 +141,17 @@ def sync_vidiq_historical_data():
         views = v.get("viewCount", 0)
         likes = v.get("likeCount", 0)
         comments = v.get("commentCount", 0)
+        outlier_score = v.get("breakoutScore") or 0.0
         
         match = find_matching_video(v["title"], v["videoId"], "Long", pub_date)
         if match:
             v_id = match["id"]
             v_num = match["video_number"]
             cursor.execute("""
-            UPDATE videos SET youtube_id = ?, uploaded_date = ?, status = '#uploaded' WHERE id = ?;
+            UPDATE videos SET youtube_id = ?, uploaded_date = ?, status = '#published' WHERE id = ?;
             """, (v["videoId"], pub_date, v_id))
             if sb:
-                sb.update_video_status(v_num, "#uploaded", extra={"youtube_id": v["videoId"], "uploaded_date": pub_date})
+                sb.update_video_status(v_num, "#published", extra={"youtube_id": v["videoId"], "uploaded_date": pub_date})
         elif pub_date and pub_date >= "2026-08-01":
             print(f"⚠️ Unmatched recent Long video '{v['title']}' ({v['videoId']}) published {pub_date}. Skipped creating duplicate HIST row.")
             continue
@@ -175,13 +176,13 @@ def sync_vidiq_historical_data():
                 sb.upsert_video({"video_number": v_num, "code": code, "format_type": "Long", "title": v["title"], "status": "#published", "drop_date": pub_date, "uploaded_date": pub_date, "youtube_id": v["videoId"]})
 
         cursor.execute("""
-        INSERT INTO video_stats (video_id, snapshot_date, views, vph, likes, comments)
-        VALUES (?, ?, ?, ?, ?, ?);
-        """, (v_id, snapshot_date, views, vph, likes, comments))
+        INSERT INTO video_stats (video_id, snapshot_date, views, vph, likes, comments, outlier_score)
+        VALUES (?, ?, ?, ?, ?, ?, ?);
+        """, (v_id, snapshot_date, views, vph, likes, comments, outlier_score))
         if sb:
             sb_video = sb.get_video_by_number(v_num)
             if sb_video and "id" in sb_video:
-                sb.add_video_stats(sb_video["id"], {"snapshot_date": snapshot_date, "views": views, "vph": vph, "likes": likes, "comments": comments})
+                sb.add_video_stats(sb_video["id"], {"snapshot_date": snapshot_date, "views": views, "vph": vph, "likes": likes, "comments": comments, "outlier_score": outlier_score})
 
     # Sync Short Videos
     hs_idx = 1
@@ -191,16 +192,17 @@ def sync_vidiq_historical_data():
         views = v.get("viewCount", 0)
         likes = v.get("likeCount", 0)
         comments = v.get("commentCount", 0)
+        outlier_score = v.get("breakoutScore") or 0.0
 
         match = find_matching_video(v["title"], v["videoId"], "Short", pub_date)
         if match:
             v_id = match["id"]
             v_num = match["video_number"]
             cursor.execute("""
-            UPDATE videos SET youtube_id = ?, uploaded_date = ?, status = '#uploaded' WHERE id = ?;
+            UPDATE videos SET youtube_id = ?, uploaded_date = ?, status = '#published' WHERE id = ?;
             """, (v["videoId"], pub_date, v_id))
             if sb:
-                sb.update_video_status(v_num, "#uploaded", extra={"youtube_id": v["videoId"], "uploaded_date": pub_date})
+                sb.update_video_status(v_num, "#published", extra={"youtube_id": v["videoId"], "uploaded_date": pub_date})
         elif pub_date and pub_date >= "2026-08-01":
             print(f"⚠️ Unmatched recent Short '{v['title']}' ({v['videoId']}) published {pub_date}. Skipped creating duplicate HIST row.")
             continue
@@ -225,13 +227,13 @@ def sync_vidiq_historical_data():
                 sb.upsert_video({"video_number": v_num, "code": code, "format_type": "Short", "title": v["title"], "status": "#published", "drop_date": pub_date, "uploaded_date": pub_date, "youtube_id": v["videoId"]})
 
         cursor.execute("""
-        INSERT INTO video_stats (video_id, snapshot_date, views, vph, likes, comments)
-        VALUES (?, ?, ?, ?, ?, ?);
-        """, (v_id, snapshot_date, views, vph, likes, comments))
+        INSERT INTO video_stats (video_id, snapshot_date, views, vph, likes, comments, outlier_score)
+        VALUES (?, ?, ?, ?, ?, ?, ?);
+        """, (v_id, snapshot_date, views, vph, likes, comments, outlier_score))
         if sb:
             sb_video = sb.get_video_by_number(v_num)
             if sb_video and "id" in sb_video:
-                sb.add_video_stats(sb_video["id"], {"snapshot_date": snapshot_date, "views": views, "vph": vph, "likes": likes, "comments": comments})
+                sb.add_video_stats(sb_video["id"], {"snapshot_date": snapshot_date, "views": views, "vph": vph, "likes": likes, "comments": comments, "outlier_score": outlier_score})
 
     conn.commit()
     conn.close()
@@ -245,12 +247,71 @@ def sync_vidiq_historical_data():
         "short_videos": short_videos
     }
 
-def compute_mtd_report():
+import time
+from datetime import timedelta
+
+def sync_title_ctrs(force=False):
+    """Scores CTR potential (0-100) using vidIQ MCP for active pipeline & published titles."""
+    if not has_vidiq:
+        print("Warning: vidIQ client not available.", file=sys.stderr)
+        return
+    cfg = load_config()
+    api_key = cfg.get("vidiq_api_key")
+    if not api_key:
+        print("Warning: vidIQ API key missing in config.json", file=sys.stderr)
+        return
+
+    conn = get_db()
+    cursor = conn.cursor()
+    sb = SupabaseClient() if has_supabase else None
+
+    # Fetch videos where score is 0 or force is True, excluding placeholders
+    cursor.execute("""
+        SELECT id, video_number, code, title, format_type, status, vidiq_title_score
+        FROM videos
+        WHERE (vidiq_title_score = 0 OR ? = 1)
+        AND title NOT LIKE 'Level %'
+        AND title NOT LIKE '%User Discretion%'
+        ORDER BY video_number ASC;
+    """, (1 if force else 0,))
+    videos_to_score = [dict(r) for r in cursor.fetchall()]
+
+    if not videos_to_score:
+        print("ℹ️ All eligible videos already have vidIQ CTR title scores.")
+        conn.close()
+        return
+
+    print(f"🎯 Scoring CTR for {len(videos_to_score)} video titles via vidIQ MCP...")
+    updated_count = 0
+
+    for v in videos_to_score:
+        title = v["title"]
+        fmt = "long" if v["format_type"] == "Long" else "short"
+        try:
+            res = call_mcp_tool("vidiq_score_title", {"title": title, "type": fmt}, api_key)
+            if res and "score" in res:
+                score = res["score"]
+                cursor.execute("UPDATE videos SET vidiq_title_score = ? WHERE id = ?;", (score, v["id"]))
+                if sb:
+                    sb.update_video_status(v["video_number"], v["status"], extra={"vidiq_title_score": score})
+                print(f"  ✅ [{v['code']}] {title[:45]}... → CTR Score: {score}/100")
+                updated_count += 1
+            time.sleep(0.3)
+        except Exception as ex:
+            print(f"  ⚠️ Error scoring '{title}': {ex}")
+
+    conn.commit()
+    conn.close()
+    print(f"✅ Successfully updated vidIQ CTR scores for {updated_count} videos.")
+
+def compute_mtd_report(vidiq_data=None):
     """Calculates Month-to-Date (MTD) pace and projections based strictly on actual MTD deltas."""
-    vidiq_data = sync_vidiq_historical_data()
+    if vidiq_data is None:
+        vidiq_data = sync_vidiq_historical_data()
     today = date.today()
     current_month_str = today.strftime("%Y-%m")
     month_name = today.strftime("%B %Y")
+    month_abbr = today.strftime("%b")
     
     day_of_month = today.day
     _, total_days_in_month = calendar.monthrange(today.year, today.month)
@@ -259,23 +320,45 @@ def compute_mtd_report():
 
     daily_stats = vidiq_data.get("daily_stats", []) if vidiq_data else []
 
-    # Get EOM baseline for July 31
-    july_31_views = 9077
-    july_31_subs = 32
+    # Dynamic baseline: find stats from the end of the prior month
+    first_of_month = today.replace(day=1)
+    prior_eom_date = (first_of_month - timedelta(days=1)).strftime("%Y-%m-%d")
+    prior_month_str = (first_of_month - timedelta(days=1)).strftime("%Y-%m")
+    prior_month_name = (first_of_month - timedelta(days=1)).strftime("%B %Y")
+
+    baseline_views = None
+    baseline_subs = None
     for d in daily_stats:
-        if d.get("date") == "2026-07-31":
-            july_31_views = d.get("views", 9077)
-            july_31_subs = d.get("subscribers", 32)
+        if d.get("date") == prior_eom_date:
+            baseline_views = d.get("views")
+            baseline_subs = d.get("subscribers")
             break
 
-    current_views = vidiq_data["total_views"] if vidiq_data else 9077
-    current_subs = vidiq_data["subscribers"] if vidiq_data else 31
+    if baseline_views is None:
+        conn = get_db()
+        c = conn.cursor()
+        c.execute("SELECT total_views, total_subscribers FROM channel_monthly_stats WHERE report_month = ?", (prior_month_str,))
+        row = c.fetchone()
+        if row:
+            baseline_views = row["total_views"]
+            baseline_subs = row["total_subscribers"]
+        conn.close()
 
-    # Actual MTD gains in August 2026
-    mtd_views_gained = max(current_views - july_31_views, 0)
-    mtd_subs_gained = max(current_subs - july_31_subs, 0)
+    if baseline_views is None and daily_stats:
+        baseline_views = daily_stats[0].get("views", 20840)
+        baseline_subs = daily_stats[0].get("subscribers", 124)
 
-    # Real non-test discovery call leads in August (Active / Scheduled / Agreement Signed)
+    baseline_views = baseline_views or 20840
+    baseline_subs = baseline_subs or 124
+
+    current_views = vidiq_data["total_views"] if vidiq_data else 48520
+    current_subs = vidiq_data["subscribers"] if vidiq_data else 343
+
+    # Actual MTD gains
+    mtd_views_gained = max(current_views - baseline_views, 0)
+    mtd_subs_gained = max(current_subs - baseline_subs, 0)
+
+    # Real non-test discovery call leads in active month
     client_db_path = os.path.join(REPO_ROOT, "database", "clients.db")
     mtd_real_leads = 0
     if os.path.exists(client_db_path):
@@ -294,15 +377,15 @@ def compute_mtd_report():
         mtd_real_leads = client_cursor.fetchone()[0]
         client_conn.close()
 
-    # Actual Daily pace (August 1 to today)
+    # Actual Daily pace
     daily_views_pace = round(mtd_views_gained / max(day_of_month, 1), 2)
     daily_subs_pace = round(mtd_subs_gained / max(day_of_month, 1), 2)
     daily_leads_pace = round(mtd_real_leads / max(day_of_month, 1), 2)
 
-    proj_new_views_august = int(mtd_views_gained + (daily_views_pace * days_remaining))
-    proj_eom_total_views = current_views + proj_new_views_august
-    proj_new_subs_august = int(mtd_subs_gained + (daily_subs_pace * days_remaining))
-    proj_new_leads_august = int(mtd_real_leads + (daily_leads_pace * days_remaining))
+    proj_new_views_month = int(mtd_views_gained + (daily_views_pace * days_remaining))
+    proj_eom_total_views = current_views + int(daily_views_pace * days_remaining)
+    proj_new_subs_month = int(mtd_subs_gained + (daily_subs_pace * days_remaining))
+    proj_new_leads_month = int(mtd_real_leads + (daily_leads_pace * days_remaining))
 
     conn = get_db()
     cursor = conn.cursor()
@@ -321,23 +404,28 @@ def compute_mtd_report():
     data = {
         "current_month_str": current_month_str,
         "month_name": month_name,
+        "month_abbr": month_abbr,
+        "prior_eom_date": prior_eom_date,
+        "prior_month_name": prior_month_name,
         "as_of_date": today.strftime("%Y-%m-%d"),
         "day_of_month": day_of_month,
         "total_days_in_month": total_days_in_month,
         "days_remaining": days_remaining,
         "pct_month_elapsed": pct_month_elapsed,
-        "july_baseline_views": july_31_views,
+        "baseline_views": baseline_views,
+        "baseline_subs": baseline_subs,
         "current_total_views": current_views,
+        "current_total_subs": current_subs,
         "mtd_views_gained": mtd_views_gained,
         "mtd_subs_gained": mtd_subs_gained,
         "mtd_real_leads": mtd_real_leads,
         "daily_views_pace": daily_views_pace,
         "daily_subs_pace": daily_subs_pace,
         "daily_leads_pace": daily_leads_pace,
-        "proj_new_views_august": proj_new_views_august,
+        "proj_new_views_month": proj_new_views_month,
         "proj_eom_total_views": proj_eom_total_views,
-        "proj_new_subs_august": proj_new_subs_august,
-        "proj_new_leads_august": proj_new_leads_august,
+        "proj_new_subs_month": proj_new_subs_month,
+        "proj_new_leads_month": proj_new_leads_month,
         "top_velocity_long": top_velocity_long,
         "top_velocity_short": top_velocity_short
     }
@@ -366,23 +454,23 @@ def render_mtd_report(data):
 Month Elapsed: [{ '=' * int(data['pct_month_elapsed'] // 5) }{ ' ' * (20 - int(data['pct_month_elapsed'] // 5)) }] {data['pct_month_elapsed']}% ({data['day_of_month']}/{data['total_days_in_month']} Days)
 ```
 
-### 1. Actual August Month-to-Date (MTD) Performance
+### 1. Actual {data['month_name']} Month-to-Date (MTD) Performance
 
-| Metric | Baseline at July 31 | Current Total ({data['as_of_date']}) | MTD Actual Gained (Aug 1-{data['day_of_month']}) | Daily MTD Pace |
+| Metric | Baseline at {data['prior_eom_date']} | Current Total ({data['as_of_date']}) | MTD Actual Gained ({data['month_abbr']} 1-{data['day_of_month']}) | Daily MTD Pace |
 | :--- | :---: | :---: | :---: | :---: |
-| **Total Channel Views** | `{data['july_baseline_views']:,}` | `{data['current_total_views']:,}` | **`+{data['mtd_views_gained']:,}`** | `{data['daily_views_pace']} views/day` |
-| **Subscribers Gained** | `32` | `{data['mtd_subs_gained']+31}` | **`+{data['mtd_subs_gained']}`** | `{data['daily_subs_pace']} subs/day` |
+| **Total Channel Views** | `{data['baseline_views']:,}` | `{data['current_total_views']:,}` | **`+{data['mtd_views_gained']:,}`** | `{data['daily_views_pace']} views/day` |
+| **Subscribers Gained** | `{data['baseline_subs']}` | `{data['current_total_subs']}` | **`+{data['mtd_subs_gained']}`** | `{data['daily_subs_pace']} subs/day` |
 | **Discovery Call Leads (Real)** | `0` | `{data['mtd_real_leads']}` | **`+{data['mtd_real_leads']}`** | `{data['daily_leads_pace']} leads/day` |
 
 ---
 
-### 2. Real End-of-Month (EOM) August Projections
+### 2. Real End-of-Month (EOM) {data['month_name']} Projections
 
-| Projection Metric | Current MTD Pace | Projected August Gains | Projected Total at Aug 31 | Run-Rate Status |
+| Projection Metric | Current MTD Pace | Projected Month Gains | Projected Total at Month End | Run-Rate Status |
 | :--- | :--- | :--- | :--- | :--- |
-| **August New Views** | `{data['daily_views_pace']} views/day` | **`+{data['proj_new_views_august']:,}`** | **`{data['proj_eom_total_views']:,}` views** | 🚀 Launch Drop Day 1 (Aug 3) |
-| **August New Subscribers** | `{data['daily_subs_pace']} subs/day` | **`+{data['proj_new_subs_august']}`** | **`+{data['proj_new_subs_august']}` subs** | 🟢 Baseline Audience |
-| **August Discovery Call Leads** | `{data['daily_leads_pace']} leads/day` | **`+{data['proj_new_leads_august']}`** | **`+{data['proj_new_leads_august']}` leads** | 📞 Funnel Active |
+| **New Views** | `{data['daily_views_pace']} views/day` | **`+{data['proj_new_views_month']:,}`** | **`{data['proj_eom_total_views']:,}` views** | 🚀 High Velocity |
+| **New Subscribers** | `{data['daily_subs_pace']} subs/day` | **`+{data['proj_new_subs_month']}`** | **`+{data['proj_new_subs_month']}` subs** | 🟢 Audience Surge |
+| **Discovery Call Leads** | `{data['daily_leads_pace']} leads/day` | **`+{data['proj_new_leads_month']}`** | **`+{data['proj_new_leads_month']}` leads** | 📞 Funnel Active |
 
 ---
 
@@ -414,8 +502,8 @@ Month Elapsed: [{ '=' * int(data['pct_month_elapsed'] // 5) }{ ' ' * (20 - int(d
 
 ## 🎯 Weekly Content Planning Actions
 
-1. **Launch Video Drop Monitoring**: Video `80.V0B` drops today (August 3). Monitor 48-hour VPH and CTR in `Analytics/Analytics_48h.md`.
-2. **Weekly MTD Tracking**: Re-run `python scripts/analytics_manager.py --mtd` every week to update projected August view gains as post-launch views accumulate.
+1. **Velocity Monitoring**: Monitor 48-hour VPH and breakout scores in `Analytics/Analytics_48h.md`.
+2. **Weekly MTD Tracking**: Re-run `python scripts/analytics_manager.py --mtd` every week to update projected monthly view gains as views accumulate.
 3. **Funnel CTA Alignment**: Verify all new drops include standard CTA copy: `Book your free 20-minute Systemized Discovery Call: call.systemizedhealth.com`.
 
 ---
@@ -713,10 +801,23 @@ def main():
     parser = argparse.ArgumentParser(description="Systemized Health Analytics & EOM / MTD Manager")
     parser.add_argument("--eom", default=None, help="Report month YYYY-MM")
     parser.add_argument("--mtd", action="store_true", help="Generate Month-to-Date (MTD) pace report & projections")
-    parser.add_argument("--sync-all", action="store_true", help="Sync live vidIQ stats & historical catalog")
+    parser.add_argument("--sync-all", action="store_true", help="Sync live vidIQ stats, title CTR scores, catalog & reports")
+    parser.add_argument("--sync-ctr", action="store_true", help="Score CTR potential (0-100) via vidIQ for proposed/active titles")
+    parser.add_argument("--force-ctr", action="store_true", help="Re-score CTR potential for all videos even if already scored")
     args = parser.parse_args()
 
-    if args.mtd:
+    if args.sync_all:
+        print("🚀 Running complete analytics sync (views, breakout scores, MTD, and CTRs)...")
+        vidiq_data = sync_vidiq_historical_data()
+        sync_title_ctrs(force=args.force_ctr)
+        compute_mtd_report(vidiq_data=vidiq_data)
+        # Refresh all dedicated timeframe reports (48h, 7d, 28d, AllTime)
+        import generate_analytics_reports
+        generate_analytics_reports.main()
+        print("✅ Complete analytics & CTR sync finished successfully.")
+    elif args.sync_ctr:
+        sync_title_ctrs(force=args.force_ctr)
+    elif args.mtd:
         compute_mtd_report()
     elif args.eom:
         data = compute_eom_report(args.eom)

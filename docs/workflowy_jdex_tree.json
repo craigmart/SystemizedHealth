@@ -730,7 +730,14 @@
             "id": "d0a8851d-5fe2-6a07-205d-a9b7a4882641",
             "name": "15.06 - Sabbath & Rest",
             "note": "",
-            "children": []
+            "children": [
+              {
+                "id": "b8f82caf-9f8d-40d9-9389-630f2e75c08e",
+                "name": "15.06.1A1A Margin",
+                "note": "",
+                "children": []
+              }
+            ]
           },
           {
             "id": "b04e32c3-96c5-d18c-0a5f-1b9a73d63cc7",
@@ -887,6 +894,12 @@
                 "name": "22.02.1 Calls to Bennett",
                 "note": "",
                 "children": []
+              },
+              {
+                "id": "cd9ce823-83f7-4219-97fa-b07c340c204e",
+                "name": "22.02.2 Car Stuff",
+                "note": "",
+                "children": []
               }
             ]
           },
@@ -957,6 +970,12 @@
             "name": "23.02.2 - Rays Art",
             "note": "",
             "children": []
+          },
+          {
+            "id": "abad84e5-8f0d-4a25-b8a1-a6956428137a",
+            "name": "23.05 - David",
+            "note": "",
+            "children": []
           }
         ]
       },
@@ -1000,20 +1019,13 @@
             "id": "3b60348c-44e1-7d46-15ac-543750b3a4b6",
             "name": "25.02 - Clear Creek Church of Christ",
             "note": "",
-            "children": [
-              {
-                "id": "73585a3e-70a5-a105-2842-e567edf84755",
-                "name": "25.02.A - People",
-                "note": "",
-                "children": []
-              }
-            ]
+            "children": []
           }
         ]
       },
       {
         "id": "6aeb230f-33e7-f12a-79d0-376a6ae26618",
-        "name": "27 - Friends",
+        "name": "27 - Friends and Coworkers",
         "note": "",
         "children": [
           {
@@ -1025,6 +1037,12 @@
           {
             "id": "78821344-8218-41e9-bdf1-a2dfb18da5de",
             "name": "27.02 - Thompson Wedding",
+            "note": "",
+            "children": []
+          },
+          {
+            "id": "50cbc9f8-6ac5-4668-8e5d-38fff46e39a0",
+            "name": "27.03 - VA Coworkers",
             "note": "",
             "children": []
           }
@@ -1273,6 +1291,12 @@
                 "name": "32.20.A - July 4th 250 Flag Installation",
                 "note": "",
                 "children": []
+              },
+              {
+                "id": "57d088eb-e336-4f01-b65b-50689a04c582",
+                "name": "32.20.B - Trump Rally, Dalton GA 10/16/26",
+                "note": "",
+                "children": []
               }
             ]
           },
@@ -1315,6 +1339,19 @@
               {
                 "id": "dbfffc13-6183-4066-97ec-c92d9bcb394c",
                 "name": "34.03.1 - Market Street Bridge",
+                "note": "",
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "a67c2283-1fa3-4800-8b62-b64b31553df0",
+            "name": "34.04 - Phoenix",
+            "note": "",
+            "children": [
+              {
+                "id": "360da660-c119-442a-9840-d14e31d1c500",
+                "name": "34.04.1 - Nov 2026",
                 "note": "",
                 "children": []
               }
@@ -1438,6 +1475,12 @@
           {
             "id": "a32a5824-3841-7cf0-58c6-a189ea8c954d",
             "name": "42.06 - Ego depletion",
+            "note": "",
+            "children": []
+          },
+          {
+            "id": "a94abd7d-0603-4171-afea-154589f65529",
+            "name": "42.07 - Happiness",
             "note": "",
             "children": []
           }
@@ -2040,6 +2083,12 @@
             "name": "62.01.6 - Haircuts",
             "note": "",
             "children": []
+          },
+          {
+            "id": "b58e6be4-c250-424c-ba14-d284cd60a4b5",
+            "name": "62.01.0 - Trackers",
+            "note": "",
+            "children": []
           }
         ]
       },
@@ -2197,6 +2246,12 @@
                 "name": "65.03.2 - Tacoma",
                 "note": "",
                 "children": []
+              },
+              {
+                "id": "4209ff4f-e4af-4ae4-a49d-515d61c78d0a",
+                "name": "65.03.3 - New CRV",
+                "note": "",
+                "children": []
               }
             ]
           }
@@ -2211,32 +2266,31 @@
             "id": "eaeddf9a-03f1-924b-ff34-0adbe4fcbd69",
             "name": "66.01 - Primary Care",
             "note": "",
-            "children": [
-              {
-                "id": "135f8baa-4ded-26e9-9cd5-b636b2af39f5",
-                "name": "66.02 - Dermatology",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "b7d7dd14-45d4-6c00-0c80-2158993a586d",
-                "name": "66.03 - Audiology",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "676557d9-3bc0-686e-c37a-b6c853bd5a28",
-                "name": "66.04 - Podiatry",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "3129dd1d-e733-602c-f859-93617eedc879",
-                "name": "66.05 - CPAP",
-                "note": "",
-                "children": []
-              }
-            ]
+            "children": []
+          },
+          {
+            "id": "135f8baa-4ded-26e9-9cd5-b636b2af39f5",
+            "name": "66.02 - Dermatology",
+            "note": "",
+            "children": []
+          },
+          {
+            "id": "b7d7dd14-45d4-6c00-0c80-2158993a586d",
+            "name": "66.03 - Audiology",
+            "note": "",
+            "children": []
+          },
+          {
+            "id": "676557d9-3bc0-686e-c37a-b6c853bd5a28",
+            "name": "66.04 - Podiatry",
+            "note": "",
+            "children": []
+          },
+          {
+            "id": "3129dd1d-e733-602c-f859-93617eedc879",
+            "name": "66.05 - CPAP",
+            "note": "",
+            "children": []
           }
         ]
       },
@@ -2296,6 +2350,12 @@
           {
             "id": "7ea25d25-2320-4b1e-a296-6c06bb0d5da9",
             "name": "71.07 -OPCCCT - Analytics",
+            "note": "",
+            "children": []
+          },
+          {
+            "id": "eeca2606-40fa-4287-8eff-934beae4f430",
+            "name": "71.08 - Parking monitoring (Karen)",
             "note": "",
             "children": []
           }
@@ -2549,6 +2609,12 @@
               {
                 "id": "b3caec97-084e-354c-bbba-c81febf0df1e",
                 "name": "..1 Consults",
+                "note": "",
+                "children": []
+              },
+              {
+                "id": "056fd78c-1f40-4320-a60b-2471dc57103a",
+                "name": "74.23.2 Self assessment",
                 "note": "",
                 "children": []
               }
@@ -2853,7 +2919,14 @@
             "id": "7e0c32e6-cb2f-d102-c68d-4ce5d7f88149",
             "name": "79.02 - Animal Marketing",
             "note": "",
-            "children": []
+            "children": [
+              {
+                "id": "5bedd673-525f-4353-9353-6e52c7053b65",
+                "name": "79.02.1 Facebook Ads",
+                "note": "",
+                "children": []
+              }
+            ]
           },
           {
             "id": "d8e8138f-64ee-27dc-c339-d35d754135ba",
@@ -3029,6 +3102,12 @@
             "name": "78.01.2 vASP Cohort 3 FY26",
             "note": "",
             "children": []
+          },
+          {
+            "id": "73a6465a-b423-4a5e-808c-3a8d01b1cd76",
+            "name": "78.01.3 vASP Cohort 1 FY27",
+            "note": "",
+            "children": []
           }
         ]
       },
@@ -3041,11 +3120,18 @@
             "id": "e658a750-aaf8-c13b-fee8-ab654e78b0e0",
             "name": "80.10 - Business Operations",
             "note": "",
-            "children": []
+            "children": [
+              {
+                "id": "8b6ffcd7-c449-4c1b-95cf-39965fa9c05d",
+                "name": "Monetization Sprint",
+                "note": "",
+                "children": []
+              }
+            ]
           },
           {
             "id": "4fbf504b-b22e-a107-fe58-242df989d267",
-            "name": "80.26 - 2026 Content Archive",
+            "name": "80.26 - Archive",
             "note": "",
             "children": []
           },
@@ -3094,9 +3180,22 @@
           },
           {
             "id": "8ffd4b9d-4614-4336-862e-d283e2ef01a0",
-            "name": "80.20 - Content Ideas and Incubator",
+            "name": "80.20 - Writing",
             "note": "",
-            "children": []
+            "children": [
+              {
+                "id": "abbc7d5a-dea6-4065-9708-b3fbf4f99b4c",
+                "name": "80.20.1 - Video Structure",
+                "note": "",
+                "children": []
+              },
+              {
+                "id": "8a340249-d49c-450e-a138-1da4271737df",
+                "name": "80.20.2 - Ideas",
+                "note": "",
+                "children": []
+              }
+            ]
           }
         ]
       },
@@ -3229,6 +3328,12 @@
                 "name": "84.02.4 - Logical Regression",
                 "note": "",
                 "children": []
+              },
+              {
+                "id": "9e0b21ee-b4ae-4136-8dfd-ebdeee73ada7",
+                "name": "84.02.2A - inverse probability weighting",
+                "note": "",
+                "children": []
               }
             ]
           }
@@ -3296,6 +3401,12 @@
               {
                 "id": "398d9a9a-aa98-6c67-272d-ff9f9a5b7edf",
                 "name": "85.03.6 Gender",
+                "note": "",
+                "children": []
+              },
+              {
+                "id": "eaa71e1e-74a7-405c-80c5-15feecc2dd98",
+                "name": "85.03.7 Play",
                 "note": "",
                 "children": []
               }
@@ -3797,6 +3908,12 @@
                 "name": "81.05.6 - Planks",
                 "note": "",
                 "children": []
+              },
+              {
+                "id": "f2c89ea9-6a11-4515-81b9-13c78fe63fe6",
+                "name": "81.05.7 - Intermittent Fasting",
+                "note": "",
+                "children": []
               }
             ]
           },
@@ -3902,466 +4019,65 @@
         "note": "",
         "children": [
           {
-            "id": "11180b6e-2b4d-ad4b-4561-ca98ca9df94b",
-            "name": "82.01 \u2013 Structural Neuroanatomy",
+            "id": "b92ad10a-746f-4a7e-9e13-b016f6dc01a0",
+            "name": "82.01 \u2013 Neuroanatomy & Pathways",
             "note": "",
             "children": [
               {
-                "id": "6db38006-0cd1-6274-e0fb-a8df1c456ee0",
-                "name": "82.01.A \u2013 Central Nervous System (CNS)",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "218c231d-551b-7664-687a-e316d4999d48",
-                "name": "82.01.B \u2013 Peripheral Nervous System (PNS)",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "9bb8370a-6b86-9106-0746-ab698b8a2afa",
-                "name": "82.01.C \u2013 Meninges & CSF",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "7dc52421-1801-7266-8d84-f04f8afbc1c6",
-                "name": "82.01.D \u2013 Ventricular System",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "1fa4b885-fa0b-1578-395b-ea409999efb5",
-                "name": "82.01.E \u2013 Neurovasculature",
+                "id": "97255022-29c8-414d-ac24-2a0824bf28b7",
+                "name": "(All structural locations, CNS/PNS, brainstem, tracts, and loops)",
                 "note": "",
                 "children": []
               }
             ]
           },
           {
-            "id": "979db11f-7caf-f5da-a32f-1921496f9c00",
-            "name": "82.02 \u2013 Functional Systems",
+            "id": "0e89177b-a173-4bbd-8709-7b85a0ed7287",
+            "name": "82.02 \u2013 Cellular, Molecular & Plasticity",
             "note": "",
             "children": [
               {
-                "id": "61a5ae31-7f2b-7f6c-6f60-366ead4f470a",
-                "name": "82.02.A \u2013 Motor Systems",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "994d4d98-0bd2-c85d-d5d5-5e068b91f757",
-                "name": "82.02.B \u2013 Sensory Systems",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "82f0289d-9bce-99b7-cc9a-79a7de8d3b87",
-                "name": "82.02.C \u2013 Autonomic Systems",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "7a5f5b90-8982-3f9b-4601-ef4777f78a04",
-                "name": "82.02.D \u2013 Limbic Systems",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "c927a008-76cd-3d16-cd62-7d56bc2e0bbd",
-                "name": "82.02.E \u2013 Cognitive Systems",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "68e04b73-f418-3d78-eb91-70b43077c5ad",
-                "name": "82.02.F \u2013 Arousal Systems",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "e54dbb29-4819-13ab-6dfc-1bed777eba60",
-                "name": "82.02.G \u2013 Homeostatic Systems",
+                "id": "3a1d327e-b9ba-4e2b-9318-d225ea44dc74",
+                "name": "(Neurons, glia, neurotransmitters, receptors, ion channels, and neuroplasticity)",
                 "note": "",
                 "children": []
               }
             ]
           },
           {
-            "id": "ab1adf2a-f18f-6690-c31e-8224b62cce33",
-            "name": "82.03 \u2013 Circuits & Pathways",
+            "id": "7ff39a29-5b36-4d51-8e60-e2f42209181b",
+            "name": "82.03 \u2013 Systems Physiology & Regulation",
             "note": "",
             "children": [
               {
-                "id": "6de89d21-7012-7c0f-15a9-d37e682115a2",
-                "name": "82.03.A \u2013 Ascending Tracts",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "1f9bc847-6e81-9356-237e-49779e7b9a6e",
-                "name": "82.03.B \u2013 Descending Tracts",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "ebe13685-020a-8024-cefb-d87950d657c5",
-                "name": "82.03.C \u2013 Cortico-Subcortical Loops",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "714244b5-accf-653b-e557-6efcf45684ab",
-                "name": "82.03.D \u2013 Thalamo-Cortical Loops",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "d735805c-af79-8587-5c9b-71d33cd64a1e",
-                "name": "82.03.E \u2013 Cerebello-Thalamo-Cortical Loops",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "45a97f0a-f5e0-d43e-0309-10604c08233b",
-                "name": "82.03.F \u2013 Basal Ganglia Loops",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "8fc04bca-b671-de38-a29f-1cb85aa81826",
-                "name": "82.03.G \u2013 Brainstem Pathways",
+                "id": "add6ea54-63e1-4aff-a9f5-2fccfb1314f4",
+                "name": "(Motor, sensory, autonomic, homeostasis, stress, circadian rhythms, and brain networks)",
                 "note": "",
                 "children": []
               }
             ]
           },
           {
-            "id": "c1ee1290-e474-6965-dd0b-329341ab55df",
-            "name": "82.04 \u2013 Cellular & Molecular Neuroscience",
+            "id": "73e8d386-2dbb-46a1-b43d-cb223301a95d",
+            "name": "82.04 \u2013 Cognitive & Behavioral",
             "note": "",
             "children": [
               {
-                "id": "43fab251-3c6b-81d8-2b79-f76b7eff8522",
-                "name": "82.04.A \u2013 Neurons",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "95156add-9287-7309-d0af-3e9c0e74d5f8",
-                "name": "82.04.B \u2013 Glia",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "80c89f23-1674-b9fe-585b-8e9c36daf26b",
-                "name": "82.04.C \u2013 Synapses",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "645c2c0e-fb0c-65db-8d11-00fc581e4d5b",
-                "name": "82.04.D \u2013 Neurotransmitters",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "d6cec8c1-f1c1-f387-410d-f8377f8011dc",
-                "name": "82.04.E \u2013 Receptors",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "6d5e25ea-725d-be53-6010-c09a1a700de6",
-                "name": "82.04.F \u2013 Ion Channels",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "dbe6fad3-c1fb-3d27-6cb0-b5b10da3f8e6",
-                "name": "82.04.G \u2013 Second Messenger Systems",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "b27ddf1c-9499-aadd-fe2a-2b80940dfa40",
-                "name": "82.04.H \u2013 Neuroplasticity Mechanisms",
+                "id": "d155f5af-b701-4a81-8d3f-3b28ebed44ba",
+                "name": "(Memory, emotion, attention, executive function, perception, and motivation)",
                 "note": "",
                 "children": []
               }
             ]
           },
           {
-            "id": "e3ba0737-3b8e-70e1-248c-c3c97ab07905",
-            "name": "82.05 \u2013 Developmental Neuroscience",
+            "id": "46421bcb-702b-4159-b361-a71452218493",
+            "name": "82.05 \u2013 Clinical & Pathology",
             "note": "",
             "children": [
               {
-                "id": "2d00e988-fd61-c6ff-0756-e04ceaf52e30",
-                "name": "82.05.A \u2013 Neural Tube",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "8c496ba6-064f-d5e7-2782-5b7629801658",
-                "name": "82.05.B \u2013 Neural Crest",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "d7756dc7-56aa-0020-3ece-a5a01298da4c",
-                "name": "82.05.C \u2013 Patterning Gradients",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "bd508e82-81f2-b31f-52da-b8d7d50241de",
-                "name": "82.05.D \u2013 Cortical Migration",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "f785fb70-dc2d-d557-7172-397d99f222f5",
-                "name": "82.05.E \u2013 Axon Guidance",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "f6a6b198-3c7c-146b-92ef-6c907a896360",
-                "name": "82.05.F \u2013 Synaptogenesis",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "c03e9c5a-5e83-1107-c29b-d5f6ea60cc57",
-                "name": "82.05.G \u2013 Critical Periods",
-                "note": "",
-                "children": []
-              }
-            ]
-          },
-          {
-            "id": "f68f982f-1593-56e2-2df6-f21a781fbed3",
-            "name": "82.06 \u2013 Systems Physiology",
-            "note": "",
-            "children": [
-              {
-                "id": "84d0a7e3-4882-9c83-5477-027242e10561",
-                "name": "82.06.A \u2013 Neurovascular Coupling",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "109f4c96-71aa-7b69-235b-1043cea30fb1",
-                "name": "82.06.B \u2013 Glymphatic System",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "55b2fc1e-693b-adc8-c992-fdf558e5e39c",
-                "name": "82.06.C \u2013 Metabolic Regulation",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "cd53a57a-9352-bdc6-5fe1-bd6e64279d39",
-                "name": "82.06.D \u2013 Neuroimmune Signaling",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "9bfb3ee5-bf10-9fac-bebe-94bd54415593",
-                "name": "82.06.E \u2013 Inflammatory Regulation",
-                "note": "",
-                "children": []
-              }
-            ]
-          },
-          {
-            "id": "85d33c83-4dca-2872-94b8-a11cc4d35f85",
-            "name": "82.07 \u2013 Regulatory Neuroscience",
-            "note": "",
-            "children": [
-              {
-                "id": "e932ee33-bdb1-4178-7e0e-4fdb9463d8b2",
-                "name": "82.07.A \u2013 Stress Regulation",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "4931f2bd-5963-c7a0-506f-839e9f566b26",
-                "name": "82.07.B \u2013 Allostasis",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "b3f696d3-d45b-f728-580d-ed7a5dd4b7ed",
-                "name": "82.07.C \u2013 Homeostatic Control",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "3970860d-1e99-0b98-7b9c-5084b3a2c468",
-                "name": "82.07.D \u2013 Circadian Regulation",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "d13c9a83-4317-05f6-11c7-79e90f2c862c",
-                "name": "82.07.E \u2013 State vs Trait Regulation",
-                "note": "",
-                "children": []
-              }
-            ]
-          },
-          {
-            "id": "25b5e515-bbec-18db-9dd1-3cef2772ea94",
-            "name": "82.08 \u2013 Large-Scale Brain Networks",
-            "note": "",
-            "children": [
-              {
-                "id": "1cc17414-75dc-e30c-f52a-8475545dbe23",
-                "name": "82.08.A \u2013 Default Mode Network",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "0d41e26b-0d06-54b1-a59c-3a4db26bdd03",
-                "name": "82.08.B \u2013 Salience Network",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "0ac5ba1f-ab14-76d1-b8c8-b458205bf716",
-                "name": "82.08.C \u2013 Executive Control Network",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "b5f08187-80e7-230a-3942-3b3b268f9f01",
-                "name": "82.08.D \u2013 Ascending Arousal System",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "b5b8a5d8-18c7-dee9-12c5-081fdebbb485",
-                "name": "82.08.E \u2013 Thalamocortical Binding Systems",
-                "note": "",
-                "children": []
-              }
-            ]
-          },
-          {
-            "id": "619c1eb8-027d-b032-efd3-b7d517bd6b4d",
-            "name": "82.09 \u2013 Clinical Neuroscience",
-            "note": "",
-            "children": [
-              {
-                "id": "e52e43cf-098a-af50-9044-2eadadcf929a",
-                "name": "82.09.A \u2013 Lesion Localization",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "b2e51c4a-e764-237e-4529-60e782add918",
-                "name": "82.09.B \u2013 Syndromes",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "ecaee440-a7f8-e927-cf82-556d6cefc1b2",
-                "name": "82.09.C \u2013 Degenerative Disease",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "11f92a17-1c8f-ec33-dac4-c029d3076400",
-                "name": "82.09.D \u2013 Demyelinating Disease",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "8269281d-1172-7cd3-9717-2ca17fb29549",
-                "name": "82.09.E \u2013 Neurodevelopmental Disorders",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "12596774-507d-7851-d49f-99c6c733d5a5",
-                "name": "82.09.F \u2013 Trauma",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "b5de252e-d485-0f9c-f2bf-bc3cff1a4ceb",
-                "name": "82.09.G \u2013 Pain Disorders",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "8cf15a42-5896-e757-3002-46e619c4ac9a",
-                "name": "82.09.H - Neuro Imaging",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "ad60bb57-b9f2-4968-a344-752ec21cbe78",
-                "name": "82.09.J - Neuro Treatment Planning",
-                "note": "",
-                "children": []
-              }
-            ]
-          },
-          {
-            "id": "b2bb4d00-802f-e94d-2b35-df9b4dfc8795",
-            "name": "82.10 \u2013 Cognitive & Behavioral Neuroscience",
-            "note": "",
-            "children": [
-              {
-                "id": "874bfe4c-b1d1-8ac0-2a6f-e7075dc0d2a0",
-                "name": "82.10.A \u2013 Memory",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "02eb9153-ac23-a378-a837-5b7b960c5be7",
-                "name": "82.10.B \u2013 Attention",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "70ff8db4-8f9e-2fe9-407a-d722b4161435",
-                "name": "82.10.C \u2013 Emotion",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "6da21f1f-2d3e-ee7e-d358-cb34575c970f",
-                "name": "82.10.D \u2013 Language",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "e766be14-1c87-05be-7785-6a4f887808b4",
-                "name": "82.10.E \u2013 Executive Function",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "0ad4b099-1c65-2947-1b22-a6501120b315",
-                "name": "82.10.F \u2013 Motivation",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "3ed5fe73-7ab7-02fc-048b-c6bc3a88b119",
-                "name": "82.10.G \u2013 Consciousness",
-                "note": "",
-                "children": []
-              },
-              {
-                "id": "f0f6a85e-1018-1cf5-d1d1-0af5b5c4a507",
-                "name": "82.10.H \u2013 Perception",
+                "id": "66fdb345-900a-46f1-bba1-0633129541f0",
+                "name": "(Lesions, diseases, trauma, pain disorders, neuroimaging, and treatment planning)",
                 "note": "",
                 "children": []
               }

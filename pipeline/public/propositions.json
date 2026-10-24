@@ -4,21 +4,19 @@
     "Segregating deferred commitments into distinct \"Future\" and \"Waiting For\" review panels eliminates the Zeigarnik effect (subconscious cognitive drag of uncompleted tasks), preserving cognitive capacity for creative focus. [[64.04 Productivity, Study of]]",
     "Periodic retrospective review of multi-year analog journals reinforces identity stability and metacognitive perspective, grounding emotional resilience across long-term life challenges. [[42.01 Resilience]]"
   ],
+  "80.V0A1": [
+    "Human biological recovery follows an uncompromising hierarchy: Foundational Hardware (Fuel, Move, Rest) must be stabilized before higher-order cognitive processing (Think, Learn, Connect) or external execution (Play, Organize, Purpose) can function. [[81.05 Lifestyle Management]]",
+    "Daily movement is a mandatory neurological requirement rather than an aesthetic option; mechanoreceptor stimulation from joint articulation drives ascending cortical firing to clear brain fog. [[82.02 Functional Systems]]",
+    "Up to 75% of daily human growth hormone is secreted during deep slow-wave sleep cycles, making non-negotiable rest the biological rate-limiting step for cellular repair. [[81.09 Anatomy and Physiology]]",
+    "Externalizing cognitive commitments, tasks, and friction into trusted physical and digital systems offloads working memory and prevents autonomic exhaustion from unresolved mental loops. [[41.03 Habit Creation]]"
+  ],
   "80.V1A-S1": [
     "The mid-afternoon energy slump is driven by an insulin overshoot following high-glycemic lunchtime carbohydrate intake, triggering reactive hypoglycemia that starves cerebral neurons of stable glucose. [[81.09 Anatomy and Physiology]]",
     "Reactive glycemic plunges force the adrenal glands to release compensatory cortisol and epinephrine, establishing a chronic neuroendocrine stress cycle leaving patients wired yet exhausted. [[42.04 Stress, Anxiety & Depression]]",
     "Eliminating refined morning carbohydrates in favor of dietary protein and healthy fats stabilizes daytime insulin, while consolidating carbohydrates to the evening facilitates sleep transition. [[81.05 Lifestyle Management]]"
   ],
-  "80.V3A1-S3": [
-    "Neural network connectivity exhibits distinct sex-differentiated developmental trajectories, with whole-brain global efficiency and interhemispheric connectivity peaking markedly in females around age 30-31. [[82.08 Large-Scale Brain Networks]]",
-    "While infant neural connection density is broadly balanced between sexes, adult female neuroarchitecture preserves elevated associative network density into the fourth decade, providing structural scaffolding for heightened cognitive integration and complex executive processing. [[82.02 Functional Systems]]"
-  ],
   "80.V3B1-S4": [
     "Rapid morning journaling offloads nocturnal cognitive drift, transitioning autonomic arousal from reactive overwhelm to proactive intentional focus. [[64.05 Ideation and Brainsweeps]]"
-  ],
-  "80.V1B2": [
-    "Treadmill running imposes pure vertical axial compression on the lumbar spine, whereas forward outdoor locomotion engages the angled annular fibers of the intervertebral disc aligned with natural heel-strike propulsion forces. [[81.05 Lifestyle Management]]",
-    "Kinesiophobia (fear of movement) perpetuates and amplifies chronic lower back pain; progressive mechanical loading and hydrostatic offloading (pool running) restore disc imbibition and facilitate neurological recovery without surgery. [[81.05 Lifestyle Management]]"
   ],
   "80.V1B2-S1": [
     "Intervertebral discs are avascular tissue structures that rely entirely on compressive and tensile mechanical movement (imbibition) to circulate fluid, nutrients, and waste products. [[81.02.2]]",
@@ -39,10 +37,6 @@
     "Adenosine continues to accumulate in the interstitial space during caffeine receptor blockade, producing a severe rebound exhaustion crash once the liver metabolizes the compound. [[81.09 Anatomy and Physiology]]",
     "Consuming caffeine within 8 to 10 hours of bedtime disrupts deep slow-wave sleep architecture, impairing cellular recovery even if sleep latency remains subjectively unaffected. [[81.05 Lifestyle Management]]"
   ],
-  "80.V1B2-S2": [
-    "Running applies cyclical axial compression and decompression to the spine, functioning as a hydraulic pump that drives fluid imbibition to nourish avascular intervertebral discs. [[81.02.2]]",
-    "Running does not damage spinal discs in healthy alignment; rather, dynamic multi-planar movement of the hips and pelvis forces proper biomechanical loading required for long-term spinal integrity. [[81.05 Lifestyle Management]]"
-  ],
   "80.V1B3-A1": [
     "Returning to cardiovascular conditioning post-50 requires structured run-walk intervals to respect physiological tissue recovery thresholds and build sustainable habit consistency. [[81.05.5 Steps]] [[41.03 Habit Creation]]"
   ],
@@ -55,12 +49,6 @@
     "In neurological motor control, the brain's primary descending role is active biological inhibition; when chronic stress or mental exhaustion impairs cortical output, the paraspinal and axial musculature reflexively tighten into hypertonic guarding. [[82.02 Functional Systems]]",
     "Spiritual surrender and intentional stillness (\"Be still and know that I am God\" \u2014 Psalm 46:10) neurologically interrupt toxic cognitive loops and central sympathetic hypervigilance, down-regulating paraspinal tension and restoring autonomic balance. [[82.07 Regulatory Neuroscience]]",
     "Human creativity derives inherent biological and relational value from struggle, time, and spirit (\"the breath of life\"), which cannot be replaced or manufactured by algorithmic AI shortcuts. [[12.01 Faith]]"
-  ],
-  "80.V0A1": [
-    "Human biological recovery follows an uncompromising hierarchy: Foundational Hardware (Fuel, Move, Rest) must be stabilized before higher-order cognitive processing (Think, Learn, Connect) or external execution (Play, Organize, Purpose) can function. [[81.05 Lifestyle Management]]",
-    "Daily movement is a mandatory neurological requirement rather than an aesthetic option; mechanoreceptor stimulation from joint articulation drives ascending cortical firing to clear brain fog. [[82.02 Functional Systems]]",
-    "Up to 75% of daily human growth hormone is secreted during deep slow-wave sleep cycles, making non-negotiable rest the biological rate-limiting step for cellular repair. [[81.09 Anatomy and Physiology]]",
-    "Externalizing cognitive commitments, tasks, and friction into trusted physical and digital systems offloads working memory and prevents autonomic exhaustion from unresolved mental loops. [[41.03 Habit Creation]]"
   ],
   "80.V1A2": [
     "Morning waking hunger serves as a direct physiological gauge of cellular fuel switching; delaying the first caloric intake calibrates mitochondrial fat-oxidation pathways without metabolic shock. [[81.05.1 Weight Management]] [[15.03 Fasting]]",
@@ -86,6 +74,10 @@
   ],
   "80.V1A2-S1": [
     "Intermittent 2-week normocaloric refeeding during prolonged caloric restriction defends resting metabolic rate and muscle mass, resulting in significantly greater sustained fat loss than continuous energy restriction (MATADOR principle). [[81.05.1 Weight Management]] [[15.03 Fasting]]"
+  ],
+  "80.V3A1-S3": [
+    "Neural network connectivity exhibits distinct sex-differentiated developmental trajectories, with whole-brain global efficiency and interhemispheric connectivity peaking markedly in females around age 30-31. [[82.08 Large-Scale Brain Networks]]",
+    "While infant neural connection density is broadly balanced between sexes, adult female neuroarchitecture preserves elevated associative network density into the fourth decade, providing structural scaffolding for heightened cognitive integration and complex executive processing. [[82.02 Functional Systems]]"
   ],
   "80.V3B1-S2": [
     "Partitioning commitments into actionable (\"Now\"), deferred (\"Future\"), and dependent (\"Waiting For\") lists eliminates open-loop cognitive drag, freeing working memory for creative synthesis. [[64.04 Productivity, Study of]]"
