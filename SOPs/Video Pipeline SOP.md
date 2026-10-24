@@ -256,6 +256,12 @@ After filming, when Dr. Anderson begins editing (Descript, YouTube Creator, etc.
 5. **Pipeline & Database Synchronization**:
    - Updates Supabase and SQLite, refreshes `docs/video_pipeline_cache.json`, and appends a dated entry to the `## Changelog`.
 
+6. **Manual Follow-up Reminders (Top-of-WIP Resurfacing)**:
+   - For any video (especially older published videos or external projects where changes were made to titles, thumbnails, descriptions, or CTAs), Dr. Anderson can schedule a manual follow-up reminder directly from the video card or detail page (`Bell Set Reminder`).
+   - Quick date presets (`Today`, `Tomorrow`, `In 3 Days`, `In 1 Week`, `In 2 Weeks`, `In 30 Days`) or custom date picker allow setting an exact date and optional note (e.g., *"Check on title & thumbnail change"*).
+   - When the reminder date arrives (`reminder_date <= today`), the video surfaces at the **very top** of the Work in Progress list with an amber border, `🔔 Reminder Due` badge, and reminder notes.
+   - A single click on the green `✓ Done` button directly on the card completes the reminder and immediately removes the video from Work in Progress, automatically appending a timestamped entry to the Video Production Log (`notes`).
+
 ### 6.1 Authoritative Production Checklist (6 Phases • 20 Core Beats)
 
 The web App and video pages enforce Dr. Anderson's standardized 20-beat checklist ([`SOPs/checklist261016.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/checklist261016.md) & [`SOPs/checklistdefinitions261016.md`](file:///Users/craiganderson/Developer/SystemizedHealth/SOPs/checklistdefinitions261016.md)). The checklist buttons directly mirror the status tag dropdown options:

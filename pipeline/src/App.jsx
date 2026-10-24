@@ -4,7 +4,7 @@ import {
   Calendar, CheckSquare, AlertCircle, RefreshCw, ChevronLeft, Save, Tag, 
   TrendingUp, Clock, FileVideo, Scissors, Film, X, ExternalLink,
   Check, MessageSquare, Plus, Trash2, ListTodo, FileText, CheckCircle2, Lightbulb, Link,
-  Sparkles, FileEdit, Search, Share2, Eye, Edit3, Play, BookOpen, Folder, Activity
+  Sparkles, FileEdit, Search, Share2, Eye, Edit3, Play, BookOpen, Folder, Activity, Bell
 } from 'lucide-react';
 import { addDays, isBefore, parseISO, differenceInDays, format } from 'date-fns';
 import ReactMarkdown from 'react-markdown';
@@ -170,6 +170,27 @@ export const getVideoProjectName = (v) => {
   return 'Other Project';
 };
 
+export const getReminderInfo = (v) => {
+  if (!v) return null;
+  const chk = parseChecklistData(v.edit_checklist);
+  if (!chk || typeof chk !== 'object' || !chk.reminder_date) return null;
+  return {
+    date: chk.reminder_date,
+    note: chk.reminder_note || '',
+    completed: !!chk.reminder_completed,
+    createdAt: chk.reminder_created_at || null
+  };
+};
+
+export const isReminderDue = (v, todayStr) => {
+  const rem = getReminderInfo(v);
+  if (!rem || rem.completed) return false;
+  if (!todayStr) {
+    todayStr = format(new Date(), 'yyyy-MM-dd');
+  }
+  return rem.date <= todayStr;
+};
+
 export const getAutoCompletedChecklist = (status, currentChecklist, isShort) => {
   const baseItems = isShort ? SHORT_VIDEO_CHECKLIST_ITEMS : LONG_VIDEO_CHECKLIST_ITEMS;
   const completedPhases = getCompletedPhasesForStatus(status);
@@ -258,6 +279,8 @@ function App() {
   const [editingWipDateCode, setEditingWipDateCode] = useState(null);
   const [wipDateValue, setWipDateValue] = useState('');
   const [savingWipDate, setSavingWipDate] = useState(false);
+  const [reminderModalVideo, setReminderModalVideo] = useState(null);
+  const [showUpcomingReminders, setShowUpcomingReminders] = useState(false);
   const [isExiting, setIsExiting] = useState(false);
   const [videoHistory, setVideoHistory] = useState([]);
   const videoDetailRef = useRef(null);
@@ -593,6 +616,134 @@ function App() {
     }
   };
 
+  const handleQuickCompleteReminder = async (e, video) => {
+    if (e && e.stopPropagation) e.stopPropagation();
+    try {
+      const existingChk = parseChecklistData(video.edit_checklist) || {};
+      const updatedChk = {
+        ...existingChk,
+        reminder_completed: true,
+        reminder_completed_at: new Date().toISOString()
+      };
+
+      const now = new Date();
+      const dateStr = now.toLocaleDateString('en-CA');
+      const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+      const remNote = existingChk.reminder_note ? `: "${existingChk.reminder_note}"` : '';
+      const logEntry = `- [${dateStr} ${timeStr}] Completed follow-up reminder${remNote}`;
+      const updatedNotes = video.notes && video.notes.trim() ? `${logEntry}\n${video.notes.trim()}` : logEntry;
+
+      const { error } = await supabase
+        .from('videos')
+        .update({
+          edit_checklist: updatedChk,
+          notes: updatedNotes
+        })
+        .eq('video_number', video.video_number);
+
+      if (error) {
+        alert("Error completing reminder: " + error.message);
+      } else {
+        if (currentVideo && currentVideo.video_number === video.video_number) {
+          setCurrentVideo(prev => ({
+            ...prev,
+            edit_checklist: updatedChk,
+            notes: updatedNotes
+          }));
+        }
+        fetchVideos();
+      }
+    } catch (err) {
+      console.error("Error completing reminder:", err);
+    }
+  };
+
+  const handleSaveReminder = async (video, reminderDate, reminderNote) => {
+    try {
+      const existingChk = parseChecklistData(video.edit_checklist) || {};
+      const updatedChk = {
+        ...existingChk,
+        reminder_date: reminderDate,
+        reminder_note: reminderNote ? reminderNote.trim() : '',
+        reminder_completed: false,
+        reminder_created_at: new Date().toISOString()
+      };
+
+      const now = new Date();
+      const dateStr = now.toLocaleDateString('en-CA');
+      const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+      const noteSuffix = reminderNote && reminderNote.trim() ? `: "${reminderNote.trim()}"` : '';
+      const logEntry = `- [${dateStr} ${timeStr}] Set follow-up reminder for ${reminderDate}${noteSuffix}`;
+      const updatedNotes = video.notes && video.notes.trim() ? `${logEntry}\n${video.notes.trim()}` : logEntry;
+
+      const { error } = await supabase
+        .from('videos')
+        .update({
+          edit_checklist: updatedChk,
+          notes: updatedNotes
+        })
+        .eq('video_number', video.video_number);
+
+      if (error) {
+        alert("Error saving reminder: " + error.message);
+      } else {
+        setReminderModalVideo(null);
+        if (currentVideo && currentVideo.video_number === video.video_number) {
+          setCurrentVideo(prev => ({
+            ...prev,
+            edit_checklist: updatedChk,
+            notes: updatedNotes
+          }));
+        }
+        fetchVideos();
+      }
+    } catch (err) {
+      console.error("Error saving reminder:", err);
+    }
+  };
+
+  const handleClearReminder = async (video) => {
+    try {
+      const existingChk = parseChecklistData(video.edit_checklist) || {};
+      const updatedChk = {
+        ...existingChk,
+        reminder_date: null,
+        reminder_note: null,
+        reminder_completed: true
+      };
+
+      const now = new Date();
+      const dateStr = now.toLocaleDateString('en-CA');
+      const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+      const logEntry = `- [${dateStr} ${timeStr}] Cleared follow-up reminder`;
+      const updatedNotes = video.notes && video.notes.trim() ? `${logEntry}\n${video.notes.trim()}` : logEntry;
+
+      const { error } = await supabase
+        .from('videos')
+        .update({
+          edit_checklist: updatedChk,
+          notes: updatedNotes
+        })
+        .eq('video_number', video.video_number);
+
+      if (error) {
+        alert("Error clearing reminder: " + error.message);
+      } else {
+        setReminderModalVideo(null);
+        if (currentVideo && currentVideo.video_number === video.video_number) {
+          setCurrentVideo(prev => ({
+            ...prev,
+            edit_checklist: updatedChk,
+            notes: updatedNotes
+          }));
+        }
+        fetchVideos();
+      }
+    } catch (err) {
+      console.error("Error clearing reminder:", err);
+    }
+  };
+
   if (!supabase) {
     return (
       <div className="container">
@@ -608,6 +759,7 @@ function App() {
 
   const todayDate = new Date();
   todayDate.setHours(0, 0, 0, 0);
+  const todayStr = format(todayDate, 'yyyy-MM-dd');
 
   const getDistanceToToday = (dateStr) => {
     if (!dateStr || typeof dateStr !== 'string' || dateStr.trim() === '') return 999999;
@@ -700,6 +852,18 @@ function App() {
 
   const getNextStepDue = (video) => {
     if (!video) return { step: 'Review next step', type: 'info' };
+
+    // 0. Follow-up Reminder check
+    const rem = getReminderInfo(video);
+    if (rem && !rem.completed && (rem.date <= todayStr || showUpcomingReminders)) {
+      const isDue = rem.date <= todayStr;
+      return {
+        step: `🔔 Follow-up Reminder: ${rem.note ? `"${rem.note}"` : 'Check on video changes'}${isDue ? ` (Due ${rem.date})` : ` (Scheduled ${rem.date})`}`,
+        type: 'reminder',
+        actionType: 'reminder',
+        reminder: rem
+      };
+    }
 
     // 1. Agent message
     if (video.agent_message && video.agent_message.trim()) {
@@ -972,8 +1136,13 @@ function App() {
     // - Active production stages: #write, #film, #edit
     // - Published videos needing propositions reviewed & filed in Zettelkasten or any open post-publish tasks
     // - Immediate active #idea sprint (due within next 7 days)
-    // - Sorted by drop date closest to today at the top
+    // - Follow-up reminders (pinned to the very top when due or toggled)
     const workInProgressItems = videos.filter(v => {
+      // 0. Active Follow-up Reminder check: always surface in WIP!
+      const rem = getReminderInfo(v);
+      const isDueReminder = rem && !rem.completed && (rem.date <= todayStr || showUpcomingReminders);
+      if (isDueReminder) return true;
+
       if (v.code?.startsWith('HIST')) return false;
 
       // Published videos that still have ANY open checklist items belong in WIP
@@ -1004,7 +1173,33 @@ function App() {
       }
 
       return false;
-    }).sort(sortByDropDate);
+    }).sort((a, b) => {
+      const remA = getReminderInfo(a);
+      const isRemA = remA && !remA.completed && (remA.date <= todayStr || showUpcomingReminders);
+      const remB = getReminderInfo(b);
+      const isRemB = remB && !remB.completed && (remB.date <= todayStr || showUpcomingReminders);
+
+      // Follow-up reminders ALWAYS surface at the very top of Work In Progress
+      if (isRemA && !isRemB) return -1;
+      if (!isRemA && isRemB) return 1;
+      if (isRemA && isRemB) {
+        if (remA.date !== remB.date) {
+          return remA.date.localeCompare(remB.date);
+        }
+      }
+
+      return sortByDropDate(a, b);
+    });
+
+    const dueRemindersCount = videos.filter(v => {
+      const rem = getReminderInfo(v);
+      return rem && !rem.completed && rem.date <= todayStr;
+    }).length;
+
+    const upcomingRemindersCount = videos.filter(v => {
+      const rem = getReminderInfo(v);
+      return rem && !rem.completed && rem.date > todayStr;
+    }).length;
 
     return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
@@ -1076,13 +1271,33 @@ function App() {
       <div className="dashboard-grid">
         {/* Column 1: Work in Progress */}
         <div className="card">
-          <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
-            <ListTodo size={20} color="var(--accent-color)" /> Work in Progress ({workInProgressItems.length})
-          </h2>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.5rem' }}>
+            <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', margin: 0 }}>
+              <ListTodo size={20} color="var(--accent-color)" /> Work in Progress ({workInProgressItems.length})
+              {dueRemindersCount > 0 && (
+                <span style={{ fontSize: '0.75rem', padding: '0.15rem 0.55rem', borderRadius: '12px', backgroundColor: '#fef3c7', color: '#b45309', border: '1px solid #fcd34d', fontWeight: '700', display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}>
+                  <Bell size={12} /> {dueRemindersCount} {dueRemindersCount === 1 ? 'Reminder' : 'Reminders'} Due
+                </span>
+              )}
+            </h2>
+            {upcomingRemindersCount > 0 && (
+              <button
+                type="button"
+                className="btn btn-outline"
+                style={{ fontSize: '0.75rem', padding: '0.2rem 0.55rem', display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}
+                onClick={() => setShowUpcomingReminders(prev => !prev)}
+                title="Toggle visibility of future scheduled reminders before their due date"
+              >
+                <Bell size={12} />
+                {showUpcomingReminders ? 'Hide Future Reminders' : `Future Reminders (${upcomingRemindersCount})`}
+              </button>
+            )}
+          </div>
 
           <div className="videos-list">
             {workInProgressItems.map(item => {
               const nextStep = getNextStepDue(item);
+              const isReminderItem = nextStep.actionType === 'reminder';
               const urgency = getRelativeUrgency(item.drop_date);
               const borderLeftColor = getBorderColor(item);
               const itemProgress = getVideoProgress(item);
@@ -1099,7 +1314,7 @@ function App() {
                 <div
                   key={`wip-${item.code}`}
                   className={`video-item ${isLong ? 'video-item-long' : 'video-item-short'} video-item-${item.status ? item.status.replace('#', '') : ''}`}
-                  style={{ borderLeft: `${isLong ? '7px' : '4px'} solid ${isDuplicate ? '#f97316' : borderLeftColor}`, cursor: 'pointer' }}
+                  style={{ borderLeft: `${isLong ? '7px' : '4px'} solid ${isDuplicate ? '#f97316' : isReminderItem ? '#d97706' : borderLeftColor}`, cursor: 'pointer' }}
                   onClick={() => openVideo(item)}
                 >
                   <div className="video-header">
@@ -1119,6 +1334,25 @@ function App() {
                       <span style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', fontWeight: '600', textTransform: 'uppercase' }}>
                         {isLong ? 'Long' : 'Short'}
                       </span>
+                      {isReminderItem && (
+                        <span
+                          style={{
+                            fontSize: '0.7rem',
+                            padding: '0.1rem 0.45rem',
+                            borderRadius: '4px',
+                            backgroundColor: '#fef3c7',
+                            color: '#b45309',
+                            border: '1px solid #fcd34d',
+                            fontWeight: '700',
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '0.2rem'
+                          }}
+                          title="Follow-up Reminder"
+                        >
+                          <Bell size={11} /> {nextStep.reminder?.date <= todayStr ? 'Reminder Due' : 'Scheduled'}
+                        </span>
+                      )}
                       {isSystemizedVideo(item) ? (
                         pillar && <span className="badge-pillar" title="Pillar Focus">{pillar}</span>
                       ) : (
@@ -1250,6 +1484,47 @@ function App() {
 
                   <div className="next-step-box">
                     <span style={{ flex: 1, minWidth: '180px' }}>{nextStep.step}</span>
+                    {nextStep.actionType === 'reminder' && (
+                      <div style={{ display: 'flex', gap: '0.4rem', alignItems: 'center' }} onClick={e => e.stopPropagation()}>
+                        <button
+                          type="button"
+                          className="btn btn-primary"
+                          style={{
+                            fontSize: '0.72rem',
+                            padding: '0.2rem 0.55rem',
+                            height: 'auto',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.25rem',
+                            backgroundColor: '#10b981',
+                            borderColor: '#10b981'
+                          }}
+                          onClick={e => handleQuickCompleteReminder(e, item)}
+                          title="Mark reminder complete and dismiss from WIP"
+                        >
+                          <Check size={12} /> Done
+                        </button>
+                        <button
+                          type="button"
+                          className="btn btn-outline"
+                          style={{
+                            fontSize: '0.72rem',
+                            padding: '0.2rem 0.45rem',
+                            height: 'auto',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.25rem'
+                          }}
+                          onClick={e => {
+                            e.stopPropagation();
+                            setReminderModalVideo(item);
+                          }}
+                          title="Edit reminder date or note"
+                        >
+                          <Edit3 size={12} /> Edit
+                        </button>
+                      </div>
+                    )}
                     {nextStep.actionType === 'cards' && (
                       <div style={{ display: 'flex', gap: '0.4rem', alignItems: 'center' }}>
                         <a
@@ -1885,6 +2160,8 @@ function App() {
           onBackToPrevVideo={handleBackToPrevVideo}
           isExiting={isExiting}
           onOpenDefinitions={() => setShowDefinitionsPage(true)}
+          onOpenReminderModal={(v) => setReminderModalVideo(v)}
+          onCompleteReminder={handleQuickCompleteReminder}
         />
       ) : (
         renderDashboard()
@@ -1913,11 +2190,21 @@ function App() {
           }}
         />
       )}
+
+      {reminderModalVideo && (
+        <ReminderModal
+          video={reminderModalVideo}
+          onClose={() => setReminderModalVideo(null)}
+          onSave={handleSaveReminder}
+          onClear={handleClearReminder}
+          onComplete={(v) => handleQuickCompleteReminder(null, v)}
+        />
+      )}
     </div>
   );
 }
 
-function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBack, onOpenVideo, videos, previousVideo, onBackToPrevVideo, isExiting, onOpenDefinitions }) {
+function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBack, onOpenVideo, videos, previousVideo, onBackToPrevVideo, isExiting, onOpenDefinitions, onOpenReminderModal, onCompleteReminder }) {
   const [localVideo, setLocalVideo] = useState(video);
   const [agentMessage, setAgentMessage] = useState(video.agent_message || '');
   const [transcript, setTranscript] = useState(video.raw_transcript || '');
@@ -3554,6 +3841,77 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
           {localVideo.vidiq_title_score > 0 && (
             <span><strong>vidIQ Score:</strong> <span style={{ color: 'var(--success-color)', fontWeight: 'bold' }}>{localVideo.vidiq_title_score}</span>/100</span>
           )}
+          <span>
+            <strong>Reminder:</strong>{' '}
+            {(() => {
+              const rem = getReminderInfo(localVideo);
+              if (rem && !rem.completed) {
+                const isDue = isReminderDue(localVideo);
+                return (
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
+                    <button
+                      type="button"
+                      onClick={() => onOpenReminderModal && onOpenReminderModal(localVideo)}
+                      className="btn btn-outline"
+                      style={{
+                        padding: '0.15rem 0.5rem',
+                        fontSize: '0.78rem',
+                        fontWeight: '600',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '0.3rem',
+                        backgroundColor: isDue ? 'rgba(239, 68, 68, 0.12)' : 'rgba(245, 158, 11, 0.12)',
+                        borderColor: isDue ? '#ef4444' : '#f59e0b',
+                        color: isDue ? '#dc2626' : '#d97706',
+                        borderRadius: '4px',
+                        height: '24px'
+                      }}
+                      title={rem.note ? `Reminder: "${rem.note}"` : 'Edit Reminder'}
+                    >
+                      <Bell size={12} /> {rem.date} {isDue ? '(Due!)' : ''}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={(e) => onCompleteReminder && onCompleteReminder(e, localVideo)}
+                      className="btn btn-outline"
+                      style={{
+                        padding: '0.15rem 0.45rem',
+                        fontSize: '0.72rem',
+                        height: '24px',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '0.2rem',
+                        color: 'var(--success-color)',
+                        borderColor: 'var(--success-color)'
+                      }}
+                      title="Mark reminder complete"
+                    >
+                      <Check size={12} /> Done
+                    </button>
+                  </span>
+                );
+              }
+              return (
+                <button
+                  type="button"
+                  onClick={() => onOpenReminderModal && onOpenReminderModal(localVideo)}
+                  className="btn btn-outline"
+                  style={{
+                    padding: '0.15rem 0.45rem',
+                    fontSize: '0.78rem',
+                    height: '24px',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.25rem',
+                    color: 'var(--text-secondary)'
+                  }}
+                  title="Schedule a follow-up reminder for this video"
+                >
+                  <Bell size={12} /> Set Reminder
+                </button>
+              );
+            })()}
+          </span>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginLeft: 'auto' }}>
             <Tag size={16} color={isDuplicate ? '#f97316' : 'currentColor'} />
@@ -4963,6 +5321,206 @@ function ActivityModal({ videos, getStatusBadge, onClose, onSelectVideo }) {
             })}
           </div>
         )}
+      </div>
+    </div>
+  );
+}
+
+function ReminderModal({ video, onClose, onSave, onClear, onComplete }) {
+  const existingRem = getReminderInfo(video);
+
+  const [date, setDate] = useState(() => existingRem?.date || format(addDays(new Date(), 7), 'yyyy-MM-dd'));
+  const [note, setNote] = useState(() => existingRem?.note || '');
+  const [saving, setSaving] = useState(false);
+
+  const applyPreset = (days) => {
+    const target = addDays(new Date(), days);
+    setDate(format(target, 'yyyy-MM-dd'));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!date) {
+      alert("Please select a target reminder date.");
+      return;
+    }
+    setSaving(true);
+    await onSave(video, date, note);
+    setSaving(false);
+  };
+
+  const handleClearClick = async () => {
+    if (window.confirm("Remove this reminder?")) {
+      setSaving(true);
+      await onClear(video);
+      setSaving(false);
+    }
+  };
+
+  const handleCompleteClick = async () => {
+    setSaving(true);
+    await onComplete(video);
+    setSaving(false);
+    onClose();
+  };
+
+  return (
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-content" onClick={e => e.stopPropagation()} style={{ maxWidth: '520px' }}>
+        <div className="modal-header">
+          <div>
+            <h2 style={{ fontSize: '1.2rem', marginBottom: '0.2rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <Bell size={20} color="var(--accent-color)" /> Follow-up Reminder
+            </h2>
+            <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
+              Surface <strong>{video.code}</strong> at the top of Work in Progress on this date
+            </p>
+          </div>
+          <button type="button" className="btn btn-outline" onClick={onClose} style={{ padding: '0.35rem' }}>
+            <X size={18} />
+          </button>
+        </div>
+
+        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '0.5rem' }}>
+          <div style={{ padding: '0.75rem', backgroundColor: 'rgba(59, 130, 246, 0.06)', borderRadius: 'var(--radius-md)', border: '1px solid rgba(59, 130, 246, 0.2)' }}>
+            <div style={{ fontSize: '0.75rem', fontWeight: '700', color: 'var(--accent-color)', textTransform: 'uppercase', marginBottom: '0.2rem' }}>
+              Video
+            </div>
+            <div style={{ fontWeight: '600', fontSize: '0.95rem' }}>
+              <span className="video-code" style={{ marginRight: '0.4rem' }}>{video.code}</span>
+              {video.title || 'Untitled Video'}
+            </div>
+          </div>
+
+          <div className="form-group" style={{ marginBottom: 0 }}>
+            <label className="form-label" style={{ fontWeight: '600', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <span>Target Follow-up Date</span>
+              <span style={{ fontSize: '0.72rem', color: 'var(--text-secondary)' }}>Surfaces in WIP on this day</span>
+            </label>
+            <input
+              type="date"
+              className="input"
+              value={date}
+              onChange={e => setDate(e.target.value)}
+              required
+              style={{ width: '100%', marginBottom: '0.5rem' }}
+            />
+            {/* Quick Presets */}
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', marginTop: '0.25rem' }}>
+              <button
+                type="button"
+                className="btn btn-outline"
+                style={{ fontSize: '0.72rem', padding: '0.2rem 0.5rem' }}
+                onClick={() => applyPreset(0)}
+              >
+                Today
+              </button>
+              <button
+                type="button"
+                className="btn btn-outline"
+                style={{ fontSize: '0.72rem', padding: '0.2rem 0.5rem' }}
+                onClick={() => applyPreset(1)}
+              >
+                Tomorrow
+              </button>
+              <button
+                type="button"
+                className="btn btn-outline"
+                style={{ fontSize: '0.72rem', padding: '0.2rem 0.5rem' }}
+                onClick={() => applyPreset(3)}
+              >
+                In 3 Days
+              </button>
+              <button
+                type="button"
+                className="btn btn-outline"
+                style={{ fontSize: '0.72rem', padding: '0.2rem 0.5rem' }}
+                onClick={() => applyPreset(7)}
+              >
+                In 1 Week
+              </button>
+              <button
+                type="button"
+                className="btn btn-outline"
+                style={{ fontSize: '0.72rem', padding: '0.2rem 0.5rem' }}
+                onClick={() => applyPreset(14)}
+              >
+                In 2 Weeks
+              </button>
+              <button
+                type="button"
+                className="btn btn-outline"
+                style={{ fontSize: '0.72rem', padding: '0.2rem 0.5rem' }}
+                onClick={() => applyPreset(30)}
+              >
+                In 30 Days
+              </button>
+            </div>
+          </div>
+
+          <div className="form-group" style={{ marginBottom: 0 }}>
+            <label className="form-label" style={{ fontWeight: '600' }}>
+              Reminder Note (Optional)
+            </label>
+            <input
+              type="text"
+              className="input"
+              value={note}
+              onChange={e => setNote(e.target.value)}
+              placeholder="e.g. Check on title & thumbnail change, review retention"
+              style={{ width: '100%' }}
+            />
+            <span style={{ fontSize: '0.72rem', color: 'var(--text-secondary)', marginTop: '0.25rem', display: 'block' }}>
+              This note will be shown on the Work In Progress card and logged in the Production Log.
+            </span>
+          </div>
+
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '0.5rem', paddingTop: '0.75rem', borderTop: '1px solid var(--border-color)' }}>
+            <div>
+              {existingRem && !existingRem.completed && (
+                <div style={{ display: 'flex', gap: '0.4rem' }}>
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    style={{ fontSize: '0.78rem', padding: '0.35rem 0.65rem', backgroundColor: '#10b981', borderColor: '#10b981', display: 'flex', alignItems: 'center', gap: '0.25rem' }}
+                    onClick={handleCompleteClick}
+                    disabled={saving}
+                  >
+                    <Check size={13} /> Mark Done
+                  </button>
+                  <button
+                    type="button"
+                    className="btn btn-outline"
+                    style={{ fontSize: '0.78rem', padding: '0.35rem 0.65rem', color: 'var(--danger-color)', display: 'flex', alignItems: 'center', gap: '0.25rem' }}
+                    onClick={handleClearClick}
+                    disabled={saving}
+                  >
+                    <Trash2 size={13} /> Clear
+                  </button>
+                </div>
+              )}
+            </div>
+            <div style={{ display: 'flex', gap: '0.5rem' }}>
+              <button
+                type="button"
+                className="btn btn-outline"
+                onClick={onClose}
+                disabled={saving}
+                style={{ fontSize: '0.85rem' }}
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                className="btn btn-primary"
+                disabled={saving}
+                style={{ fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}
+              >
+                <Save size={14} /> {saving ? 'Saving...' : 'Save Reminder'}
+              </button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   );
