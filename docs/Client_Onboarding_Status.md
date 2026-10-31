@@ -1,8 +1,10 @@
 # Systemized Health — Client Onboarding & CRM Status
 
-*Last Updated: 2026-10-24*
+*Last Updated: 2026-10-31*
 
-This document maintains the live operational status, verification checklist, and active client intake registry for Systemized Health's **Free 20-Minute Systemized Discovery Call** funnel.
+This document maintains the live operational status and verification checklist for Systemized Health's **Free 20-Minute Systemized Discovery Call** funnel.
+
+Names, emails, and phone numbers are not stored in this file. They stay in the local database.
 
 ---
 
@@ -10,9 +12,9 @@ This document maintains the live operational status, verification checklist, and
 
 - **Short URL Redirect**: [`call.systemizedhealth.com`](http://call.systemizedhealth.com/) $\rightarrow$ TidyCal
 - **Booking Endpoint**: [TidyCal Discovery Call](https://tidycal.com/craigandersondc/systemized-discovery-call)
-- **Discovery Call Agreement**: [Google Form Agreement](https://docs.google.com/forms/d/e/1FAIpQLScOmaeooaLLHFBppRqDI4Mtb9uM8qnU9eUH0gjo0HFU_NqGzQ/viewform?usp=header)
-- **Form Responses Sheet**: [Google Sheet Responses](https://docs.google.com/spreadsheets/d/1wbJfIx92aliZilY4Yyr_oFRaz1TN06erOti6HKZk-ZA/edit?usp=sharing)
-- **Database Engine**: [`database/clients.db`](file:///Users/craiganderson/Developer/SystemizedHealth/database/clients.db)
+- **Discovery Call Agreement**: `discovery_call_agreement_url` in `scripts/config.json` (template: `scripts/config.example.json`)
+- **Form Responses Sheet**: `agreement_sheet_url` in `scripts/config.json`
+- **Database Engine**: `database/clients.db` (local only; not committed)
 
 ---
 
@@ -28,31 +30,14 @@ This document maintains the live operational status, verification checklist, and
 
 ---
 
-## 3. Active Client Registry Table
+## 3. Client Registry
 
-*(Auto-generated from `database/clients.db` — Active Bookings)*
+Local database counts only. The row listing, including names and emails, is written to gitignored `docs/client_registry.local.md`.
 
-| Client ID | Name | Email | Status | Scheduled Time |
-| :--- | :--- | :--- | :--- | :--- |
-| - | No active bookings | - | - | - |
-
-<details>
-<summary><b>View Cancelled / Test Records (10)</b></summary>
-
-| Client ID | Name | Email | Status | Scheduled Time |
-| :--- | :--- | :--- | :--- | :--- |
-| 18 | dummy6 | craigandersondc-dummy6@gmail.com | Cancelled | 2026-08-11T22:30:00.000000Z |
-| 157 | Test | tesh@hh.b | Cancelled | 2026-08-11T22:00:00.000000Z |
-| 19 | dummy3 | craigandersondc-dummy3@gmail.com | Cancelled | 2026-08-08T13:00:00.000000Z |
-| 15 | lastone | craigandersondc-lastone@gmail.com | Cancelled | 2026-08-07T17:00:00.000000Z |
-| 31 | CraigTest | craigandersondc-dum@gmail.com | Cancelled | 2026-08-07T15:00:00.000000Z |
-| 17 | test5 | craigandersondc-test5@gmail.com | Cancelled | 2026-08-07T14:30:00.000000Z |
-| 20 | Dummy 2 | craigandersondc-dummy2@gmail.com | Cancelled | 2026-08-07T13:30:00.000000Z |
-| 16 | test77 | craigandersondc-test77@gmail.com | Cancelled | 2026-08-07T12:30:00.000000Z |
-| 21 | Test | craiganderson.dc-test@gmail.com | Cancelled | 2026-08-04T22:30:00.000000Z |
-| 22 | Test | craig@craigandersondc.com | Cancelled | 2026-05-29T18:30:00.000000Z |
-
-</details>
+| | Count |
+| :--- | :--- |
+| Active bookings | 0 |
+| Cancelled / test records | 10 |
 
 ---
 

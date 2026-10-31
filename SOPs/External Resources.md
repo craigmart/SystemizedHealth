@@ -25,7 +25,7 @@ This document tracks all external software platforms, web applications, database
 
 ### EXT-01: Video Pipeline Database
 - **Platform**: Supabase (PostgreSQL — hosted)
-- **Project URL**: `https://qkeloxawnpvyfasujonv.supabase.co`
+- **Project URL**: `SUPABASE_URL` in `scripts/.env` (template: `scripts/.env.example`). Do not commit the project URL or keys.
 - **Primary Table**: `videos` — one row per video, tracks `video_number`, `code`, `format_type`, `title`, `drop_date`, `status`, `uploaded_date`, `youtube_id`, `jdex_code`, `os_level`, `notes`
 - **Supporting Tables**: `video_stats` (performance snapshots), `video_keywords` (vidIQ data), `video_tasks` (production tasks)
 - **Management CLI**: [`scripts/video_pipeline.py`](file:///Users/craiganderson/Developer/SystemizedHealth/scripts/video_pipeline.py)

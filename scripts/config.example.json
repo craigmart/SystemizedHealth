@@ -1,0 +1,9 @@
+{
+  "web_app_url": "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec",
+  "workflowy_api_key": "YOUR_WORKFLOWY_API_KEY",
+  "vidiq_api_key": "YOUR_VIDIQ_API_KEY",
+  "tidycal_api_key": "YOUR_TIDYCAL_API_KEY",
+  "discovery_call_agreement_url": "https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform",
+  "agreement_sheet_url": "https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID/edit",
+  "gemini_api_key": "YOUR_GEMINI_API_KEY"
+}
