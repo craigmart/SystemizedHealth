@@ -193,6 +193,67 @@ export const isReminderDue = (v, todayStr) => {
   return rem.date <= todayStr;
 };
 
+export const getVideoPublishedTimestamp = (video, chk) => {
+  if (!video) return null;
+  const checklist = chk || parseChecklistData(video.edit_checklist);
+
+  // 1. Explicit published_at ISO timestamp in checklist
+  if (checklist && checklist.published_at) {
+    const t = new Date(checklist.published_at).getTime();
+    if (!isNaN(t)) return t;
+  }
+
+  // 2. Parsed from notes: look for the latest "Status updated: ... → "#published""
+  if (video.notes) {
+    const regex = /\[(\d{4}-\d{2}-\d{2})(?:\s+(\d{2}:\d{2}))?\]\s+Status updated:.*→\s*["']#published["']/gi;
+    let match;
+    let lastMatch = null;
+    while ((match = regex.exec(video.notes)) !== null) {
+      lastMatch = match;
+    }
+    if (lastMatch) {
+      const datePart = lastMatch[1];
+      const timePart = lastMatch[2] || '00:00';
+      const parsed = new Date(`${datePart}T${timePart}:00`);
+      if (!isNaN(parsed.getTime())) return parsed.getTime();
+    }
+  }
+
+  // 3. uploaded_date
+  if (video.uploaded_date) {
+    const parsed = parseISO(video.uploaded_date);
+    if (!isNaN(parsed.getTime())) return parsed.getTime();
+  }
+
+  // 4. If status is #published and video was updated recently or drop_date is in the past
+  if (video.status === '#published') {
+    if (video.drop_date) {
+      const dropParsed = parseISO(video.drop_date);
+      if (!isNaN(dropParsed.getTime())) {
+        if (video.updated_at) {
+          const updatedTime = new Date(video.updated_at).getTime();
+          if (!isNaN(updatedTime) && updatedTime > dropParsed.getTime()) {
+            return updatedTime;
+          }
+        }
+        return dropParsed.getTime();
+      }
+    }
+    if (video.updated_at) {
+      const updatedTime = new Date(video.updated_at).getTime();
+      if (!isNaN(updatedTime)) return updatedTime;
+    }
+  }
+
+  // 5. Fallback drop_date
+  if (video.drop_date) {
+    const parsed = parseISO(video.drop_date);
+    if (!isNaN(parsed.getTime())) return parsed.getTime();
+  }
+
+  return null;
+};
+
 export const getAutoCompletedChecklist = (status, currentChecklist, isShort) => {
   const baseItems = isShort ? SHORT_VIDEO_CHECKLIST_ITEMS : LONG_VIDEO_CHECKLIST_ITEMS;
   const completedPhases = getCompletedPhasesForStatus(status);
@@ -884,16 +945,12 @@ function App() {
         return { step: 'Save to Gemini Notebook', type: 'checklist' };
       }
       if (!checklist.archive_audit_48h && !video.code?.startsWith('HIST')) {
-        const publishDateStr = video.drop_date || video.uploaded_date;
-        let hoursPassed = 999;
-        if (publishDateStr) {
-          const publishDate = parseISO(publishDateStr);
-          if (!isNaN(publishDate.getTime())) {
-            hoursPassed = (Date.now() - publishDate.getTime()) / (1000 * 60 * 60);
+        const pubTime = getVideoPublishedTimestamp(video, checklist);
+        if (pubTime) {
+          const hoursPassed = (Date.now() - pubTime) / (1000 * 60 * 60);
+          if (hoursPassed >= 48) {
+            return { step: '48-hr satisfaction audit', type: 'checklist' };
           }
-        }
-        if (hoursPassed >= 48) {
-          return { step: '48-hr satisfaction audit', type: 'checklist' };
         }
       }
       if (checklist.custom_tasks && Array.isArray(checklist.custom_tasks)) {
@@ -1127,15 +1184,14 @@ function App() {
           if (!chk.pub_cards || !video.cards_created) return true;
         } else if (item.key === 'archive_audit_48h') {
           if (!chk.archive_audit_48h) {
-            const publishDateStr = video.drop_date || video.uploaded_date;
-            if (publishDateStr) {
-              const publishDate = parseISO(publishDateStr);
-              if (!isNaN(publishDate.getTime())) {
-                const hoursPassed = (Date.now() - publishDate.getTime()) / (1000 * 60 * 60);
-                if (hoursPassed < 48) {
-                  continue; // Don't show in WIP until 48 hours have elapsed
-                }
+            const pubTime = getVideoPublishedTimestamp(video, chk);
+            if (pubTime) {
+              const hoursPassed = (Date.now() - pubTime) / (1000 * 60 * 60);
+              if (hoursPassed < 48) {
+                continue; // Don't show in WIP until 48 hours have elapsed
               }
+            } else {
+              continue; // Don't show in WIP until 48 hours have elapsed
             }
             return true;
           }
@@ -1172,18 +1228,8 @@ function App() {
       if (v.code?.startsWith('HIST')) return false;
 
       // Published videos that still have ANY open checklist items belong in WIP
-      // Don't show until the day after publication
+      // (archive_audit_48h is suppressed until 48 hours have elapsed after publication)
       if (v.status === '#published') {
-        const publishDateStr = v.drop_date || v.uploaded_date;
-        if (publishDateStr) {
-          const publishDate = parseISO(publishDateStr);
-          if (!isNaN(publishDate.getTime())) {
-            publishDate.setHours(0, 0, 0, 0);
-            if (todayDate <= publishDate) {
-              return false;
-            }
-          }
-        }
         return hasOpenChecklistTasks(v);
       }
 
@@ -3210,6 +3256,16 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
       notes: updatedNotes
     };
 
+    if (newStatus === '#published') {
+      updatedChecklist.published_at = now.toISOString();
+      if (!localVideo.uploaded_date) {
+        updatePayload.uploaded_date = dateStr;
+      }
+      if (!localVideo.drop_date || localVideo.drop_date < dateStr) {
+        updatePayload.drop_date = dateStr;
+      }
+    }
+
     const { error } = await supabase
       .from('videos')
       .update(updatePayload)
@@ -3229,6 +3285,9 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
   // Toggle standard checklist item
   const toggleChecklist = async (key) => {
     const newChecklist = { ...checklist, [key]: !checklist[key] };
+    if (localVideo.status === '#published' && !newChecklist.published_at) {
+      newChecklist.published_at = new Date().toISOString();
+    }
     setChecklist(newChecklist);
 
     const updatePayload = { edit_checklist: newChecklist };

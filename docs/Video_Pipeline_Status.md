@@ -1,6 +1,6 @@
 # Video Pipeline Status
 
-> **Source of truth:** Supabase `videos` table  |  Generated: 2026-10-24
+> **Source of truth:** Supabase `videos` table  |  Generated: 2026-10-31
 > To update status: `python3 scripts/video_pipeline.py --status <code> <status>`
 
 ---
@@ -66,10 +66,10 @@
 | **248** | `80.V3B1` | Long | My Simple Bullet Journal Setup After 7 1/2 Years of use (No Art Needed) | 2026-10-03 | ✅ #published | 2026-10-03 |
 | **249** | `80.V1B3-A1` | Short | Start Running with me at 55 years old from zero. | 2026-10-04 | ✅ #published | 2026-10-04 |
 | **250** | `80.V3B1-S4` | Short | Overwhelmed in the Morning Write This Down | 2026-10-06 | ✅ #published | 2026-10-06 |
-| **251** | `80.V1A2-A` | Long | Fact checking Dr Anderson’s IF Plan | 2026-11-02 | ✂️ #edit | — |
+| **251** | `80.V1A2-A` | Long | Fact checking Dr Anderson’s IF Plan | 2026-11-10 | ✂️ #edit | — |
 | **252** | `32.20.A2` | Long | Trump Rally 10-26-26 | 2026-10-17 | ✅ #published | — |
-| **253** | `79.07.2` | Short | How I Adjust Dachshunds - Dr Anderson, Animal Chiropractor | 2026-10-27 | ✂️ #edit | — |
-| **254** | `80.V3B3` | Long | 7 Years of Bullet Journals Flip-Through Tour | 2026-10-25 | ✂️ #edit | — |
+| **253** | `79.07.2` | Short | How I Adjust Dachshunds - Dr Anderson, Animal Chiropractor | 2026-11-03 | ✂️ #edit | — |
+| **254** | `80.V3B3` | Long | 7 Years of Bullet Journals Flip-Through Tour | 2026-10-31 | ✅ #published | 2026-10-31 |
 | **H001** | `HIST.L01` | Long | The Biological Requirement for Weekly Structure | 2026-01-01 | ✅ #published | 2026-01-01 |
 | **H002** | `HIST.L02` | Long | The Biological Reality of GLP-1: Fuel vs. Motivation | 2026-03-24 | ✅ #published | 2026-03-24 |
 | **H003** | `HIST.L03` | Long | The Nervous System Secret to Consistent Gains | 2026-01-22 | ✅ #published | 2026-01-22 |
@@ -100,5 +100,5 @@
 
 - 💡 **#idea**: 10
 - 📝 **#write**: 1
-- ✂️ **#edit**: 3
-- ✅ **#published**: 70
+- ✂️ **#edit**: 2
+- ✅ **#published**: 71
