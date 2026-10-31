@@ -1,20 +1,39 @@
-# Environment & Secrets
+# Environment and secrets (.env anywhere, including scripts/ and pipeline/)
 .env
-scripts/.env
+.env.*
 *.env
+# Documented templates stay tracked
+!.env.example
+!**/.env.example
+
+# Local API keys and resource URLs. Copy scripts/config.example.json to scripts/config.json.
 scripts/config.json
 
 # Python
 __pycache__/
-*.pyc
-*.pyo
+*.py[cod]
+.venv/
+venv/
+
+# Node
+node_modules/
+pipeline/dist/
+pipeline/dist-ssr/
 
 # macOS
 .DS_Store
 
-# SQLite (retired — Supabase is now source of truth)
+# SQLite databases and backups (clients.db holds contact records)
 database/*.db
+database/**/*.db
+database/backups/
+backups/**/*.db
+*.sqlite
+*.sqlite3
 
-# Supabase backups — large JSON dumps excluded, CSVs tracked
+# Generated client registry (names, emails, phones). Counts stay in the tracked status doc.
+docs/client_registry.local.md
+
+# Supabase CLI temp files and large JSON dumps. CSVs under backups/ stay tracked.
 backups/*_backup.json
 supabase/.temp/

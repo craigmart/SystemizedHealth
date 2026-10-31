@@ -13,7 +13,7 @@ This document defines the authoritative operating standard for managing the Syst
 
 | Layer | System | Role & Access |
 | :--- | :--- | :--- |
-| **Primary Source of Truth** | **Supabase `videos` table** | REST API — `https://qkeloxawnpvyfasujonv.supabase.co` |
+| **Primary Source of Truth** | **Supabase `videos` table** | REST API — `SUPABASE_URL` from `scripts/.env` |
 | **Primary Sync Tool** | `scripts/db_manager.py` / `scripts/video_pipeline.py` | Command line management engine |
 | **Local Cache** | `docs/video_pipeline_cache.json` | Generated from Supabase via `video_pipeline.py --cache` |
 | **Archived Files** | `backups/pipeline_archive/` | Historical reference only — do not edit |

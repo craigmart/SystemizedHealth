@@ -23,6 +23,8 @@ from datetime import datetime
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DB_DIR = os.path.join(BASE_DIR, "database")
 DB_PATH = os.path.join(DB_DIR, "clients.db")
+STATUS_DOC_PATH = os.path.join(BASE_DIR, "docs", "Client_Onboarding_Status.md")
+LOCAL_REGISTRY_PATH = os.path.join(BASE_DIR, "docs", "client_registry.local.md")
 
 def get_connection():
     if not os.path.exists(DB_DIR):
@@ -146,7 +148,6 @@ def update_status_doc():
     rows = cursor.fetchall()
     conn.close()
 
-    doc_path = os.path.join(BASE_DIR, "docs", "Client_Onboarding_Status.md")
     today_str = datetime.now().strftime("%Y-%m-%d")
 
     active_rows = []
@@ -171,11 +172,37 @@ def update_status_doc():
     else:
         cancelled_table_md = "\n".join(cancelled_rows)
 
+    # Full rows stay in a gitignored file. The tracked status doc only stores counts.
+    local_registry = f"""# Local client registry
+
+*Generated {today_str} by `scripts/client_db_manager.py --doc`.*
+
+This file is gitignored. It is the local copy of names and emails from `database/clients.db`.
+Do not commit it. Resource URLs stay in `scripts/config.json`.
+
+## Active bookings ({len(active_rows)})
+
+| Client ID | Name | Email | Status | Scheduled Time |
+| :--- | :--- | :--- | :--- | :--- |
+{active_table_md}
+
+## Cancelled / test records ({len(cancelled_rows)})
+
+| Client ID | Name | Email | Status | Scheduled Time |
+| :--- | :--- | :--- | :--- | :--- |
+{cancelled_table_md}
+"""
+    os.makedirs(os.path.dirname(LOCAL_REGISTRY_PATH), exist_ok=True)
+    with open(LOCAL_REGISTRY_PATH, "w") as f:
+        f.write(local_registry)
+
     content = f"""# Systemized Health — Client Onboarding & CRM Status
 
 *Last Updated: {today_str}*
 
-This document maintains the live operational status, verification checklist, and active client intake registry for Systemized Health's **Free 20-Minute Systemized Discovery Call** funnel.
+This document maintains the live operational status and verification checklist for Systemized Health's **Free 20-Minute Systemized Discovery Call** funnel.
+
+Names, emails, and phone numbers are not stored in this file. They stay in the local database.
 
 ---
 
@@ -183,9 +210,9 @@ This document maintains the live operational status, verification checklist, and
 
 - **Short URL Redirect**: [`call.systemizedhealth.com`](http://call.systemizedhealth.com/) $\\rightarrow$ TidyCal
 - **Booking Endpoint**: [TidyCal Discovery Call](https://tidycal.com/craigandersondc/systemized-discovery-call)
-- **Discovery Call Agreement**: [Google Form Agreement](https://docs.google.com/forms/d/e/1FAIpQLScOmaeooaLLHFBppRqDI4Mtb9uM8qnU9eUH0gjo0HFU_NqGzQ/viewform?usp=header)
-- **Form Responses Sheet**: [Google Sheet Responses](https://docs.google.com/spreadsheets/d/1wbJfIx92aliZilY4Yyr_oFRaz1TN06erOti6HKZk-ZA/edit?usp=sharing)
-- **Database Engine**: [`database/clients.db`](file://{DB_PATH})
+- **Discovery Call Agreement**: `discovery_call_agreement_url` in `scripts/config.json` (template: `scripts/config.example.json`)
+- **Form Responses Sheet**: `agreement_sheet_url` in `scripts/config.json`
+- **Database Engine**: `database/clients.db` (local only; not committed)
 
 ---
 
@@ -201,22 +228,14 @@ This document maintains the live operational status, verification checklist, and
 
 ---
 
-## 3. Active Client Registry Table
+## 3. Client Registry
 
-*(Auto-generated from `database/clients.db` — Active Bookings)*
+Local database counts only. The row listing, including names and emails, is written to gitignored `docs/client_registry.local.md`.
 
-| Client ID | Name | Email | Status | Scheduled Time |
-| :--- | :--- | :--- | :--- | :--- |
-{active_table_md}
-
-<details>
-<summary><b>View Cancelled / Test Records ({len(cancelled_rows)})</b></summary>
-
-| Client ID | Name | Email | Status | Scheduled Time |
-| :--- | :--- | :--- | :--- | :--- |
-{cancelled_table_md}
-
-</details>
+| | Count |
+| :--- | :--- |
+| Active bookings | {len(active_rows)} |
+| Cancelled / test records | {len(cancelled_rows)} |
 
 ---
 
@@ -230,17 +249,18 @@ python3 scripts/client_db_manager.py --doc
 ```
 """
 
-    with open(doc_path, "w") as f:
+    with open(STATUS_DOC_PATH, "w") as f:
         f.write(content)
 
-    print(f"Updated live onboarding status document at: {doc_path}")
+    print(f"Updated onboarding status document at: {STATUS_DOC_PATH}")
+    print(f"Wrote local client registry (gitignored) at: {LOCAL_REGISTRY_PATH}")
 
 def main():
     parser = argparse.ArgumentParser(description="Client CRM Database Manager")
     parser.add_argument("--init", action="store_true", help="Initialize clients database schema")
     parser.add_argument("--list", action="store_true", help="List all clients and call status")
     parser.add_argument("--json", action="store_true", help="Output clients JSON data")
-    parser.add_argument("--doc", action="store_true", help="Update docs/Client_Onboarding_Status.md living report")
+    parser.add_argument("--doc", action="store_true", help="Update the status doc counts and the gitignored local client registry")
     args = parser.parse_args()
 
     if args.init:

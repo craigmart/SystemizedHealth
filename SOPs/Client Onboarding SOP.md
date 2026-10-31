@@ -61,7 +61,7 @@ flowchart TD
 
 ### Step 4: Coaching Agreement Workflow (Google Forms / BreezeDoc)
 - **Document Source**: [`docs/Coaching Agreement.md`](file:///Users/craiganderson/Developer/SystemizedHealth/docs/Coaching%20Agreement.md)
-- **Active Agreement Form URL**: [Google Forms Discovery Call Agreement](https://docs.google.com/forms/d/e/1FAIpQLScOmaeooaLLHFBppRqDI4Mtb9uM8qnU9eUH0gjo0HFU_NqGzQ/viewform?usp=header)
+- **Active Agreement Form URL**: `discovery_call_agreement_url` in `scripts/config.json` (copy `scripts/config.example.json`). Do not commit the live form URL.
 - **TidyCal Integration**: TidyCal booking confirmation page redirects to this Google Form URL.
 - **Delivery Protocol**:
   - **Discovery Call Stage**: Client is automatically redirected to the Google Form agreement upon TidyCal booking completion.
