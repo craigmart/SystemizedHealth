@@ -1,10 +1,10 @@
 import { useEffect, useState, useRef, useMemo } from 'react';
-import { supabase } from './supabase';
+import { supabase, supabaseConfigError } from './supabase';
 import { 
   Calendar, CheckSquare, AlertCircle, RefreshCw, ChevronLeft, Save, Tag, 
   TrendingUp, Clock, FileVideo, Scissors, Film, X, ExternalLink,
   Check, MessageSquare, Plus, Trash2, ListTodo, FileText, CheckCircle2, Lightbulb, Link,
-  Sparkles, FileEdit, Search, Share2, Eye, Edit3, Play, BookOpen, Folder, Activity, Bell
+  Sparkles, FileEdit, Search, Share2, Eye, Edit3, Play, BookOpen, Folder, Activity, Bell, LogOut
 } from 'lucide-react';
 import { addDays, isBefore, parseISO, differenceInDays, format } from 'date-fns';
 import ReactMarkdown from 'react-markdown';
@@ -607,22 +607,37 @@ function App() {
   }, [currentVideo?.code, currentVideo?.id]);
 
   useEffect(() => {
-    if (supabase) {
-      fetchVideos();
-    }
-    fetch('/video_paths.json')
-      .then(res => res.json())
-      .then(data => {
-        if (data) setVideoPaths(data);
-      })
-      .catch(console.error);
+    let cancelled = false;
 
-    fetch('/content_rotation.json')
-      .then(res => res.json())
-      .then(data => {
-        if (data && Array.isArray(data)) setRotationCatalog(data);
-      })
-      .catch(console.error);
+    const loadLocalFiles = () => {
+      fetch('/video_paths.json')
+        .then(res => res.json())
+        .then(data => {
+          if (!cancelled && data) setVideoPaths(data);
+        })
+        .catch(console.error);
+
+      fetch('/content_rotation.json')
+        .then(res => res.json())
+        .then(data => {
+          if (!cancelled && data && Array.isArray(data)) setRotationCatalog(data);
+        })
+        .catch(console.error);
+    };
+
+    if (!supabase) return undefined;
+
+    // AuthGate mounts this app only after sign-in. Check the session again so a
+    // direct render still does not request videos for an anonymous visitor.
+    supabase.auth.getSession().then(({ data }) => {
+      if (cancelled || !data.session) return;
+      fetchVideos();
+      loadLocalFiles();
+    });
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   // Handle browser Back / Forward buttons for deep linked videos
@@ -814,7 +829,7 @@ function App() {
           <h2 style={{ color: 'var(--danger-color)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
             <AlertCircle size={24} /> Configuration Error
           </h2>
-          <p>The Supabase environment variables are missing.</p>
+          <p>{supabaseConfigError || 'The Supabase environment variables are missing.'}</p>
         </div>
       </div>
     );
@@ -2205,6 +2220,15 @@ function App() {
               >
                 <Activity size={14} />
                 <span>Activity</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => supabase.auth.signOut()}
+                className="btn btn-outline"
+                title="Sign out"
+              >
+                <LogOut size={14} />
+                <span>Sign out</span>
               </button>
             </div>
           </div>
@@ -3606,6 +3630,15 @@ function VideoDetail({ video, saveRef, getRotationInfo, onUpdate, onDelete, onBa
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginLeft: 'auto' }}>
+            <button
+              type="button"
+              className="btn btn-outline"
+              onClick={() => supabase.auth.signOut()}
+              style={{ padding: '0.25rem 0.6rem', fontSize: '0.8rem' }}
+              title="Sign out"
+            >
+              <LogOut size={14} /> Sign out
+            </button>
             <a
               href={videoPath 
                 ? `obsidian://open?vault=SystemizedHealth_Vault&file=${videoPath.split('/').map(encodeURIComponent).join('/')}` 
